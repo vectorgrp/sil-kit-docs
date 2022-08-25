@@ -1,0 +1,259 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration &#8212; Vector SIL Kit 4.0.5 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)" href="configuration-services.html" />
+    <link rel="prev" title="Demos" href="../usage/demos.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="configuration-services.html" title="Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../usage/demos.html" title="Demos"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.5 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Configuration</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound" id="sec-ibconfig-json">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configuration-services.html">Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#cancontrollers">CanControllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#lincontrollers">LinControllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#ethernetcontrollers">EthernetControllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#flexraycontrollers">FlexrayControllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#datapublishers">DataPublishers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#datasubscribers">DataSubscribers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#rpcservers">RpcServers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#rpcclients">RpcClients</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="logging-configuration.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging-configuration.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="healthcheck-configuration.html">HealthCheck Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="healthcheck-configuration.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="healthcheck-configuration.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extension-configuration.html">Extensions Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extension-configuration.html#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="middleware-configuration.html">Middleware Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="middleware-configuration.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="middleware-configuration.html#configuration">Configuration</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="the-participant-configuration-file">
+<h2>The Participant Configuration File<a class="headerlink" href="#the-participant-configuration-file" title="Permalink to this headline">¶</a></h2>
+<p>Simulation participants of the Vector SIL Kit can be configured via a YAML/JSON file, often
+referred to as <em>participant configuration</em>, <code class="docutils literal notranslate"><span class="pre">SilKitConfig.json</span></code>, or <code class="docutils literal notranslate"><span class="pre">SilKitConfig.yaml</span></code>. A configuration file is optional,
+it is intended to be used to configure behavior and connections of a simulation participant that was distributed in
+binary form.
+A participant configuration can be passed to a simulation when a simulation participant is created
+through <a class="reference internal" href="../api/participant.html#_CPPv4N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringE" title="SilKit::CreateParticipant"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateParticipant()</span></code></a>.</p>
+<p>Configuration parameters that are specified within the participant configuration override corresponding
+programmatically defined values. For example, the <code class="docutils literal notranslate"><span class="pre">ParticipantName</span></code> field of the participant configuration overrides the
+participant name that is provided through the API of the Vector SIL Kit when participants are created, namely
+<a class="reference internal" href="../api/participant.html#_CPPv4N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringE" title="SilKit::CreateParticipant"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateParticipant(...,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">participantName,</span> <span class="pre">...)</span></code></a>.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">SilKitConfig.yaml</span></code> begins with some general information about the configuration file itself, followed by several
+subsections for the different services of the Vector SIL Kit.</p>
+<p>The outline of a <code class="docutils literal notranslate"><span class="pre">SilKitConfig.yaml</span></code> file is as follows:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="s">&quot;$schema&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;./ParticipantConfiguration.schema.json&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">schemaVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="l l-Scalar l-Scalar-Plain">Description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Sample configuration with all major subsections</span>
+<span class="l l-Scalar l-Scalar-Plain">ParticipantName</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Participant1</span>
+<span class="l l-Scalar l-Scalar-Plain">CanControllers</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="l l-Scalar l-Scalar-Plain">LinControllers</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="l l-Scalar l-Scalar-Plain">FlexrayControllers</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="l l-Scalar l-Scalar-Plain">EthernetControllers</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="l l-Scalar l-Scalar-Plain">DataPublishers</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="l l-Scalar l-Scalar-Plain">DataSubscribers</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="l l-Scalar l-Scalar-Plain">RpcClients</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="l l-Scalar l-Scalar-Plain">RpcServers</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="l l-Scalar l-Scalar-Plain">Logging</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="l l-Scalar l-Scalar-Plain">HealthCheck</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="l l-Scalar l-Scalar-Plain">Extensions</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="l l-Scalar l-Scalar-Plain">Middleware</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+</pre></div>
+</div>
+<div class="section" id="configuration-options">
+<h3>Configuration Options<a class="headerlink" href="#configuration-options" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Setting Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>$schema</td>
+<td>The location of the participant configuration schema file. The <code class="docutils literal notranslate"><span class="pre">ParticipantConfiguration.schema.json</span></code> is
+part of the SIL Kit sources and can be found in the folder
+<code class="docutils literal notranslate"><span class="pre">./SilKit/source/config/</span></code>.</td>
+</tr>
+<tr class="row-odd"><td>schemaVersion</td>
+<td>The version of the used participant configuration schema. Current version is 1.</td>
+</tr>
+<tr class="row-even"><td>ParticipantName</td>
+<td>The name of the simulation participant that joins the Vector SIL Kit simulation. Overrides a programmatically
+defined participant name.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="configuration-services.html"><span class="doc">CanControllers</span></a>,
+<a class="reference internal" href="configuration-services.html"><span class="doc">LinControllers</span></a>,
+<a class="reference internal" href="configuration-services.html"><span class="doc">FlexrayControllers</span></a>,
+<a class="reference internal" href="configuration-services.html"><span class="doc">EthernetControllers</span></a>,
+<a class="reference internal" href="configuration-services.html"><span class="doc">DataPublishers</span></a>,
+<a class="reference internal" href="configuration-services.html"><span class="doc">DataSubscribers</span></a>,
+<a class="reference internal" href="configuration-services.html"><span class="doc">RpcClients</span></a>,
+<a class="reference internal" href="configuration-services.html"><span class="doc">RpcServers</span></a></td>
+<td>These sections allow to configure bus controllers and other communication services.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="logging-configuration.html#sec-cfg-participant-logging"><span class="std std-ref">Logging</span></a></td>
+<td>The logger configuration for this participant.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="healthcheck-configuration.html#sec-cfg-participant-healthcheck"><span class="std std-ref">HealthCheck</span></a></td>
+<td>Configuration concerning soft and hard timeouts for simulation task execution.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="extension-configuration.html"><span class="doc">Extensions</span></a></td>
+<td>Configuration of optional extensions to the Vector SIL Kit and where to find them.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="middleware-configuration.html"><span class="doc">Middleware</span></a></td>
+<td>This optional section can be used to configure the middleware running the Vector SIL Kit.
+If this section is omitted, defaults will be used.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../contents.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html">Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="healthcheck-configuration.html">HealthCheck Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension-configuration.html">Extensions Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="middleware-configuration.html">Middleware Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-participant-configuration-file">The Participant Configuration File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/configuration/configuration.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="configuration-services.html" title="Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../usage/demos.html" title="Demos"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.5 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Configuration</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+    </div>
+  </body>
+</html>

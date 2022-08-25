@@ -1,0 +1,189 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Files &#8212; Vector SIL Kit 4.0.5 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CAN Service API" href="can.html" />
+    <link rel="prev" title="Participant" href="participant.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="can.html" title="CAN Service API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="participant.html" title="Participant"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api.html" accesskey="U">API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Header Files</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="header-files">
+<span id="sec-header"></span><h1>Header Files<a class="headerlink" href="#header-files" title="Permalink to this headline">¶</a></h1>
+<p>The header files are organized hierarchically starting with the <code class="docutils literal notranslate"><span class="pre">silkit</span></code> directory.
+The subdirectory structure resembles the layered architecture of the SIL Kit.
+As a rule of thumb, each component has a subdirectory with its own namespace:</p>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">Include Directories</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="15%" />
+<col width="15%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Path</th>
+<th class="head">Namespace</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>silkit/</td>
+<td><code class="docutils literal notranslate"><span class="pre">silkit</span></code></td>
+<td>Main header, version and macros.</td>
+</tr>
+<tr class="row-odd"><td>silkit/mw</td>
+<td><code class="docutils literal notranslate"><span class="pre">SilKit::Core</span></code></td>
+<td><a class="reference internal" href="../configuration/middleware-configuration.html"><span class="doc">Middleware</span></a> specific interfaces, data types and exceptions.</td>
+</tr>
+<tr class="row-even"><td>silkit/mw/sync</td>
+<td><code class="docutils literal notranslate"><span class="pre">SilKit::Services::Orchestration</span></code></td>
+<td>Synchronization mechanisms.</td>
+</tr>
+<tr class="row-odd"><td>silkit/sim</td>
+<td><code class="docutils literal notranslate"><span class="pre">SilKit::Services</span></code></td>
+<td><a class="reference internal" href="api.html#sec-api-services"><span class="std std-ref">Simulation and Service</span></a> specific definitions.</td>
+</tr>
+<tr class="row-even"><td>silkit/util</td>
+<td><code class="docutils literal notranslate"><span class="pre">SilKit::Util</span></code></td>
+<td>Generic programming utilities</td>
+</tr>
+<tr class="row-odd"><td>silkit/config</td>
+<td><code class="docutils literal notranslate"><span class="pre">SilKit::Config</span></code></td>
+<td>Data structures representing the SIL Kit <a class="reference internal" href="../configuration/configuration.html"><span class="doc">Configuration</span></a>.</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>The subdirectory layout follows mostly a uniform scheme for substantial SIL Kit components:</dt><dd><ul class="simple">
+<li><cite>silkit/&lt;component&gt;/all.hpp</cite> is sufficient to use the component.</li>
+<li><cite>silkit/&lt;component&gt;/fwd_decl.hpp</cite> contains forward declarations.</li>
+<li>Datatypes are declared in <code class="docutils literal notranslate"><span class="pre">silkit/&lt;component&gt;/&lt;Component&gt;Datatypes.hpp</span></code>.</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="using-the-sil-kit-headers">
+<h2>Using the SIL Kit Headers<a class="headerlink" href="#using-the-sil-kit-headers" title="Permalink to this headline">¶</a></h2>
+<p>The main header file is <code class="docutils literal notranslate"><span class="pre">silkit/SilKit.hpp</span></code> which defines the
+<a class="reference internal" href="participant.html#_CPPv4N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringE" title="SilKit::CreateParticipant"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateParticipant()</span></code></a> function.
+Version information can be retrieved using the <code class="docutils literal notranslate"><span class="pre">silkit/SilKitVersion.hpp</span></code> header
+and its functions, e.g., by using the
+<a class="reference internal" href="participant.html#_CPPv4N6SilKit7Version6StringEv" title="SilKit::Version::String"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Version::String()</span></code></a> function.</p>
+</div>
+<div class="section" id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<p>Refer to the <a class="reference internal" href="api.html"><span class="doc">API overview</span></a> for a description of the available
+services and interfaces.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../contents.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#api-entry-point-and-api-organization">API Entry Point and API Organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#services">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#c-api">C API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/header.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="can.html" title="CAN Service API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="participant.html" title="Participant"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api.html" >API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Header Files</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+    </div>
+  </body>
+</html>

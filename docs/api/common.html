@@ -1,0 +1,205 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Service Data Types &#8212; Vector SIL Kit 4.0.5 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C API" href="capi/capi.html" />
+    <link rel="prev" title="System Monitor" href="systemmonitor.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="capi/capi.html" title="C API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="systemmonitor.html" title="System Monitor"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api.html" accesskey="U">API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Common Service Data Types</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="common-service-data-types">
+<h1>Common Service Data Types<a class="headerlink" href="#common-service-data-types" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="data-type-reference">
+<h2>Data Type Reference<a class="headerlink" href="#data-type-reference" title="Permalink to this headline">¶</a></h2>
+<dl class="cpp struct">
+<dt id="_CPPv4N6SilKit8Services13MatchingLabelE">
+<span id="_CPPv3N6SilKit8Services13MatchingLabelE"></span><span id="_CPPv2N6SilKit8Services13MatchingLabelE"></span><span id="SilKit::Services::MatchingLabel"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_matching_label"></span><em class="property">struct </em><code class="descclassname">SilKit::Services<code class="descclassname">::</code></code><code class="descname">MatchingLabel</code><a class="headerlink" href="#_CPPv4N6SilKit8Services13MatchingLabelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A label to control the matching behavior of DataPublishers, DataSubscribers, RpcServers, and RpcClients. </p>
+<p>Used in <a class="reference internal" href="pubsub.html#class_sil_kit_1_1_services_1_1_pub_sub_1_1_pub_sub_spec"><span class="std std-ref">SilKit::Services::PubSub::PubSubSpec</span></a> and <a class="reference internal" href="rpc.html#class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec"><span class="std std-ref">SilKit::Services::Rpc::RpcSpec</span></a> </p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="cpp enum">
+<dt id="_CPPv4N6SilKit8Services13MatchingLabel4KindE">
+<span id="_CPPv3N6SilKit8Services13MatchingLabel4KindE"></span><span id="_CPPv2N6SilKit8Services13MatchingLabel4KindE"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_matching_label_1adc7e18571703da96831e8093f0d96829"></span><em class="property">enum </em><code class="descname">Kind</code><a class="headerlink" href="#_CPPv4N6SilKit8Services13MatchingLabel4KindE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The different kinds of matching rules for labels. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt id="_CPPv4N6SilKit8Services13MatchingLabel4Kind8OptionalE">
+<span id="_CPPv3N6SilKit8Services13MatchingLabel4Kind8OptionalE"></span><span id="_CPPv2N6SilKit8Services13MatchingLabel4Kind8OptionalE"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_matching_label_1adc7e18571703da96831e8093f0d96829aebb061953c0454b2c8ee7b0ac615ebcd"></span><em class="property">enumerator </em><code class="descname">Optional</code> = 1<a class="headerlink" href="#_CPPv4N6SilKit8Services13MatchingLabel4Kind8OptionalE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>If this label is available, its value must match. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N6SilKit8Services13MatchingLabel4Kind9MandatoryE">
+<span id="_CPPv3N6SilKit8Services13MatchingLabel4Kind9MandatoryE"></span><span id="_CPPv2N6SilKit8Services13MatchingLabel4Kind9MandatoryE"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_matching_label_1adc7e18571703da96831e8093f0d96829ae89ab59baea830bd940c300886c50efe"></span><em class="property">enumerator </em><code class="descname">Mandatory</code> = 2<a class="headerlink" href="#_CPPv4N6SilKit8Services13MatchingLabel4Kind9MandatoryE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This label must be available and its value must match. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="cpp var">
+<dt id="_CPPv4N6SilKit8Services13MatchingLabel3keyE">
+<span id="_CPPv3N6SilKit8Services13MatchingLabel3keyE"></span><span id="_CPPv2N6SilKit8Services13MatchingLabel3keyE"></span><span id="SilKit::Services::MatchingLabel::key__ss"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_matching_label_1abc4d02e4ab95c4a3c9519a29da57932c"></span>std::string <code class="descname">key</code><a class="headerlink" href="#_CPPv4N6SilKit8Services13MatchingLabel3keyE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The label’s key. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt id="_CPPv4N6SilKit8Services13MatchingLabel5valueE">
+<span id="_CPPv3N6SilKit8Services13MatchingLabel5valueE"></span><span id="_CPPv2N6SilKit8Services13MatchingLabel5valueE"></span><span id="SilKit::Services::MatchingLabel::value__ss"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_matching_label_1a7244d006f4f9a416a145463f35e872eb"></span>std::string <code class="descname">value</code><a class="headerlink" href="#_CPPv4N6SilKit8Services13MatchingLabel5valueE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The label’s key. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt id="_CPPv4N6SilKit8Services13MatchingLabel4kindE">
+<span id="_CPPv3N6SilKit8Services13MatchingLabel4kindE"></span><span id="_CPPv2N6SilKit8Services13MatchingLabel4kindE"></span><span id="SilKit::Services::MatchingLabel::kind__Kind"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_matching_label_1a1ec6b3eb1e89a39bbe278b563d23bec0"></span><a class="reference internal" href="#_CPPv4N6SilKit8Services13MatchingLabel4KindE" title="SilKit::Services::MatchingLabel::Kind">Kind</a> <code class="descname">kind</code><a class="headerlink" href="#_CPPv4N6SilKit8Services13MatchingLabel4kindE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The matching kind to apply for this label. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp enum">
+<dt id="_CPPv4N6SilKit8Services17TransmitDirectionE">
+<span id="_CPPv3N6SilKit8Services17TransmitDirectionE"></span><span id="_CPPv2N6SilKit8Services17TransmitDirectionE"></span><span class="target" id="namespace_sil_kit_1_1_services_1aa5a31d6e49bc06fab1273a5235445531"></span><em class="property">enum </em><code class="descclassname">SilKit::Services<code class="descclassname">::</code></code><code class="descname">TransmitDirection</code><a class="headerlink" href="#_CPPv4N6SilKit8Services17TransmitDirectionE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Flag indicating the direction of a message. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt id="_CPPv4N6SilKit8Services17TransmitDirection9UndefinedE">
+<span id="_CPPv3N6SilKit8Services17TransmitDirection9UndefinedE"></span><span id="_CPPv2N6SilKit8Services17TransmitDirection9UndefinedE"></span><span class="target" id="namespace_sil_kit_1_1_services_1aa5a31d6e49bc06fab1273a5235445531aec0fc0100c4fc1ce4eea230c3dc10360"></span><em class="property">enumerator </em><code class="descname">Undefined</code> = 0<a class="headerlink" href="#_CPPv4N6SilKit8Services17TransmitDirection9UndefinedE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N6SilKit8Services17TransmitDirection2TXE">
+<span id="_CPPv3N6SilKit8Services17TransmitDirection2TXE"></span><span id="_CPPv2N6SilKit8Services17TransmitDirection2TXE"></span><span class="target" id="namespace_sil_kit_1_1_services_1aa5a31d6e49bc06fab1273a5235445531a869036c9d97cf6593c6f1c2ccfd99a49"></span><em class="property">enumerator </em><code class="descname">TX</code> = 1<a class="headerlink" href="#_CPPv4N6SilKit8Services17TransmitDirection2TXE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N6SilKit8Services17TransmitDirection2RXE">
+<span id="_CPPv3N6SilKit8Services17TransmitDirection2RXE"></span><span id="_CPPv2N6SilKit8Services17TransmitDirection2RXE"></span><span class="target" id="namespace_sil_kit_1_1_services_1aa5a31d6e49bc06fab1273a5235445531af9c24782c24c237d16e79f18e2fa9046"></span><em class="property">enumerator </em><code class="descname">RX</code> = 2<a class="headerlink" href="#_CPPv4N6SilKit8Services17TransmitDirection2RXE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N6SilKit8Services17TransmitDirection4TXRXE">
+<span id="_CPPv3N6SilKit8Services17TransmitDirection4TXRXE"></span><span id="_CPPv2N6SilKit8Services17TransmitDirection4TXRXE"></span><span class="target" id="namespace_sil_kit_1_1_services_1aa5a31d6e49bc06fab1273a5235445531a4d7563140f90f851fb6e3258b3782701"></span><em class="property">enumerator </em><code class="descname">TXRX</code> = 3<a class="headerlink" href="#_CPPv4N6SilKit8Services17TransmitDirection4TXRXE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../contents.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api.html#api-entry-point-and-api-organization">API Entry Point and API Organization</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#services">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#c-api">C API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/common.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="capi/capi.html" title="C API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="systemmonitor.html" title="System Monitor"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api.html" >API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Common Service Data Types</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+    </div>
+  </body>
+</html>

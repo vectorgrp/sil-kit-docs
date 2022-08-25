@@ -1,0 +1,195 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API &#8212; Vector SIL Kit 4.0.5 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Participant" href="participant.html" />
+    <link rel="prev" title="Simulation" href="../simulation/simulation.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="participant.html" title="Participant"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../simulation/simulation.html" title="Simulation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.5 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">API</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="api">
+<h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<p>This document describes the user available programming interfaces of the Vector
+SIL Kit (SIL Kit). If you are not yet familiar with the SIL Kit, have a look at
+the <a class="reference internal" href="../usage/quickstart.html"><span class="doc">Quick Start</span></a>.</p>
+<div class="section" id="api-entry-point-and-api-organization">
+<h2>API Entry Point and API Organization<a class="headerlink" href="#api-entry-point-and-api-organization" title="Permalink to this headline">¶</a></h2>
+<p>The Participant constitutes the main entry point into the SIL Kit API.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="participant.html">Participant</a></li>
+<li class="toctree-l1"><a class="reference internal" href="header.html">Header Files</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="services">
+<span id="sec-api-services"></span><h2>Services<a class="headerlink" href="#services" title="Permalink to this headline">¶</a></h2>
+<p>The services API includes common datatypes, supports various vehicular networks, and provides generic Pub/Sub and RPC facilities.</p>
+<div class="section" id="vehicle-network-controller">
+<h3>Vehicle Network Controller<a class="headerlink" href="#vehicle-network-controller" title="Permalink to this headline">¶</a></h3>
+<p>Several different vehicular networks are supported by corresponding
+controller interfaces.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="can.html">CAN Service API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lin.html">LIN Service API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flexray.html">FlexRay Service API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ethernet.html">Ethernet Service API</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="data-publish-subscribe-and-rpc">
+<h3>Data Publish/Subscribe and RPC<a class="headerlink" href="#data-publish-subscribe-and-rpc" title="Permalink to this headline">¶</a></h3>
+<p>These services do not model a real-world bus and can be used for
+generic programming and interoperability tasks.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pubsub.html">Data Publish/Subscribe API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rpc.html">RPC (Remote Procedure Call) API</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="state-handling-and-synchronization">
+<h3>State Handling and Synchronization<a class="headerlink" href="#state-handling-and-synchronization" title="Permalink to this headline">¶</a></h3>
+<p>The following services provide time synchronization and orchestrated state
+management.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lifecycleService.html">Lifecycle Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timeSyncService.html">Time Synchronization Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemcontroller.html">System Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemmonitor.html">System Monitor</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="common-data-types">
+<h3>Common Data Types<a class="headerlink" href="#common-data-types" title="Permalink to this headline">¶</a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common.html">Common Service Data Types</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="c-api">
+<h2>C API<a class="headerlink" href="#c-api" title="Permalink to this headline">¶</a></h2>
+<p>The SIL Kit provides an additional API that allows to use the SIL Kit directly
+with the C programming language:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="capi/capi.html">C API</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../contents.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#api-entry-point-and-api-organization">API Entry Point and API Organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#services">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#c-api">C API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/api.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="participant.html" title="Participant"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../simulation/simulation.html" title="Simulation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.5 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">API</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+    </div>
+  </body>
+</html>

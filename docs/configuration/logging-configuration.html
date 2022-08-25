@@ -1,0 +1,212 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logging Configuration &#8212; Vector SIL Kit 4.0.5 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="HealthCheck Configuration" href="healthcheck-configuration.html" />
+    <link rel="prev" title="Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)" href="configuration-services.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="healthcheck-configuration.html" title="HealthCheck Configuration"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="configuration-services.html" title="Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="configuration.html" accesskey="U">Configuration</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Logging Configuration</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="logging-configuration">
+<h1>Logging Configuration<a class="headerlink" href="#logging-configuration" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#overview" id="id3">Overview</a></li>
+<li><a class="reference internal" href="#configuration" id="id4">Configuration</a></li>
+</ul>
+</div>
+<div class="section" id="overview">
+<span id="sec-cfg-logging-configuration-overview"></span><h2><a class="toc-backref" href="#id3">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p id="sec-cfg-participant-logging">Within the Vector SIL Kit, the Logger provides features for local and distributed logging on different log
+levels.</p>
+</div>
+<div class="section" id="configuration">
+<h2><a class="toc-backref" href="#id4">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>The Logging configuration allows to configure the logging behaviour of the simulation participant.
+Within the Vector SIL Kit, the Logger uses so called sinks to store log messages.
+Multiple sinks can be configured at the same time. For example, to send log
+messages with log level Debug or higher to a remote logger and write Trace level
+logs to a file, the following configuration could be used:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">Logging</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">Sinks</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Remote</span>
+    <span class="l l-Scalar l-Scalar-Plain">Level</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Debug</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">File</span>
+    <span class="l l-Scalar l-Scalar-Plain">Level</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Trace</span>
+    <span class="l l-Scalar l-Scalar-Plain">LogName</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ParticipantLog</span>
+</pre></div>
+</div>
+<table border="1" class="docutils" id="id1">
+<span id="sec-cfg-participant-logger"></span><caption><span class="caption-number">Table 13 </span><span class="caption-text">Logger Configuration</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Sinks</td>
+<td>A list of logger <a class="reference internal" href="#sec-cfg-participant-logsinks"><span class="std std-ref">sink configurations</span></a></td>
+</tr>
+<tr class="row-odd"><td>FlushLevel</td>
+<td>The log level at which flushes are triggered.  Valid options are <em>Critical</em>,
+<em>Error</em>, <em>Warn</em>, <em>Info</em>, <em>Debug</em>, <em>Trace</em>, and <em>Off</em>.</td>
+</tr>
+<tr class="row-even"><td>LogFromRemotes</td>
+<td>A boolean flag whether to log messages from other participants with
+remote sinks. Log messages received from other participants are only
+sent to local sinks, i.e., <em>Stdout</em> and <em>File</em></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id2">
+<span id="sec-cfg-participant-logsinks"></span><caption><span class="caption-number">Table 14 </span><span class="caption-text">Sink Configuration</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Property Name</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Type</td>
+<td>The sink type determines where the log messages are stored or sent
+to. Valid options are <em>Stdout</em>, <em>File</em>, and <em>Remote</em>. Sinks of type
+<em>Remote</em> send the log messages over the underlying middleware. Note that
+this can result in a significant amount of traffic, which can impact the
+simulation performance, in particular when using a low log level.</td>
+</tr>
+<tr class="row-odd"><td>Level</td>
+<td>The minimum log level of a message to be logged by the sink. All messages
+with a lower log level are ignored. Valid options are <em>Critical</em>,
+<em>Error</em>, <em>Warn</em>, <em>Info</em>, <em>Debug</em>, <em>Trace</em>, and <em>Off</em>.</td>
+</tr>
+<tr class="row-even"><td>LogName</td>
+<td>The filename used by sinks of type <em>File</em>. The
+resulting filename is <code class="docutils literal notranslate"><span class="pre">&lt;LogName&gt;_&lt;ISO-TimeStamp&gt;.txt</span></code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../contents.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="configuration.html">Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html">Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Logging Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="healthcheck-configuration.html">HealthCheck Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension-configuration.html">Extensions Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="middleware-configuration.html">Middleware Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#the-participant-configuration-file">The Participant Configuration File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/configuration/logging-configuration.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="healthcheck-configuration.html" title="HealthCheck Configuration"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="configuration-services.html" title="Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="configuration.html" >Configuration</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Logging Configuration</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
+    </div>
+  </body>
+</html>
