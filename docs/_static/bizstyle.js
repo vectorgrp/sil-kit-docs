@@ -36,6 +36,6 @@ $(window).resize(function(){
         $("li.nav-item-0 a").text("Top");
     }
     else {
-        $("li.nav-item-0 a").text("Vector SIL Kit 4.0.5 documentation");
+        $("li.nav-item-0 a").text("Vector SIL Kit 4.0.6 documentation");
     }
 });

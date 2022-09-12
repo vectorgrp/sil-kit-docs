@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Changelog &#8212; Vector SIL Kit 4.0.5 documentation</title>
+    <title>Changelog &#8212; Vector SIL Kit 4.0.6 documentation</title>
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -38,7 +38,7 @@
         <li class="right" >
           <a href="usage/utilities.html" title="Utilities"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="contents.html">Vector SIL Kit 4.0.5 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Vector SIL Kit 4.0.6 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Changelog</a></li> 
       </ul>
     </div>  
@@ -52,13 +52,38 @@
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
 <p>All notable changes to the Vector SIL Kit project shall be documented in this file.</p>
 <p>The format is based on <a class="reference external" href="http://keepachangelog.com/en/1.0.0/">Keep a Changelog (http://keepachangelog.com/en/1.0.0/)</a>.</p>
+<div class="section" id="id1">
+<h2>[4.0.6] - 2022-09-06<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="compatibility-with-4-0-5">
+<h3>Compatibility with 4.0.5<a class="headerlink" href="#compatibility-with-4-0-5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Application binary interface (ABI): Yes</li>
+<li>Application software interface (API): Yes</li>
+<li>Middleware network protocol: Yes</li>
+</ul>
+</div>
+<div class="section" id="changed">
+<h3>Changed<a class="headerlink" href="#changed" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Removed an empty directory from the packages</li>
+<li>Updated the description of SIL Kit in the top-level README.rst</li>
+</ul>
+</div>
+<div class="section" id="fixed">
+<h3>Fixed<a class="headerlink" href="#fixed" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Clean up peers after a remote participant disconnects</li>
+<li>Windows: Fixed the internal name and original filename attributes of the <code class="docutils literal notranslate"><span class="pre">sil-kit-monitor.exe</span></code></li>
+</ul>
+</div>
+</div>
 <div class="section" id="initial-public-release-quality-assured-release">
 <h2>[4.0.5] - 2022-08-25 Initial public release (quality assured release)<a class="headerlink" href="#initial-public-release-quality-assured-release" title="Permalink to this headline">¶</a></h2>
 <p>This is the first public open source release of the Vector SIL Kit.</p>
 <p>Starting with this version, Vector SIL Kit will provide longterm API, ABI, and network compatibility. Note that prior versions do not provide this compatibility.</p>
 </div>
-<div class="section" id="id1">
-<h2>[4.0.4] - 2022-08-22<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h2>[4.0.4] - 2022-08-22<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="compatibility-with-4-0-3">
 <h3>Compatibility with 4.0.3<a class="headerlink" href="#compatibility-with-4-0-3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -67,8 +92,8 @@
 <li>Middleware network protocol: No</li>
 </ul>
 </div>
-<div class="section" id="changed">
-<h3>Changed<a class="headerlink" href="#changed" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Changed<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Utility (SerDes)<ul>
 <li><code class="docutils literal notranslate"><span class="pre">SilKit/include/silkit/util/serdes/Serialization.hpp</span></code>:<ul>
@@ -96,8 +121,8 @@ The error only occured in the C API, the C++ API correctly delivered the entire 
 </ul>
 </div>
 </div>
-<div class="section" id="id2">
-<h2>[4.0.3] - 2022-08-22<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>[4.0.3] - 2022-08-22<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="compatibility-with-4-0-2">
 <h3>Compatibility with 4.0.2<a class="headerlink" href="#compatibility-with-4-0-2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -130,8 +155,8 @@ and / or data length.</li>
 </li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h3>Changed<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>Changed<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>LIN<ul>
 <li><code class="docutils literal notranslate"><span class="pre">SilKit/include/silkit/services/lin/ILinController.hpp</span></code>:<ul>
@@ -180,16 +205,16 @@ have been moved to the experimental namespace and now reside in
 </li>
 </ul>
 </div>
-<div class="section" id="fixed">
-<h3>Fixed<a class="headerlink" href="#fixed" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>Fixed<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Coordinated, but non-required participants that received the required participant list before calling
 <cite>ILifecycleService::StartLifecycle()</cite> did not go to the error state.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>[4.0.2] - 2022-08-15<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h2>[4.0.2] - 2022-08-15<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="compatibility-with-4-0-1">
 <h3>Compatibility with 4.0.1<a class="headerlink" href="#compatibility-with-4-0-1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -198,15 +223,15 @@ have been moved to the experimental namespace and now reside in
 <li>Middleware network protocol: Yes</li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h3>Changed<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3>Changed<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>SilKit will now build on NetBSD (currently not tested automatically)</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id6">
-<h2>[4.0.1] - 2022-08-15<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h2>[4.0.1] - 2022-08-15<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="compatibility-with-4-0-0">
 <h3>Compatibility with 4.0.0<a class="headerlink" href="#compatibility-with-4-0-0" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -215,21 +240,21 @@ have been moved to the experimental namespace and now reside in
 <li>Middleware network protocol: Yes</li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h3>Changed<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3>Changed<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The calling convention used in the C-API was changed to <code class="docutils literal notranslate"><span class="pre">cdecl</span></code> on 32-bit Windows.</li>
 </ul>
 </div>
-<div class="section" id="id8">
-<h3>Removed<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>Removed<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The <code class="docutils literal notranslate"><span class="pre">sil-kit-registry</span></code> command line argument <code class="docutils literal notranslate"><span class="pre">--configuration</span></code> was removed.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id9">
-<h2>[4.0.0] - 2022-08-11<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id12">
+<h2>[4.0.0] - 2022-08-11<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="compatibility-with-3-99-30">
 <h3>Compatibility with 3.99.30<a class="headerlink" href="#compatibility-with-3-99-30" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -238,35 +263,35 @@ have been moved to the experimental namespace and now reside in
 <li>Middleware network protocol: No</li>
 </ul>
 </div>
-<div class="section" id="id10">
-<h3>Added<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3>Added<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Added the <code class="docutils literal notranslate"><span class="pre">SILKIT_ENABLE_COVERAGE</span></code> CMake option for adding code-coverage compiler flags when building with GCC or Clang.</li>
 </ul>
 </div>
-<div class="section" id="id11">
-<h3>Changed<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h3>Changed<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Added an CLI argument to sil-kit-system-controller to run it without user interaction (–non-interactive or -ni)</li>
 <li>Participants to not go to <cite>ParticipantState::Error</cite> anymore when the system state changes to <cite>SystemState::Error</cite></li>
 </ul>
 </div>
-<div class="section" id="id12">
-<h3>Removed<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id15">
+<h3>Removed<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Removed various demos (CCan, CEthernet, CFlexray, CLin, Lifecycle, and TimeAnnotation) as they were meant for testing</li>
 <li>Removed benchmark demo</li>
 </ul>
 </div>
-<div class="section" id="id13">
-<h3>Fixed<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id16">
+<h3>Fixed<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The sil-kit-system-controller crashed when any button was pressed. This is fixed.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id14">
-<h2>[3.99.30] - 2022-08-09<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id17">
+<h2>[3.99.30] - 2022-08-09<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="compatibility-with-3-99-29">
 <h3>Compatibility with 3.99.29<a class="headerlink" href="#compatibility-with-3-99-29" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -275,8 +300,8 @@ have been moved to the experimental namespace and now reside in
 <li>Middleware network protocol: No</li>
 </ul>
 </div>
-<div class="section" id="id15">
-<h3>Changed<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id18">
+<h3>Changed<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Using the same name controller name (<cite>canonicalName</cite> parameter in Create*Controller) in different networks
 (<cite>network</cite> parameter in Create*Controller) is no longer allowed. Controller creation now requires
@@ -318,8 +343,8 @@ but throw a ConfiguraionError.</li>
 </li>
 </ul>
 </div>
-<div class="section" id="id16">
-<h3>Added<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id19">
+<h3>Added<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">The C API now has methods to aquire SIL Kit version information in <code class="docutils literal notranslate"><span class="pre">SilKit/include/silkit/capi/Version.h</span></code>:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">SilKitAPI</span> <span class="n">SilKit_ReturnCode</span> <span class="nf">SilKit_Version_Major</span><span class="p">(</span><span class="kt">uint32_t</span><span class="o">*</span> <span class="n">outVersionMajor</span><span class="p">);</span>
@@ -334,16 +359,16 @@ but throw a ConfiguraionError.</li>
 </li>
 </ul>
 </div>
-<div class="section" id="id17">
-<h3>Removed<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id20">
+<h3>Removed<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">SilKit/include/silkit/services/ethernet/EthernetDatatypes.hpp</span></code>:
 Removed field <code class="docutils literal notranslate"><span class="pre">MacAdress</span></code> from <code class="docutils literal notranslate"><span class="pre">EthernetFrameTransmitEvent</span></code>.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id18">
-<h2>[3.99.29] - 28-07-2022<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id21">
+<h2>[3.99.29] - 28-07-2022<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="compatibility-with-3-99-28">
 <h3>Compatibility with 3.99.28<a class="headerlink" href="#compatibility-with-3-99-28" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -352,8 +377,8 @@ Removed field <code class="docutils literal notranslate"><span class="pre">MacAd
 <li>Middleware network protocol: Yes</li>
 </ul>
 </div>
-<div class="section" id="id19">
-<h3>Added<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id22">
+<h3>Added<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Added a <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetCommunicationReadyHandlerAsync</span></code>
 method to the lifecycle interfaces.
@@ -363,8 +388,8 @@ exchange configuration values before the actual simulation starts.
 The user is required to call <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CompleteCommunicationReadyHandlerAsync</span></code> when the handler is finished.</li>
 </ul>
 </div>
-<div class="section" id="id20">
-<h3>Changed<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id23">
+<h3>Changed<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">Changed access to Logger so that it can be obtained at every time</p>
 <ul>
@@ -391,8 +416,8 @@ containing the actual port on which the registry is reachable.</p>
 </ul>
 </div>
 </div>
-<div class="section" id="id21">
-<h2>[3.99.28] - 2022-07-26<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id24">
+<h2>[3.99.28] - 2022-07-26<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="compatibility-with-3-99-27">
 <h3>Compatibility with 3.99.27<a class="headerlink" href="#compatibility-with-3-99-27" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -401,8 +426,8 @@ containing the actual port on which the registry is reachable.</p>
 <li>Middleware network protocol: No</li>
 </ul>
 </div>
-<div class="section" id="id22">
-<h3>Changed<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id25">
+<h3>Changed<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">LIN: API Overhaul</p>
 <ul class="simple">
@@ -601,8 +626,8 @@ The flags bitfield was replaced with an unsigned integer field (<code class="doc
 </li>
 </ul>
 </div>
-<div class="section" id="id23">
-<h3>Removed<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id26">
+<h3>Removed<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Removed <code class="docutils literal notranslate"><span class="pre">ITimeSyncService::SetPeriod()</span></code> (now provided via <code class="docutils literal notranslate"><span class="pre">ITimeSyncService::SetSimulationStepHandler()</span></code>)</li>
 <li>Removed RPC Discovery functionalities</li>
@@ -611,8 +636,8 @@ The flags bitfield was replaced with an unsigned integer field (<code class="doc
 </ul>
 </div>
 </div>
-<div class="section" id="id24">
-<h2>[3.99.27] - 2022-07-14<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id27">
+<h2>[3.99.27] - 2022-07-14<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h2>
 <p>Please note that the Vector IntegrationBus was renamed to Vector SIL Kit.
 All APIs and documentation have been updated to reflect this.</p>
 <div class="section" id="compatibility-with-3-99-26">
@@ -623,8 +648,8 @@ All APIs and documentation have been updated to reflect this.</p>
 <li>Middleware network protocol: No</li>
 </ul>
 </div>
-<div class="section" id="id25">
-<h3>Added<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id28">
+<h3>Added<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">Logger now provides an API to get the currently active log level.</p>
 <ul>
@@ -637,8 +662,8 @@ All APIs and documentation have been updated to reflect this.</p>
 </li>
 </ul>
 </div>
-<div class="section" id="id26">
-<h3>Changed<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id29">
+<h3>Changed<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">Renaming the IntegrationBus to SIL Kit affects all APIs.</p>
 <blockquote>
@@ -653,8 +678,8 @@ root directory of <code class="docutils literal notranslate"><span class="pre">s
 <li><p class="first">Packages are now named <code class="docutils literal notranslate"><span class="pre">SilKit-X.Y.Z-tool-platform.zip</span></code>.</p>
 </li>
 <li><p class="first">C++ namespaces were renamed:</p>
-<table border="1" class="docutils" id="id243">
-<caption><span class="caption-number">Table 18 </span><span class="caption-text">: C++ namespace changes</span><a class="headerlink" href="#id243" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id246">
+<caption><span class="caption-number">Table 18 </span><span class="caption-text">: C++ namespace changes</span><a class="headerlink" href="#id246" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="50%" />
 <col width="50%" />
@@ -759,8 +784,8 @@ See  <a class="reference internal" href="usage/utilities.html"><span class="doc"
 </ul>
 </li>
 <li><p class="first">The timestamps for received events is now dependent on the synchronization mode of the sender and the receiver</p>
-<table border="1" class="docutils" id="id244">
-<caption><span class="caption-number">Table 19 </span><span class="caption-text">: Message timestamp by synchronization mode</span><a class="headerlink" href="#id244" title="Permalink to this table">¶</a></caption>
+<table border="1" class="docutils" id="id247">
+<caption><span class="caption-number">Table 19 </span><span class="caption-text">: Message timestamp by synchronization mode</span><a class="headerlink" href="#id247" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="20%" />
 <col width="40%" />
@@ -862,8 +887,8 @@ SilKit_SystemController, SilKit_SystemMonitor, SilKit_LifecycleService, and SilK
 </li>
 </ul>
 </div>
-<div class="section" id="id27">
-<h3>Removed<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id30">
+<h3>Removed<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">The documentation of the network simulator has been moved to its own repository.</p>
 </li>
@@ -887,16 +912,16 @@ SilKit_SystemController, SilKit_SystemMonitor, SilKit_LifecycleService, and SilK
 </li>
 </ul>
 </div>
-<div class="section" id="id28">
-<h3>Fixed<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id31">
+<h3>Fixed<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Ensure that the SynchronizedPolicy object does not modify the Timeconfiguration.
 This prevents multiple invocations of an async SimTask (VIB-847).</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id29">
-<h2>[3.99.26] - 2022-06-29<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id32">
+<h2>[3.99.26] - 2022-06-29<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="compatibility-with-3-99-25">
 <h3>Compatibility with 3.99.25<a class="headerlink" href="#compatibility-with-3-99-25" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -905,8 +930,8 @@ This prevents multiple invocations of an async SimTask (VIB-847).</li>
 <li>Middleware network protocol (VAsio): No</li>
 </ul>
 </div>
-<div class="section" id="id30">
-<h3>Added<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id33">
+<h3>Added<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">IbSystemControllerInteractive: Added <code class="docutils literal notranslate"><span class="pre">Abort</span></code> as possible input</p>
 </li>
@@ -947,8 +972,8 @@ added the new <code class="xref cpp cpp-func docutils literal notranslate"><span
 </li>
 </ul>
 </div>
-<div class="section" id="id31">
-<h3>Changed<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id34">
+<h3>Changed<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">Replaced the participant controller with a life cycle service and a time synchronization service (see documentation for details)</p>
 <ul>
@@ -1178,8 +1203,8 @@ added the new <code class="xref cpp cpp-func docutils literal notranslate"><span
 </li>
 </ul>
 </div>
-<div class="section" id="id32">
-<h3>Removed<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id35">
+<h3>Removed<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">ISystemController: Removed <code class="docutils literal notranslate"><span class="pre">ISystemController::Initialize(const</span> <span class="pre">std::string&amp;</span> <span class="pre">participantName)</span> <span class="pre">const</span></code>
 without replacement (initialization is perfomed automatically in the new life cycle concept)</p>
@@ -1213,8 +1238,8 @@ Use the new asynchronous <cite>ib_Participant_StartLifecycleWithSyncTime</cite> 
 </ul>
 </div>
 </div>
-<div class="section" id="id33">
-<h2>[3.99.25] - 2022-06-13<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id36">
+<h2>[3.99.25] - 2022-06-13<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h2>
 <p>Extended Bus System (CAN, Ethernet, FlexRay, …) APIs and removed separate registry library and unused tooling.</p>
 <div class="section" id="compatibility-with-3-99-24">
 <h3>Compatibility with 3.99.24<a class="headerlink" href="#compatibility-with-3-99-24" title="Permalink to this headline">¶</a></h3>
@@ -1224,8 +1249,8 @@ Use the new asynchronous <cite>ib_Participant_StartLifecycleWithSyncTime</cite> 
 <li>Middleware network protocol (VAsio): No</li>
 </ul>
 </div>
-<div class="section" id="id34">
-<h3>Added<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id37">
+<h3>Added<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">LIN: Added functionality to remove handlers:</p>
 <ul>
@@ -1292,16 +1317,16 @@ Use the new asynchronous <cite>ib_Participant_StartLifecycleWithSyncTime</cite> 
 </li>
 </ul>
 </div>
-<div class="section" id="id35">
-<h3>Removed<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id38">
+<h3>Removed<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The <code class="docutils literal notranslate"><span class="pre">vib-config-tool</span></code> has been deprecated and was now finally removed.
 Since the configuration format has been completely reworked, this tool is no longer necessary.</li>
 <li>The <code class="docutils literal notranslate"><span class="pre">IbLauncher</span></code> utility has been deprecated and was now finally removed.</li>
 </ul>
 </div>
-<div class="section" id="id36">
-<h3>Changed<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id39">
+<h3>Changed<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">LIN: Adding a handler now returns a HandlerId. In the C-API, the HandlerId is obtaind by an out parameter:</p>
 <ul>
@@ -1399,8 +1424,8 @@ The namespace of the factory function and the location of the headers were chang
 </ul>
 </div>
 </div>
-<div class="section" id="id37">
-<h2>[3.99.24] - 2022-05-30<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id40">
+<h2>[3.99.24] - 2022-05-30<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h2>
 <p>Refactored Bus System and further Service (CAN, Ethernet, FlexRay, Participant, …) APIs</p>
 <div class="section" id="compatibility-with-3-99-23">
 <h3>Compatibility with 3.99.23<a class="headerlink" href="#compatibility-with-3-99-23" title="Permalink to this headline">¶</a></h3>
@@ -1410,8 +1435,8 @@ The namespace of the factory function and the location of the headers were chang
 <li>Middleware network protocol (VAsio): No</li>
 </ul>
 </div>
-<div class="section" id="id38">
-<h3>Added<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id41">
+<h3>Added<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">IntegrationBus/include/ib/mw/sync/ISystemMonitor.hpp</span></code></p>
 <p>Added methods which allow users to obtain information about connected participants.</p>
@@ -1456,8 +1481,8 @@ The namespace of the factory function and the location of the headers were chang
 </li>
 </ul>
 </div>
-<div class="section" id="id39">
-<h3>Changed<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id42">
+<h3>Changed<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">CAN simuations behavior with and without NetSim harmonized:</p>
 <p>Without NetSim, the ICanController methods Reset, Start, Stop and Sleep now also trigger the
@@ -1627,8 +1652,8 @@ StateChangeHandlers on the calling participant, without any effect on the actual
 </ul>
 </div>
 </div>
-<div class="section" id="id40">
-<h2>[3.99.23] - 25-05-2022<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id43">
+<h2>[3.99.23] - 25-05-2022<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h2>
 <p>Refactored Bus System and further Service (data message, rpc) APIs</p>
 <div class="section" id="compatibility-with-3-99-22">
 <h3>Compatibility with 3.99.22<a class="headerlink" href="#compatibility-with-3-99-22" title="Permalink to this headline">¶</a></h3>
@@ -1638,8 +1663,8 @@ StateChangeHandlers on the calling participant, without any effect on the actual
 <li>Middleware network protocol (VAsio): Yes</li>
 </ul>
 </div>
-<div class="section" id="id41">
-<h3>Changed<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id44">
+<h3>Changed<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">IntegrationBus/include/ib/sim/can/CanDatatypes.hpp</span></code></p>
 <blockquote>
@@ -1670,8 +1695,8 @@ StateChangeHandlers on the calling participant, without any effect on the actual
 </li>
 </ul>
 </div>
-<div class="section" id="id42">
-<h3>Removed<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id45">
+<h3>Removed<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">Removed deprecated PcapFile and PcapPipe config fields in EthernetControllers section. Use UseTraceSinks instead.</p>
 </li>
@@ -1735,8 +1760,8 @@ StateChangeHandlers on the calling participant, without any effect on the actual
 </li>
 </ul>
 </div>
-<div class="section" id="id43">
-<h3>Fixed<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id46">
+<h3>Fixed<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li>Removed bug that allowed for multiple parallel SimTask-Handle triggers without a call to CompleteSimulationTask when using ParticipantController::RunAsync</li>
@@ -1744,8 +1769,8 @@ StateChangeHandlers on the calling participant, without any effect on the actual
 </div></blockquote>
 </div>
 </div>
-<div class="section" id="id44">
-<h2>[3.99.22] - 2022-05-17<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id47">
+<h2>[3.99.22] - 2022-05-17<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h2>
 <p>Refactored Bus System and further Service (data message, rpc) APIs</p>
 <div class="section" id="compatibility-with-3-99-21">
 <h3>Compatibility with 3.99.21<a class="headerlink" href="#compatibility-with-3-99-21" title="Permalink to this headline">¶</a></h3>
@@ -1755,8 +1780,8 @@ StateChangeHandlers on the calling participant, without any effect on the actual
 <li>Middleware network protocol (VAsio): No</li>
 </ul>
 </div>
-<div class="section" id="id45">
-<h3>Removed<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id48">
+<h3>Removed<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">IntegrationBus/include/ib/version.hpp</span></code></p>
 <p>The function to retreive the Sprint name was removed. The CMake-Variables <code class="docutils literal notranslate"><span class="pre">IB_SPRINT_NUMBER</span></code> and
@@ -1786,8 +1811,8 @@ StateChangeHandlers on the calling participant, without any effect on the actual
 </li>
 </ul>
 </div>
-<div class="section" id="id46">
-<h3>Changed<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id49">
+<h3>Changed<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">The IbRegistry utility changed the configuration parameter from positional parameter to option parameter.</p>
 <ul class="simple">
@@ -2259,8 +2284,8 @@ to <code class="docutils literal notranslate"><span class="pre">FunctionName</sp
 </li>
 </ul>
 </div>
-<div class="section" id="id47">
-<h3>Added<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id50">
+<h3>Added<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">Lin</p>
 <p>Improved error handling for Wakeup/GoToSleep.</p>
@@ -2345,16 +2370,16 @@ to <code class="docutils literal notranslate"><span class="pre">FunctionName</sp
 </li>
 </ul>
 </div>
-<div class="section" id="id48">
-<h3>Fixed<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id51">
+<h3>Fixed<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>CAN: fixed network transmission of the userContext member. This breaks network compatibility to
 the previous 3.99.21 release.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id49">
-<h2>[3.99.21] - 2022-05-03<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id52">
+<h2>[3.99.21] - 2022-05-03<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="compatibility-with-3-99-20">
 <h3>Compatibility with 3.99.20<a class="headerlink" href="#compatibility-with-3-99-20" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -2363,8 +2388,8 @@ the previous 3.99.21 release.</li>
 <li>Middleware network protocol (VAsio): No</li>
 </ul>
 </div>
-<div class="section" id="id50">
-<h3>Changed<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id53">
+<h3>Changed<a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">Lin</p>
 <ul>
@@ -2991,8 +3016,8 @@ Additional data types follow in <em>added</em>.</p>
 </li>
 </ul>
 </div>
-<div class="section" id="id51">
-<h3>Removed<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id54">
+<h3>Removed<a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">The Lin Controller’s <code class="docutils literal notranslate"><span class="pre">SendFrame</span></code> and <code class="docutils literal notranslate"><span class="pre">SendFrameHeader</span></code> with explicit timestamp are removed.</p>
 <ul>
@@ -3053,15 +3078,15 @@ Additional data types follow in <em>added</em>.</p>
 </li>
 </ul>
 </div>
-<div class="section" id="id52">
-<h3>Fixed<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id55">
+<h3>Fixed<a class="headerlink" href="#id55" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Guard against execution of an already scheduled <em>SimulationTask</em> if the state of the simulation is not <em>Running</em>.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id53">
-<h2>[3.99.20] - 2022-04-20<a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id56">
+<h2>[3.99.20] - 2022-04-20<a class="headerlink" href="#id56" title="Permalink to this headline">¶</a></h2>
 <p>This delivery is the first public delivery since 3.6.1. Since then, development has focused on preparing the public
 open source release of the Vector Integration Bus in August 2022. This delivery is not ABI/API/network compatible to
 earlier 3.x deliveries. Future 3.99.x deliveries are not expected to be API/ABI/network compatible to each other as we finalize
@@ -3080,8 +3105,8 @@ Other parts will still undergo changes for improved consistency within the API.<
 <li>Tracing and Replay currently not functional</li>
 </ul>
 </div></blockquote>
-<div class="section" id="id54">
-<h3>Changed<a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id57">
+<h3>Changed<a class="headerlink" href="#id57" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">In the C-Api, the Participant’s <code class="docutils literal notranslate"><span class="pre">ib_Participant_RegisterParticipantStateHandler</span></code> is removed and replaced by
 the more detailed variant <code class="docutils literal notranslate"><span class="pre">ib_Participant_RegisterParticipantStatusHandler</span></code>.</p>
@@ -3125,8 +3150,8 @@ the more detailed variant <code class="docutils literal notranslate"><span class
 </li>
 </ul>
 </div>
-<div class="section" id="id55">
-<h3>Removed<a class="headerlink" href="#id55" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id58">
+<h3>Removed<a class="headerlink" href="#id58" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">The SystemMonitor’s <code class="docutils literal notranslate"><span class="pre">RegisterParticipantStateHandler</span></code> is removed, its functionality is already covered by
 <code class="docutils literal notranslate"><span class="pre">RegisterParticipantStatusHandler</span></code>.</p>
@@ -3145,8 +3170,8 @@ the more detailed variant <code class="docutils literal notranslate"><span class
 </li>
 </ul>
 </div>
-<div class="section" id="id56">
-<h3>Fixed<a class="headerlink" href="#id56" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id59">
+<h3>Fixed<a class="headerlink" href="#id59" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed bug of no data transmission related to delayed DefaultDataMessageHandler registration</li>
 </ul>
@@ -3190,11 +3215,11 @@ the more detailed variant <code class="docutils literal notranslate"><span class
 </div>
 </details></div>
 </div>
-<div class="section" id="id57">
-<h2>[3.99.19] - 2022-04-19<a class="headerlink" href="#id57" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id60">
+<h2>[3.99.19] - 2022-04-19<a class="headerlink" href="#id60" title="Permalink to this headline">¶</a></h2>
 <p>In this delivery we stabilized the DataMessage API.</p>
-<div class="section" id="id58">
-<h3>Added<a class="headerlink" href="#id58" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id61">
+<h3>Added<a class="headerlink" href="#id61" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">Participant methods to create DataPublisher, DataSubscriber, RpcClient and RpcServer now have an simplified
 overload with the controller name (‘canonicalName’) as single argument. In this variant, the controller name is used as topic/rpcChannel.
@@ -3215,8 +3240,8 @@ The C-Api doesn’t provide these simplified methods.</p>
 </li>
 </ul>
 </div>
-<div class="section" id="id59">
-<h3>Removed<a class="headerlink" href="#id59" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id62">
+<h3>Removed<a class="headerlink" href="#id62" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">The typedef <code class="docutils literal notranslate"><span class="pre">ib::mw::sync::IParticipantController::TaskHandleT</span></code> was removed due to not being used anywhere.</p>
 </li>
@@ -3246,8 +3271,8 @@ The following data type and some associated free functions were removed:</p>
 </li>
 </ul>
 </div>
-<div class="section" id="id60">
-<h3>Changed<a class="headerlink" href="#id60" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id63">
+<h3>Changed<a class="headerlink" href="#id63" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">Updated documentation of <a class="reference internal" href="usage/demos.html"><span class="doc">Demos</span></a>, <a class="reference internal" href="usage/utilities.html"><span class="doc">Utilities</span></a> and <a class="reference internal" href="configuration/configuration.html"><span class="doc">Configuration</span></a></p>
 </li>
@@ -3978,10 +4003,10 @@ Further renamed method <code class="docutils literal notranslate"><span class="p
 </div>
 </details></div>
 </div>
-<div class="section" id="id61">
-<h2>[3.7.18] - 2022-04-05<a class="headerlink" href="#id61" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id62">
-<h3>Added<a class="headerlink" href="#id62" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id64">
+<h2>[3.7.18] - 2022-04-05<a class="headerlink" href="#id64" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id65">
+<h3>Added<a class="headerlink" href="#id65" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">Support for MinGW builds was added.
 The CI builds use the native MinGW builds from winlibs, but a
@@ -4000,8 +4025,8 @@ libwinpthread-1.dll
 </li>
 </ul>
 </div>
-<div class="section" id="id63">
-<h3>Fixed<a class="headerlink" href="#id63" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id66">
+<h3>Fixed<a class="headerlink" href="#id66" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed typo in IbRegistry command help output.</li>
 <li>Fixed typo in IbSystemMonitor command help output.</li>
@@ -4013,8 +4038,8 @@ If the value was set by a <cite>LinController::Init</cite> call, it will be
 retained and automatically transmitted to newly connecting participants.</li>
 </ul>
 </div>
-<div class="section" id="id64">
-<h3>Changed<a class="headerlink" href="#id64" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id67">
+<h3>Changed<a class="headerlink" href="#id67" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Demo adaptions
 - Ethernet Demo only uses Set/GetRawFrame calls
@@ -4023,11 +4048,11 @@ retained and automatically transmitted to newly connecting participants.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id65">
-<h2>[3.7.13] - 2022-03-24<a class="headerlink" href="#id65" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id68">
+<h2>[3.7.13] - 2022-03-24<a class="headerlink" href="#id68" title="Permalink to this headline">¶</a></h2>
 <p>This is an internal build.</p>
-<div class="section" id="id66">
-<h3>Changed<a class="headerlink" href="#id66" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id69">
+<h3>Changed<a class="headerlink" href="#id69" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">Added a new command line parser for all utilities, to have a consistent user experience.
 Long and short options are supported, invoke the utilities with <cite>–help</cite> to
@@ -4064,8 +4089,8 @@ IbRegistry --help
 </li>
 </ul>
 </div>
-<div class="section" id="id67">
-<h3>Fixed:<a class="headerlink" href="#id67" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id70">
+<h3>Fixed:<a class="headerlink" href="#id70" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The IntegrationBus shared library does not log to stdout anymore.
 The internal logger is now used when loading extensions or creating named pipes.</li>
@@ -4073,11 +4098,11 @@ The internal logger is now used when loading extensions or creating named pipes.
 </ul>
 </div>
 </div>
-<div class="section" id="id68">
-<h2>[3.7.8] - 2022-03-09<a class="headerlink" href="#id68" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id71">
+<h2>[3.7.8] - 2022-03-09<a class="headerlink" href="#id71" title="Permalink to this headline">¶</a></h2>
 <p>This is an internal build.</p>
-<div class="section" id="id69">
-<h3>Removed<a class="headerlink" href="#id69" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id72">
+<h3>Removed<a class="headerlink" href="#id72" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">Removed deprecated ISystemController functions <cite>Initialize()</cite> and <cite>Reinitialize()</cite>
 which took a numeric participant id as argument.
@@ -4138,8 +4163,8 @@ IntegrationBus/include/ib/cfg/string_utils.hpp
 </li>
 </ul>
 </div>
-<div class="section" id="id70">
-<h3>Changed<a class="headerlink" href="#id70" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id73">
+<h3>Changed<a class="headerlink" href="#id73" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><dl class="first docutils">
 <dt>Adapted the demos to the new configuration file format.</dt><dd><ul class="simple">
@@ -4154,8 +4179,8 @@ IntegrationBus/include/ib/cfg/string_utils.hpp
 </li>
 </ul>
 </div>
-<div class="section" id="id71">
-<h3>Fixed:<a class="headerlink" href="#id71" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id74">
+<h3>Fixed:<a class="headerlink" href="#id74" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Reduced a lot of compiler warnings. On CI builds, warnings are treated as errors.</li>
 <li>FlexRay: FlexRayController.Configure(…): values provided in the configuration file were not correctly overriding user-defined values.</li>
@@ -4170,26 +4195,26 @@ is used.</li>
 </div>
 <div class="section" id="unreleased">
 <h2>[3.7.2] - unreleased<a class="headerlink" href="#unreleased" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id72">
-<h3>Fixed<a class="headerlink" href="#id72" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id75">
+<h3>Fixed<a class="headerlink" href="#id75" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Controller pointer in FlexRay Controller Wakeup handler</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id73">
-<h2>[3.7.1] - unreleased<a class="headerlink" href="#id73" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id74">
-<h3>Fixed<a class="headerlink" href="#id74" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id76">
+<h2>[3.7.1] - unreleased<a class="headerlink" href="#id76" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id77">
+<h3>Fixed<a class="headerlink" href="#id77" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>New Configuration format Network name override for Can and Ethernet</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id75">
-<h2>[3.7.0] - unreleased<a class="headerlink" href="#id75" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id76">
-<h3>Changed<a class="headerlink" href="#id76" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id78">
+<h2>[3.7.0] - unreleased<a class="headerlink" href="#id78" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id79">
+<h3>Changed<a class="headerlink" href="#id79" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-note-the-integrationbus-configuration-and-command-line-usage-changed admonition">
 <p class="first admonition-title">Note: the IntegrationBus configuration and command line usage changed!</p>
 <p class="last">The old simulation setup based configuration mechanism was replaced by a
@@ -4331,10 +4356,10 @@ the process invocation is the same: <code class="docutils literal notranslate"><
 </ul>
 </div>
 </div>
-<div class="section" id="id77">
-<h2>[3.6.3] - 2022-01<a class="headerlink" href="#id77" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id78">
-<h3>Removed<a class="headerlink" href="#id78" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id80">
+<h2>[3.6.3] - 2022-01<a class="headerlink" href="#id80" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id81">
+<h3>Removed<a class="headerlink" href="#id81" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><dl class="first docutils">
 <dt>removed the deprecated FastRtps middleware:</dt><dd><ul class="simple">
@@ -4352,10 +4377,10 @@ refer to <a class="reference internal" href="#changelog-outdated-reference"><spa
 </ul>
 </div>
 </div>
-<div class="section" id="id79">
-<h2>[3.6.2] - 2021-12-16<a class="headerlink" href="#id79" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id80">
-<h3>Fixed<a class="headerlink" href="#id80" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id82">
+<h2>[3.6.2] - 2021-12-16<a class="headerlink" href="#id82" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id83">
+<h3>Fixed<a class="headerlink" href="#id83" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>C-API: fix transmission of flags in CAN SendFrame (VIB-548).</li>
 <li>Links are now checked for unique endpoints (VIB-542).</li>
@@ -4379,8 +4404,8 @@ SimulationParticipant, Can, Ethernet, FlexRay, Lin.</li>
 </li>
 </ul>
 </div>
-<div class="section" id="id81">
-<h3>Added<a class="headerlink" href="#id81" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id84">
+<h3>Added<a class="headerlink" href="#id84" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Added SerDes support library for easy serialization /deserialization of user data.
 Refer to <cite>Demos/GenericMessage/GenericMessageDemoSerDes.cpp</cite> for an example (VIB-514).</li>
@@ -4399,8 +4424,8 @@ Refer to <cite>Demos/GenericMessage/GenericMessageDemoSerDes.cpp</cite> for an e
 <div class="section" id="qa-2021-12-10">
 <h2>[3.6.1-QA] - 2021-12-10<a class="headerlink" href="#qa-2021-12-10" title="Permalink to this headline">¶</a></h2>
 <p>This is a Quality Assured Release.</p>
-<div class="section" id="id82">
-<h3>Added<a class="headerlink" href="#id82" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id85">
+<h3>Added<a class="headerlink" href="#id85" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The launcher now supports YAML formatted configuration files based on their file
 name extension <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> or <code class="docutils literal notranslate"><span class="pre">.yml</span></code>.
@@ -4410,8 +4435,8 @@ Please note, that JSON schema validation with YAML files is not supported (VIB-5
 This will prevent the launcher from starting an IbRegistry process on its own (VIB-527).</li>
 </ul>
 </div>
-<div class="section" id="id83">
-<h3>Changed<a class="headerlink" href="#id83" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id86">
+<h3>Changed<a class="headerlink" href="#id86" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-note-the-vib-canoe-add-on-is-now-discontinued admonition">
 <p class="first admonition-title">Note: the VIB-CANoe Add-on is now discontinued.</p>
 <p class="last">The CANoe Add-on is affected by a known regression.
@@ -4425,8 +4450,8 @@ assured release.
 The upcoming release of Vector CANoe 16 will support the IntegrationBus directly.</li>
 </ul>
 </div>
-<div class="section" id="id84">
-<h3>Fixed<a class="headerlink" href="#id84" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id87">
+<h3>Fixed<a class="headerlink" href="#id87" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed a regression in the <code class="docutils literal notranslate"><span class="pre">Replay</span></code> feature and the VIBE-NetworkSimulator support (VIB-544).</li>
 </ul>
@@ -4441,12 +4466,12 @@ The upcoming release of Vector CANoe 16 will support the IntegrationBus directly
 </ul>
 </div>
 </div>
-<div class="section" id="id85">
-<h2>[3.6.0] - 2021-12-01<a class="headerlink" href="#id85" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id88">
+<h2>[3.6.0] - 2021-12-01<a class="headerlink" href="#id88" title="Permalink to this headline">¶</a></h2>
 <p>Please note, the version jump from v3.4.x to v3.6.x was necessary due to internal
 releases already having the v3.5.x tag.</p>
-<div class="section" id="id86">
-<h3>Added<a class="headerlink" href="#id86" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id89">
+<h3>Added<a class="headerlink" href="#id89" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Add experimental C-API for life-cycle and time synchronization (VIB-492).</li>
 <li>Add experimental C-API for FlexRay (VIB-505).</li>
@@ -4455,8 +4480,8 @@ releases already having the v3.5.x tag.</p>
 platforms (VIB-524).</li>
 </ul>
 </div>
-<div class="section" id="id87">
-<h3>Changed<a class="headerlink" href="#id87" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id90">
+<h3>Changed<a class="headerlink" href="#id90" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-note-public-api-changed admonition">
 <p class="first admonition-title">Note: Public API changed</p>
 <p class="last">Some rarely used public headers and <cite>IComAdapter</cite> methods were removed.
@@ -4603,8 +4628,8 @@ That is, in a trivial simulation sending an Ethernet message will be immediately
 acknowledged (VIB-490).</li>
 </ul>
 </div>
-<div class="section" id="id88">
-<h3>Fixed<a class="headerlink" href="#id88" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id91">
+<h3>Fixed<a class="headerlink" href="#id91" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Config: prevent multiple statements of the same keyword, e.g., multiple <code class="docutils literal notranslate"><span class="pre">&quot;Links&quot;</span></code>
 blocks now raise an error (VIB-528).</li>
@@ -4623,10 +4648,10 @@ the removal of <code class="docutils literal notranslate"><span class="pre">ComA
 </ul>
 </div>
 </div>
-<div class="section" id="id89">
-<h2>[3.4.6] - 2021-11-16<a class="headerlink" href="#id89" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id90">
-<h3>Changed<a class="headerlink" href="#id90" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id92">
+<h2>[3.4.6] - 2021-11-16<a class="headerlink" href="#id92" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id93">
+<h3>Changed<a class="headerlink" href="#id93" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-note-the-fastrtps-middleware-is-now-deprecated admonition">
 <p class="first admonition-title">Note: the FastRTPS middleware is now deprecated</p>
 <p class="last">See <a class="reference internal" href="configuration/middleware-configuration.html#sec-mwcfg"><span class="std std-ref">Middleware Configuration</span></a> for migration instructions.</p>
@@ -4646,16 +4671,16 @@ That is, in a trivial simulation sending a CAN message will be immediately ackno
 MOCK_METHOD macro with specifiers like <cite>const, override</cite>. (VIB-474).</li>
 </ul>
 </div>
-<div class="section" id="id91">
-<h3>Added<a class="headerlink" href="#id91" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id94">
+<h3>Added<a class="headerlink" href="#id94" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Added new functional tests for CAN and Ethernet without simulation control
 flow / synchronization (VIB-491 VIB-494).</li>
 <li>A new C-API for a DataPublisher / Subscriber (VIB-432).</li>
 </ul>
 </div>
-<div class="section" id="id92">
-<h3>Fixed<a class="headerlink" href="#id92" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id95">
+<h3>Fixed<a class="headerlink" href="#id95" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed regression in <code class="docutils literal notranslate"><span class="pre">Pause()/Continue()</span></code> calls of ParticipantController.
 The <cite>SimulationControl</cite> Demo was added and used as a stress test (AFTMAGT-330 VIB-499).</li>
@@ -4671,10 +4696,10 @@ The <cite>SimulationControl</cite> Demo was added and used as a stress test (AFT
 </ul>
 </div>
 </div>
-<div class="section" id="id93">
-<h2>[3.4.5] - 2021-11-03<a class="headerlink" href="#id93" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id94">
-<h3>Added<a class="headerlink" href="#id94" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id96">
+<h2>[3.4.5] - 2021-11-03<a class="headerlink" href="#id96" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id97">
+<h3>Added<a class="headerlink" href="#id97" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>C-API: added initial ethernet bindings for the C language.
 Refer to <a class="reference internal" href="api/capi/capi.html#sec-capi"><span class="std std-ref">C API</span></a> for documentation.
@@ -4682,8 +4707,8 @@ Currently, the Ethernet controllers work without time-synchronization.
 A Demo is provided in <code class="docutils literal notranslate"><span class="pre">Demos/CEthernet</span></code> (VIB-431).</li>
 </ul>
 </div>
-<div class="section" id="id95">
-<h3>Fixed<a class="headerlink" href="#id95" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id98">
+<h3>Fixed<a class="headerlink" href="#id98" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Clarify the documentation of synchronization types and the usage of
 <code class="docutils literal notranslate"><span class="pre">SetPeriod()</span></code> (AFTMAGT-329).</li>
@@ -4709,10 +4734,10 @@ domain socket creation (VIB-459).</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id96">
-<h2>[3.4.4] - 2021-10-20<a class="headerlink" href="#id96" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id97">
-<h3>Added<a class="headerlink" href="#id97" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id99">
+<h2>[3.4.4] - 2021-10-20<a class="headerlink" href="#id99" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id100">
+<h3>Added<a class="headerlink" href="#id100" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Added initial C language bindings. Please note, the C API is currently
 work in progress and as such might change in the future.
@@ -4734,8 +4759,8 @@ and creating simulation participants from config files.</li>
 <div class="section" id="qa-2021-09-15">
 <h2>[3.4.3-QA] - 2021-09-15<a class="headerlink" href="#qa-2021-09-15" title="Permalink to this headline">¶</a></h2>
 <p>This is a Quality Assured Release.</p>
-<div class="section" id="id98">
-<h3>Added<a class="headerlink" href="#id98" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id101">
+<h3>Added<a class="headerlink" href="#id101" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>CMake: the options IB_MW_ENABLE_VASIO and IB_MW_ENABLE_FASTRTPS can be used to
 disable the middlewares at compile time.</li>
@@ -4743,8 +4768,8 @@ disable the middlewares at compile time.</li>
 changes.</li>
 </ul>
 </div>
-<div class="section" id="id99">
-<h3>Fixed<a class="headerlink" href="#id99" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id102">
+<h3>Fixed<a class="headerlink" href="#id102" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>VAsio: fix a bug affecting distributed (networked) setups. Participants did
 only listen on localhost addresses and the registry did not distribute proper
@@ -4772,13 +4797,13 @@ the IReplayDataProvider interface (VIB-378).</li>
 MAC addresses and LIN frames.</li>
 </ul>
 </div>
-<div class="section" id="id100">
-<h3>Changed<a class="headerlink" href="#id100" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id103">
+<h3>Changed<a class="headerlink" href="#id103" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first"><code class="docutils literal notranslate"><span class="pre">Config::FromJsonString</span></code> now uses a Yaml-parser internally. To update legacy
 JSON configs to the current valid format we provide the <code class="docutils literal notranslate"><span class="pre">vib-config-tool</span></code>
-utility. It supports deprecated controller and port declarations (cf <a class="reference internal" href="#id152">[3.1.0] - 2020-06-15</a>)
-and also network simulator configurations at <cite>SimulationSetup</cite> scope (cf <a class="reference internal" href="#id141">[3.3.0] - 2020-08-12</a>).
+utility. It supports deprecated controller and port declarations (cf <a class="reference internal" href="#id155">[3.1.0] - 2020-06-15</a>)
+and also network simulator configurations at <cite>SimulationSetup</cite> scope (cf <a class="reference internal" href="#id144">[3.3.0] - 2020-08-12</a>).
 It can output in <cite>JSON</cite> or <cite>YAML</cite> format. For example, to ensure a JSON config
 is up to date:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>vib-config-tool --convert oldFile.json updated.json --format json
@@ -4797,8 +4822,8 @@ irritation and breakage that we undid this change.</p>
 executable in both directories.</li>
 </ul>
 </div>
-<div class="section" id="id101">
-<h3>Removed<a class="headerlink" href="#id101" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id104">
+<h3>Removed<a class="headerlink" href="#id104" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Removed the json11 from the source-tree. We now use yaml-cpp to parse JSON and YAML
 configuration files. Please note, that the yaml-based parser still accepts
@@ -4815,10 +4840,10 @@ JSON formatted inputs.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id102">
-<h2>[3.4.2] - 2021-08-04<a class="headerlink" href="#id102" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id103">
-<h3>Added<a class="headerlink" href="#id103" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id105">
+<h2>[3.4.2] - 2021-08-04<a class="headerlink" href="#id105" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id106">
+<h3>Added<a class="headerlink" href="#id106" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>VAsio now supports UNIX domain sockets as transport. By default, all participants
 open domain sockets locally and advertise the TCP/IP and local endpoints to other participants.
@@ -4836,14 +4861,14 @@ Packaged source-trees now contain a pre-processed version_macros.hpp recording t
 hash.</li>
 </ul>
 </div>
-<div class="section" id="id104">
-<h3>Fixed<a class="headerlink" href="#id104" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id107">
+<h3>Fixed<a class="headerlink" href="#id107" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Various fixes for our scripted Jenkins pipeline to improve stability on our CI environment.</li>
 </ul>
 </div>
-<div class="section" id="id105">
-<h3>Changed<a class="headerlink" href="#id105" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id108">
+<h3>Changed<a class="headerlink" href="#id108" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>VAsio: we imported the Asio library to version 1.18.2.
 This includes many bugfixes and also domain socket support for Windows 10.
@@ -4863,10 +4888,10 @@ variables we now have targets to link against the third party components.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id106">
-<h2>[3.4.1] - 2021-06-25<a class="headerlink" href="#id106" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id107">
-<h3>Added<a class="headerlink" href="#id107" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id109">
+<h2>[3.4.1] - 2021-06-25<a class="headerlink" href="#id109" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id110">
+<h3>Added<a class="headerlink" href="#id110" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Added native YAML parser implementation.
 This provides better error messages and warnings for parsing YAML and JSON config files
@@ -4878,16 +4903,16 @@ Please note, that schema versioning for backward compatibility is
 not yet implemented and will be addressed in the future.</li>
 </ul>
 </div>
-<div class="section" id="id108">
-<h3>Fixed<a class="headerlink" href="#id108" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id111">
+<h3>Fixed<a class="headerlink" href="#id111" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed warnings during 32-bit builds: an int64_t was truncated to int.</li>
 <li>Build: relax some warning levels for gtest and remove useless compile
 flags on windows.</li>
 </ul>
 </div>
-<div class="section" id="id109">
-<h3>Changed<a class="headerlink" href="#id109" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id112">
+<h3>Changed<a class="headerlink" href="#id112" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>When shutting down, do not print an error message that we’re already
 shutting down.</li>
@@ -4912,10 +4937,10 @@ IntegrationBus-NonRedistributable directory.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id110">
-<h2>[3.4.0] - 2021-06-01<a class="headerlink" href="#id110" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id111">
-<h3>Added<a class="headerlink" href="#id111" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id113">
+<h2>[3.4.0] - 2021-06-01<a class="headerlink" href="#id113" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id114">
+<h3>Added<a class="headerlink" href="#id114" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Added submodule yaml-cpp. This will be the base of our native
 YAML configuration parser.</li>
@@ -4937,16 +4962,16 @@ the YAML input into JSON and re-uses the JSON config parser.</li>
 <div class="section" id="qa-2021-05-10">
 <h2>[3.3.10-QA] - 2021-05-10<a class="headerlink" href="#qa-2021-05-10" title="Permalink to this headline">¶</a></h2>
 <p>This is a Quality Assured Release.</p>
-<div class="section" id="id112">
-<h3>Added<a class="headerlink" href="#id112" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id115">
+<h3>Added<a class="headerlink" href="#id115" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Added MdfChannel identification to replaying config.
 This allows replaying MDF4 trace files that do not originate from VIB
 simulation runs, cf. <a class="reference internal" href="#changelog-outdated-reference"><span class="std std-ref">Outdated References</span></a> (<code class="docutils literal notranslate"><span class="pre">sec:replay-foreign</span></code>).</li>
 </ul>
 </div>
-<div class="section" id="id113">
-<h3>Fixed<a class="headerlink" href="#id113" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id116">
+<h3>Fixed<a class="headerlink" href="#id116" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">Allow tracing while replaying on I/O InPorts (VIB-159).</p>
 </li>
@@ -4981,8 +5006,8 @@ See compatibility below for details.</p>
 </li>
 </ul>
 </div>
-<div class="section" id="id114">
-<h3>Changed<a class="headerlink" href="#id114" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id117">
+<h3>Changed<a class="headerlink" href="#id117" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Print acknowledgement on std::cout when an extension is loaded.</li>
 <li>Throw IB exceptions instead of runtime_error where applicable.</li>
@@ -5003,10 +5028,10 @@ The addition of a new internal state makes the current VIB release incompatible 
 </ul>
 </div>
 </div>
-<div class="section" id="id115">
-<h2>[3.3.9] - 2021-04-09<a class="headerlink" href="#id115" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id116">
-<h3>Added<a class="headerlink" href="#id116" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id118">
+<h2>[3.3.9] - 2021-04-09<a class="headerlink" href="#id118" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id119">
+<h3>Added<a class="headerlink" href="#id119" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Add documentation for <a class="reference internal" href="#changelog-outdated-reference"><span class="std std-ref">Outdated References</span></a> (<code class="docutils literal notranslate"><span class="pre">Replaying</span> <span class="pre">and</span> <span class="pre">Tracing&lt;usage/replay&gt;</span></code>) (AFTMAGT-308).</li>
 <li>Added support for replaying FlexRay messages (AFTMAGT-289).
@@ -5021,8 +5046,8 @@ Refer to section <a class="reference internal" href="#changelog-outdated-referen
 configuration.</li>
 </ul>
 </div>
-<div class="section" id="id117">
-<h3>Fixed<a class="headerlink" href="#id117" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id120">
+<h3>Fixed<a class="headerlink" href="#id120" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The config parser no longer uses asserts when validating a Config.
 A misconfiguration exception is now thrown, which can be handled by the user (AFTMAGT-309).</li>
@@ -5039,10 +5064,10 @@ A misconfiguration exception is now thrown, which can be handled by the user (AF
 </ul>
 </div>
 </div>
-<div class="section" id="id118">
-<h2>[3.3.8] - 2021-02-18<a class="headerlink" href="#id118" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id119">
-<h3>Added<a class="headerlink" href="#id119" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id121">
+<h2>[3.3.8] - 2021-02-18<a class="headerlink" href="#id121" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id122">
+<h3>Added<a class="headerlink" href="#id122" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The CI build pipeline now includes Ubuntu 20.04 as a build target, which is used
 to run automated unit tests and integration tests (AFTMAGT-300).</li>
@@ -5054,8 +5079,8 @@ Invoking transmission API calls during replay is also not supported on a master 
 <li>Setting VAsio TCP flags is now supported from a JSON config file, cf. <a class="reference internal" href="#changelog-outdated-reference"><span class="std std-ref">Outdated References</span></a> (<code class="docutils literal notranslate"><span class="pre">sec:mwcfg-vasio</span></code>) (AFTMAGT-305).</li>
 </ul>
 </div>
-<div class="section" id="id120">
-<h3>Fixed<a class="headerlink" href="#id120" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id123">
+<h3>Fixed<a class="headerlink" href="#id123" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>A graceful connection shutdown does no longer result in an error message when
 using the VAsio  middleware (AFTMAGT-299).</li>
@@ -5076,10 +5101,10 @@ to share the same listening port (AFTMAGT-303).</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id121">
-<h2>[3.3.7] - 2021-01-27<a class="headerlink" href="#id121" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id122">
-<h3>Added<a class="headerlink" href="#id122" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id124">
+<h2>[3.3.7] - 2021-01-27<a class="headerlink" href="#id124" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id125">
+<h3>Added<a class="headerlink" href="#id125" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Added replaying functionality for Ethernet, Can, GenericMessages and IO ports.
 This utilizes a new ReplayScheduler and replay controllers to inject replay
@@ -5087,8 +5112,8 @@ messages from a trace file. The PCAP file format  is supported natively, and
 the MDF4 format is supported through the VIBE-MDF4Tracing extension.</li>
 </ul>
 </div>
-<div class="section" id="id123">
-<h3>Changed<a class="headerlink" href="#id123" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id126">
+<h3>Changed<a class="headerlink" href="#id126" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The semantics of the <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ComAdapter::Create*</span></code>
 methods to create services has changed.
@@ -5098,8 +5123,8 @@ The ReplayScheduler uses these methods to create and configure replay
 controllers for services internally.</li>
 </ul>
 </div>
-<div class="section" id="id124">
-<h3>Fixed<a class="headerlink" href="#id124" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id127">
+<h3>Fixed<a class="headerlink" href="#id127" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>When setting the <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">ib::cfg::VAsio::Config::tcpQuickAck</span></code> option, the
 TCP_QUICKACK socket option is now activated after each successful read()/recvmsg on
@@ -5120,8 +5145,8 @@ used.</li>
 <div class="section" id="qa-2020-12-10">
 <h2>[3.3.6-QA] - 2020-12-10<a class="headerlink" href="#qa-2020-12-10" title="Permalink to this headline">¶</a></h2>
 <p>This is a Quality Assured Release.</p>
-<div class="section" id="id125">
-<h3>Fixed<a class="headerlink" href="#id125" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id128">
+<h3>Fixed<a class="headerlink" href="#id128" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Utility executables are now built with appropriate RPATHs on Linux.</li>
 <li>Remove -Wabi flags from gcc/clang builds, as they were not correctly used
@@ -5139,10 +5164,10 @@ and they break the build on Ubuntu 20.04.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id126">
-<h2>[3.3.5] - 2020-11-26<a class="headerlink" href="#id126" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id127">
-<h3>Added<a class="headerlink" href="#id127" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id129">
+<h2>[3.3.5] - 2020-11-26<a class="headerlink" href="#id129" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id130">
+<h3>Added<a class="headerlink" href="#id130" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The number of connection attempts can now be configured in the VAsio registry
 configuration, see the “ConnectAttempts” field in <a class="reference internal" href="#changelog-outdated-reference"><span class="std std-ref">Outdated References</span></a> (<code class="docutils literal notranslate"><span class="pre">sec:mwcfg-vasio</span></code>).</li>
@@ -5155,15 +5180,15 @@ The following settings are available:<ul>
 </li>
 </ul>
 </div>
-<div class="section" id="id128">
-<h3>Changed<a class="headerlink" href="#id128" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id131">
+<h3>Changed<a class="headerlink" href="#id131" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The TCP_NODELAY is now off by default again. It can be enabled using the VAsio
 config.</li>
 </ul>
 </div>
-<div class="section" id="id129">
-<h3>Fixed<a class="headerlink" href="#id129" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id132">
+<h3>Fixed<a class="headerlink" href="#id132" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The IbLauncher now considers debug libraries when searching for the VIB
 installation, this makes it usable with Debug builds.</li>
@@ -5179,10 +5204,10 @@ installation, this makes it usable with Debug builds.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id130">
-<h2>[3.3.4] - 2020-11-04<a class="headerlink" href="#id130" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id131">
-<h3>Added<a class="headerlink" href="#id131" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id133">
+<h2>[3.3.4] - 2020-11-04<a class="headerlink" href="#id133" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id134">
+<h3>Added<a class="headerlink" href="#id134" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The CMake build system has new options to build with sanitizers:
 IB_ENABLE_ASAN and IB_ENABLE_UBSAN, to enable ‘Address Sanitizer’ and
@@ -5194,14 +5219,14 @@ This is currently only supported on GCC and Clang.</li>
 extension.</li>
 </ul>
 </div>
-<div class="section" id="id132">
-<h3>Fixed<a class="headerlink" href="#id132" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id135">
+<h3>Fixed<a class="headerlink" href="#id135" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed undeclared variable use in IbLauncher (AFTMAGT 294).</li>
 </ul>
 </div>
-<div class="section" id="id133">
-<h3>Changed<a class="headerlink" href="#id133" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id136">
+<h3>Changed<a class="headerlink" href="#id136" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Added the TCP_NODELAY option to VAsio (AFTMAGT 297).
 This reduces latencies when sending a lot of small VIB messages.</li>
@@ -5217,18 +5242,18 @@ This reduces latencies when sending a lot of small VIB messages.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id134">
-<h2>[3.3.3] - 2020-10-15<a class="headerlink" href="#id134" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id135">
-<h3>Added<a class="headerlink" href="#id135" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id137">
+<h2>[3.3.3] - 2020-10-15<a class="headerlink" href="#id137" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id138">
+<h3>Added<a class="headerlink" href="#id138" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Added a new configuration format for replaying traces,
 refer to <a class="reference internal" href="#changelog-outdated-reference"><span class="std std-ref">Outdated References</span></a> (<code class="docutils literal notranslate"><span class="pre">sec:cfg-participant-replaying</span></code>) for details.
 Please note that the replaying mechanism is still under development.</li>
 </ul>
 </div>
-<div class="section" id="id136">
-<h3>Changed<a class="headerlink" href="#id136" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id139">
+<h3>Changed<a class="headerlink" href="#id139" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The IbRegistry command line utility now supports a <code class="docutils literal notranslate"><span class="pre">--use-signal-handler</span></code> flag
 that prevents it from listening on stdin. It can be safely shut down with
@@ -5246,10 +5271,10 @@ Control-C when started with this flag.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id137">
-<h2>[3.3.2] - 2020-09-24<a class="headerlink" href="#id137" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id138">
-<h3>Changed<a class="headerlink" href="#id138" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id140">
+<h2>[3.3.2] - 2020-09-24<a class="headerlink" href="#id140" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id141">
+<h3>Changed<a class="headerlink" href="#id141" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The duplicate IbConfig schema was removed from the Launcher subdirectory.
 There is now only one instance of IbConfig.schema.json under
@@ -5272,8 +5297,8 @@ harness that simplifies test case setup.</li>
 <div class="section" id="qa-2020-08-27">
 <h2>[3.3.1-QA] - 2020-08-27<a class="headerlink" href="#qa-2020-08-27" title="Permalink to this headline">¶</a></h2>
 <p>This is a Quality Assured Release.</p>
-<div class="section" id="id139">
-<h3>Fixed<a class="headerlink" href="#id139" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id142">
+<h3>Fixed<a class="headerlink" href="#id142" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed config JSON schema and updated Demos to latest configuration syntax.</li>
 <li>Allow ‘UseTraceSinks’ when parsing configuration files in backward-compatibility
@@ -5284,8 +5309,8 @@ changes an internal interface used to load the VIBE mdf4tracing extension.</li>
 variable.</li>
 </ul>
 </div>
-<div class="section" id="id140">
-<h3>Changed<a class="headerlink" href="#id140" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id143">
+<h3>Changed<a class="headerlink" href="#id143" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Building the documentation now requires Sphinx version &gt;= 3.0 (cf. <a class="reference internal" href="development/build.html"><span class="doc">!!! Getting Started as a SIL Kit Developer</span></a>).</li>
 </ul>
@@ -5300,10 +5325,10 @@ variable.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id141">
-<h2>[3.3.0] - 2020-08-12<a class="headerlink" href="#id141" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id142">
-<h3>Added<a class="headerlink" href="#id142" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id144">
+<h2>[3.3.0] - 2020-08-12<a class="headerlink" href="#id144" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id145">
+<h3>Added<a class="headerlink" href="#id145" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Added support for tracing bus messages on the VIBE-NetworkSimulator (AFTMAGT 277).</li>
 <li>Enable tracing for GenericMessages (AFTMAGT 233).</li>
@@ -5311,8 +5336,8 @@ variable.</li>
 <li>Added support for tracing CAN/LIN/Ethernet bus messages on controller proxies (AFTMAGT 278).</li>
 </ul>
 </div>
-<div class="section" id="id143">
-<h3>Changed<a class="headerlink" href="#id143" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id146">
+<h3>Changed<a class="headerlink" href="#id146" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">The NetworkSimulator configuration syntax was changed. The network simulator
 definition was moved from the SimulationSetup level, down to the participant
@@ -5373,10 +5398,10 @@ ib::cfg::Config was also modified.</p>
 </ul>
 </div>
 </div>
-<div class="section" id="id144">
-<h2>[3.2.1] - 2020-07-23<a class="headerlink" href="#id144" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id145">
-<h3>Added<a class="headerlink" href="#id145" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id147">
+<h2>[3.2.1] - 2020-07-23<a class="headerlink" href="#id147" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id148">
+<h3>Added<a class="headerlink" href="#id148" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The startup delay of a FlexRay node in the FlexRay demo can now be set programmatically.</li>
 <li>Added a message tracing section to <a class="reference internal" href="#changelog-outdated-reference"><span class="std std-ref">Outdated References</span></a> (<code class="docutils literal notranslate"><span class="pre">Participant</span> <span class="pre">Configuration&lt;sec:cfg-participant-tracing&gt;</span></code>).
@@ -5385,16 +5410,16 @@ It briefly discusses how to configure the trace sink mechanism and how the
 The controllers now also reflect the recently updated tracing support.</li>
 </ul>
 </div>
-<div class="section" id="id146">
-<h3>Changed<a class="headerlink" href="#id146" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id149">
+<h3>Changed<a class="headerlink" href="#id149" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Enabled message tracing on the following controllers: LIN, CAN, FlexRay.</li>
 <li>The Ethernet demo now uses the IEthController::SendFrame API.</li>
 <li>Updated version of the third-party library <cite>fmt</cite> to version <cite>6.1.0</cite>.</li>
 </ul>
 </div>
-<div class="section" id="id147">
-<h3>Fixed<a class="headerlink" href="#id147" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id150">
+<h3>Fixed<a class="headerlink" href="#id150" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed a bug in the FlexRay demo which caused unreachable code in the POC Handler.</li>
 <li>TraceSinkBuilder was missing API exports for three methods, resulting in
@@ -5412,10 +5437,10 @@ missing symbols when linking on Windows.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id148">
-<h2>[3.2.0] - 2020-07-06<a class="headerlink" href="#id148" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id149">
-<h3>Added<a class="headerlink" href="#id149" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id151">
+<h2>[3.2.0] - 2020-07-06<a class="headerlink" href="#id151" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id152">
+<h3>Added<a class="headerlink" href="#id152" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Logger of the VAsio Registry can now be configured via the middleware configuration,
 cf. <a class="reference internal" href="#changelog-outdated-reference"><span class="std std-ref">Outdated References</span></a> (<code class="docutils literal notranslate"><span class="pre">sec:mwcfg-vasio</span></code>). The corresponding <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">RegistryBuilder</span></code>
@@ -5425,7 +5450,7 @@ the logger of the VAsio Registry.</li>
 </ul>
 </div>
 <div class="section" id="sec-vib320-changed">
-<span id="id150"></span><h3>Changed<a class="headerlink" href="#sec-vib320-changed" title="Permalink to this headline">¶</a></h3>
+<span id="id153"></span><h3>Changed<a class="headerlink" href="#sec-vib320-changed" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ib::type_conversion_error</span></code> inherits now from
 <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">std::runtime_error</span></code> instead of <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">std::exception</span></code> directly.</li>
@@ -5433,8 +5458,8 @@ the logger of the VAsio Registry.</li>
 <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ib::cfg::ParentBuilder</span></code> anymore.</li>
 </ul>
 </div>
-<div class="section" id="id151">
-<h3>Fixed<a class="headerlink" href="#id151" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id154">
+<h3>Fixed<a class="headerlink" href="#id154" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed a bug that prevented legacy IbConfigs (pre VIB 3.1.0) using the PcapFile
 setting from being converted to new IbConfigs (VIB 3.1.0) using trace sinks.</li>
@@ -5450,10 +5475,10 @@ setting from being converted to new IbConfigs (VIB 3.1.0) using trace sinks.</li
 </ul>
 </div>
 </div>
-<div class="section" id="id152">
-<h2>[3.1.0] - 2020-06-15<a class="headerlink" href="#id152" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id153">
-<h3>Added<a class="headerlink" href="#id153" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id155">
+<h2>[3.1.0] - 2020-06-15<a class="headerlink" href="#id155" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id156">
+<h3>Added<a class="headerlink" href="#id156" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>New optional configuration section for extension-related settings,
 cf. <a class="reference internal" href="configuration/extension-configuration.html"><span class="doc">Extensions Configuration</span></a>. Its only property
@@ -5473,8 +5498,8 @@ This will populate the ‘UseTraceSinks’ field of the JSON serialization of th
 builder’s configuration type.</li>
 </ul>
 </div>
-<div class="section" id="id154">
-<h3>Changed<a class="headerlink" href="#id154" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id157">
+<h3>Changed<a class="headerlink" href="#id157" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">For FastRTPS, the default participant lease duration is now 2h to avoid
 connection losses when debugging. (AFTMAGT-267)</p>
@@ -5505,8 +5530,8 @@ PatternPort, and GenericSubscriber were changed:</p>
 </li>
 </ul>
 </div>
-<div class="section" id="id155">
-<h3>Fixed<a class="headerlink" href="#id155" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id158">
+<h3>Fixed<a class="headerlink" href="#id158" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ILinController::SendFrameHeader(LinIdT)</span></code> now correctly sets the
 current simulation time in the LinTransmission. Previously, the timestamp was
@@ -5515,7 +5540,7 @@ always 0s.</li>
 </ul>
 </div>
 <div class="section" id="sec-api-withpcap-removed">
-<span id="id156"></span><h3>Removed<a class="headerlink" href="#sec-api-withpcap-removed" title="Permalink to this headline">¶</a></h3>
+<span id="id159"></span><h3>Removed<a class="headerlink" href="#sec-api-withpcap-removed" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">The ControllerBuilder&lt;EthernetController&gt; no longer supports the
 WithPcapFile() and WithPcapPipe() methods.
@@ -5596,10 +5621,10 @@ that is derived from the Participant’s and EthernetController’s names.</p>
 </ul>
 </div>
 </div>
-<div class="section" id="id157">
-<h2>[3.0.7] - 2020-05-25<a class="headerlink" href="#id157" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id158">
-<h3>Added<a class="headerlink" href="#id158" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id160">
+<h2>[3.0.7] - 2020-05-25<a class="headerlink" href="#id160" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id161">
+<h3>Added<a class="headerlink" href="#id161" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">Add a time provider interface internal to the service controllers.
 By default the wallclock time is used as the source for the current time.
@@ -5622,15 +5647,15 @@ is not possible!</p>
 </li>
 </ul>
 </div>
-<div class="section" id="id159">
-<h3>Fixed<a class="headerlink" href="#id159" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id162">
+<h3>Fixed<a class="headerlink" href="#id162" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed a memory leak: there was a shared pointer cycle in SyncMaster’s
 DiscreteTimeClient when attaching a lambda to itself.</li>
 </ul>
 </div>
-<div class="section" id="id160">
-<h3>Deprecated<a class="headerlink" href="#id160" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id163">
+<h3>Deprecated<a class="headerlink" href="#id163" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Please note, that the <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">IEthController::SendMessage(EthMessage)</span></code>
 method is deprecated in favor of the new SendFrame() methods.
@@ -5639,8 +5664,8 @@ The EthMessage struct contains a user-settable timestamp, which is not a good
 fit for the new time provider based API.</li>
 </ul>
 </div>
-<div class="section" id="id161">
-<h3>Changed<a class="headerlink" href="#id161" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id164">
+<h3>Changed<a class="headerlink" href="#id164" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>CMake build: the binaries are now all built in the
 ${CMAKE_BINARY_DIR}/$&lt;CONFIG&gt; directory. This allows running Demos and Tests
@@ -5657,10 +5682,10 @@ directly from the build directory, which eases debugging.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id162">
-<h2>[3.0.6] - 2020-04-30<a class="headerlink" href="#id162" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id163">
-<h3>Fixed<a class="headerlink" href="#id163" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id165">
+<h2>[3.0.6] - 2020-04-30<a class="headerlink" href="#id165" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id166">
+<h3>Fixed<a class="headerlink" href="#id166" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Disable remote logging when shutting down (AFTMAGT252)
 This fixes issues when remote logging is enabled with log levels of debug and
@@ -5670,8 +5695,8 @@ to invalid accesses when remote logging is enabled.</li>
 <li>PCAP tracing now includes the ingress data on EthControllers (AFTMAGT265).</li>
 </ul>
 </div>
-<div class="section" id="id164">
-<h3>Changed<a class="headerlink" href="#id164" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id167">
+<h3>Changed<a class="headerlink" href="#id167" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>We no longer bundle FastRTPS binaries in the official VIB packages.
 Users had issues using the exported cmake targets from FastRTPS binaries when
@@ -5690,10 +5715,10 @@ depdendencies are missing from the local source tree.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id165">
-<h2>[3.0.5] - 2020-04-08<a class="headerlink" href="#id165" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id166">
-<h3>Added<a class="headerlink" href="#id166" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id168">
+<h2>[3.0.5] - 2020-04-08<a class="headerlink" href="#id168" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id169">
+<h3>Added<a class="headerlink" href="#id169" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>It is now possible to provide a time stamp for LIN transmissions. For this,
 overloads have been added to
@@ -5714,8 +5739,8 @@ subdirectory of the VIB package.
 In case of error a std::runtime_error is thrown.</li>
 </ul>
 </div>
-<div class="section" id="id167">
-<h3>Changed<a class="headerlink" href="#id167" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id170">
+<h3>Changed<a class="headerlink" href="#id170" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Don’t format Logger messages if the messages aren’t going to be
 logged anyways.</li>
@@ -5731,10 +5756,10 @@ logged anyways.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id168">
-<h2>[3.0.4] - 2020-03-19<a class="headerlink" href="#id168" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id169">
-<h3>Added<a class="headerlink" href="#id169" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id171">
+<h2>[3.0.4] - 2020-03-19<a class="headerlink" href="#id171" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id172">
+<h3>Added<a class="headerlink" href="#id172" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">A new FlexRay controller API is introduced for monitoring protocol operation
 control (POC) status changes, cf. <a class="reference internal" href="api/flexray.html#sec-poc-status-changes"><span class="std std-ref">Receiving POC Status Changes</span></a>.
@@ -5751,8 +5776,8 @@ See compatibility below for details.</p>
 </li>
 </ul>
 </div>
-<div class="section" id="id170">
-<h3>Changed<a class="headerlink" href="#id170" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id173">
+<h3>Changed<a class="headerlink" href="#id173" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Clarify error messages on connection loss for VAsio. The previous term
 “Shutdown” was ambiguous, the error reason now states “Connection
@@ -5760,8 +5785,8 @@ lost” (AFTMAGT-260).</li>
 <li>Disable problematic FastRTPS connection loss detection (AFTMAGT-259).</li>
 </ul>
 </div>
-<div class="section" id="id171">
-<h3>Deprecated<a class="headerlink" href="#id171" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id174">
+<h3>Deprecated<a class="headerlink" href="#id174" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">IFrController::RegisterControllerStatusHandler()</span></code>
 is now deprecated in favor of
@@ -5771,8 +5796,8 @@ The usage of RegisterControllerStatusHandler will result in a warning
 at runtime and compile time.</li>
 </ul>
 </div>
-<div class="section" id="id172">
-<h3>Fixed<a class="headerlink" href="#id172" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id175">
+<h3>Fixed<a class="headerlink" href="#id175" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The IbRegistry can now be used for multiple simulation runs without the need
 to terminate and restart it (AFTMAGT-249).</li>
@@ -5795,23 +5820,23 @@ v3.0.3 and v3.0.4 participants.</p>
 </ul>
 </div>
 </div>
-<div class="section" id="id173">
-<h2>[3.0.3] - 2020-02-26<a class="headerlink" href="#id173" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id174">
-<h3>Added<a class="headerlink" href="#id174" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id176">
+<h2>[3.0.3] - 2020-02-26<a class="headerlink" href="#id176" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id177">
+<h3>Added<a class="headerlink" href="#id177" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>New integration test ensuring that VAsio is fully deterministic and delivers messages strictly in-order.
 This test replaces the demo GenericMessageITest, which is now obsolete and has been removed for this reason.</li>
 </ul>
 </div>
-<div class="section" id="id175">
-<h3>Fixed<a class="headerlink" href="#id175" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id178">
+<h3>Fixed<a class="headerlink" href="#id178" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>ib::version::Patch() was set to a wrong value.</li>
 </ul>
 </div>
-<div class="section" id="id176">
-<h3>Removed<a class="headerlink" href="#id176" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id179">
+<h3>Removed<a class="headerlink" href="#id179" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Removed demo GenericMessageITest.</li>
 </ul>
@@ -5829,8 +5854,8 @@ This test replaces the demo GenericMessageITest, which is now obsolete and has b
 <div class="section" id="qa-2020-02-10">
 <h2>[3.0.2-QA] - 2020-02-10<a class="headerlink" href="#qa-2020-02-10" title="Permalink to this headline">¶</a></h2>
 <p>This is a Quality Assured Release.</p>
-<div class="section" id="id177">
-<h3>Added<a class="headerlink" href="#id177" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id180">
+<h3>Added<a class="headerlink" href="#id180" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Documentation for the CAN controller API: <a class="reference internal" href="api/can.html"><span class="doc">CAN Vehicle Network Controllers</span></a>.</li>
 <li>Documentation for the Participant Controller API: <a class="reference internal" href="#changelog-outdated-reference"><span class="std std-ref">Outdated References</span></a> (<code class="docutils literal notranslate"><span class="pre">api/participantcontroller</span></code>) (AFTMAGT-206).</li>
@@ -5845,8 +5870,8 @@ This test replaces the demo GenericMessageITest, which is now obsolete and has b
 <li>Add docs for <a class="reference internal" href="api/ethernet.html"><span class="doc">Ethernet Service API</span></a> (AFTMAGT-239).</li>
 </ul>
 </div>
-<div class="section" id="id178">
-<h3>Changed<a class="headerlink" href="#id178" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id181">
+<h3>Changed<a class="headerlink" href="#id181" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Removed the upper limit of the VAsio send Queue, to avoid that critical
 IbMessages are thrown away. (AFTMAGT-240)</li>
@@ -5855,8 +5880,8 @@ IbMessages are thrown away. (AFTMAGT-240)</li>
 utility. I.e., it is now part of the binary delivery.</li>
 </ul>
 </div>
-<div class="section" id="id179">
-<h3>Fixed<a class="headerlink" href="#id179" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id182">
+<h3>Fixed<a class="headerlink" href="#id182" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The LIN controller now only calls the goToSleepHandler if the frame id and
 also the data field of a received LIN frame matches the id and data of a valid
@@ -5885,10 +5910,10 @@ effect for this syncType.</li>
 </ul>
 </div>
 </div>
-<div class="section" id="id180">
-<h2>[3.0.1] - 2020-01-08<a class="headerlink" href="#id180" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id181">
-<h3>Added<a class="headerlink" href="#id181" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id183">
+<h2>[3.0.1] - 2020-01-08<a class="headerlink" href="#id183" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id184">
+<h3>Added<a class="headerlink" href="#id184" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>New config parameter “HistoryDepth” added to FastRTPS config section. This value is used to
 set the history size for all FastRTPS topics.</li>
@@ -5899,14 +5924,14 @@ generate an Ib Config, the new FastRTPS HistoryDepth can be configured this way.
 <li>Extend the simulation setup documentation, cf. ../configuration/simulation-setup</li>
 </ul>
 </div>
-<div class="section" id="id182">
-<h3>Changed<a class="headerlink" href="#id182" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id185">
+<h3>Changed<a class="headerlink" href="#id185" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The IbLauncher CANoe environment module was adapted to the new CANoe Extensions packaging format.</li>
 </ul>
 </div>
-<div class="section" id="id183">
-<h3>Fixed<a class="headerlink" href="#id183" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id186">
+<h3>Fixed<a class="headerlink" href="#id186" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>A check was added to prevent participants from using ParticipantID 0, since this ID is reserved for the Registry when VAsio is used.</li>
 </ul>
@@ -5921,16 +5946,16 @@ generate an Ib Config, the new FastRTPS HistoryDepth can be configured this way.
 </ul>
 </div>
 </div>
-<div class="section" id="id184">
-<h2>[3.0.0] - 2019-12-03<a class="headerlink" href="#id184" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id185">
-<h3>Added<a class="headerlink" href="#id185" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id187">
+<h2>[3.0.0] - 2019-12-03<a class="headerlink" href="#id187" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id188">
+<h3>Added<a class="headerlink" href="#id188" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The logging mechanism now includes the most important elements of sent and received IB messages (AFTMAGT-217).</li>
 </ul>
 </div>
-<div class="section" id="id186">
-<h3>Changed<a class="headerlink" href="#id186" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id189">
+<h3>Changed<a class="headerlink" href="#id189" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">The VIB distribution uses a new directory layout for packages:</p>
 <dl class="docutils">
@@ -5961,8 +5986,8 @@ The CMake build infrastructure automatically downloads a git snapshot if needed 
 </li>
 </ul>
 </div>
-<div class="section" id="id187">
-<h3>Fixed<a class="headerlink" href="#id187" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id190">
+<h3>Fixed<a class="headerlink" href="#id190" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed the Participant subscription in VASio (AFTMAGT-216). Creating an IB service will now block until all the necessary subscriptions have been acknowledged by all known participants.</li>
 </ul>
@@ -5977,10 +6002,10 @@ The CMake build infrastructure automatically downloads a git snapshot if needed 
 </ul>
 </div>
 </div>
-<div class="section" id="id188">
-<h2>[2.0.0] - 2019-11-06<a class="headerlink" href="#id188" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id189">
-<h3>Added<a class="headerlink" href="#id189" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id191">
+<h2>[2.0.0] - 2019-11-06<a class="headerlink" href="#id191" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id192">
+<h3>Added<a class="headerlink" href="#id192" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">New watchdog functionality for SimTasks with soft and hard limits. Whenever a
 SimTask runs longer than the soft limit, a warning is logged. If it runs
@@ -6025,8 +6050,8 @@ with the new methods.</p>
 </li>
 </ul>
 </div>
-<div class="section" id="id190">
-<h3>Changed<a class="headerlink" href="#id190" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id193">
+<h3>Changed<a class="headerlink" href="#id193" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Transitions from the shutdown state to the error state are no longer allowed.
 With the recently added connection loss detection, participants could also
@@ -6044,8 +6069,8 @@ for a bug fix and is a breaking change on the network layer.</li>
 required for a bug fix and is breaking change on the network layer.</li>
 </ul>
 </div>
-<div class="section" id="id191">
-<h3>Fixed<a class="headerlink" href="#id191" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id194">
+<h3>Fixed<a class="headerlink" href="#id194" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>CAN controllers now only call the TransmitStatusHandler if they did send the
 corresponding CAN message. Previously, in a simulation with more than two CAN
@@ -6056,8 +6081,8 @@ ethernet controllers, the callback could be triggered without having sent a
 message.</li>
 </ul>
 </div>
-<div class="section" id="id192">
-<h3>Deprecated<a class="headerlink" href="#id192" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id195">
+<h3>Deprecated<a class="headerlink" href="#id195" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">The Participant config setting SyncType has been deprecated. The SyncType is
 now configured in the ParticipantController section.</p>
@@ -6109,10 +6134,10 @@ ParticipantConfigBuilder::WithSyncType() instead.</p>
 </ul>
 </div>
 </div>
-<div class="section" id="id193">
-<h2>[1.1.0] - 2019-09-16<a class="headerlink" href="#id193" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id194">
-<h3>Added<a class="headerlink" href="#id194" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id196">
+<h2>[1.1.0] - 2019-09-16<a class="headerlink" href="#id196" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id197">
+<h3>Added<a class="headerlink" href="#id197" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Added a connection loss mechanism in FastRTPS and VAsio middleware. Lossing the
 connection of one participant will lead the system to go into Error state.</li>
@@ -6127,8 +6152,8 @@ an updated ParticipantStatus with State Error and a note that the connection
 was lost.</li>
 </ul>
 </div>
-<div class="section" id="id195">
-<h3>Fixed<a class="headerlink" href="#id195" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id198">
+<h3>Fixed<a class="headerlink" href="#id198" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed FlexRay parameter validation, which could cause valid parameter sets to
 be rejected. E.g., gdSymbolWindows has a valid range from 0 to 162, but we
@@ -6139,7 +6164,7 @@ ParticipantStatus values.</li>
 </ul>
 </div>
 <div class="section" id="changelog-1-0-0-removed">
-<span id="id196"></span><h3>Removed<a class="headerlink" href="#changelog-1-0-0-removed" title="Permalink to this headline">¶</a></h3>
+<span id="id199"></span><h3>Removed<a class="headerlink" href="#changelog-1-0-0-removed" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>IComAdapter::RegisterNewPeerCallback() was removed. This method was only
 intended as an IB-internal helper method and never officially announced as
@@ -6159,15 +6184,15 @@ part of the public API.</li>
 <div class="section" id="qa-2019-09-25">
 <h2>[1.0.0-QA] - 2019-09-25<a class="headerlink" href="#qa-2019-09-25" title="Permalink to this headline">¶</a></h2>
 <p>This is a Quality Assured Release.</p>
-<div class="section" id="id197">
-<h3>Added<a class="headerlink" href="#id197" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id200">
+<h3>Added<a class="headerlink" href="#id200" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The logging facilities can now be configured per participant using the IB
 config. E.g., different sinks and log levels can be configured.</li>
 </ul>
 </div>
-<div class="section" id="id198">
-<h3>Changed<a class="headerlink" href="#id198" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id201">
+<h3>Changed<a class="headerlink" href="#id201" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The LIN API was redesigned to provide a clearer and simpler interface. To make
 the transition to the new API as simple as possible, we provided extensive
@@ -6183,8 +6208,8 @@ clearly from build tools. For the time being, the IbRegistry is the only
 utility.</li>
 </ul>
 </div>
-<div class="section" id="id199">
-<h3>Fixed<a class="headerlink" href="#id199" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id202">
+<h3>Fixed<a class="headerlink" href="#id202" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed a crash in the IbLauncher when the IbConfig did not specify a
 MiddlewareConfig or an ActiveMiddleware.</li>
@@ -6209,22 +6234,22 @@ CHANGELOG.rst is installed in addition to the HTML documentation.</li>
 </div>
 <div class="section" id="sprint-31-2019-08-14">
 <h2>[Sprint-31] - 2019-08-14<a class="headerlink" href="#sprint-31-2019-08-14" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id200">
-<h3>Added<a class="headerlink" href="#id200" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id203">
+<h3>Added<a class="headerlink" href="#id203" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>New VAsio middleware as an alternative to Fast-RTPS, the VAsio middleware was
 specifically developped for the integration bus to provide high performance and
 stability. Cf. <a class="reference internal" href="configuration/middleware-configuration.html"><span class="doc">Middleware Configuration</span></a>.</li>
 </ul>
 </div>
-<div class="section" id="id201">
-<h3>Changed<a class="headerlink" href="#id201" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id204">
+<h3>Changed<a class="headerlink" href="#id204" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Upgrade Fast-RTPS to version v1.8.1. This improves stability on Linux.</li>
 </ul>
 </div>
-<div class="section" id="id202">
-<h3>Fixed<a class="headerlink" href="#id202" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id205">
+<h3>Fixed<a class="headerlink" href="#id205" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed a crash in the IbLauncher when the IbConfig did not specify a
 MiddlewareConfig or an ActiveMiddleware.</li>
@@ -6242,8 +6267,8 @@ MiddlewareConfig or an ActiveMiddleware.</li>
 </div>
 <div class="section" id="sprint-30-2019-07-31">
 <h2>[Sprint-30] - 2019-07-31<a class="headerlink" href="#sprint-30-2019-07-31" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id203">
-<h3>Fixed<a class="headerlink" href="#id203" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id206">
+<h3>Fixed<a class="headerlink" href="#id206" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Attempting to create a ComAdapter with an empty name will now throw
 a misconfiguration exception with a proper error message.</li>
@@ -6260,15 +6285,15 @@ a misconfiguration exception with a proper error message.</li>
 </div>
 <div class="section" id="sprint-29-2019-07-17">
 <h2>[Sprint-29] - 2019-07-17<a class="headerlink" href="#sprint-29-2019-07-17" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id204">
-<h3>Added<a class="headerlink" href="#id204" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id207">
+<h3>Added<a class="headerlink" href="#id207" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>It is now possible to reconfigure FlexRay TX-Buffers during the simulation, e.g., to change offset
 and repetition. Cf. <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">IFrController::ReconfigureTxBuffer()</span></code></li>
 </ul>
 </div>
-<div class="section" id="id205">
-<h3>Changed<a class="headerlink" href="#id205" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id208">
+<h3>Changed<a class="headerlink" href="#id208" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>This is the last entry to CHANGELOG.md. From now on, the changelog
 will be maintained in docs/CHANGELOG.rst.</li>
@@ -6277,8 +6302,8 @@ header project IbApi has been added.</li>
 <li>The IbLauncher now prefers Python 3 if available</li>
 </ul>
 </div>
-<div class="section" id="id206">
-<h3>Fixed<a class="headerlink" href="#id206" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id209">
+<h3>Fixed<a class="headerlink" href="#id209" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fix logger nullptr bug in SystemMonitor</li>
 <li>Fast-RTPS ComAdapter creation is now thread safe</li>
@@ -6295,14 +6320,14 @@ header project IbApi has been added.</li>
 </div>
 <div class="section" id="sprint-28-2019-07-03">
 <h2>[Sprint-28] - 2019-07-03<a class="headerlink" href="#sprint-28-2019-07-03" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id207">
-<h3>Added<a class="headerlink" href="#id207" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id210">
+<h3>Added<a class="headerlink" href="#id210" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>New demo that shows how integration tests can be written for the Vector Integration Bus.</li>
 </ul>
 </div>
-<div class="section" id="id208">
-<h3>Fixed<a class="headerlink" href="#id208" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id211">
+<h3>Fixed<a class="headerlink" href="#id211" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>IbLauncher can now be started from every directory location on Linux and Windows. The global
 IntegrationBus-BinPath and IntegrationBus-LibPath are now set to absolute paths inside the
@@ -6324,15 +6349,15 @@ random socket buffer sizes in release builds.</li>
 </div>
 <div class="section" id="sprint-27-2019-06-19">
 <h2>[Sprint-27] - 2019-06-19<a class="headerlink" href="#sprint-27-2019-06-19" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id209">
-<h3>Changed<a class="headerlink" href="#id209" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id212">
+<h3>Changed<a class="headerlink" href="#id212" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>NetworkSimulator VIBE is now only used for configured links. For all other links,
 the trivial simulation is used.</li>
 </ul>
 </div>
-<div class="section" id="id210">
-<h3>Fixed<a class="headerlink" href="#id210" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id213">
+<h3>Fixed<a class="headerlink" href="#id213" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The IB Launcher will now work if installed in a path containing spaces.</li>
 <li>The FlexRay configuration will now use strings to represent the enumeration values of pChannels,
@@ -6356,8 +6381,8 @@ new valid values are:<ul>
 </div>
 <div class="section" id="sprint-26-2019-05-29">
 <h2>[Sprint-26] - 2019-05-29<a class="headerlink" href="#sprint-26-2019-05-29" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id211">
-<h3>Added<a class="headerlink" href="#id211" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id214">
+<h3>Added<a class="headerlink" href="#id214" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>New FlexRay controller callback
 <code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">IFrController::CycleStartHandler()</span></code>,
@@ -6367,8 +6392,8 @@ VIBE simulation.</li>
 <li>New config options to configure FlexRay TxBuffers</li>
 </ul>
 </div>
-<div class="section" id="id212">
-<h3>Fixed<a class="headerlink" href="#id212" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id215">
+<h3>Fixed<a class="headerlink" href="#id215" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed broken CMake target for installed IntegrationBus target:
 With the introduction of spdlog, the IntegrationBus cmake target depends on spdlog::spdlog target.
@@ -6379,8 +6404,8 @@ config file was generated). Thus, the installed IntegrationBus target could not 
 </div>
 <div class="section" id="sprint-25-2019-05-14">
 <h2>[Sprint-25] - 2019-05-14<a class="headerlink" href="#sprint-25-2019-05-14" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id213">
-<h3>Added<a class="headerlink" href="#id213" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id216">
+<h3>Added<a class="headerlink" href="#id216" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The FlexRay cluster and node configuration can now be specified in the IbConfig.json.</li>
 <li>It is now possible to use
@@ -6392,8 +6417,8 @@ LIN message from a master to slaves instead of the
 <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendMessage()</span></code>.</li>
 </ul>
 </div>
-<div class="section" id="id214">
-<h3>Fixed<a class="headerlink" href="#id214" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id217">
+<h3>Fixed<a class="headerlink" href="#id217" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>LIN Controller models are now robust to out-of-order configuration. It is no longer necessary to
 configure the master node before the slaves. And the master can handle an out-of-order
@@ -6403,8 +6428,8 @@ configuration, e.g., if a response reaches the master before the response config
 </div>
 <div class="section" id="sprint-24-2019-03-13">
 <h2>[Sprint-24] - 2019-03-13<a class="headerlink" href="#sprint-24-2019-03-13" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id215">
-<h3>Added<a class="headerlink" href="#id215" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id218">
+<h3>Added<a class="headerlink" href="#id218" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Support to swap out participants between simulation runs. A participant can activate the so called
 coldswap feature by calling
@@ -6421,8 +6446,8 @@ any further sinks, e.g., to print logging messages to std out. Examples for this
 the CAN demo and in the PassiveSystemMonitor.</li>
 </ul>
 </div>
-<div class="section" id="id216">
-<h3>Changed<a class="headerlink" href="#id216" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id219">
+<h3>Changed<a class="headerlink" href="#id219" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The signature of simulation tasks has changed from void(std::chrono::nanoseconds now) to
 void(std::chrono::nanoseconds now, std::chrono::nanoseconds duration). The guaranteed simulation
@@ -6436,15 +6461,15 @@ considered deprecated and will be removed in a future sprint.</li>
 </div>
 <div class="section" id="sprint-22-2019-02-06">
 <h2>[Sprint-22] - 2019-02-06<a class="headerlink" href="#sprint-22-2019-02-06" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id217">
-<h3>Added<a class="headerlink" href="#id217" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id220">
+<h3>Added<a class="headerlink" href="#id220" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The IbConfig is now validated before creating a ComAdapter. NB: ib::CreateFastRtpsComAdapter()
 will now also throw Misconfiguration exceptions!</li>
 </ul>
 </div>
-<div class="section" id="id218">
-<h3>Fixed<a class="headerlink" href="#id218" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id221">
+<h3>Fixed<a class="headerlink" href="#id221" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The IbLauncher now correctly shows both stdout and stderr. Previously, only stdout was shown.</li>
 </ul>
@@ -6452,8 +6477,8 @@ will now also throw Misconfiguration exceptions!</li>
 </div>
 <div class="section" id="sprint-21-2019-01-23">
 <h2>[Sprint-21] - 2019-01-23<a class="headerlink" href="#sprint-21-2019-01-23" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id219">
-<h3>Added<a class="headerlink" href="#id219" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id222">
+<h3>Added<a class="headerlink" href="#id222" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Strict sync, i.e., calling wait_for_all_acked() between ticks, is now
 configurable via the IbConfig.json: SimulationSetup/TimeSync/SyncPolicy.</li>
@@ -6461,8 +6486,8 @@ configurable via the IbConfig.json: SimulationSetup/TimeSync/SyncPolicy.</li>
 ComAdapter will now automatically create the SyncMaster instance.</li>
 </ul>
 </div>
-<div class="section" id="id220">
-<h3>Removed<a class="headerlink" href="#id220" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id223">
+<h3>Removed<a class="headerlink" href="#id223" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>SimulationSetup/TimeSync/SyncType has been removed
 from the IbConfig.json as the SyncType can now be configured per participant.</li>
@@ -6470,8 +6495,8 @@ from the IbConfig.json as the SyncType can now be configured per participant.</l
 This is now handled automatically according to the configured SyncPolicy.</li>
 </ul>
 </div>
-<div class="section" id="id221">
-<h3>Changed<a class="headerlink" href="#id221" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id224">
+<h3>Changed<a class="headerlink" href="#id224" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The TimeSyncConfigBuilder is now accessed ib::cfg::SimulationSetupBuilder::ConfigureTimeSync().
 Old: ib::cfg::SimulationSetupBuilder::SetSyncType(SyncType).</li>
@@ -6481,8 +6506,8 @@ strict mode, wait_for_all_acked() is used and a short heartbeat period is used.<
 SyncMaster is automatically instantiated by the FastRtpsComAdapter if configured.</li>
 </ul>
 </div>
-<div class="section" id="id222">
-<h3>Fixed<a class="headerlink" href="#id222" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id225">
+<h3>Fixed<a class="headerlink" href="#id225" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>SystemMonitor was made more robust to race conditions that could lead to a IB
 Startup Failure (SystemState stuck in SystemState::Invalid)</li>
@@ -6491,8 +6516,8 @@ Startup Failure (SystemState stuck in SystemState::Invalid)</li>
 </div>
 <div class="section" id="sprint-20-2018-12-19">
 <h2>[Sprint-20] - 2018-12-19<a class="headerlink" href="#sprint-20-2018-12-19" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id223">
-<h3>Added<a class="headerlink" href="#id223" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id226">
+<h3>Added<a class="headerlink" href="#id226" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>LIN: new method ILinController::SetResponseWithChecksum() to override the
 configured checksum model. This can be used to facilitate fault injection and
@@ -6502,15 +6527,15 @@ ILinController methods: SetSleepMode(), SetOperationalMode(), SendGoToSleep(),
 SendWakeupRequest() and related callbacks.</li>
 </ul>
 </div>
-<div class="section" id="id224">
-<h3>Removed<a class="headerlink" href="#id224" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id227">
+<h3>Removed<a class="headerlink" href="#id227" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Demo projects ExecutionController and ExecutionControllerProxy were based on
 the deprecated synchronization API and were Removed</li>
 </ul>
 </div>
-<div class="section" id="id225">
-<h3>Changed<a class="headerlink" href="#id225" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id228">
+<h3>Changed<a class="headerlink" href="#id228" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>LIN: IMPORTANT you must now specify a LIN ID for each lin::SlaveResponseConfig.
 lin::SlaveConfig now longer identifies the lin::SlaveResponses by positions.</li>
@@ -6538,8 +6563,8 @@ ib::Simulation::Can|Ethernet|Flexray|Generic|Io|Lin|Kernels -&gt; ib::sim::can|e
 </div>
 <div class="section" id="sprint-19-2018-12-05">
 <h2>[Sprint-19] - 2018-12-05<a class="headerlink" href="#sprint-19-2018-12-05" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id226">
-<h3>Added<a class="headerlink" href="#id226" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id229">
+<h3>Added<a class="headerlink" href="#id229" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>New unified SyncMaster that replaces the SyncMasterDt and
 SyncMasterTtd. Requires new state handling with ParticipantController</li>
@@ -6552,21 +6577,21 @@ ib::version::BuildNumber()</li>
 IntegrationBus.dll</li>
 </ul>
 </div>
-<div class="section" id="id227">
-<h3>Removed<a class="headerlink" href="#id227" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id230">
+<h3>Removed<a class="headerlink" href="#id230" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>“MiddlewareConfig/FastRTPS/CommunicationMaster” has been removed
 and replaced with the new DiscoveryType options.</li>
 </ul>
 </div>
-<div class="section" id="id228">
-<h3>Changed<a class="headerlink" href="#id228" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id231">
+<h3>Changed<a class="headerlink" href="#id231" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>SyncMasterDt and SyncMasterTtd are now considered deprecated.</li>
 </ul>
 </div>
-<div class="section" id="id229">
-<h3>Fixed<a class="headerlink" href="#id229" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id232">
+<h3>Fixed<a class="headerlink" href="#id232" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Unicast discovery is now working with DiscoveryType Unicast and a list of the
 participants’ IP-Addresses.</li>
@@ -6575,8 +6600,8 @@ participants’ IP-Addresses.</li>
 </div>
 <div class="section" id="sprint-18-2018-11-21">
 <h2>[Sprint-18] - 2018-11-21<a class="headerlink" href="#sprint-18-2018-11-21" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id230">
-<h3>Added<a class="headerlink" href="#id230" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id233">
+<h3>Added<a class="headerlink" href="#id233" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>New IbLauncher to startup a whole IB System. See /Launcher/README.md for infos
 on how to use (AFTMAGT-120)</li>
@@ -6586,15 +6611,15 @@ ib::version::String(), ib::version::SprintNumber(), ib::version::SprintName(),
 ib::version::GitHash() (AFTMAGT-154)</li>
 </ul>
 </div>
-<div class="section" id="id231">
-<h3>Removed<a class="headerlink" href="#id231" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id234">
+<h3>Removed<a class="headerlink" href="#id234" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>LinkId has been removed from CAN, LIN, FlexRay and Ethernet data types, as
 they are no longer needed (see below).</li>
 </ul>
 </div>
-<div class="section" id="id232">
-<h3>Changed<a class="headerlink" href="#id232" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id235">
+<h3>Changed<a class="headerlink" href="#id235" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>LIN masters now directly store slave responses to answer any request without
 delay. Instead of emulating LIN communication over the IB, LIN slaves now send
@@ -6611,8 +6636,8 @@ messages accordingly. This is no longer necessary. (AFTMAGT-140)</li>
 </div>
 <div class="section" id="sprint-17-2018-11-07">
 <h2>[Sprint-17] - 2018-11-07<a class="headerlink" href="#sprint-17-2018-11-07" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id233">
-<h3>Added<a class="headerlink" href="#id233" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id236">
+<h3>Added<a class="headerlink" href="#id236" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>New state handling, which is provided by the following classes:</li>
 </ul>
@@ -6643,8 +6668,8 @@ monitor or control the simulation but not participante as an active client)</li>
 IGenericSubscriber (AFTMAGT-137)</li>
 </ul>
 </div>
-<div class="section" id="id234">
-<h3>Changed<a class="headerlink" href="#id234" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id237">
+<h3>Changed<a class="headerlink" href="#id237" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The old state handling including the old SyncAdapters is now considered deprecated!
 This affects the following classes: sync::ISyncAdapterDt, sync::ISyncAdapterTtd,
@@ -6658,8 +6683,8 @@ IComAdapter::CreateSyncMasterDt(), IComAdapter::CreateExecutionControllerProxy()
 </div>
 <div class="section" id="sprint-15-2018-10-10">
 <h2>[Sprint-15] - 2018-10-10<a class="headerlink" href="#sprint-15-2018-10-10" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id235">
-<h3>Added<a class="headerlink" href="#id235" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id238">
+<h3>Added<a class="headerlink" href="#id238" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Documentation for throwing behavior at API level (AFTMAGT-50)</li>
 <li>Doxygen documentation for vehicle network controller APIs (AFTMAGT-126)</li>
@@ -6668,8 +6693,8 @@ IComAdapter::CreateSyncMasterDt(), IComAdapter::CreateExecutionControllerProxy()
 specified in the ib config (Config.middlewareConfig.fastRtps) (AFTMAGT-138)</li>
 </ul>
 </div>
-<div class="section" id="id236">
-<h3>Fixed<a class="headerlink" href="#id236" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id239">
+<h3>Fixed<a class="headerlink" href="#id239" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed a bug that caused the FastRTPS communication to sporadically hang (AFTMAGT-126)</li>
 <li>The number of links for IO ports is no longer limited (AFTMAGT-134)</li>
@@ -6678,8 +6703,8 @@ specified in the ib config (Config.middlewareConfig.fastRtps) (AFTMAGT-138)</li>
 </div>
 <div class="section" id="sprint-14-2018-09-27">
 <h2>[Sprint-14] - 2018-09-27<a class="headerlink" href="#sprint-14-2018-09-27" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id237">
-<h3>Added<a class="headerlink" href="#id237" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id240">
+<h3>Added<a class="headerlink" href="#id240" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>GenericPublisher::Config() and GenericSubscriber::Config() accessors for corresponding config items. This allows retrieving the name of a Publisher or Subscriber (AFTMAGT-125)</li>
 <li>ib::cfg::Config::ToJsonString() converts an integration bus config to a parsable json string.</li>
@@ -6687,14 +6712,14 @@ specified in the ib config (Config.middlewareConfig.fastRtps) (AFTMAGT-138)</li>
 <li>The generic message demo now uses time synchronization, i.e., an ExecutionController is required to run the demo</li>
 </ul>
 </div>
-<div class="section" id="id238">
-<h3>Changed<a class="headerlink" href="#id238" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id241">
+<h3>Changed<a class="headerlink" href="#id241" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>ExecutionController demo now terminates automatically unless started with –waitForKeyPress</li>
 </ul>
 </div>
-<div class="section" id="id239">
-<h3>Fixed<a class="headerlink" href="#id239" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id242">
+<h3>Fixed<a class="headerlink" href="#id242" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The byte order of mac addresses in ethernet frames was fixed</li>
 </ul>
@@ -6702,8 +6727,8 @@ specified in the ib config (Config.middlewareConfig.fastRtps) (AFTMAGT-138)</li>
 </div>
 <div class="section" id="sprint-13-2018-09-12">
 <h2>[Sprint-13] - 2018-09-12<a class="headerlink" href="#sprint-13-2018-09-12" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id240">
-<h3>Added<a class="headerlink" href="#id240" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id243">
+<h3>Added<a class="headerlink" href="#id243" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Changelog :)</li>
 <li>ib::cfg::ConfigBuilder to create IbConfigs programatically, cf. example in Demo/ConfigBuilder/ConfigBuilderDemo.cpp.</li>
@@ -6714,15 +6739,15 @@ specified in the ib config (Config.middlewareConfig.fastRtps) (AFTMAGT-138)</li>
 <li>FastRTPS version bump from v1.5.0 to v1.6.0. FastRTPS is now included as a sub module</li>
 </ul>
 </div>
-<div class="section" id="id241">
-<h3>Removed<a class="headerlink" href="#id241" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id244">
+<h3>Removed<a class="headerlink" href="#id244" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>ib::sim::IGenericMessageController()</li>
 <li>ib::mw::IComAdapter::CreateGenericMessageController()</li>
 </ul>
 </div>
-<div class="section" id="id242">
-<h3>Changed<a class="headerlink" href="#id242" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id245">
+<h3>Changed<a class="headerlink" href="#id245" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Moved config headers to /include/ib/cfg to match namespace, i.e.,
 /include/ib/Config.hpp moved to /include/ib/cfg/Config.hpp.</li>
@@ -6758,65 +6783,66 @@ IntegrationBus to which the changelog entry belongs.</p>
 <li class="toctree-l1"><a class="reference internal" href="configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/utilities.html">Utilities</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">[4.0.6] - 2022-09-06</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#initial-public-release-quality-assured-release">[4.0.5] - 2022-08-25 Initial public release (quality assured release)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">[4.0.4] - 2022-08-22</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">[4.0.3] - 2022-08-22</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">[4.0.2] - 2022-08-15</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">[4.0.1] - 2022-08-15</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id9">[4.0.0] - 2022-08-11</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id14">[3.99.30] - 2022-08-09</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id18">[3.99.29] - 28-07-2022</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id21">[3.99.28] - 2022-07-26</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id24">[3.99.27] - 2022-07-14</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id29">[3.99.26] - 2022-06-29</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id33">[3.99.25] - 2022-06-13</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id37">[3.99.24] - 2022-05-30</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id40">[3.99.23] - 25-05-2022</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id44">[3.99.22] - 2022-05-17</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id49">[3.99.21] - 2022-05-03</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id53">[3.99.20] - 2022-04-20</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id57">[3.99.19] - 2022-04-19</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id61">[3.7.18] - 2022-04-05</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id65">[3.7.13] - 2022-03-24</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id68">[3.7.8] - 2022-03-09</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">[4.0.4] - 2022-08-22</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">[4.0.3] - 2022-08-22</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">[4.0.2] - 2022-08-15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">[4.0.1] - 2022-08-15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">[4.0.0] - 2022-08-11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">[3.99.30] - 2022-08-09</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id21">[3.99.29] - 28-07-2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id24">[3.99.28] - 2022-07-26</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id27">[3.99.27] - 2022-07-14</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id32">[3.99.26] - 2022-06-29</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id36">[3.99.25] - 2022-06-13</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id40">[3.99.24] - 2022-05-30</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id43">[3.99.23] - 25-05-2022</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id47">[3.99.22] - 2022-05-17</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id52">[3.99.21] - 2022-05-03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id56">[3.99.20] - 2022-04-20</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id60">[3.99.19] - 2022-04-19</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id64">[3.7.18] - 2022-04-05</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id68">[3.7.13] - 2022-03-24</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id71">[3.7.8] - 2022-03-09</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#unreleased">[3.7.2] - unreleased</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id73">[3.7.1] - unreleased</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id75">[3.7.0] - unreleased</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id77">[3.6.3] - 2022-01</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id79">[3.6.2] - 2021-12-16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id76">[3.7.1] - unreleased</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id78">[3.7.0] - unreleased</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id80">[3.6.3] - 2022-01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id82">[3.6.2] - 2021-12-16</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#qa-2021-12-10">[3.6.1-QA] - 2021-12-10</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id85">[3.6.0] - 2021-12-01</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id89">[3.4.6] - 2021-11-16</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id93">[3.4.5] - 2021-11-03</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id96">[3.4.4] - 2021-10-20</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id88">[3.6.0] - 2021-12-01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id92">[3.4.6] - 2021-11-16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id96">[3.4.5] - 2021-11-03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id99">[3.4.4] - 2021-10-20</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#qa-2021-09-15">[3.4.3-QA] - 2021-09-15</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id102">[3.4.2] - 2021-08-04</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id106">[3.4.1] - 2021-06-25</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id110">[3.4.0] - 2021-06-01</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id105">[3.4.2] - 2021-08-04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id109">[3.4.1] - 2021-06-25</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id113">[3.4.0] - 2021-06-01</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#qa-2021-05-10">[3.3.10-QA] - 2021-05-10</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id115">[3.3.9] - 2021-04-09</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id118">[3.3.8] - 2021-02-18</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id121">[3.3.7] - 2021-01-27</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id118">[3.3.9] - 2021-04-09</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id121">[3.3.8] - 2021-02-18</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id124">[3.3.7] - 2021-01-27</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#qa-2020-12-10">[3.3.6-QA] - 2020-12-10</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id126">[3.3.5] - 2020-11-26</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id130">[3.3.4] - 2020-11-04</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id134">[3.3.3] - 2020-10-15</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id137">[3.3.2] - 2020-09-24</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id129">[3.3.5] - 2020-11-26</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id133">[3.3.4] - 2020-11-04</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id137">[3.3.3] - 2020-10-15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id140">[3.3.2] - 2020-09-24</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#qa-2020-08-27">[3.3.1-QA] - 2020-08-27</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id141">[3.3.0] - 2020-08-12</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id144">[3.2.1] - 2020-07-23</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id148">[3.2.0] - 2020-07-06</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id152">[3.1.0] - 2020-06-15</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id157">[3.0.7] - 2020-05-25</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id162">[3.0.6] - 2020-04-30</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id165">[3.0.5] - 2020-04-08</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id168">[3.0.4] - 2020-03-19</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id173">[3.0.3] - 2020-02-26</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id144">[3.3.0] - 2020-08-12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id147">[3.2.1] - 2020-07-23</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id151">[3.2.0] - 2020-07-06</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id155">[3.1.0] - 2020-06-15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id160">[3.0.7] - 2020-05-25</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id165">[3.0.6] - 2020-04-30</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id168">[3.0.5] - 2020-04-08</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id171">[3.0.4] - 2020-03-19</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id176">[3.0.3] - 2020-02-26</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#qa-2020-02-10">[3.0.2-QA] - 2020-02-10</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id180">[3.0.1] - 2020-01-08</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id184">[3.0.0] - 2019-12-03</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id188">[2.0.0] - 2019-11-06</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id193">[1.1.0] - 2019-09-16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id183">[3.0.1] - 2020-01-08</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id187">[3.0.0] - 2019-12-03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id191">[2.0.0] - 2019-11-06</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id196">[1.1.0] - 2019-09-16</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#qa-2019-09-25">[1.0.0-QA] - 2019-09-25</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sprint-31-2019-08-14">[Sprint-31] - 2019-08-14</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sprint-30-2019-07-31">[Sprint-30] - 2019-07-31</a></li>
@@ -6876,7 +6902,7 @@ IntegrationBus to which the changelog entry belongs.</p>
         <li class="right" >
           <a href="usage/utilities.html" title="Utilities"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="contents.html">Vector SIL Kit 4.0.5 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="contents.html">Vector SIL Kit 4.0.6 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Changelog</a></li> 
       </ul>
     </div>
