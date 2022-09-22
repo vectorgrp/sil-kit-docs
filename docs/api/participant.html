@@ -1,272 +1,62 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-
-<!doctype html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Participant &#8212; Vector SIL Kit 4.0.6 documentation</title>
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/bizstyle.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Participant &mdash; Vector SIL Kit 4.0.7 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Header Files" href="header.html" />
-    <link rel="prev" title="API" href="api.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <!--[if lt IE 9]>
-    <script src="_static/css3-mediaqueries.js"></script>
-    <![endif]-->
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="header.html" title="Header Files"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="api.html" title="API"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="api.html" accesskey="U">API</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Participant</a></li> 
-      </ul>
-    </div>  
+    <link rel="prev" title="API" href="api.html" /> 
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="participant">
-<h1>Participant<a class="headerlink" href="#participant" title="Permalink to this headline">¶</a></h1>
-<div class="contents local topic" id="contents">
-<ul class="simple">
-<li><a class="reference internal" href="#creating-the-participant" id="id1">Creating the Participant</a></li>
-<li><a class="reference internal" href="#the-iparticipant-api" id="id2">The IParticipant API</a></li>
-<li><a class="reference internal" href="#sil-kit-version" id="id3">SIL Kit Version</a></li>
-</ul>
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
-<p>This document describes the main entry point to the SIL Kit simulation, the participant.
-By creating a participant with a given configuration, a connection
-to a simulation is established and the configured participant joins the simulation.</p>
-<div class="section" id="creating-the-participant">
-<h2><a class="toc-backref" href="#id1">Creating the Participant</a><a class="headerlink" href="#creating-the-participant" title="Permalink to this headline">¶</a></h2>
-<p>To create an <a class="reference internal" href="#_CPPv4N6SilKit12IParticipantE" title="SilKit::IParticipant"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IParticipant</span></code></a> you have to include the
-<a class="reference internal" href="header.html#sec-header"><span class="std std-ref">silkit/SilKit.hpp</span></a> and call the Participant API
-factory function:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">auto</span> <span class="n">config</span> <span class="o">=</span> <span class="n">SilKit</span><span class="p">::</span><span class="n">Config</span><span class="p">::</span><span class="n">ParticipantConfigurationFromFile</span><span class="p">(</span><span class="s2">&quot;my_config.yaml&quot;</span><span class="p">);</span>
-<span class="n">auto</span> <span class="n">participant</span> <span class="o">=</span> <span class="n">SilKit</span><span class="p">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s2">&quot;ParticipantName&quot;</span><span class="p">,</span> <span class="n">registryUri</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>To take part in the simulation, the participant needs to be initialized with a proper
-configuration, a participant name and optionally the URI of the registry:</p>
-<dl class="cpp function">
-<dt id="_CPPv4N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringE">
-<span id="_CPPv3N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringE"></span><span id="_CPPv2N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringE"></span><span id="SilKit::CreateParticipant__std::shared_ptr:SilKit::Config::IParticipantConfiguration:.ssCR"></span><span class="target" id="namespace_sil_kit_1ab603db9af15523ac8fdbddbcc45acbc6"></span>auto <code class="descclassname">SilKit<code class="descclassname">::</code></code><code class="descname">CreateParticipant</code><span class="sig-paren">(</span>std::shared_ptr&lt;SilKit::Config::IParticipantConfiguration&gt; <em>participantConfig</em>, <em class="property">const</em> std::string &amp;<em>participantName</em><span class="sig-paren">)</span> -&gt; std::unique_ptr&lt;<a class="reference internal" href="#_CPPv4N6SilKit12IParticipantE" title="SilKit::IParticipant">IParticipant</a>&gt;<a class="headerlink" href="#_CPPv4N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Create a participant and join the simulation. </p>
-<p>Become a participant based on the the given configuration options.</p>
-<p><dl class="docutils">
-<dt><strong>Return</strong></dt><dd>Instance of the communication adapter</dd>
-<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><code class="docutils literal notranslate"><span class="pre">participantConfig</span></code>: Configuration of the participant </li>
-<li><code class="docutils literal notranslate"><span class="pre">participantName</span></code>: Name of the participant </li>
-</ul>
-</dd>
-<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><code class="docutils literal notranslate"><span class="pre">SilKit::ConfigurationError</span></code>: if the config has errors </li>
-<li><code class="docutils literal notranslate"><span class="pre">SilKit::SilKitError</span></code>: The participant could not be created. </li>
-</ul>
-</dd>
-</dl>
-</p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringERKNSt6stringE">
-<span id="_CPPv3N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringERKNSt6stringE"></span><span id="_CPPv2N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringERKNSt6stringE"></span><span id="SilKit::CreateParticipant__std::shared_ptr:SilKit::Config::IParticipantConfiguration:.ssCR.ssCR"></span><span class="target" id="namespace_sil_kit_1a550ff65548287b0d5f3f0987b53d7640"></span>auto <code class="descclassname">SilKit<code class="descclassname">::</code></code><code class="descname">CreateParticipant</code><span class="sig-paren">(</span>std::shared_ptr&lt;SilKit::Config::IParticipantConfiguration&gt; <em>participantConfig</em>, <em class="property">const</em> std::string &amp;<em>participantName</em>, <em class="property">const</em> std::string &amp;<em>registryUri</em><span class="sig-paren">)</span> -&gt; std::unique_ptr&lt;<a class="reference internal" href="#_CPPv4N6SilKit12IParticipantE" title="SilKit::IParticipant">IParticipant</a>&gt;<a class="headerlink" href="#_CPPv4N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Create a participant and join the simulation. </p>
-<p>Become a participant based on the the given configuration options.</p>
-<p><dl class="docutils">
-<dt><strong>Return</strong></dt><dd>Instance of the communication adapter</dd>
-<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><code class="docutils literal notranslate"><span class="pre">participantConfig</span></code>: Configuration of the participant </li>
-<li><code class="docutils literal notranslate"><span class="pre">participantName</span></code>: Name of the participant </li>
-<li><code class="docutils literal notranslate"><span class="pre">registryUri</span></code>: the URI of the registry </li>
-</ul>
-</dd>
-<dt><strong>Exceptions</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><code class="docutils literal notranslate"><span class="pre">SilKit::ConfigurationError</span></code>: if the config has errors </li>
-<li><code class="docutils literal notranslate"><span class="pre">SilKit::SilKitError</span></code>: The participant could not be created. </li>
-</ul>
-</dd>
-</dl>
-</p>
-</dd></dl>
-
-</div>
-<div class="section" id="the-iparticipant-api">
-<span id="sec-iparticipant-api"></span><h2><a class="toc-backref" href="#id2">The IParticipant API</a><a class="headerlink" href="#the-iparticipant-api" title="Permalink to this headline">¶</a></h2>
-<p>The instantiated <a class="reference internal" href="#_CPPv4N6SilKit12IParticipantE" title="SilKit::IParticipant"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IParticipant</span></code></a> can then be used to create and access services of the SIL Kit.
-A controller name (the <code class="docutils literal notranslate"><span class="pre">canonicalName</span></code> given in Create*-Calls) must be unqiue within a controller type, using the same name twice resuts in
-a <code class="docutils literal notranslate"><span class="pre">ConfigurationError</span></code>.</p>
-<div class="admonition-warning admonition">
-<p class="first admonition-title">Warning.</p>
-<p class="last">Services must NOT be created in callbacks. E.g., it is an error to call <code class="docutils literal notranslate"><span class="pre">CreateCanController()</span></code> in a
-<code class="docutils literal notranslate"><span class="pre">CommunicationReadyHandler</span></code> or even <code class="docutils literal notranslate"><span class="pre">SimulationStepHandler</span></code>.</p>
-</div>
-<dl class="cpp class">
-<dt id="_CPPv4N6SilKit12IParticipantE">
-<span id="_CPPv3N6SilKit12IParticipantE"></span><span id="_CPPv2N6SilKit12IParticipantE"></span><span id="SilKit::IParticipant"></span><span class="target" id="class_sil_kit_1_1_i_participant"></span><em class="property">class </em><code class="descclassname">SilKit<code class="descclassname">::</code></code><code class="descname">IParticipant</code><a class="headerlink" href="#_CPPv4N6SilKit12IParticipantE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Communication interface to be used by SIL Kit participants. </p>
-<div class="breathe-sectiondef container">
-<p class="breathe-sectiondef-title rubric">Public Functions</p>
-<dl class="cpp function">
-<dt id="_CPPv4N6SilKit12IParticipant19CreateCanControllerERKNSt6stringERKNSt6stringE">
-<span id="_CPPv3N6SilKit12IParticipant19CreateCanControllerERKNSt6stringERKNSt6stringE"></span><span id="_CPPv2N6SilKit12IParticipant19CreateCanControllerERKNSt6stringERKNSt6stringE"></span><span id="SilKit::IParticipant::CreateCanController__ssCR.ssCR"></span><span class="target" id="class_sil_kit_1_1_i_participant_1adf457a9cecd62cea2fddf10ed7212fc7"></span>auto <code class="descname">CreateCanController</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>canonicalName</em>, <em class="property">const</em> std::string &amp;<em>networkName</em><span class="sig-paren">)</span> -&gt; Services::Can::<a class="reference internal" href="can.html#_CPPv4N6SilKit8Services3Can14ICanControllerE" title="SilKit::Services::Can::ICanController">ICanController</a>* = 0<a class="headerlink" href="#_CPPv4N6SilKit12IParticipant19CreateCanControllerERKNSt6stringERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Create a CAN controller at this SIL Kit participant. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6SilKit12IParticipant24CreateEthernetControllerERKNSt6stringERKNSt6stringE">
-<span id="_CPPv3N6SilKit12IParticipant24CreateEthernetControllerERKNSt6stringERKNSt6stringE"></span><span id="_CPPv2N6SilKit12IParticipant24CreateEthernetControllerERKNSt6stringERKNSt6stringE"></span><span id="SilKit::IParticipant::CreateEthernetController__ssCR.ssCR"></span><span class="target" id="class_sil_kit_1_1_i_participant_1a1dc303d419b6f3f918d11172593de193"></span>auto <code class="descname">CreateEthernetController</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>canonicalName</em>, <em class="property">const</em> std::string &amp;<em>networkName</em><span class="sig-paren">)</span> -&gt; Services::Ethernet::<a class="reference internal" href="ethernet.html#_CPPv4N6SilKit8Services8Ethernet19IEthernetControllerE" title="SilKit::Services::Ethernet::IEthernetController">IEthernetController</a>* = 0<a class="headerlink" href="#_CPPv4N6SilKit12IParticipant24CreateEthernetControllerERKNSt6stringERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Create an Ethernet controller at this SIL Kit participant. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6SilKit12IParticipant23CreateFlexrayControllerERKNSt6stringERKNSt6stringE">
-<span id="_CPPv3N6SilKit12IParticipant23CreateFlexrayControllerERKNSt6stringERKNSt6stringE"></span><span id="_CPPv2N6SilKit12IParticipant23CreateFlexrayControllerERKNSt6stringERKNSt6stringE"></span><span id="SilKit::IParticipant::CreateFlexrayController__ssCR.ssCR"></span><span class="target" id="class_sil_kit_1_1_i_participant_1aa5819db443266680222e11de458a4dec"></span>auto <code class="descname">CreateFlexrayController</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>canonicalName</em>, <em class="property">const</em> std::string &amp;<em>networkName</em><span class="sig-paren">)</span> -&gt; Services::Flexray::<a class="reference internal" href="flexray.html#_CPPv4N6SilKit8Services7Flexray18IFlexrayControllerE" title="SilKit::Services::Flexray::IFlexrayController">IFlexrayController</a>* = 0<a class="headerlink" href="#_CPPv4N6SilKit12IParticipant23CreateFlexrayControllerERKNSt6stringERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Create an FlexRay controller at this SIL Kit participant. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6SilKit12IParticipant19CreateLinControllerERKNSt6stringERKNSt6stringE">
-<span id="_CPPv3N6SilKit12IParticipant19CreateLinControllerERKNSt6stringERKNSt6stringE"></span><span id="_CPPv2N6SilKit12IParticipant19CreateLinControllerERKNSt6stringERKNSt6stringE"></span><span id="SilKit::IParticipant::CreateLinController__ssCR.ssCR"></span><span class="target" id="class_sil_kit_1_1_i_participant_1a1c900a7f774d2a37b735f037ae826eef"></span>auto <code class="descname">CreateLinController</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>canonicalName</em>, <em class="property">const</em> std::string &amp;<em>networkName</em><span class="sig-paren">)</span> -&gt; Services::Lin::<a class="reference internal" href="lin.html#_CPPv4N6SilKit8Services3Lin14ILinControllerE" title="SilKit::Services::Lin::ILinController">ILinController</a>* = 0<a class="headerlink" href="#_CPPv4N6SilKit12IParticipant19CreateLinControllerERKNSt6stringERKNSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Create a LIN controller at this SIL Kit participant. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6SilKit12IParticipant19CreateDataPublisherERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecE6size_t">
-<span id="_CPPv3N6SilKit12IParticipant19CreateDataPublisherERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecE6size_t"></span><span id="_CPPv2N6SilKit12IParticipant19CreateDataPublisherERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecE6size_t"></span><span id="SilKit::IParticipant::CreateDataPublisher__ssCR.SilKit::Services::PubSub::PubSubSpecCR.s"></span><span class="target" id="class_sil_kit_1_1_i_participant_1a3e0530130c7ced22e7d9b5c282033b2d"></span>auto <code class="descname">CreateDataPublisher</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>canonicalName</em>, <em class="property">const</em> SilKit::Services::PubSub::<a class="reference internal" href="pubsub.html#_CPPv4N6SilKit8Services6PubSub10PubSubSpecE" title="SilKit::Services::PubSub::PubSubSpec">PubSubSpec</a> &amp;<em>dataSpec</em>, size_t <em>history</em> = 0<span class="sig-paren">)</span> -&gt; Services::PubSub::<a class="reference internal" href="pubsub.html#_CPPv4N6SilKit8Services6PubSub14IDataPublisherE" title="SilKit::Services::PubSub::IDataPublisher">IDataPublisher</a>* = 0<a class="headerlink" href="#_CPPv4N6SilKit12IParticipant19CreateDataPublisherERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecE6size_t" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Create a data publisher at this SIL Kit participant. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6SilKit12IParticipant20CreateDataSubscriberERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecEN8Services6PubSub18DataMessageHandlerE">
-<span id="_CPPv3N6SilKit12IParticipant20CreateDataSubscriberERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecEN8Services6PubSub18DataMessageHandlerE"></span><span id="_CPPv2N6SilKit12IParticipant20CreateDataSubscriberERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecEN8Services6PubSub18DataMessageHandlerE"></span><span id="SilKit::IParticipant::CreateDataSubscriber__ssCR.SilKit::Services::PubSub::PubSubSpecCR.Services::PubSub::DataMessageHandler"></span><span class="target" id="class_sil_kit_1_1_i_participant_1a52d68ca37add868e2f05f1c2ef3ac0d3"></span>auto <code class="descname">CreateDataSubscriber</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>canonicalName</em>, <em class="property">const</em> SilKit::Services::PubSub::<a class="reference internal" href="pubsub.html#_CPPv4N6SilKit8Services6PubSub10PubSubSpecE" title="SilKit::Services::PubSub::PubSubSpec">PubSubSpec</a> &amp;<em>dataSpec</em>, Services::PubSub::DataMessageHandler <em>dataMessageHandler</em><span class="sig-paren">)</span> -&gt; Services::PubSub::<a class="reference internal" href="pubsub.html#_CPPv4N6SilKit8Services6PubSub15IDataSubscriberE" title="SilKit::Services::PubSub::IDataSubscriber">IDataSubscriber</a>* = 0<a class="headerlink" href="#_CPPv4N6SilKit12IParticipant20CreateDataSubscriberERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecEN8Services6PubSub18DataMessageHandlerE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Create a data subscriber at this SIL Kit participant. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6SilKit12IParticipant15CreateRpcClientERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc20RpcCallResultHandlerE">
-<span id="_CPPv3N6SilKit12IParticipant15CreateRpcClientERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc20RpcCallResultHandlerE"></span><span id="_CPPv2N6SilKit12IParticipant15CreateRpcClientERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc20RpcCallResultHandlerE"></span><span id="SilKit::IParticipant::CreateRpcClient__ssCR.SilKit::Services::Rpc::RpcSpecCR.Services::Rpc::RpcCallResultHandler"></span><span class="target" id="class_sil_kit_1_1_i_participant_1a84e1c92c4619b210aa1f6369c74b1926"></span>auto <code class="descname">CreateRpcClient</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>canonicalName</em>, <em class="property">const</em> SilKit::Services::Rpc::<a class="reference internal" href="rpc.html#_CPPv4N6SilKit8Services3Rpc7RpcSpecE" title="SilKit::Services::Rpc::RpcSpec">RpcSpec</a> &amp;<em>dataSpec</em>, Services::Rpc::RpcCallResultHandler <em>handler</em><span class="sig-paren">)</span> -&gt; Services::Rpc::<a class="reference internal" href="rpc.html#_CPPv4N6SilKit8Services3Rpc10IRpcClientE" title="SilKit::Services::Rpc::IRpcClient">IRpcClient</a>* = 0<a class="headerlink" href="#_CPPv4N6SilKit12IParticipant15CreateRpcClientERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc20RpcCallResultHandlerE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Create a Rpc client at this SIL Kit participant. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6SilKit12IParticipant15CreateRpcServerERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc14RpcCallHandlerE">
-<span id="_CPPv3N6SilKit12IParticipant15CreateRpcServerERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc14RpcCallHandlerE"></span><span id="_CPPv2N6SilKit12IParticipant15CreateRpcServerERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc14RpcCallHandlerE"></span><span id="SilKit::IParticipant::CreateRpcServer__ssCR.SilKit::Services::Rpc::RpcSpecCR.Services::Rpc::RpcCallHandler"></span><span class="target" id="class_sil_kit_1_1_i_participant_1a5144bb0917c6cb0fc9b5eedb8b6f4e9f"></span>auto <code class="descname">CreateRpcServer</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>canonicalName</em>, <em class="property">const</em> SilKit::Services::Rpc::<a class="reference internal" href="rpc.html#_CPPv4N6SilKit8Services3Rpc7RpcSpecE" title="SilKit::Services::Rpc::RpcSpec">RpcSpec</a> &amp;<em>dataSpec</em>, Services::Rpc::RpcCallHandler <em>handler</em><span class="sig-paren">)</span> -&gt; Services::Rpc::<a class="reference internal" href="rpc.html#_CPPv4N6SilKit8Services3Rpc10IRpcServerE" title="SilKit::Services::Rpc::IRpcServer">IRpcServer</a>* = 0<a class="headerlink" href="#_CPPv4N6SilKit12IParticipant15CreateRpcServerERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc14RpcCallHandlerE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Create a Rpc server at this SIL Kit participant. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6SilKit12IParticipant22CreateLifecycleServiceEN8Services13Orchestration22LifecycleConfigurationE">
-<span id="_CPPv3N6SilKit12IParticipant22CreateLifecycleServiceEN8Services13Orchestration22LifecycleConfigurationE"></span><span id="_CPPv2N6SilKit12IParticipant22CreateLifecycleServiceEN8Services13Orchestration22LifecycleConfigurationE"></span><span id="SilKit::IParticipant::CreateLifecycleService__Services::Orchestration::LifecycleConfiguration"></span><span class="target" id="class_sil_kit_1_1_i_participant_1a0e605892dfeda919928f28b95e8c8abb"></span>auto <code class="descname">CreateLifecycleService</code><span class="sig-paren">(</span>Services::Orchestration::LifecycleConfiguration <em>startConfiguration</em><span class="sig-paren">)</span> -&gt; Services::Orchestration::<a class="reference internal" href="lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleServiceE" title="SilKit::Services::Orchestration::ILifecycleService">ILifecycleService</a>* = 0<a class="headerlink" href="#_CPPv4N6SilKit12IParticipant22CreateLifecycleServiceEN8Services13Orchestration22LifecycleConfigurationE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Return the ILifecycleService at this SIL Kit participant. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6SilKit12IParticipant19CreateSystemMonitorEv">
-<span id="_CPPv3N6SilKit12IParticipant19CreateSystemMonitorEv"></span><span id="_CPPv2N6SilKit12IParticipant19CreateSystemMonitorEv"></span><span id="SilKit::IParticipant::CreateSystemMonitor"></span><span class="target" id="class_sil_kit_1_1_i_participant_1a5a18e2b72aee6109541626db94625274"></span>auto <code class="descname">CreateSystemMonitor</code><span class="sig-paren">(</span><span class="sig-paren">)</span> -&gt; Services::Orchestration::<a class="reference internal" href="systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitorE" title="SilKit::Services::Orchestration::ISystemMonitor">ISystemMonitor</a>* = 0<a class="headerlink" href="#_CPPv4N6SilKit12IParticipant19CreateSystemMonitorEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Return the ISystemMonitor at this SIL Kit participant. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6SilKit12IParticipant9GetLoggerEv">
-<span id="_CPPv3N6SilKit12IParticipant9GetLoggerEv"></span><span id="_CPPv2N6SilKit12IParticipant9GetLoggerEv"></span><span id="SilKit::IParticipant::GetLogger"></span><span class="target" id="class_sil_kit_1_1_i_participant_1af852f5873bfb3ec23b0de1d7612e2995"></span>auto <code class="descname">GetLogger</code><span class="sig-paren">(</span><span class="sig-paren">)</span> -&gt; Services::Logging::ILogger* = 0<a class="headerlink" href="#_CPPv4N6SilKit12IParticipant9GetLoggerEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Return the ILogger at this SIL Kit participant. </p>
-</dd></dl>
-
-</div>
-</dd></dl>
-
-</div>
-<div class="section" id="sil-kit-version">
-<h2><a class="toc-backref" href="#id3">SIL Kit Version</a><a class="headerlink" href="#sil-kit-version" title="Permalink to this headline">¶</a></h2>
-<p>Version information about the currently running SIL Kit instance
-can be queried using the following functions:</p>
-<blockquote>
-<div><dl class="cpp function">
-<dt id="_CPPv4N6SilKit7Version5MajorEv">
-<span id="_CPPv3N6SilKit7Version5MajorEv"></span><span id="_CPPv2N6SilKit7Version5MajorEv"></span><span id="SilKit::Version::Major"></span><span class="target" id="namespace_sil_kit_1_1_version_1a1e9ea44bf8965a820e7b0e5ff68ad04b"></span>auto <code class="descclassname">SilKit::Version<code class="descclassname">::</code></code><code class="descname">Major</code><span class="sig-paren">(</span><span class="sig-paren">)</span> -&gt; uint32_t<a class="headerlink" href="#_CPPv4N6SilKit7Version5MajorEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>This release’s major version number. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6SilKit7Version5MinorEv">
-<span id="_CPPv3N6SilKit7Version5MinorEv"></span><span id="_CPPv2N6SilKit7Version5MinorEv"></span><span id="SilKit::Version::Minor"></span><span class="target" id="namespace_sil_kit_1_1_version_1ad1517e88e6e92d2bd388bf1155a30249"></span>auto <code class="descclassname">SilKit::Version<code class="descclassname">::</code></code><code class="descname">Minor</code><span class="sig-paren">(</span><span class="sig-paren">)</span> -&gt; uint32_t<a class="headerlink" href="#_CPPv4N6SilKit7Version5MinorEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>This release’s minor version number. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6SilKit7Version5PatchEv">
-<span id="_CPPv3N6SilKit7Version5PatchEv"></span><span id="_CPPv2N6SilKit7Version5PatchEv"></span><span id="SilKit::Version::Patch"></span><span class="target" id="namespace_sil_kit_1_1_version_1ac56b029a4a76779cdf02f530da1cba20"></span>auto <code class="descclassname">SilKit::Version<code class="descclassname">::</code></code><code class="descname">Patch</code><span class="sig-paren">(</span><span class="sig-paren">)</span> -&gt; uint32_t<a class="headerlink" href="#_CPPv4N6SilKit7Version5PatchEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>This release’s patch version number. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6SilKit7Version6StringEv">
-<span id="_CPPv3N6SilKit7Version6StringEv"></span><span id="_CPPv2N6SilKit7Version6StringEv"></span><span id="SilKit::Version::String"></span><span class="target" id="namespace_sil_kit_1_1_version_1a2c858c3d97cdc43f90bb1fc057a6b750"></span>auto <code class="descclassname">SilKit::Version<code class="descclassname">::</code></code><code class="descname">String</code><span class="sig-paren">(</span><span class="sig-paren">)</span> -&gt; <em class="property">const</em> char*<a class="headerlink" href="#_CPPv4N6SilKit7Version6StringEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Retrieve the API version identifier “&lt;Major&gt;.&lt;Minor&gt;.&lt;Patch&gt;” of this release. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6SilKit7Version11BuildNumberEv">
-<span id="_CPPv3N6SilKit7Version11BuildNumberEv"></span><span id="_CPPv2N6SilKit7Version11BuildNumberEv"></span><span id="SilKit::Version::BuildNumber"></span><span class="target" id="namespace_sil_kit_1_1_version_1a95b5b085053182dd1cdcd436fcafaadd"></span>auto <code class="descclassname">SilKit::Version<code class="descclassname">::</code></code><code class="descname">BuildNumber</code><span class="sig-paren">(</span><span class="sig-paren">)</span> -&gt; uint32_t<a class="headerlink" href="#_CPPv4N6SilKit7Version11BuildNumberEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Retrieve this release’s build number on the master branch. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6SilKit7Version13VersionSuffixEv">
-<span id="_CPPv3N6SilKit7Version13VersionSuffixEv"></span><span id="_CPPv2N6SilKit7Version13VersionSuffixEv"></span><span id="SilKit::Version::VersionSuffix"></span><span class="target" id="namespace_sil_kit_1_1_version_1a259789c21b852a4cf9c26439a6ad5024"></span>auto <code class="descclassname">SilKit::Version<code class="descclassname">::</code></code><code class="descname">VersionSuffix</code><span class="sig-paren">(</span><span class="sig-paren">)</span> -&gt; <em class="property">const</em> char*<a class="headerlink" href="#_CPPv4N6SilKit7Version13VersionSuffixEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Retrieve additional version information of this release. </p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N6SilKit7Version7GitHashEv">
-<span id="_CPPv3N6SilKit7Version7GitHashEv"></span><span id="_CPPv2N6SilKit7Version7GitHashEv"></span><span id="SilKit::Version::GitHash"></span><span class="target" id="namespace_sil_kit_1_1_version_1a1108667a3f478d5bfd8f69b1c5594e42"></span>auto <code class="descclassname">SilKit::Version<code class="descclassname">::</code></code><code class="descname">GitHash</code><span class="sig-paren">(</span><span class="sig-paren">)</span> -&gt; <em class="property">const</em> char*<a class="headerlink" href="#_CPPv4N6SilKit7Version7GitHashEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Retrieve the full git hash of this release. </p>
-</dd></dl>
-
-</div></blockquote>
-</div>
-</div>
-
-
-            <div class="clearer"></div>
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h3><a href="../contents.html">Table of Contents</a></h3>
-<ul class="current">
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="api.html#api-entry-point-and-api-organization">API Entry Point and API Organization</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#api-entry-point-and-api-organization">API Entry Point and API Organization</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Participant</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creating-the-participant">Creating the Participant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#iparticipant-api">IParticipant API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sil-kit-version">SIL Kit Version</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="header.html">Header Files</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#services">Services</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#c-api">C API</a></li>
 </ul>
@@ -279,47 +69,270 @@ can be queried using the following functions:</p>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
 </ul>
 
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/api/participant.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
         </div>
       </div>
-      <div class="clearer"></div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="api.html">API</a> &raquo;</li>
+      <li>Participant</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/participant.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="participant">
+<h1>Participant<a class="headerlink" href="#participant" title="Permalink to this heading"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#creating-the-participant" id="id1">Creating the Participant</a></p></li>
+<li><p><a class="reference internal" href="#iparticipant-api" id="id2">IParticipant API</a></p></li>
+<li><p><a class="reference internal" href="#sil-kit-version" id="id3">SIL Kit Version</a></p></li>
+</ul>
+</div>
+<p>This document describes the main entry point to the SIL Kit simulation, the participant.
+By creating a participant with a given configuration, a connection
+to a simulation is established and the configured participant joins the simulation.</p>
+<section id="creating-the-participant">
+<h2><a class="toc-backref" href="#id1">Creating the Participant</a><a class="headerlink" href="#creating-the-participant" title="Permalink to this heading"></a></h2>
+<p>To create an <a class="reference internal" href="#_CPPv4N6SilKit12IParticipantE" title="SilKit::IParticipant"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IParticipant</span></code></a> you have to include the
+<a class="reference internal" href="header.html#sec-header"><span class="std std-ref">silkit/SilKit.hpp</span></a> and call the Participant API
+factory function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">auto</span> <span class="n">config</span> <span class="o">=</span> <span class="n">SilKit</span><span class="p">::</span><span class="n">Config</span><span class="p">::</span><span class="n">ParticipantConfigurationFromFile</span><span class="p">(</span><span class="s2">&quot;my_config.yaml&quot;</span><span class="p">);</span>
+<span class="n">auto</span> <span class="n">participant</span> <span class="o">=</span> <span class="n">SilKit</span><span class="p">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s2">&quot;ParticipantName&quot;</span><span class="p">,</span> <span class="n">registryUri</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To take part in the simulation, the participant needs to be initialized with a proper
+configuration, a participant name and optionally the URI of the registry:</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringE">
+<span id="_CPPv3N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringE"></span><span id="_CPPv2N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringE"></span><span id="SilKit::CreateParticipant__std::shared_ptr:SilKit::Config::IParticipantConfiguration:.ssCR"></span><span class="target" id="namespace_sil_kit_1ab603db9af15523ac8fdbddbcc45acbc6"></span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">CreateParticipant</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Config</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IParticipantConfiguration</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">participantConfig</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">participantName</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit12IParticipantE" title="SilKit::IParticipant"><span class="n"><span class="pre">IParticipant</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create a participant and join the simulation. </p>
+<p>Become a participant based on the the given configuration options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>participantConfig</strong> – Configuration of the participant </p></li>
+<li><p><strong>participantName</strong> – Name of the participant </p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">ConfigurationError</span></span></span> – if the config has errors </p></li>
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">SilKitError</span></span></span> – The participant could not be created. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Instance of the communication adapter</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringERKNSt6stringE">
+<span id="_CPPv3N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringERKNSt6stringE"></span><span id="_CPPv2N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringERKNSt6stringE"></span><span id="SilKit::CreateParticipant__std::shared_ptr:SilKit::Config::IParticipantConfiguration:.ssCR.ssCR"></span><span class="target" id="namespace_sil_kit_1a550ff65548287b0d5f3f0987b53d7640"></span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">CreateParticipant</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Config</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IParticipantConfiguration</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">participantConfig</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">participantName</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">registryUri</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit12IParticipantE" title="SilKit::IParticipant"><span class="n"><span class="pre">IParticipant</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringERKNSt6stringE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create a participant and join the simulation. </p>
+<p>Become a participant based on the the given configuration options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>participantConfig</strong> – Configuration of the participant </p></li>
+<li><p><strong>participantName</strong> – Name of the participant </p></li>
+<li><p><strong>registryUri</strong> – the URI of the registry </p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">ConfigurationError</span></span></span> – if the config has errors </p></li>
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">SilKitError</span></span></span> – The participant could not be created. </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Instance of the communication adapter</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="iparticipant-api">
+<span id="sec-iparticipant-api"></span><h2><a class="toc-backref" href="#id2">IParticipant API</a><a class="headerlink" href="#iparticipant-api" title="Permalink to this heading"></a></h2>
+<p>The instantiated <a class="reference internal" href="#_CPPv4N6SilKit12IParticipantE" title="SilKit::IParticipant"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IParticipant</span></code></a> can then be used to create and access services of the SIL Kit.
+A controller name (the <code class="docutils literal notranslate"><span class="pre">canonicalName</span></code> given in Create*-Calls) must be unqiue within a controller type, using the same name twice resuts in
+a <code class="docutils literal notranslate"><span class="pre">ConfigurationError</span></code>.</p>
+<div class="admonition-warning admonition">
+<p class="admonition-title">Warning.</p>
+<p>Services must NOT be created in callbacks. E.g., it is an error to call <code class="docutils literal notranslate"><span class="pre">CreateCanController()</span></code> in a
+<code class="docutils literal notranslate"><span class="pre">CommunicationReadyHandler</span></code> or even <code class="docutils literal notranslate"><span class="pre">SimulationStepHandler</span></code>.</p>
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12IParticipantE">
+<span id="_CPPv3N6SilKit12IParticipantE"></span><span id="_CPPv2N6SilKit12IParticipantE"></span><span id="SilKit::IParticipant"></span><span class="target" id="class_sil_kit_1_1_i_participant"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IParticipant</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit12IParticipantE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Communication interface to be used by SIL Kit participants. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12IParticipant19CreateCanControllerERKNSt6stringERKNSt6stringE">
+<span id="_CPPv3N6SilKit12IParticipant19CreateCanControllerERKNSt6stringERKNSt6stringE"></span><span id="_CPPv2N6SilKit12IParticipant19CreateCanControllerERKNSt6stringERKNSt6stringE"></span><span id="SilKit::IParticipant::CreateCanController__ssCR.ssCR"></span><span class="target" id="class_sil_kit_1_1_i_participant_1adf457a9cecd62cea2fddf10ed7212fc7"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateCanController</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">canonicalName</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">networkName</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Can</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="can.html#_CPPv4N6SilKit8Services3Can14ICanControllerE" title="SilKit::Services::Can::ICanController"><span class="n"><span class="pre">ICanController</span></span></a><span class="p"><span class="pre">*</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12IParticipant19CreateCanControllerERKNSt6stringERKNSt6stringE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create a CAN controller at this SIL Kit participant. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12IParticipant24CreateEthernetControllerERKNSt6stringERKNSt6stringE">
+<span id="_CPPv3N6SilKit12IParticipant24CreateEthernetControllerERKNSt6stringERKNSt6stringE"></span><span id="_CPPv2N6SilKit12IParticipant24CreateEthernetControllerERKNSt6stringERKNSt6stringE"></span><span id="SilKit::IParticipant::CreateEthernetController__ssCR.ssCR"></span><span class="target" id="class_sil_kit_1_1_i_participant_1a1dc303d419b6f3f918d11172593de193"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateEthernetController</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">canonicalName</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">networkName</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Ethernet</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="ethernet.html#_CPPv4N6SilKit8Services8Ethernet19IEthernetControllerE" title="SilKit::Services::Ethernet::IEthernetController"><span class="n"><span class="pre">IEthernetController</span></span></a><span class="p"><span class="pre">*</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12IParticipant24CreateEthernetControllerERKNSt6stringERKNSt6stringE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create an Ethernet controller at this SIL Kit participant. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12IParticipant23CreateFlexrayControllerERKNSt6stringERKNSt6stringE">
+<span id="_CPPv3N6SilKit12IParticipant23CreateFlexrayControllerERKNSt6stringERKNSt6stringE"></span><span id="_CPPv2N6SilKit12IParticipant23CreateFlexrayControllerERKNSt6stringERKNSt6stringE"></span><span id="SilKit::IParticipant::CreateFlexrayController__ssCR.ssCR"></span><span class="target" id="class_sil_kit_1_1_i_participant_1aa5819db443266680222e11de458a4dec"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateFlexrayController</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">canonicalName</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">networkName</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="flexray.html#_CPPv4N6SilKit8Services7Flexray18IFlexrayControllerE" title="SilKit::Services::Flexray::IFlexrayController"><span class="n"><span class="pre">IFlexrayController</span></span></a><span class="p"><span class="pre">*</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12IParticipant23CreateFlexrayControllerERKNSt6stringERKNSt6stringE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create an FlexRay controller at this SIL Kit participant. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12IParticipant19CreateLinControllerERKNSt6stringERKNSt6stringE">
+<span id="_CPPv3N6SilKit12IParticipant19CreateLinControllerERKNSt6stringERKNSt6stringE"></span><span id="_CPPv2N6SilKit12IParticipant19CreateLinControllerERKNSt6stringERKNSt6stringE"></span><span id="SilKit::IParticipant::CreateLinController__ssCR.ssCR"></span><span class="target" id="class_sil_kit_1_1_i_participant_1a1c900a7f774d2a37b735f037ae826eef"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateLinController</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">canonicalName</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">networkName</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="lin.html#_CPPv4N6SilKit8Services3Lin14ILinControllerE" title="SilKit::Services::Lin::ILinController"><span class="n"><span class="pre">ILinController</span></span></a><span class="p"><span class="pre">*</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12IParticipant19CreateLinControllerERKNSt6stringERKNSt6stringE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create a LIN controller at this SIL Kit participant. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12IParticipant19CreateDataPublisherERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecE6size_t">
+<span id="_CPPv3N6SilKit12IParticipant19CreateDataPublisherERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecE6size_t"></span><span id="_CPPv2N6SilKit12IParticipant19CreateDataPublisherERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecE6size_t"></span><span id="SilKit::IParticipant::CreateDataPublisher__ssCR.SilKit::Services::PubSub::PubSubSpecCR.s"></span><span class="target" id="class_sil_kit_1_1_i_participant_1a3e0530130c7ced22e7d9b5c282033b2d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateDataPublisher</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">canonicalName</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PubSub</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="pubsub.html#_CPPv4N6SilKit8Services6PubSub10PubSubSpecE" title="SilKit::Services::PubSub::PubSubSpec"><span class="n"><span class="pre">PubSubSpec</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dataSpec</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">history</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PubSub</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="pubsub.html#_CPPv4N6SilKit8Services6PubSub14IDataPublisherE" title="SilKit::Services::PubSub::IDataPublisher"><span class="n"><span class="pre">IDataPublisher</span></span></a><span class="p"><span class="pre">*</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12IParticipant19CreateDataPublisherERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecE6size_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create a data publisher at this SIL Kit participant. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12IParticipant20CreateDataSubscriberERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecEN8Services6PubSub18DataMessageHandlerE">
+<span id="_CPPv3N6SilKit12IParticipant20CreateDataSubscriberERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecEN8Services6PubSub18DataMessageHandlerE"></span><span id="_CPPv2N6SilKit12IParticipant20CreateDataSubscriberERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecEN8Services6PubSub18DataMessageHandlerE"></span><span id="SilKit::IParticipant::CreateDataSubscriber__ssCR.SilKit::Services::PubSub::PubSubSpecCR.Services::PubSub::DataMessageHandler"></span><span class="target" id="class_sil_kit_1_1_i_participant_1a52d68ca37add868e2f05f1c2ef3ac0d3"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateDataSubscriber</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">canonicalName</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PubSub</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="pubsub.html#_CPPv4N6SilKit8Services6PubSub10PubSubSpecE" title="SilKit::Services::PubSub::PubSubSpec"><span class="n"><span class="pre">PubSubSpec</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dataSpec</span></span>, <span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PubSub</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">DataMessageHandler</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">dataMessageHandler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PubSub</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="pubsub.html#_CPPv4N6SilKit8Services6PubSub15IDataSubscriberE" title="SilKit::Services::PubSub::IDataSubscriber"><span class="n"><span class="pre">IDataSubscriber</span></span></a><span class="p"><span class="pre">*</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12IParticipant20CreateDataSubscriberERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecEN8Services6PubSub18DataMessageHandlerE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create a data subscriber at this SIL Kit participant. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12IParticipant15CreateRpcClientERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc20RpcCallResultHandlerE">
+<span id="_CPPv3N6SilKit12IParticipant15CreateRpcClientERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc20RpcCallResultHandlerE"></span><span id="_CPPv2N6SilKit12IParticipant15CreateRpcClientERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc20RpcCallResultHandlerE"></span><span id="SilKit::IParticipant::CreateRpcClient__ssCR.SilKit::Services::Rpc::RpcSpecCR.Services::Rpc::RpcCallResultHandler"></span><span class="target" id="class_sil_kit_1_1_i_participant_1a84e1c92c4619b210aa1f6369c74b1926"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateRpcClient</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">canonicalName</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Rpc</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="rpc.html#_CPPv4N6SilKit8Services3Rpc7RpcSpecE" title="SilKit::Services::Rpc::RpcSpec"><span class="n"><span class="pre">RpcSpec</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dataSpec</span></span>, <span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Rpc</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">RpcCallResultHandler</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Rpc</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="rpc.html#_CPPv4N6SilKit8Services3Rpc10IRpcClientE" title="SilKit::Services::Rpc::IRpcClient"><span class="n"><span class="pre">IRpcClient</span></span></a><span class="p"><span class="pre">*</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12IParticipant15CreateRpcClientERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc20RpcCallResultHandlerE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create a Rpc client at this SIL Kit participant. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12IParticipant15CreateRpcServerERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc14RpcCallHandlerE">
+<span id="_CPPv3N6SilKit12IParticipant15CreateRpcServerERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc14RpcCallHandlerE"></span><span id="_CPPv2N6SilKit12IParticipant15CreateRpcServerERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc14RpcCallHandlerE"></span><span id="SilKit::IParticipant::CreateRpcServer__ssCR.SilKit::Services::Rpc::RpcSpecCR.Services::Rpc::RpcCallHandler"></span><span class="target" id="class_sil_kit_1_1_i_participant_1a5144bb0917c6cb0fc9b5eedb8b6f4e9f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateRpcServer</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">canonicalName</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Rpc</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="rpc.html#_CPPv4N6SilKit8Services3Rpc7RpcSpecE" title="SilKit::Services::Rpc::RpcSpec"><span class="n"><span class="pre">RpcSpec</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dataSpec</span></span>, <span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Rpc</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">RpcCallHandler</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Rpc</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="rpc.html#_CPPv4N6SilKit8Services3Rpc10IRpcServerE" title="SilKit::Services::Rpc::IRpcServer"><span class="n"><span class="pre">IRpcServer</span></span></a><span class="p"><span class="pre">*</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12IParticipant15CreateRpcServerERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc14RpcCallHandlerE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create a Rpc server at this SIL Kit participant. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12IParticipant22CreateLifecycleServiceEN8Services13Orchestration22LifecycleConfigurationE">
+<span id="_CPPv3N6SilKit12IParticipant22CreateLifecycleServiceEN8Services13Orchestration22LifecycleConfigurationE"></span><span id="_CPPv2N6SilKit12IParticipant22CreateLifecycleServiceEN8Services13Orchestration22LifecycleConfigurationE"></span><span id="SilKit::IParticipant::CreateLifecycleService__Services::Orchestration::LifecycleConfiguration"></span><span class="target" id="class_sil_kit_1_1_i_participant_1a0e605892dfeda919928f28b95e8c8abb"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateLifecycleService</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Orchestration</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">LifecycleConfiguration</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">startConfiguration</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Orchestration</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleServiceE" title="SilKit::Services::Orchestration::ILifecycleService"><span class="n"><span class="pre">ILifecycleService</span></span></a><span class="p"><span class="pre">*</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12IParticipant22CreateLifecycleServiceEN8Services13Orchestration22LifecycleConfigurationE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Return the ILifecycleService at this SIL Kit participant. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12IParticipant19CreateSystemMonitorEv">
+<span id="_CPPv3N6SilKit12IParticipant19CreateSystemMonitorEv"></span><span id="_CPPv2N6SilKit12IParticipant19CreateSystemMonitorEv"></span><span id="SilKit::IParticipant::CreateSystemMonitor"></span><span class="target" id="class_sil_kit_1_1_i_participant_1a5a18e2b72aee6109541626db94625274"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateSystemMonitor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Orchestration</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitorE" title="SilKit::Services::Orchestration::ISystemMonitor"><span class="n"><span class="pre">ISystemMonitor</span></span></a><span class="p"><span class="pre">*</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12IParticipant19CreateSystemMonitorEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Return the ISystemMonitor at this SIL Kit participant. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12IParticipant9GetLoggerEv">
+<span id="_CPPv3N6SilKit12IParticipant9GetLoggerEv"></span><span id="_CPPv2N6SilKit12IParticipant9GetLoggerEv"></span><span id="SilKit::IParticipant::GetLogger"></span><span class="target" id="class_sil_kit_1_1_i_participant_1af852f5873bfb3ec23b0de1d7612e2995"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetLogger</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Logging</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="logging.html#_CPPv4N6SilKit8Services7Logging7ILoggerE" title="SilKit::Services::Logging::ILogger"><span class="n"><span class="pre">ILogger</span></span></a><span class="p"><span class="pre">*</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12IParticipant9GetLoggerEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Return the ILogger at this SIL Kit participant. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="sil-kit-version">
+<h2><a class="toc-backref" href="#id3">SIL Kit Version</a><a class="headerlink" href="#sil-kit-version" title="Permalink to this heading"></a></h2>
+<p>Version information about the currently running SIL Kit instance
+can be queried using the following functions:</p>
+<blockquote>
+<div><dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit7Version5MajorEv">
+<span id="_CPPv3N6SilKit7Version5MajorEv"></span><span id="_CPPv2N6SilKit7Version5MajorEv"></span><span id="SilKit::Version::Major"></span><span class="target" id="namespace_sil_kit_1_1_version_1a1e9ea44bf8965a820e7b0e5ff68ad04b"></span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Version</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">Major</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><a class="headerlink" href="#_CPPv4N6SilKit7Version5MajorEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>This release’s major version number. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit7Version5MinorEv">
+<span id="_CPPv3N6SilKit7Version5MinorEv"></span><span id="_CPPv2N6SilKit7Version5MinorEv"></span><span id="SilKit::Version::Minor"></span><span class="target" id="namespace_sil_kit_1_1_version_1ad1517e88e6e92d2bd388bf1155a30249"></span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Version</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">Minor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><a class="headerlink" href="#_CPPv4N6SilKit7Version5MinorEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>This release’s minor version number. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit7Version5PatchEv">
+<span id="_CPPv3N6SilKit7Version5PatchEv"></span><span id="_CPPv2N6SilKit7Version5PatchEv"></span><span id="SilKit::Version::Patch"></span><span class="target" id="namespace_sil_kit_1_1_version_1ac56b029a4a76779cdf02f530da1cba20"></span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Version</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">Patch</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><a class="headerlink" href="#_CPPv4N6SilKit7Version5PatchEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>This release’s patch version number. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit7Version6StringEv">
+<span id="_CPPv3N6SilKit7Version6StringEv"></span><span id="_CPPv2N6SilKit7Version6StringEv"></span><span id="SilKit::Version::String"></span><span class="target" id="namespace_sil_kit_1_1_version_1a2c858c3d97cdc43f90bb1fc057a6b750"></span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Version</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">String</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="p"><span class="pre">*</span></span><a class="headerlink" href="#_CPPv4N6SilKit7Version6StringEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Retrieve the API version identifier “&lt;Major&gt;.&lt;Minor&gt;.&lt;Patch&gt;” of this release. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit7Version11BuildNumberEv">
+<span id="_CPPv3N6SilKit7Version11BuildNumberEv"></span><span id="_CPPv2N6SilKit7Version11BuildNumberEv"></span><span id="SilKit::Version::BuildNumber"></span><span class="target" id="namespace_sil_kit_1_1_version_1a95b5b085053182dd1cdcd436fcafaadd"></span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Version</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">BuildNumber</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><a class="headerlink" href="#_CPPv4N6SilKit7Version11BuildNumberEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Retrieve this release’s build number on the master branch. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit7Version13VersionSuffixEv">
+<span id="_CPPv3N6SilKit7Version13VersionSuffixEv"></span><span id="_CPPv2N6SilKit7Version13VersionSuffixEv"></span><span id="SilKit::Version::VersionSuffix"></span><span class="target" id="namespace_sil_kit_1_1_version_1a259789c21b852a4cf9c26439a6ad5024"></span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Version</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">VersionSuffix</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="p"><span class="pre">*</span></span><a class="headerlink" href="#_CPPv4N6SilKit7Version13VersionSuffixEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Retrieve additional version information of this release. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit7Version7GitHashEv">
+<span id="_CPPv3N6SilKit7Version7GitHashEv"></span><span id="_CPPv2N6SilKit7Version7GitHashEv"></span><span id="SilKit::Version::GitHash"></span><span class="target" id="namespace_sil_kit_1_1_version_1a1108667a3f478d5bfd8f69b1c5594e42"></span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Version</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">GitHash</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="p"><span class="pre">*</span></span><a class="headerlink" href="#_CPPv4N6SilKit7Version7GitHashEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Retrieve the full git hash of this release. </p>
+</dd></dl>
+
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api.html" class="btn btn-neutral float-left" title="API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="header.html" class="btn btn-neutral float-right" title="Header Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="header.html" title="Header Files"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="api.html" title="API"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="api.html" >API</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Participant</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
-    </div>
-  </body>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

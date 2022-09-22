@@ -1,504 +1,48 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-
-<!doctype html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demos &#8212; Vector SIL Kit 4.0.6 documentation</title>
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/bizstyle.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demos &mdash; Vector SIL Kit 4.0.7 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Configuration" href="../configuration/configuration.html" />
-    <link rel="prev" title="System Monitor C API" href="../api/capi/systemmonitor.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <!--[if lt IE 9]>
-    <script src="_static/css3-mediaqueries.js"></script>
-    <![endif]-->
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../configuration/configuration.html" title="Configuration"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../api/capi/systemmonitor.html" title="System Monitor C API"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.6 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Demos</a></li> 
-      </ul>
-    </div>  
+    <link rel="prev" title="System Monitor C API" href="../api/capi-systemmonitor.html" /> 
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="demos">
-<h1>Demos<a class="headerlink" href="#demos" title="Permalink to this headline">¶</a></h1>
-<p>This document describes the usage of the demo projects that are
-included with the Vector SIL Kit project and what their
-expected output and or results are. All demo source code is located in
-the Git repository in the folder Demos.</p>
-<div class="admonition-note admonition">
-<p class="first admonition-title">Note</p>
-<p class="last">All paths on the following pages are relative to the top level of
-the Git repository. Build artifacts are assumed to be located in a
-<code class="docutils literal notranslate"><span class="pre">build</span></code> subdirectory.
-For simplicity’s sake all paths assume a Release configuration.</p>
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
-<p>To build the demos, please refer to <a class="reference internal" href="#sec-build-demos"><span class="std std-ref">Building the Demos</span></a>.</p>
-<div class="section" id="building-the-demos">
-<span id="sec-build-demos"></span><h2>Building the Demos<a class="headerlink" href="#building-the-demos" title="Permalink to this headline">¶</a></h2>
-<p>Building the demos from within the source tree is straight forward,
-just build the  <code class="docutils literal notranslate"><span class="pre">Demos</span></code> CMake target:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">--</span><span class="n">build</span> <span class="o">.</span> <span class="o">--</span><span class="n">target</span> <span class="n">Demos</span>
-</pre></div>
-</div>
-<p>The individual demos are build as a dependency.</p>
-<div class="admonition-note admonition">
-<p class="first admonition-title">Note</p>
-<p class="last">The distributed Demos, as packaged by CPack, are preconfigured to build against
-a copy of the SIL Kit binaries in <code class="docutils literal notranslate"><span class="pre">../SilKit/</span></code> .
-This can be overriden by providing your own <code class="docutils literal notranslate"><span class="pre">SilKit</span></code> CMake target library,
-before the demos are configured by cmake.
-Or by changing the <code class="docutils literal notranslate"><span class="pre">find_package(SilKit</span> <span class="pre">...</span> <span class="pre">PATHS</span> <span class="pre">path/to/SilKit)</span></code> statement directly
-in the <code class="docutils literal notranslate"><span class="pre">SilKit-Demos/CMakeLists.txt</span></code> directory.</p>
-</div>
-</div>
-<div class="section" id="can-demo">
-<span id="sec-util-can-demo"></span><h2>CAN Demo<a class="headerlink" href="#can-demo" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="8%" />
-<col width="92%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><th class="stub">Abstract</th>
-<td>CAN Reader/Writer with or without network simulator</td>
-</tr>
-<tr class="row-even"><th class="stub">Source location</th>
-<td>Demos/Can</td>
-</tr>
-<tr class="row-odd"><th class="stub">Requirements</th>
-<td><ul class="first last simple">
-<li><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</li>
-<li><a class="reference internal" href="utilities.html#sec-util-system-monitor"><span class="std std-ref">sil-kit-system-monitor</span></a> (optional)</li>
-<li>network simulator (optional)</li>
-</ul>
-</td>
-</tr>
-<tr class="row-even"><th class="stub">Parameters</th>
-<td><dl class="first last docutils">
-<dt>&lt;ParticipantConfiguration.json|yaml&gt;</dt><dd>File name of the ParticipantConfiguration to be used;
-use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoCan.json</span></code> for an example configuration.</dd>
-<dt>&lt;ParticipantName&gt;</dt><dd>The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">CanWriter</span></code> or
-<code class="docutils literal notranslate"><span class="pre">CanReader</span></code>.</dd>
-<dt>[RegistryUri]</dt><dd>The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</dd>
-<dt>[–async]</dt><dd>If async flag is set, the participant will join the simulation unsynchronized and it will not need
-the build/Release/sil-kit-system-controller to start.</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><th class="stub">Parameter Example</th>
-<td><pre class="first last literal-block">
-# Creates a CAN Writer Process with the default registry URI
-build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.json CanWriter
-</pre>
-</td>
-</tr>
-<tr class="row-even"><th class="stub">System Example</th>
-<td><p class="first">For synchronized execution:</p>
-<pre class="literal-block">
-# System Monitor (optional):
-build/Release/sil-kit-system-monitor
-
-# CAN Reader:
-build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.json CanReader
-
-# CAN Writer:
-build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.json CanWriter
-
-# System Controller:
-build/Release/sil-kit-system-controller CanReader CanWriter
-</pre>
-<p>For unsynchronized execution:</p>
-<pre class="last literal-block">
-# CAN Reader:
-build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.json CanReader --async
-
-# CAN Writer:
-build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.json CanWriter --async
-</pre>
-</td>
-</tr>
-<tr class="row-odd"><th class="stub">Notes</th>
-<td><div class="first last line-block">
-<div class="line">- The writer sends CAN frames at a fixed rate of one frame per simulation step (1ms).</div>
-<div class="line">- Both reader and writer sleep for 1 second per quantum to slow down execution.</div>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="ethernet-demo">
-<h2>Ethernet Demo<a class="headerlink" href="#ethernet-demo" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="7%" />
-<col width="93%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><th class="stub">Abstract</th>
-<td>Ethernet Reader / Writer with or without network simulator</td>
-</tr>
-<tr class="row-even"><th class="stub">Source location</th>
-<td>Demos/Ethernet</td>
-</tr>
-<tr class="row-odd"><th class="stub">Requirements</th>
-<td><ul class="first last simple">
-<li><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</li>
-<li><a class="reference internal" href="utilities.html#sec-util-system-monitor"><span class="std std-ref">sil-kit-system-monitor</span></a> (optional)</li>
-<li>Network simulator (optional)</li>
-</ul>
-</td>
-</tr>
-<tr class="row-even"><th class="stub">Parameters</th>
-<td><dl class="first last docutils">
-<dt>&lt;ParticipantConfiguration.json|yaml&gt;</dt><dd>File name of the ParticipantConfiguraiton to be used;
-use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoEthernet.json</span></code> for an example configuration.</dd>
-<dt>&lt;ParticipantName&gt;</dt><dd>The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">EthernetWriter</span></code> or
-<code class="docutils literal notranslate"><span class="pre">EthernetReader</span></code>.</dd>
-<dt>[RegistryUri]</dt><dd>The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</dd>
-<dt>[–async]</dt><dd>If async flag is set, the participant will join the simulation unsynchronized and it will not need
-the build/Release/sil-kit-system-controller to start.</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><th class="stub">Parameter Example</th>
-<td><pre class="first last literal-block">
-# Creates an Ethernet Writer Process with the default registry URI:
-build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.json EthernetWriter
-</pre>
-</td>
-</tr>
-<tr class="row-even"><th class="stub">System Example</th>
-<td><p class="first">For synchronized execution:</p>
-<pre class="literal-block">
-# System Monitor (optional):
-build/Release/sil-kit-system-monitor
-
-# Ethernet Reader:
-build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.json EthernetReader
-
-# Ethernet Writer:
-build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.json EthernetWriter
-
-# System Controller:
-build/Release/sil-kit-system-controller EthernetReader Ethernet Writer
-</pre>
-<p>For unsynchronized execution:</p>
-<pre class="last literal-block">
-# Ethernet Reader:
-build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.json EthernetReader --async
-
-# Ethernet Writer:
-build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.json EthernetWriter --async
-</pre>
-</td>
-</tr>
-<tr class="row-odd"><th class="stub">Notes</th>
-<td><div class="first last line-block">
-<div class="line">- The writer sends Ethernet frames at a fixed rate of one frame per simulation step (1ms).</div>
-<div class="line">- Both reader and writer sleep for 1 second per simulation step to slow down execution.</div>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="lin-demo">
-<h2>LIN Demo<a class="headerlink" href="#lin-demo" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="7%" />
-<col width="93%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><th class="stub">Abstract</th>
-<td>LIN Master and Slave demo. The master sends and requests messages from a LIN slave.</td>
-</tr>
-<tr class="row-even"><th class="stub">Source location</th>
-<td>Demos/Lin</td>
-</tr>
-<tr class="row-odd"><th class="stub">Requirements</th>
-<td><ul class="first last simple">
-<li><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></li>
-<li><a class="reference internal" href="utilities.html#sec-util-system-monitor"><span class="std std-ref">sil-kit-system-monitor</span></a> (optional)</li>
-<li>Network simulator (optional)</li>
-</ul>
-</td>
-</tr>
-<tr class="row-even"><th class="stub">Parameters</th>
-<td><dl class="first last docutils">
-<dt>&lt;ParticipantConfiguration.json|yaml&gt;</dt><dd>File name of the ParticipantConfiguraiton to be used;
-use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoLin.json</span></code> for an example configuration.</dd>
-<dt>&lt;ParticipantName&gt;</dt><dd>The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">EthernetWriter</span></code> or
-<code class="docutils literal notranslate"><span class="pre">EthernetReader</span></code>.</dd>
-<dt>[RegistryUri]</dt><dd>The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><th class="stub">Parameter Example</th>
-<td><pre class="first last literal-block">
-# Creates a LIN Master Process with the default registry URI:
-build/Release/SilKitDemoLin Demos/Lin/SilKitConfig_DemoLin.json LinMaster
-</pre>
-</td>
-</tr>
-<tr class="row-even"><th class="stub">System Example</th>
-<td><pre class="first last literal-block">
-# System Monitor (optional):
-build/Release/sil-kit-system-monitor
-
-# LIN Master:
-build/Release/SilKitDemoLin Demos/Lin/SilKitConfig_DemoLin.json LinMaster
-
-# LIN Slave:
-build/Release/SilKitDemoLin Demos/Lin/SilKitConfig_DemoLin.json LinSlave
-
-# System Controller:
-build/Release/sil-kit-system-controller LinSlave LinMaster
-</pre>
-</td>
-</tr>
-<tr class="row-odd"><th class="stub">Notes</th>
-<td><div class="first last line-block">
-<div class="line">- The LIN demo can only run in a synchronized mode.</div>
-<div class="line">- Both Master and Slave sleep for 500 milliseconds per simulation step to slow down execution.</div>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="flexray-demo">
-<h2>FlexRay Demo<a class="headerlink" href="#flexray-demo" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="7%" />
-<col width="93%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><th class="stub">Abstract</th>
-<td>FlexRay Demo for a FlexRay cluster containing two nodes</td>
-</tr>
-<tr class="row-even"><th class="stub">Source location</th>
-<td>Demos/FlexRay</td>
-</tr>
-<tr class="row-odd"><th class="stub">Requirements</th>
-<td><ul class="first last simple">
-<li><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></li>
-<li>Network simulator (mandatory)</li>
-<li><a class="reference internal" href="utilities.html#sec-util-system-monitor"><span class="std std-ref">sil-kit-system-monitor</span></a> (optional)</li>
-</ul>
-</td>
-</tr>
-<tr class="row-even"><th class="stub">Parameters</th>
-<td><dl class="first last docutils">
-<dt>&lt;ParticipantConfiguration.json|yaml&gt;</dt><dd>File name of the ParticipantConfiguraiton to be used;
-use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoFlexRay.json</span></code> for an example configuration.</dd>
-<dt>&lt;ParticipantName&gt;</dt><dd>The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">Node0</span></code> or
-<code class="docutils literal notranslate"><span class="pre">Node1</span></code>.</dd>
-<dt>[RegistryUri]</dt><dd>The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><th class="stub">Parameter Example</th>
-<td><pre class="first last literal-block">
-# Creates a FlexRay Process for Node 0 with the default registry URI:
-build/Release/SilKitDemoFlexray Demos/FlexRay/SilKitConfig_DemoFlexray.json Node0
-</pre>
-</td>
-</tr>
-<tr class="row-even"><th class="stub">System Example</th>
-<td><pre class="first last literal-block">
-# Network simulator (assumed to be in PATH, necessary):
-NetworkSimulator Demos/FlexRay/NetworkSimulatorConfig.json
-
-# System Monitor (optional):
-build/Release/sil-kit-system-monitor
-
-# Node 0:
-build/Release/SilKitDemoFlexray Demos/FlexRay/SilKitConfig_DemoFlexray.json Node0
-
-# Node 1:
-build/Release/SilKitDemoFlexray Demos/FlexRay/SilKitConfig_DemoFlexray.json Node1
-
-# System Controller:
-build/Release/sil-kit-system-controller Node0 Node1 NetworkSimulator
-</pre>
-</td>
-</tr>
-<tr class="row-odd"><th class="stub">Notes</th>
-<td>Starting the FlexRay cycle takes quite some time, which is accurately modeled by the NetworkSimulator.
-It takes somewhat between 50 and 100 ms until the first FlexRay messages are transmitted.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="publish-subscribe-demo">
-<h2>Publish &amp; Subscribe Demo<a class="headerlink" href="#publish-subscribe-demo" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="7%" />
-<col width="93%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><th class="stub">Abstract</th>
-<td>Data Message Publish Subscribe Demo for a set of Publishers/Subscribers</td>
-</tr>
-<tr class="row-even"><th class="stub">Source location</th>
-<td>Demos/PubSub</td>
-</tr>
-<tr class="row-odd"><th class="stub">Requirements</th>
-<td><ul class="first last simple">
-<li><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></li>
-<li><a class="reference internal" href="utilities.html#sec-util-system-monitor"><span class="std std-ref">sil-kit-system-monitor</span></a> (optional)</li>
-</ul>
-</td>
-</tr>
-<tr class="row-even"><th class="stub">Parameters</th>
-<td><dl class="first last docutils">
-<dt>&lt;ParticipantConfiguration.json|yaml&gt;</dt><dd>File name of the ParticipantConfiguraiton to be used;
-use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoPubSub.json</span></code> for an example configuration.</dd>
-<dt>&lt;ParticipantName&gt;</dt><dd>The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">PubSub1</span></code>, <code class="docutils literal notranslate"><span class="pre">PubSub2</span></code>, <code class="docutils literal notranslate"><span class="pre">Subscriber1</span></code> or
-<code class="docutils literal notranslate"><span class="pre">Subscriber2</span></code>.</dd>
-<dt>[RegistryUri]</dt><dd>The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><th class="stub">Parameter Example</th>
-<td><pre class="first last literal-block">
-# Creates a combined publisher and subscriber with the default registry URI:
-build/Release/SilKitDemoPubSub Demos/PubSub/SilKitConfig_DemoPubSub.json PubSub1
-</pre>
-</td>
-</tr>
-<tr class="row-even"><th class="stub">System Example</th>
-<td><pre class="first last literal-block">
-# System Monitor (optional):
-build/Release/sil-kit-system-monitor
-
-# Publisher 1:
-build/Release/SilKitDemoPubSub Demos/PubSub/SilKitConfig_DemoPubSub.json PubSub1
-
-# Publisher 2:
-build/Release/SilKitDemoPubSub Demos/PubSub/SilKitConfig_DemoPubSub.json PubSub2
-
-# Subscriber 1:
-build/Release/SilKitDemoPubSub Demos/PubSub/SilKitConfig_DemoPubSub.json Subscriber1
-
-# Subscriber 2:
-build/Release/SilKitDemoPubSub Demos/PubSub/SilKitConfig_DemoPubSub.json Subscriber2
-
-# System Controller:
-build/Release/sil-kit-system-controller PubSub1 PubSub2 Subscriber1 Subscriber2
-</pre>
-</td>
-</tr>
-<tr class="row-odd"><th class="stub">Notes</th>
-<td>Any combination of publishers or subscribers is applicable for this demo.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="rpc-demo">
-<h2>RPC Demo<a class="headerlink" href="#rpc-demo" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="7%" />
-<col width="93%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><th class="stub">Abstract</th>
-<td>Remote Procedure Call Demo. The client triggers remote procedure calls on the server.</td>
-</tr>
-<tr class="row-even"><th class="stub">Source location</th>
-<td>Demos/Rpc</td>
-</tr>
-<tr class="row-odd"><th class="stub">Requirements</th>
-<td><ul class="first last simple">
-<li><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></li>
-<li><a class="reference internal" href="utilities.html#sec-util-system-monitor"><span class="std std-ref">sil-kit-system-monitor</span></a> (optional)</li>
-</ul>
-</td>
-</tr>
-<tr class="row-even"><th class="stub">Parameters</th>
-<td><dl class="first last docutils">
-<dt>&lt;ParticipantConfiguration.json|yaml&gt;</dt><dd>File name of the ParticipantConfiguraiton to be used;
-use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoRpc.json</span></code> for an example configuration.</dd>
-<dt>&lt;ParticipantName&gt;</dt><dd>The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">Server</span></code> or
-<code class="docutils literal notranslate"><span class="pre">Client</span></code>.</dd>
-<dt>[RegistryUri]</dt><dd>The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</dd>
-</dl>
-</td>
-</tr>
-<tr class="row-odd"><th class="stub">Parameter Example</th>
-<td><pre class="first last literal-block">
-# Creates a Rpc-Server Process with the default registry URI:
-build/Release/SilKitDemoRpc Demos/Rpc/SilKitConfig_DemoRpc.json Server
-</pre>
-</td>
-</tr>
-<tr class="row-even"><th class="stub">System Example</th>
-<td><pre class="first last literal-block">
-# System Monitor (optional):
-build/Release/sil-kit-system-monitor
-
-# Server:
-build/Release/SilKitDemoRpc Demos/Rpc/SilKitConfig_DemoRpc.json Server
-
-# Client:
-build/Release/SilKitDemoRpc Demos/Rpc/SilKitConfig_DemoRpc.json Client
-
-# System Controller:
-build/Release/sil-kit-system-controller Server Client
-</pre>
-</td>
-</tr>
-<tr class="row-odd"><th class="stub">Notes</th>
-<td>Any combination of publishers or subscribers is usable for this demo.</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-
-            <div class="clearer"></div>
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h3><a href="../contents.html">Table of Contents</a></h3>
-<ul class="current">
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
@@ -520,46 +64,487 @@ build/Release/sil-kit-system-controller Server Client
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
 </ul>
 
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/usage/demos.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
         </div>
       </div>
-      <div class="clearer"></div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Demos</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/usage/demos.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="demos">
+<h1>Demos<a class="headerlink" href="#demos" title="Permalink to this heading"></a></h1>
+<p>This document describes the usage of the demo projects that are
+included with the Vector SIL Kit project and what their
+expected output and or results are. All demo source code is located in
+the Git repository in the folder Demos.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>All paths on the following pages are relative to the top level of
+the Git repository. Build artifacts are assumed to be located in a
+<code class="docutils literal notranslate"><span class="pre">build</span></code> subdirectory.
+For simplicity’s sake all paths assume a Release configuration.</p>
+</div>
+<p>To build the demos, please refer to <a class="reference internal" href="#sec-build-demos"><span class="std std-ref">Building the Demos</span></a>.</p>
+<section id="building-the-demos">
+<span id="sec-build-demos"></span><h2>Building the Demos<a class="headerlink" href="#building-the-demos" title="Permalink to this heading"></a></h2>
+<p>Building the demos from within the source tree is straight forward,
+just build the  <code class="docutils literal notranslate"><span class="pre">Demos</span></code> CMake target:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">--</span><span class="n">build</span> <span class="o">.</span> <span class="o">--</span><span class="n">target</span> <span class="n">Demos</span>
+</pre></div>
+</div>
+<p>The individual demos are build as a dependency.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>The distributed Demos, as packaged by CPack, are preconfigured to build against
+a copy of the SIL Kit binaries in <code class="docutils literal notranslate"><span class="pre">../SilKit/</span></code> .
+This can be overriden by providing your own <code class="docutils literal notranslate"><span class="pre">SilKit</span></code> CMake target library,
+before the demos are configured by cmake.
+Or by changing the <code class="docutils literal notranslate"><span class="pre">find_package(SilKit</span> <span class="pre">...</span> <span class="pre">PATHS</span> <span class="pre">path/to/SilKit)</span></code> statement directly
+in the <code class="docutils literal notranslate"><span class="pre">SilKit-Demos/CMakeLists.txt</span></code> directory.</p>
+</div>
+</section>
+<section id="can-demo">
+<span id="sec-util-can-demo"></span><h2>CAN Demo<a class="headerlink" href="#can-demo" title="Permalink to this heading"></a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 92%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Abstract</p></th>
+<td><p>CAN Reader/Writer with or without network simulator</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Source location</p></th>
+<td><p>Demos/Can</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Requirements</p></th>
+<td><ul class="simple">
+<li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
+<li><p><a class="reference internal" href="utilities.html#sec-util-system-monitor"><span class="std std-ref">sil-kit-system-monitor</span></a> (optional)</p></li>
+<li><p>network simulator (optional)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Parameters</p></th>
+<td><dl class="simple">
+<dt>&lt;ParticipantConfiguration.json|yaml&gt;</dt><dd><p>File name of the ParticipantConfiguration to be used;
+use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoCan.json</span></code> for an example configuration.</p>
+</dd>
+<dt>&lt;ParticipantName&gt;</dt><dd><p>The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">CanWriter</span></code> or
+<code class="docutils literal notranslate"><span class="pre">CanReader</span></code>.</p>
+</dd>
+<dt>[RegistryUri]</dt><dd><p>The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</p>
+</dd>
+<dt>[--async]</dt><dd><p>If async flag is set, the participant will join the simulation unsynchronized and it will not need
+the build/Release/sil-kit-system-controller to start.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Parameter Example</p></th>
+<td><pre class="literal-block"># Creates a CAN Writer Process with the default registry URI
+build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.json CanWriter</pre>
+</td>
+</tr>
+<tr class="row-even"><th class="stub"><p>System Example</p></th>
+<td><p>For synchronized execution:</p>
+<pre class="literal-block"># System Monitor (optional):
+build/Release/sil-kit-system-monitor
+
+# CAN Reader:
+build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.json CanReader
+
+# CAN Writer:
+build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.json CanWriter
+
+# System Controller:
+build/Release/sil-kit-system-controller CanReader CanWriter</pre>
+<p>For unsynchronized execution:</p>
+<pre class="literal-block"># CAN Reader:
+build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.json CanReader --async
+
+# CAN Writer:
+build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.json CanWriter --async</pre>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Notes</p></th>
+<td><div class="line-block">
+<div class="line">- The writer sends CAN frames at a fixed rate of one frame per simulation step (1ms).</div>
+<div class="line">- Both reader and writer sleep for 1 second per quantum to slow down execution.</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethernet-demo">
+<h2>Ethernet Demo<a class="headerlink" href="#ethernet-demo" title="Permalink to this heading"></a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 93%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Abstract</p></th>
+<td><p>Ethernet Reader / Writer with or without network simulator</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Source location</p></th>
+<td><p>Demos/Ethernet</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Requirements</p></th>
+<td><ul class="simple">
+<li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
+<li><p><a class="reference internal" href="utilities.html#sec-util-system-monitor"><span class="std std-ref">sil-kit-system-monitor</span></a> (optional)</p></li>
+<li><p>Network simulator (optional)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Parameters</p></th>
+<td><dl class="simple">
+<dt>&lt;ParticipantConfiguration.json|yaml&gt;</dt><dd><p>File name of the ParticipantConfiguraiton to be used;
+use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoEthernet.json</span></code> for an example configuration.</p>
+</dd>
+<dt>&lt;ParticipantName&gt;</dt><dd><p>The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">EthernetWriter</span></code> or
+<code class="docutils literal notranslate"><span class="pre">EthernetReader</span></code>.</p>
+</dd>
+<dt>[RegistryUri]</dt><dd><p>The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</p>
+</dd>
+<dt>[--async]</dt><dd><p>If async flag is set, the participant will join the simulation unsynchronized and it will not need
+the build/Release/sil-kit-system-controller to start.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Parameter Example</p></th>
+<td><pre class="literal-block"># Creates an Ethernet Writer Process with the default registry URI:
+build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.json EthernetWriter</pre>
+</td>
+</tr>
+<tr class="row-even"><th class="stub"><p>System Example</p></th>
+<td><p>For synchronized execution:</p>
+<pre class="literal-block"># System Monitor (optional):
+build/Release/sil-kit-system-monitor
+
+# Ethernet Reader:
+build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.json EthernetReader
+
+# Ethernet Writer:
+build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.json EthernetWriter
+
+# System Controller:
+build/Release/sil-kit-system-controller EthernetReader Ethernet Writer</pre>
+<p>For unsynchronized execution:</p>
+<pre class="literal-block"># Ethernet Reader:
+build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.json EthernetReader --async
+
+# Ethernet Writer:
+build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.json EthernetWriter --async</pre>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Notes</p></th>
+<td><div class="line-block">
+<div class="line">- The writer sends Ethernet frames at a fixed rate of one frame per simulation step (1ms).</div>
+<div class="line">- Both reader and writer sleep for 1 second per simulation step to slow down execution.</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="lin-demo">
+<h2>LIN Demo<a class="headerlink" href="#lin-demo" title="Permalink to this heading"></a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 93%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Abstract</p></th>
+<td><p>LIN Master and Slave demo. The master sends and requests messages from a LIN slave.</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Source location</p></th>
+<td><p>Demos/Lin</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Requirements</p></th>
+<td><ul class="simple">
+<li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></p></li>
+<li><p><a class="reference internal" href="utilities.html#sec-util-system-monitor"><span class="std std-ref">sil-kit-system-monitor</span></a> (optional)</p></li>
+<li><p>Network simulator (optional)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Parameters</p></th>
+<td><dl class="simple">
+<dt>&lt;ParticipantConfiguration.json|yaml&gt;</dt><dd><p>File name of the ParticipantConfiguraiton to be used;
+use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoLin.json</span></code> for an example configuration.</p>
+</dd>
+<dt>&lt;ParticipantName&gt;</dt><dd><p>The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">EthernetWriter</span></code> or
+<code class="docutils literal notranslate"><span class="pre">EthernetReader</span></code>.</p>
+</dd>
+<dt>[RegistryUri]</dt><dd><p>The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Parameter Example</p></th>
+<td><pre class="literal-block"># Creates a LIN Master Process with the default registry URI:
+build/Release/SilKitDemoLin Demos/Lin/SilKitConfig_DemoLin.json LinMaster</pre>
+</td>
+</tr>
+<tr class="row-even"><th class="stub"><p>System Example</p></th>
+<td><pre class="literal-block"># System Monitor (optional):
+build/Release/sil-kit-system-monitor
+
+# LIN Master:
+build/Release/SilKitDemoLin Demos/Lin/SilKitConfig_DemoLin.json LinMaster
+
+# LIN Slave:
+build/Release/SilKitDemoLin Demos/Lin/SilKitConfig_DemoLin.json LinSlave
+
+# System Controller:
+build/Release/sil-kit-system-controller LinSlave LinMaster</pre>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Notes</p></th>
+<td><div class="line-block">
+<div class="line">- The LIN demo can only run in a synchronized mode.</div>
+<div class="line">- Both Master and Slave sleep for 500 milliseconds per simulation step to slow down execution.</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="flexray-demo">
+<h2>FlexRay Demo<a class="headerlink" href="#flexray-demo" title="Permalink to this heading"></a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 93%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Abstract</p></th>
+<td><p>FlexRay Demo for a FlexRay cluster containing two nodes</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Source location</p></th>
+<td><p>Demos/FlexRay</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Requirements</p></th>
+<td><ul class="simple">
+<li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></p></li>
+<li><p>Network simulator (mandatory)</p></li>
+<li><p><a class="reference internal" href="utilities.html#sec-util-system-monitor"><span class="std std-ref">sil-kit-system-monitor</span></a> (optional)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Parameters</p></th>
+<td><dl class="simple">
+<dt>&lt;ParticipantConfiguration.json|yaml&gt;</dt><dd><p>File name of the ParticipantConfiguraiton to be used;
+use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoFlexRay.json</span></code> for an example configuration.</p>
+</dd>
+<dt>&lt;ParticipantName&gt;</dt><dd><p>The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">Node0</span></code> or
+<code class="docutils literal notranslate"><span class="pre">Node1</span></code>.</p>
+</dd>
+<dt>[RegistryUri]</dt><dd><p>The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Parameter Example</p></th>
+<td><pre class="literal-block"># Creates a FlexRay Process for Node 0 with the default registry URI:
+build/Release/SilKitDemoFlexray Demos/FlexRay/SilKitConfig_DemoFlexray.json Node0</pre>
+</td>
+</tr>
+<tr class="row-even"><th class="stub"><p>System Example</p></th>
+<td><pre class="literal-block"># Network simulator (assumed to be in PATH, necessary):
+NetworkSimulator Demos/FlexRay/NetworkSimulatorConfig.json
+
+# System Monitor (optional):
+build/Release/sil-kit-system-monitor
+
+# Node 0:
+build/Release/SilKitDemoFlexray Demos/FlexRay/SilKitConfig_DemoFlexray.json Node0
+
+# Node 1:
+build/Release/SilKitDemoFlexray Demos/FlexRay/SilKitConfig_DemoFlexray.json Node1
+
+# System Controller:
+build/Release/sil-kit-system-controller Node0 Node1 NetworkSimulator</pre>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Notes</p></th>
+<td><p>Starting the FlexRay cycle takes quite some time, which is accurately modeled by the NetworkSimulator.
+It takes somewhat between 50 and 100 ms until the first FlexRay messages are transmitted.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="publish-subscribe-demo">
+<h2>Publish &amp; Subscribe Demo<a class="headerlink" href="#publish-subscribe-demo" title="Permalink to this heading"></a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 93%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Abstract</p></th>
+<td><p>Data Message Publish Subscribe Demo for a set of Publishers/Subscribers</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Source location</p></th>
+<td><p>Demos/PubSub</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Requirements</p></th>
+<td><ul class="simple">
+<li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></p></li>
+<li><p><a class="reference internal" href="utilities.html#sec-util-system-monitor"><span class="std std-ref">sil-kit-system-monitor</span></a> (optional)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Parameters</p></th>
+<td><dl class="simple">
+<dt>&lt;ParticipantConfiguration.json|yaml&gt;</dt><dd><p>File name of the ParticipantConfiguraiton to be used;
+use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoPubSub.json</span></code> for an example configuration.</p>
+</dd>
+<dt>&lt;ParticipantName&gt;</dt><dd><p>The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">Publisher</span></code> or
+<code class="docutils literal notranslate"><span class="pre">Subscriber</span></code>.</p>
+</dd>
+<dt>[RegistryUri]</dt><dd><p>The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Parameter Example</p></th>
+<td><pre class="literal-block"># Creates a combined publisher and subscriber with the default registry URI:
+build/Release/SilKitDemoPubSub Demos/PubSub/SilKitConfig_DemoPubSub.json Publisher</pre>
+</td>
+</tr>
+<tr class="row-even"><th class="stub"><p>System Example</p></th>
+<td><pre class="literal-block"># System Monitor (optional):
+build/Release/sil-kit-system-monitor
+
+# Publisher:
+build/Release/SilKitDemoPubSub Demos/PubSub/SilKitConfig_DemoPubSub.json Publisher
+
+# Subscriber:
+build/Release/SilKitDemoPubSub Demos/PubSub/SilKitConfig_DemoPubSub.json Subscriber
+
+# System Controller:
+build/Release/sil-kit-system-controller Publisher Subscriber</pre>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Notes</p></th>
+<td><p>The publisher and subscriber show how to serialize/deserialize different kinds of data with the built in serializer/deserializer.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rpc-demo">
+<h2>RPC Demo<a class="headerlink" href="#rpc-demo" title="Permalink to this heading"></a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 93%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Abstract</p></th>
+<td><p>Remote Procedure Call Demo. The client triggers remote procedure calls on the server.</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Source location</p></th>
+<td><p>Demos/Rpc</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Requirements</p></th>
+<td><ul class="simple">
+<li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></p></li>
+<li><p><a class="reference internal" href="utilities.html#sec-util-system-monitor"><span class="std std-ref">sil-kit-system-monitor</span></a> (optional)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Parameters</p></th>
+<td><dl class="simple">
+<dt>&lt;ParticipantConfiguration.json|yaml&gt;</dt><dd><p>File name of the ParticipantConfiguraiton to be used;
+use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoRpc.json</span></code> for an example configuration.</p>
+</dd>
+<dt>&lt;ParticipantName&gt;</dt><dd><p>The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">Server</span></code> or
+<code class="docutils literal notranslate"><span class="pre">Client</span></code>.</p>
+</dd>
+<dt>[RegistryUri]</dt><dd><p>The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Parameter Example</p></th>
+<td><pre class="literal-block"># Creates a Rpc-Server Process with the default registry URI:
+build/Release/SilKitDemoRpc Demos/Rpc/SilKitConfig_DemoRpc.json Server</pre>
+</td>
+</tr>
+<tr class="row-even"><th class="stub"><p>System Example</p></th>
+<td><pre class="literal-block"># System Monitor (optional):
+build/Release/sil-kit-system-monitor
+
+# Server:
+build/Release/SilKitDemoRpc Demos/Rpc/SilKitConfig_DemoRpc.json Server
+
+# Client:
+build/Release/SilKitDemoRpc Demos/Rpc/SilKitConfig_DemoRpc.json Client
+
+# System Controller:
+build/Release/sil-kit-system-controller Server Client</pre>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Notes</p></th>
+<td><p><code class="docutils literal notranslate"><span class="pre">Client</span></code> participant has two RpcClients that call the <code class="docutils literal notranslate"><span class="pre">Add100</span></code> and <code class="docutils literal notranslate"><span class="pre">Sort</span></code> functions on the two RpcServers of the <code class="docutils literal notranslate"><span class="pre">Server</span></code> participant.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../api/capi-systemmonitor.html" class="btn btn-neutral float-left" title="System Monitor C API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../configuration/configuration.html" class="btn btn-neutral float-right" title="Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../configuration/configuration.html" title="Configuration"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../api/capi/systemmonitor.html" title="System Monitor C API"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.6 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Demos</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
-    </div>
-  </body>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

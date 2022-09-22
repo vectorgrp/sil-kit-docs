@@ -1,65 +1,115 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-
-<!doctype html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lifecycle Service &#8212; Vector SIL Kit 4.0.6 documentation</title>
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/bizstyle.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lifecycle Service &mdash; Vector SIL Kit 4.0.7 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Time Synchronization Service" href="timeSyncService.html" />
-    <link rel="prev" title="RPC (Remote Procedure Call) API" href="rpc.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <!--[if lt IE 9]>
-    <script src="_static/css3-mediaqueries.js"></script>
-    <![endif]-->
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="timeSyncService.html" title="Time Synchronization Service"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="rpc.html" title="RPC (Remote Procedure Call) API"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="api.html" accesskey="U">API</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Lifecycle Service</a></li> 
-      </ul>
-    </div>  
+    <link rel="prev" title="RPC (Remote Procedure Call) API" href="rpc.html" /> 
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="lifecycle-service">
-<span id="sec-api-lifecycle-service"></span><h1>Lifecycle Service<a class="headerlink" href="#lifecycle-service" title="Permalink to this headline">¶</a></h1>
-<div class="contents local topic" id="contents">
-<ul class="simple">
-<li><a class="reference internal" href="#configuring-the-lifecycle-service" id="id1">Configuring the Lifecycle Service</a></li>
-<li><a class="reference internal" href="#using-the-lifecycle-service" id="id2">Using the Lifecycle Service</a><ul>
-<li><a class="reference internal" href="#controlling-the-participant" id="id3">Controlling the Participant</a></li>
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api.html#api-entry-point-and-api-organization">API Entry Point and API Organization</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#services">Services</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="logging.html">Logging Service API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vehicle-network-controller">Vehicle Network Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#data-publish-subscribe-and-rpc">Data Publish/Subscribe and RPC</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="api.html#state-handling-and-synchronization">State Handling and Synchronization</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Lifecycle Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="timeSyncService.html">Time Synchronization Service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="systemcontroller.html">System Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="systemmonitor.html">System Monitor</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#api-and-data-type-reference" id="id4">API and Data Type Reference</a></li>
-<li><a class="reference internal" href="#usage-example" id="id5">Usage Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#common-data-types">Common Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#c-api">C API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="api.html">API</a> &raquo;</li>
+      <li>Lifecycle Service</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/lifecycleService.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lifecycle-service">
+<span id="sec-api-lifecycle-service"></span><h1>Lifecycle Service<a class="headerlink" href="#lifecycle-service" title="Permalink to this heading"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#configuring-the-lifecycle-service" id="id1">Configuring the Lifecycle Service</a></p></li>
+<li><p><a class="reference internal" href="#using-the-lifecycle-service" id="id2">Using the Lifecycle Service</a></p>
+<ul>
+<li><p><a class="reference internal" href="#controlling-the-participant" id="id3">Controlling the Participant</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#api-and-data-type-reference" id="id4">API and Data Type Reference</a></p></li>
+<li><p><a class="reference internal" href="#usage-example" id="id5">Usage Example</a></p></li>
 </ul>
 </div>
 <p>The lifecycle service is used to orchestrate the workflow and states of a simulation participant.
@@ -67,32 +117,34 @@ It provides access to the <a class="reference internal" href="timeSyncService.ht
 , registers callbacks for state changes, queries the participant’s state and issues commands to change the state.
 For an overview of a participant’s state and its relation to the simulation
 refer to the <a class="reference internal" href="../simulation/simulation.html#sec-sim-lifecycle-syncparticipants"><span class="std std-ref">participant lifecycle section</span></a>.</p>
-<div class="section" id="configuring-the-lifecycle-service">
-<span id="subsec-sim-configuring-lifecycle"></span><h2><a class="toc-backref" href="#id1">Configuring the Lifecycle Service</a><a class="headerlink" href="#configuring-the-lifecycle-service" title="Permalink to this headline">¶</a></h2>
+<section id="configuring-the-lifecycle-service">
+<span id="subsec-sim-configuring-lifecycle"></span><h2><a class="toc-backref" href="#id1">Configuring the Lifecycle Service</a><a class="headerlink" href="#configuring-the-lifecycle-service" title="Permalink to this heading"></a></h2>
 <p>To create the lifecycle service, a valid lifecycle configuration must be provided.
 Currently, only the mode that the lifecycle operates in can be configured.
 There are two possible operation modi:</p>
 <ul class="simple">
-<li>Coordinated:<ul>
-<li>The lifecycle service will coordinate its state with other participants. It will do so by reacting to changes of the system state, which is based on the list of required participants.</li>
-<li>A coordinated participant will only work, if any participant set a list of required participants as part of <a class="reference internal" href="systemcontroller.html#_CPPv4N6SilKit12Experimental8Services13Orchestration17ISystemController24SetWorkflowConfigurationERKN6SilKit8Services13Orchestration21WorkflowConfigurationE" title="SilKit::Experimental::Services::Orchestration::ISystemController::SetWorkflowConfiguration"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ISystemController::SetWorkflowConfiguration()</span></code></a>.</li>
-<li>Coordinated participants will stop, as soon as the system state changes to the stopping state.</li>
-<li>The <cite>CommunicationReady</cite> callback guarantees that communication via RPC and Publish/Subscribe services is possible.</li>
-<li>Coordinated participants can also be terminated externally using the <a class="reference internal" href="systemcontroller.html#_CPPv4NK6SilKit12Experimental8Services13Orchestration17ISystemController15AbortSimulationEv" title="SilKit::Experimental::Services::Orchestration::ISystemController::AbortSimulation"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ISystemController::AbortSimulation()</span></code></a> call.</li>
+<li><p>Coordinated:</p>
+<ul>
+<li><p>The lifecycle service will coordinate its state with other participants. It will do so by reacting to changes of the system state, which is based on the list of required participants.</p></li>
+<li><p>A coordinated participant will only work, if any participant set a list of required participants as part of <a class="reference internal" href="systemcontroller.html#_CPPv4N6SilKit12Experimental8Services13Orchestration17ISystemController24SetWorkflowConfigurationERKN6SilKit8Services13Orchestration21WorkflowConfigurationE" title="SilKit::Experimental::Services::Orchestration::ISystemController::SetWorkflowConfiguration"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ISystemController::SetWorkflowConfiguration()</span></code></a>.</p></li>
+<li><p>Coordinated participants will stop, as soon as the system state changes to the stopping state.</p></li>
+<li><p>The <cite>CommunicationReady</cite> callback guarantees that communication via RPC and Publish/Subscribe services is possible.</p></li>
+<li><p>Coordinated participants can also be terminated externally using the <a class="reference internal" href="systemcontroller.html#_CPPv4NK6SilKit12Experimental8Services13Orchestration17ISystemController15AbortSimulationEv" title="SilKit::Experimental::Services::Orchestration::ISystemController::AbortSimulation"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ISystemController::AbortSimulation()</span></code></a> call.</p></li>
 </ul>
 </li>
-<li>Autonomous:<ul>
-<li>An autonomous participant will not align its state to the system state or any participant state of other participants.</li>
-<li>The lifecycle service will run through all participant states until it is running and it will trigger all callbacks.</li>
-<li>The <cite>CommunicationReady</cite> callback will trigger, but the communication guarantee is not given.</li>
-<li>Autonomous participants must stop themselves by explicitly calling <a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService4StopENSt6stringE" title="SilKit::Services::Orchestration::ILifecycleService::Stop"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Stop()</span></code></a>.</li>
-<li>The only way to stop an autonomous participant externally is the <a class="reference internal" href="systemcontroller.html#_CPPv4NK6SilKit12Experimental8Services13Orchestration17ISystemController15AbortSimulationEv" title="SilKit::Experimental::Services::Orchestration::ISystemController::AbortSimulation"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ISystemController::AbortSimulation()</span></code></a> call.</li>
+<li><p>Autonomous:</p>
+<ul>
+<li><p>An autonomous participant will not align its state to the system state or any participant state of other participants.</p></li>
+<li><p>The lifecycle service will run through all participant states until it is running and it will trigger all callbacks.</p></li>
+<li><p>The <cite>CommunicationReady</cite> callback will trigger, but the communication guarantee is not given.</p></li>
+<li><p>Autonomous participants must stop themselves by explicitly calling <a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService4StopENSt6stringE" title="SilKit::Services::Orchestration::ILifecycleService::Stop"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Stop()</span></code></a>.</p></li>
+<li><p>The only way to stop an autonomous participant externally is the <a class="reference internal" href="systemcontroller.html#_CPPv4NK6SilKit12Experimental8Services13Orchestration17ISystemController15AbortSimulationEv" title="SilKit::Experimental::Services::Orchestration::ISystemController::AbortSimulation"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ISystemController::AbortSimulation()</span></code></a> call.</p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="using-the-lifecycle-service">
-<span id="subsec-sim-using-lifecycle"></span><h2><a class="toc-backref" href="#id2">Using the Lifecycle Service</a><a class="headerlink" href="#using-the-lifecycle-service" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-the-lifecycle-service">
+<span id="subsec-sim-using-lifecycle"></span><h2><a class="toc-backref" href="#id2">Using the Lifecycle Service</a><a class="headerlink" href="#using-the-lifecycle-service" title="Permalink to this heading"></a></h2>
 <p>An <a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleServiceE" title="SilKit::Services::Orchestration::ILifecycleService"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ILifecycleService</span></code></a> instance can be retrieved from a <a class="reference internal" href="participant.html"><span class="doc">Participant</span></a>. To do so, a lifecycle configuration must be provided:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Orchestration</span><span class="o">::</span><span class="n">LifecycleConfiguration</span> <span class="n">lc</span><span class="p">{</span>
     <span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Orchestration</span><span class="o">::</span><span class="n">OperationMode</span><span class="o">::</span><span class="n">Coordinated</span><span class="p">};</span>
@@ -100,8 +152,8 @@ There are two possible operation modi:</p>
 </pre></div>
 </div>
 <div class="admonition-note admonition">
-<p class="first admonition-title">Note</p>
-<p class="last">Please note that the lifecycle service and the time synchronization service can only be created once.
+<p class="admonition-title">Note</p>
+<p>Please note that the lifecycle service and the time synchronization service can only be created once.
 Calling these methods more than once throws an exception.</p>
 </div>
 <p>Participants can synchronize their time with other participants (see <a class="reference internal" href="../simulation/simulation.html#sec-sim-synchronization"><span class="std std-ref">synchronized simulation run</span></a> for details):</p>
@@ -149,8 +201,8 @@ This can be used to start local timers:</p>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">CommunicationReady</span></code> handler should be used to intialize and configure <a class="reference internal" href="api.html"><span class="doc">services and controllers</span></a>.</p>
-<div class="section" id="controlling-the-participant">
-<h3><a class="toc-backref" href="#id3">Controlling the Participant</a><a class="headerlink" href="#controlling-the-participant" title="Permalink to this headline">¶</a></h3>
+<section id="controlling-the-participant">
+<h3><a class="toc-backref" href="#id3">Controlling the Participant</a><a class="headerlink" href="#controlling-the-participant" title="Permalink to this heading"></a></h3>
 <p>After a successful startup, the participant will enter the <a class="reference internal" href="systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState7RunningE" title="SilKit::Services::Orchestration::Running"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Running</span></code></a> state.
 <a class="reference internal" href="#_CPPv4NK6SilKit8Services13Orchestration17ILifecycleService5StateEv" title="SilKit::Services::Orchestration::ILifecycleService::State"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">State()</span></code></a> returns the
 current state as a plain enumeration, whereas <a class="reference internal" href="#_CPPv4NK6SilKit8Services13Orchestration17ILifecycleService6StatusEv" title="SilKit::Services::Orchestration::ILifecycleService::Status"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Status()</span></code></a>
@@ -170,88 +222,89 @@ call the registered StopHandler (if it was set) and switch to the <a class="refe
 Afterwards, the participant will shut down by first changing to the <a class="reference internal" href="systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState12ShuttingDownE" title="SilKit::Services::Orchestration::ShuttingDown"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">ShuttingDown</span></code></a> state,
 which triggers the shutdown handler (if it was set) and then finishing at the <a class="reference internal" href="systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState8ShutdownE" title="SilKit::Services::Orchestration::Shutdown"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Shutdown</span></code></a> state.
 At this point, the future provided by <a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService14StartLifecycleEv" title="SilKit::Services::Orchestration::ILifecycleService::StartLifecycle"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">StartLifecycle()</span></code></a> will return.</p>
-</div>
-</div>
-<div class="section" id="api-and-data-type-reference">
-<h2><a class="toc-backref" href="#id4">API and Data Type Reference</a><a class="headerlink" href="#api-and-data-type-reference" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="api-and-data-type-reference">
+<h2><a class="toc-backref" href="#id4">API and Data Type Reference</a><a class="headerlink" href="#api-and-data-type-reference" title="Permalink to this heading"></a></h2>
 <dl class="cpp class">
-<dt id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleServiceE">
-<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleServiceE"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleServiceE"></span><span id="SilKit::Services::Orchestration::ILifecycleService"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service"></span><em class="property">class </em><code class="descclassname">SilKit::Services::Orchestration<code class="descclassname">::</code></code><code class="descname">ILifecycleService</code><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleServiceE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><div class="breathe-sectiondef container">
-<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleServiceE">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleServiceE"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleServiceE"></span><span id="SilKit::Services::Orchestration::ILifecycleService"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ILifecycleService</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleServiceE" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService28SetCommunicationReadyHandlerE25CommunicationReadyHandler">
-<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService28SetCommunicationReadyHandlerE25CommunicationReadyHandler"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService28SetCommunicationReadyHandlerE25CommunicationReadyHandler"></span><span id="SilKit::Services::Orchestration::ILifecycleService::SetCommunicationReadyHandler__CommunicationReadyHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1ab2980e038719f627781c2ba041833cd1"></span>void <code class="descname">SetCommunicationReadyHandler</code><span class="sig-paren">(</span>CommunicationReadyHandler <em>handler</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService28SetCommunicationReadyHandlerE25CommunicationReadyHandler" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService28SetCommunicationReadyHandlerE25CommunicationReadyHandler">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService28SetCommunicationReadyHandlerE25CommunicationReadyHandler"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService28SetCommunicationReadyHandlerE25CommunicationReadyHandler"></span><span id="SilKit::Services::Orchestration::ILifecycleService::SetCommunicationReadyHandler__CommunicationReadyHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1ab2980e038719f627781c2ba041833cd1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetCommunicationReadyHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">CommunicationReadyHandler</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService28SetCommunicationReadyHandlerE25CommunicationReadyHandler" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Register a callback that is executed once communication with controllers is possible. </p>
 <p>The handler is called after <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7ae0c6e2cbc44ad9effe99a95a9270accd"><span class="std std-ref">SystemState::CommunicationInitialized</span></a> is reached. This handler is invoked on the SilKit I/O worker thread, and receiving messages during the handler invocation is not possible. For an asynchronous invocation, see <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a8c461cb137ae6db6332a53920e594c03"><span class="std std-ref">SetCommunicationReadyHandlerAsync</span></a> and <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a9817884c479ded7d52efea31f690fdfd"><span class="std std-ref">CompleteCommunicationReadyHandlerAsync</span></a>. After the handler has been processed, the participant switches to the <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a506db5c85cf0fd10f93e5478013650b6"><span class="std std-ref">ParticipantState::ReadyToRun</span></a> state. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService33SetCommunicationReadyHandlerAsyncE25CommunicationReadyHandler">
-<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService33SetCommunicationReadyHandlerAsyncE25CommunicationReadyHandler"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService33SetCommunicationReadyHandlerAsyncE25CommunicationReadyHandler"></span><span id="SilKit::Services::Orchestration::ILifecycleService::SetCommunicationReadyHandlerAsync__CommunicationReadyHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a8c461cb137ae6db6332a53920e594c03"></span>void <code class="descname">SetCommunicationReadyHandlerAsync</code><span class="sig-paren">(</span>CommunicationReadyHandler <em>handler</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService33SetCommunicationReadyHandlerAsyncE25CommunicationReadyHandler" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService33SetCommunicationReadyHandlerAsyncE25CommunicationReadyHandler">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService33SetCommunicationReadyHandlerAsyncE25CommunicationReadyHandler"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService33SetCommunicationReadyHandlerAsyncE25CommunicationReadyHandler"></span><span id="SilKit::Services::Orchestration::ILifecycleService::SetCommunicationReadyHandlerAsync__CommunicationReadyHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a8c461cb137ae6db6332a53920e594c03"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetCommunicationReadyHandlerAsync</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">CommunicationReadyHandler</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService33SetCommunicationReadyHandlerAsyncE25CommunicationReadyHandler" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Register a callback that is executed once all communication channels between participants with a lifecycle have been set up and are ready for communication. </p>
 <p>The handler when the participant enters the <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7ae0c6e2cbc44ad9effe99a95a9270accd"><span class="std std-ref">ParticipantState::CommunicationInitialized</span></a>. The API user has to signal the completion of the handler by invoking <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a9817884c479ded7d52efea31f690fdfd"><span class="std std-ref">CompleteCommunicationReadyHandlerAsync()</span></a>. Note that CompleteCommunicationReadyHandlerAsync may not be called from within any CommunicationReadyHandler. The CommunicationReadyHandler is executed in an internal thread and must not be blocked by the user. The participant remains in its state until <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a9817884c479ded7d52efea31f690fdfd"><span class="std std-ref">CompleteCommunicationReadyHandlerAsync()</span></a> is invoked in another thread and then switches to the <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a506db5c85cf0fd10f93e5478013650b6"><span class="std std-ref">ParticipantState::ReadyToRun</span></a>. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService38CompleteCommunicationReadyHandlerAsyncEv">
-<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService38CompleteCommunicationReadyHandlerAsyncEv"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService38CompleteCommunicationReadyHandlerAsyncEv"></span><span id="SilKit::Services::Orchestration::ILifecycleService::CompleteCommunicationReadyHandlerAsync"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a9817884c479ded7d52efea31f690fdfd"></span>void <code class="descname">CompleteCommunicationReadyHandlerAsync</code><span class="sig-paren">(</span><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService38CompleteCommunicationReadyHandlerAsyncEv" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService38CompleteCommunicationReadyHandlerAsyncEv">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService38CompleteCommunicationReadyHandlerAsyncEv"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService38CompleteCommunicationReadyHandlerAsyncEv"></span><span id="SilKit::Services::Orchestration::ILifecycleService::CompleteCommunicationReadyHandlerAsync"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a9817884c479ded7d52efea31f690fdfd"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CompleteCommunicationReadyHandlerAsync</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService38CompleteCommunicationReadyHandlerAsyncEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Notify that the async CommunicationReadyHandler is completed. </p>
 <p>This method must not be invoked from within a CommunicationReadyHandler. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService18SetStartingHandlerE15StartingHandler">
-<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService18SetStartingHandlerE15StartingHandler"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService18SetStartingHandlerE15StartingHandler"></span><span id="SilKit::Services::Orchestration::ILifecycleService::SetStartingHandler__StartingHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a341065345fe943feca19b323481fec90"></span>void <code class="descname">SetStartingHandler</code><span class="sig-paren">(</span>StartingHandler <em>handler</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService18SetStartingHandlerE15StartingHandler" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService18SetStartingHandlerE15StartingHandler">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService18SetStartingHandlerE15StartingHandler"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService18SetStartingHandlerE15StartingHandler"></span><span id="SilKit::Services::Orchestration::ILifecycleService::SetStartingHandler__StartingHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a341065345fe943feca19b323481fec90"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetStartingHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">StartingHandler</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService18SetStartingHandlerE15StartingHandler" title="Permalink to this definition"></a><br /></dt>
 <dd><p>(Asynchronous participants only) Register a callback that is executed once directly before the participant enters ParticipantState::Run. </p>
 <p>This handler is triggered just before the participant changes to <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a5bda814c4aedb126839228f1a3d92f09"><span class="std std-ref">ParticipantState::Running</span></a>. It is only triggered if the participant does NOT use virtual time synchronization. It does not block other participants from changing to <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a5bda814c4aedb126839228f1a3d92f09"><span class="std std-ref">ParticipantState::Running</span></a> and should only be used for lightweight operations such as starting timers. It is executed in the context of an internal thread that received the command. After the handler has been processed, the participant switches to the <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a5bda814c4aedb126839228f1a3d92f09"><span class="std std-ref">ParticipantState::Running</span></a> state. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService14SetStopHandlerE11StopHandler">
-<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService14SetStopHandlerE11StopHandler"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService14SetStopHandlerE11StopHandler"></span><span id="SilKit::Services::Orchestration::ILifecycleService::SetStopHandler__StopHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a699df98cc477c4a4d3ec405600259d86"></span>void <code class="descname">SetStopHandler</code><span class="sig-paren">(</span>StopHandler <em>handler</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService14SetStopHandlerE11StopHandler" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService14SetStopHandlerE11StopHandler">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService14SetStopHandlerE11StopHandler"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService14SetStopHandlerE11StopHandler"></span><span id="SilKit::Services::Orchestration::ILifecycleService::SetStopHandler__StopHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a699df98cc477c4a4d3ec405600259d86"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetStopHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">StopHandler</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService14SetStopHandlerE11StopHandler" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Register a callback that is executed on simulation stop. </p>
 <p>The handler is called when the participant enters the <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a7b7ecb39b9e110c2a31409a1672bad23"><span class="std std-ref">ParticipantState::Stopping</span></a> state. It is executed in the context of an internal thread that received the command. After the handler has been processed, the participant switches to the <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7ac23e2b09ebe6bf4cb5e2a9abe85c0be2"><span class="std std-ref">ParticipantState::Stopped</span></a> state.</p>
 <p>Throwing an error inside the handler will cause a call to <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a514586028d5c2186e282b36bb83f9802"><span class="std std-ref">ReportError()</span></a>. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService18SetShutdownHandlerE15ShutdownHandler">
-<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService18SetShutdownHandlerE15ShutdownHandler"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService18SetShutdownHandlerE15ShutdownHandler"></span><span id="SilKit::Services::Orchestration::ILifecycleService::SetShutdownHandler__ShutdownHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1ae4552a64ad66993b4e0b9c35b0cceb3e"></span>void <code class="descname">SetShutdownHandler</code><span class="sig-paren">(</span>ShutdownHandler <em>handler</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService18SetShutdownHandlerE15ShutdownHandler" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService18SetShutdownHandlerE15ShutdownHandler">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService18SetShutdownHandlerE15ShutdownHandler"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService18SetShutdownHandlerE15ShutdownHandler"></span><span id="SilKit::Services::Orchestration::ILifecycleService::SetShutdownHandler__ShutdownHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1ae4552a64ad66993b4e0b9c35b0cceb3e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetShutdownHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ShutdownHandler</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService18SetShutdownHandlerE15ShutdownHandler" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Register a callback that is executed on simulation shutdown. </p>
 <p>The handler is called when the participant enters the <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a075d9c9ae8c8f1c79c1a1965cd8c5a42"><span class="std std-ref">ParticipantState::ShuttingDown</span></a> state. It is executed in the context of an internal thread that received the command. After the handler has been processed, the participant switches to the <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a1a4ebb180ba59b067782515ffee6e975"><span class="std std-ref">ParticipantState::Shutdown</span></a> state and is allowed to terminate.</p>
 <p>Throwing an error inside the handler will cause a call to <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a514586028d5c2186e282b36bb83f9802"><span class="std std-ref">ReportError()</span></a>. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService15SetAbortHandlerE12AbortHandler">
-<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService15SetAbortHandlerE12AbortHandler"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService15SetAbortHandlerE12AbortHandler"></span><span id="SilKit::Services::Orchestration::ILifecycleService::SetAbortHandler__AbortHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a9cfdefa98b291e3aed1114a6f557dd40"></span>void <code class="descname">SetAbortHandler</code><span class="sig-paren">(</span>AbortHandler <em>handler</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService15SetAbortHandlerE12AbortHandler" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService15SetAbortHandlerE12AbortHandler">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService15SetAbortHandlerE12AbortHandler"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService15SetAbortHandlerE12AbortHandler"></span><span id="SilKit::Services::Orchestration::ILifecycleService::SetAbortHandler__AbortHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a9cfdefa98b291e3aed1114a6f557dd40"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetAbortHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">AbortHandler</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService15SetAbortHandlerE12AbortHandler" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Register a callback that is executed on simulation shutdown. </p>
 <p>The handler is called when the participant enters the <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a10f3b203b67107d670a31d9b39cc1983"><span class="std std-ref">ParticipantState::Aborting</span></a>. It is executed in the context of an internal thread that received the command. After the handler has been processed, the participant switches to the <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a1a4ebb180ba59b067782515ffee6e975"><span class="std std-ref">ParticipantState::Shutdown</span></a> state and is allowed to terminate.</p>
 <p>Throwing an error inside the handler will cause a call to <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a514586028d5c2186e282b36bb83f9802"><span class="std std-ref">ReportError()</span></a>. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService14StartLifecycleEv">
-<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService14StartLifecycleEv"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService14StartLifecycleEv"></span><span id="SilKit::Services::Orchestration::ILifecycleService::StartLifecycle"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a03f473fc108ce1accb0d2af3051635f3"></span>auto <code class="descname">StartLifecycle</code><span class="sig-paren">(</span><span class="sig-paren">)</span> -&gt; std::future&lt;<a class="reference internal" href="systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantStateE" title="SilKit::Services::Orchestration::ParticipantState">ParticipantState</a>&gt; = 0<a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService14StartLifecycleEv" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService14StartLifecycleEv">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService14StartLifecycleEv"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService14StartLifecycleEv"></span><span id="SilKit::Services::Orchestration::ILifecycleService::StartLifecycle"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a03f473fc108ce1accb0d2af3051635f3"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">StartLifecycle</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">future</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantStateE" title="SilKit::Services::Orchestration::ParticipantState"><span class="n"><span class="pre">ParticipantState</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService14StartLifecycleEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Start non blocking operation; returns immediately. </p>
 <p>Starts simulation until the simulation is stopped or aborted.</p>
-<p><dl class="docutils">
-<dt><strong>Return</strong></dt><dd>Future that will hold the final state of the participant once the LifecycleService finishes operation. </dd>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Future that will hold the final state of the participant once the LifecycleService finishes operation. </p>
+</dd>
 </dl>
-</p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService11ReportErrorENSt6stringE">
-<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService11ReportErrorENSt6stringE"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService11ReportErrorENSt6stringE"></span><span id="SilKit::Services::Orchestration::ILifecycleService::ReportError__ss"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a514586028d5c2186e282b36bb83f9802"></span>void <code class="descname">ReportError</code><span class="sig-paren">(</span>std::string <em>errorMsg</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService11ReportErrorENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService11ReportErrorENSt6stringE">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService11ReportErrorENSt6stringE"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService11ReportErrorENSt6stringE"></span><span id="SilKit::Services::Orchestration::ILifecycleService::ReportError__ss"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a514586028d5c2186e282b36bb83f9802"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ReportError</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">errorMsg</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService11ReportErrorENSt6stringE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Abort current simulation run due to an error. </p>
 <p>Switch to the <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a902b0d55fddef6f8d651fe1035b7d4bd"><span class="std std-ref">ParticipantState::Error</span></a> state and report the error message in the SIL Kit system. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService5PauseENSt6stringE">
-<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService5PauseENSt6stringE"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService5PauseENSt6stringE"></span><span id="SilKit::Services::Orchestration::ILifecycleService::Pause__ss"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a2091e58d45dff4aeb1413c6ae3bf03e0"></span>void <code class="descname">Pause</code><span class="sig-paren">(</span>std::string <em>reason</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService5PauseENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService5PauseENSt6stringE">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService5PauseENSt6stringE"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService5PauseENSt6stringE"></span><span id="SilKit::Services::Orchestration::ILifecycleService::Pause__ss"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a2091e58d45dff4aeb1413c6ae3bf03e0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Pause</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">reason</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService5PauseENSt6stringE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Pause execution of the participant. </p>
 <p>Switch to <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7ae99180abf47a8b3a856e0bcb2656990a"><span class="std std-ref">ParticipantState::Paused</span></a> due to the provided <code class="docutils literal notranslate"><span class="pre">reason</span></code>.</p>
 <p>When a client is in state <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7ae99180abf47a8b3a856e0bcb2656990a"><span class="std std-ref">ParticipantState::Paused</span></a>, it must not be considered as unresponsive even if a health monitoring related timeout occurs.</p>
@@ -259,15 +312,15 @@ At this point, the future provided by <a class="reference internal" href="#_CPPv
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService8ContinueEv">
-<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService8ContinueEv"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService8ContinueEv"></span><span id="SilKit::Services::Orchestration::ILifecycleService::Continue"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1ae93260ea1a4a58c79e47cc94aa10d856"></span>void <code class="descname">Continue</code><span class="sig-paren">(</span><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService8ContinueEv" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService8ContinueEv">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService8ContinueEv"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService8ContinueEv"></span><span id="SilKit::Services::Orchestration::ILifecycleService::Continue"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1ae93260ea1a4a58c79e47cc94aa10d856"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Continue</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService8ContinueEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Switch back to <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a5bda814c4aedb126839228f1a3d92f09"><span class="std std-ref">ParticipantState::Running</span></a> after having paused. </p>
 <p>Precondition: <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a126eb0d6ee3b704eeec86e7abf4c36e7"><span class="std std-ref">State()</span></a> == <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7ae99180abf47a8b3a856e0bcb2656990a"><span class="std std-ref">ParticipantState::Paused</span></a> </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService4StopENSt6stringE">
-<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService4StopENSt6stringE"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService4StopENSt6stringE"></span><span id="SilKit::Services::Orchestration::ILifecycleService::Stop__ss"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a6609160348f1f90a0f14edcd270dd912"></span>void <code class="descname">Stop</code><span class="sig-paren">(</span>std::string <em>reason</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService4StopENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService4StopENSt6stringE">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService4StopENSt6stringE"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService4StopENSt6stringE"></span><span id="SilKit::Services::Orchestration::ILifecycleService::Stop__ss"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a6609160348f1f90a0f14edcd270dd912"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Stop</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">reason</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService4StopENSt6stringE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Stop execution of the participant. </p>
 <p>Allows the participant to exit the RunAsync loop, e.g., if it is unable to further progress its simulation.</p>
 <p>Calls the StopHandler and then switches to the <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7ac23e2b09ebe6bf4cb5e2a9abe85c0be2"><span class="std std-ref">ParticipantState::Stopped</span></a> state.</p>
@@ -276,29 +329,29 @@ At this point, the future provided by <a class="reference internal" href="#_CPPv
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK6SilKit8Services13Orchestration17ILifecycleService5StateEv">
-<span id="_CPPv3NK6SilKit8Services13Orchestration17ILifecycleService5StateEv"></span><span id="_CPPv2NK6SilKit8Services13Orchestration17ILifecycleService5StateEv"></span><span id="SilKit::Services::Orchestration::ILifecycleService::StateC"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a126eb0d6ee3b704eeec86e7abf4c36e7"></span>auto <code class="descname">State</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em> -&gt; <a class="reference internal" href="systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantStateE" title="SilKit::Services::Orchestration::ParticipantState">ParticipantState</a> = 0<a class="headerlink" href="#_CPPv4NK6SilKit8Services13Orchestration17ILifecycleService5StateEv" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK6SilKit8Services13Orchestration17ILifecycleService5StateEv">
+<span id="_CPPv3NK6SilKit8Services13Orchestration17ILifecycleService5StateEv"></span><span id="_CPPv2NK6SilKit8Services13Orchestration17ILifecycleService5StateEv"></span><span id="SilKit::Services::Orchestration::ILifecycleService::StateC"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a126eb0d6ee3b704eeec86e7abf4c36e7"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">State</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><a class="reference internal" href="systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantStateE" title="SilKit::Services::Orchestration::ParticipantState"><span class="n"><span class="pre">ParticipantState</span></span></a><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4NK6SilKit8Services13Orchestration17ILifecycleService5StateEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Get the current participant status. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK6SilKit8Services13Orchestration17ILifecycleService6StatusEv">
-<span id="_CPPv3NK6SilKit8Services13Orchestration17ILifecycleService6StatusEv"></span><span id="_CPPv2NK6SilKit8Services13Orchestration17ILifecycleService6StatusEv"></span><span id="SilKit::Services::Orchestration::ILifecycleService::StatusC"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a32840fe715a147c581103cd90f0e0daf"></span>auto <code class="descname">Status</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em> -&gt; <em class="property">const</em> <a class="reference internal" href="systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration17ParticipantStatusE" title="SilKit::Services::Orchestration::ParticipantStatus">ParticipantStatus</a>&amp; = 0<a class="headerlink" href="#_CPPv4NK6SilKit8Services13Orchestration17ILifecycleService6StatusEv" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK6SilKit8Services13Orchestration17ILifecycleService6StatusEv">
+<span id="_CPPv3NK6SilKit8Services13Orchestration17ILifecycleService6StatusEv"></span><span id="_CPPv2NK6SilKit8Services13Orchestration17ILifecycleService6StatusEv"></span><span id="SilKit::Services::Orchestration::ILifecycleService::StatusC"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a32840fe715a147c581103cd90f0e0daf"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Status</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration17ParticipantStatusE" title="SilKit::Services::Orchestration::ParticipantStatus"><span class="n"><span class="pre">ParticipantStatus</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4NK6SilKit8Services13Orchestration17ILifecycleService6StatusEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Get the current participant status. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService21CreateTimeSyncServiceEv">
-<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService21CreateTimeSyncServiceEv"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService21CreateTimeSyncServiceEv"></span><span id="SilKit::Services::Orchestration::ILifecycleService::CreateTimeSyncService"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a0c00beea2f9602cd3057d7f04a7b88ab"></span>auto <code class="descname">CreateTimeSyncService</code><span class="sig-paren">(</span><span class="sig-paren">)</span> -&gt; <a class="reference internal" href="timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncServiceE" title="SilKit::Services::Orchestration::ITimeSyncService">ITimeSyncService</a>* = 0<a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService21CreateTimeSyncServiceEv" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ILifecycleService21CreateTimeSyncServiceEv">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ILifecycleService21CreateTimeSyncServiceEv"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ILifecycleService21CreateTimeSyncServiceEv"></span><span id="SilKit::Services::Orchestration::ILifecycleService::CreateTimeSyncService"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service_1a0c00beea2f9602cd3057d7f04a7b88ab"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateTimeSyncService</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><a class="reference internal" href="timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncServiceE" title="SilKit::Services::Orchestration::ITimeSyncService"><span class="n"><span class="pre">ITimeSyncService</span></span></a><span class="p"><span class="pre">*</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService21CreateTimeSyncServiceEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Return the <a class="reference internal" href="timeSyncService.html#class_sil_kit_1_1_services_1_1_orchestration_1_1_i_time_sync_service"><span class="std std-ref">ITimeSyncService</span></a> for the current <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_orchestration_1_1_i_lifecycle_service"><span class="std std-ref">ILifecycleService</span></a>. </p>
 </dd></dl>
 
 </div>
 </dd></dl>
 
-</div>
-<div class="section" id="usage-example">
-<h2><a class="toc-backref" href="#id5">Usage Example</a><a class="headerlink" href="#usage-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="usage-example">
+<h2><a class="toc-backref" href="#id5">Usage Example</a><a class="headerlink" href="#usage-example" title="Permalink to this heading"></a></h2>
 <p>The following example is based on the <code class="docutils literal notranslate"><span class="pre">SilKitCanDemo</span></code> source code which is
 distributed with the SIL Kit, and slightly adapted for clarity.
 It demonstrates how to setup a lifecycle service and register callbacks
@@ -362,76 +415,38 @@ This is the recommended way to set up controllers before first use.</p>
 <span class="k">auto</span> <span class="n">finalState</span> <span class="o">=</span> <span class="n">finalStateFuture</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h3><a href="../contents.html">Table of Contents</a></h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/quickstart.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="api.html#api-entry-point-and-api-organization">API Entry Point and API Organization</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="api.html#services">Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#c-api">C API</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rpc.html" class="btn btn-neutral float-left" title="RPC (Remote Procedure Call) API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="timeSyncService.html" class="btn btn-neutral float-right" title="Time Synchronization Service" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/api/lifecycleService.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="timeSyncService.html" title="Time Synchronization Service"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="rpc.html" title="RPC (Remote Procedure Call) API"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="api.html" >API</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Lifecycle Service</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

@@ -1,64 +1,105 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-
-<!doctype html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quick Start &#8212; Vector SIL Kit 4.0.6 documentation</title>
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/bizstyle.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Start &mdash; Vector SIL Kit 4.0.7 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Simulation" href="../simulation/simulation.html" />
-    <link rel="prev" title="Vector SIL Kit" href="../index.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <!--[if lt IE 9]>
-    <script src="_static/css3-mediaqueries.js"></script>
-    <![endif]-->
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../simulation/simulation.html" title="Simulation"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="../index.html" title="Vector SIL Kit"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.6 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Quick Start</a></li> 
-      </ul>
-    </div>  
+    <link rel="prev" title="Vector SIL Kit" href="../index.html" /> 
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="quick-start">
-<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
-<div class="contents local topic" id="contents">
-<ul class="simple">
-<li><a class="reference internal" href="#terminology" id="id1">Terminology</a></li>
-<li><a class="reference internal" href="#writing-your-first-sil-kit-application" id="id2">Writing your first SIL Kit application</a><ul>
-<li><a class="reference internal" href="#using-the-sil-kit-package" id="id3">Using the SIL Kit package</a></li>
-<li><a class="reference internal" href="#a-simple-publish-subscribe-application" id="id4">A simple Publish / Subscribe application</a></li>
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#terminology">Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-your-first-sil-kit-application">Writing your first SIL Kit application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-sil-kit-package">Using the SIL Kit package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-simple-publish-subscribe-application">A simple Publish / Subscribe application</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#further-reading" id="id5">Further Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#further-reading">Further Reading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Quick Start</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/usage/quickstart.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="quick-start">
+<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this heading"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#terminology" id="id1">Terminology</a></p></li>
+<li><p><a class="reference internal" href="#writing-your-first-sil-kit-application" id="id2">Writing your first SIL Kit application</a></p>
+<ul>
+<li><p><a class="reference internal" href="#using-the-sil-kit-package" id="id3">Using the SIL Kit package</a></p></li>
+<li><p><a class="reference internal" href="#a-simple-publish-subscribe-application" id="id4">A simple Publish / Subscribe application</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#further-reading" id="id5">Further Reading</a></p></li>
 </ul>
 </div>
 <p>The Vector SIL Kit is a C++ library for the distributed simulation of automotive networks.
@@ -66,42 +107,42 @@ It is designed to work on Windows and Linux.
 This quick start demonstrates how to get started using the pre-built SIL Kit release distribution.</p>
 <p>This guide will walk you through setting up a SIL Kit project from scratch. First, the terminology
 required to understand the functionality is briefly discussed, then the build process and the actual code.</p>
-<div class="section" id="terminology">
-<span id="sec-quickstart-terminology"></span><h2><a class="toc-backref" href="#id1">Terminology</a><a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
+<section id="terminology">
+<span id="sec-quickstart-terminology"></span><h2><a class="toc-backref" href="#id1">Terminology</a><a class="headerlink" href="#terminology" title="Permalink to this heading"></a></h2>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col width="20%" />
-<col width="80%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="../api/participant.html"><span class="doc">Participant</span></a></td>
-<td>A communication node in the distributed simulation and entry point to the SIL Kit library.
-Allows creation of vehicle network controllers and other services.</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api/participant.html"><span class="doc">Participant</span></a></p></td>
+<td><p>A communication node in the distributed simulation and entry point to the SIL Kit library.
+Allows creation of vehicle network controllers and other services.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../api/api.html#sec-api-services"><span class="std std-ref">Services</span></a></td>
-<td>Participants interact with each other through the means of services, e.g.,
+<tr class="row-even"><td><p><a class="reference internal" href="../api/api.html#sec-api-services"><span class="std std-ref">Services</span></a></p></td>
+<td><p>Participants interact with each other through the means of services, e.g.,
 a <a class="reference internal" href="../api/can.html"><span class="doc">CAN Controller</span></a> or a <a class="reference internal" href="../api/pubsub.html"><span class="doc">DataPublisher</span></a>. A special service is the
 <a class="reference internal" href="../api/lifecycleService.html"><span class="doc">Life Cycle Service</span></a>, which
-provides state handling and access to the time synchronization service.</td>
+provides state handling and access to the time synchronization service.</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="../configuration/configuration.html"><span class="doc">Configuration</span></a></td>
-<td>The optional participant configuration file allows to easily configure a participant and its interconnection within the
-simulation. It can be used to change a participants behavior without needing to recompile its sources.</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../configuration/configuration.html"><span class="doc">Configuration</span></a></p></td>
+<td><p>The optional participant configuration file allows to easily configure a participant and its interconnection within the
+simulation. It can be used to change a participants behavior without needing to recompile its sources.</p></td>
 </tr>
-<tr class="row-even"><td>Registry</td>
-<td>The registry is a central service that enables participant discovery in a distributed simulation.</td>
+<tr class="row-even"><td><p>Registry</p></td>
+<td><p>The registry is a central service that enables participant discovery in a distributed simulation.</p></td>
 </tr>
-<tr class="row-odd"><td>Registry URI</td>
-<td>The registry URI specifies where the registry can be reached.
-It defaults to ‘silkit://localhost:8500’, that is, the registry is reachable via TCP on the localhost on port 8500.</td>
+<tr class="row-odd"><td><p>Registry URI</p></td>
+<td><p>The registry URI specifies where the registry can be reached.
+It defaults to ‘silkit://localhost:8500’, that is, the registry is reachable via TCP on the localhost on port 8500.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="../configuration/middleware-configuration.html"><span class="doc">Middleware</span></a></td>
-<td>The concrete distributed communication implementation. That is, the software layer
-implementing the distributed message passing mechanism.</td>
+<tr class="row-even"><td><p><a class="reference internal" href="../configuration/middleware-configuration.html"><span class="doc">Middleware</span></a></p></td>
+<td><p>The concrete distributed communication implementation. That is, the software layer
+implementing the distributed message passing mechanism.</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="../simulation/simulation.html#sec-sim-synchronization"><span class="std std-ref">Simulation Time</span></a></td>
-<td>The simulated time within a simulation as it is perceived by a participant. Participants might be synchronized or
-unsynchronized.</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../simulation/simulation.html#sec-sim-synchronization"><span class="std std-ref">Simulation Time</span></a></p></td>
+<td><p>The simulated time within a simulation as it is perceived by a participant. Participants might be synchronized or
+unsynchronized.</p></td>
 </tr>
 </tbody>
 </table>
@@ -110,12 +151,12 @@ An instance of the registry is required for coordination, either as a standalone
 The participants might be physically distributed in a network or running on the same host.</p>
 <p>Thus, it is feasible to have multiple simulations running in parallel on the same host computer.
 Some participants can have special roles, depending on e.g., the synchronization and detail of the simulation.</p>
-</div>
-<div class="section" id="writing-your-first-sil-kit-application">
-<h2><a class="toc-backref" href="#id2">Writing your first SIL Kit application</a><a class="headerlink" href="#writing-your-first-sil-kit-application" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="writing-your-first-sil-kit-application">
+<h2><a class="toc-backref" href="#id2">Writing your first SIL Kit application</a><a class="headerlink" href="#writing-your-first-sil-kit-application" title="Permalink to this heading"></a></h2>
 <p>This tutorial assumes that you are familiar with <a class="reference external" href="https://cmake.org">CMake (https://cmake.org)</a> and C++.</p>
-<div class="section" id="using-the-sil-kit-package">
-<h3><a class="toc-backref" href="#id3">Using the SIL Kit package</a><a class="headerlink" href="#using-the-sil-kit-package" title="Permalink to this headline">¶</a></h3>
+<section id="using-the-sil-kit-package">
+<h3><a class="toc-backref" href="#id3">Using the SIL Kit package</a><a class="headerlink" href="#using-the-sil-kit-package" title="Permalink to this heading"></a></h3>
 <p>The SIL Kit distribution contains a self-contained and deployable installation in the <em>SilKit</em> directory.
 The  CMake build configuration required is exported to <code class="docutils literal notranslate"><span class="pre">SilKit/lib/cmake/SilKit</span></code> and
 defines the <code class="docutils literal notranslate"><span class="pre">SilKit::SilKit</span></code> target.</p>
@@ -136,9 +177,9 @@ For example, the following CMakeLists.txt is able to import the SIL Kit library 
 <p>Properties, like include directories and compile flags, are automatically handled by the imported target.
 If you use another method to build your software you can directly use the <code class="docutils literal notranslate"><span class="pre">SilKit/include</span></code> and
 <code class="docutils literal notranslate"><span class="pre">SilKit/lib</span></code> directories for C++ headers and libraries.</p>
-</div>
-<div class="section" id="a-simple-publish-subscribe-application">
-<span id="sec-quickstart-simple"></span><h3><a class="toc-backref" href="#id4">A simple Publish / Subscribe application</a><a class="headerlink" href="#a-simple-publish-subscribe-application" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="a-simple-publish-subscribe-application">
+<span id="sec-quickstart-simple"></span><h3><a class="toc-backref" href="#id4">A simple Publish / Subscribe application</a><a class="headerlink" href="#a-simple-publish-subscribe-application" title="Permalink to this heading"></a></h3>
 <p>We’ll create a simple, self-contained SIL Kit application that uses <a class="reference internal" href="../api/pubsub.html"><span class="doc">Publish/Subscribe</span></a>
 to exchange user-defined data among its participants.</p>
 <p>To use the SIL Kit, you first have to create a valid configuration.  This can
@@ -258,10 +299,10 @@ distributed in binary forms.</p>
 </div>
 <p>The complete source code of this sample can be found here: <a class="reference download internal" download="" href="../_downloads/b85e86fe984ed799599cc04c32e9e439/CMakeLists.txt"><code class="xref download docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code></a>
 <a class="reference download internal" download="" href="../_downloads/2666ef56b8a361ce2c6faa71db2950dc/simple.cpp"><code class="xref download docutils literal notranslate"><span class="pre">simple.cpp</span></code></a> <a class="reference download internal" download="" href="../_downloads/230d4f71bf17ec74a25548e8338f04ac/simple.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple.yaml</span></code></a></p>
-</div>
-</div>
-<div class="section" id="further-reading">
-<h2><a class="toc-backref" href="#id5">Further Reading</a><a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="further-reading">
+<h2><a class="toc-backref" href="#id5">Further Reading</a><a class="headerlink" href="#further-reading" title="Permalink to this heading"></a></h2>
 <p>More real-world examples involving time synchronization and simulated
 automotive networks, can be found in the <a class="reference internal" href="../api/api.html"><span class="doc">API sections</span></a>.  Also,
 studying the source code of the bundled <a class="reference internal" href="demos.html"><span class="doc">demo applications</span></a> is a
@@ -269,75 +310,38 @@ good start. The simulation lifecycle and supported simulation time
 synchronization are discussed in <a class="reference internal" href="../simulation/simulation.html"><span class="doc">Simulation</span></a>.
 Additionally, <a class="reference internal" href="../configuration/configuration.html"><span class="doc">Configuration</span></a> describes how the participant
 configuration file can be used to change the behavior of participants.</p>
-</div>
-</div>
+</section>
+</section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h3><a href="../contents.html">Table of Contents</a></h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#terminology">Terminology</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#writing-your-first-sil-kit-application">Writing your first SIL Kit application</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#further-reading">Further Reading</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/api.html">API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demos.html">Demos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Vector SIL Kit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../simulation/simulation.html" class="btn btn-neutral float-right" title="Simulation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/usage/quickstart.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../simulation/simulation.html" title="Simulation"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="../index.html" title="Vector SIL Kit"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.6 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Quick Start</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

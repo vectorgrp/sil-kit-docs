@@ -1,330 +1,66 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-
-<!doctype html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC) &#8212; Vector SIL Kit 4.0.6 documentation</title>
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/bizstyle.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC) &mdash; Vector SIL Kit 4.0.7 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Logging Configuration" href="logging-configuration.html" />
-    <link rel="prev" title="Configuration" href="configuration.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <!--[if lt IE 9]>
-    <script src="_static/css3-mediaqueries.js"></script>
-    <![endif]-->
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="logging-configuration.html" title="Logging Configuration"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="configuration.html" title="Configuration"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="configuration.html" accesskey="U">Configuration</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a></li> 
-      </ul>
-    </div>  
+    <link rel="prev" title="Configuration" href="configuration.html" /> 
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="service-configuration-can-lin-flexray-ethernet-data-rpc">
-<h1>Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)<a class="headerlink" href="#service-configuration-can-lin-flexray-ethernet-data-rpc" title="Permalink to this headline">¶</a></h1>
-<div class="contents local topic" id="contents">
-<ul class="simple">
-<li><a class="reference internal" href="#overview" id="id9">Overview</a></li>
-<li><a class="reference internal" href="#cancontrollers" id="id10">CanControllers</a></li>
-<li><a class="reference internal" href="#lincontrollers" id="id11">LinControllers</a></li>
-<li><a class="reference internal" href="#ethernetcontrollers" id="id12">EthernetControllers</a></li>
-<li><a class="reference internal" href="#flexraycontrollers" id="id13">FlexrayControllers</a></li>
-<li><a class="reference internal" href="#datapublishers" id="id14">DataPublishers</a></li>
-<li><a class="reference internal" href="#datasubscribers" id="id15">DataSubscribers</a></li>
-<li><a class="reference internal" href="#rpcservers" id="id16">RpcServers</a></li>
-<li><a class="reference internal" href="#rpcclients" id="id17">RpcClients</a></li>
-</ul>
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
-<div class="section" id="overview">
-<h2><a class="toc-backref" href="#id9">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>All services of the Vector SIL Kit can be configured within the participant configuration.
-The following sections describe how each service can be configured.
-The configuration of the single services is fully optional.</p>
-</div>
-<div class="section" id="cancontrollers">
-<span id="sec-cfg-participant-can"></span><h2><a class="toc-backref" href="#id10">CanControllers</a><a class="headerlink" href="#cancontrollers" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">CanControllers</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">CAN1</span>
-  <span class="l l-Scalar l-Scalar-Plain">Network</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">CAN1</span>
-</pre></div>
-</div>
-<table border="1" class="docutils" id="id1">
-<caption><span class="caption-number">Table 5 </span><span class="caption-text">CanController Configuration</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col width="15%" />
-<col width="85%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Property Name</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Name</td>
-<td>The name of the CAN Controller</td>
-</tr>
-<tr class="row-odd"><td>Network</td>
-<td>The name of the CAN Network to connect to (optional)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="lincontrollers">
-<span id="sec-cfg-participant-lin"></span><h2><a class="toc-backref" href="#id11">LinControllers</a><a class="headerlink" href="#lincontrollers" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">LinControllers</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Lin1</span>
-  <span class="l l-Scalar l-Scalar-Plain">Network</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Lin1</span>
-</pre></div>
-</div>
-<table border="1" class="docutils" id="id2">
-<caption><span class="caption-number">Table 6 </span><span class="caption-text">LinController Configuration</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col width="15%" />
-<col width="85%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Property Name</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Name</td>
-<td>The name of the LIN Controller</td>
-</tr>
-<tr class="row-odd"><td>Network</td>
-<td>The name of the LIN Network to connect to (optional)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="ethernetcontrollers">
-<span id="sec-cfg-participant-ethernet"></span><h2><a class="toc-backref" href="#id12">EthernetControllers</a><a class="headerlink" href="#ethernetcontrollers" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">EthernetControllers</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ETH1</span>
-  <span class="l l-Scalar l-Scalar-Plain">Network</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Ethernet1</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ETH2</span>
-</pre></div>
-</div>
-<table border="1" class="docutils" id="id3">
-<caption><span class="caption-number">Table 7 </span><span class="caption-text">Ethernet Controller Configuration</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col width="15%" />
-<col width="85%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Property Name</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Name</td>
-<td>The name of the Ethernet Controller</td>
-</tr>
-<tr class="row-odd"><td>Network</td>
-<td>The name of the Ethernet Network to connect to (optional)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="flexraycontrollers">
-<span id="sec-cfg-participant-flexray"></span><h2><a class="toc-backref" href="#id13">FlexrayControllers</a><a class="headerlink" href="#flexraycontrollers" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">FlexrayControllers</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">FlexRay1</span>
-  <span class="l l-Scalar l-Scalar-Plain">Network</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">PowerTrainCluster1</span>
-  <span class="l l-Scalar l-Scalar-Plain">ClusterParameters</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">gColdstartAttempts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
-  <span class="l l-Scalar l-Scalar-Plain">NodeParameters</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">pChannels</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">AB</span>
-</pre></div>
-</div>
-<table border="1" class="docutils" id="id4">
-<caption><span class="caption-number">Table 8 </span><span class="caption-text">FlexRay Controller Configuration</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col width="15%" />
-<col width="85%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Property Name</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Name</td>
-<td>The name of the FlexRay Controller</td>
-</tr>
-<tr class="row-odd"><td>ClusterParameters</td>
-<td>Allows to configure cluster specific settings. See ParticipantConfiguration.schema.json for a full set of parameters. (optional)</td>
-</tr>
-<tr class="row-even"><td>NodeParameters</td>
-<td>Allows to configure node specific settings. See ParticipantConfiguration.schema.json for a full set of parameters. (optional)</td>
-</tr>
-<tr class="row-odd"><td>TxBufferConfigurations</td>
-<td>Allows to configure TXBuffers by specifying “channels” (A, B, AB, None),
-“slotId”, “offset”, “repetition”, “PPindicator”, “headerCrc”
-and “transmissionMode” (SingleShot, Continuous). See ParticipantConfiguration.schema.json for a full set of parameters.(optional)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="datapublishers">
-<span id="sec-cfg-participant-data-publishers"></span><h2><a class="toc-backref" href="#id14">DataPublishers</a><a class="headerlink" href="#datapublishers" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">DataPublishers</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">DataPublisher1</span>
-  <span class="l l-Scalar l-Scalar-Plain">Topic</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SomeTopic1</span>
-</pre></div>
-</div>
-<table border="1" class="docutils" id="id5">
-<caption><span class="caption-number">Table 9 </span><span class="caption-text">DataPublisher Configuration</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col width="15%" />
-<col width="85%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Property Name</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Name</td>
-<td>The name of the DataPublisher.</td>
-</tr>
-<tr class="row-odd"><td>Topic</td>
-<td>The topic on which the DataPublisher publishs its information. (optional)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="datasubscribers">
-<span id="sec-cfg-participant-data-subscribers"></span><h2><a class="toc-backref" href="#id15">DataSubscribers</a><a class="headerlink" href="#datasubscribers" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">DataSubscribers</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">DataSubscriber1</span>
-  <span class="l l-Scalar l-Scalar-Plain">Topic</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SomeTopic1</span>
-</pre></div>
-</div>
-<table border="1" class="docutils" id="id6">
-<caption><span class="caption-number">Table 10 </span><span class="caption-text">DataSubscriber Configuration</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col width="15%" />
-<col width="85%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Property Name</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Name</td>
-<td>The name of the DataSubscriber.</td>
-</tr>
-<tr class="row-odd"><td>Topic</td>
-<td>The topic on which the DataSubscriber publishs its information. (optional)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="rpcservers">
-<span id="sec-cfg-participant-rpc-servers"></span><h2><a class="toc-backref" href="#id16">RpcServers</a><a class="headerlink" href="#rpcservers" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">RpcServers</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">RpcServer1</span>
-  <span class="l l-Scalar l-Scalar-Plain">FunctionName</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SomeFunction1</span>
-</pre></div>
-</div>
-<table border="1" class="docutils" id="id7">
-<caption><span class="caption-number">Table 11 </span><span class="caption-text">RPC Server Configuration</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col width="15%" />
-<col width="85%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Property Name</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Name</td>
-<td>The name of the RpcServer.</td>
-</tr>
-<tr class="row-odd"><td>FunctionName</td>
-<td>The function name on which the RpcServer offers its service. (optional)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="rpcclients">
-<span id="sec-cfg-participant-rpc-clients"></span><h2><a class="toc-backref" href="#id17">RpcClients</a><a class="headerlink" href="#rpcclients" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">RpcClients</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">RpcClient1</span>
-  <span class="l l-Scalar l-Scalar-Plain">FunctionName</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SomeFunction1</span>
-</pre></div>
-</div>
-<table border="1" class="docutils" id="id8">
-<caption><span class="caption-number">Table 12 </span><span class="caption-text">RPC Clients Configuration</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col width="15%" />
-<col width="85%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Property Name</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Name</td>
-<td>The name of the RpcClient.</td>
-</tr>
-<tr class="row-odd"><td>FunctionName</td>
-<td>The function name to which the RpcClient wants to connect to. (optional)</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-
-            <div class="clearer"></div>
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h3><a href="../contents.html">Table of Contents</a></h3>
-<ul class="current">
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/api.html">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="configuration.html">Configuration</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cancontrollers">CanControllers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lincontrollers">LinControllers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ethernetcontrollers">EthernetControllers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flexraycontrollers">FlexrayControllers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datapublishers">DataPublishers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datasubscribers">DataSubscribers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rpcservers">RpcServers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rpcclients">RpcClients</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="healthcheck-configuration.html">HealthCheck Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="extension-configuration.html">Extensions Configuration</a></li>
@@ -338,47 +74,320 @@ and “transmissionMode” (SingleShot, Continuous). See ParticipantConfiguratio
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
 </ul>
 
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/configuration/configuration-services.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
         </div>
       </div>
-      <div class="clearer"></div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="configuration.html">Configuration</a> &raquo;</li>
+      <li>Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/configuration/configuration-services.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="service-configuration-can-lin-flexray-ethernet-data-rpc">
+<h1>Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)<a class="headerlink" href="#service-configuration-can-lin-flexray-ethernet-data-rpc" title="Permalink to this heading"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id9">Overview</a></p></li>
+<li><p><a class="reference internal" href="#cancontrollers" id="id10">CanControllers</a></p></li>
+<li><p><a class="reference internal" href="#lincontrollers" id="id11">LinControllers</a></p></li>
+<li><p><a class="reference internal" href="#ethernetcontrollers" id="id12">EthernetControllers</a></p></li>
+<li><p><a class="reference internal" href="#flexraycontrollers" id="id13">FlexrayControllers</a></p></li>
+<li><p><a class="reference internal" href="#datapublishers" id="id14">DataPublishers</a></p></li>
+<li><p><a class="reference internal" href="#datasubscribers" id="id15">DataSubscribers</a></p></li>
+<li><p><a class="reference internal" href="#rpcservers" id="id16">RpcServers</a></p></li>
+<li><p><a class="reference internal" href="#rpcclients" id="id17">RpcClients</a></p></li>
+</ul>
+</div>
+<section id="overview">
+<h2><a class="toc-backref" href="#id9">Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<p>All services of the Vector SIL Kit can be configured within the participant configuration.
+The following sections describe how each service can be configured.
+The configuration of the single services is fully optional.</p>
+</section>
+<section id="cancontrollers">
+<span id="sec-cfg-participant-can"></span><h2><a class="toc-backref" href="#id10">CanControllers</a><a class="headerlink" href="#cancontrollers" title="Permalink to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">CanControllers</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">CAN1</span>
+  <span class="l l-Scalar l-Scalar-Plain">Network</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">CAN1</span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-number">Table 5 </span><span class="caption-text">CanController Configuration</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>The name of the CAN Controller</p></td>
+</tr>
+<tr class="row-odd"><td><p>Network</p></td>
+<td><p>The name of the CAN Network to connect to (optional)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="lincontrollers">
+<span id="sec-cfg-participant-lin"></span><h2><a class="toc-backref" href="#id11">LinControllers</a><a class="headerlink" href="#lincontrollers" title="Permalink to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">LinControllers</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Lin1</span>
+  <span class="l l-Scalar l-Scalar-Plain">Network</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Lin1</span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-number">Table 6 </span><span class="caption-text">LinController Configuration</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>The name of the LIN Controller</p></td>
+</tr>
+<tr class="row-odd"><td><p>Network</p></td>
+<td><p>The name of the LIN Network to connect to (optional)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ethernetcontrollers">
+<span id="sec-cfg-participant-ethernet"></span><h2><a class="toc-backref" href="#id12">EthernetControllers</a><a class="headerlink" href="#ethernetcontrollers" title="Permalink to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">EthernetControllers</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ETH1</span>
+  <span class="l l-Scalar l-Scalar-Plain">Network</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Ethernet1</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ETH2</span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-number">Table 7 </span><span class="caption-text">Ethernet Controller Configuration</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>The name of the Ethernet Controller</p></td>
+</tr>
+<tr class="row-odd"><td><p>Network</p></td>
+<td><p>The name of the Ethernet Network to connect to (optional)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="flexraycontrollers">
+<span id="sec-cfg-participant-flexray"></span><h2><a class="toc-backref" href="#id13">FlexrayControllers</a><a class="headerlink" href="#flexraycontrollers" title="Permalink to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">FlexrayControllers</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">FlexRay1</span>
+  <span class="l l-Scalar l-Scalar-Plain">Network</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">PowerTrainCluster1</span>
+  <span class="l l-Scalar l-Scalar-Plain">ClusterParameters</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">gColdstartAttempts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
+  <span class="l l-Scalar l-Scalar-Plain">NodeParameters</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">pChannels</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">AB</span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id4">
+<caption><span class="caption-number">Table 8 </span><span class="caption-text">FlexRay Controller Configuration</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>The name of the FlexRay Controller</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClusterParameters</p></td>
+<td><p>Allows to configure cluster specific settings. See ParticipantConfiguration.schema.json for a full set of parameters. (optional)</p></td>
+</tr>
+<tr class="row-even"><td><p>NodeParameters</p></td>
+<td><p>Allows to configure node specific settings. See ParticipantConfiguration.schema.json for a full set of parameters. (optional)</p></td>
+</tr>
+<tr class="row-odd"><td><p>TxBufferConfigurations</p></td>
+<td><p>Allows to configure TXBuffers by specifying “channels” (A, B, AB, None),
+“slotId”, “offset”, “repetition”, “PPindicator”, “headerCrc”
+and “transmissionMode” (SingleShot, Continuous). See ParticipantConfiguration.schema.json for a full set of parameters.(optional)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="datapublishers">
+<span id="sec-cfg-participant-data-publishers"></span><h2><a class="toc-backref" href="#id14">DataPublishers</a><a class="headerlink" href="#datapublishers" title="Permalink to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">DataPublishers</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">DataPublisher1</span>
+  <span class="l l-Scalar l-Scalar-Plain">Topic</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SomeTopic1</span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id5">
+<caption><span class="caption-number">Table 9 </span><span class="caption-text">DataPublisher Configuration</span><a class="headerlink" href="#id5" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>The name of the DataPublisher.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Topic</p></td>
+<td><p>The topic on which the DataPublisher publishs its information. (optional)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="datasubscribers">
+<span id="sec-cfg-participant-data-subscribers"></span><h2><a class="toc-backref" href="#id15">DataSubscribers</a><a class="headerlink" href="#datasubscribers" title="Permalink to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">DataSubscribers</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">DataSubscriber1</span>
+  <span class="l l-Scalar l-Scalar-Plain">Topic</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SomeTopic1</span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id6">
+<caption><span class="caption-number">Table 10 </span><span class="caption-text">DataSubscriber Configuration</span><a class="headerlink" href="#id6" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>The name of the DataSubscriber.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Topic</p></td>
+<td><p>The topic on which the DataSubscriber publishs its information. (optional)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rpcservers">
+<span id="sec-cfg-participant-rpc-servers"></span><h2><a class="toc-backref" href="#id16">RpcServers</a><a class="headerlink" href="#rpcservers" title="Permalink to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">RpcServers</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">RpcServer1</span>
+  <span class="l l-Scalar l-Scalar-Plain">FunctionName</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SomeFunction1</span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id7">
+<caption><span class="caption-number">Table 11 </span><span class="caption-text">RPC Server Configuration</span><a class="headerlink" href="#id7" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>The name of the RpcServer.</p></td>
+</tr>
+<tr class="row-odd"><td><p>FunctionName</p></td>
+<td><p>The function name on which the RpcServer offers its service. (optional)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rpcclients">
+<span id="sec-cfg-participant-rpc-clients"></span><h2><a class="toc-backref" href="#id17">RpcClients</a><a class="headerlink" href="#rpcclients" title="Permalink to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">RpcClients</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">RpcClient1</span>
+  <span class="l l-Scalar l-Scalar-Plain">FunctionName</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">SomeFunction1</span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id8">
+<caption><span class="caption-number">Table 12 </span><span class="caption-text">RPC Clients Configuration</span><a class="headerlink" href="#id8" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>The name of the RpcClient.</p></td>
+</tr>
+<tr class="row-odd"><td><p>FunctionName</p></td>
+<td><p>The function name to which the RpcClient wants to connect to. (optional)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="configuration.html" class="btn btn-neutral float-left" title="Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="logging-configuration.html" class="btn btn-neutral float-right" title="Logging Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="logging-configuration.html" title="Logging Configuration"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="configuration.html" title="Configuration"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="configuration.html" >Configuration</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
-    </div>
-  </body>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

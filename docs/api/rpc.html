@@ -1,73 +1,121 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-
-<!doctype html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPC (Remote Procedure Call) API &#8212; Vector SIL Kit 4.0.6 documentation</title>
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/bizstyle.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RPC (Remote Procedure Call) API &mdash; Vector SIL Kit 4.0.7 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Lifecycle Service" href="lifecycleService.html" />
-    <link rel="prev" title="Data Publish/Subscribe API" href="pubsub.html" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <!--[if lt IE 9]>
-    <script src="_static/css3-mediaqueries.js"></script>
-    <![endif]-->
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="lifecycleService.html" title="Lifecycle Service"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="pubsub.html" title="Data Publish/Subscribe API"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="api.html" accesskey="U">API</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">RPC (Remote Procedure Call) API</a></li> 
-      </ul>
-    </div>  
+    <link rel="prev" title="Data Publish/Subscribe API" href="pubsub.html" /> 
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="rpc-remote-procedure-call-api">
-<h1>RPC (Remote Procedure Call) API<a class="headerlink" href="#rpc-remote-procedure-call-api" title="Permalink to this headline">¶</a></h1>
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.7
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api.html#api-entry-point-and-api-organization">API Entry Point and API Organization</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#services">Services</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="logging.html">Logging Service API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#vehicle-network-controller">Vehicle Network Controller</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="api.html#data-publish-subscribe-and-rpc">Data Publish/Subscribe and RPC</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pubsub.html">Data Publish/Subscribe API</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">RPC (Remote Procedure Call) API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#state-handling-and-synchronization">State Handling and Synchronization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#common-data-types">Common Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#c-api">C API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="api.html">API</a> &raquo;</li>
+      <li>RPC (Remote Procedure Call) API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/rpc.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rpc-remote-procedure-call-api">
+<h1>RPC (Remote Procedure Call) API<a class="headerlink" href="#rpc-remote-procedure-call-api" title="Permalink to this heading"></a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#using-the-rpc-api" id="id2">Using the RPC API</a><ul>
-<li><a class="reference internal" href="#function-name" id="id3">Function Name</a></li>
-<li><a class="reference internal" href="#media-type" id="id4">Media Type</a></li>
-<li><a class="reference internal" href="#labels" id="id5">Labels</a></li>
-<li><a class="reference internal" href="#error-handling" id="id6">Error handling</a></li>
-<li><a class="reference internal" href="#usage-example" id="id7">Usage Example</a></li>
-<li><a class="reference internal" href="#rpcclient-api" id="id8">RpcClient API</a></li>
-<li><a class="reference internal" href="#rpcservers-api" id="id9">RpcServers API</a></li>
-<li><a class="reference internal" href="#data-structures" id="id10">Data Structures</a></li>
+<li><p><a class="reference internal" href="#using-the-rpc-api" id="id2">Using the RPC API</a></p>
+<ul>
+<li><p><a class="reference internal" href="#function-name" id="id3">Function Name</a></p></li>
+<li><p><a class="reference internal" href="#media-type" id="id4">Media Type</a></p></li>
+<li><p><a class="reference internal" href="#labels" id="id5">Labels</a></p></li>
+<li><p><a class="reference internal" href="#error-handling" id="id6">Error handling</a></p></li>
+<li><p><a class="reference internal" href="#usage-example" id="id7">Usage Example</a></p></li>
+<li><p><a class="reference internal" href="#rpcclient-api" id="id8">RpcClient API</a></p></li>
+<li><p><a class="reference internal" href="#rpcservers-api" id="id9">RpcServers API</a></p></li>
+<li><p><a class="reference internal" href="#data-structures" id="id10">Data Structures</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="using-the-rpc-api">
-<h2><a class="toc-backref" href="#id2">Using the RPC API</a><a class="headerlink" href="#using-the-rpc-api" title="Permalink to this headline">¶</a></h2>
+<section id="using-the-rpc-api">
+<h2><a class="toc-backref" href="#id2">Using the RPC API</a><a class="headerlink" href="#using-the-rpc-api" title="Permalink to this heading"></a></h2>
 <p>This API provides a client-server model for remote calls with arbitrary argument- and return data.
 The RpcClient and RpcServer interfaces are instantiated from an <a class="reference internal" href="participant.html#_CPPv4N6SilKit12IParticipantE" title="SilKit::IParticipant"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IParticipant</span></code></a> interface by calling
 <a class="reference internal" href="participant.html#_CPPv4N6SilKit12IParticipant15CreateRpcClientERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc20RpcCallResultHandlerE" title="SilKit::IParticipant::CreateRpcClient"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateRpcClient()</span></code></a> and <a class="reference internal" href="participant.html#_CPPv4N6SilKit12IParticipant15CreateRpcServerERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc14RpcCallHandlerE" title="SilKit::IParticipant::CreateRpcServer"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateRpcServer()</span></code></a>, respectively.</p>
@@ -84,64 +132,64 @@ The RpcClient receives the call return in a callback which is also specified on 
 be overwritten with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient20SetCallResultHandlerE20RpcCallResultHandler" title="SilKit::Services::Rpc::IRpcClient::SetCallResultHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetCallReturnHandler()</span></code></a>.
 The callback provides the user context pointer passed to <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient4CallEN4Util4SpanIK7uint8_tEEPv" title="SilKit::Services::Rpc::IRpcClient::Call"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Call()</span></code></a>, the return data and a call status indicating
 success or an error during the procedure.</p>
-<div class="section" id="function-name">
-<h3><a class="toc-backref" href="#id3">Function Name</a><a class="headerlink" href="#function-name" title="Permalink to this headline">¶</a></h3>
+<section id="function-name">
+<h3><a class="toc-backref" href="#id3">Function Name</a><a class="headerlink" href="#function-name" title="Permalink to this heading"></a></h3>
 <p>RpcClients and RpcServers provide a function name which is part of their <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpecE" title="SilKit::Services::Rpc::RpcSpec"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">RpcSpec</span></code></a>.
 Communications only takes place among RpcClients and RpcServers with the same function name.</p>
-</div>
-<div class="section" id="media-type">
-<h3><a class="toc-backref" href="#id4">Media Type</a><a class="headerlink" href="#media-type" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="media-type">
+<h3><a class="toc-backref" href="#id4">Media Type</a><a class="headerlink" href="#media-type" title="Permalink to this heading"></a></h3>
 <p>Both RpcClients and RpcServers define a media type as part of their <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpecE" title="SilKit::Services::Rpc::RpcSpec"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">RpcSpec</span></code></a>. It is a meta description
 of the transmitted data in accordance to <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc2046">RFC2046</a> and should be used
 to provide infomation about the de- / serialization of the underlying user data. Just like the topic, the media type
 has to match between RpcClients / RpcServers for communication to take place. An empty string on a RpcClient will
 match any other media type on a server.</p>
-</div>
-<div class="section" id="labels">
-<h3><a class="toc-backref" href="#id5">Labels</a><a class="headerlink" href="#labels" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="labels">
+<h3><a class="toc-backref" href="#id5">Labels</a><a class="headerlink" href="#labels" title="Permalink to this heading"></a></h3>
 <p>Both RpcClients and RpcServers can be annotated with string-based key-value pairs (labels) which can be either
 mandatory or optional. In addition to the matching requirements given by topic and mediaType, RpcClients and
 RpcServers will only communicate if their labels conform to the following matching rules:</p>
 <ul class="simple">
-<li>A mandatory label matches, if a label of the same key and value is found on the corresponding counterpart.</li>
-<li>An optional label matches, if the label key does not exist on the counterpart or both its key and value are equal.</li>
+<li><p>A mandatory label matches, if a label of the same key and value is found on the corresponding counterpart.</p></li>
+<li><p>An optional label matches, if the label key does not exist on the counterpart or both its key and value are equal.</p></li>
 </ul>
 <p>The following table shows how RpcClients and RpcServers with matching topics and matching media type would
 match corresponding to their labels. Note that the label matching is symmetric, so clients and servers
 are interchangeable here.</p>
-<table border="1" class="docutils" id="id1">
-<caption><span class="caption-number">Table 4 </span><span class="caption-text">Label combinations</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-number">Table 4 </span><span class="caption-text">Label combinations</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
 <colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">&#160;</th>
-<th class="head">Server {“KeyA”, “Val1”, Optional}</th>
-<th class="head">Server {“KeyA”, “Val1”, Mandatory}</th>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Server {“KeyA”, “Val1”, Optional}</p></th>
+<th class="head"><p>Server {“KeyA”, “Val1”, Mandatory}</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Client {}</td>
-<td>Match</td>
-<td>No Match</td>
+<tbody>
+<tr class="row-even"><td><p>Client {}</p></td>
+<td><p>Match</p></td>
+<td><p>No Match</p></td>
 </tr>
-<tr class="row-odd"><td>Client {“KeyA”, “Val1”, Optional}</td>
-<td>Match</td>
-<td>Match</td>
+<tr class="row-odd"><td><p>Client {“KeyA”, “Val1”, Optional}</p></td>
+<td><p>Match</p></td>
+<td><p>Match</p></td>
 </tr>
-<tr class="row-even"><td>Client {“KeyA”, “Val2”, Optional}</td>
-<td>No Match</td>
-<td>No Match</td>
+<tr class="row-even"><td><p>Client {“KeyA”, “Val2”, Optional}</p></td>
+<td><p>No Match</p></td>
+<td><p>No Match</p></td>
 </tr>
-<tr class="row-odd"><td>Client {“KeyB”, “Val1”, Optional}</td>
-<td>Match</td>
-<td>No Match</td>
+<tr class="row-odd"><td><p>Client {“KeyB”, “Val1”, Optional}</p></td>
+<td><p>Match</p></td>
+<td><p>No Match</p></td>
 </tr>
-<tr class="row-even"><td>Client {“KeyB”, “Val1”, Mandatory}</td>
-<td>No Match</td>
-<td>No Match</td>
+<tr class="row-even"><td><p>Client {“KeyB”, “Val1”, Mandatory}</p></td>
+<td><p>No Match</p></td>
+<td><p>No Match</p></td>
 </tr>
 </tbody>
 </table>
@@ -152,20 +200,20 @@ see the following code snippet:</p>
 <span class="k">auto</span><span class="o">*</span> <span class="n">client</span> <span class="o">=</span> <span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateRpcClient</span><span class="p">(</span><span class="s">&quot;ClientCtrl1&quot;</span><span class="p">,</span> <span class="n">clientSpec</span><span class="p">,</span> <span class="n">callResultHandler</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="error-handling">
-<h3><a class="toc-backref" href="#id6">Error handling</a><a class="headerlink" href="#error-handling" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="error-handling">
+<h3><a class="toc-backref" href="#id6">Error handling</a><a class="headerlink" href="#error-handling" title="Permalink to this heading"></a></h3>
 <ul class="simple">
-<li>If using <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient4CallEN4Util4SpanIK7uint8_tEEPv" title="SilKit::Services::Rpc::IRpcClient::Call"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Call()</span></code></a> with no corresponding server available, the CallReturnHandler is triggered immediately with
-<code class="docutils literal notranslate"><span class="pre">RpcCallStatus::ServerNotReachable</span></code>.</li>
-<li><a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServer12SubmitResultEP14IRpcCallHandleN4Util4SpanIK7uint8_tEE" title="SilKit::Services::Rpc::IRpcServer::SubmitResult"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SubmitResult()</span></code></a> must only be used with a valid call handle received in the RpcHandler.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">RpcCallResultEvent::resultData</span></code> member is only valid if <code class="docutils literal notranslate"><span class="pre">callStatus</span> <span class="pre">==</span> <span class="pre">RpcCallStatus::Success</span></code>.</li>
-<li>If the RpcServer receives a call but does not have a valid call handler, the RpcClient will receive a
-<code class="docutils literal notranslate"><span class="pre">RpcCallResultEvent</span></code> with <code class="docutils literal notranslate"><span class="pre">callStatus</span> <span class="pre">==</span> <span class="pre">RpcCallStatus::InternalServerError</span></code>.</li>
+<li><p>If using <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient4CallEN4Util4SpanIK7uint8_tEEPv" title="SilKit::Services::Rpc::IRpcClient::Call"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Call()</span></code></a> with no corresponding server available, the CallReturnHandler is triggered immediately with
+<code class="docutils literal notranslate"><span class="pre">RpcCallStatus::ServerNotReachable</span></code>.</p></li>
+<li><p><a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServer12SubmitResultEP14IRpcCallHandleN4Util4SpanIK7uint8_tEE" title="SilKit::Services::Rpc::IRpcServer::SubmitResult"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SubmitResult()</span></code></a> must only be used with a valid call handle received in the RpcHandler.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">RpcCallResultEvent::resultData</span></code> member is only valid if <code class="docutils literal notranslate"><span class="pre">callStatus</span> <span class="pre">==</span> <span class="pre">RpcCallStatus::Success</span></code>.</p></li>
+<li><p>If the RpcServer receives a call but does not have a valid call handler, the RpcClient will receive a
+<code class="docutils literal notranslate"><span class="pre">RpcCallResultEvent</span></code> with <code class="docutils literal notranslate"><span class="pre">callStatus</span> <span class="pre">==</span> <span class="pre">RpcCallStatus::InternalServerError</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="usage-example">
-<h3><a class="toc-backref" href="#id7">Usage Example</a><a class="headerlink" href="#usage-example" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="usage-example">
+<h3><a class="toc-backref" href="#id7">Usage Example</a><a class="headerlink" href="#usage-example" title="Permalink to this heading"></a></h3>
 <p>The interfaces for the Rpc mechanism can be instantiated from an IParticipant:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// ------------------</span>
 <span class="c1">// Client participant</span>
@@ -201,109 +249,105 @@ see the following code snippet:</p>
     <span class="p">});</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rpcclient-api">
-<h3><a class="toc-backref" href="#id8">RpcClient API</a><a class="headerlink" href="#rpcclient-api" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="rpcclient-api">
+<h3><a class="toc-backref" href="#id8">RpcClient API</a><a class="headerlink" href="#rpcclient-api" title="Permalink to this heading"></a></h3>
 <dl class="cpp class">
-<dt id="_CPPv4N6SilKit8Services3Rpc10IRpcClientE">
-<span id="_CPPv3N6SilKit8Services3Rpc10IRpcClientE"></span><span id="_CPPv2N6SilKit8Services3Rpc10IRpcClientE"></span><span id="SilKit::Services::Rpc::IRpcClient"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_client"></span><em class="property">class </em><code class="descclassname">SilKit::Services::Rpc<code class="descclassname">::</code></code><code class="descname">IRpcClient</code><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClientE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><div class="breathe-sectiondef container">
-<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc10IRpcClientE">
+<span id="_CPPv3N6SilKit8Services3Rpc10IRpcClientE"></span><span id="_CPPv2N6SilKit8Services3Rpc10IRpcClientE"></span><span id="SilKit::Services::Rpc::IRpcClient"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_client"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IRpcClient</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClientE" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services3Rpc10IRpcClient4CallEN4Util4SpanIK7uint8_tEEPv">
-<span id="_CPPv3N6SilKit8Services3Rpc10IRpcClient4CallEN4Util4SpanIK7uint8_tEEPv"></span><span id="_CPPv2N6SilKit8Services3Rpc10IRpcClient4CallEN4Util4SpanIK7uint8_tEEPv"></span><span id="SilKit::Services::Rpc::IRpcClient::Call__Util::Span:uint8_tC:.voidP"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_client_1a000c8ed57b202304a4959b181f14ca51"></span>void <code class="descname">Call</code><span class="sig-paren">(</span>Util::Span&lt;<em class="property">const</em> uint8_t&gt; <em>data</em>, void *<em>userContext</em> = nullptr<span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient4CallEN4Util4SpanIK7uint8_tEEPv" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc10IRpcClient4CallEN4Util4SpanIK7uint8_tEEPv">
+<span id="_CPPv3N6SilKit8Services3Rpc10IRpcClient4CallEN4Util4SpanIK7uint8_tEEPv"></span><span id="_CPPv2N6SilKit8Services3Rpc10IRpcClient4CallEN4Util4SpanIK7uint8_tEEPv"></span><span id="SilKit::Services::Rpc::IRpcClient::Call__Util::Span:uint8_tC:.voidP"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_client_1a000c8ed57b202304a4959b181f14ca51"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Call</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">Util</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Span</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">data</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">userContext</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient4CallEN4Util4SpanIK7uint8_tEEPv" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Initiate a remote procedure call. </p>
-<p><dl class="docutils">
-<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><code class="docutils literal notranslate"><span class="pre">data</span></code>: A non-owning reference to an opaque block of raw data </li>
-<li><code class="docutils literal notranslate"><span class="pre">userContext</span></code>: An optional user provided pointer that is reobtained when receiving the call result. </li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – A non-owning reference to an opaque block of raw data </p></li>
+<li><p><strong>userContext</strong> – An optional user provided pointer that is reobtained when receiving the call result. </p></li>
 </ul>
 </dd>
 </dl>
-</p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services3Rpc10IRpcClient20SetCallResultHandlerE20RpcCallResultHandler">
-<span id="_CPPv3N6SilKit8Services3Rpc10IRpcClient20SetCallResultHandlerE20RpcCallResultHandler"></span><span id="_CPPv2N6SilKit8Services3Rpc10IRpcClient20SetCallResultHandlerE20RpcCallResultHandler"></span><span id="SilKit::Services::Rpc::IRpcClient::SetCallResultHandler__RpcCallResultHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_client_1aa2319a20175bec425d87df2fba6e46fd"></span>void <code class="descname">SetCallResultHandler</code><span class="sig-paren">(</span>RpcCallResultHandler <em>handler</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient20SetCallResultHandlerE20RpcCallResultHandler" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc10IRpcClient20SetCallResultHandlerE20RpcCallResultHandler">
+<span id="_CPPv3N6SilKit8Services3Rpc10IRpcClient20SetCallResultHandlerE20RpcCallResultHandler"></span><span id="_CPPv2N6SilKit8Services3Rpc10IRpcClient20SetCallResultHandlerE20RpcCallResultHandler"></span><span id="SilKit::Services::Rpc::IRpcClient::SetCallResultHandler__RpcCallResultHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_client_1aa2319a20175bec425d87df2fba6e46fd"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetCallResultHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">RpcCallResultHandler</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient20SetCallResultHandlerE20RpcCallResultHandler" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Overwrite the call return handler of this client. </p>
 <p>The signature of the handler is void(IRpcClient* client, RpcCallResultEvent event).</p>
-<p><dl class="docutils">
-<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><code class="docutils literal notranslate"><span class="pre">handler</span></code>: A std::function with the above signature </li>
-</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>handler</strong> – A std::function with the above signature </p>
 </dd>
 </dl>
-</p>
 </dd></dl>
 
 </div>
 </dd></dl>
 
-</div>
-<div class="section" id="rpcservers-api">
-<h3><a class="toc-backref" href="#id9">RpcServers API</a><a class="headerlink" href="#rpcservers-api" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="rpcservers-api">
+<h3><a class="toc-backref" href="#id9">RpcServers API</a><a class="headerlink" href="#rpcservers-api" title="Permalink to this heading"></a></h3>
 <dl class="cpp class">
-<dt id="_CPPv4N6SilKit8Services3Rpc10IRpcServerE">
-<span id="_CPPv3N6SilKit8Services3Rpc10IRpcServerE"></span><span id="_CPPv2N6SilKit8Services3Rpc10IRpcServerE"></span><span id="SilKit::Services::Rpc::IRpcServer"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_server"></span><em class="property">class </em><code class="descclassname">SilKit::Services::Rpc<code class="descclassname">::</code></code><code class="descname">IRpcServer</code><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServerE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><div class="breathe-sectiondef container">
-<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc10IRpcServerE">
+<span id="_CPPv3N6SilKit8Services3Rpc10IRpcServerE"></span><span id="_CPPv2N6SilKit8Services3Rpc10IRpcServerE"></span><span id="SilKit::Services::Rpc::IRpcServer"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_server"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IRpcServer</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServerE" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services3Rpc10IRpcServer12SubmitResultEP14IRpcCallHandleN4Util4SpanIK7uint8_tEE">
-<span id="_CPPv3N6SilKit8Services3Rpc10IRpcServer12SubmitResultEP14IRpcCallHandleN4Util4SpanIK7uint8_tEE"></span><span id="_CPPv2N6SilKit8Services3Rpc10IRpcServer12SubmitResultEP14IRpcCallHandleN4Util4SpanIK7uint8_tEE"></span><span id="SilKit::Services::Rpc::IRpcServer::SubmitResult__IRpcCallHandleP.Util::Span:uint8_tC:"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_server_1a4ebc58672580b68b54867e112a456118"></span>void <code class="descname">SubmitResult</code><span class="sig-paren">(</span>IRpcCallHandle *<em>callHandle</em>, Util::Span&lt;<em class="property">const</em> uint8_t&gt; <em>resultData</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServer12SubmitResultEP14IRpcCallHandleN4Util4SpanIK7uint8_tEE" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc10IRpcServer12SubmitResultEP14IRpcCallHandleN4Util4SpanIK7uint8_tEE">
+<span id="_CPPv3N6SilKit8Services3Rpc10IRpcServer12SubmitResultEP14IRpcCallHandleN4Util4SpanIK7uint8_tEE"></span><span id="_CPPv2N6SilKit8Services3Rpc10IRpcServer12SubmitResultEP14IRpcCallHandleN4Util4SpanIK7uint8_tEE"></span><span id="SilKit::Services::Rpc::IRpcServer::SubmitResult__IRpcCallHandleP.Util::Span:uint8_tC:"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_server_1a4ebc58672580b68b54867e112a456118"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SubmitResult</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">IRpcCallHandle</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">callHandle</span></span>, <span class="n"><span class="pre">Util</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Span</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">resultData</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServer12SubmitResultEP14IRpcCallHandleN4Util4SpanIK7uint8_tEE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Answers an already received call from remote with arbitrary data. </p>
 <p>Using the call handle obtained in the call handler, the result is send back to the calling client. This can happen directly in the call handler or at a later point in time.</p>
-<p><dl class="docutils">
-<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><code class="docutils literal notranslate"><span class="pre">callHandle</span></code>: A unique identifier of this call </li>
-<li><code class="docutils literal notranslate"><span class="pre">resultData</span></code>: The byte vector to be returned to the client </li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>callHandle</strong> – A unique identifier of this call </p></li>
+<li><p><strong>resultData</strong> – The byte vector to be returned to the client </p></li>
 </ul>
 </dd>
 </dl>
-</p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services3Rpc10IRpcServer14SetCallHandlerE14RpcCallHandler">
-<span id="_CPPv3N6SilKit8Services3Rpc10IRpcServer14SetCallHandlerE14RpcCallHandler"></span><span id="_CPPv2N6SilKit8Services3Rpc10IRpcServer14SetCallHandlerE14RpcCallHandler"></span><span id="SilKit::Services::Rpc::IRpcServer::SetCallHandler__RpcCallHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_server_1a7123815c6618d166a56c6acdac523617"></span>void <code class="descname">SetCallHandler</code><span class="sig-paren">(</span>RpcCallHandler <em>handler</em><span class="sig-paren">)</span> = 0<a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServer14SetCallHandlerE14RpcCallHandler" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc10IRpcServer14SetCallHandlerE14RpcCallHandler">
+<span id="_CPPv3N6SilKit8Services3Rpc10IRpcServer14SetCallHandlerE14RpcCallHandler"></span><span id="_CPPv2N6SilKit8Services3Rpc10IRpcServer14SetCallHandlerE14RpcCallHandler"></span><span id="SilKit::Services::Rpc::IRpcServer::SetCallHandler__RpcCallHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_server_1a7123815c6618d166a56c6acdac523617"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetCallHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">RpcCallHandler</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServer14SetCallHandlerE14RpcCallHandler" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Overwrite the call handler of this server. </p>
 <p>The signature of the call handler is void(IRpcServer* server, RpcCallEvent event).</p>
-<p><dl class="docutils">
-<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><code class="docutils literal notranslate"><span class="pre">handler</span></code>: A std::function with the above signature </li>
-</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>handler</strong> – A std::function with the above signature </p>
 </dd>
 </dl>
-</p>
 </dd></dl>
 
 </div>
 </dd></dl>
 
-</div>
-<div class="section" id="data-structures">
-<h3><a class="toc-backref" href="#id10">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="data-structures">
+<h3><a class="toc-backref" href="#id10">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this heading"></a></h3>
 <dl class="cpp struct">
-<dt id="_CPPv4N6SilKit8Services3Rpc12RpcCallEventE">
-<span id="_CPPv3N6SilKit8Services3Rpc12RpcCallEventE"></span><span id="_CPPv2N6SilKit8Services3Rpc12RpcCallEventE"></span><span id="SilKit::Services::Rpc::RpcCallEvent"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_event"></span><em class="property">struct </em><code class="descclassname">SilKit::Services::Rpc<code class="descclassname">::</code></code><code class="descname">RpcCallEvent</code><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc12RpcCallEventE" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc12RpcCallEventE">
+<span id="_CPPv3N6SilKit8Services3Rpc12RpcCallEventE"></span><span id="_CPPv2N6SilKit8Services3Rpc12RpcCallEventE"></span><span id="SilKit::Services::Rpc::RpcCallEvent"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_event"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RpcCallEvent</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc12RpcCallEventE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>An incoming rpc call from a RpcClient with call data and timestamp. </p>
-<div class="breathe-sectiondef container">
-<p class="breathe-sectiondef-title rubric">Public Members</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
 <dl class="cpp var">
-<dt id="_CPPv4N6SilKit8Services3Rpc12RpcCallEvent9timestampE">
-<span id="_CPPv3N6SilKit8Services3Rpc12RpcCallEvent9timestampE"></span><span id="_CPPv2N6SilKit8Services3Rpc12RpcCallEvent9timestampE"></span><span id="SilKit::Services::Rpc::RpcCallEvent::timestamp__std::chrono::nanoseconds"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_event_1a9812b448d91058af59570ca95629ca09"></span>std::chrono::nanoseconds <code class="descname">timestamp</code><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc12RpcCallEvent9timestampE" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc12RpcCallEvent9timestampE">
+<span id="_CPPv3N6SilKit8Services3Rpc12RpcCallEvent9timestampE"></span><span id="_CPPv2N6SilKit8Services3Rpc12RpcCallEvent9timestampE"></span><span id="SilKit::Services::Rpc::RpcCallEvent::timestamp__std::chrono::nanoseconds"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_event_1a9812b448d91058af59570ca95629ca09"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">nanoseconds</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">timestamp</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc12RpcCallEvent9timestampE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Send timestamp of the event. </p>
 </dd></dl>
 
 <dl class="cpp var">
-<dt id="_CPPv4N6SilKit8Services3Rpc12RpcCallEvent10callHandleE">
-<span id="_CPPv3N6SilKit8Services3Rpc12RpcCallEvent10callHandleE"></span><span id="_CPPv2N6SilKit8Services3Rpc12RpcCallEvent10callHandleE"></span><span id="SilKit::Services::Rpc::RpcCallEvent::callHandle__IRpcCallHandleP"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_event_1a6301e7a08ad82feac6dff648b093b779"></span>IRpcCallHandle *<code class="descname">callHandle</code><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc12RpcCallEvent10callHandleE" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc12RpcCallEvent10callHandleE">
+<span id="_CPPv3N6SilKit8Services3Rpc12RpcCallEvent10callHandleE"></span><span id="_CPPv2N6SilKit8Services3Rpc12RpcCallEvent10callHandleE"></span><span id="SilKit::Services::Rpc::RpcCallEvent::callHandle__IRpcCallHandleP"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_event_1a6301e7a08ad82feac6dff648b093b779"></span><span class="n"><span class="pre">IRpcCallHandle</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">callHandle</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc12RpcCallEvent10callHandleE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Handle of the rpc call by which the call can be identified and its result can be submitted. </p>
 </dd></dl>
 
 <dl class="cpp var">
-<dt id="_CPPv4N6SilKit8Services3Rpc12RpcCallEvent12argumentDataE">
-<span id="_CPPv3N6SilKit8Services3Rpc12RpcCallEvent12argumentDataE"></span><span id="_CPPv2N6SilKit8Services3Rpc12RpcCallEvent12argumentDataE"></span><span id="SilKit::Services::Rpc::RpcCallEvent::argumentData__Util::Span:uint8_tC:"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_event_1a1b697e1443103ac4add9243c82761e1f"></span>Util::Span&lt;<em class="property">const</em> uint8_t&gt; <code class="descname">argumentData</code><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc12RpcCallEvent12argumentDataE" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc12RpcCallEvent12argumentDataE">
+<span id="_CPPv3N6SilKit8Services3Rpc12RpcCallEvent12argumentDataE"></span><span id="_CPPv2N6SilKit8Services3Rpc12RpcCallEvent12argumentDataE"></span><span id="SilKit::Services::Rpc::RpcCallEvent::argumentData__Util::Span:uint8_tC:"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_event_1a1b697e1443103ac4add9243c82761e1f"></span><span class="n"><span class="pre">Util</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Span</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">argumentData</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc12RpcCallEvent12argumentDataE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Data of the rpc call as provided by the client on call. </p>
 </dd></dl>
 
@@ -311,32 +355,32 @@ see the following code snippet:</p>
 </dd></dl>
 
 <dl class="cpp struct">
-<dt id="_CPPv4N6SilKit8Services3Rpc18RpcCallResultEventE">
-<span id="_CPPv3N6SilKit8Services3Rpc18RpcCallResultEventE"></span><span id="_CPPv2N6SilKit8Services3Rpc18RpcCallResultEventE"></span><span id="SilKit::Services::Rpc::RpcCallResultEvent"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_result_event"></span><em class="property">struct </em><code class="descclassname">SilKit::Services::Rpc<code class="descclassname">::</code></code><code class="descname">RpcCallResultEvent</code><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc18RpcCallResultEventE" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc18RpcCallResultEventE">
+<span id="_CPPv3N6SilKit8Services3Rpc18RpcCallResultEventE"></span><span id="_CPPv2N6SilKit8Services3Rpc18RpcCallResultEventE"></span><span id="SilKit::Services::Rpc::RpcCallResultEvent"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_result_event"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RpcCallResultEvent</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc18RpcCallResultEventE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>An incoming rpc call result of a RpcServer containing result data and timestamp. </p>
-<div class="breathe-sectiondef container">
-<p class="breathe-sectiondef-title rubric">Public Members</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
 <dl class="cpp var">
-<dt id="_CPPv4N6SilKit8Services3Rpc18RpcCallResultEvent9timestampE">
-<span id="_CPPv3N6SilKit8Services3Rpc18RpcCallResultEvent9timestampE"></span><span id="_CPPv2N6SilKit8Services3Rpc18RpcCallResultEvent9timestampE"></span><span id="SilKit::Services::Rpc::RpcCallResultEvent::timestamp__std::chrono::nanoseconds"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_result_event_1a6073e2dc1a9891072624de9994d756d7"></span>std::chrono::nanoseconds <code class="descname">timestamp</code><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc18RpcCallResultEvent9timestampE" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc18RpcCallResultEvent9timestampE">
+<span id="_CPPv3N6SilKit8Services3Rpc18RpcCallResultEvent9timestampE"></span><span id="_CPPv2N6SilKit8Services3Rpc18RpcCallResultEvent9timestampE"></span><span id="SilKit::Services::Rpc::RpcCallResultEvent::timestamp__std::chrono::nanoseconds"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_result_event_1a6073e2dc1a9891072624de9994d756d7"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">nanoseconds</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">timestamp</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc18RpcCallResultEvent9timestampE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Send timestamp of the event. </p>
 </dd></dl>
 
 <dl class="cpp var">
-<dt id="_CPPv4N6SilKit8Services3Rpc18RpcCallResultEvent11userContextE">
-<span id="_CPPv3N6SilKit8Services3Rpc18RpcCallResultEvent11userContextE"></span><span id="_CPPv2N6SilKit8Services3Rpc18RpcCallResultEvent11userContextE"></span><span id="SilKit::Services::Rpc::RpcCallResultEvent::userContext__voidP"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_result_event_1a1bc439b3401a6fb009967d2ca90e13a1"></span>void *<code class="descname">userContext</code><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc18RpcCallResultEvent11userContextE" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc18RpcCallResultEvent11userContextE">
+<span id="_CPPv3N6SilKit8Services3Rpc18RpcCallResultEvent11userContextE"></span><span id="_CPPv2N6SilKit8Services3Rpc18RpcCallResultEvent11userContextE"></span><span id="SilKit::Services::Rpc::RpcCallResultEvent::userContext__voidP"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_result_event_1a1bc439b3401a6fb009967d2ca90e13a1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">userContext</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc18RpcCallResultEvent11userContextE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>The user context pointer as it was provided when the call was triggered. </p>
 </dd></dl>
 
 <dl class="cpp var">
-<dt id="_CPPv4N6SilKit8Services3Rpc18RpcCallResultEvent10callStatusE">
-<span id="_CPPv3N6SilKit8Services3Rpc18RpcCallResultEvent10callStatusE"></span><span id="_CPPv2N6SilKit8Services3Rpc18RpcCallResultEvent10callStatusE"></span><span id="SilKit::Services::Rpc::RpcCallResultEvent::callStatus__RpcCallStatus"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_result_event_1a63e57b711c00be98450ad0f17d5c633f"></span>RpcCallStatus <code class="descname">callStatus</code><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc18RpcCallResultEvent10callStatusE" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc18RpcCallResultEvent10callStatusE">
+<span id="_CPPv3N6SilKit8Services3Rpc18RpcCallResultEvent10callStatusE"></span><span id="_CPPv2N6SilKit8Services3Rpc18RpcCallResultEvent10callStatusE"></span><span id="SilKit::Services::Rpc::RpcCallResultEvent::callStatus__RpcCallStatus"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_result_event_1a63e57b711c00be98450ad0f17d5c633f"></span><span class="n"><span class="pre">RpcCallStatus</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">callStatus</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc18RpcCallResultEvent10callStatusE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>The status of the call, resultData is only valid if callStats == RpcCallStatus::Success. </p>
 </dd></dl>
 
 <dl class="cpp var">
-<dt id="_CPPv4N6SilKit8Services3Rpc18RpcCallResultEvent10resultDataE">
-<span id="_CPPv3N6SilKit8Services3Rpc18RpcCallResultEvent10resultDataE"></span><span id="_CPPv2N6SilKit8Services3Rpc18RpcCallResultEvent10resultDataE"></span><span id="SilKit::Services::Rpc::RpcCallResultEvent::resultData__Util::Span:uint8_tC:"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_result_event_1a380dde0099f3445018cad37f12f84a83"></span>Util::Span&lt;<em class="property">const</em> uint8_t&gt; <code class="descname">resultData</code><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc18RpcCallResultEvent10resultDataE" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc18RpcCallResultEvent10resultDataE">
+<span id="_CPPv3N6SilKit8Services3Rpc18RpcCallResultEvent10resultDataE"></span><span id="_CPPv2N6SilKit8Services3Rpc18RpcCallResultEvent10resultDataE"></span><span id="SilKit::Services::Rpc::RpcCallResultEvent::resultData__Util::Span:uint8_tC:"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_result_event_1a380dde0099f3445018cad37f12f84a83"></span><span class="n"><span class="pre">Util</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Span</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">uint8_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">resultData</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc18RpcCallResultEvent10resultDataE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Data of the rpc call result as provided by the server. </p>
 </dd></dl>
 
@@ -344,121 +388,83 @@ see the following code snippet:</p>
 </dd></dl>
 
 <dl class="cpp class">
-<dt id="_CPPv4N6SilKit8Services3Rpc7RpcSpecE">
-<span id="_CPPv3N6SilKit8Services3Rpc7RpcSpecE"></span><span id="_CPPv2N6SilKit8Services3Rpc7RpcSpecE"></span><span id="SilKit::Services::Rpc::RpcSpec"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec"></span><em class="property">class </em><code class="descclassname">SilKit::Services::Rpc<code class="descclassname">::</code></code><code class="descname">RpcSpec</code><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpecE" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc7RpcSpecE">
+<span id="_CPPv3N6SilKit8Services3Rpc7RpcSpecE"></span><span id="_CPPv2N6SilKit8Services3Rpc7RpcSpecE"></span><span id="SilKit::Services::Rpc::RpcSpec"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RpcSpec</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpecE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>The specification of topic, media type and labels for RpcClients and RpcServers. </p>
-<div class="breathe-sectiondef container">
-<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services3Rpc7RpcSpec7RpcSpecENSt6stringENSt6stringE">
-<span id="_CPPv3N6SilKit8Services3Rpc7RpcSpec7RpcSpecENSt6stringENSt6stringE"></span><span id="_CPPv2N6SilKit8Services3Rpc7RpcSpec7RpcSpecENSt6stringENSt6stringE"></span><span id="SilKit::Services::Rpc::RpcSpec::RpcSpec__ss.ss"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec_1a2d57fdd3c0aacc8cca31bc45dc95201e"></span><code class="descname">RpcSpec</code><span class="sig-paren">(</span>std::string <em>functionName</em>, std::string <em>mediaType</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpec7RpcSpecENSt6stringENSt6stringE" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc7RpcSpec7RpcSpecENSt6stringENSt6stringE">
+<span id="_CPPv3N6SilKit8Services3Rpc7RpcSpec7RpcSpecENSt6stringENSt6stringE"></span><span id="_CPPv2N6SilKit8Services3Rpc7RpcSpec7RpcSpecENSt6stringENSt6stringE"></span><span id="SilKit::Services::Rpc::RpcSpec::RpcSpec__ss.ss"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec_1a2d57fdd3c0aacc8cca31bc45dc95201e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RpcSpec</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">functionName</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">mediaType</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpec7RpcSpecENSt6stringENSt6stringE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Construct a <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec"><span class="std std-ref">RpcSpec</span></a> via topic and mediaType. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services3Rpc7RpcSpec8AddLabelERKN6SilKit8Services13MatchingLabelE">
-<span id="_CPPv3N6SilKit8Services3Rpc7RpcSpec8AddLabelERKN6SilKit8Services13MatchingLabelE"></span><span id="_CPPv2N6SilKit8Services3Rpc7RpcSpec8AddLabelERKN6SilKit8Services13MatchingLabelE"></span><span id="SilKit::Services::Rpc::RpcSpec::AddLabel__SilKit::Services::MatchingLabelCR"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec_1a3667fc03d079d93efb64ea5ae8332fa8"></span>void <code class="descname">AddLabel</code><span class="sig-paren">(</span><em class="property">const</em> SilKit::Services::<a class="reference internal" href="common.html#_CPPv4N6SilKit8Services13MatchingLabelE" title="SilKit::Services::MatchingLabel">MatchingLabel</a> &amp;<em>label</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpec8AddLabelERKN6SilKit8Services13MatchingLabelE" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc7RpcSpec8AddLabelERKN6SilKit8Services13MatchingLabelE">
+<span id="_CPPv3N6SilKit8Services3Rpc7RpcSpec8AddLabelERKN6SilKit8Services13MatchingLabelE"></span><span id="_CPPv2N6SilKit8Services3Rpc7RpcSpec8AddLabelERKN6SilKit8Services13MatchingLabelE"></span><span id="SilKit::Services::Rpc::RpcSpec::AddLabel__SilKit::Services::MatchingLabelCR"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec_1a3667fc03d079d93efb64ea5ae8332fa8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddLabel</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="common.html#_CPPv4N6SilKit8Services13MatchingLabelE" title="SilKit::Services::MatchingLabel"><span class="n"><span class="pre">MatchingLabel</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">label</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpec8AddLabelERKN6SilKit8Services13MatchingLabelE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Add a given <a class="reference internal" href="common.html#struct_sil_kit_1_1_services_1_1_matching_label"><span class="std std-ref">MatchingLabel</span></a>. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N6SilKit8Services3Rpc7RpcSpec8AddLabelERKNSt6stringERKNSt6stringEN6SilKit8Services13MatchingLabel4KindE">
-<span id="_CPPv3N6SilKit8Services3Rpc7RpcSpec8AddLabelERKNSt6stringERKNSt6stringEN6SilKit8Services13MatchingLabel4KindE"></span><span id="_CPPv2N6SilKit8Services3Rpc7RpcSpec8AddLabelERKNSt6stringERKNSt6stringEN6SilKit8Services13MatchingLabel4KindE"></span><span id="SilKit::Services::Rpc::RpcSpec::AddLabel__ssCR.ssCR.SilKit::Services::MatchingLabel::Kind"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec_1ae182ca9d2f7484d9a17695e440654038"></span>void <code class="descname">AddLabel</code><span class="sig-paren">(</span><em class="property">const</em> std::string &amp;<em>key</em>, <em class="property">const</em> std::string &amp;<em>value</em>, SilKit::Services::<a class="reference internal" href="common.html#_CPPv4N6SilKit8Services13MatchingLabelE" title="SilKit::Services::MatchingLabel">MatchingLabel</a>::<a class="reference internal" href="common.html#_CPPv4N6SilKit8Services13MatchingLabel4KindE" title="SilKit::Services::MatchingLabel::Kind">Kind</a> <em>kind</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpec8AddLabelERKNSt6stringERKNSt6stringEN6SilKit8Services13MatchingLabel4KindE" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc7RpcSpec8AddLabelERKNSt6stringERKNSt6stringEN6SilKit8Services13MatchingLabel4KindE">
+<span id="_CPPv3N6SilKit8Services3Rpc7RpcSpec8AddLabelERKNSt6stringERKNSt6stringEN6SilKit8Services13MatchingLabel4KindE"></span><span id="_CPPv2N6SilKit8Services3Rpc7RpcSpec8AddLabelERKNSt6stringERKNSt6stringEN6SilKit8Services13MatchingLabel4KindE"></span><span id="SilKit::Services::Rpc::RpcSpec::AddLabel__ssCR.ssCR.SilKit::Services::MatchingLabel::Kind"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec_1ae182ca9d2f7484d9a17695e440654038"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddLabel</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">key</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">value</span></span>, <span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="common.html#_CPPv4N6SilKit8Services13MatchingLabelE" title="SilKit::Services::MatchingLabel"><span class="n"><span class="pre">MatchingLabel</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="common.html#_CPPv4N6SilKit8Services13MatchingLabel4KindE" title="SilKit::Services::MatchingLabel::Kind"><span class="n"><span class="pre">Kind</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">kind</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpec8AddLabelERKNSt6stringERKNSt6stringEN6SilKit8Services13MatchingLabel4KindE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Add a <a class="reference internal" href="common.html#struct_sil_kit_1_1_services_1_1_matching_label"><span class="std std-ref">MatchingLabel</span></a> via key, value and matching kind. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK6SilKit8Services3Rpc7RpcSpec12FunctionNameEv">
-<span id="_CPPv3NK6SilKit8Services3Rpc7RpcSpec12FunctionNameEv"></span><span id="_CPPv2NK6SilKit8Services3Rpc7RpcSpec12FunctionNameEv"></span><span id="SilKit::Services::Rpc::RpcSpec::FunctionNameC"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec_1a218a2fa099baad1abe9b19a2bd7fadf0"></span>auto <code class="descname">FunctionName</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em> -&gt; <em class="property">const</em> std::string&amp;<a class="headerlink" href="#_CPPv4NK6SilKit8Services3Rpc7RpcSpec12FunctionNameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK6SilKit8Services3Rpc7RpcSpec12FunctionNameEv">
+<span id="_CPPv3NK6SilKit8Services3Rpc7RpcSpec12FunctionNameEv"></span><span id="_CPPv2NK6SilKit8Services3Rpc7RpcSpec12FunctionNameEv"></span><span id="SilKit::Services::Rpc::RpcSpec::FunctionNameC"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec_1a218a2fa099baad1abe9b19a2bd7fadf0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FunctionName</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">&amp;</span></span><a class="headerlink" href="#_CPPv4NK6SilKit8Services3Rpc7RpcSpec12FunctionNameEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Get the topic of the <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec"><span class="std std-ref">RpcSpec</span></a>. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK6SilKit8Services3Rpc7RpcSpec9MediaTypeEv">
-<span id="_CPPv3NK6SilKit8Services3Rpc7RpcSpec9MediaTypeEv"></span><span id="_CPPv2NK6SilKit8Services3Rpc7RpcSpec9MediaTypeEv"></span><span id="SilKit::Services::Rpc::RpcSpec::MediaTypeC"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec_1add296eaa25eb667369a7e0820fcafa9e"></span>auto <code class="descname">MediaType</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em> -&gt; <em class="property">const</em> std::string&amp;<a class="headerlink" href="#_CPPv4NK6SilKit8Services3Rpc7RpcSpec9MediaTypeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK6SilKit8Services3Rpc7RpcSpec9MediaTypeEv">
+<span id="_CPPv3NK6SilKit8Services3Rpc7RpcSpec9MediaTypeEv"></span><span id="_CPPv2NK6SilKit8Services3Rpc7RpcSpec9MediaTypeEv"></span><span id="SilKit::Services::Rpc::RpcSpec::MediaTypeC"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec_1add296eaa25eb667369a7e0820fcafa9e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MediaType</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">&amp;</span></span><a class="headerlink" href="#_CPPv4NK6SilKit8Services3Rpc7RpcSpec9MediaTypeEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Get the media type of the <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec"><span class="std std-ref">RpcSpec</span></a>. </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK6SilKit8Services3Rpc7RpcSpec6LabelsEv">
-<span id="_CPPv3NK6SilKit8Services3Rpc7RpcSpec6LabelsEv"></span><span id="_CPPv2NK6SilKit8Services3Rpc7RpcSpec6LabelsEv"></span><span id="SilKit::Services::Rpc::RpcSpec::LabelsC"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec_1a29cd5f49caf3806fc595fa8403bc8c20"></span>auto <code class="descname">Labels</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em> -&gt; <em class="property">const</em> std::vector&lt;SilKit::Services::<a class="reference internal" href="common.html#_CPPv4N6SilKit8Services13MatchingLabelE" title="SilKit::Services::MatchingLabel">MatchingLabel</a>&gt;&amp;<a class="headerlink" href="#_CPPv4NK6SilKit8Services3Rpc7RpcSpec6LabelsEv" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK6SilKit8Services3Rpc7RpcSpec6LabelsEv">
+<span id="_CPPv3NK6SilKit8Services3Rpc7RpcSpec6LabelsEv"></span><span id="_CPPv2NK6SilKit8Services3Rpc7RpcSpec6LabelsEv"></span><span id="SilKit::Services::Rpc::RpcSpec::LabelsC"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec_1a29cd5f49caf3806fc595fa8403bc8c20"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Labels</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="common.html#_CPPv4N6SilKit8Services13MatchingLabelE" title="SilKit::Services::MatchingLabel"><span class="n"><span class="pre">MatchingLabel</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&amp;</span></span><a class="headerlink" href="#_CPPv4NK6SilKit8Services3Rpc7RpcSpec6LabelsEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Get the labels of the <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec"><span class="std std-ref">RpcSpec</span></a>. </p>
 </dd></dl>
 
 </div>
 </dd></dl>
 
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h3><a href="../contents.html">Table of Contents</a></h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/quickstart.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="api.html#api-entry-point-and-api-organization">API Entry Point and API Organization</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="api.html#services">Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#c-api">C API</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pubsub.html" class="btn btn-neutral float-left" title="Data Publish/Subscribe API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lifecycleService.html" class="btn btn-neutral float-right" title="Lifecycle Service" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/api/rpc.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="lifecycleService.html" title="Lifecycle Service"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="pubsub.html" title="Data Publish/Subscribe API"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../contents.html">Vector SIL Kit 4.0.6 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="api.html" >API</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">RPC (Remote Procedure Call) API</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.2.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>
