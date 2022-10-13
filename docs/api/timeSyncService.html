@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Time Synchronization Service &mdash; Vector SIL Kit 4.0.7 documentation</title>
+  <title>Time Synchronization Service &mdash; Vector SIL Kit 4.0.8 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.7
+                4.0.8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -68,6 +68,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
@@ -121,17 +122,17 @@ For an overview of the time behavior see <a class="reference internal" href="../
 Setting a simulation step, even an empty one, is mandatory for participants using
 the time synchronization service interface.
 The simulation step will be executed asynchronously:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Orchestration</span><span class="o">::</span><span class="n">LifecycleConfiguration</span> <span class="n">lc</span><span class="p">{</span>
-    <span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Orchestration</span><span class="o">::</span><span class="n">OperationMode</span><span class="o">::</span><span class="n">Coordinated</span><span class="p">};</span>
-<span class="k">auto</span><span class="o">*</span> <span class="n">lifecycleService</span> <span class="o">=</span> <span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateLifecycleService</span><span class="p">(</span><span class="n">lc</span><span class="p">);</span>
-<span class="k">auto</span><span class="o">*</span> <span class="n">timeSyncService</span> <span class="o">=</span> <span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">CreateTimeSyncService</span><span class="p">();</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Orchestration</span><span class="o">::</span><span class="n">LifecycleConfiguration</span><span class="w"> </span><span class="n">lc</span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Orchestration</span><span class="o">::</span><span class="n">OperationMode</span><span class="o">::</span><span class="n">Coordinated</span><span class="p">};</span><span class="w"></span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">lifecycleService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateLifecycleService</span><span class="p">(</span><span class="n">lc</span><span class="p">);</span><span class="w"></span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">timeSyncService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">CreateTimeSyncService</span><span class="p">();</span><span class="w"></span>
 
 <span class="c1">// Set simulation step to a lambda</span>
-<span class="n">timeSyncService</span><span class="o">-&gt;</span><span class="n">SetSimulationStepHandler</span><span class="p">(</span>
-    <span class="p">[](</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span> <span class="n">now</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span> <span class="n">duration</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// Do simulation computation at timepoint &#39;now&#39;</span>
-    <span class="p">},</span> <span class="mi">1</span><span class="n">ms</span>
-<span class="p">);</span>
+<span class="n">timeSyncService</span><span class="o">-&gt;</span><span class="n">SetSimulationStepHandler</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="p">[](</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span><span class="w"> </span><span class="n">now</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span><span class="w"> </span><span class="n">duration</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Do simulation computation at timepoint &#39;now&#39;</span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="mi">1</span><span class="n">ms</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="admonition-note admonition">
@@ -229,53 +230,53 @@ is used to transmit data frames to the virtual CAN bus.</p>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
 <span class="cm">LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION</span>
 <span class="cm">OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION</span>
-<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span>
-<span class="k">auto</span> <span class="n">participant</span> <span class="o">=</span> <span class="n">SilKit</span><span class="o">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">participantName</span><span class="p">,</span> <span class="n">registryUri</span><span class="p">);</span>
-<span class="k">auto</span><span class="o">*</span> <span class="n">lifecycleService</span> <span class="o">=</span> <span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateLifecycleService</span><span class="p">({</span><span class="n">OperationMode</span><span class="o">::</span><span class="n">Coordinated</span><span class="p">});</span>
-<span class="k">auto</span><span class="o">*</span> <span class="n">timeSyncService</span> <span class="o">=</span> <span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">CreateTimeSyncService</span><span class="p">();</span>
-<span class="k">auto</span><span class="o">*</span> <span class="n">canController</span> <span class="o">=</span> <span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateCanController</span><span class="p">(</span><span class="s">&quot;CAN1&quot;</span><span class="p">,</span> <span class="s">&quot;CAN1&quot;</span><span class="p">);</span>
+<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span><span class="w"></span>
+<span class="k">auto</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">participantName</span><span class="p">,</span><span class="w"> </span><span class="n">registryUri</span><span class="p">);</span><span class="w"></span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">lifecycleService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateLifecycleService</span><span class="p">({</span><span class="n">OperationMode</span><span class="o">::</span><span class="n">Coordinated</span><span class="p">});</span><span class="w"></span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">timeSyncService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">CreateTimeSyncService</span><span class="p">();</span><span class="w"></span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">canController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateCanController</span><span class="p">(</span><span class="s">&quot;CAN1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CAN1&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="n">canController</span><span class="o">-&gt;</span><span class="n">AddFrameTransmitHandler</span><span class="p">(</span>
-	<span class="p">[](</span><span class="n">Can</span><span class="o">::</span><span class="n">ICanController</span><span class="o">*</span> <span class="cm">/*ctrl*/</span><span class="p">,</span> <span class="k">const</span> <span class="n">Can</span><span class="o">::</span><span class="n">CanFrameTransmitEvent</span><span class="o">&amp;</span> <span class="n">ack</span><span class="p">)</span> <span class="p">{</span>
-		<span class="c1">// Asynchroneously handle transmit status</span>
-<span class="p">});</span>
-<span class="n">canController</span><span class="o">-&gt;</span><span class="n">AddFrameHandler</span><span class="p">(</span>
-	<span class="p">[](</span><span class="n">Can</span><span class="o">::</span><span class="n">ICanController</span><span class="o">*</span> <span class="cm">/*ctrl*/</span><span class="p">,</span> <span class="k">const</span> <span class="n">Can</span><span class="o">::</span><span class="n">CanFrameEvent</span><span class="o">&amp;</span> <span class="n">frameEvent</span><span class="p">)</span> <span class="p">{</span>
-		<span class="c1">// Asynchroneously handle message reception</span>
-<span class="p">});</span>
+<span class="n">canController</span><span class="o">-&gt;</span><span class="n">AddFrameTransmitHandler</span><span class="p">(</span><span class="w"></span>
+<span class="w">	</span><span class="p">[](</span><span class="n">Can</span><span class="o">::</span><span class="n">ICanController</span><span class="o">*</span><span class="w"> </span><span class="cm">/*ctrl*/</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Can</span><span class="o">::</span><span class="n">CanFrameTransmitEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ack</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="c1">// Asynchroneously handle transmit status</span>
+<span class="p">});</span><span class="w"></span>
+<span class="n">canController</span><span class="o">-&gt;</span><span class="n">AddFrameHandler</span><span class="p">(</span><span class="w"></span>
+<span class="w">	</span><span class="p">[](</span><span class="n">Can</span><span class="o">::</span><span class="n">ICanController</span><span class="o">*</span><span class="w"> </span><span class="cm">/*ctrl*/</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Can</span><span class="o">::</span><span class="n">CanFrameEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="c1">// Asynchroneously handle message reception</span>
+<span class="p">});</span><span class="w"></span>
 
 <span class="c1">// Set an Init Handler</span>
-<span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">SetCommunicationReadyHandler</span><span class="p">(</span>
-	<span class="p">[</span><span class="n">canController</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">participantName</span><span class="p">]()</span> <span class="p">{</span>
-		<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Initializing &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">participantName</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-		<span class="n">canController</span><span class="o">-&gt;</span><span class="n">SetBaudRate</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">);</span>
-		<span class="n">canController</span><span class="o">-&gt;</span><span class="n">Start</span><span class="p">();</span>
-<span class="p">});</span>
+<span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">SetCommunicationReadyHandler</span><span class="p">(</span><span class="w"></span>
+<span class="w">	</span><span class="p">[</span><span class="n">canController</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">participantName</span><span class="p">]()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Initializing &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">participantName</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">		</span><span class="n">canController</span><span class="o">-&gt;</span><span class="n">SetBaudRate</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="mi">1000000</span><span class="p">);</span><span class="w"></span>
+<span class="w">		</span><span class="n">canController</span><span class="o">-&gt;</span><span class="n">Start</span><span class="p">();</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
 
 <span class="c1">// Set a Stop Handler</span>
-<span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">SetStopHandler</span><span class="p">([]()</span> <span class="p">{</span>
-	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Stopping...&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">});</span>
+<span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">SetStopHandler</span><span class="p">([]()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Stopping...&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
 
 <span class="c1">// Set a Shutdown Handler</span>
-<span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">SetShutdownHandler</span><span class="p">([]()</span> <span class="p">{</span>
-	<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Shutting down...&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">});</span>
+<span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">SetShutdownHandler</span><span class="p">([]()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Shutting down...&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
 
-<span class="k">if</span> <span class="p">(</span><span class="n">participantName</span> <span class="o">==</span> <span class="s">&quot;CanWriter&quot;</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="n">timeSyncService</span><span class="o">-&gt;</span><span class="n">SetSimulationStepHandler</span><span class="p">(</span>
-		<span class="p">[</span><span class="n">canController</span><span class="p">,</span> <span class="n">sleepTimePerTick</span><span class="p">](</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span> <span class="n">now</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span> <span class="n">duration</span><span class="p">)</span> <span class="p">{</span>
-			<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;now=&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">now</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, duration=&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">duration</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-			<span class="n">SilKit</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Can</span><span class="o">::</span><span class="n">CanFrame</span> <span class="n">msg</span><span class="p">;</span>
-			<span class="n">msg</span><span class="p">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">now</span><span class="p">;</span>
-			<span class="n">msg</span><span class="p">.</span><span class="n">canId</span> <span class="o">=</span> <span class="mi">17</span><span class="p">;</span>
-			<span class="n">canController</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">msg</span><span class="p">));</span>
-	<span class="p">},</span> <span class="mi">1</span><span class="n">ms</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">participantName</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;CanWriter&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">timeSyncService</span><span class="o">-&gt;</span><span class="n">SetSimulationStepHandler</span><span class="p">(</span><span class="w"></span>
+<span class="w">		</span><span class="p">[</span><span class="n">canController</span><span class="p">,</span><span class="w"> </span><span class="n">sleepTimePerTick</span><span class="p">](</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span><span class="w"> </span><span class="n">now</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span><span class="w"> </span><span class="n">duration</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">			</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;now=&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, duration=&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">duration</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">			</span><span class="n">SilKit</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Can</span><span class="o">::</span><span class="n">CanFrame</span><span class="w"> </span><span class="n">msg</span><span class="p">;</span><span class="w"></span>
+<span class="w">			</span><span class="n">msg</span><span class="p">.</span><span class="n">timestamp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span><span class="w"></span>
+<span class="w">			</span><span class="n">msg</span><span class="p">.</span><span class="n">canId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">17</span><span class="p">;</span><span class="w"></span>
+<span class="w">			</span><span class="n">canController</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">msg</span><span class="p">));</span><span class="w"></span>
+<span class="w">	</span><span class="p">},</span><span class="w"> </span><span class="mi">1</span><span class="n">ms</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-<span class="k">auto</span> <span class="n">finalStateFuture</span> <span class="o">=</span> <span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">StartLifecycle</span><span class="p">();</span>
-<span class="k">auto</span> <span class="n">finalState</span> <span class="o">=</span> <span class="n">finalStateFuture</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">finalStateFuture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">StartLifecycle</span><span class="p">();</span><span class="w"></span>
+<span class="k">auto</span><span class="w"> </span><span class="n">finalState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">finalStateFuture</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
 </pre></div>
 </div>
 </section>

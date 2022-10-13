@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quick Start &mdash; Vector SIL Kit 4.0.7 documentation</title>
+  <title>Quick Start &mdash; Vector SIL Kit 4.0.8 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.7
+                4.0.8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -59,6 +59,7 @@
 <li class="toctree-l1"><a class="reference internal" href="demos.html">Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
@@ -163,15 +164,15 @@ defines the <code class="docutils literal notranslate"><span class="pre">SilKit:
 <p>From CMake this can be easily used via the  <code class="docutils literal notranslate"><span class="pre">find_package(SilKit</span> <span class="pre">CONFIG)</span></code> mechanism.
 For example, the following CMakeLists.txt is able to import the SIL Kit library based on its filesystem path.</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">Project</span><span class="p">(</span><span class="s">SampleSilKit</span><span class="p">)</span>
-<span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span> <span class="s">3.0</span><span class="p">)</span>
-<span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_BUILD_TYPE</span> <span class="s">Debug</span><span class="p">)</span>
-<span class="nb">find_package</span><span class="p">(</span><span class="s">SilKit</span> 
-    <span class="s">REQUIRED</span> <span class="s">CONFIG</span>
-    <span class="s">PATHS</span> <span class="s2">&quot;${CMAKE_CURRENT_LIST_DIR}/SilKit&quot;</span>
+<span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.0</span><span class="p">)</span>
+<span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_BUILD_TYPE</span><span class="w"> </span><span class="s">Debug</span><span class="p">)</span>
+<span class="nb">find_package</span><span class="p">(</span><span class="s">SilKit</span><span class="w"> </span>
+<span class="w">    </span><span class="s">REQUIRED</span><span class="w"> </span><span class="s">CONFIG</span>
+<span class="w">    </span><span class="s">PATHS</span><span class="w"> </span><span class="s2">&quot;${CMAKE_CURRENT_LIST_DIR}/SilKit&quot;</span>
 <span class="p">)</span>
-<span class="nb">find_package</span><span class="p">(</span><span class="s">Threads</span> <span class="s">REQUIRED</span><span class="p">)</span>
-<span class="nb">add_executable</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span> <span class="s">simple.cpp</span><span class="p">)</span>
-<span class="nb">target_link_libraries</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span> <span class="s">PRIVATE</span> <span class="s">SilKit::SilKit</span> <span class="s">Threads::Threads</span><span class="p">)</span>
+<span class="nb">find_package</span><span class="p">(</span><span class="s">Threads</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="w"> </span><span class="s">simple.cpp</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">SilKit::SilKit</span><span class="w"> </span><span class="s">Threads::Threads</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Properties, like include directories and compile flags, are automatically handled by the imported target.
@@ -191,41 +192,41 @@ The file will be loaded by our application and from helper <a class="reference i
 </div>
 <p>The configuration file itself contains an empty JSON object, that later on can be used to configure our simulation participants
 without recompiling it.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span> <span class="p p-Indicator">{}</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The application will run two participants concurrently, each in their own thread.
 One thread will act as a publisher by sending a test string to its subscribers:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">publisher_main</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">SilKit</span><span class="o">::</span><span class="n">Config</span><span class="o">::</span><span class="n">IParticipantConfiguration</span><span class="o">&gt;</span> <span class="n">config</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">auto</span> <span class="n">participant</span> <span class="o">=</span> <span class="n">SilKit</span><span class="o">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s">&quot;PublisherParticipant&quot;</span><span class="p">,</span> <span class="n">registryUri</span><span class="p">);</span>
-    <span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">PubSub</span><span class="o">::</span><span class="n">PubSubSpec</span> <span class="n">pubSubSpec</span><span class="p">{</span><span class="s">&quot;DataService&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">};</span>
-    <span class="k">auto</span><span class="o">*</span> <span class="n">publisher</span> <span class="o">=</span> <span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateDataPublisher</span><span class="p">(</span><span class="s">&quot;PublisherController&quot;</span><span class="p">,</span> <span class="n">pubSubSpec</span><span class="p">);</span>
-    <span class="k">auto</span><span class="o">*</span> <span class="n">lifecycleService</span> <span class="o">=</span>
-        <span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateLifecycleService</span><span class="p">({</span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Orchestration</span><span class="o">::</span><span class="n">OperationMode</span><span class="o">::</span><span class="n">Coordinated</span><span class="p">});</span>
-    <span class="k">auto</span><span class="o">*</span> <span class="n">timeSyncService</span> <span class="o">=</span> <span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">CreateTimeSyncService</span><span class="p">();</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">publisher_main</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">SilKit</span><span class="o">::</span><span class="n">Config</span><span class="o">::</span><span class="n">IParticipantConfiguration</span><span class="o">&gt;</span><span class="w"> </span><span class="n">config</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PublisherParticipant&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">registryUri</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">PubSub</span><span class="o">::</span><span class="n">PubSubSpec</span><span class="w"> </span><span class="n">pubSubSpec</span><span class="p">{</span><span class="s">&quot;DataService&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;text/plain&quot;</span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">publisher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateDataPublisher</span><span class="p">(</span><span class="s">&quot;PublisherController&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pubSubSpec</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">lifecycleService</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">        </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateLifecycleService</span><span class="p">({</span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Orchestration</span><span class="o">::</span><span class="n">OperationMode</span><span class="o">::</span><span class="n">Coordinated</span><span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">timeSyncService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">CreateTimeSyncService</span><span class="p">();</span><span class="w"></span>
 
-    <span class="n">timeSyncService</span><span class="o">-&gt;</span><span class="n">SetSimulationStepHandler</span><span class="p">([</span><span class="n">publisher</span><span class="p">](</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span> <span class="n">now</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">static</span> <span class="k">auto</span> <span class="n">msgIdx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="n">timeSyncService</span><span class="o">-&gt;</span><span class="n">SetSimulationStepHandler</span><span class="p">([</span><span class="n">publisher</span><span class="p">](</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span><span class="w"> </span><span class="n">now</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">msgIdx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
-        <span class="c1">//generate some random data</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;DataService Msg&quot;</span> <span class="o">+</span> <span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">msgIdx</span><span class="o">++</span><span class="p">);</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span> <span class="n">data</span><span class="p">{</span><span class="n">message</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">message</span><span class="p">.</span><span class="n">end</span><span class="p">()};</span>
+<span class="w">        </span><span class="c1">//generate some random data</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;DataService Msg&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">msgIdx</span><span class="o">++</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">data</span><span class="p">{</span><span class="n">message</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">message</span><span class="p">.</span><span class="n">end</span><span class="p">()};</span><span class="w"></span>
 
-        <span class="c1">//publish the raw bytes of the message to all subscribers</span>
-        <span class="n">publisher</span><span class="o">-&gt;</span><span class="n">Publish</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">data</span><span class="p">));</span>
-    <span class="p">},</span> <span class="mi">1</span><span class="n">ms</span><span class="p">);</span>
-    <span class="c1">//run the simulation main loop forever</span>
-    <span class="k">try</span>
-    <span class="p">{</span>
-        <span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">StartLifecycle</span><span class="p">();</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Publisher: result: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">result</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">catch</span> <span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">exception</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;ERROR: Publisher exception caught: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">        </span><span class="c1">//publish the raw bytes of the message to all subscribers</span>
+<span class="w">        </span><span class="n">publisher</span><span class="o">-&gt;</span><span class="n">Publish</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">data</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="mi">1</span><span class="n">ms</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//run the simulation main loop forever</span>
+<span class="w">    </span><span class="k">try</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">StartLifecycle</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Publisher: result: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">exception</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;ERROR: Publisher exception caught: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>First, the simulation is joined by creating a participant <code class="docutils literal notranslate"><span class="pre">PublisherParticipant</span></code>.
@@ -240,36 +241,36 @@ is a callback that is executed by the SIL Kit runtime whenever the the simulatio
 time advances. This callback has to be registered with the time synchronization service’s
 <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService24SetSimulationStepHandlerE21SimulationStepHandlerNSt6chrono11nanosecondsE" title="SilKit::Services::Orchestration::ITimeSyncService::SetSimulationStepHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetSimulationStepHandler()</span></code></a>.</p>
 <p>The subscriber runs in its own thread, too:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">subscriber_main</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">SilKit</span><span class="o">::</span><span class="n">Config</span><span class="o">::</span><span class="n">IParticipantConfiguration</span><span class="o">&gt;</span> <span class="n">config</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">auto</span> <span class="n">participant</span> <span class="o">=</span> <span class="n">SilKit</span><span class="o">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s">&quot;SubscriberParticipant&quot;</span><span class="p">,</span> <span class="n">registryUri</span><span class="p">);</span>
-    
-    <span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">PubSub</span><span class="o">::</span><span class="n">PubSubSpec</span> <span class="n">pubSubSpec</span><span class="p">{</span><span class="s">&quot;DataService&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">};</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">subscriber_main</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">SilKit</span><span class="o">::</span><span class="n">Config</span><span class="o">::</span><span class="n">IParticipantConfiguration</span><span class="o">&gt;</span><span class="w"> </span><span class="n">config</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SubscriberParticipant&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">registryUri</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">PubSub</span><span class="o">::</span><span class="n">PubSubSpec</span><span class="w"> </span><span class="n">pubSubSpec</span><span class="p">{</span><span class="s">&quot;DataService&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;text/plain&quot;</span><span class="p">};</span><span class="w"></span>
 
-    <span class="k">auto</span> <span class="n">receptionHandler</span> <span class="o">=</span> <span class="p">[](</span><span class="k">auto</span><span class="o">*</span> <span class="n">subscriber</span><span class="p">,</span> <span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">dataMessageEvent</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">message</span><span class="p">{</span><span class="n">dataMessageEvent</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">dataMessageEvent</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">end</span><span class="p">()};</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &lt;- Received data=</span><span class="se">\&quot;</span><span class="s">&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">message</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\&quot;</span><span class="s">&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="p">};</span>
-    <span class="k">auto</span><span class="o">*</span> <span class="n">subscriber</span> <span class="o">=</span> <span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateDataSubscriber</span><span class="p">(</span><span class="s">&quot;SubscriberController&quot;</span><span class="p">,</span> <span class="n">pubSubSpec</span><span class="p">,</span> <span class="n">receptionHandler</span><span class="p">);</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">receptionHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">subscriber</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dataMessageEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">message</span><span class="p">{</span><span class="n">dataMessageEvent</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">dataMessageEvent</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">end</span><span class="p">()};</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &lt;- Received data=</span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\&quot;</span><span class="s">&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">subscriber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateDataSubscriber</span><span class="p">(</span><span class="s">&quot;SubscriberController&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pubSubSpec</span><span class="p">,</span><span class="w"> </span><span class="n">receptionHandler</span><span class="p">);</span><span class="w"></span>
 
-    <span class="k">auto</span><span class="o">*</span> <span class="n">lifecycleService</span> <span class="o">=</span>
-        <span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateLifecycleService</span><span class="p">({</span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Orchestration</span><span class="o">::</span><span class="n">OperationMode</span><span class="o">::</span><span class="n">Coordinated</span><span class="p">});</span>
-    <span class="k">auto</span><span class="o">*</span> <span class="n">timeSyncService</span> <span class="o">=</span> <span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">CreateTimeSyncService</span><span class="p">();</span>
+<span class="w">    </span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">lifecycleService</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">        </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateLifecycleService</span><span class="p">({</span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Orchestration</span><span class="o">::</span><span class="n">OperationMode</span><span class="o">::</span><span class="n">Coordinated</span><span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">timeSyncService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">CreateTimeSyncService</span><span class="p">();</span><span class="w"></span>
 
-    <span class="n">timeSyncService</span><span class="o">-&gt;</span><span class="n">SetSimulationStepHandler</span><span class="p">([](</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">//simulation task must be defined, even an empty one</span>
-    <span class="p">},</span> <span class="mi">1</span><span class="n">ms</span><span class="p">);</span>
+<span class="w">    </span><span class="n">timeSyncService</span><span class="o">-&gt;</span><span class="n">SetSimulationStepHandler</span><span class="p">([](</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">//simulation task must be defined, even an empty one</span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="mi">1</span><span class="n">ms</span><span class="p">);</span><span class="w"></span>
 
-    <span class="k">try</span>
-    <span class="p">{</span>
-        <span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">StartLifecycle</span><span class="p">();</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Subscriber: result: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">result</span><span class="p">.</span><span class="n">get</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">catch</span> <span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">exception</span><span class="o">&amp;</span> <span class="n">e</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;ERROR: Subscriber exception caught: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="k">try</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">StartLifecycle</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Subscriber: result: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">exception</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;ERROR: Subscriber exception caught: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The setup is similar to the publisher, except that we instantiate a

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LIN Service API &mdash; Vector SIL Kit 4.0.7 documentation</title>
+  <title>LIN Service API &mdash; Vector SIL Kit 4.0.8 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.7
+                4.0.8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -68,6 +68,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
@@ -143,7 +144,7 @@
 <h2><a class="toc-backref" href="#id1">Using the LIN Controller</a><a class="headerlink" href="#using-the-lin-controller" title="Permalink to this heading"></a></h2>
 <p>The LIN Service API provides a LIN bus abstraction through the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinControllerE" title="SilKit::Services::Lin::ILinController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ILinController</span></code></a> interface.
 A LIN controller is created by calling <a class="reference internal" href="participant.html#_CPPv4N6SilKit12IParticipant19CreateLinControllerERKNSt6stringERKNSt6stringE" title="SilKit::IParticipant::CreateLinController"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateLinController</span></code></a> given a controller and network name:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">*</span> <span class="n">linMasterController</span> <span class="o">=</span> <span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateLinController</span><span class="p">(</span><span class="s">&quot;LinMaster&quot;</span><span class="p">,</span> <span class="s">&quot;LIN1&quot;</span><span class="p">);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">linMasterController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateLinController</span><span class="p">(</span><span class="s">&quot;LinMaster&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LIN1&quot;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>LIN controllers will only communicate within the same network.</p>
@@ -156,19 +157,19 @@ A LIN controller is created by calling <a class="reference internal" href="parti
 (<a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseMode2RxE" title="SilKit::Services::Lin::LinFrameResponseMode::Rx"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseMode::Rx</span></code></a>) or respond to (<a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseMode15TxUnconditionalE" title="SilKit::Services::Lin::LinFrameResponseMode::TxUnconditional"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseMode::TxUnconditional</span></code></a>) frames.</p>
 <p>The following example configures a LIN controller as a LIN slave with a baud rate of 20’000 baud. Furthermore, LIN ID
 0x11 is configured for transmission:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">LinFrameResponse</span> <span class="n">response</span><span class="p">;</span>
-<span class="n">response</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x11</span><span class="p">;</span>
-<span class="n">response</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
-<span class="n">response</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">dataLength</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">response</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">};</span>
-<span class="n">response</span><span class="p">.</span><span class="n">responseMode</span> <span class="o">=</span> <span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">LinFrameResponse</span><span class="w"> </span><span class="n">response</span><span class="p">;</span><span class="w"></span>
+<span class="n">response</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span><span class="w"></span>
+<span class="n">response</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
+<span class="n">response</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="n">response</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">};</span><span class="w"></span>
+<span class="n">response</span><span class="p">.</span><span class="n">responseMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">LinControllerConfig</span> <span class="n">slaveConfig</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">controllerMode</span> <span class="o">=</span> <span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">baudRate</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">response</span><span class="p">);</span>
+<span class="n">LinControllerConfig</span><span class="w"> </span><span class="n">slaveConfig</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">controllerMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">response</span><span class="p">);</span><span class="w"></span>
 
-<span class="n">linController</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span>
+<span class="n">linController</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Note that <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController4InitE19LinControllerConfig" title="SilKit::Services::Lin::ILinController::Init"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Init()</span></code></a> must only be called once. A second call of <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController4InitE19LinControllerConfig" title="SilKit::Services::Lin::ILinController::Init"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Init()</span></code></a> or operations on an uninitialized LIN node will
@@ -210,14 +211,14 @@ with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinContr
 and the master provides both header and response. A <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin8LinFrameE" title="SilKit::Services::Lin::LinFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">LinFrame</span></code></a> must be setup with the LIN ID,
 data, dataLength and the desired checksum model:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Prepare a frame with id 0x10 for transmission</span>
-<span class="n">LinFrame</span> <span class="n">masterFrame</span><span class="p">;</span>
-<span class="n">masterFrame</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x10</span><span class="p">;</span>
-<span class="n">masterFrame</span><span class="p">.</span><span class="n">dataLength</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;M&#39;</span><span class="p">,</span> <span class="sc">&#39;A&#39;</span><span class="p">,</span> <span class="sc">&#39;S&#39;</span><span class="p">,</span> <span class="sc">&#39;T&#39;</span><span class="p">,</span> <span class="sc">&#39;E&#39;</span><span class="p">,</span> <span class="sc">&#39;R&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
-<span class="n">masterFrame</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
+<span class="n">LinFrame</span><span class="w"> </span><span class="n">masterFrame</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;T&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;R&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="n">masterFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// initiate the frame transmission using the AUTOSAR interface</span>
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">masterFrame</span><span class="p">,</span> <span class="n">LinFrameResponseType</span><span class="o">::</span><span class="n">MasterResponse</span><span class="p">);</span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">masterFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseType</span><span class="o">::</span><span class="n">MasterResponse</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
@@ -227,11 +228,11 @@ ID of the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin8LinFr
 by the TX buffer of the responing slave. The following example assumes that a slave is configure as seen in
 <a class="reference internal" href="#sec-lin-initialization"><span class="std std-ref">Initialization</span></a>:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// The slave is configured to respond on ID 0x11</span>
-<span class="n">LinFrame</span> <span class="n">slaveResponseFrame</span><span class="p">;</span>
-<span class="n">slaveResponseFrame</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x11</span><span class="p">;</span>
+<span class="n">LinFrame</span><span class="w"> </span><span class="n">slaveResponseFrame</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveResponseFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// initiate the frame transmission using the AUTOSAR interface</span>
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">slaveResponseFrame</span><span class="p">,</span> <span class="n">LinFrameResponseType</span><span class="o">::</span><span class="n">SlaveResponse</span><span class="p">);</span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">slaveResponseFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseType</span><span class="o">::</span><span class="n">SlaveResponse</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
@@ -244,16 +245,16 @@ and will configure itself for reception (<a class="reference internal" href="#_C
 provided by the TX buffer of the responing LIN node. The following example also assumes that a slave is
 configure as seen in <a class="reference internal" href="#sec-lin-initialization"><span class="std std-ref">Initialization</span></a>:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Slave:</span>
-<span class="n">LinFrame</span> <span class="n">updatedSlaveResponse</span><span class="p">;</span>
-<span class="n">updatedSlaveResponse</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x11</span><span class="p">;</span>
-<span class="n">updatedSlaveResponse</span><span class="p">.</span><span class="n">dataLength</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">updatedSlaveResponse</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span> <span class="sc">&#39;L&#39;</span><span class="p">,</span> <span class="sc">&#39;A&#39;</span><span class="p">,</span> <span class="sc">&#39;V&#39;</span><span class="p">,</span> <span class="sc">&#39;E&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
-<span class="n">updatedSlaveResponse</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
-<span class="n">slave</span><span class="o">-&gt;</span><span class="n">UpdateTxBuffer</span><span class="p">(</span><span class="n">updatedSlaveResponse</span><span class="p">);</span>
+<span class="n">LinFrame</span><span class="w"> </span><span class="n">updatedSlaveResponse</span><span class="p">;</span><span class="w"></span>
+<span class="n">updatedSlaveResponse</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span><span class="w"></span>
+<span class="n">updatedSlaveResponse</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="n">updatedSlaveResponse</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;L&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span><span class="w"></span>
+<span class="n">updatedSlaveResponse</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
+<span class="n">slave</span><span class="o">-&gt;</span><span class="n">UpdateTxBuffer</span><span class="p">(</span><span class="n">updatedSlaveResponse</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Master:</span>
 <span class="c1">// Transmit the frame header, the response will be provided by the slave.</span>
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrameHeader</span><span class="p">(</span><span class="mh">0x11</span><span class="p">);</span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrameHeader</span><span class="p">(</span><span class="mh">0x11</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </li>
@@ -264,13 +265,13 @@ configure as seen in <a class="reference internal" href="#sec-lin-initialization
 <p>To be notified for the success or failure of the transmission, a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a> should be registered using
 <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController21AddFrameStatusHandlerE18FrameStatusHandler" title="SilKit::Services::Lin::ILinController::AddFrameStatusHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddFrameStatusHandler()</span></code></a>:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Register FrameStatusHandler to receive data from the LIN slave</span>
-<span class="k">auto</span> <span class="n">frameStatusHandler</span> <span class="o">=</span>
-    <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span> <span class="k">const</span> <span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span> <span class="n">frameStatusEvent</span><span class="p">)</span> <span class="p">{};</span>
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">frameStatusHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">frameStatusHandler</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">frameStatusHandler</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>A successful transmission is confirmed via the registered callback, for example:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">frameStatusHandler</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">frameStatusEvent</span><span class="p">);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">frameStatusHandler</span><span class="p">(</span><span class="n">master</span><span class="p">,</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">);</span><span class="w"></span>
 <span class="c1">// With:</span>
 <span class="c1">// frameStatusEvent.timestamp: timeEndOfFrame;</span>
 <span class="c1">// frameStatusEvent.frame: masterFrame;</span>
@@ -286,16 +287,16 @@ which is indicated by <a class="reference internal" href="#_CPPv4N6SilKit8Servic
 <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a> must be registered using <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController21AddFrameStatusHandlerE18FrameStatusHandler" title="SilKit::Services::Lin::ILinController::AddFrameStatusHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddFrameStatusHandler()</span></code></a>, which is called by the LIN controller when
 a frame is received and the LIN node is configured for reception with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseMode2RxE" title="SilKit::Services::Lin::LinFrameResponseMode::Rx"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseMode::Rx</span></code></a> on that LIN ID:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Register FrameStatusHandler to receive data from the LIN slave</span>
-<span class="k">auto</span> <span class="n">frameStatusHandler</span> <span class="o">=</span>
-    <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span> <span class="k">const</span> <span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span> <span class="n">frameStatusEvent</span><span class="p">)</span> <span class="p">{};</span>
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">frameStatusHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">frameStatusHandler</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">frameStatusHandler</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The incoming <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin19LinFrameStatusEventE" title="SilKit::Services::Lin::LinFrameStatusEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">LinFrameStatusEvent</span></code></a> holds a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14LinFrameStatusE" title="SilKit::Services::Lin::LinFrameStatus"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">LinFrameStatus</span></code></a> indicating the success (<a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14LinFrameStatus9LIN_RX_OKE" title="SilKit::Services::Lin::LIN_RX_OK"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LIN_RX_OK</span></code></a>) or
 failure (<a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14LinFrameStatus12LIN_RX_ERRORE" title="SilKit::Services::Lin::LIN_RX_ERROR"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LIN_RX_ERROR</span></code></a>) of the transmission. If a LIN slave has previously setup a matching
 <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin16LinFrameResponseE" title="SilKit::Services::Lin::LinFrameResponse"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">LinFrameResponse</span></code></a> for transmission, the registered <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a> will deliver a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin19LinFrameStatusEventE" title="SilKit::Services::Lin::LinFrameStatusEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">LinFrameStatusEvent</span></code></a> as
 follows:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">frameStatusHandler</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">frameStatusEvent</span><span class="p">);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">frameStatusHandler</span><span class="p">(</span><span class="n">master</span><span class="p">,</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">);</span><span class="w"></span>
 <span class="c1">// With:</span>
 <span class="c1">// frameStatusEvent.timestamp: timeEndOfFrame;</span>
 <span class="c1">// frameStatusEvent.frame: slaveFrame;</span>
@@ -1013,77 +1014,77 @@ the master.</p>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
 <span class="cm">LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION</span>
 <span class="cm">OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION</span>
-<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span>
+<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span><span class="w"></span>
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Slave Setup</span>
-<span class="n">LinControllerConfig</span> <span class="n">slaveConfig</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">controllerMode</span> <span class="o">=</span> <span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">baudRate</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span>
+<span class="n">LinControllerConfig</span><span class="w"> </span><span class="n">slaveConfig</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">controllerMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Setup LinFrameResponseMode::Rx for LIN ID 0x10 and 0x11 on the slave</span>
-<span class="n">LinFrame</span> <span class="n">slaveFrame</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x10</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span> <span class="sc">&#39;L&#39;</span><span class="p">,</span> <span class="sc">&#39;A&#39;</span><span class="p">,</span> <span class="sc">&#39;V&#39;</span><span class="p">,</span> <span class="sc">&#39;E&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span> <span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">Rx</span><span class="p">});</span>
+<span class="n">LinFrame</span><span class="w"> </span><span class="n">slaveFrame</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;L&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">Rx</span><span class="p">});</span><span class="w"></span>
 
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x11</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span> <span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">Rx</span><span class="p">});</span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">Rx</span><span class="p">});</span><span class="w"></span>
 
-<span class="n">slave</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span>
+<span class="n">slave</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Register FrameStatusHandler to receive data</span>
-<span class="k">auto</span> <span class="n">slave_FrameStatusHandler</span> <span class="o">=</span>
-    <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span>  <span class="k">const</span> <span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span> <span class="n">frameStatusEvent</span><span class="p">)</span> <span class="p">{};</span>
-<span class="n">slave</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">slave_FrameStatusHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">slave_FrameStatusHandler</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="n">slave</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">slave_FrameStatusHandler</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Master Setup</span>
-<span class="n">LinControllerConfig</span> <span class="n">masterConfig</span><span class="p">;</span>
-<span class="n">masterConfig</span><span class="p">.</span><span class="n">controllerMode</span> <span class="o">=</span> <span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Master</span><span class="p">;</span>
-<span class="n">masterConfig</span><span class="p">.</span><span class="n">baudRate</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span>
+<span class="n">LinControllerConfig</span><span class="w"> </span><span class="n">masterConfig</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterConfig</span><span class="p">.</span><span class="n">controllerMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Master</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterConfig</span><span class="p">.</span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Setup LinFrameResponseMode::TxUnconditional for LIN ID 0x11 on the master</span>
-<span class="n">LinFrame</span> <span class="n">masterFrame</span><span class="p">;</span>
-<span class="n">masterFrame</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x11</span><span class="p">;</span>
-<span class="n">masterFrame</span><span class="p">.</span><span class="n">dataLength</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;M&#39;</span><span class="p">,</span> <span class="sc">&#39;A&#39;</span><span class="p">,</span> <span class="sc">&#39;S&#39;</span><span class="p">,</span> <span class="sc">&#39;T&#39;</span><span class="p">,</span> <span class="sc">&#39;E&#39;</span><span class="p">,</span> <span class="sc">&#39;R&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
-<span class="n">masterFrame</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
-<span class="n">masterConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">masterFrame</span><span class="p">,</span> <span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span>
+<span class="n">LinFrame</span><span class="w"> </span><span class="n">masterFrame</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;T&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;R&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="n">masterFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">masterFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span><span class="w"></span>
 
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">masterConfig</span><span class="p">);</span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">masterConfig</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Register FrameStatusHandler to receive confirmation of the successful transmission</span>
-<span class="k">auto</span> <span class="n">master_FrameStatusHandler</span> <span class="o">=</span>
-    <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span>  <span class="k">const</span> <span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span> <span class="n">frameStatusEvent</span><span class="p">)</span> <span class="p">{};</span>
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">master_FrameStatusHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">master_FrameStatusHandler</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">master_FrameStatusHandler</span><span class="p">);</span><span class="w"></span>
 
-<span class="k">if</span> <span class="p">(</span><span class="n">UseAutosarInterface</span><span class="p">)</span>
-<span class="p">{</span> 
-    <span class="c1">// Transmit the frame 0x10 without configuration on master, slave has configured RX for 0x10.</span>
-    <span class="n">LinFrame</span> <span class="n">masterFrame</span><span class="p">;</span>
-    <span class="n">masterFrame</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x10</span><span class="p">;</span>
-    <span class="n">masterFrame</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
-    <span class="n">masterFrame</span><span class="p">.</span><span class="n">dataLength</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-    <span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;M&#39;</span><span class="p">,</span> <span class="sc">&#39;A&#39;</span><span class="p">,</span> <span class="sc">&#39;S&#39;</span><span class="p">,</span> <span class="sc">&#39;T&#39;</span><span class="p">,</span> <span class="sc">&#39;E&#39;</span><span class="p">,</span> <span class="sc">&#39;R&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">UseAutosarInterface</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">// Transmit the frame 0x10 without configuration on master, slave has configured RX for 0x10.</span>
+<span class="w">    </span><span class="n">LinFrame</span><span class="w"> </span><span class="n">masterFrame</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">masterFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">masterFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">masterFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;T&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;R&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
 
-    <span class="c1">// AUTOSAR API</span>
-    <span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">masterFrame</span><span class="p">,</span> <span class="n">LinFrameResponseType</span><span class="o">::</span><span class="n">MasterResponse</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span>
-<span class="p">{</span>
-    <span class="c1">// Alternative, non-AUTOSAR API</span>
-    <span class="c1">// Transmit the frame header, the master response is configured.</span>
-    <span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrameHeader</span><span class="p">(</span><span class="mh">0x11</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="c1">// AUTOSAR API</span>
+<span class="w">    </span><span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">masterFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseType</span><span class="o">::</span><span class="n">MasterResponse</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Alternative, non-AUTOSAR API</span>
+<span class="w">    </span><span class="c1">// Transmit the frame header, the master response is configured.</span>
+<span class="w">    </span><span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrameHeader</span><span class="p">(</span><span class="mh">0x11</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
 <span class="c1">// In both cases (AUTOSAR and non-AUTOSAR), the following callbacks will be triggered:</span>
 <span class="c1">//  - TX confirmation for the master, who initiated the transmission</span>
 <span class="c1">//    and provided the frame response</span>
-<span class="n">master_FrameStatusHandler</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">LinFrameStatusEvent</span><span class="p">{</span> <span class="n">timeEndOfFrame</span><span class="p">,</span> <span class="n">masterFrame</span><span class="p">,</span> <span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_TX_OK</span> <span class="p">});</span>
+<span class="n">master_FrameStatusHandler</span><span class="p">(</span><span class="n">master</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="p">{</span><span class="w"> </span><span class="n">timeEndOfFrame</span><span class="p">,</span><span class="w"> </span><span class="n">masterFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_TX_OK</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
 <span class="c1">//  - RX for the slave, who received the frame response</span>
-<span class="n">slave_FrameStatusHandler</span><span class="p">(</span><span class="n">slave</span><span class="p">,</span> <span class="n">LinFrameStatusEvent</span><span class="p">{</span> <span class="n">timeEndOfFrame</span><span class="p">,</span> <span class="n">masterFrame</span><span class="p">,</span> <span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_RX_OK</span> <span class="p">});</span>
+<span class="n">slave_FrameStatusHandler</span><span class="p">(</span><span class="n">slave</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="p">{</span><span class="w"> </span><span class="n">timeEndOfFrame</span><span class="p">,</span><span class="w"> </span><span class="n">masterFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_RX_OK</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -1110,76 +1111,76 @@ the master.</p>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
 <span class="cm">LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION</span>
 <span class="cm">OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION</span>
-<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span>
+<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span><span class="w"></span>
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Slave Setup</span>
-<span class="n">LinControllerConfig</span> <span class="n">slaveConfig</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">controllerMode</span> <span class="o">=</span> <span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">baudRate</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span>
+<span class="n">LinControllerConfig</span><span class="w"> </span><span class="n">slaveConfig</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">controllerMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Setup LinFrameResponseMode::TxUnconditional for LIN ID 0x10 and 0x11 on the slave</span>
-<span class="n">LinFrame</span> <span class="n">slaveFrame</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x10</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span> <span class="sc">&#39;L&#39;</span><span class="p">,</span> <span class="sc">&#39;A&#39;</span><span class="p">,</span> <span class="sc">&#39;V&#39;</span><span class="p">,</span> <span class="sc">&#39;E&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span> <span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span>
+<span class="n">LinFrame</span><span class="w"> </span><span class="n">slaveFrame</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;L&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span><span class="w"></span>
 
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x11</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span> <span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span><span class="w"></span>
 
-<span class="n">slave</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span>
+<span class="n">slave</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Register FrameStatusHandler to receive an acknowledgment for</span>
 <span class="c1">// the successful transmission</span>
-<span class="k">auto</span> <span class="n">slave_FrameStatusHandler</span> <span class="o">=</span>
-    <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span>  <span class="k">const</span> <span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span> <span class="n">frameStatusEvent</span><span class="p">)</span> <span class="p">{};</span>
-<span class="n">slave</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">slave_FrameStatusHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">slave_FrameStatusHandler</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="n">slave</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">slave_FrameStatusHandler</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Master Setup</span>
-<span class="n">LinControllerConfig</span> <span class="n">masterConfig</span><span class="p">;</span>
-<span class="n">masterConfig</span><span class="p">.</span><span class="n">controllerMode</span> <span class="o">=</span> <span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Master</span><span class="p">;</span>
-<span class="n">masterConfig</span><span class="p">.</span><span class="n">baudRate</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span>
+<span class="n">LinControllerConfig</span><span class="w"> </span><span class="n">masterConfig</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterConfig</span><span class="p">.</span><span class="n">controllerMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Master</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterConfig</span><span class="p">.</span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Setup LinFrameResponseMode::Rx for LIN ID 0x11 on the master</span>
-<span class="n">LinFrame</span> <span class="n">masterFrame</span><span class="p">;</span>
-<span class="n">masterFrame</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x11</span><span class="p">;</span>
-<span class="n">masterFrame</span><span class="p">.</span><span class="n">dataLength</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">masterFrame</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
+<span class="n">LinFrame</span><span class="w"> </span><span class="n">masterFrame</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">masterConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">masterFrame</span><span class="p">,</span> <span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">Rx</span><span class="p">});</span>
+<span class="n">masterConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">masterFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">Rx</span><span class="p">});</span><span class="w"></span>
 
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">masterConfig</span><span class="p">);</span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">masterConfig</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Register FrameStatusHandler to receive data from the LIN slave</span>
-<span class="k">auto</span> <span class="n">master_FrameStatusHandler</span> <span class="o">=</span>
-    <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span>  <span class="k">const</span> <span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span> <span class="n">frameStatusEvent</span><span class="p">)</span> <span class="p">{};</span>
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">master_FrameStatusHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">master_FrameStatusHandler</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">master_FrameStatusHandler</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Perform TX from slave to master, i.e., the slave provides the</span>
 <span class="c1">// frame response, the master receives it.</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">UseAutosarInterface</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="c1">// AUTOSAR API</span>
-    <span class="n">LinFrame</span> <span class="n">frameRequest</span><span class="p">;</span>
-    <span class="n">frameRequest</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x10</span><span class="p">;</span>
-    <span class="n">frameRequest</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">UseAutosarInterface</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// AUTOSAR API</span>
+<span class="w">    </span><span class="n">LinFrame</span><span class="w"> </span><span class="n">frameRequest</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">frameRequest</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">frameRequest</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">frameRequest</span><span class="p">,</span> <span class="n">LinFrameResponseType</span><span class="o">::</span><span class="n">SlaveResponse</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span>
-<span class="p">{</span>
-    <span class="c1">// Alternative, non-AUTOSAR API</span>
-    <span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrameHeader</span><span class="p">(</span><span class="mh">0x11</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">frameRequest</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseType</span><span class="o">::</span><span class="n">SlaveResponse</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Alternative, non-AUTOSAR API</span>
+<span class="w">    </span><span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrameHeader</span><span class="p">(</span><span class="mh">0x11</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
 <span class="c1">// In both cases (AUTOSAR and non-AUTOSAR), the following callbacks will be triggered:</span>
 <span class="c1">//  - RX for the master, who received the frame response</span>
-<span class="n">master_FrameStatusHandler</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">LinFrameStatusEvent</span><span class="p">{</span> <span class="n">timeEndOfFrame</span><span class="p">,</span> <span class="n">slaveFrame</span><span class="p">,</span> <span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_RX_OK</span> <span class="p">});</span>
+<span class="n">master_FrameStatusHandler</span><span class="p">(</span><span class="n">master</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="p">{</span><span class="w"> </span><span class="n">timeEndOfFrame</span><span class="p">,</span><span class="w"> </span><span class="n">slaveFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_RX_OK</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
 <span class="c1">//  - TX confirmation for the slave, who provided the frame response</span>
-<span class="n">slave_FrameStatusHandler</span><span class="p">(</span><span class="n">slave</span><span class="p">,</span> <span class="n">LinFrameStatusEvent</span><span class="p">{</span> <span class="n">timeEndOfFrame</span><span class="p">,</span> <span class="n">slaveFrame</span><span class="p">,</span> <span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_TX_OK</span> <span class="p">});</span>
+<span class="n">slave_FrameStatusHandler</span><span class="p">(</span><span class="n">slave</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="p">{</span><span class="w"> </span><span class="n">timeEndOfFrame</span><span class="p">,</span><span class="w"> </span><span class="n">slaveFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_TX_OK</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -1206,83 +1207,83 @@ LIN master.</p>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
 <span class="cm">LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION</span>
 <span class="cm">OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION</span>
-<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span>
+<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span><span class="w"></span>
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Slave 1 Setup (Sender)</span>
-<span class="n">LinControllerConfig</span> <span class="n">slaveConfig</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">controllerMode</span> <span class="o">=</span> <span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">baudRate</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span>
+<span class="n">LinControllerConfig</span><span class="w"> </span><span class="n">slaveConfig</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">controllerMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Setup LinFrameResponseMode::TxUnconditional for LIN ID  0x11 on slave1</span>
-<span class="n">LinFrame</span> <span class="n">slaveFrame</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x11</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span> <span class="sc">&#39;L&#39;</span><span class="p">,</span> <span class="sc">&#39;A&#39;</span><span class="p">,</span> <span class="sc">&#39;V&#39;</span><span class="p">,</span> <span class="sc">&#39;E&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span> <span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span>
+<span class="n">LinFrame</span><span class="w"> </span><span class="n">slaveFrame</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;L&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span><span class="w"></span>
 
-<span class="n">slave1</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span>
+<span class="n">slave1</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Register FrameStatusHandler to receive data</span>
-<span class="k">auto</span> <span class="n">slave1_FrameStatusHandler</span> <span class="o">=</span> <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span> <span class="k">const</span> <span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span> <span class="n">frameStatusEvent</span><span class="p">)</span> <span class="p">{</span>
-<span class="p">};</span>
-<span class="n">slave1</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">slave1_FrameStatusHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">slave1_FrameStatusHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="n">slave1</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">slave1_FrameStatusHandler</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Slave 2 Setup (Receiver)</span>
-<span class="n">LinControllerConfig</span> <span class="n">slave2Config</span><span class="p">;</span>
-<span class="n">slave2Config</span><span class="p">.</span><span class="n">controllerMode</span> <span class="o">=</span> <span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span>
-<span class="n">slave2Config</span><span class="p">.</span><span class="n">baudRate</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span>
+<span class="n">LinControllerConfig</span><span class="w"> </span><span class="n">slave2Config</span><span class="p">;</span><span class="w"></span>
+<span class="n">slave2Config</span><span class="p">.</span><span class="n">controllerMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span><span class="w"></span>
+<span class="n">slave2Config</span><span class="p">.</span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Setup LinFrameResponseMode::Rx for LIN ID 0x11 on slave2</span>
-<span class="n">LinFrame</span> <span class="n">slaveFrame</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x11</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span> <span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">Rx</span><span class="p">});</span>
+<span class="n">LinFrame</span><span class="w"> </span><span class="n">slaveFrame</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">Rx</span><span class="p">});</span><span class="w"></span>
 
-<span class="n">slave2</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slave2Config</span><span class="p">);</span>
+<span class="n">slave2</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slave2Config</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Register FrameStatusHandler to receive data</span>
-<span class="k">auto</span> <span class="n">slave2_FrameStatusHandler</span> <span class="o">=</span> <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span> <span class="k">const</span> <span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span> <span class="n">frameStatusEvent</span><span class="p">)</span> <span class="p">{</span>
-<span class="p">};</span>
-<span class="n">slave2</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">slave2_FrameStatusHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">slave2_FrameStatusHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="n">slave2</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">slave2_FrameStatusHandler</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Master Setup</span>
-<span class="n">LinControllerConfig</span> <span class="n">masterConfig</span><span class="p">;</span>
-<span class="n">masterConfig</span><span class="p">.</span><span class="n">controllerMode</span> <span class="o">=</span> <span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Master</span><span class="p">;</span>
-<span class="n">masterConfig</span><span class="p">.</span><span class="n">baudRate</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span>
+<span class="n">LinControllerConfig</span><span class="w"> </span><span class="n">masterConfig</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterConfig</span><span class="p">.</span><span class="n">controllerMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Master</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterConfig</span><span class="p">.</span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">masterConfig</span><span class="p">);</span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">masterConfig</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Register FrameStatusHandler to receive confirmation of the successful transmission</span>
-<span class="k">auto</span> <span class="n">master_FrameStatusHandler</span> <span class="o">=</span> <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span> <span class="k">const</span> <span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span> <span class="n">frameStatusEvent</span><span class="p">)</span> <span class="p">{</span>
-<span class="p">};</span>
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">master_FrameStatusHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">master_FrameStatusHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">master_FrameStatusHandler</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Perform TX from slave to slave, i.e., slave1 provides the response, slave2 receives it.</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">UseAutosarInterface</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="c1">// AUTOSAR API</span>
-    <span class="n">LinFrame</span> <span class="n">frameRequest</span><span class="p">;</span>
-    <span class="n">frameRequest</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x11</span><span class="p">;</span>
-    <span class="n">frameRequest</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">UseAutosarInterface</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// AUTOSAR API</span>
+<span class="w">    </span><span class="n">LinFrame</span><span class="w"> </span><span class="n">frameRequest</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">frameRequest</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">frameRequest</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">frameRequest</span><span class="p">,</span> <span class="n">LinFrameResponseType</span><span class="o">::</span><span class="n">SlaveToSlave</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span>
-<span class="p">{</span>
-    <span class="c1">// Alternative, non-AUTOSAR API</span>
-    <span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrameHeader</span><span class="p">(</span><span class="mh">0x11</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">frameRequest</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseType</span><span class="o">::</span><span class="n">SlaveToSlave</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Alternative, non-AUTOSAR API</span>
+<span class="w">    </span><span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrameHeader</span><span class="p">(</span><span class="mh">0x11</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
 <span class="c1">// In both cases (AUTOSAR and non-AUTOSAR), the following callbacks will be triggered:</span>
 <span class="c1">//  - TX confirmation for slave1, who provided the frame response</span>
-<span class="n">slave1_FrameStatusHandler</span><span class="p">(</span><span class="n">slave1</span><span class="p">,</span> <span class="n">LinFrameStatusEvent</span><span class="p">{</span><span class="n">timeEndOfFrame</span><span class="p">,</span> <span class="n">slave1Frame</span><span class="p">,</span> <span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_TX_OK</span><span class="p">});</span>
+<span class="n">slave1_FrameStatusHandler</span><span class="p">(</span><span class="n">slave1</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="p">{</span><span class="n">timeEndOfFrame</span><span class="p">,</span><span class="w"> </span><span class="n">slave1Frame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_TX_OK</span><span class="p">});</span><span class="w"></span>
 <span class="c1">//  - RX for slave2, who received the frame response</span>
-<span class="n">slave2_FrameStatusHandler</span><span class="p">(</span><span class="n">slave2</span><span class="p">,</span> <span class="n">LinFrameStatusEvent</span><span class="p">{</span><span class="n">timeEndOfFrame</span><span class="p">,</span> <span class="n">slave1Frame</span><span class="p">,</span> <span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_RX_OK</span><span class="p">});</span>
+<span class="n">slave2_FrameStatusHandler</span><span class="p">(</span><span class="n">slave2</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="p">{</span><span class="n">timeEndOfFrame</span><span class="p">,</span><span class="w"> </span><span class="n">slave1Frame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_RX_OK</span><span class="p">});</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -1309,76 +1310,76 @@ response for the same LIN ID.</p>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
 <span class="cm">LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION</span>
 <span class="cm">OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION</span>
-<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span>
+<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span><span class="w"></span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Slave Setup (Sender)</span>
-<span class="n">LinControllerConfig</span> <span class="n">slaveConfig</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">controllerMode</span> <span class="o">=</span> <span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">baudRate</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span>
+<span class="n">LinControllerConfig</span><span class="w"> </span><span class="n">slaveConfig</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">controllerMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Setup LinFrameResponseMode::TxUnconditional for LIN ID 0x10 and 0x11 on the slave</span>
-<span class="n">LinFrame</span> <span class="n">slaveFrame</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x10</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span> <span class="sc">&#39;L&#39;</span><span class="p">,</span> <span class="sc">&#39;A&#39;</span><span class="p">,</span> <span class="sc">&#39;V&#39;</span><span class="p">,</span> <span class="sc">&#39;E&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span> <span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span>
+<span class="n">LinFrame</span><span class="w"> </span><span class="n">slaveFrame</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;L&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span><span class="w"></span>
 
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x11</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span> <span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span><span class="w"></span>
 
-<span class="n">slave</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span>
+<span class="n">slave</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Register FrameStatusHandler to receive data</span>
-<span class="k">auto</span> <span class="n">slave_FrameStatusHandler</span> <span class="o">=</span>
-    <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span> <span class="k">const</span> <span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span> <span class="n">frameStatusEvent</span><span class="p">)</span> <span class="p">{};</span>
-<span class="n">slave</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">slave_FrameStatusHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">slave_FrameStatusHandler</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="n">slave</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">slave_FrameStatusHandler</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Master Setup</span>
-<span class="n">LinControllerConfig</span> <span class="n">masterConfig</span><span class="p">;</span>
-<span class="n">masterConfig</span><span class="p">.</span><span class="n">controllerMode</span> <span class="o">=</span> <span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Master</span><span class="p">;</span>
-<span class="n">masterConfig</span><span class="p">.</span><span class="n">baudRate</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span>
+<span class="n">LinControllerConfig</span><span class="w"> </span><span class="n">masterConfig</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterConfig</span><span class="p">.</span><span class="n">controllerMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Master</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterConfig</span><span class="p">.</span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Also setup a TX Response for LIN ID 0x11 on the master (Errorneous Setup!)</span>
-<span class="n">LinFrame</span> <span class="n">masterFrame</span><span class="p">;</span>
-<span class="n">masterFrame</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x11</span><span class="p">;</span>
-<span class="n">masterFrame</span><span class="p">.</span><span class="n">dataLength</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;M&#39;</span><span class="p">,</span> <span class="sc">&#39;A&#39;</span><span class="p">,</span> <span class="sc">&#39;S&#39;</span><span class="p">,</span> <span class="sc">&#39;T&#39;</span><span class="p">,</span> <span class="sc">&#39;E&#39;</span><span class="p">,</span> <span class="sc">&#39;R&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
-<span class="n">masterFrame</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
-<span class="n">masterConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">masterFrame</span><span class="p">,</span> <span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span>
+<span class="n">LinFrame</span><span class="w"> </span><span class="n">masterFrame</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;T&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;R&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="n">masterFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">masterFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span><span class="w"></span>
 
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">masterConfig</span><span class="p">);</span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">masterConfig</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Register FrameStatusHandler to receive confirmation of the successful transmission</span>
-<span class="k">auto</span> <span class="n">master_FrameStatusHandler</span> <span class="o">=</span>
-    <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span> <span class="k">const</span> <span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span> <span class="n">frameStatusEvent</span><span class="p">)</span> <span class="p">{};</span>
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">master_FrameStatusHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">master_FrameStatusHandler</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">master_FrameStatusHandler</span><span class="p">);</span><span class="w"></span>
 
-<span class="k">if</span> <span class="p">(</span><span class="n">UseAutosarInterface</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="c1">// Transmit the frame, slave has configured a TX Response for 0x10.</span>
-    <span class="n">LinFrame</span> <span class="n">masterFrame</span><span class="p">;</span>
-    <span class="n">masterFrame</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x10</span><span class="p">;</span>
-    <span class="n">masterFrame</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
-    <span class="n">masterFrame</span><span class="p">.</span><span class="n">dataLength</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-    <span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;M&#39;</span><span class="p">,</span> <span class="sc">&#39;A&#39;</span><span class="p">,</span> <span class="sc">&#39;S&#39;</span><span class="p">,</span> <span class="sc">&#39;T&#39;</span><span class="p">,</span> <span class="sc">&#39;E&#39;</span><span class="p">,</span> <span class="sc">&#39;R&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">UseAutosarInterface</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Transmit the frame, slave has configured a TX Response for 0x10.</span>
+<span class="w">    </span><span class="n">LinFrame</span><span class="w"> </span><span class="n">masterFrame</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">masterFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">masterFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">masterFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;T&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;R&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
 
-    <span class="c1">// AUTOSAR API</span>
-    <span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">masterFrame</span><span class="p">,</span> <span class="n">LinFrameResponseType</span><span class="o">::</span><span class="n">MasterResponse</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span>
-<span class="p">{</span>
-    <span class="c1">// Alternative, non-AUTOSAR API</span>
-    <span class="c1">// Transmit the frame header, both master and slave have configured a TX Response for 0x11.</span>
-    <span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrameHeader</span><span class="p">(</span><span class="mh">0x11</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="c1">// AUTOSAR API</span>
+<span class="w">    </span><span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">masterFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseType</span><span class="o">::</span><span class="n">MasterResponse</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Alternative, non-AUTOSAR API</span>
+<span class="w">    </span><span class="c1">// Transmit the frame header, both master and slave have configured a TX Response for 0x11.</span>
+<span class="w">    </span><span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrameHeader</span><span class="p">(</span><span class="mh">0x11</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
 <span class="c1">// In both cases (AUTOSAR and non-AUTOSAR), the following callbacks will be triggered:</span>
 <span class="c1">//  - LIN_TX_ERROR for the master and slave as both provided a response for the same LIN ID.</span>
-<span class="n">master_FrameStatusHandler</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">LinFrameStatusEvent</span><span class="p">{</span> <span class="n">timeEndOfFrame</span><span class="p">,</span> <span class="n">masterFrame</span><span class="p">,</span> <span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_TX_ERROR</span> <span class="p">});</span>
-<span class="n">slave_FrameStatusHandler</span><span class="p">(</span><span class="n">slave</span><span class="p">,</span> <span class="n">LinFrameStatusEvent</span><span class="p">{</span> <span class="n">timeEndOfFrame</span><span class="p">,</span> <span class="n">masterFrame</span><span class="p">,</span> <span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_TX_ERROR</span> <span class="p">});</span>
+<span class="n">master_FrameStatusHandler</span><span class="p">(</span><span class="n">master</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="p">{</span><span class="w"> </span><span class="n">timeEndOfFrame</span><span class="p">,</span><span class="w"> </span><span class="n">masterFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_TX_ERROR</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
+<span class="n">slave_FrameStatusHandler</span><span class="p">(</span><span class="n">slave</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="p">{</span><span class="w"> </span><span class="n">timeEndOfFrame</span><span class="p">,</span><span class="w"> </span><span class="n">masterFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_TX_ERROR</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -1405,58 +1406,58 @@ this LIN ID.</p>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
 <span class="cm">LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION</span>
 <span class="cm">OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION</span>
-<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span>
+<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span><span class="w"></span>
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Slave Setup</span>
-<span class="n">LinControllerConfig</span> <span class="n">slaveConfig</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">controllerMode</span> <span class="o">=</span> <span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">baudRate</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span>
+<span class="n">LinControllerConfig</span><span class="w"> </span><span class="n">slaveConfig</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">controllerMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">slave</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span>
+<span class="n">slave</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Register FrameStatusHandler</span>
-<span class="k">auto</span> <span class="n">slave_FrameStatusHandler</span> <span class="o">=</span>
-    <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span>  <span class="k">const</span> <span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span> <span class="n">frameStatusEvent</span><span class="p">)</span> <span class="p">{};</span>
-<span class="n">slave</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">slave_FrameStatusHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">slave_FrameStatusHandler</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="n">slave</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">slave_FrameStatusHandler</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// NOTE: No TX response is configured for the slave</span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Master Setup</span>
-<span class="n">LinControllerConfig</span> <span class="n">masterConfig</span><span class="p">;</span>
-<span class="n">masterConfig</span><span class="p">.</span><span class="n">controllerMode</span> <span class="o">=</span> <span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Master</span><span class="p">;</span>
-<span class="n">masterConfig</span><span class="p">.</span><span class="n">baudRate</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span>
+<span class="n">LinControllerConfig</span><span class="w"> </span><span class="n">masterConfig</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterConfig</span><span class="p">.</span><span class="n">controllerMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Master</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterConfig</span><span class="p">.</span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">masterConfig</span><span class="p">);</span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">masterConfig</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Register FrameStatusHandler to receive data from the LIN slave</span>
-<span class="k">auto</span> <span class="n">master_FrameStatusHandler</span> <span class="o">=</span>
-    <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span>  <span class="k">const</span> <span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span> <span class="n">frameStatusEvent</span><span class="p">)</span> <span class="p">{};</span>
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">master_FrameStatusHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">master_FrameStatusHandler</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">master_FrameStatusHandler</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Perform TX from slave to master, i.e., the slave /is expected/</span>
 <span class="c1">// to provide the frame response.</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">UseAutosarInterface</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="c1">// Use AUTOSAR interface to initiate the transmission.</span>
-    <span class="n">LinFrame</span> <span class="n">frameRequest</span><span class="p">;</span>
-    <span class="n">frameRequest</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x11</span><span class="p">;</span>
-    <span class="n">frameRequest</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">UseAutosarInterface</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Use AUTOSAR interface to initiate the transmission.</span>
+<span class="w">    </span><span class="n">LinFrame</span><span class="w"> </span><span class="n">frameRequest</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">frameRequest</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">frameRequest</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">frameRequest</span><span class="p">,</span> <span class="n">LinFrameResponseType</span><span class="o">::</span><span class="n">SlaveResponse</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span>
-<span class="p">{</span>
-    <span class="c1">// Alternative, non-AUTOSAR API</span>
-    <span class="c1">// Transmit the frame header.</span>
-    <span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrameHeader</span><span class="p">(</span><span class="mh">0x11</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">frameRequest</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseType</span><span class="o">::</span><span class="n">SlaveResponse</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Alternative, non-AUTOSAR API</span>
+<span class="w">    </span><span class="c1">// Transmit the frame header.</span>
+<span class="w">    </span><span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrameHeader</span><span class="p">(</span><span class="mh">0x11</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// The following master callback will be triggered:</span>
 <span class="c1">//  - LIN_RX_NO_RESPONSE for the master, since no slave did provide a response</span>
-<span class="n">master_FrameStatusHandler</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">LinFrameStatusEvent</span><span class="p">{</span> <span class="n">timeEndOfFrame</span><span class="p">,</span> <span class="n">frameRequest</span><span class="p">,</span> <span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_RX_NO_RESPONSE</span> <span class="p">});</span>
+<span class="n">master_FrameStatusHandler</span><span class="p">(</span><span class="n">master</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="p">{</span><span class="w"> </span><span class="n">timeEndOfFrame</span><span class="p">,</span><span class="w"> </span><span class="n">frameRequest</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_RX_NO_RESPONSE</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
 <span class="c1">//  The slave_FrameStatusHandler will not be called!</span>
 </pre></div>
 </div>
@@ -1484,90 +1485,90 @@ responses for the same LIN ID.</p>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
 <span class="cm">LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION</span>
 <span class="cm">OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION</span>
-<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span>
+<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span><span class="w"></span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Slave 1 Setup (Sender)</span>
-<span class="n">LinControllerConfig</span> <span class="n">slaveConfig</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">controllerMode</span> <span class="o">=</span> <span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">baudRate</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span>
+<span class="n">LinControllerConfig</span><span class="w"> </span><span class="n">slaveConfig</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">controllerMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Setup LinFrameResponseMode::TxUnconditional for LIN ID 0x11 on slave1</span>
-<span class="n">LinFrame</span> <span class="n">slaveFrame</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x11</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span> <span class="sc">&#39;L&#39;</span><span class="p">,</span> <span class="sc">&#39;A&#39;</span><span class="p">,</span> <span class="sc">&#39;V&#39;</span><span class="p">,</span> <span class="sc">&#39;E&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span> <span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span>
+<span class="n">LinFrame</span><span class="w"> </span><span class="n">slaveFrame</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;L&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span><span class="w"></span>
 
-<span class="n">slave1</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span>
+<span class="n">slave1</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Register FrameStatusHandler to receive data</span>
-<span class="k">auto</span> <span class="n">slave1_FrameStatusHandler</span> <span class="o">=</span>
-    <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span>  <span class="k">const</span> <span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span> <span class="n">frameStatusEvent</span><span class="p">)</span> <span class="p">{};</span>
-<span class="n">slave1</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">slave1_FrameStatusHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">slave1_FrameStatusHandler</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="n">slave1</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">slave1_FrameStatusHandler</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Slave 2 Setup (Second Sender)</span>
-<span class="n">LinControllerConfig</span> <span class="n">slave2Config</span><span class="p">;</span>
-<span class="n">slave2Config</span><span class="p">.</span><span class="n">controllerMode</span> <span class="o">=</span> <span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span>
-<span class="n">slave2Config</span><span class="p">.</span><span class="n">baudRate</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span>
+<span class="n">LinControllerConfig</span><span class="w"> </span><span class="n">slave2Config</span><span class="p">;</span><span class="w"></span>
+<span class="n">slave2Config</span><span class="p">.</span><span class="n">controllerMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span><span class="w"></span>
+<span class="n">slave2Config</span><span class="p">.</span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Also setup LinFrameResponseMode::TxUnconditional for LIN ID 0x11 on slave2</span>
-<span class="n">LinFrame</span> <span class="n">slaveFrame2</span><span class="p">;</span>
-<span class="n">slaveFrame2</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x11</span><span class="p">;</span>
-<span class="n">slaveFrame2</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
-<span class="n">slaveFrame2</span><span class="p">.</span><span class="n">dataLength</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">slaveFrame2</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span> <span class="sc">&#39;L&#39;</span><span class="p">,</span> <span class="sc">&#39;A&#39;</span><span class="p">,</span> <span class="sc">&#39;V&#39;</span><span class="p">,</span> <span class="sc">&#39;E&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
-<span class="n">slaveConfig2</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame2</span><span class="p">,</span> <span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span>
+<span class="n">LinFrame</span><span class="w"> </span><span class="n">slaveFrame2</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame2</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame2</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame2</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame2</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;L&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="n">slaveConfig2</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame2</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span><span class="w"></span>
 
-<span class="n">slave2</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slave2Config</span><span class="p">);</span>
+<span class="n">slave2</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slave2Config</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Register FrameStatusHandler to receive data</span>
-<span class="k">auto</span> <span class="n">slave2_FrameStatusHandler</span> <span class="o">=</span>
-    <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span>  <span class="k">const</span> <span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span> <span class="n">frameStatusEvent</span><span class="p">)</span> <span class="p">{};</span>
-<span class="n">slave2</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">slave2_FrameStatusHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">slave2_FrameStatusHandler</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="n">slave2</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">slave2_FrameStatusHandler</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Master Setup</span>
-<span class="n">LinControllerConfig</span> <span class="n">masterConfig</span><span class="p">;</span>
-<span class="n">masterConfig</span><span class="p">.</span><span class="n">controllerMode</span> <span class="o">=</span> <span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Master</span><span class="p">;</span>
-<span class="n">masterConfig</span><span class="p">.</span><span class="n">baudRate</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span>
+<span class="n">LinControllerConfig</span><span class="w"> </span><span class="n">masterConfig</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterConfig</span><span class="p">.</span><span class="n">controllerMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Master</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterConfig</span><span class="p">.</span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">masterConfig</span><span class="p">);</span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">masterConfig</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Register FrameStatusHandler to receive confirmation of the successful transmission</span>
-<span class="k">auto</span> <span class="n">master_FrameStatusHandler</span> <span class="o">=</span>
-    <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span>  <span class="k">const</span> <span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span> <span class="n">frameStatusEvent</span><span class="p">)</span> <span class="p">{};</span>
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">master_FrameStatusHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">master_FrameStatusHandler</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">master_FrameStatusHandler</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Perform TX from slave to master, i.e., only one slave /is/</span>
 <span class="c1">// /expected/ to provide the frame response. However, both</span>
 <span class="c1">// slave1 and slave2 have done so.</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="n">UseAutosarInterface</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="c1">// Use AUTOSAR interface to initiate the transmission.</span>
-    <span class="n">LinFrame</span> <span class="n">frameRequest</span><span class="p">;</span>
-    <span class="n">frameRequest</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x11</span><span class="p">;</span>
-    <span class="n">frameRequest</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">UseAutosarInterface</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Use AUTOSAR interface to initiate the transmission.</span>
+<span class="w">    </span><span class="n">LinFrame</span><span class="w"> </span><span class="n">frameRequest</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">frameRequest</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">frameRequest</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
 
-    <span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">frameRequest</span><span class="p">,</span> <span class="n">LinFrameResponseType</span><span class="o">::</span><span class="n">SlaveResponse</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">else</span>
-<span class="p">{</span>
-    <span class="c1">// Alternative, non-AUTOSAR API</span>
-    <span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrameHeader</span><span class="p">(</span><span class="mh">0x11</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">frameRequest</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseType</span><span class="o">::</span><span class="n">SlaveResponse</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Alternative, non-AUTOSAR API</span>
+<span class="w">    </span><span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrameHeader</span><span class="p">(</span><span class="mh">0x11</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// The following callbacks will be triggered:</span>
 <span class="c1">//  - LIN_RX_ERROR for the master, due to the collision </span>
-<span class="n">master_FrameStatusHandler</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">LinFrameStatusEvent</span><span class="p">{</span> <span class="n">timeEndOfFrame</span><span class="p">,</span> <span class="n">frameRequest</span><span class="p">,</span> <span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_RX_ERROR</span> <span class="p">});</span>
+<span class="n">master_FrameStatusHandler</span><span class="p">(</span><span class="n">master</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="p">{</span><span class="w"> </span><span class="n">timeEndOfFrame</span><span class="p">,</span><span class="w"> </span><span class="n">frameRequest</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_RX_ERROR</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
 <span class="c1">//  - LIN_TX_ERROR for both slaves</span>
-<span class="n">slave1_FrameStatusHandler</span><span class="p">(</span><span class="n">slave1</span><span class="p">,</span> <span class="n">LinFrameStatusEvent</span><span class="p">{</span><span class="n">timeEndOfFrame</span><span class="p">,</span> <span class="n">frameRequest</span><span class="p">,</span> <span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_TX_ERROR</span><span class="p">});</span>
-<span class="n">slave2_FrameStatusHandler</span><span class="p">(</span><span class="n">slave2</span><span class="p">,</span> <span class="n">LinFrameStatusEvent</span><span class="p">{</span><span class="n">timeEndOfFrame</span><span class="p">,</span> <span class="n">frameRequest</span><span class="p">,</span> <span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_TX_ERROR</span><span class="p">});</span>
+<span class="n">slave1_FrameStatusHandler</span><span class="p">(</span><span class="n">slave1</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="p">{</span><span class="n">timeEndOfFrame</span><span class="p">,</span><span class="w"> </span><span class="n">frameRequest</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_TX_ERROR</span><span class="p">});</span><span class="w"></span>
+<span class="n">slave2_FrameStatusHandler</span><span class="p">(</span><span class="n">slave2</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="p">{</span><span class="n">timeEndOfFrame</span><span class="p">,</span><span class="w"> </span><span class="n">frameRequest</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameStatus</span><span class="o">::</span><span class="n">LIN_TX_ERROR</span><span class="p">});</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -1593,52 +1594,52 @@ responses for the same LIN ID.</p>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
 <span class="cm">LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION</span>
 <span class="cm">OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION</span>
-<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span>
+<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span><span class="w"></span>
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Slave Setup</span>
-<span class="n">LinControllerConfig</span> <span class="n">slaveConfig</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">controllerMode</span> <span class="o">=</span> <span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">baudRate</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span>
+<span class="n">LinControllerConfig</span><span class="w"> </span><span class="n">slaveConfig</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">controllerMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">slave</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span>
+<span class="n">slave</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Register FrameStatusHandler to receive data</span>
-<span class="k">auto</span> <span class="n">slave_FrameStatusHandler</span> <span class="o">=</span>
-    <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span> <span class="k">const</span> <span class="n">LinFrameStatusEvent</span> <span class="n">frameStatusEvent</span><span class="p">)</span> <span class="p">{};</span>
-<span class="n">slave</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">slave_FrameStatusHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">slave_FrameStatusHandler</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="n">slave</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">slave_FrameStatusHandler</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Set sleep mode for the slave upon reception of a GoToSleep Frame</span>
-<span class="k">auto</span> <span class="n">slave_GoToSleepHandler</span> <span class="o">=</span>
-    <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span> <span class="n">slave</span><span class="p">,</span> <span class="k">const</span> <span class="n">LinGoToSleepEvent</span><span class="o">&amp;</span> <span class="n">goToSleepEvent</span><span class="p">)</span> <span class="p">{</span> 
-    <span class="n">slave</span><span class="o">-&gt;</span><span class="n">GoToSleepInternal</span><span class="p">();</span> 
-<span class="p">};</span>
-<span class="n">slave</span><span class="o">-&gt;</span><span class="n">AddGoToSleepHandler</span><span class="p">(</span><span class="n">slave_GoToSleepHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">slave_GoToSleepHandler</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="w"> </span><span class="n">slave</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">LinGoToSleepEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">goToSleepEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="n">slave</span><span class="o">-&gt;</span><span class="n">GoToSleepInternal</span><span class="p">();</span><span class="w"> </span>
+<span class="p">};</span><span class="w"></span>
+<span class="n">slave</span><span class="o">-&gt;</span><span class="n">AddGoToSleepHandler</span><span class="p">(</span><span class="n">slave_GoToSleepHandler</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Master Setup</span>
-<span class="n">LinControllerConfig</span> <span class="n">masterConfig</span><span class="p">;</span>
-<span class="n">masterConfig</span><span class="p">.</span><span class="n">controllerMode</span> <span class="o">=</span> <span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Master</span><span class="p">;</span>
-<span class="n">masterConfig</span><span class="p">.</span><span class="n">baudRate</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span>
+<span class="n">LinControllerConfig</span><span class="w"> </span><span class="n">masterConfig</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterConfig</span><span class="p">.</span><span class="n">controllerMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Master</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterConfig</span><span class="p">.</span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">masterConfig</span><span class="p">);</span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">masterConfig</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Register FrameStatusHandler to receive confirmation of the successful transmission</span>
-<span class="k">auto</span> <span class="n">master_FrameStatusHandler</span> <span class="o">=</span>
-    <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span> <span class="k">const</span> <span class="n">LinFrameStatusEvent</span> <span class="n">frameStatusEvent</span><span class="p">)</span> <span class="p">{};</span>
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">master_FrameStatusHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">master_FrameStatusHandler</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">master_FrameStatusHandler</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Send a GoToSleep Frame to the LIN bus</span>
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">GoToSleep</span><span class="p">();</span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">GoToSleep</span><span class="p">();</span><span class="w"></span>
 
 <span class="c1">// The master will enter sleep state immediately, i.e., the following condition is true:</span>
-<span class="n">assert</span><span class="p">(</span><span class="n">master</span><span class="o">-&gt;</span><span class="n">Status</span><span class="p">()</span> <span class="o">==</span> <span class="n">LinControllerStatus</span><span class="o">::</span><span class="n">Sleep</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">master</span><span class="o">-&gt;</span><span class="n">Status</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LinControllerStatus</span><span class="o">::</span><span class="n">Sleep</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// The slave will receive the go-to-sleep frame and trigger the callback:</span>
-<span class="n">slave_GoToSleepHandler</span><span class="p">(</span><span class="n">goToSleepEvent</span><span class="p">);</span>
+<span class="n">slave_GoToSleepHandler</span><span class="p">(</span><span class="n">goToSleepEvent</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// the registered callback sets sleep state for the slave, after which also the slave is in sleep state:</span>
-<span class="n">assert</span><span class="p">(</span><span class="n">slave</span><span class="o">-&gt;</span><span class="n">Status</span><span class="p">()</span> <span class="o">==</span> <span class="n">LinControllerStatus</span><span class="o">::</span><span class="n">Sleep</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">slave</span><span class="o">-&gt;</span><span class="n">Status</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LinControllerStatus</span><span class="o">::</span><span class="n">Sleep</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <div class="admonition-note admonition">
@@ -1671,28 +1672,28 @@ I.e., the situation corresponds to the end of the previous example.</p>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
 <span class="cm">LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION</span>
 <span class="cm">OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION</span>
-<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span>
+<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span><span class="w"></span>
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Register a wake up handler. To receive wake up notifications.</span>
 <span class="c1">// NB: this should be done when creating the controller!</span>
 <span class="c1">// NB: receiving a wake up pulse does not automatically</span>
 <span class="c1">//     set the controller into operational state</span>
-<span class="k">auto</span> <span class="n">master_WakeupHandler</span> <span class="o">=</span> <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span> <span class="n">master</span><span class="p">,</span> <span class="n">LinWakeupEvent</span> <span class="n">wakeupEvent</span><span class="p">)</span> <span class="p">{</span> <span class="n">master</span><span class="o">-&gt;</span><span class="n">WakeupInternal</span><span class="p">();</span> <span class="p">};</span>
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddWakeupHandler</span><span class="p">(</span><span class="n">master_WakeupHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">master_WakeupHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="w"> </span><span class="n">master</span><span class="p">,</span><span class="w"> </span><span class="n">LinWakeupEvent</span><span class="w"> </span><span class="n">wakeupEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">master</span><span class="o">-&gt;</span><span class="n">WakeupInternal</span><span class="p">();</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">AddWakeupHandler</span><span class="p">(</span><span class="n">master_WakeupHandler</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Send a wake up pulse to the LIN bus</span>
-<span class="n">slave</span><span class="o">-&gt;</span><span class="n">Wakeup</span><span class="p">();</span>
+<span class="n">slave</span><span class="o">-&gt;</span><span class="n">Wakeup</span><span class="p">();</span><span class="w"></span>
 
 <span class="c1">// The slave will immediately enter operational state:</span>
-<span class="n">assert</span><span class="p">(</span><span class="n">slave</span><span class="o">-&gt;</span><span class="n">Status</span><span class="p">()</span> <span class="o">==</span> <span class="n">LinControllerStatus</span><span class="o">::</span><span class="n">Operational</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">slave</span><span class="o">-&gt;</span><span class="n">Status</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LinControllerStatus</span><span class="o">::</span><span class="n">Operational</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// The master will receive the wake up pulse and the registered callback is</span>
 <span class="c1">// triggered by the controller:</span>
-<span class="n">master_WakeupHandler</span><span class="p">(</span><span class="n">LinWakeupEvent</span><span class="p">{</span> <span class="n">timestamp</span><span class="p">,</span> <span class="n">master</span> <span class="p">}</span> <span class="p">);</span>
+<span class="n">master_WakeupHandler</span><span class="p">(</span><span class="n">LinWakeupEvent</span><span class="p">{</span><span class="w"> </span><span class="n">timestamp</span><span class="p">,</span><span class="w"> </span><span class="n">master</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// The registered callback puts the master back into operational state, i.e.:</span>
-<span class="n">assert</span><span class="p">(</span><span class="n">master</span><span class="o">-&gt;</span><span class="n">Status</span><span class="p">()</span> <span class="o">==</span> <span class="n">LinControllerStatus</span><span class="o">::</span><span class="n">Operational</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">master</span><span class="o">-&gt;</span><span class="n">Status</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LinControllerStatus</span><span class="o">::</span><span class="n">Operational</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -1722,46 +1723,46 @@ reside in the <cite>SilKit::Experimental::Services::Lin</cite> namespace and mig
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
 <span class="cm">LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION</span>
 <span class="cm">OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION</span>
-<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span>
+<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span><span class="w"></span>
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// </span>
 <span class="c1">// Master Setup</span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Lin</span><span class="p">;</span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">SilKit</span><span class="o">::</span><span class="n">Experimental</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Lin</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">SilKit</span><span class="o">::</span><span class="nn">Services</span><span class="o">::</span><span class="nn">Lin</span><span class="p">;</span><span class="w"></span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">SilKit</span><span class="o">::</span><span class="nn">Experimental</span><span class="o">::</span><span class="nn">Services</span><span class="o">::</span><span class="nn">Lin</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">LinControllerConfig</span> <span class="n">masterConfig</span><span class="p">;</span>
-<span class="n">masterConfig</span><span class="p">.</span><span class="n">controllerMode</span> <span class="o">=</span> <span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Master</span><span class="p">;</span>
-<span class="n">masterConfig</span><span class="p">.</span><span class="n">baudRate</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span>
-<span class="n">master</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">masterConfig</span><span class="p">);</span>
+<span class="n">LinControllerConfig</span><span class="w"> </span><span class="n">masterConfig</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterConfig</span><span class="p">.</span><span class="n">controllerMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Master</span><span class="p">;</span><span class="w"></span>
+<span class="n">masterConfig</span><span class="p">.</span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"></span>
+<span class="n">master</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">masterConfig</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Define the LinSlaveConfigurationHandler</span>
-<span class="k">auto</span> <span class="n">LinSlaveConfigurationHandler</span> <span class="o">=</span>
-    <span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span> <span class="n">master</span><span class="p">,</span> <span class="n">LinSlaveConfigurationEvent</span> <span class="n">frameResponseUpdateEvent</span><span class="p">)</span> 
-<span class="p">{</span>
-    <span class="c1">// aggregatedSlaveConfig will contain</span>
-    <span class="c1">// LinSlaveConfiguration::respondingLinIds{ 0x11 }</span>
-    <span class="k">auto</span> <span class="n">aggregatedSlaveConfig</span> <span class="o">=</span> <span class="n">GetSlaveConfiguration</span><span class="p">(</span><span class="n">master</span><span class="p">);</span>
-<span class="p">};</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">LinSlaveConfigurationHandler</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="w"> </span><span class="n">master</span><span class="p">,</span><span class="w"> </span><span class="n">LinSlaveConfigurationEvent</span><span class="w"> </span><span class="n">frameResponseUpdateEvent</span><span class="p">)</span><span class="w"> </span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// aggregatedSlaveConfig will contain</span>
+<span class="w">    </span><span class="c1">// LinSlaveConfiguration::respondingLinIds{ 0x11 }</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">aggregatedSlaveConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetSlaveConfiguration</span><span class="p">(</span><span class="n">master</span><span class="p">);</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
-<span class="n">AddLinSlaveConfigurationHandler</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">LinSlaveConfigurationHandler</span><span class="p">);</span>
+<span class="n">AddLinSlaveConfigurationHandler</span><span class="p">(</span><span class="n">master</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">LinSlaveConfigurationHandler</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Slave Setup</span>
-<span class="n">LinControllerConfig</span> <span class="n">slaveConfig</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">controllerMode</span> <span class="o">=</span> <span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span>
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">baudRate</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">;</span>
+<span class="n">LinControllerConfig</span><span class="w"> </span><span class="n">slaveConfig</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">controllerMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinControllerMode</span><span class="o">::</span><span class="n">Slave</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20000</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Setup a TX Response for LIN ID 0x11</span>
-<span class="n">LinFrame</span> <span class="n">slaveFrame</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="mh">0x11</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span> <span class="o">=</span> <span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span> <span class="sc">&#39;L&#39;</span><span class="p">,</span> <span class="sc">&#39;A&#39;</span><span class="p">,</span> <span class="sc">&#39;V&#39;</span><span class="p">,</span> <span class="sc">&#39;E&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
+<span class="n">LinFrame</span><span class="w"> </span><span class="n">slaveFrame</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;L&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
 
-<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span> <span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span>
+<span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span><span class="w"></span>
 
 <span class="c1">// LinSlaveConfigurationHandler handler is invoked</span>
-<span class="n">slave</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span>
+<span class="n">slave</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The experimental API is defined as follows:</p>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Middleware Configuration &mdash; Vector SIL Kit 4.0.7 documentation</title>
+  <title>Middleware Configuration &mdash; Vector SIL Kit 4.0.8 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.7
+                4.0.8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -62,6 +62,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
@@ -112,13 +113,13 @@ This middleware is open source and included in the sources of the Vector SIL Kit
 process at a preconfigured hostname and port. By default, the registry is expected to be
 running on localhost listening on Port 8500. These values can be changed via the
 <cite>RegistryUri</cite>, for example:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">Middleware</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">RegistryUri</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">silkit://localhost:8500</span>
-  <span class="l l-Scalar l-Scalar-Plain">ConnectAttempts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-  <span class="l l-Scalar l-Scalar-Plain">TcpNoDelay</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-  <span class="l l-Scalar l-Scalar-Plain">TcpQuickAck</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-  <span class="l l-Scalar l-Scalar-Plain">TcpSendBufferSize</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1024</span>
-  <span class="l l-Scalar l-Scalar-Plain">TcpReceiveBufferSize</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1024</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Middleware</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">RegistryUri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">silkit://localhost:8500</span><span class="w"></span>
+<span class="w">  </span><span class="nt">ConnectAttempts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
+<span class="w">  </span><span class="nt">TcpNoDelay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">  </span><span class="nt">TcpQuickAck</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">  </span><span class="nt">TcpSendBufferSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1024</span><span class="w"></span>
+<span class="w">  </span><span class="nt">TcpReceiveBufferSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1024</span><span class="w"></span>
 </pre></div>
 </div>
 <table class="colwidths-given docutils align-default" id="id1">

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Publish/Subscribe API &mdash; Vector SIL Kit 4.0.7 documentation</title>
+  <title>Data Publish/Subscribe API &mdash; Vector SIL Kit 4.0.8 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.7
+                4.0.8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -66,6 +66,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
@@ -191,9 +192,9 @@ are interchangeable here.</p>
 </table>
 <p>The labels are stored in the <a class="reference internal" href="#_CPPv4N6SilKit8Services6PubSub10PubSubSpecE" title="SilKit::Services::PubSub::PubSubSpec"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">PubSubSpec</span></code></a>. A <a class="reference internal" href="common.html#_CPPv4N6SilKit8Services13MatchingLabelE" title="SilKit::Services::MatchingLabel"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">MatchingLabel</span></code></a> can be added via <a class="reference internal" href="#_CPPv4N6SilKit8Services6PubSub10PubSubSpec8AddLabelERKN6SilKit8Services13MatchingLabelE" title="SilKit::Services::PubSub::PubSubSpec::AddLabel"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddLabel()</span></code></a>,
 see the following code snippet:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">PubSub</span><span class="o">::</span><span class="n">PubSubSpec</span> <span class="n">subDataSpec</span><span class="p">{</span><span class="s">&quot;Topic1&quot;</span><span class="p">,</span> <span class="s">&quot;application/json&quot;</span><span class="p">};</span>
-<span class="n">subDataSpec</span><span class="p">.</span><span class="n">AddLabel</span><span class="p">(</span><span class="s">&quot;KeyA&quot;</span><span class="p">,</span> <span class="s">&quot;ValA&quot;</span><span class="p">,</span> <span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">MatchingLabel</span><span class="o">::</span><span class="n">Kind</span><span class="o">::</span><span class="n">Optional</span><span class="p">);</span>
-<span class="k">auto</span><span class="o">*</span> <span class="n">subscriber</span> <span class="o">=</span> <span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateDataSubscriber</span><span class="p">(</span><span class="s">&quot;SubCtrl1&quot;</span><span class="p">,</span> <span class="n">subDataSpec</span><span class="p">,</span> <span class="n">defaultDataHandler</span><span class="p">);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">PubSub</span><span class="o">::</span><span class="n">PubSubSpec</span><span class="w"> </span><span class="n">subDataSpec</span><span class="p">{</span><span class="s">&quot;Topic1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/json&quot;</span><span class="p">};</span><span class="w"></span>
+<span class="n">subDataSpec</span><span class="p">.</span><span class="n">AddLabel</span><span class="p">(</span><span class="s">&quot;KeyA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ValA&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">MatchingLabel</span><span class="o">::</span><span class="n">Kind</span><span class="o">::</span><span class="n">Optional</span><span class="p">);</span><span class="w"></span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">subscriber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateDataSubscriber</span><span class="p">(</span><span class="s">&quot;SubCtrl1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">subDataSpec</span><span class="p">,</span><span class="w"> </span><span class="n">defaultDataHandler</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -209,13 +210,13 @@ messages to be delivered.</p>
 <p>The controller name passed in <a class="reference internal" href="participant.html#_CPPv4N6SilKit12IParticipant19CreateDataPublisherERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecE6size_t" title="SilKit::IParticipant::CreateDataPublisher"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateDataPublisher()</span></code></a> and <a class="reference internal" href="participant.html#_CPPv4N6SilKit12IParticipant20CreateDataSubscriberERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecEN8Services6PubSub18DataMessageHandlerE" title="SilKit::IParticipant::CreateDataSubscriber"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateDataSubscriber()</span></code></a> is used to identify the controller in
 a YAML/JSON configuration. Currently, only the topic can be configured. If a topic is set in the configuration, it will
 be preferred over a programmatically set topic.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">ParticipantName</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Participant1</span>
-<span class="l l-Scalar l-Scalar-Plain">DataPublishers</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">DataPublisherController1</span>
-  <span class="l l-Scalar l-Scalar-Plain">Topic</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">TopicA</span>
-<span class="l l-Scalar l-Scalar-Plain">DataSubscribers</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">Name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">DataSubscriberController1</span>
-  <span class="l l-Scalar l-Scalar-Plain">Topic</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">TopicB</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">ParticipantName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Participant1</span><span class="w"></span>
+<span class="nt">DataPublishers</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DataPublisherController1</span><span class="w"></span>
+<span class="w">  </span><span class="nt">Topic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TopicA</span><span class="w"></span>
+<span class="nt">DataSubscribers</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DataSubscriberController1</span><span class="w"></span>
+<span class="w">  </span><span class="nt">Topic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TopicB</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
@@ -224,22 +225,22 @@ be preferred over a programmatically set topic.</p>
 <p>The interfaces for the publish/subscribe mechanism can be instantiated from an IParticipant:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Participant1 (Publisher)</span>
 <span class="c1">// ------------------------</span>
-<span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">PubSub</span><span class="o">::</span><span class="n">PubSubSpec</span> <span class="n">pubDataSpec</span><span class="p">{</span><span class="s">&quot;Topic1&quot;</span><span class="p">,</span> <span class="s">&quot;application/json&quot;</span><span class="p">};</span>
-<span class="n">pubDataSpec</span><span class="p">.</span><span class="n">AddLabel</span><span class="p">(</span><span class="s">&quot;KeyA&quot;</span><span class="p">,</span> <span class="s">&quot;ValA&quot;</span><span class="p">);</span>
-<span class="k">auto</span><span class="o">*</span> <span class="n">publisher</span> <span class="o">=</span> <span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateDataPublisher</span><span class="p">(</span><span class="s">&quot;PubCtrl1&quot;</span><span class="p">,</span> <span class="n">pubDataSpec</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-<span class="n">publisher</span><span class="o">-&gt;</span><span class="n">Publish</span><span class="p">(</span><span class="n">user_data</span><span class="p">);</span>
+<span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">PubSub</span><span class="o">::</span><span class="n">PubSubSpec</span><span class="w"> </span><span class="n">pubDataSpec</span><span class="p">{</span><span class="s">&quot;Topic1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/json&quot;</span><span class="p">};</span><span class="w"></span>
+<span class="n">pubDataSpec</span><span class="p">.</span><span class="n">AddLabel</span><span class="p">(</span><span class="s">&quot;KeyA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ValA&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">publisher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateDataPublisher</span><span class="p">(</span><span class="s">&quot;PubCtrl1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pubDataSpec</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="n">publisher</span><span class="o">-&gt;</span><span class="n">Publish</span><span class="p">(</span><span class="n">user_data</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Participant2 (Subscriber)</span>
 <span class="c1">// -------------------------</span>
 
-<span class="k">auto</span> <span class="n">defaultDataHandler</span> <span class="o">=</span> <span class="p">[](</span><span class="n">IDataSubscriber</span><span class="o">*</span> <span class="n">subscriber</span><span class="p">,</span> <span class="k">const</span> <span class="n">DataMessageEvent</span><span class="o">&amp;</span> <span class="n">dataMessageEvent</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="c1">// publication timestamp in dataMessageEvent.timestamp</span>
-    <span class="c1">// raw data in dataMessageEvent.data</span>
-<span class="p">});</span>
-<span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">PubSub</span><span class="o">::</span><span class="n">PubSubSpec</span> <span class="n">subDataSpec</span><span class="p">{</span><span class="s">&quot;Topic1&quot;</span><span class="p">,</span> <span class="s">&quot;application/json&quot;</span><span class="p">};</span>
-<span class="n">subDataSpec</span><span class="p">.</span><span class="n">AddLabel</span><span class="p">(</span><span class="s">&quot;KeyA&quot;</span><span class="p">,</span> <span class="s">&quot;ValA&quot;</span><span class="p">,</span> <span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">MatchingLabel</span><span class="o">::</span><span class="n">Kind</span><span class="o">::</span><span class="n">Optional</span><span class="p">);</span>
-<span class="k">auto</span><span class="o">*</span> <span class="n">subscriber</span> <span class="o">=</span> <span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateDataSubscriber</span><span class="p">(</span><span class="s">&quot;SubCtrl1&quot;</span><span class="p">,</span> <span class="n">subDataSpec</span><span class="p">,</span> <span class="n">defaultDataHandler</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">defaultDataHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="n">IDataSubscriber</span><span class="o">*</span><span class="w"> </span><span class="n">subscriber</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">DataMessageEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dataMessageEvent</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// publication timestamp in dataMessageEvent.timestamp</span>
+<span class="w">    </span><span class="c1">// raw data in dataMessageEvent.data</span>
+<span class="p">});</span><span class="w"></span>
+<span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">PubSub</span><span class="o">::</span><span class="n">PubSubSpec</span><span class="w"> </span><span class="n">subDataSpec</span><span class="p">{</span><span class="s">&quot;Topic1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/json&quot;</span><span class="p">};</span><span class="w"></span>
+<span class="n">subDataSpec</span><span class="p">.</span><span class="n">AddLabel</span><span class="p">(</span><span class="s">&quot;KeyA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ValA&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">MatchingLabel</span><span class="o">::</span><span class="n">Kind</span><span class="o">::</span><span class="n">Optional</span><span class="p">);</span><span class="w"></span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">subscriber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateDataSubscriber</span><span class="p">(</span><span class="s">&quot;SubCtrl1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">subDataSpec</span><span class="p">,</span><span class="w"> </span><span class="n">defaultDataHandler</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 </section>

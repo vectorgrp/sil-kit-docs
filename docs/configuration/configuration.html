@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Configuration &mdash; Vector SIL Kit 4.0.7 documentation</title>
+  <title>Configuration &mdash; Vector SIL Kit 4.0.8 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.7
+                4.0.8
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -61,6 +61,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
@@ -142,35 +143,35 @@ participant name that is provided through the API of the Vector SIL Kit when par
 <p>A <code class="docutils literal notranslate"><span class="pre">SilKitConfig.yaml</span></code> begins with some general information about the configuration file itself, followed by several
 subsections for the different services of the Vector SIL Kit.</p>
 <p>The outline of a <code class="docutils literal notranslate"><span class="pre">SilKitConfig.yaml</span></code> file is as follows:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
-<span class="s">&quot;$schema&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;./ParticipantConfiguration.schema.json&quot;</span>
-<span class="l l-Scalar l-Scalar-Plain">schemaVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="l l-Scalar l-Scalar-Plain">Description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Sample configuration with all major subsections</span>
-<span class="l l-Scalar l-Scalar-Plain">ParticipantName</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Participant1</span>
-<span class="l l-Scalar l-Scalar-Plain">CanControllers</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="l l-Scalar l-Scalar-Plain">LinControllers</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="l l-Scalar l-Scalar-Plain">FlexrayControllers</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="l l-Scalar l-Scalar-Plain">EthernetControllers</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="l l-Scalar l-Scalar-Plain">DataPublishers</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="l l-Scalar l-Scalar-Plain">DataSubscribers</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="l l-Scalar l-Scalar-Plain">RpcClients</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="l l-Scalar l-Scalar-Plain">RpcServers</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="l l-Scalar l-Scalar-Plain">Logging</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="l l-Scalar l-Scalar-Plain">HealthCheck</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="l l-Scalar l-Scalar-Plain">Extensions</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="l l-Scalar l-Scalar-Plain">Middleware</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span><span class="w"></span>
+<span class="s">&quot;$schema&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;./ParticipantConfiguration.schema.json&quot;</span><span class="w"></span>
+<span class="nt">schemaVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
+<span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sample configuration with all major subsections</span><span class="w"></span>
+<span class="nt">ParticipantName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Participant1</span><span class="w"></span>
+<span class="nt">CanControllers</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="nt">LinControllers</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="nt">FlexrayControllers</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="nt">EthernetControllers</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="nt">DataPublishers</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="nt">DataSubscribers</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="nt">RpcClients</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="nt">RpcServers</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="nt">Logging</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="nt">HealthCheck</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="nt">Extensions</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="nt">Middleware</span><span class="p">:</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
 </pre></div>
 </div>
 <section id="configuration-options">
