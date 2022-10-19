@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Demos &mdash; Vector SIL Kit 4.0.8 documentation</title>
+  <title>Demos &mdash; Vector SIL Kit 4.0.9 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.8
+                4.0.9
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -55,6 +55,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#flexray-demo">FlexRay Demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#publish-subscribe-demo">Publish &amp; Subscribe Demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rpc-demo">RPC Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#benchmark-demo">Benchmark Demo</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
@@ -285,7 +286,7 @@ build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.json E
 </tr>
 <tr class="row-odd"><th class="stub"><p>Requirements</p></th>
 <td><ul class="simple">
-<li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></p></li>
+<li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
 <li><p><a class="reference internal" href="utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
 <li><p>Network simulator (optional)</p></li>
 </ul>
@@ -300,6 +301,9 @@ use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_De
 <code class="docutils literal notranslate"><span class="pre">EthernetReader</span></code>.</p>
 </dd>
 <dt>[RegistryUri]</dt><dd><p>The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</p>
+</dd>
+<dt>[--async]</dt><dd><p>If async flag is set, the participant will join the simulation unsynchronized and it will not need
+the build/Release/sil-kit-system-controller to start.</p>
 </dd>
 </dl>
 </td>
@@ -413,7 +417,7 @@ It takes somewhat between 50 and 100 ms until the first FlexRay messages are tra
 </tr>
 <tr class="row-odd"><th class="stub"><p>Requirements</p></th>
 <td><ul class="simple">
-<li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></p></li>
+<li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
 <li><p><a class="reference internal" href="utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
 </ul>
 </td>
@@ -427,6 +431,9 @@ use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_De
 <code class="docutils literal notranslate"><span class="pre">Subscriber</span></code>.</p>
 </dd>
 <dt>[RegistryUri]</dt><dd><p>The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</p>
+</dd>
+<dt>[--async]</dt><dd><p>If async flag is set, the participant will join the simulation unsynchronized and it will not need
+the build/Release/sil-kit-system-controller to start.</p>
 </dd>
 </dl>
 </td>
@@ -472,7 +479,7 @@ build/Release/sil-kit-system-controller Publisher Subscriber</pre>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Requirements</p></th>
 <td><ul class="simple">
-<li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></p></li>
+<li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
 <li><p><a class="reference internal" href="utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
 </ul>
 </td>
@@ -486,6 +493,9 @@ use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_De
 <code class="docutils literal notranslate"><span class="pre">Client</span></code>.</p>
 </dd>
 <dt>[RegistryUri]</dt><dd><p>The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</p>
+</dd>
+<dt>[--async]</dt><dd><p>If async flag is set, the participant will join the simulation unsynchronized and it will not need
+the build/Release/sil-kit-system-controller to start.</p>
 </dd>
 </dl>
 </td>
@@ -511,6 +521,90 @@ build/Release/sil-kit-system-controller Server Client</pre>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Notes</p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">Client</span></code> participant has two RpcClients that call the <code class="docutils literal notranslate"><span class="pre">Add100</span></code> and <code class="docutils literal notranslate"><span class="pre">Sort</span></code> functions on the two RpcServers of the <code class="docutils literal notranslate"><span class="pre">Server</span></code> participant.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="benchmark-demo">
+<h2>Benchmark Demo<a class="headerlink" href="#benchmark-demo" title="Permalink to this heading"></a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 93%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Abstract</p></th>
+<td><p>Benchmark Demo. Used for evaluating SIL Kit performance of PubSub communication.</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Source location</p></th>
+<td><p>Demos/Benchmark</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Requirements</p></th>
+<td><p>None (The demo starts its own instance of the registry and system controller).</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Positional parameters</p></th>
+<td><dl class="simple">
+<dt>[numberOfSimulationRuns]</dt><dd><p>Sets the number of simulation runs to perform.</p>
+</dd>
+<dt>[simulationDuration]</dt><dd><p>Sets the virtual simulation duration.</p>
+</dd>
+<dt>[numberOfParticipants]</dt><dd><p>Sets the number of simulation participants.</p>
+</dd>
+<dt>[messageCount]</dt><dd><p>Sets the number of messages to be send in each simulation step.</p>
+</dd>
+<dt>[messageSizeInBytes]</dt><dd><p>Sets the message size.</p>
+</dd>
+<dt>[registryURi]</dt><dd><p>The URI of the registry to start.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Optional parameters</p></th>
+<td><dl class="option-list">
+<dt><kbd><span class="option">--help</span></kbd></dt>
+<dd><p>Show the help message.</p>
+</dd>
+<dt><kbd><span class="option">--registry-uri</span></kbd></dt>
+<dd><p>The URI of the registry to start.</p>
+</dd>
+<dt><kbd><span class="option">--message-size</span></kbd></dt>
+<dd><p>Sets the message size.</p>
+</dd>
+<dt><kbd><span class="option">--message-count</span></kbd></dt>
+<dd><p>Sets the number of messages to be send in each simulation step.</p>
+</dd>
+<dt><kbd><span class="option">--number-participants</span></kbd></dt>
+<dd><p>Sets the number of simulation participants.</p>
+</dd>
+<dt><kbd><span class="option">--number-simulation-runs</span></kbd></dt>
+<dd><p>Sets the number of simulation runs to perform.</p>
+</dd>
+<dt><kbd><span class="option">--simulation-duration</span></kbd></dt>
+<dd><p>Sets the simulation duration (virtual time).</p>
+</dd>
+<dt><kbd><span class="option">--configuration</span></kbd></dt>
+<dd><p>Path and filename of the participant configuration YAML or JSON file.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Parameter Example</p></th>
+<td><pre class="literal-block"># Launch the BenchmarkDemo with positional arguments and a specified configuration file:
+build/Release/SilKitDemoBenchmark.exe 4 1 2 1 10 --configuration ./SilKitConfig_DemoBenchmark_DomainSockets_Off.json
+
+# Launch the BenchmarkDemo with default arguments but 4 participants:
+build/Release/SilKitDemoBenchmark.exe --number-participants 4</pre>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Notes</p></th>
+<td><p>This benchmark demo produces timings of a configurable simulation setup. &lt;N&gt; participants exchange &lt;M&gt;
+of &lt;B&gt; bytes per simulation step with a fixed period of 1ms and run for &lt;S&gt; seconds (virtual time).
+This simulation run is repeated &lt;K&gt; times and averages over all runs are calculated. The demo uses
+PubSub controllers with the same topic for the message exchange, so each participant broadcasts the
+messages to all other participants. The configuration file
+<code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoBenchmark_DomainSockets_Off.json</span></code> can be used to disable domain socket usage
+for more realistic timings of TCP/IP traffic. With <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoBenchmark_TCPNagle_Off.json</span></code>,
+Nagle’s algorithm and domain sockets are switched off.</p></td>
 </tr>
 </tbody>
 </table>
