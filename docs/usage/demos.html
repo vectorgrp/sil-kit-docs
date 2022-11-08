@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Demos &mdash; Vector SIL Kit 4.0.9 documentation</title>
+  <title>Demos &mdash; Vector SIL Kit 4.0.10 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.9
+                4.0.10
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -147,7 +147,7 @@ in the <code class="docutils literal notranslate"><span class="pre">SilKit-Demos
 <tr class="row-even"><th class="stub"><p>Parameters</p></th>
 <td><dl class="simple">
 <dt>&lt;ParticipantConfiguration.json|yaml&gt;</dt><dd><p>File name of the ParticipantConfiguration to be used;
-use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoCan.json</span></code> for an example configuration.</p>
+use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoCan.yaml</span></code> for an example configuration.</p>
 </dd>
 <dt>&lt;ParticipantName&gt;</dt><dd><p>The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">CanWriter</span></code> or
 <code class="docutils literal notranslate"><span class="pre">CanReader</span></code>.</p>
@@ -162,7 +162,7 @@ the build/Release/sil-kit-system-controller to start.</p>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Parameter Example</p></th>
 <td><pre class="literal-block"># Creates a CAN Writer Process with the default registry URI
-build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.json CanWriter</pre>
+build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.yaml CanWriter</pre>
 </td>
 </tr>
 <tr class="row-even"><th class="stub"><p>System Example</p></th>
@@ -171,19 +171,19 @@ build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.json CanWriter</pre>
 build/Release/sil-kit-monitor
 
 # CAN Reader:
-build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.json CanReader
+build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.yaml CanReader
 
 # CAN Writer:
-build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.json CanWriter
+build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.yaml CanWriter
 
 # System Controller:
 build/Release/sil-kit-system-controller CanReader CanWriter</pre>
 <p>For unsynchronized execution:</p>
 <pre class="literal-block"># CAN Reader:
-build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.json CanReader --async
+build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.yaml CanReader --async
 
 # CAN Writer:
-build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.json CanWriter --async</pre>
+build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.yaml CanWriter --async</pre>
 </td>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Notes</p></th>
@@ -221,7 +221,7 @@ build/Release/SilKitDemoCan Demos/Can/SilKitConfig_DemoCan.json CanWriter --asyn
 <tr class="row-even"><th class="stub"><p>Parameters</p></th>
 <td><dl class="simple">
 <dt>&lt;ParticipantConfiguration.json|yaml&gt;</dt><dd><p>File name of the ParticipantConfiguraiton to be used;
-use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoEthernet.json</span></code> for an example configuration.</p>
+use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoEthernet.yaml</span></code> for an example configuration.</p>
 </dd>
 <dt>&lt;ParticipantName&gt;</dt><dd><p>The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">EthernetWriter</span></code> or
 <code class="docutils literal notranslate"><span class="pre">EthernetReader</span></code>.</p>
@@ -236,7 +236,7 @@ the build/Release/sil-kit-system-controller to start.</p>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Parameter Example</p></th>
 <td><pre class="literal-block"># Creates an Ethernet Writer Process with the default registry URI:
-build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.json EthernetWriter</pre>
+build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.yaml EthernetWriter</pre>
 </td>
 </tr>
 <tr class="row-even"><th class="stub"><p>System Example</p></th>
@@ -245,19 +245,19 @@ build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.json E
 build/Release/sil-kit-monitor
 
 # Ethernet Reader:
-build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.json EthernetReader
+build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.yaml EthernetReader
 
 # Ethernet Writer:
-build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.json EthernetWriter
+build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.yaml EthernetWriter
 
 # System Controller:
 build/Release/sil-kit-system-controller EthernetReader Ethernet Writer</pre>
 <p>For unsynchronized execution:</p>
 <pre class="literal-block"># Ethernet Reader:
-build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.json EthernetReader --async
+build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.yaml EthernetReader --async
 
 # Ethernet Writer:
-build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.json EthernetWriter --async</pre>
+build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.yaml EthernetWriter --async</pre>
 </td>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Notes</p></th>
@@ -295,7 +295,7 @@ build/Release/SilKitDemoEthernet Demos/Ethernet/SilKitConfig_DemoEthernet.json E
 <tr class="row-even"><th class="stub"><p>Parameters</p></th>
 <td><dl class="simple">
 <dt>&lt;ParticipantConfiguration.json|yaml&gt;</dt><dd><p>File name of the ParticipantConfiguraiton to be used;
-use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoLin.json</span></code> for an example configuration.</p>
+use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoLin.yaml</span></code> for an example configuration.</p>
 </dd>
 <dt>&lt;ParticipantName&gt;</dt><dd><p>The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">EthernetWriter</span></code> or
 <code class="docutils literal notranslate"><span class="pre">EthernetReader</span></code>.</p>
@@ -310,7 +310,7 @@ the build/Release/sil-kit-system-controller to start.</p>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Parameter Example</p></th>
 <td><pre class="literal-block"># Creates a LIN Master Process with the default registry URI:
-build/Release/SilKitDemoLin Demos/Lin/SilKitConfig_DemoLin.json LinMaster</pre>
+build/Release/SilKitDemoLin Demos/Lin/SilKitConfig_DemoLin.yaml LinMaster</pre>
 </td>
 </tr>
 <tr class="row-even"><th class="stub"><p>System Example</p></th>
@@ -318,10 +318,10 @@ build/Release/SilKitDemoLin Demos/Lin/SilKitConfig_DemoLin.json LinMaster</pre>
 build/Release/sil-kit-monitor
 
 # LIN Master:
-build/Release/SilKitDemoLin Demos/Lin/SilKitConfig_DemoLin.json LinMaster
+build/Release/SilKitDemoLin Demos/Lin/SilKitConfig_DemoLin.yaml LinMaster
 
 # LIN Slave:
-build/Release/SilKitDemoLin Demos/Lin/SilKitConfig_DemoLin.json LinSlave
+build/Release/SilKitDemoLin Demos/Lin/SilKitConfig_DemoLin.yaml LinSlave
 
 # System Controller:
 build/Release/sil-kit-system-controller LinSlave LinMaster</pre>
@@ -362,7 +362,7 @@ build/Release/sil-kit-system-controller LinSlave LinMaster</pre>
 <tr class="row-even"><th class="stub"><p>Parameters</p></th>
 <td><dl class="simple">
 <dt>&lt;ParticipantConfiguration.json|yaml&gt;</dt><dd><p>File name of the ParticipantConfiguraiton to be used;
-use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoFlexRay.json</span></code> for an example configuration.</p>
+use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoFlexRay.yaml</span></code> for an example configuration.</p>
 </dd>
 <dt>&lt;ParticipantName&gt;</dt><dd><p>The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">Node0</span></code> or
 <code class="docutils literal notranslate"><span class="pre">Node1</span></code>.</p>
@@ -374,21 +374,21 @@ use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_De
 </tr>
 <tr class="row-odd"><th class="stub"><p>Parameter Example</p></th>
 <td><pre class="literal-block"># Creates a FlexRay Process for Node 0 with the default registry URI:
-build/Release/SilKitDemoFlexray Demos/FlexRay/SilKitConfig_DemoFlexray.json Node0</pre>
+build/Release/SilKitDemoFlexray Demos/FlexRay/SilKitConfig_DemoFlexray.yaml Node0</pre>
 </td>
 </tr>
 <tr class="row-even"><th class="stub"><p>System Example</p></th>
 <td><pre class="literal-block"># Network simulator (assumed to be in PATH, necessary):
-NetworkSimulator Demos/FlexRay/NetworkSimulatorConfig.json
+NetworkSimulator Demos/FlexRay/NetworkSimulatorConfig.yaml
 
 # System Monitor (optional):
 build/Release/sil-kit-monitor
 
 # Node 0:
-build/Release/SilKitDemoFlexray Demos/FlexRay/SilKitConfig_DemoFlexray.json Node0
+build/Release/SilKitDemoFlexray Demos/FlexRay/SilKitConfig_DemoFlexray.yaml Node0
 
 # Node 1:
-build/Release/SilKitDemoFlexray Demos/FlexRay/SilKitConfig_DemoFlexray.json Node1
+build/Release/SilKitDemoFlexray Demos/FlexRay/SilKitConfig_DemoFlexray.yaml Node1
 
 # System Controller:
 build/Release/sil-kit-system-controller Node0 Node1 NetworkSimulator</pre>
@@ -425,7 +425,7 @@ It takes somewhat between 50 and 100 ms until the first FlexRay messages are tra
 <tr class="row-even"><th class="stub"><p>Parameters</p></th>
 <td><dl class="simple">
 <dt>&lt;ParticipantConfiguration.json|yaml&gt;</dt><dd><p>File name of the ParticipantConfiguraiton to be used;
-use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoPubSub.json</span></code> for an example configuration.</p>
+use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoPubSub.yaml</span></code> for an example configuration.</p>
 </dd>
 <dt>&lt;ParticipantName&gt;</dt><dd><p>The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">Publisher</span></code> or
 <code class="docutils literal notranslate"><span class="pre">Subscriber</span></code>.</p>
@@ -440,7 +440,7 @@ the build/Release/sil-kit-system-controller to start.</p>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Parameter Example</p></th>
 <td><pre class="literal-block"># Creates a combined publisher and subscriber with the default registry URI:
-build/Release/SilKitDemoPubSub Demos/PubSub/SilKitConfig_DemoPubSub.json Publisher</pre>
+build/Release/SilKitDemoPubSub Demos/PubSub/SilKitConfig_DemoPubSub.yaml Publisher</pre>
 </td>
 </tr>
 <tr class="row-even"><th class="stub"><p>System Example</p></th>
@@ -448,10 +448,10 @@ build/Release/SilKitDemoPubSub Demos/PubSub/SilKitConfig_DemoPubSub.json Publish
 build/Release/sil-kit-monitor
 
 # Publisher:
-build/Release/SilKitDemoPubSub Demos/PubSub/SilKitConfig_DemoPubSub.json Publisher
+build/Release/SilKitDemoPubSub Demos/PubSub/SilKitConfig_DemoPubSub.yaml Publisher
 
 # Subscriber:
-build/Release/SilKitDemoPubSub Demos/PubSub/SilKitConfig_DemoPubSub.json Subscriber
+build/Release/SilKitDemoPubSub Demos/PubSub/SilKitConfig_DemoPubSub.yaml Subscriber
 
 # System Controller:
 build/Release/sil-kit-system-controller Publisher Subscriber</pre>
@@ -487,7 +487,7 @@ build/Release/sil-kit-system-controller Publisher Subscriber</pre>
 <tr class="row-even"><th class="stub"><p>Parameters</p></th>
 <td><dl class="simple">
 <dt>&lt;ParticipantConfiguration.json|yaml&gt;</dt><dd><p>File name of the ParticipantConfiguraiton to be used;
-use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoRpc.json</span></code> for an example configuration.</p>
+use <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoRpc.yaml</span></code> for an example configuration.</p>
 </dd>
 <dt>&lt;ParticipantName&gt;</dt><dd><p>The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">Server</span></code> or
 <code class="docutils literal notranslate"><span class="pre">Client</span></code>.</p>
@@ -502,7 +502,7 @@ the build/Release/sil-kit-system-controller to start.</p>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Parameter Example</p></th>
 <td><pre class="literal-block"># Creates a Rpc-Server Process with the default registry URI:
-build/Release/SilKitDemoRpc Demos/Rpc/SilKitConfig_DemoRpc.json Server</pre>
+build/Release/SilKitDemoRpc Demos/Rpc/SilKitConfig_DemoRpc.yaml Server</pre>
 </td>
 </tr>
 <tr class="row-even"><th class="stub"><p>System Example</p></th>
@@ -510,10 +510,10 @@ build/Release/SilKitDemoRpc Demos/Rpc/SilKitConfig_DemoRpc.json Server</pre>
 build/Release/sil-kit-monitor
 
 # Server:
-build/Release/SilKitDemoRpc Demos/Rpc/SilKitConfig_DemoRpc.json Server
+build/Release/SilKitDemoRpc Demos/Rpc/SilKitConfig_DemoRpc.yaml Server
 
 # Client:
-build/Release/SilKitDemoRpc Demos/Rpc/SilKitConfig_DemoRpc.json Client
+build/Release/SilKitDemoRpc Demos/Rpc/SilKitConfig_DemoRpc.yaml Client
 
 # System Controller:
 build/Release/sil-kit-system-controller Server Client</pre>
@@ -565,32 +565,35 @@ build/Release/sil-kit-system-controller Server Client</pre>
 <dd><p>Show the help message.</p>
 </dd>
 <dt><kbd><span class="option">--registry-uri</span></kbd></dt>
-<dd><p>The URI of the registry to start.</p>
+<dd><p>The URI of the registry to start. Default: silkit://localhost:8500</p>
 </dd>
 <dt><kbd><span class="option">--message-size</span></kbd></dt>
-<dd><p>Sets the message size.</p>
+<dd><p>Sets the message size. Default: 1000</p>
 </dd>
 <dt><kbd><span class="option">--message-count</span></kbd></dt>
-<dd><p>Sets the number of messages to be send in each simulation step.</p>
+<dd><p>Sets the number of messages to be send in each simulation step. Default: 50</p>
 </dd>
 <dt><kbd><span class="option">--number-participants</span></kbd></dt>
-<dd><p>Sets the number of simulation participants.</p>
+<dd><p>Sets the number of simulation participants. Default: 2</p>
 </dd>
 <dt><kbd><span class="option">--number-simulation-runs</span></kbd></dt>
-<dd><p>Sets the number of simulation runs to perform.</p>
+<dd><p>Sets the number of simulation runs to perform. Default: 4</p>
 </dd>
 <dt><kbd><span class="option">--simulation-duration</span></kbd></dt>
-<dd><p>Sets the simulation duration (virtual time).</p>
+<dd><p>Sets the simulation duration (virtual time). Default: 1s</p>
 </dd>
 <dt><kbd><span class="option">--configuration</span></kbd></dt>
-<dd><p>Path and filename of the participant configuration YAML or JSON file.</p>
+<dd><p>Path and filename of the participant configuration YAML or JSON file. Default: empty</p>
+</dd>
+<dt><kbd><span class="option">--write-csv</span></kbd></dt>
+<dd><p>Path and filename of csv file with benchmark results. Default: empty</p>
 </dd>
 </dl>
 </td>
 </tr>
 <tr class="row-even"><th class="stub"><p>Parameter Example</p></th>
 <td><pre class="literal-block"># Launch the BenchmarkDemo with positional arguments and a specified configuration file:
-build/Release/SilKitDemoBenchmark.exe 4 1 2 1 10 --configuration ./SilKitConfig_DemoBenchmark_DomainSockets_Off.json
+build/Release/SilKitDemoBenchmark.exe 4 1 2 1 10 --configuration ./SilKitConfig_DemoBenchmark_DomainSockets_Off.yaml
 
 # Launch the BenchmarkDemo with default arguments but 4 participants:
 build/Release/SilKitDemoBenchmark.exe --number-participants 4</pre>
@@ -599,12 +602,17 @@ build/Release/SilKitDemoBenchmark.exe --number-participants 4</pre>
 <tr class="row-odd"><th class="stub"><p>Notes</p></th>
 <td><p>This benchmark demo produces timings of a configurable simulation setup. &lt;N&gt; participants exchange &lt;M&gt;
 of &lt;B&gt; bytes per simulation step with a fixed period of 1ms and run for &lt;S&gt; seconds (virtual time).
-This simulation run is repeated &lt;K&gt; times and averages over all runs are calculated. The demo uses
-PubSub controllers with the same topic for the message exchange, so each participant broadcasts the
-messages to all other participants. The configuration file
-<code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoBenchmark_DomainSockets_Off.json</span></code> can be used to disable domain socket usage
-for more realistic timings of TCP/IP traffic. With <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoBenchmark_TCPNagle_Off.json</span></code>,
-Nagle’s algorithm and domain sockets are switched off.</p></td>
+This simulation run is repeated &lt;K&gt; times and averages over all runs are calculated. Results for average
+runtime, speedup (virtual time/runtime), throughput (data size/runtime), message rate (count/runtime)
+including the standard deviation are printed.
+The demo uses PubSub controllers with the same topic for the message exchange, so each participant broadcasts
+the messages to all other participants. The configuration file
+<code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoBenchmark_DomainSockets_Off.yaml</span></code> can be used to disable domain socket usage
+for more realistic timings of TCP/IP traffic. With <code class="docutils literal notranslate"><span class="pre">SilKitConfig_DemoBenchmark_TCPNagle_Off.yaml</span></code>,
+Nagle’s algorithm and domain sockets are switched off.
+The demo can be wrapped in helper scripts to run parameter scans, e.g., for performance analysis regarding
+differen message sizes. See <code class="docutils literal notranslate"><span class="pre">\Demos\Benchmark\msg-size-scaling\Readme.md</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Demos\Benchmark\performance-diff\Readme.md</span></code> for further information.</p></td>
 </tr>
 </tbody>
 </table>
