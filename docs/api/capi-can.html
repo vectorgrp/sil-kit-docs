@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Can C API &mdash; Vector SIL Kit 4.0.10 documentation</title>
+  <title>Can C API &mdash; Vector SIL Kit 4.0.11 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.10
+                4.0.11
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -443,6 +443,18 @@ In a detailed simulation, the baud rate is used to calculate transmission delays
 <dt class="sig sig-object cpp" id="_CPPv4N28SilKit_CanFrameTransmitEvent6statusE">
 <span id="_CPPv3N28SilKit_CanFrameTransmitEvent6statusE"></span><span id="_CPPv2N28SilKit_CanFrameTransmitEvent6statusE"></span><span id="SilKit_CanFrameTransmitEvent::status__SilKit_CanTransmitStatus"></span><span class="target" id="struct_sil_kit___can_frame_transmit_event_1afca2fda3344d30f1e65057c090a3000f"></span><span class="n"><span class="pre">SilKit_CanTransmitStatus</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">status</span></span></span><a class="headerlink" href="#_CPPv4N28SilKit_CanFrameTransmitEvent6statusE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Status of the CanTransmitRequest. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N28SilKit_CanFrameTransmitEvent5canIdE">
+<span id="_CPPv3N28SilKit_CanFrameTransmitEvent5canIdE"></span><span id="_CPPv2N28SilKit_CanFrameTransmitEvent5canIdE"></span><span id="SilKit_CanFrameTransmitEvent::canId__uint32_t"></span><span class="target" id="struct_sil_kit___can_frame_transmit_event_1a0dae669e2fafd1fba4c30f6a3c6ad953"></span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">canId</span></span></span><a class="headerlink" href="#_CPPv4N28SilKit_CanFrameTransmitEvent5canIdE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Identifies the CAN id to which this CanFrameTransmitEvent refers to.</p>
+<p>
+You must check that the structure version is sufficient before accessing this field. Added in SIL Kit version 4.0.11. <dl class="simple">
+<dt><strong>Version</strong></dt><dd><p>Check: SK_ID_GET_VERSION(SilKit_Struct_GetId(event)) &gt;= 2</p>
+</dd>
+</dl>
+</p>
 </dd></dl>
 
 </div>

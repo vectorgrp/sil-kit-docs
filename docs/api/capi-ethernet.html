@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ethernet C API &mdash; Vector SIL Kit 4.0.10 documentation</title>
+  <title>Ethernet C API &mdash; Vector SIL Kit 4.0.11 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.10
+                4.0.11
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -172,9 +172,9 @@
 <dt class="sig sig-object cpp" id="_CPPv435SilKit_EthernetController_SendFrameP25SilKit_EthernetControllerP20SilKit_EthernetFramePv">
 <span id="_CPPv335SilKit_EthernetController_SendFrameP25SilKit_EthernetControllerP20SilKit_EthernetFramePv"></span><span id="_CPPv235SilKit_EthernetController_SendFrameP25SilKit_EthernetControllerP20SilKit_EthernetFramePv"></span><span id="SilKit_EthernetController_SendFrame__SilKit_EthernetControllerP.SilKit_EthernetFrameP.voidP"></span><span class="target" id="_ethernet_8h_1a6a9844903d6bda1cd07d4625359e1b14"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetController_SendFrame</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv425SilKit_EthernetController" title="SilKit_EthernetController"><span class="n"><span class="pre">SilKit_EthernetController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <a class="reference internal" href="#_CPPv420SilKit_EthernetFrame" title="SilKit_EthernetFrame"><span class="n"><span class="pre">SilKit_EthernetFrame</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">frame</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">userContext</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv435SilKit_EthernetController_SendFrameP25SilKit_EthernetControllerP20SilKit_EthernetFramePv" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Send an Ethernet frame. </p>
-<p>Requires previous activation of the controller and a successfully established link. Also, the entire EthernetFrame must be valid, e.g., destination and source MAC addresses must be valid, ether type and vlan tags must be correct, payload size must be valid.</p>
+<p>Requires previous activation of the controller and a successfully established link. Also, the entire EthernetFrame must be valid, e.g., destination and source MAC addresses must be valid, ether type and vlan tags must be correct.</p>
 <p>These requirements are not enforced in simple simulation. In this case, the message is simply passed on to all connected controllers without performing any check. The user must ensure that a valid frame is provided.</p>
-<p>The minimum frame size of 60 bytes must be provided, or SilKit_ReturnCode_BAD_PARAMETER will be returned.</p>
+<p>If the frame size is smaller than the minimum of 60 bytes, the frame will be padded with zeros.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -333,8 +333,7 @@
 <section id="ethernet-frame">
 <h2><a class="toc-backref" href="#id2">Ethernet Frame</a><a class="headerlink" href="#ethernet-frame" title="Permalink to this heading"></a></h2>
 <p>The SilKit_EthernetFrame is a raw Ethernet frame consisting of the destination mac, the source mac, the ethertype and a
-payload. The union type within the SilKit_EthernetFrame helps when manual construction of a frame is necessary
-(frameHeader, frameHeaderVlanTagged).</p>
+payload.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For an example of manual frame construction one can refer to the C Ethernet demo.</p>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Utilities &mdash; Vector SIL Kit 4.0.10 documentation</title>
+  <title>Utilities &mdash; Vector SIL Kit 4.0.11 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.10
+                4.0.11
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -134,9 +134,6 @@ of the SIL Kit are free to implement their own system and state handling.</p>
 <dt><kbd><span class="option">-l</span>, <span class="option">--log <var>&lt;level&gt;</var></span></kbd></dt>
 <dd><p>Log to stdout with level ‘trace’, ‘debug’, ‘warn’, ‘info’, ‘error’, ‘critical’ or ‘off’. Defaults to ‘info’.</p>
 </dd>
-<dt><kbd><span class="option">-c</span>, <span class="option">--configuration <var>&lt;configuration&gt;</var></span></kbd></dt>
-<dd><p>Path and filename of the participant configuration YAML or JSON file.</p>
-</dd>
 <dt><kbd><span class="option">-g</span>, <span class="option">--generate-configuration <var>&lt;path&gt;</var></span></kbd></dt>
 <dd><p>Path and filename of a participant configuration file to generate containing the URI the registry is using.</p>
 </dd>
@@ -157,6 +154,9 @@ of the SIL Kit are free to implement their own system and state handling.</p>
 either with this process or using the <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">StartListening()</span></code> API.</p></li>
 <li><p>When the port <code class="docutils literal notranslate"><span class="pre">0</span></code> is specified in the URI (<code class="docutils literal notranslate"><span class="pre">--listen-uri</span></code>) the operating system will choose a random port for the registry.
 This port is used in the generated configuration file (<code class="docutils literal notranslate"><span class="pre">--generate-configuration</span></code>) for use in CI environments.</p></li>
+<li><p>The registry will run if either binding to the TCP socket, or the Domain socket, or both succeeds.
+If only TCP or Domain sockets are used, because one of the bindings failed for some reason, a warning will be logged.
+It will exit with an error if neither is available.</p></li>
 </ul>
 </td>
 </tr>

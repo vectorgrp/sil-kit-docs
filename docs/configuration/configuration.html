@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Configuration &mdash; Vector SIL Kit 4.0.10 documentation</title>
+  <title>Configuration &mdash; Vector SIL Kit 4.0.11 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.10
+                4.0.11
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -131,7 +131,7 @@
 <section id="the-participant-configuration-file">
 <h2>The Participant Configuration File<a class="headerlink" href="#the-participant-configuration-file" title="Permalink to this heading"></a></h2>
 <p>Simulation participants of the Vector SIL Kit can be configured via a YAML/JSON file, often
-referred to as <em>participant configuration</em>, <code class="docutils literal notranslate"><span class="pre">SilKitConfig.json</span></code>, or <code class="docutils literal notranslate"><span class="pre">SilKitConfig.yaml</span></code>. A configuration file is optional,
+referred to as <em>participant configuration</em>. A configuration file is optional,
 it is intended to be used to configure behavior and connections of a simulation participant that was distributed in
 binary form.
 A participant configuration can be passed to a simulation when a simulation participant is created
@@ -140,9 +140,13 @@ through <a class="reference internal" href="../api/participant.html#_CPPv4N6SilK
 programmatically defined values. For example, the <code class="docutils literal notranslate"><span class="pre">ParticipantName</span></code> field of the participant configuration overrides the
 participant name that is provided through the API of the Vector SIL Kit when participants are created, namely
 <a class="reference internal" href="../api/participant.html#_CPPv4N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringE" title="SilKit::CreateParticipant"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateParticipant(...,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">participantName,</span> <span class="pre">...)</span></code></a>.</p>
-<p>A <code class="docutils literal notranslate"><span class="pre">SilKitConfig.yaml</span></code> begins with some general information about the configuration file itself, followed by several
+<p>A participant configuration file begins with some general information about the configuration file itself, followed by several
 subsections for the different services of the Vector SIL Kit.</p>
-<p>The outline of a <code class="docutils literal notranslate"><span class="pre">SilKitConfig.yaml</span></code> file is as follows:</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>Many IDEs automatically support participant configuration schema support when the participant configuration file ends with the suffix <code class="docutils literal notranslate"><span class="pre">.silkit.json/yaml</span></code>.</p>
+</div>
+<p>The outline of a participant configuration file is as follows:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span><span class="w"></span>
 <span class="s">&quot;$schema&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;./ParticipantConfiguration.schema.json&quot;</span><span class="w"></span>
 <span class="nt">schemaVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
