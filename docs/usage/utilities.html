@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Utilities &mdash; Vector SIL Kit 4.0.11 documentation</title>
+  <title>Utilities &mdash; Vector SIL Kit 4.0.12 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.11
+                4.0.12
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -185,13 +185,32 @@ Examples for state change commands called by the SystemController are
 Furthermore, it requires a list of synchronized participants that are needed to start the simulation as input.</p></td>
 </tr>
 <tr class="row-even"><th class="stub"><p>Parameters</p></th>
-<td><p>-v,  –version                                Get version info.
--h,  –help                                   Show the help of sil-kit-system-controller.
--u,  –connect-uri &lt;silkitUri&gt;                The registry URI to connect to. Defaults to ‘silkit://localhost:8500’.
--n,  –name &lt;participantName&gt;                 The participant name used to take part in the simulation. Defaults to ‘SystemController’.
--c,  –configuration &lt;configuration&gt;          Path and filename of the participant configuration YAML or JSON file.
--ni, –non-interactive                        Run without awaiting any user interactions at any time.</p>
-<p>&lt;participantName1&gt;, &lt;participantName2&gt;, …  Names of participants to wait for before starting simulation.</p>
+<td><dl class="option-list">
+<dt><kbd><span class="option">-v</span>, <span class="option">--version</span></kbd></dt>
+<dd><p>Get version info.</p>
+</dd>
+<dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
+<dd><p>Show the help of sil-kit-system-controller.</p>
+</dd>
+<dt><kbd><span class="option">-u</span>, <span class="option">--connect-uri <var>&lt;silkitUri&gt;</var></span></kbd></dt>
+<dd><p>The registry URI to connect to. Defaults to ‘silkit://localhost:8500’.</p>
+</dd>
+<dt><kbd><span class="option">-n</span>, <span class="option">--name <var>&lt;participantName&gt;</var></span></kbd></dt>
+<dd><p>The participant name used to take part in the simulation. Defaults to ‘SystemController’.</p>
+</dd>
+<dt><kbd><span class="option">-c</span>, <span class="option">--configuration <var>&lt;configuration&gt;</var></span></kbd></dt>
+<dd><p>Path and filename of the participant configuration YAML or JSON file.</p>
+</dd>
+<dt><kbd><span class="option">-n<var>i</var></span>, <span class="option">--non-interactive</span></kbd></dt>
+<dd><p>Run without awaiting any user interactions at any time.</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><strong>&lt;participantName1&gt;, &lt;participantName2&gt; …</strong></div>
+<div class="line-block">
+<div class="line">Names of participants to wait for before starting simulation.</div>
+</div>
+</div>
 </td>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Usage Example</p></th>

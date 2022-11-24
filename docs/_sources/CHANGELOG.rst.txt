@@ -5,6 +5,42 @@ All notable changes to the Vector SIL Kit project shall be documented in this fi
 
 The format is based on `Keep a Changelog (http://keepachangelog.com/en/1.0.0/) <http://keepachangelog.com/en/1.0.0/>`_.
 
+
+[4.0.12] - 2022-11-24
+---------------------
+
+Fixed
+~~~~~
+
+- Integration Tests
+
+  - Linking executables with both, the dynamic library, and certain internal, static library components leads to ODR violations.
+    The ASAN / UBSAN instrumentation from recent Clang versions is able to detect these.
+
+- C-API Tests
+
+  - Fixed some memory leaks in C-API tests.
+
+- LIN
+
+  - Fixed faulty behavior of ``ILinController::SendFrame()`` for ``LinFrameResponseType::MasterResponse``. The method now consistently uses the input frame data.
+
+- Lifecycle Service
+
+  - Alleviate potential loss of the 'stop' signal issued from the lifecycle service of a participant.
+
+- Various fixes related to warnings
+
+  - Remove duplicate variables in PubSub demo.
+  
+  - Fix 'D9025: overriding...' diagnostics in MSVC.
+  
+  - Fix warnings in hourglass code.
+  
+  - Fix cmake configuration on macos.
+  
+  - Properly initialize variable in unit test.
+
 [4.0.11] - 2022-11-18
 ---------------------
 
