@@ -5,6 +5,28 @@ All notable changes to the Vector SIL Kit project shall be documented in this fi
 
 The format is based on `Keep a Changelog (http://keepachangelog.com/en/1.0.0/) <http://keepachangelog.com/en/1.0.0/>`_.
 
+[4.0.13] - 2022-12-14
+---------------------
+
+Changed
+~~~~~~~
+
+- PubSub/Rpc: Improved performance in startup-phase when using labels.
+- Documentation: Configuration structure for PCAP tracing and replay
+
+Fixed
+~~~~~
+
+- LIN: Previously, only when using the network simulator, the FrameStatusHandler on the LIN Master was not called in
+  case of an unconfigured response (RX_NO_RESPONSE). This inconsistency has been fixed.
+
+- Registry
+
+  - The acceptor URIs the known participants list sent by the registry are now rewritten correctly.
+    Previously, certain startup scenarios only worked when the participants were started in a certain order.
+
+- SerDes: Added missing limit library include.
+
 
 [4.0.12] - 2022-11-24
 ---------------------

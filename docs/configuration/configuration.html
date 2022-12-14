@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Configuration &mdash; Vector SIL Kit 4.0.12 documentation</title>
+  <title>Configuration &mdash; Vector SIL Kit 4.0.13 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.12
+                4.0.13
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -52,6 +52,7 @@
 <li class="toctree-l2"><a class="reference internal" href="configuration-services.html">Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="healthcheck-configuration.html">HealthCheck Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-tracing.html">Tracing and Replay Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="extension-configuration.html">Extensions Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="middleware-configuration.html">Middleware Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-participant-configuration-file">The Participant Configuration File</a><ul>
@@ -117,6 +118,13 @@
 <li class="toctree-l2"><a class="reference internal" href="healthcheck-configuration.html#configuration">Configuration</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="configuration-tracing.html">Tracing and Replay Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration-tracing.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-tracing.html#tracing">Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-tracing.html#replay">Replay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-tracing.html#trace-sink-and-source-types">Trace Sink and Source Types</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="extension-configuration.html">Extensions Configuration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="extension-configuration.html#overview">Overview</a></li>
 </ul>
@@ -172,6 +180,8 @@ subsections for the different services of the Vector SIL Kit.</p>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
 <span class="nt">HealthCheck</span><span class="p">:</span><span class="w"></span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="nt">Tracing</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
 <span class="nt">Extensions</span><span class="p">:</span><span class="w"></span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
 <span class="nt">Middleware</span><span class="p">:</span><span class="w"></span>
@@ -219,10 +229,13 @@ defined participant name.</p></td>
 <tr class="row-odd"><td><p><a class="reference internal" href="healthcheck-configuration.html#sec-cfg-participant-healthcheck"><span class="std std-ref">HealthCheck</span></a></p></td>
 <td><p>Configuration concerning soft and hard timeouts for simulation task execution.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="extension-configuration.html"><span class="doc">Extensions</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="configuration-tracing.html#sec-cfg-participant-tracing"><span class="std std-ref">Tracing</span></a></p></td>
+<td><p>Configuration of experimental tracing and replay functionality.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="extension-configuration.html"><span class="doc">Extensions</span></a></p></td>
 <td><p>Configuration of optional extensions to the Vector SIL Kit and where to find them.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="middleware-configuration.html"><span class="doc">Middleware</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="middleware-configuration.html"><span class="doc">Middleware</span></a></p></td>
 <td><p>This optional section can be used to configure the middleware running the Vector SIL Kit.
 If this section is omitted, defaults will be used.</p></td>
 </tr>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Demos &mdash; Vector SIL Kit 4.0.12 documentation</title>
+  <title>Demos &mdash; Vector SIL Kit 4.0.13 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.12
+                4.0.13
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -140,7 +140,7 @@ in the <code class="docutils literal notranslate"><span class="pre">SilKit-Demos
 <td><ul class="simple">
 <li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
 <li><p><a class="reference internal" href="utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
-<li><p>network simulator (optional)</p></li>
+<li><p>SIL Kit Network Simulator (optional)</p></li>
 </ul>
 </td>
 </tr>
@@ -214,7 +214,7 @@ build/Release/SilKitDemoCan Demos/Can/DemoCan.silkit.yaml CanWriter --async</pre
 <td><ul class="simple">
 <li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
 <li><p><a class="reference internal" href="utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
-<li><p>Network simulator (optional)</p></li>
+<li><p>SIL Kit Network Simulator (optional)</p></li>
 </ul>
 </td>
 </tr>
@@ -251,7 +251,7 @@ build/Release/SilKitDemoEthernet Demos/Ethernet/DemoEthernet.silkit.yaml Etherne
 build/Release/SilKitDemoEthernet Demos/Ethernet/DemoEthernet.silkit.yaml EthernetWriter
 
 # System Controller:
-build/Release/sil-kit-system-controller EthernetReader Ethernet Writer</pre>
+build/Release/sil-kit-system-controller EthernetReader EthernetWriter</pre>
 <p>For unsynchronized execution:</p>
 <pre class="literal-block"># Ethernet Reader:
 build/Release/SilKitDemoEthernet Demos/Ethernet/DemoEthernet.silkit.yaml EthernetReader --async
@@ -288,7 +288,7 @@ build/Release/SilKitDemoEthernet Demos/Ethernet/DemoEthernet.silkit.yaml Etherne
 <td><ul class="simple">
 <li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
 <li><p><a class="reference internal" href="utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
-<li><p>Network simulator (optional)</p></li>
+<li><p>SIL Kit Network Simulator (optional)</p></li>
 </ul>
 </td>
 </tr>
@@ -354,7 +354,7 @@ build/Release/sil-kit-system-controller LinSlave LinMaster</pre>
 <tr class="row-odd"><th class="stub"><p>Requirements</p></th>
 <td><ul class="simple">
 <li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></p></li>
-<li><p>Network simulator (mandatory)</p></li>
+<li><p>SIL Kit Network Simulator (mandatory)</p></li>
 <li><p><a class="reference internal" href="utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
 </ul>
 </td>
@@ -379,7 +379,7 @@ build/Release/SilKitDemoFlexray Demos/FlexRayDemoFlexray.silkit.yaml Node0</pre>
 </tr>
 <tr class="row-even"><th class="stub"><p>System Example</p></th>
 <td><pre class="literal-block"># Network simulator (assumed to be in PATH, necessary):
-NetworkSimulator Demos/FlexRay/NetworkSimulatorConfig.yaml
+sil-kit-network-simulator Demos/FlexRay/NetworkSimulatorConfig.yaml
 
 # System Monitor (optional):
 build/Release/sil-kit-monitor
