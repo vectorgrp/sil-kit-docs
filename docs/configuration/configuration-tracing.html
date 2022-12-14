@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tracing and Replay Configuration &mdash; Vector SIL Kit 4.0.13 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Extensions Configuration" href="extension-configuration.html" />
+    <link rel="prev" title="HealthCheck Configuration" href="healthcheck-configuration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.13
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="configuration.html">Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html">Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="healthcheck-configuration.html">HealthCheck Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tracing and Replay Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tracing">Tracing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#trace-sinks">Trace Sinks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#trace-sources">Trace Sources</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#replay">Replay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trace-sink-and-source-types">Trace Sink and Source Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pcap">PCAP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="extension-configuration.html">Extensions Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="middleware-configuration.html">Middleware Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#the-participant-configuration-file">The Participant Configuration File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="configuration.html">Configuration</a> &raquo;</li>
+      <li>Tracing and Replay Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/configuration/configuration-tracing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tracing-and-replay-configuration">
+<h1>Tracing and Replay Configuration<a class="headerlink" href="#tracing-and-replay-configuration" title="Permalink to this heading"></a></h1>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>At the moment, the exact behavior of tracing and replay,
+and the available configuration settings are under development and should be considered <strong>experimental</strong>.</p>
+</div>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id4">Overview</a></p></li>
+<li><p><a class="reference internal" href="#tracing" id="id5">Tracing</a></p>
+<ul>
+<li><p><a class="reference internal" href="#trace-sinks" id="id6">Trace Sinks</a></p></li>
+<li><p><a class="reference internal" href="#trace-sources" id="id7">Trace Sources</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#replay" id="id8">Replay</a></p></li>
+<li><p><a class="reference internal" href="#trace-sink-and-source-types" id="id9">Trace Sink and Source Types</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pcap" id="id10">PCAP</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pcapfile" id="id11">PcapFile</a></p></li>
+<li><p><a class="reference internal" href="#pcappipe" id="id12">PcapPipe</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="overview">
+<h2><a class="toc-backref" href="#id4">Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<p>When a controller is configured for tracing, it references a trace sink by name.
+Similarly, when a controller is configured for replay, it references a trace source by name in its <a class="reference internal" href="#sec-cfg-participant-replay"><span class="std std-ref">Replay</span></a> configuration.</p>
+<p>The following section describes the definitions for the named trace sinks and trace sources, and the definitions for replay attached to each controller.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>At the moment only <code class="docutils literal notranslate"><span class="pre">PCAP</span></code> tracing and replay is available in the SIL Kit library.</p>
+</div>
+</section>
+<section id="tracing">
+<span id="sec-cfg-participant-tracing"></span><h2><a class="toc-backref" href="#id5">Tracing</a><a class="headerlink" href="#tracing" title="Permalink to this heading"></a></h2>
+<section id="trace-sinks">
+<h3><a class="toc-backref" href="#id6">Trace Sinks</a><a class="headerlink" href="#trace-sinks" title="Permalink to this heading"></a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Tracing</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">TraceSinks</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="w">      </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="w">      </span><span class="nt">OutputPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-number">Table 16 </span><span class="caption-text">Trace Sink Configuration</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Type</p></td>
+<td><p>The type of trace sink to create.  Can be <code class="docutils literal notranslate"><span class="pre">PcapFile</span></code>, or <code class="docutils literal notranslate"><span class="pre">PcapPipe</span></code>.
+See <a class="reference internal" href="#sec-cfg-participant-trace-sink-source-types"><span class="std std-ref">Trace Sink Types</span></a> for more information on the individual types.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>The name of the trace sink. This name is used in the controller configuration (<code class="docutils literal notranslate"><span class="pre">UseTraceSinks</span></code>) to reference the sink.</p></td>
+</tr>
+<tr class="row-even"><td><p>OutputPath</p></td>
+<td><p>The path used to create the trace sink. How the path is used, depends on the <code class="docutils literal notranslate"><span class="pre">Type</span></code> property.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="trace-sources">
+<h3><a class="toc-backref" href="#id7">Trace Sources</a><a class="headerlink" href="#trace-sources" title="Permalink to this heading"></a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Tracing</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">TraceSources</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="w">      </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="w">      </span><span class="nt">InputPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-number">Table 17 </span><span class="caption-text">Trace Source Configuration</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Type</p></td>
+<td><p>The type of trace source to create.  Can be <code class="docutils literal notranslate"><span class="pre">PcapFile</span></code>, or <code class="docutils literal notranslate"><span class="pre">PcapPipe</span></code>.
+See <a class="reference internal" href="#sec-cfg-participant-trace-sink-source-types"><span class="std std-ref">Trace Source Types</span></a> for more information on the individual types.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Name</p></td>
+<td><p>The name of the trace source. This name is used in the controller configuration (<code class="docutils literal notranslate"><span class="pre">Replay/UseTraceSource</span></code>) to reference the source.</p></td>
+</tr>
+<tr class="row-even"><td><p>InputPath</p></td>
+<td><p>The path used to create the trace source. How the path is used, depends on the <code class="docutils literal notranslate"><span class="pre">Type</span></code> property.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="replay">
+<span id="sec-cfg-participant-replay"></span><h2><a class="toc-backref" href="#id8">Replay</a><a class="headerlink" href="#replay" title="Permalink to this heading"></a></h2>
+<p>Any controller may contain a <code class="docutils literal notranslate"><span class="pre">Replay</span></code> configuration,
+which references a trace source and may specify additional properties influencing how messages are replayed.</p>
+<p>Messages from the replay file are injected as if they were sent or received by the controller.
+The timestamps present in the trace source are used to schedule when the messages are injected.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>Messages from a <code class="docutils literal notranslate"><span class="pre">PCAP</span></code> trace source are always sent by the controller with the <code class="docutils literal notranslate"><span class="pre">userContext</span></code> being <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>.</p>
+</div>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">...Controllers</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="w">    </span><span class="nt">...</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="w">    </span><span class="nt">Replay</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">UseTraceSource</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+<span class="w">      </span><span class="nt">Direction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-number">Table 18 </span><span class="caption-text">Per-Controller Replay Configuration</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Property Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>UseTraceSource</p></td>
+<td><p>The name of a single trace source, as defined in the <a class="reference internal" href="#sec-cfg-participant-tracing"><span class="std std-ref">Tracing</span></a> configuration.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Direction</p></td>
+<td><p>Only replay messages from the trace source that match this direction filter. Can be <code class="docutils literal notranslate"><span class="pre">Send</span></code>, <code class="docutils literal notranslate"><span class="pre">Receive</span></code>, or <code class="docutils literal notranslate"><span class="pre">Both</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="trace-sink-and-source-types">
+<span id="sec-cfg-participant-trace-sink-source-types"></span><h2><a class="toc-backref" href="#id9">Trace Sink and Source Types</a><a class="headerlink" href="#trace-sink-and-source-types" title="Permalink to this heading"></a></h2>
+<p>SIL Kit supports tracing and replay in different formats.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>At the moment only <code class="docutils literal notranslate"><span class="pre">PCAP</span></code> tracing and replay is available in the SIL Kit library.</p>
+</div>
+<section id="pcap">
+<h3><a class="toc-backref" href="#id10">PCAP</a><a class="headerlink" href="#pcap" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">PCAP</span></code> file format is a common format for tracing Ethernet packets.
+It is widely supported by tools, e.g., by Wireshark and the <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> family of command line tools.</p>
+<section id="pcapfile">
+<h4><a class="toc-backref" href="#id11">PcapFile</a><a class="headerlink" href="#pcapfile" title="Permalink to this heading"></a></h4>
+<p>When <code class="docutils literal notranslate"><span class="pre">PcapFile</span></code> is used for the <code class="docutils literal notranslate"><span class="pre">Type</span></code> property in the trace sink or source definition,
+SIL Kit will write/read the trace to/from a normal file,
+identified by the <code class="docutils literal notranslate"><span class="pre">OutputPath</span></code> or <code class="docutils literal notranslate"><span class="pre">InputPath</span></code> properties.</p>
+</section>
+<section id="pcappipe">
+<h4><a class="toc-backref" href="#id12">PcapPipe</a><a class="headerlink" href="#pcappipe" title="Permalink to this heading"></a></h4>
+<p>When <code class="docutils literal notranslate"><span class="pre">PcapPipe</span></code> is used for the <code class="docutils literal notranslate"><span class="pre">Type</span></code> property in the trace sink or source definition,
+SIL Kit will write/read the trace to/from a named pipe,
+identified by the <code class="docutils literal notranslate"><span class="pre">OutputPath</span></code> or <code class="docutils literal notranslate"><span class="pre">InputPath</span></code> properties.</p>
+<p>SIL Kit will wait until the other end of the named pipe has been opened, e.g., opening Wireshark on the named pipe.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>On Windows, SIL Kit places (or looks for) the named pipe under the path <code class="docutils literal notranslate"><span class="pre">\\.\pipe\&lt;ConfigValue&gt;</span></code> where <code class="docutils literal notranslate"><span class="pre">&lt;ConfigValue&gt;</span></code> is the value of the <code class="docutils literal notranslate"><span class="pre">OutputPath</span></code> (or <code class="docutils literal notranslate"><span class="pre">InputPath</span></code>).</p></li>
+</ul>
+</div>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The PCAP format can only be used with Ethernet controllers.</p></li>
+<li><p>When used as a trace source, all messages will be replayed as transmissions by the replaying controller.</p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="healthcheck-configuration.html" class="btn btn-neutral float-left" title="HealthCheck Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="extension-configuration.html" class="btn btn-neutral float-right" title="Extensions Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
