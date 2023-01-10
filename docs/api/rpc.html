@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RPC (Remote Procedure Call) API &mdash; Vector SIL Kit 4.0.13 documentation</title>
+  <title>RPC (Remote Procedure Call) API &mdash; Vector SIL Kit 4.0.14 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.13
+                4.0.14
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -111,6 +111,7 @@
 <li><p><a class="reference internal" href="#rpcclient-api" id="id8">RpcClient API</a></p></li>
 <li><p><a class="reference internal" href="#rpcservers-api" id="id9">RpcServers API</a></p></li>
 <li><p><a class="reference internal" href="#data-structures" id="id10">Data Structures</a></p></li>
+<li><p><a class="reference internal" href="#enumerations" id="id11">Enumerations</a></p></li>
 </ul>
 </li>
 </ul>
@@ -196,9 +197,9 @@ are interchangeable here.</p>
 </table>
 <p>The labels are stored in the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpecE" title="SilKit::Services::Rpc::RpcSpec"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">RpcSpec</span></code></a>. A <a class="reference internal" href="common.html#_CPPv4N6SilKit8Services13MatchingLabelE" title="SilKit::Services::MatchingLabel"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">MatchingLabel</span></code></a> can be added via <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpec8AddLabelERKN6SilKit8Services13MatchingLabelE" title="SilKit::Services::Rpc::RpcSpec::AddLabel"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddLabel()</span></code></a>,
 see the following code snippet:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Rpc</span><span class="o">::</span><span class="n">RpcSpec</span><span class="w"> </span><span class="n">clientSpec</span><span class="p">{</span><span class="s">&quot;Topic1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/json&quot;</span><span class="p">};</span><span class="w"></span>
-<span class="n">clientSpec</span><span class="p">.</span><span class="n">AddLabel</span><span class="p">(</span><span class="s">&quot;KeyA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ValA&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">MatchingLabel</span><span class="o">::</span><span class="n">Kind</span><span class="o">::</span><span class="n">Optional</span><span class="p">);</span><span class="w"></span>
-<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateRpcClient</span><span class="p">(</span><span class="s">&quot;ClientCtrl1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">clientSpec</span><span class="p">,</span><span class="w"> </span><span class="n">callResultHandler</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Rpc</span><span class="o">::</span><span class="n">RpcSpec</span><span class="w"> </span><span class="n">clientSpec</span><span class="p">{</span><span class="s">&quot;Topic1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/json&quot;</span><span class="p">};</span>
+<span class="n">clientSpec</span><span class="p">.</span><span class="n">AddLabel</span><span class="p">(</span><span class="s">&quot;KeyA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ValA&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">MatchingLabel</span><span class="o">::</span><span class="n">Kind</span><span class="o">::</span><span class="n">Optional</span><span class="p">);</span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateRpcClient</span><span class="p">(</span><span class="s">&quot;ClientCtrl1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">clientSpec</span><span class="p">,</span><span class="w"> </span><span class="n">callResultHandler</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
@@ -220,34 +221,34 @@ see the following code snippet:</p>
 <span class="c1">// Client participant</span>
 <span class="c1">// ------------------</span>
 
-<span class="k">auto</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">config</span><span class="p">),</span><span class="w"> </span><span class="n">participant_name</span><span class="p">,</span><span class="w"> </span><span class="n">registryUri</span><span class="p">);</span><span class="w"></span>
+<span class="k">auto</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">config</span><span class="p">),</span><span class="w"> </span><span class="n">participant_name</span><span class="p">,</span><span class="w"> </span><span class="n">registryUri</span><span class="p">);</span>
 
-<span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Rpc</span><span class="o">::</span><span class="n">RpcSpec</span><span class="w"> </span><span class="n">dataSpecClient</span><span class="p">{</span><span class="s">&quot;TestFunc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/octet-stream&quot;</span><span class="p">};</span><span class="w"></span>
-<span class="k">auto</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateRpcClient</span><span class="p">(</span><span class="s">&quot;ClientCtrl1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dataSpecClient</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="p">[](</span><span class="n">IRpcClient</span><span class="o">*</span><span class="w"> </span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">RpcCallResultEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Rpc</span><span class="o">::</span><span class="n">RpcSpec</span><span class="w"> </span><span class="n">dataSpecClient</span><span class="p">{</span><span class="s">&quot;TestFunc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/octet-stream&quot;</span><span class="p">};</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateRpcClient</span><span class="p">(</span><span class="s">&quot;ClientCtrl1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dataSpecClient</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[](</span><span class="n">IRpcClient</span><span class="o">*</span><span class="w"> </span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">RpcCallResultEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// handle event.callStatus and/or event.resultData</span>
-<span class="w">    </span><span class="p">});</span><span class="w"></span>
-<span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">});</span>
+<span class="p">);</span>
 
 <span class="c1">// define argumentData</span>
-<span class="n">client</span><span class="o">-&gt;</span><span class="n">Call</span><span class="p">(</span><span class="n">argumentData</span><span class="p">);</span><span class="w"></span>
+<span class="n">client</span><span class="o">-&gt;</span><span class="n">Call</span><span class="p">(</span><span class="n">argumentData</span><span class="p">);</span>
 
 <span class="c1">// define userContext (void *)</span>
-<span class="n">client</span><span class="o">-&gt;</span><span class="n">Call</span><span class="p">(</span><span class="n">argumentData</span><span class="p">,</span><span class="w"> </span><span class="n">userContext</span><span class="p">);</span><span class="w"></span>
+<span class="n">client</span><span class="o">-&gt;</span><span class="n">Call</span><span class="p">(</span><span class="n">argumentData</span><span class="p">,</span><span class="w"> </span><span class="n">userContext</span><span class="p">);</span>
 
 <span class="c1">// ------------------</span>
 <span class="c1">// Server participant</span>
 <span class="c1">// ------------------</span>
 
-<span class="k">auto</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">config</span><span class="p">),</span><span class="w"> </span><span class="n">participant_name</span><span class="p">,</span><span class="w"> </span><span class="n">registryUri</span><span class="p">);</span><span class="w"></span>
-<span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Rpc</span><span class="o">::</span><span class="n">RpcSpec</span><span class="w"> </span><span class="n">dataSpecServer</span><span class="p">{</span><span class="s">&quot;TestFunc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/octet-stream&quot;</span><span class="p">};</span><span class="w"></span>
+<span class="k">auto</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">config</span><span class="p">),</span><span class="w"> </span><span class="n">participant_name</span><span class="p">,</span><span class="w"> </span><span class="n">registryUri</span><span class="p">);</span>
+<span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Rpc</span><span class="o">::</span><span class="n">RpcSpec</span><span class="w"> </span><span class="n">dataSpecServer</span><span class="p">{</span><span class="s">&quot;TestFunc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/octet-stream&quot;</span><span class="p">};</span>
 
-<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateRpcServer</span><span class="p">(</span><span class="s">&quot;ServerCtrl1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dataSpecServer</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="p">[](</span><span class="n">IRpcServer</span><span class="o">*</span><span class="w"> </span><span class="n">server</span><span class="p">,</span><span class="w"> </span><span class="n">RpcCallEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateRpcServer</span><span class="p">(</span><span class="s">&quot;ServerCtrl1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dataSpecServer</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[](</span><span class="n">IRpcServer</span><span class="o">*</span><span class="w"> </span><span class="n">server</span><span class="p">,</span><span class="w"> </span><span class="n">RpcCallEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="c1">// handle argumentData</span>
 <span class="w">        </span><span class="c1">// define resultData</span>
-<span class="w">        </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">SubmitResult</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">callHandle</span><span class="p">,</span><span class="w"> </span><span class="n">resultData</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="w">        </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">SubmitResult</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">callHandle</span><span class="p">,</span><span class="w"> </span><span class="n">resultData</span><span class="p">)</span>
+<span class="w">    </span><span class="p">});</span>
 </pre></div>
 </div>
 </section>
@@ -375,8 +376,8 @@ see the following code snippet:</p>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc18RpcCallResultEvent10callStatusE">
-<span id="_CPPv3N6SilKit8Services3Rpc18RpcCallResultEvent10callStatusE"></span><span id="_CPPv2N6SilKit8Services3Rpc18RpcCallResultEvent10callStatusE"></span><span id="SilKit::Services::Rpc::RpcCallResultEvent::callStatus__RpcCallStatus"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_result_event_1a63e57b711c00be98450ad0f17d5c633f"></span><span class="n"><span class="pre">RpcCallStatus</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">callStatus</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc18RpcCallResultEvent10callStatusE" title="Permalink to this definition"></a><br /></dt>
-<dd><p>The status of the call, resultData is only valid if callStats == RpcCallStatus::Success. </p>
+<span id="_CPPv3N6SilKit8Services3Rpc18RpcCallResultEvent10callStatusE"></span><span id="_CPPv2N6SilKit8Services3Rpc18RpcCallResultEvent10callStatusE"></span><span id="SilKit::Services::Rpc::RpcCallResultEvent::callStatus__RpcCallStatus"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_result_event_1a63e57b711c00be98450ad0f17d5c633f"></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc13RpcCallStatusE" title="SilKit::Services::Rpc::RpcCallStatus"><span class="n"><span class="pre">RpcCallStatus</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">callStatus</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc18RpcCallResultEvent10callStatusE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The status of the call, resultData is only valid if callStats == <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_rpc_1a3b48d16da133323a38bba98c33e6c45da505a83f220c02df2f85c3810cd9ceb38"><span class="std std-ref">RpcCallStatus::Success</span></a>. </p>
 </dd></dl>
 
 <dl class="cpp var">
@@ -431,6 +432,40 @@ see the following code snippet:</p>
 </dd></dl>
 
 </div>
+</dd></dl>
+
+</section>
+<section id="enumerations">
+<h3><a class="toc-backref" href="#id11">Enumerations</a><a class="headerlink" href="#enumerations" title="Permalink to this heading"></a></h3>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc13RpcCallStatusE">
+<span id="_CPPv3N6SilKit8Services3Rpc13RpcCallStatusE"></span><span id="_CPPv2N6SilKit8Services3Rpc13RpcCallStatusE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_rpc_1a3b48d16da133323a38bba98c33e6c45d"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Rpc</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">RpcCallStatus</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc13RpcCallStatusE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The status of a <a class="reference internal" href="#struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_result_event"><span class="std std-ref">RpcCallResultEvent</span></a>. Informs whether a call was successful. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc13RpcCallStatus7SuccessE">
+<span id="_CPPv3N6SilKit8Services3Rpc13RpcCallStatus7SuccessE"></span><span id="_CPPv2N6SilKit8Services3Rpc13RpcCallStatus7SuccessE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_rpc_1a3b48d16da133323a38bba98c33e6c45da505a83f220c02df2f85c3810cd9ceb38"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Success</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc13RpcCallStatus7SuccessE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Call was successful. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc13RpcCallStatus18ServerNotReachableE">
+<span id="_CPPv3N6SilKit8Services3Rpc13RpcCallStatus18ServerNotReachableE"></span><span id="_CPPv2N6SilKit8Services3Rpc13RpcCallStatus18ServerNotReachableE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_rpc_1a3b48d16da133323a38bba98c33e6c45dac14c3d09016f5187fcd7607bb993030f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ServerNotReachable</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc13RpcCallStatus18ServerNotReachableE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>No server matching the <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec"><span class="std std-ref">RpcSpec</span></a> was found. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc13RpcCallStatus14UndefinedErrorE">
+<span id="_CPPv3N6SilKit8Services3Rpc13RpcCallStatus14UndefinedErrorE"></span><span id="_CPPv2N6SilKit8Services3Rpc13RpcCallStatus14UndefinedErrorE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_rpc_1a3b48d16da133323a38bba98c33e6c45da98570a3d51c80b5961c408f204e48cd1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UndefinedError</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc13RpcCallStatus14UndefinedErrorE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>An unidentified error occured. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc13RpcCallStatus19InternalServerErrorE">
+<span id="_CPPv3N6SilKit8Services3Rpc13RpcCallStatus19InternalServerErrorE"></span><span id="_CPPv2N6SilKit8Services3Rpc13RpcCallStatus19InternalServerErrorE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_rpc_1a3b48d16da133323a38bba98c33e6c45daecbf01325f1c744e9d7bb586ac2eb5ed"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">InternalServerError</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc13RpcCallStatus19InternalServerErrorE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The Call lead to an internal RpcServer error. This might happen if no CallHandler was specified for the RpcServer. </p>
+</dd></dl>
+
 </dd></dl>
 
 </section>

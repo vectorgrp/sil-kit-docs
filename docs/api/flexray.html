@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FlexRay Service API &mdash; Vector SIL Kit 4.0.13 documentation</title>
+  <title>FlexRay Service API &mdash; Vector SIL Kit 4.0.14 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.13
+                4.0.14
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -131,7 +131,7 @@
 <p>The FlexRay Service API provides an FlexRay bus abstraction through the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayControllerE" title="SilKit::Services::Flexray::IFlexrayController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IFlexrayController</span></code></a> interface.
 A FlexRay controller is created by calling <a class="reference internal" href="participant.html#_CPPv4N6SilKit12IParticipant23CreateFlexrayControllerERKNSt6stringERKNSt6stringE" title="SilKit::IParticipant::CreateFlexrayController"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateFlexrayController</span></code></a> given a controller name and network
 name:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">flexrayController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateFlexrayController</span><span class="p">(</span><span class="s">&quot;FlexRay1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PowerTrain1&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">flexrayController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateFlexrayController</span><span class="p">(</span><span class="s">&quot;FlexRay1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PowerTrain1&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>FlexRay controllers will only communicate within the same network.</p>
@@ -156,27 +156,27 @@ manually at runtime. TxBuffers are used to initiate a transmission from one Flex
 <p>The following example configures a FlexRay controller with two <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray21FlexrayTxBufferConfigE" title="SilKit::Services::Flexray::FlexrayTxBufferConfig"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayTxBufferConfig</span></code></a> instances specifying two
 <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray17FlexrayFrameEventE" title="SilKit::Services::Flexray::FlexrayFrameEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayFrameEvent</span></code></a> instances, which will be sent during simulation. The <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray24FlexrayClusterParametersE" title="SilKit::Services::Flexray::FlexrayClusterParameters"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayClusterParameters</span></code></a> and the
 <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray21FlexrayNodeParametersE" title="SilKit::Services::Flexray::FlexrayNodeParameters"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayNodeParameters</span></code></a> are assumed to be set in the participant configuration:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">FlexrayTxBufferConfig</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bufferConfigs</span><span class="p">;</span><span class="w"></span>
-<span class="n">FlexrayTxBufferConfig</span><span class="w"> </span><span class="n">txConfig</span><span class="p">;</span><span class="w"></span>
-<span class="n">txConfig</span><span class="p">.</span><span class="n">channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FlexrayChannel</span><span class="o">::</span><span class="n">AB</span><span class="p">;</span><span class="w"></span>
-<span class="n">txConfig</span><span class="p">.</span><span class="n">slotId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
-<span class="n">txConfig</span><span class="p">.</span><span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="n">txConfig</span><span class="p">.</span><span class="n">repetition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="n">txConfig</span><span class="p">.</span><span class="n">hasPayloadPreambleIndicator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
-<span class="n">txConfig</span><span class="p">.</span><span class="n">headerCrc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
-<span class="n">txConfig</span><span class="p">.</span><span class="n">transmissionMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FlexrayTransmissionMode</span><span class="o">::</span><span class="n">SingleShot</span><span class="p">;</span><span class="w"></span>
-<span class="n">bufferConfigs</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">txConfig</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">FlexrayTxBufferConfig</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bufferConfigs</span><span class="p">;</span>
+<span class="n">FlexrayTxBufferConfig</span><span class="w"> </span><span class="n">txConfig</span><span class="p">;</span>
+<span class="n">txConfig</span><span class="p">.</span><span class="n">channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FlexrayChannel</span><span class="o">::</span><span class="n">AB</span><span class="p">;</span>
+<span class="n">txConfig</span><span class="p">.</span><span class="n">slotId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="n">txConfig</span><span class="p">.</span><span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="n">txConfig</span><span class="p">.</span><span class="n">repetition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="n">txConfig</span><span class="p">.</span><span class="n">hasPayloadPreambleIndicator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="n">txConfig</span><span class="p">.</span><span class="n">headerCrc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="n">txConfig</span><span class="p">.</span><span class="n">transmissionMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FlexrayTransmissionMode</span><span class="o">::</span><span class="n">SingleShot</span><span class="p">;</span>
+<span class="n">bufferConfigs</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">txConfig</span><span class="p">);</span>
 
-<span class="n">txConfig</span><span class="p">.</span><span class="n">channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FlexrayChannel</span><span class="o">::</span><span class="n">A</span><span class="p">;</span><span class="w"></span>
-<span class="n">txConfig</span><span class="p">.</span><span class="n">slotId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"></span>
-<span class="n">bufferConfigs</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">txConfig</span><span class="p">);</span><span class="w"></span>
+<span class="n">txConfig</span><span class="p">.</span><span class="n">channels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FlexrayChannel</span><span class="o">::</span><span class="n">A</span><span class="p">;</span>
+<span class="n">txConfig</span><span class="p">.</span><span class="n">slotId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="n">bufferConfigs</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">txConfig</span><span class="p">);</span>
 
-<span class="n">FlexrayControllerConfig</span><span class="w"> </span><span class="n">controllerConfig</span><span class="p">;</span><span class="w"></span>
-<span class="n">controllerConfig</span><span class="p">.</span><span class="n">bufferConfigs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bufferConfigs</span><span class="p">;</span><span class="w"></span>
-<span class="n">controllerConfig</span><span class="p">.</span><span class="n">clusterParams</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participantConfig</span><span class="p">.</span><span class="n">flexrayControllers</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">clusterParameters</span><span class="p">;</span><span class="w"></span>
-<span class="n">controllerConfig</span><span class="p">.</span><span class="n">nodeParams</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participantConfig</span><span class="p">.</span><span class="n">flexrayControllers</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">nodeParameters</span><span class="p">;</span><span class="w"></span>
+<span class="n">FlexrayControllerConfig</span><span class="w"> </span><span class="n">controllerConfig</span><span class="p">;</span>
+<span class="n">controllerConfig</span><span class="p">.</span><span class="n">bufferConfigs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bufferConfigs</span><span class="p">;</span>
+<span class="n">controllerConfig</span><span class="p">.</span><span class="n">clusterParams</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participantConfig</span><span class="p">.</span><span class="n">flexrayControllers</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">clusterParameters</span><span class="p">;</span>
+<span class="n">controllerConfig</span><span class="p">.</span><span class="n">nodeParams</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participantConfig</span><span class="p">.</span><span class="n">flexrayControllers</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">nodeParameters</span><span class="p">;</span>
 
-<span class="n">flexrayController</span><span class="o">-&gt;</span><span class="n">Configure</span><span class="p">(</span><span class="n">controllerConfig</span><span class="p">);</span><span class="w"></span>
+<span class="n">flexrayController</span><span class="o">-&gt;</span><span class="n">Configure</span><span class="p">(</span><span class="n">controllerConfig</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Note that <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController9ConfigureERK23FlexrayControllerConfig" title="SilKit::Services::Flexray::IFlexrayController::Configure"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Configure()</span></code></a> should be called in the CommunicationReadyHandler of the LifecycleService.</p>
@@ -187,28 +187,28 @@ manually at runtime. TxBuffers are used to initiate a transmission from one Flex
 The two participants responsible for startup are also called coldstart nodes. The “leading” coldstart node
 (normally the first node that is in <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray15FlexrayPocState5ReadyE" title="SilKit::Services::Flexray::FlexrayPocState::Ready"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">FlexrayPocState::Ready</span></code></a>) has to send the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController6WakeupEv" title="SilKit::Services::Flexray::IFlexrayController::Wakeup"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Wakeup()</span></code></a> command to the other
 “following” coldstart node(s):</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">leadingColdStartNode</span><span class="o">-&gt;</span><span class="n">Wakeup</span><span class="p">();</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">leadingColdStartNode</span><span class="o">-&gt;</span><span class="n">Wakeup</span><span class="p">();</span>
 <span class="c1">// The leading controllers FlexrayPocState will change from</span>
 <span class="c1">// Ready to Wakeup triggering the PocStatusHandler.</span>
 </pre></div>
 </div>
 <p>The response of the following coldstart node must be the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController14AllowColdstartEv" title="SilKit::Services::Flexray::IFlexrayController::AllowColdstart"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AllowColdstart()</span></code></a> and <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController3RunEv" title="SilKit::Services::Flexray::IFlexrayController::Run"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Run()</span></code></a> command that can be send in the
 WakeupHandler callback:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">WakeupHandler</span><span class="p">(</span><span class="n">IFlexrayController</span><span class="o">*</span><span class="w"> </span><span class="n">controller</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FlexraySymbolEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">symbol</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">followingColdStartNode</span><span class="o">-&gt;</span><span class="n">AllowColdstart</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">followingColdStartNode</span><span class="o">-&gt;</span><span class="n">Run</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">WakeupHandler</span><span class="p">(</span><span class="n">IFlexrayController</span><span class="o">*</span><span class="w"> </span><span class="n">controller</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FlexraySymbolEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">symbol</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">followingColdStartNode</span><span class="o">-&gt;</span><span class="n">AllowColdstart</span><span class="p">();</span>
+<span class="w">    </span><span class="n">followingColdStartNode</span><span class="o">-&gt;</span><span class="n">Run</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Finally, the leading coldstart node has also to respond by sending the same commands after
 the FlexrayPocState state changed from <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray15FlexrayPocState6WakeupE" title="SilKit::Services::Flexray::FlexrayPocState::Wakeup"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">FlexrayPocState::Wakeup</span></code></a> to <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray15FlexrayPocState5ReadyE" title="SilKit::Services::Flexray::FlexrayPocState::Ready"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">FlexrayPocState::Ready</span></code></a>:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">oldState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">FlexrayPocState</span><span class="o">::</span><span class="n">Wakeup</span><span class="w"></span>
-<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">newState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">FlexrayPocState</span><span class="o">::</span><span class="n">Ready</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">leadingColdStartNode</span><span class="o">-&gt;</span><span class="n">AllowColdstart</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="n">leadingColdStartNode</span><span class="o">-&gt;</span><span class="n">Run</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">oldState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">FlexrayPocState</span><span class="o">::</span><span class="n">Wakeup</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">newState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">FlexrayPocState</span><span class="o">::</span><span class="n">Ready</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">leadingColdStartNode</span><span class="o">-&gt;</span><span class="n">AllowColdstart</span><span class="p">();</span>
+<span class="w">    </span><span class="n">leadingColdStartNode</span><span class="o">-&gt;</span><span class="n">Run</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Note that the leading coldstart node must send these commands in the next FlexRay cycle and not
@@ -219,24 +219,24 @@ directly in a handler like the PocStatusHandler.</p>
 <h3><a class="toc-backref" href="#id5">Tx Buffer Update (Sending FlexRay Messages)</a><a class="headerlink" href="#tx-buffer-update-sending-flexray-messages" title="Permalink to this heading"></a></h3>
 <p>In each FlexRay cycle, data can be sent by using the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController14UpdateTxBufferERK21FlexrayTxBufferUpdate" title="SilKit::Services::Flexray::IFlexrayController::UpdateTxBuffer"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">UpdateTxBuffer()</span></code></a>. For this, an existing txBufferIndex,
 a payload and the payloadDataValid flag must be provided:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">payloadString</span><span class="p">{</span><span class="s">&quot;FlexRay message&quot;</span><span class="p">};</span><span class="w"></span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">payloadString</span><span class="p">{</span><span class="s">&quot;FlexRay message&quot;</span><span class="p">};</span>
 
-<span class="n">FlexrayTxBufferUpdate</span><span class="w"> </span><span class="n">update</span><span class="p">;</span><span class="w"></span>
-<span class="n">update</span><span class="p">.</span><span class="n">payload</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">payloadString</span><span class="p">.</span><span class="n">size</span><span class="p">());</span><span class="w"></span>
-<span class="n">update</span><span class="p">.</span><span class="n">payloadDataValid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"></span>
-<span class="n">update</span><span class="p">.</span><span class="n">txBufferIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">FlexrayTxBufferUpdate</span><span class="w"> </span><span class="n">update</span><span class="p">;</span>
+<span class="n">update</span><span class="p">.</span><span class="n">payload</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">payloadString</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+<span class="n">update</span><span class="p">.</span><span class="n">payloadDataValid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="n">update</span><span class="p">.</span><span class="n">txBufferIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
-<span class="n">std</span><span class="o">::</span><span class="n">copy</span><span class="p">(</span><span class="n">payloadString</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">payloadString</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">update</span><span class="p">.</span><span class="n">payload</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span><span class="w"></span>
+<span class="n">std</span><span class="o">::</span><span class="n">copy</span><span class="p">(</span><span class="n">payloadString</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">payloadString</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">update</span><span class="p">.</span><span class="n">payload</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
 
-<span class="n">controller</span><span class="o">-&gt;</span><span class="n">UpdateTxBuffer</span><span class="p">(</span><span class="n">update</span><span class="p">);</span><span class="w"></span>
+<span class="n">controller</span><span class="o">-&gt;</span><span class="n">UpdateTxBuffer</span><span class="p">(</span><span class="n">update</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To be notified for the success or failure of the transmission, a FrameTransmitHandler should
 be added:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Add FrameTransmitHandler to receive FlexRay transmit events from other FlexRay controllers.</span>
-<span class="k">auto</span><span class="w"> </span><span class="n">frameTransmitHandler</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">    </span><span class="p">[](</span><span class="n">IFlexrayController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FlexrayFrameTransmitEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ack</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
-<span class="n">flexrayController</span><span class="o">-&gt;</span><span class="n">AddFrameTransmitHandler</span><span class="p">(</span><span class="n">frameTransmitHandler</span><span class="p">);</span><span class="w"></span>
+<span class="k">auto</span><span class="w"> </span><span class="n">frameTransmitHandler</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="p">[](</span><span class="n">IFlexrayController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FlexrayFrameTransmitEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ack</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span>
+<span class="n">flexrayController</span><span class="o">-&gt;</span><span class="n">AddFrameTransmitHandler</span><span class="p">(</span><span class="n">frameTransmitHandler</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
@@ -245,9 +245,9 @@ be added:</p>
 <p>To receive data from other FlexRay controller, a <code class="docutils literal notranslate"><span class="pre">FrameHandler</span></code> must be added via <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController15AddFrameHandlerE12FrameHandler" title="SilKit::Services::Flexray::IFlexrayController::AddFrameHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddFrameHandler()</span></code></a>, which is called
 by the FlexRay controller whenever a <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray17FlexrayFrameEventE" title="SilKit::Services::Flexray::FlexrayFrameEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayFrameEvent</span></code></a> is received:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Add FrameHandler to receive FlexRay messages from other FlexRay controller.</span>
-<span class="k">auto</span><span class="w"> </span><span class="n">frameHandler</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">    </span><span class="p">[](</span><span class="n">IFlexrayController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FlexrayFrameEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
-<span class="n">flexrayController</span><span class="o">-&gt;</span><span class="n">AddFrameHandler</span><span class="p">(</span><span class="n">frameHandler</span><span class="p">);</span><span class="w"></span>
+<span class="k">auto</span><span class="w"> </span><span class="n">frameHandler</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="p">[](</span><span class="n">IFlexrayController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FlexrayFrameEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span>
+<span class="n">flexrayController</span><span class="o">-&gt;</span><span class="n">AddFrameHandler</span><span class="p">(</span><span class="n">frameHandler</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="admonition-note admonition">
@@ -262,38 +262,38 @@ and the <code class="docutils literal notranslate"><span class="pre">SymbolTrans
 modelled by the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray21FlexrayPocStatusEventE" title="SilKit::Services::Flexray::FlexrayPocStatusEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayPocStatusEvent</span></code></a> structure. Updates to the controller’s POC status can be monitored using
 handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController19AddPocStatusHandlerE16PocStatusHandler" title="SilKit::Services::Flexray::IFlexrayController::AddPocStatusHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddPocStatusHandler()</span></code></a>:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Add a FlexrayPocStatusEvent handler, and handle status changes</span>
-<span class="n">flexrayController</span><span class="o">-&gt;</span><span class="n">AddPocStatusHandler</span><span class="p">([</span><span class="o">&amp;</span><span class="n">oldPoc</span><span class="p">](</span><span class="n">IFlexrayController</span><span class="o">*</span><span class="w"> </span><span class="n">ctrl</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FlexrayPocStatusEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">poc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="n">flexrayController</span><span class="o">-&gt;</span><span class="n">AddPocStatusHandler</span><span class="p">([</span><span class="o">&amp;</span><span class="n">oldPoc</span><span class="p">](</span><span class="n">IFlexrayController</span><span class="o">*</span><span class="w"> </span><span class="n">ctrl</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FlexrayPocStatusEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">poc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// we might get called even if poc.state was not changed</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">poc</span><span class="p">.</span><span class="n">state</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">oldPoc</span><span class="p">.</span><span class="n">state</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">poc</span><span class="p">.</span><span class="n">state</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">FlexrayPocState</span><span class="o">::</span><span class="no">Halt</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">poc</span><span class="p">.</span><span class="n">state</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">oldPoc</span><span class="p">.</span><span class="n">state</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">poc</span><span class="p">.</span><span class="n">state</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">FlexrayPocState</span><span class="o">::</span><span class="no">Halt</span><span class="p">:</span>
 <span class="w">            </span><span class="c1">//handle halt</span>
-<span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">FlexrayPocState</span><span class="o">::</span><span class="no">Config</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">FlexrayPocState</span><span class="o">::</span><span class="no">Config</span><span class="p">:</span>
 <span class="w">            </span><span class="c1">// etc.</span>
-<span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
 <span class="w">        </span><span class="c1">//case FlexrayPocState::...</span>
 <span class="w">            </span><span class="c1">//...</span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">poc</span><span class="p">.</span><span class="n">freeze</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">poc</span><span class="p">.</span><span class="n">freeze</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
 <span class="w">      </span><span class="c1">//handle freeze</span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">poc</span><span class="p">.</span><span class="n">chiHaltRequest</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">poc</span><span class="p">.</span><span class="n">chiHaltRequest</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
 <span class="w">      </span><span class="c1">//deferred halt was requested ...</span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="c1">//if(poc....) handle other status changes</span>
 
 <span class="w">    </span><span class="c1">// retain state for next handler invocation</span>
-<span class="w">    </span><span class="n">oldPoc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">poc</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="n">oldPoc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">poc</span>
+<span class="p">});</span>
 </pre></div>
 </div>
 <p>The handler will be invoked whenever the controller’s POC status is updated.</p>
