@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Demos &mdash; Vector SIL Kit 4.0.14 documentation</title>
+  <title>Demos &mdash; Vector SIL Kit 4.0.15 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.14
+                4.0.15
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -138,6 +138,7 @@ in the <code class="docutils literal notranslate"><span class="pre">SilKit-Demos
 </tr>
 <tr class="row-odd"><th class="stub"><p>Requirements</p></th>
 <td><ul class="simple">
+<li><p><a class="reference internal" href="utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
 <li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
 <li><p><a class="reference internal" href="utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
 <li><p>SIL Kit Network Simulator (optional)</p></li>
@@ -167,7 +168,10 @@ build/Release/SilKitDemoCan Demos/Can/DemoCan.silkit.yaml CanWriter</pre>
 </tr>
 <tr class="row-even"><th class="stub"><p>System Example</p></th>
 <td><p>For synchronized execution:</p>
-<pre class="literal-block"># System Monitor (optional):
+<pre class="literal-block"># Registry (if not already running):
+build/Release/sil-kit-registry
+
+# System Monitor (optional):
 build/Release/sil-kit-monitor
 
 # CAN Reader:
@@ -179,7 +183,10 @@ build/Release/SilKitDemoCan Demos/Can/DemoCan.silkit.yaml CanWriter
 # System Controller:
 build/Release/sil-kit-system-controller CanReader CanWriter</pre>
 <p>For unsynchronized execution:</p>
-<pre class="literal-block"># CAN Reader:
+<pre class="literal-block"># Registry (if not already running):
+build/Release/sil-kit-registry
+
+# CAN Reader:
 build/Release/SilKitDemoCan Demos/Can/DemoCan.silkit.yaml CanReader --async
 
 # CAN Writer:
@@ -212,6 +219,7 @@ build/Release/SilKitDemoCan Demos/Can/DemoCan.silkit.yaml CanWriter --async</pre
 </tr>
 <tr class="row-odd"><th class="stub"><p>Requirements</p></th>
 <td><ul class="simple">
+<li><p><a class="reference internal" href="utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
 <li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
 <li><p><a class="reference internal" href="utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
 <li><p>SIL Kit Network Simulator (optional)</p></li>
@@ -241,7 +249,10 @@ build/Release/SilKitDemoEthernet Demos/Ethernet/DemoEthernet.silkit.yaml Etherne
 </tr>
 <tr class="row-even"><th class="stub"><p>System Example</p></th>
 <td><p>For synchronized execution:</p>
-<pre class="literal-block"># System Monitor (optional):
+<pre class="literal-block"># Registry (if not already running):
+build/Release/sil-kit-registry
+
+# System Monitor (optional):
 build/Release/sil-kit-monitor
 
 # Ethernet Reader:
@@ -253,7 +264,10 @@ build/Release/SilKitDemoEthernet Demos/Ethernet/DemoEthernet.silkit.yaml Etherne
 # System Controller:
 build/Release/sil-kit-system-controller EthernetReader EthernetWriter</pre>
 <p>For unsynchronized execution:</p>
-<pre class="literal-block"># Ethernet Reader:
+<pre class="literal-block"># Registry (if not already running):
+build/Release/sil-kit-registry
+
+# Ethernet Reader:
 build/Release/SilKitDemoEthernet Demos/Ethernet/DemoEthernet.silkit.yaml EthernetReader --async
 
 # Ethernet Writer:
@@ -286,6 +300,7 @@ build/Release/SilKitDemoEthernet Demos/Ethernet/DemoEthernet.silkit.yaml Etherne
 </tr>
 <tr class="row-odd"><th class="stub"><p>Requirements</p></th>
 <td><ul class="simple">
+<li><p><a class="reference internal" href="utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
 <li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
 <li><p><a class="reference internal" href="utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
 <li><p>SIL Kit Network Simulator (optional)</p></li>
@@ -314,7 +329,11 @@ build/Release/SilKitDemoLin Demos/Lin/DemoLin.silkit.yaml LinMaster</pre>
 </td>
 </tr>
 <tr class="row-even"><th class="stub"><p>System Example</p></th>
-<td><pre class="literal-block"># System Monitor (optional):
+<td><p>For synchronized execution:</p>
+<pre class="literal-block"># Registry (if not already running):
+build/Release/sil-kit-registry
+
+# System Monitor (optional):
 build/Release/sil-kit-monitor
 
 # LIN Master:
@@ -325,6 +344,15 @@ build/Release/SilKitDemoLin Demos/Lin/DemoLin.silkit.yaml LinSlave
 
 # System Controller:
 build/Release/sil-kit-system-controller LinSlave LinMaster</pre>
+<p>For unsynchronized execution:</p>
+<pre class="literal-block"># Registry (if not already running):
+build/Release/sil-kit-registry
+
+# LIN Master:
+build/Release/SilKitDemoLin Demos/Lin/DemoLin.silkit.yaml LinMaster --async
+
+# LIN Slave:
+build/Release/SilKitDemoLin Demos/Lin/DemoLin.silkit.yaml LinSlave --async</pre>
 </td>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Notes</p></th>
@@ -353,6 +381,7 @@ build/Release/sil-kit-system-controller LinSlave LinMaster</pre>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Requirements</p></th>
 <td><ul class="simple">
+<li><p><a class="reference internal" href="utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
 <li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></p></li>
 <li><p>SIL Kit Network Simulator (mandatory)</p></li>
 <li><p><a class="reference internal" href="utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
@@ -378,7 +407,10 @@ build/Release/SilKitDemoFlexray Demos/FlexRayDemoFlexray.silkit.yaml Node0</pre>
 </td>
 </tr>
 <tr class="row-even"><th class="stub"><p>System Example</p></th>
-<td><pre class="literal-block"># Network simulator (assumed to be in PATH, necessary):
+<td><pre class="literal-block"># Registry (if not already running):
+build/Release/sil-kit-registry
+
+# Network simulator (assumed to be in PATH, necessary):
 sil-kit-network-simulator Demos/FlexRay/NetworkSimulatorConfig.yaml
 
 # System Monitor (optional):
@@ -417,6 +449,7 @@ It takes somewhat between 50 and 100 ms until the first FlexRay messages are tra
 </tr>
 <tr class="row-odd"><th class="stub"><p>Requirements</p></th>
 <td><ul class="simple">
+<li><p><a class="reference internal" href="utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
 <li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
 <li><p><a class="reference internal" href="utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
 </ul>
@@ -444,7 +477,10 @@ build/Release/SilKitDemoPubSub Demos/PubSub/DemoPubSub.silkit.yaml Publisher</pr
 </td>
 </tr>
 <tr class="row-even"><th class="stub"><p>System Example</p></th>
-<td><pre class="literal-block"># System Monitor (optional):
+<td><pre class="literal-block"># Registry (if not already running):
+build/Release/sil-kit-registry
+
+# System Monitor (optional):
 build/Release/sil-kit-monitor
 
 # Publisher:
@@ -479,6 +515,7 @@ build/Release/sil-kit-system-controller Publisher Subscriber</pre>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Requirements</p></th>
 <td><ul class="simple">
+<li><p><a class="reference internal" href="utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
 <li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
 <li><p><a class="reference internal" href="utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
 </ul>
@@ -506,7 +543,10 @@ build/Release/SilKitDemoRpc Demos/Rpc/DemoRpc.silkit.yaml Server</pre>
 </td>
 </tr>
 <tr class="row-even"><th class="stub"><p>System Example</p></th>
-<td><pre class="literal-block"># System Monitor (optional):
+<td><pre class="literal-block"># Registry (if not already running):
+build/Release/sil-kit-registry
+
+# System Monitor (optional):
 build/Release/sil-kit-monitor
 
 # Server:
