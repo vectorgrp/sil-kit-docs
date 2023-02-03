@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Middleware Configuration &mdash; Vector SIL Kit 4.0.15 documentation</title>
+  <title>Middleware Configuration &mdash; Vector SIL Kit 4.0.16 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.15
+                4.0.16
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -156,6 +156,13 @@ acknowledges, at the cost of increased syscall overhead.</p></td>
 </tr>
 <tr class="row-odd"><td><p>TcpReceiveBufferSize</p></td>
 <td><p>Sets the TCP receive buffer size. Be careful when changing the OS defaults!</p></td>
+</tr>
+<tr class="row-even"><td><p>AcceptorUris</p></td>
+<td><p>Overwrite the default acceptor URIs of the participant. The configuration
+field exists to support more complicated network setups, where the
+listening ports of the participant must have a known, fixed port number
+and address.
+It is <em>not</em> required to set this field under normal circumstances.</p></td>
 </tr>
 </tbody>
 </table>
