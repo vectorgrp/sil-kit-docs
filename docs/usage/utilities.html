@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Utilities &mdash; Vector SIL Kit 4.0.17 documentation</title>
+  <title>Utilities &mdash; Vector SIL Kit 4.0.18 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.17
+                4.0.18
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -137,6 +137,9 @@ of the SIL Kit are free to implement their own system and state handling.</p>
 <dt><kbd><span class="option">-g</span>, <span class="option">--generate-configuration <var>&lt;path&gt;</var></span></kbd></dt>
 <dd><p>Path and filename of a participant configuration file to generate containing the URI the registry is using.</p>
 </dd>
+<dt><kbd><span class="option">-d</span>, <span class="option">--dashboard-uri <var>&lt;dashboard-uri&gt;</var></span></kbd></dt>
+<dd><p>The <a class="reference external" href="http://">http://</a> URI the data should be sent to. Defaults to ‘<a class="reference external" href="http://localhost:8082">http://localhost:8082</a>’.</p>
+</dd>
 </dl>
 </td>
 </tr>
@@ -157,6 +160,7 @@ This port is used in the generated configuration file (<code class="docutils lit
 <li><p>The registry will run if either binding to the TCP socket, or the Domain socket, or both succeeds.
 If only TCP or Domain sockets are used, because one of the bindings failed for some reason, a warning will be logged.
 It will exit with an error if neither is available.</p></li>
+<li><p>The SIL Kit Dashboard is experimental and might be changed or removed in future versions of the SIL Kit.</p></li>
 </ul>
 </td>
 </tr>

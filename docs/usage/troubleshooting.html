@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Troubleshooting &mdash; Vector SIL Kit 4.0.17 documentation</title>
+  <title>Troubleshooting &mdash; Vector SIL Kit 4.0.18 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -20,7 +20,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Interoperability" href="interoperability.html" />
+    <link rel="next" title="Changelog" href="../CHANGELOG.html" />
     <link rel="prev" title="Utilities" href="utilities.html" /> 
 </head>
 
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.17
+                4.0.18
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -51,7 +51,27 @@
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="interoperability.html">Interoperability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connectivity">Connectivity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#connectivity-issues-with-registry">Connectivity issues with registry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connectivity-issues-between-participants">Connectivity issues between participants</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lifecycle">Lifecycle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#coordinated-required-participants">Coordinated required participants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#attempt-to-instantiate-a-service-multiple-times">Attempt to instantiate a service multiple times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#required-participant-names-are-already-set">Required participant names are already set</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#interoperability">Interoperability</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#duplicate-participant-names">Duplicate Participant Names</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scenario-a">Scenario A</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scenario-b-mixed-versions">Scenario B (Mixed Versions)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scenario-c-mixed-versions">Scenario C (Mixed Versions)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scenario-d">Scenario D</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
@@ -84,12 +104,229 @@
            <div itemprop="articleBody">
              
   <section id="troubleshooting">
-<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h1>
-<div class="toctree-wrapper compound">
+<h1><a class="toc-backref" href="#id6">Troubleshooting</a><a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#troubleshooting" id="id6">Troubleshooting</a></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="interoperability.html">Interoperability</a></li>
+<li><p><a class="reference internal" href="#connectivity" id="id7">Connectivity</a></p>
+<ul>
+<li><p><a class="reference internal" href="#connectivity-issues-with-registry" id="id8">Connectivity issues with registry</a></p></li>
+<li><p><a class="reference internal" href="#connectivity-issues-between-participants" id="id9">Connectivity issues between participants</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#lifecycle" id="id10">Lifecycle</a></p>
+<ul>
+<li><p><a class="reference internal" href="#coordinated-required-participants" id="id11">Coordinated required participants</a></p></li>
+<li><p><a class="reference internal" href="#attempt-to-instantiate-a-service-multiple-times" id="id12">Attempt to instantiate a service multiple times</a></p></li>
+<li><p><a class="reference internal" href="#required-participant-names-are-already-set" id="id13">Required participant names are already set</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#interoperability" id="id14">Interoperability</a></p>
+<ul>
+<li><p><a class="reference internal" href="#duplicate-participant-names" id="id15">Duplicate Participant Names</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
+<p>This section provides trouble shooting information and answers to frequently asked questions about running
+SIL Kit simulations.</p>
+<section id="connectivity">
+<h2><a class="toc-backref" href="#id7">Connectivity</a><a class="headerlink" href="#connectivity" title="Permalink to this heading"></a></h2>
+<div class="contents local topic" id="id1">
+<ul class="simple">
+<li><p><a class="reference internal" href="#connectivity-issues-with-registry" id="id16">Connectivity issues with registry</a></p></li>
+<li><p><a class="reference internal" href="#connectivity-issues-between-participants" id="id17">Connectivity issues between participants</a></p></li>
+</ul>
+</div>
+<p>SIL Kit provides interoperability between participants and utilities from different released versions of SIL Kit.
+This section documents known issues and potentially misleading messages reported by SIL Kit participants in certain cases.</p>
+<section id="connectivity-issues-with-registry">
+<h3><a class="toc-backref" href="#id16">Connectivity issues with registry</a><a class="headerlink" href="#connectivity-issues-with-registry" title="Permalink to this heading"></a></h3>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-number">Listing 1 </span><span class="caption-text">Example error message</span><a class="headerlink" href="#id4" title="Permalink to this code"></a></div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[yyyy-mm-dd hh:mm:ss] [CanWriter] [error] Failed to connect to VAsio registry (number of attempts: 1)</span>
+<span class="go">[yyyy-mm-dd hh:mm:ss] [CanWriter] [info]    Make sure that the SIL Kit Registry is up and running and is listening on the following URIs: silkit://localhost:8500, local://&lt;PATH&gt;.silkit.</span>
+<span class="go">[yyyy-mm-dd hh:mm:ss] [CanWriter] [info]    If a registry is unable to open a listening socket it will only be reachable via local domain sockets, which depend on the working directory and the middleware configuration (&#39;enableDomainSockets&#39;).</span>
+<span class="go">[yyyy-mm-dd hh:mm:ss] [CanWriter] [info]    Make sure that the hostname can be resolved and is reachable.</span>
+<span class="go">[yyyy-mm-dd hh:mm:ss] [CanWriter] [info]    You can configure the SIL Kit Registry hostname and port via the SilKitConfig.</span>
+<span class="go">[yyyy-mm-dd hh:mm:ss] [CanWriter] [info]    The SIL Kit Registry executable can be found in your SIL Kit installation folder:</span>
+<span class="go">[yyyy-mm-dd hh:mm:ss] [CanWriter] [info]      INSTALL_DIR/bin/sil-kit-registry[.exe]</span>
+<span class="go">Something went wrong: ERROR: Failed to connect to SIL Kit Registry</span>
+</pre></div>
+</div>
+</div>
+<p>This error message is based on the fact, that your SIL Kit simulation participant was not able to connect to the <a class="reference internal" href="utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a> with the specified registryUri.
+A SIL Kit simulation needs a running <a class="reference internal" href="utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a> that will tell new simulation participants where to find other participants.
+For connecting to a simulation, a SIL Kit participant will use the registryUri specified in its
+<a class="reference internal" href="../api/participant.html#_CPPv4N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringE" title="SilKit::CreateParticipant"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateParticipant()</span></code></a> call or if specified, the registryUri provided in the Participant Configuration file.
+To find out where your participant is trying to connect to, refer to the printed error message. In this case, it is looked up by hostname <cite>localhost</cite> and TCP port <cite>8500</cite>, with a value of <cite>silkit://localhost:8500</cite> in the log output.</p>
+<p>The registry not being reachable for a participant might have two reasons: There is no registry running under the specified registryUri,
+or the registry is not reachable for this specific participant because of networking issues.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>By default a SIL Kit registry will bind to silkit://localhost:8500. If you want to reach a registry from somewhere where this localhost is not reachable (VM, WSL, Docker),
+you have to bind the SIL Kit registry to a publicly reachable URI, such as silkit://0.0.0.0:8501. Make sure that the chosen port is not conflicting to the one of an other SIL Kit registry instance.
+Also please note, that this opens a public listening port and might not be suitable for your work environment.
+Consult your system administrator when in doubt.</p>
+</div>
+<p>When starting a registry, you can provide a <cite>–listen-uri</cite> under which the registry will be reachable.
+Make sure that a <a class="reference internal" href="utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a> is running and that it binds to the address and port specified for your connecting participant.</p>
+<p>Often, issues within your network will lead to this error message. To verify, that you are not having networking issues, you can verify that
+your host running the SIL Kit participant is able to establish a TCP connection to the registry. One way of doing so, is to use the telnet utility:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># Use your ip (here 192.168.1.12) and port (here 8500) of the registry</span>
+<span class="n">telnet</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">1</span><span class="p">.</span><span class="n">12</span> <span class="n">8500</span>
+</pre></div>
+</div>
+<p>If telnet does not print that it established a connection, you are having networking issues.</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">Trying</span> <span class="p">&lt;</span><span class="n">ip</span> <span class="n">of</span> <span class="n">registry</span><span class="p">&gt;...</span>
+<span class="n">Connected</span> <span class="n">to</span> <span class="p">&lt;</span><span class="n">ip</span> <span class="n">of</span> <span class="n">registry</span><span class="p">&gt;.</span>
+<span class="n">Escape</span> <span class="n">character</span> <span class="n">is</span> <span class="s1">&#39;^]&#39;</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>In this case your network configuration prevents a connection to the registry.
+Refer to your network administrator for further assistance.
+Some potential issues might be firewalls, VM network configuration (if using a VM), NATs, Docker network configuration (if using Docker).</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>Telnet can be terminated with the key combination Ctrl+C.</p>
+</div>
+</section>
+<section id="connectivity-issues-between-participants">
+<h3><a class="toc-backref" href="#id17">Connectivity issues between participants</a><a class="headerlink" href="#connectivity-issues-between-participants" title="Permalink to this heading"></a></h3>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-number">Listing 2 </span><span class="caption-text">Example error message</span><a class="headerlink" href="#id5" title="Permalink to this code"></a></div>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">yyyy-mm-dd</span> <span class="n">hh</span><span class="p">:</span><span class="n">mm</span><span class="p">:</span><span class="n">ss</span><span class="p">]</span> <span class="no">[CanReader] [info]</span> <span class="n">Connected</span> <span class="n">to</span> <span class="n">registry</span> <span class="n">at</span> <span class="s1">&#39;tcp://192.168.1.12:8500&#39;</span> <span class="n">via</span> <span class="s1">&#39;tcp://192.168.1.12:8500&#39;</span> <span class="p">(</span><span class="n">silkit</span><span class="p">://</span><span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">1</span><span class="p">.</span><span class="n">12</span><span class="p">:</span><span class="n">8500</span><span class="p">)</span>
+<span class="p">[</span><span class="n">yyyy-mm-dd</span> <span class="n">hh</span><span class="p">:</span><span class="n">mm</span><span class="p">:</span><span class="n">ss</span><span class="p">]</span> <span class="no">[CanReader] [error]</span> <span class="n">Timeout</span> <span class="n">during</span> <span class="n">connection</span> <span class="n">setup</span><span class="p">.</span> <span class="n">The</span> <span class="n">participant</span> <span class="n">was</span> <span class="n">able</span> <span class="n">to</span> <span class="n">connect</span> <span class="n">to</span> <span class="n">the</span> <span class="n">registry</span><span class="p">,</span> <span class="n">but</span> <span class="n">not</span> <span class="n">to</span> <span class="n">all</span> <span class="n">participants</span><span class="p">.</span>
+   <span class="n">There</span> <span class="n">might</span> <span class="n">be</span> <span class="n">network</span> <span class="n">issues</span><span class="p">.</span> <span class="n">Check</span> <span class="n">network</span> <span class="n">settings</span> <span class="n">and</span> <span class="n">firewall</span> <span class="n">configuration</span><span class="p">.</span> <span class="n">Was</span> <span class="n">not</span> <span class="n">able</span> <span class="n">to</span> <span class="n">connect</span> <span class="n">to</span> <span class="n">the</span> <span class="n">following</span> <span class="n">participant</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+   <span class="n">CanWriter</span><span class="p">(</span><span class="n">local</span><span class="p">://</span><span class="n">D</span><span class="p">:\</span><span class="n">TEMP</span><span class="p">\\</span><span class="n">CanWriterd81c9d2684952765</span><span class="p">.</span><span class="n">silkit</span><span class="p">,</span> <span class="n">tcp</span><span class="p">://</span><span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">1</span><span class="p">.</span><span class="n">12</span><span class="p">:</span><span class="n">52125</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>When a SIL Kit participant joins a simulation, it first connects to the SIL Kit registry (<a class="reference internal" href="utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a>), to be informed of the other simulation participants and how they can be reached.
+This error message is shown if this second step of a simulation setup fails. It occurs when the peer to peer connection between the observed participant and one or more other participants was not possible.
+Usually, this problem occurs when a network configuration does not allow for said connections. Check your network setup and firewall configuration.</p>
+</section>
+</section>
+<section id="lifecycle">
+<h2><a class="toc-backref" href="#id10">Lifecycle</a><a class="headerlink" href="#lifecycle" title="Permalink to this heading"></a></h2>
+<div class="contents local topic" id="id2">
+<ul class="simple">
+<li><p><a class="reference internal" href="#coordinated-required-participants" id="id18">Coordinated required participants</a></p></li>
+<li><p><a class="reference internal" href="#attempt-to-instantiate-a-service-multiple-times" id="id19">Attempt to instantiate a service multiple times</a></p></li>
+<li><p><a class="reference internal" href="#required-participant-names-are-already-set" id="id20">Required participant names are already set</a></p></li>
+</ul>
+</div>
+<p>SIL Kit provides a lifecycle service and time synchronization service, that allow to coordinate simulation execution between participants.</p>
+<section id="coordinated-required-participants">
+<h3><a class="toc-backref" href="#id18">Coordinated required participants</a><a class="headerlink" href="#coordinated-required-participants" title="Permalink to this heading"></a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">This participant is in OperationMode::Coordinated but it is not part of the set of &quot;required&quot; participants declared to the system controller.</span>
+</pre></div>
+</div>
+<p>If participants of a SIL Kit simulation want to start the simulation together as soon as all necessary participants have joined the simulation,
+these SIL Kit participants specify that their LifecycleService is operated in coordinated mode.</p>
+<p>When executing such a SIL Kit Simulation, it is important to tell the SIL Kit simulation which participants are considered necessary
+for the coordinated start. You do this by calling sil-kit-system-controller with a whitespace separated list of
+participants that are necessary to start the simulation. These participants are called “required” in SIL Kit terminology.</p>
+<p>For example:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># mark participant1, participant2 and participant3 as required</span>
+<span class="n">sil-kit-system-controller</span> <span class="n">participant1</span> <span class="n">participant2</span> <span class="n">participant3</span>
+</pre></div>
+</div>
+</section>
+<section id="attempt-to-instantiate-a-service-multiple-times">
+<h3><a class="toc-backref" href="#id19">Attempt to instantiate a service multiple times</a><a class="headerlink" href="#attempt-to-instantiate-a-service-multiple-times" title="Permalink to this heading"></a></h3>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">Tried</span> <span class="n">to</span> <span class="n">instantiate</span> <span class="n">TimeSyncService</span> <span class="n">multiple</span> <span class="n">times</span>
+<span class="n">Tried</span> <span class="n">to</span> <span class="n">instantiate</span> <span class="n">LifecycleService</span> <span class="n">multiple</span> <span class="n">times</span>
+<span class="n">Tried</span> <span class="n">to</span> <span class="n">instantiate</span> <span class="n">SystemMonitor</span> <span class="n">multiple</span> <span class="n">times</span>
+</pre></div>
+</div>
+<p>Some services within SIL Kit can not be instantiated multiple times on the same simulation partcipant.
+If a user tries to instantiate these services a second time, an exception with the error message <cite>Tried to instantiate service multiple times</cite> is thrown.
+These semantics mirror the underlying implementation. No implicit caching of the service instances is performed.
+Since a participant can only have one lifecycle status, having multiple lifecycle services or the expectation to instantiate multiple lifecycle services are most likely a misunderstanding of the SIL Kit APIs.
+If you run into this issue, because you want to access these services from many different points of you code, think about establishing a singleton pattern in your code.</p>
+</section>
+<section id="required-participant-names-are-already-set">
+<h3><a class="toc-backref" href="#id20">Required participant names are already set</a><a class="headerlink" href="#required-participant-names-are-already-set" title="Permalink to this heading"></a></h3>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">Required</span> <span class="n">participant</span> <span class="n">names</span> <span class="n">are</span> <span class="n">already</span> <span class="n">set</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>For starting a coordinated simulation, in which all participants start the simulation at the same time, it is necessary that a participant tells the simulation which participants are required for this start.
+Usually the <a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> is used to set these required participants, but the WorkflowConfiguration can also be used to set these participants through the API.
+Since the behavior of the simulation would be undefined if multiple different sets of required participants are specified, this exception occurs.
+Make sure that only one sil-kit-system-controller exists within the simulation or that only one participant sets the WorkflowConfiguration.</p>
+</section>
+</section>
+<section id="interoperability">
+<h2><a class="toc-backref" href="#id14">Interoperability</a><a class="headerlink" href="#interoperability" title="Permalink to this heading"></a></h2>
+<div class="contents local topic" id="id3">
+<ul class="simple">
+<li><p><a class="reference internal" href="#duplicate-participant-names" id="id21">Duplicate Participant Names</a></p></li>
+</ul>
+</div>
+<p>SIL Kit provides interoperability between participants and utilities from different released versions of SIL Kit.
+This section documents known issues and potentially misleading messages reported by SIL Kit participants in certain cases.</p>
+<section id="duplicate-participant-names">
+<h3><a class="toc-backref" href="#id21">Duplicate Participant Names</a><a class="headerlink" href="#duplicate-participant-names" title="Permalink to this heading"></a></h3>
+<p>Multiple participants with the same name connect to a single registry instance.</p>
+<p>The SIL Kit Registry with version 4.0.7 or lower just drops the connection in this case.
+The participant is not informed and eventually times out.</p>
+<section id="scenario-a">
+<h4>Scenario A<a class="headerlink" href="#scenario-a" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Registry-Version: 4.0.7 or lower</p></li>
+<li><p>First Participant: Any version</p></li>
+<li><p>Second Participant 4.0.7 or lower</p></li>
+</ul>
+<p>The second participant connecting with the same name reports a connection timeout with the following message:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">Timeout</span> <span class="n">during</span> <span class="n">connection</span> <span class="n">handshake</span> <span class="n">with</span> <span class="n">SIL</span> <span class="n">Kit</span> <span class="n">Registry</span><span class="p">.</span>
+</pre></div>
+</div>
+</section>
+<section id="scenario-b-mixed-versions">
+<h4>Scenario B (Mixed Versions)<a class="headerlink" href="#scenario-b-mixed-versions" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Registry-Version: 4.0.7 or lower</p></li>
+<li><p>First Participant: Any version</p></li>
+<li><p>Second Participant 4.0.8 or higher</p></li>
+</ul>
+<p>The message reported by the second participant has been modified in SIL Kit 4.0.8 (when connecting to a registry of version 4.0.7 or lower):</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">Timeout</span> <span class="n">during</span> <span class="n">connection</span> <span class="n">handshake</span> <span class="n">with</span> <span class="n">SIL</span> <span class="n">Kit</span> <span class="n">Registry</span><span class="p">.</span> <span class="n">This</span> <span class="n">might</span> <span class="n">indicate</span> <span class="n">that</span> <span class="n">a</span> <span class="n">participant</span> <span class="n">with</span> <span class="n">the</span> <span class="n">same</span> <span class="n">name</span> <span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">)</span> <span class="n">has</span> <span class="n">already</span> <span class="n">connected</span> <span class="n">to</span> <span class="n">the</span> <span class="n">registry</span><span class="p">.</span>
+</pre></div>
+</div>
+</section>
+<section id="scenario-c-mixed-versions">
+<h4>Scenario C (Mixed Versions)<a class="headerlink" href="#scenario-c-mixed-versions" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Registry-Version: 4.0.8 or higher</p></li>
+<li><p>First Participant: Any version</p></li>
+<li><p>Second Participant 4.0.7 or lower</p></li>
+</ul>
+<p>The registry transmits an error to the second participant in SIL Kit 4.0.8 via the <code class="docutils literal notranslate"><span class="pre">ParticipantAnnouncementReply</span></code> message with the <code class="docutils literal notranslate"><span class="pre">status</span></code> field set to <code class="docutils literal notranslate"><span class="pre">Failed</span></code>.</p>
+<p>The second participant does not report a timeout anymore, but immediately reports a misleading error message, referring to an unsupported protocol version:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">SILKIT</span> <span class="n">Connection</span> <span class="n">Handshake</span><span class="p">:</span> <span class="n">ParticipantAnnouncementReply</span> <span class="n">contains</span> <span class="n">unsupported</span> <span class="n">version</span><span class="p">.</span> <span class="n">participant</span><span class="p">=</span><span class="n">SilKitRegistry</span> <span class="n">participant-version</span><span class="p">=</span><span class="n">3</span><span class="p">.</span><span class="n">1</span>
+</pre></div>
+</div>
+</section>
+<section id="scenario-d">
+<h4>Scenario D<a class="headerlink" href="#scenario-d" title="Permalink to this heading"></a></h4>
+<ul class="simple">
+<li><p>Registry-Version: 4.0.8 or higher</p></li>
+<li><p>First Participant: Any version</p></li>
+<li><p>Second Participant 4.0.8 or higher</p></li>
+</ul>
+<p>The registry transmits an error to the second participant in SIL Kit 4.0.8 via the <code class="docutils literal notranslate"><span class="pre">ParticipantAnnouncementReply</span></code> message with the <code class="docutils literal notranslate"><span class="pre">status</span></code> field set to <code class="docutils literal notranslate"><span class="pre">Failed</span></code>.</p>
+<p>The second participant does not report a timeout anymore, but immediately reports a an error message containing the diagnositc message reported by the registry:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">SIL</span> <span class="n">Kit</span> <span class="n">Connection</span> <span class="n">Handshake</span><span class="p">:</span> <span class="n">Received</span> <span class="n">failed</span> <span class="n">ParticipantAnnouncementReply</span> <span class="n">from</span> <span class="s1">&#39;SilKitRegistry&#39;</span> <span class="n">with</span> <span class="n">protocol</span> <span class="n">version</span> <span class="n">3</span><span class="p">.</span><span class="n">1</span> <span class="n">and</span> <span class="n">diagnostic</span> <span class="n">message</span><span class="p">:</span> <span class="n">participant</span> <span class="n">with</span> <span class="n">name</span> <span class="s1">&#39;CanReader&#39;</span> <span class="n">is</span> <span class="n">already</span> <span class="n">connected</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
 </section>
 
 
@@ -97,7 +334,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="utilities.html" class="btn btn-neutral float-left" title="Utilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="interoperability.html" class="btn btn-neutral float-right" title="Interoperability" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../CHANGELOG.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

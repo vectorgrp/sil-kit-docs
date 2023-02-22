@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interoperability &mdash; Vector SIL Kit 4.0.17 documentation</title>
+  <title>Interoperability &mdash; Vector SIL Kit 4.0.18 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -19,9 +19,7 @@
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Changelog" href="../CHANGELOG.html" />
-    <link rel="prev" title="Troubleshooting" href="troubleshooting.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,7 +30,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.17
+                4.0.18
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -42,7 +40,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
@@ -50,19 +48,7 @@
 <li class="toctree-l1"><a class="reference internal" href="demos.html">Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Interoperability</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#duplicate-participant-names">Duplicate Participant Names</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#scenario-a">Scenario A</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#scenario-b-mixed-versions">Scenario B (Mixed Versions)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#scenario-c-mixed-versions">Scenario C (Mixed Versions)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#scenario-d">Scenario D</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
@@ -82,7 +68,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="troubleshooting.html">Troubleshooting</a> &raquo;</li>
       <li>Interoperability</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/usage/interoperability.rst.txt" rel="nofollow"> View page source</a>
@@ -115,7 +100,7 @@ The participant is not informed and eventually times out.</p>
 <li><p>Second Participant 4.0.7 or lower</p></li>
 </ul>
 <p>The second participant connecting with the same name reports a connection timeout with the following message:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Timeout</span> <span class="n">during</span> <span class="n">connection</span> <span class="n">handshake</span> <span class="k">with</span> <span class="n">SIL</span> <span class="n">Kit</span> <span class="n">Registry</span><span class="o">.</span>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">Timeout</span> <span class="n">during</span> <span class="n">connection</span> <span class="n">handshake</span> <span class="n">with</span> <span class="n">SIL</span> <span class="n">Kit</span> <span class="n">Registry</span><span class="p">.</span>
 </pre></div>
 </div>
 </section>
@@ -127,7 +112,7 @@ The participant is not informed and eventually times out.</p>
 <li><p>Second Participant 4.0.8 or higher</p></li>
 </ul>
 <p>The message reported by the second participant has been modified in SIL Kit 4.0.8 (when connecting to a registry of version 4.0.7 or lower):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Timeout</span> <span class="n">during</span> <span class="n">connection</span> <span class="n">handshake</span> <span class="k">with</span> <span class="n">SIL</span> <span class="n">Kit</span> <span class="n">Registry</span><span class="o">.</span> <span class="n">This</span> <span class="n">might</span> <span class="n">indicate</span> <span class="n">that</span> <span class="n">a</span> <span class="n">participant</span> <span class="k">with</span> <span class="n">the</span> <span class="n">same</span> <span class="n">name</span> <span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">)</span> <span class="n">has</span> <span class="n">already</span> <span class="n">connected</span> <span class="n">to</span> <span class="n">the</span> <span class="n">registry</span><span class="o">.</span>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">Timeout</span> <span class="n">during</span> <span class="n">connection</span> <span class="n">handshake</span> <span class="n">with</span> <span class="n">SIL</span> <span class="n">Kit</span> <span class="n">Registry</span><span class="p">.</span> <span class="n">This</span> <span class="n">might</span> <span class="n">indicate</span> <span class="n">that</span> <span class="n">a</span> <span class="n">participant</span> <span class="n">with</span> <span class="n">the</span> <span class="n">same</span> <span class="n">name</span> <span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">)</span> <span class="n">has</span> <span class="n">already</span> <span class="n">connected</span> <span class="n">to</span> <span class="n">the</span> <span class="n">registry</span><span class="p">.</span>
 </pre></div>
 </div>
 </section>
@@ -140,7 +125,7 @@ The participant is not informed and eventually times out.</p>
 </ul>
 <p>The registry transmits an error to the second participant in SIL Kit 4.0.8 via the <code class="docutils literal notranslate"><span class="pre">ParticipantAnnouncementReply</span></code> message with the <code class="docutils literal notranslate"><span class="pre">status</span></code> field set to <code class="docutils literal notranslate"><span class="pre">Failed</span></code>.</p>
 <p>The second participant does not report a timeout anymore, but immediately reports a misleading error message, referring to an unsupported protocol version:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SILKIT</span> <span class="n">Connection</span> <span class="n">Handshake</span><span class="p">:</span> <span class="n">ParticipantAnnouncementReply</span> <span class="n">contains</span> <span class="n">unsupported</span> <span class="n">version</span><span class="o">.</span> <span class="n">participant</span><span class="o">=</span><span class="n">SilKitRegistry</span> <span class="n">participant</span><span class="o">-</span><span class="n">version</span><span class="o">=</span><span class="mf">3.1</span>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">SILKIT</span> <span class="n">Connection</span> <span class="n">Handshake</span><span class="p">:</span> <span class="n">ParticipantAnnouncementReply</span> <span class="n">contains</span> <span class="n">unsupported</span> <span class="n">version</span><span class="p">.</span> <span class="n">participant</span><span class="p">=</span><span class="n">SilKitRegistry</span> <span class="n">participant-version</span><span class="p">=</span><span class="n">3</span><span class="p">.</span><span class="n">1</span>
 </pre></div>
 </div>
 </section>
@@ -153,7 +138,7 @@ The participant is not informed and eventually times out.</p>
 </ul>
 <p>The registry transmits an error to the second participant in SIL Kit 4.0.8 via the <code class="docutils literal notranslate"><span class="pre">ParticipantAnnouncementReply</span></code> message with the <code class="docutils literal notranslate"><span class="pre">status</span></code> field set to <code class="docutils literal notranslate"><span class="pre">Failed</span></code>.</p>
 <p>The second participant does not report a timeout anymore, but immediately reports a an error message containing the diagnositc message reported by the registry:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SIL</span> <span class="n">Kit</span> <span class="n">Connection</span> <span class="n">Handshake</span><span class="p">:</span> <span class="n">Received</span> <span class="n">failed</span> <span class="n">ParticipantAnnouncementReply</span> <span class="kn">from</span> <span class="s1">&#39;SilKitRegistry&#39;</span> <span class="k">with</span> <span class="n">protocol</span> <span class="n">version</span> <span class="mf">3.1</span> <span class="ow">and</span> <span class="n">diagnostic</span> <span class="n">message</span><span class="p">:</span> <span class="n">participant</span> <span class="k">with</span> <span class="n">name</span> <span class="s1">&#39;CanReader&#39;</span> <span class="ow">is</span> <span class="n">already</span> <span class="n">connected</span>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">SIL</span> <span class="n">Kit</span> <span class="n">Connection</span> <span class="n">Handshake</span><span class="p">:</span> <span class="n">Received</span> <span class="n">failed</span> <span class="n">ParticipantAnnouncementReply</span> <span class="n">from</span> <span class="s1">&#39;SilKitRegistry&#39;</span> <span class="n">with</span> <span class="n">protocol</span> <span class="n">version</span> <span class="n">3</span><span class="p">.</span><span class="n">1</span> <span class="n">and</span> <span class="n">diagnostic</span> <span class="n">message</span><span class="p">:</span> <span class="n">participant</span> <span class="n">with</span> <span class="n">name</span> <span class="s1">&#39;CanReader&#39;</span> <span class="n">is</span> <span class="n">already</span> <span class="n">connected</span>
 </pre></div>
 </div>
 </section>
@@ -163,10 +148,7 @@ The participant is not informed and eventually times out.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="troubleshooting.html" class="btn btn-neutral float-left" title="Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../CHANGELOG.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Orchestration C API &mdash; Vector SIL Kit 4.0.17 documentation</title>
+  <title>Orchestration C API &mdash; Vector SIL Kit 4.0.18 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.17
+                4.0.18
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -114,8 +114,8 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv442SilKit_LifecycleService_SetStartingHandlerP23SilKit_LifecycleServicePv51SilKit_LifecycleService_CommunicationReadyHandler_t">
-<span id="_CPPv342SilKit_LifecycleService_SetStartingHandlerP23SilKit_LifecycleServicePv51SilKit_LifecycleService_CommunicationReadyHandler_t"></span><span id="_CPPv242SilKit_LifecycleService_SetStartingHandlerP23SilKit_LifecycleServicePv51SilKit_LifecycleService_CommunicationReadyHandler_t"></span><span id="SilKit_LifecycleService_SetStartingHandler__SilKit_LifecycleServiceP.voidP.SilKit_LifecycleService_CommunicationReadyHandler_t"></span><span class="target" id="_orchestration_8h_1a69df2779d74dc85f1714588d28586bde"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_LifecycleService_SetStartingHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_LifecycleService</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">lifecycleService</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">context</span></span>, <span class="n"><span class="pre">SilKit_LifecycleService_CommunicationReadyHandler_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv442SilKit_LifecycleService_SetStartingHandlerP23SilKit_LifecycleServicePv51SilKit_LifecycleService_CommunicationReadyHandler_t" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv442SilKit_LifecycleService_SetStartingHandlerP23SilKit_LifecycleServicePv41SilKit_LifecycleService_StartingHandler_t">
+<span id="_CPPv342SilKit_LifecycleService_SetStartingHandlerP23SilKit_LifecycleServicePv41SilKit_LifecycleService_StartingHandler_t"></span><span id="_CPPv242SilKit_LifecycleService_SetStartingHandlerP23SilKit_LifecycleServicePv41SilKit_LifecycleService_StartingHandler_t"></span><span id="SilKit_LifecycleService_SetStartingHandler__SilKit_LifecycleServiceP.voidP.SilKit_LifecycleService_StartingHandler_t"></span><span class="target" id="_orchestration_8h_1ad56a04da89dd48fc7c19364df04378f4"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_LifecycleService_SetStartingHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_LifecycleService</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">lifecycleService</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">context</span></span>, <span class="n"><span class="pre">SilKit_LifecycleService_StartingHandler_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv442SilKit_LifecycleService_SetStartingHandlerP23SilKit_LifecycleServicePv41SilKit_LifecycleService_StartingHandler_t" title="Permalink to this definition"></a><br /></dt>
 <dd><p>(Asynchronous participants only) Register a callback that is executed once directly before the participant enters SilKit_ParticipantState_Running. </p>
 <p>This handler is triggered just before the participant changes to <a class="reference internal" href="systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a5bda814c4aedb126839228f1a3d92f09"><span class="std std-ref">SilKit::Services::Orchestration::ParticipantState::Running</span></a>. It is only triggered if the participant does NOT use virtual time synchronization. It does not block other participants from changing to ParticipantState::Running and should only be used for lightweight operations such as starting timers. It is executed in the context of an internal thread that received the command. After the handler has been processed, the participant switches to the SilKit_ParticipantState_Running state.</p>
 <dl class="field-list simple">
