@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAN Service API &mdash; Vector SIL Kit 4.0.18 documentation</title>
+  <title>CAN Service API &mdash; Vector SIL Kit 4.0.19 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.18
+                4.0.19
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -716,7 +716,7 @@ CAN network.</p>
 <span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span>
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Receiver Setup</span>
-<span class="n">canReceiver</span><span class="o">-&gt;</span><span class="n">SetBaudRate</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="mi">1000000</span><span class="p">);</span>
+<span class="n">canReceiver</span><span class="o">-&gt;</span><span class="n">SetBaudRate</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="mi">1000000</span><span class="p">,</span><span class="w"> </span><span class="mi">1000000</span><span class="p">);</span>
 <span class="n">canReceiver</span><span class="o">-&gt;</span><span class="n">Start</span><span class="p">();</span>
 
 <span class="c1">// Register CanFrameHandler to receive data</span>
@@ -725,7 +725,7 @@ CAN network.</p>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Sender Setup</span>
-<span class="n">canSender</span><span class="o">-&gt;</span><span class="n">SetBaudRate</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="mi">1000000</span><span class="p">);</span>
+<span class="n">canSender</span><span class="o">-&gt;</span><span class="n">SetBaudRate</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="mi">1000000</span><span class="p">,</span><span class="w"> </span><span class="mi">1000000</span><span class="p">);</span>
 <span class="n">canSender</span><span class="o">-&gt;</span><span class="n">Start</span><span class="p">();</span>
 
 <span class="c1">// Register FrameTransmitHandler to receive acknowledge of the successful transmission</span>
@@ -734,15 +734,16 @@ CAN network.</p>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Send message on CAN bus &quot;CAN1&quot;.</span>
-<span class="n">CanFrame</span><span class="w"> </span><span class="n">canFrame</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">canFrameData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;d&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;t&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="n">CanFrame</span><span class="w"> </span><span class="n">canFrame</span><span class="p">{};</span>
 <span class="n">canFrame</span><span class="p">.</span><span class="n">canId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">17</span><span class="p">;</span>
-<span class="n">canFrame</span><span class="p">.</span><span class="n">flags</span><span class="p">.</span><span class="n">ide</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Identifier Extension</span>
-<span class="n">canFrame</span><span class="p">.</span><span class="n">flags</span><span class="p">.</span><span class="n">rtr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Remote Transmission Request</span>
-<span class="n">canFrame</span><span class="p">.</span><span class="n">flags</span><span class="p">.</span><span class="n">fdf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// FD Format Indicator</span>
-<span class="n">canFrame</span><span class="p">.</span><span class="n">flags</span><span class="p">.</span><span class="n">brs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Bit Rate Switch  (for FD Format only)</span>
-<span class="n">canFrame</span><span class="p">.</span><span class="n">flags</span><span class="p">.</span><span class="n">esi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Error State indicator (for FD Format only)</span>
-<span class="n">canFrame</span><span class="p">.</span><span class="n">dataField</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;d&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;t&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
-<span class="n">canFrame</span><span class="p">.</span><span class="n">dlc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">canMessage</span><span class="p">.</span><span class="n">dataField</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+<span class="n">canFrame</span><span class="p">.</span><span class="n">flags</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="c1">// FD Format Indicator</span>
+<span class="w">      </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">CanFrameFlagMask</span><span class="o">&gt;</span><span class="p">(</span><span class="n">CanFrameFlag</span><span class="o">::</span><span class="n">Fdf</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// Bit Rate Switch  (for FD Format only)</span>
+<span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">CanFrameFlagMask</span><span class="o">&gt;</span><span class="p">(</span><span class="n">CanFrameFlag</span><span class="o">::</span><span class="n">Brs</span><span class="p">);</span>
+<span class="n">canFrame</span><span class="p">.</span><span class="n">dataField</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">canFrameData</span><span class="p">;</span>
+<span class="n">canFrame</span><span class="p">.</span><span class="n">dlc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">canFrame</span><span class="p">.</span><span class="n">dataField</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 
 <span class="c1">// The returned transmitId can be used to check if the canTransmitAcknowledge</span>
 <span class="c1">// that should be triggered after a successful reception has the same transmitId</span>
