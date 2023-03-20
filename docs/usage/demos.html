@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Demos &mdash; Vector SIL Kit 4.0.19 documentation</title>
+  <title>Demos &mdash; Vector SIL Kit 4.0.20 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.19
+                4.0.20
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -56,11 +56,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#publish-subscribe-demo">Publish &amp; Subscribe Demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rpc-demo">RPC Demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#benchmark-demo">Benchmark Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latency-demo">Latency Demo</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
@@ -566,7 +568,7 @@ build/Release/sil-kit-system-controller Server Client</pre>
 </table>
 </section>
 <section id="benchmark-demo">
-<h2>Benchmark Demo<a class="headerlink" href="#benchmark-demo" title="Permalink to this heading"></a></h2>
+<span id="sec-util-benchmark-demo"></span><h2>Benchmark Demo<a class="headerlink" href="#benchmark-demo" title="Permalink to this heading"></a></h2>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 7%" />
@@ -653,6 +655,77 @@ Nagle’s algorithm and domain sockets are switched off.
 The demo can be wrapped in helper scripts to run parameter scans, e.g., for performance analysis regarding
 differen message sizes. See <code class="docutils literal notranslate"><span class="pre">\Demos\Benchmark\msg-size-scaling\Readme.md</span></code> and
 <code class="docutils literal notranslate"><span class="pre">Demos\Benchmark\performance-diff\Readme.md</span></code> for further information.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="latency-demo">
+<h2>Latency Demo<a class="headerlink" href="#latency-demo" title="Permalink to this heading"></a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 93%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Abstract</p></th>
+<td><p>Latency Demo. Used for evaluating SIL Kit performance of PubSub communication.</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Source location</p></th>
+<td><p>Demos/Latency</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Requirements</p></th>
+<td><ul class="simple">
+<li><p><a class="reference internal" href="utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Positional parameters</p></th>
+<td><dl class="simple">
+<dt>[messageCount]</dt><dd><p>Sets the number of messages to be send in each simulation step.</p>
+</dd>
+<dt>[messageSizeInBytes]</dt><dd><p>Sets the message size.</p>
+</dd>
+<dt>[registryURi]</dt><dd><p>The URI of the registry to start.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Optional parameters</p></th>
+<td><dl class="option-list">
+<dt><kbd><span class="option">--help</span></kbd></dt>
+<dd><p>Show the help message.</p>
+</dd>
+<dt><kbd><span class="option">--isReceiver</span></kbd></dt>
+<dd><p>This process is the receiving counterpart of the latency measurement. Default: false</p>
+</dd>
+<dt><kbd><span class="option">--registry-uri</span></kbd></dt>
+<dd><p>The URI of the registry to start. Default: silkit://localhost:8500</p>
+</dd>
+<dt><kbd><span class="option">--message-size</span></kbd></dt>
+<dd><p>Sets the message size. Default: 1000</p>
+</dd>
+<dt><kbd><span class="option">--message-count</span></kbd></dt>
+<dd><p>Sets the number of messages to be send in each simulation step. Default: 1000</p>
+</dd>
+<dt><kbd><span class="option">--configuration</span></kbd></dt>
+<dd><p>Path and filename of the participant configuration YAML or JSON file. Default: empty</p>
+</dd>
+<dt><kbd><span class="option">--write-csv</span></kbd></dt>
+<dd><p>Path and filename of csv file with benchmark results. Default: empty</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Parameter Example</p></th>
+<td><pre class="literal-block"># Launch the LatencyDemo with positional arguments and a specified configuration file:
+build/Release/SilKitDemoLatency.exe 100 1000 --configuration ./DemoBenchmarkDomainSocketsOff.silkit.yaml</pre>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Notes</p></th>
+<td><p>This latency demo produces timings of a configurable simulation setup. Two participants exchange &lt;M&gt; messages
+of &lt;B&gt; bytes without time synchronization. The demo uses PubSub controllers performing a message roundtrip (ping-pong)
+to calculate latency and throughput timings. Note that the two participants must use the same parameters for a
+valid measurement and one participant must use the –isReceiver flag.</p></td>
 </tr>
 </tbody>
 </table>

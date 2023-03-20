@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frequently Asked Questions &mdash; Vector SIL Kit 4.0.20 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Changelog" href="../CHANGELOG.html" />
+    <link rel="prev" title="Troubleshooting" href="../usage/troubleshooting.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.20
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-generation-transmission">Data Generation &amp; Transmission</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#is-there-a-maximum-payload-size-for-ethernet-frames">Is there a maximum payload size for Ethernet frames?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#is-there-a-maximum-payload-size-for-publish-subscribe-or-rpc-data">Is there a maximum payload size for Publish/Subscribe or RPC data?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#can-i-use-a-dbc-file-to-generate-can-frames">Can I use a DBC file to generate CAN frames?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#is-it-possible-to-use-statically-configured-ports-for-sil-kit-peer-to-peer-communication-between-participants">Is it possible to use statically configured ports for SIL Kit peer-to-peer communication between participants?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-the-sil-kit-registry">What is the sil-kit-registry?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#can-i-use-vector-sil-kit-together-with-real-hardware-in-a-hardware-in-the-loop-setup">Can I use Vector SIL Kit together with real hardware/in a Hardware-in-the-Loop setup?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-can-i-interoperate-a-sil-kit-simulation-that-is-distributed-between-windows-and-linux-clients">How can I interoperate a SIL Kit simulation that is distributed between Windows and Linux clients?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#other">Other</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-is-the-performance-latency-throughput-of-the-sil-kit">How is the performance/latency/throughput of the SIL Kit?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#can-i-control-the-order-in-which-simulation-participants-execute-their-simulation-steps-in-case-they-occur-at-the-same-time">Can I control the order in which simulation participants execute their simulation steps, in case they occur at the same time?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-can-i-configure-a-sil-kit-participant-to-write-a-trace-log-file">How can I configure a SIL Kit participant to write a trace log file?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Frequently Asked Questions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/faq/faq.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="frequently-asked-questions">
+<h1><a class="toc-backref" href="#id1">Frequently Asked Questions</a><a class="headerlink" href="#frequently-asked-questions" title="Permalink to this heading"></a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#frequently-asked-questions" id="id1">Frequently Asked Questions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#data-generation-transmission" id="id2">Data Generation &amp; Transmission</a></p>
+<ul>
+<li><p><a class="reference internal" href="#is-there-a-maximum-payload-size-for-ethernet-frames" id="id3">Is there a maximum payload size for Ethernet frames?</a></p></li>
+<li><p><a class="reference internal" href="#is-there-a-maximum-payload-size-for-publish-subscribe-or-rpc-data" id="id4">Is there a maximum payload size for Publish/Subscribe or RPC data?</a></p></li>
+<li><p><a class="reference internal" href="#can-i-use-a-dbc-file-to-generate-can-frames" id="id5">Can I use a DBC file to generate CAN frames?</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#setup" id="id6">Setup</a></p>
+<ul>
+<li><p><a class="reference internal" href="#is-it-possible-to-use-statically-configured-ports-for-sil-kit-peer-to-peer-communication-between-participants" id="id7">Is it possible to use statically configured ports for SIL Kit peer-to-peer communication between participants?</a></p></li>
+<li><p><a class="reference internal" href="#what-is-the-sil-kit-registry" id="id8">What is the sil-kit-registry?</a></p></li>
+<li><p><a class="reference internal" href="#can-i-use-vector-sil-kit-together-with-real-hardware-in-a-hardware-in-the-loop-setup" id="id9">Can I use Vector SIL Kit together with real hardware/in a Hardware-in-the-Loop setup?</a></p></li>
+<li><p><a class="reference internal" href="#how-can-i-interoperate-a-sil-kit-simulation-that-is-distributed-between-windows-and-linux-clients" id="id10">How can I interoperate a SIL Kit simulation that is distributed between Windows and Linux clients?</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#other" id="id11">Other</a></p>
+<ul>
+<li><p><a class="reference internal" href="#how-is-the-performance-latency-throughput-of-the-sil-kit" id="id12">How is the performance/latency/throughput of the SIL Kit?</a></p></li>
+<li><p><a class="reference internal" href="#can-i-control-the-order-in-which-simulation-participants-execute-their-simulation-steps-in-case-they-occur-at-the-same-time" id="id13">Can I control the order in which simulation participants execute their simulation steps, in case they occur at the same time?</a></p></li>
+<li><p><a class="reference internal" href="#how-can-i-configure-a-sil-kit-participant-to-write-a-trace-log-file" id="id14">How can I configure a SIL Kit participant to write a trace log file?</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>This section provides frequently asked questions concerning SIL Kit and the corresponding answers.</p>
+<section id="data-generation-transmission">
+<h2><a class="toc-backref" href="#id2">Data Generation &amp; Transmission</a><a class="headerlink" href="#data-generation-transmission" title="Permalink to this heading"></a></h2>
+<section id="is-there-a-maximum-payload-size-for-ethernet-frames">
+<h3><a class="toc-backref" href="#id3">Is there a maximum payload size for Ethernet frames?</a><a class="headerlink" href="#is-there-a-maximum-payload-size-for-ethernet-frames" title="Permalink to this heading"></a></h3>
+<p>The size of the payload of ethernet frames is not limited by SIL Kit.
+Nonetheless, the maximum payload size might be constrained by the system resources available on the system on which SIL Kit is executed.</p>
+</section>
+<section id="is-there-a-maximum-payload-size-for-publish-subscribe-or-rpc-data">
+<h3><a class="toc-backref" href="#id4">Is there a maximum payload size for Publish/Subscribe or RPC data?</a><a class="headerlink" href="#is-there-a-maximum-payload-size-for-publish-subscribe-or-rpc-data" title="Permalink to this heading"></a></h3>
+<p>The size of the data payload of the Publish Subscribe and RPC service are not limited by SIL Kit.
+Nonetheless, the maximum payload size might be constrained by the system resources available on the system on which SIL Kit is executed.</p>
+</section>
+<section id="can-i-use-a-dbc-file-to-generate-can-frames">
+<h3><a class="toc-backref" href="#id5">Can I use a DBC file to generate CAN frames?</a><a class="headerlink" href="#can-i-use-a-dbc-file-to-generate-can-frames" title="Permalink to this heading"></a></h3>
+<p>Within SIL Kit, there is no included support for DBC files.
+You can use SIL Kit enabled tools that have support for DBC files, or you will need to implement DBC support within your implementation yourself.</p>
+</section>
+</section>
+<section id="setup">
+<h2><a class="toc-backref" href="#id6">Setup</a><a class="headerlink" href="#setup" title="Permalink to this heading"></a></h2>
+<section id="is-it-possible-to-use-statically-configured-ports-for-sil-kit-peer-to-peer-communication-between-participants">
+<h3><a class="toc-backref" href="#id7">Is it possible to use statically configured ports for SIL Kit peer-to-peer communication between participants?</a><a class="headerlink" href="#is-it-possible-to-use-statically-configured-ports-for-sil-kit-peer-to-peer-communication-between-participants" title="Permalink to this heading"></a></h3>
+<p>Since version 4.0.16 users can specify which port the participant opens for communication between participants by using the AcceptorUris field within the <a class="reference internal" href="../configuration/middleware-configuration.html#sec-mwcfg"><span class="std std-ref">Middeware section of the participant configuration</span></a>.
+By doing so, a firewall can be configured to allow these static ports for communication.
+The port used by the SIL Kit registry can be specified through its <a class="reference internal" href="../usage/utilities.html#sec-util-registry"><span class="std std-ref">CLI</span></a>.</p>
+</section>
+<section id="what-is-the-sil-kit-registry">
+<h3><a class="toc-backref" href="#id8">What is the sil-kit-registry?</a><a class="headerlink" href="#what-is-the-sil-kit-registry" title="Permalink to this heading"></a></h3>
+<p>The SIL Kit registry is a central utility that is necessary for running a SIL Kit simulation.
+All participants of a SIL Kit simulation connect to the registry process that tells them where they will find the participants of the simulation. All SIL Kit simulation participants must be able to reach the SIL Kit registry.</p>
+</section>
+<section id="can-i-use-vector-sil-kit-together-with-real-hardware-in-a-hardware-in-the-loop-setup">
+<h3><a class="toc-backref" href="#id9">Can I use Vector SIL Kit together with real hardware/in a Hardware-in-the-Loop setup?</a><a class="headerlink" href="#can-i-use-vector-sil-kit-together-with-real-hardware-in-a-hardware-in-the-loop-setup" title="Permalink to this heading"></a></h3>
+<p>Vector SIL Kit was designed deliberately with Software-in-the-Loop environments in mind.
+Many aspects of it are designed for SIL settings (especially the virtual time synchronization, that adapts its speed to the execution speed of the participants) and not HIL settings.
+These aspects might imply that SIL Kit does not fit the needs of your hardware setup.
+Furthermore, SIL Kit itself does not provide capabilities to connect it to a hardware setup.</p>
+<p>Nonetheless, some SIL Kit enabled tools may allow you to bridge a SIL Kit simulation and a HIL setup.</p>
+</section>
+<section id="how-can-i-interoperate-a-sil-kit-simulation-that-is-distributed-between-windows-and-linux-clients">
+<h3><a class="toc-backref" href="#id10">How can I interoperate a SIL Kit simulation that is distributed between Windows and Linux clients?</a><a class="headerlink" href="#how-can-i-interoperate-a-sil-kit-simulation-that-is-distributed-between-windows-and-linux-clients" title="Permalink to this heading"></a></h3>
+<p>It does not matter to SIL Kit, whether all simulation participants are running on the same kind of operating system.
+All SIL Kit simulation participants must be able to connect to the SIL Kit registry and they must be able to establish a connection to all other simulation participants.
+In such a distributed setting, the SIL Kit registry must be started such that it is reachable through the network by other hosts.</p>
+<p>You might do so by running the command below:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./sil-kit-registry.exe --listen-uri silkit://0.0.0.0:8501</span>
+</pre></div>
+</div>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>This example uses a different port, as a tool may have already opened a sil-kit-registry on the default port 8500.</p>
+</div>
+<p>All simulation participants must specify the registryUri such that they connect to this registry (e.g., silkit://&lt;IP of node running registry&gt;:8501).</p>
+</section>
+</section>
+<section id="other">
+<h2><a class="toc-backref" href="#id11">Other</a><a class="headerlink" href="#other" title="Permalink to this heading"></a></h2>
+<section id="how-is-the-performance-latency-throughput-of-the-sil-kit">
+<h3><a class="toc-backref" href="#id12">How is the performance/latency/throughput of the SIL Kit?</a><a class="headerlink" href="#how-is-the-performance-latency-throughput-of-the-sil-kit" title="Permalink to this heading"></a></h3>
+<p>The specific performance (latency, throughput, animation factor, etc.) of your SIL Kit simulation depends on a set of parameters that highly depend on your use case.
+The number of simulation participants, whether virtual time synchronization is used, the size of simulation steps, the size and frequency of messages being exchanged and many other aspects highly influence the performance for you use case.
+Finally, the hardware being used, the network infrastructure and the distribution of simulation participants over different hosts affect the performance as well.</p>
+<p>To get a first impression of the performance that can be expected of the SIL Kit in your use case, refer to the <a class="reference internal" href="../usage/demos.html#sec-util-benchmark-demo"><span class="std std-ref">Benchmark Demo</span></a> where you can specify a set of relevant parameters and get real performance measurements for your setup.</p>
+</section>
+<section id="can-i-control-the-order-in-which-simulation-participants-execute-their-simulation-steps-in-case-they-occur-at-the-same-time">
+<h3><a class="toc-backref" href="#id13">Can I control the order in which simulation participants execute their simulation steps, in case they occur at the same time?</a><a class="headerlink" href="#can-i-control-the-order-in-which-simulation-participants-execute-their-simulation-steps-in-case-they-occur-at-the-same-time" title="Permalink to this heading"></a></h3>
+<p>No, the order simulation step execution of synchronized participants can not be controlled.</p>
+</section>
+<section id="how-can-i-configure-a-sil-kit-participant-to-write-a-trace-log-file">
+<h3><a class="toc-backref" href="#id14">How can I configure a SIL Kit participant to write a trace log file?</a><a class="headerlink" href="#how-can-i-configure-a-sil-kit-participant-to-write-a-trace-log-file" title="Permalink to this heading"></a></h3>
+<p>A trace log file can be used in debugging scenarios to get a detailed insight into the execution of a SIL Kit participant.</p>
+<p>The <a class="reference internal" href="../configuration/configuration.html#sec-ibconfig-json"><span class="std std-ref">participant configuration</span></a> file allows to configure changes to the runtime behavior of SIL Kit simulation participants.
+It is a YAML/JSON file through which you can configure a participant to write a trace log file.</p>
+<p>For example, by adding the following configuration:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Logging:</span>
+<span class="go">  Sinks:</span>
+<span class="go">  - Type: File</span>
+<span class="go">    Level: Trace</span>
+<span class="go">    LogName: TraceLogFile</span>
+</pre></div>
+</div>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>If your participant configuration already contains a logging section, you must only add the sink.</p>
+</div>
+<p>This will tell SIL Kit to write all log messages of Level trace and above to a file in the process working directory of the SIL Kit participant.
+The file name will be TraceLogFile + a time specific suffix.
+The LogName field also supports an absolute path, e.g., LogName: C:TempSimulationLog.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../usage/troubleshooting.html" class="btn btn-neutral float-left" title="Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../CHANGELOG.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
