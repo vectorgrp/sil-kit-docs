@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Frequently Asked Questions &mdash; Vector SIL Kit 4.0.20 documentation</title>
+  <title>Frequently Asked Questions &mdash; Vector SIL Kit 4.0.21 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.20
+                4.0.21
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -165,7 +165,11 @@ The port used by the SIL Kit registry can be specified through its <a class="ref
 <section id="what-is-the-sil-kit-registry">
 <h3><a class="toc-backref" href="#id8">What is the sil-kit-registry?</a><a class="headerlink" href="#what-is-the-sil-kit-registry" title="Permalink to this heading"></a></h3>
 <p>The SIL Kit registry is a central utility that is necessary for running a SIL Kit simulation.
-All participants of a SIL Kit simulation connect to the registry process that tells them where they will find the participants of the simulation. All SIL Kit simulation participants must be able to reach the SIL Kit registry.</p>
+At the start, each participant connects to the registry and retrieves the connection information to all other participants.
+In this sense, the registry acts as a phone book that tells the user the contact information to all other participants of a SIL Kit simulation.
+The registry does not partake in the simulation itself.
+It especially does not route messages between participants.
+Please note that it is mandatory that all SIL Kit simulation participants can reach the SIL Kit registry for a proper simulation setup.</p>
 </section>
 <section id="can-i-use-vector-sil-kit-together-with-real-hardware-in-a-hardware-in-the-loop-setup">
 <h3><a class="toc-backref" href="#id9">Can I use Vector SIL Kit together with real hardware/in a Hardware-in-the-Loop setup?</a><a class="headerlink" href="#can-i-use-vector-sil-kit-together-with-real-hardware-in-a-hardware-in-the-loop-setup" title="Permalink to this heading"></a></h3>
