@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Connectivity &mdash; Vector SIL Kit 4.0.23 documentation</title>
+  <title>Connectivity &mdash; Vector SIL Kit 4.0.24 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -30,7 +30,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.23
+                4.0.24
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -83,17 +83,18 @@
 <h1>Connectivity<a class="headerlink" href="#connectivity" title="Permalink to this heading"></a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#connectivity-issues-with-registry" id="id3">Connectivity issues with registry</a></p></li>
-<li><p><a class="reference internal" href="#connectivity-issues-between-participants" id="id4">Connectivity issues between participants</a></p></li>
+<li><p><a class="reference internal" href="#connectivity-issues-with-registry" id="id4">Connectivity issues with registry</a></p></li>
+<li><p><a class="reference internal" href="#using-the-registry-as-a-proxy-for-participant-to-participant-connections" id="id5">Using the Registry as a Proxy for Participant-to-Participant Connections</a></p></li>
+<li><p><a class="reference internal" href="#connectivity-issues-between-participants" id="id6">Connectivity issues between participants</a></p></li>
 </ul>
 </div>
 <p>SIL Kit provides interoperability between participants and utilities from different released versions of SIL Kit.
 This section documents known issues and potentially misleading messages reported by SIL Kit participants in certain cases.</p>
 <section id="connectivity-issues-with-registry">
-<h2><a class="toc-backref" href="#id3">Connectivity issues with registry</a><a class="headerlink" href="#connectivity-issues-with-registry" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id4">Connectivity issues with registry</a><a class="headerlink" href="#connectivity-issues-with-registry" title="Permalink to this heading"></a></h2>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Example error message</span><a class="headerlink" href="#id1" title="Permalink to this code"></a></div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[yyyy-mm-dd hh:mm:ss] [CanWriter] [error] Failed to connect to VAsio registry (number of attempts: 1)</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[yyyy-mm-dd hh:mm:ss] [CanWriter] [error] Failed to connect to SIL Kit Registry (number of attempts: 1)</span>
 <span class="go">[yyyy-mm-dd hh:mm:ss] [CanWriter] [info]    Make sure that the SIL Kit Registry is up and running and is listening on the following URIs: silkit://localhost:8500, local://&lt;PATH&gt;.silkit.</span>
 <span class="go">[yyyy-mm-dd hh:mm:ss] [CanWriter] [info]    If a registry is unable to open a listening socket it will only be reachable via local domain sockets, which depend on the working directory and the middleware configuration (&#39;enableDomainSockets&#39;).</span>
 <span class="go">[yyyy-mm-dd hh:mm:ss] [CanWriter] [info]    Make sure that the hostname can be resolved and is reachable.</span>
@@ -140,10 +141,25 @@ Some potential issues might be firewalls, VM network configuration (if using a V
 <p>Telnet can be terminated with the key combination Ctrl+C.</p>
 </div>
 </section>
-<section id="connectivity-issues-between-participants">
-<h2><a class="toc-backref" href="#id4">Connectivity issues between participants</a><a class="headerlink" href="#connectivity-issues-between-participants" title="Permalink to this heading"></a></h2>
+<section id="using-the-registry-as-a-proxy-for-participant-to-participant-connections">
+<h2><a class="toc-backref" href="#id5">Using the Registry as a Proxy for Participant-to-Participant Connections</a><a class="headerlink" href="#using-the-registry-as-a-proxy-for-participant-to-participant-connections" title="Permalink to this heading"></a></h2>
 <div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Example error message</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="code-block-caption"><span class="caption-text">Example warning</span><a class="headerlink" href="#id2" title="Permalink to this code"></a></div>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">yyyy-mm-dd</span> <span class="n">hh</span><span class="p">:</span><span class="n">mm</span><span class="p">:</span><span class="n">ss</span><span class="p">.</span><span class="n">sss</span><span class="p">]</span> <span class="no">[EthernetReader] [info]</span> <span class="n">Connected</span> <span class="n">to</span> <span class="n">registry</span> <span class="n">at</span> <span class="s1">&#39;tcp://127.0.0.1:8501&#39;</span> <span class="n">via</span> <span class="s1">&#39;tcp://127.0.0.1:63107&#39;</span> <span class="p">(</span><span class="n">silkit</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">8501</span><span class="p">)</span>
+<span class="p">[</span><span class="n">yyyy-mm-dd</span> <span class="n">hh</span><span class="p">:</span><span class="n">mm</span><span class="p">:</span><span class="n">ss</span><span class="p">.</span><span class="n">sss</span><span class="p">]</span> <span class="no">[EthernetReader] [warning]</span> <span class="n">VAsioConnection</span><span class="p">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">connect</span> <span class="n">directly</span> <span class="n">to</span> <span class="n">EthernetWriter</span><span class="p">,</span> <span class="n">trying</span> <span class="n">to</span> <span class="n">proxy</span> <span class="n">messages</span> <span class="n">through</span> <span class="n">the</span> <span class="n">registry</span><span class="p">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">connect</span> <span class="n">to</span> <span class="n">host</span> <span class="n">URIs</span><span class="p">:</span> <span class="s2">&quot;tcp://127.0.0.1:37117,&quot;</span>
+</pre></div>
+</div>
+</div>
+<p>When a SIL Kit participant joins a simulation, it first connects to the SIL Kit registry (<a class="reference internal" href="utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a>), which informs the participant about all other participants, that have already joined the simulation.
+The participant then tries to connect to all of the other participants.</p>
+<p>If another participant cannot be connected to directly, as a last resort, it tries to use the registry as a proxy for participant-to-participant communication.
+The warning is issued, since sending the participant-to-participant messages via the registry will add latency and overhead.</p>
+<p>A SIL Kit participant will only attempt to use the registry as a proxy if the remote participant, that could not be connected to directly, supports receiving messages via the registry.</p>
+</section>
+<section id="connectivity-issues-between-participants">
+<h2><a class="toc-backref" href="#id6">Connectivity issues between participants</a><a class="headerlink" href="#connectivity-issues-between-participants" title="Permalink to this heading"></a></h2>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Example error message</span><a class="headerlink" href="#id3" title="Permalink to this code"></a></div>
 <div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">yyyy-mm-dd</span> <span class="n">hh</span><span class="p">:</span><span class="n">mm</span><span class="p">:</span><span class="n">ss</span><span class="p">]</span> <span class="no">[CanReader] [info]</span> <span class="n">Connected</span> <span class="n">to</span> <span class="n">registry</span> <span class="n">at</span> <span class="s1">&#39;tcp://192.168.1.12:8500&#39;</span> <span class="n">via</span> <span class="s1">&#39;tcp://192.168.1.12:8500&#39;</span> <span class="p">(</span><span class="n">silkit</span><span class="p">://</span><span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">1</span><span class="p">.</span><span class="n">12</span><span class="p">:</span><span class="n">8500</span><span class="p">)</span>
 <span class="p">[</span><span class="n">yyyy-mm-dd</span> <span class="n">hh</span><span class="p">:</span><span class="n">mm</span><span class="p">:</span><span class="n">ss</span><span class="p">]</span> <span class="no">[CanReader] [error]</span> <span class="n">Timeout</span> <span class="n">during</span> <span class="n">connection</span> <span class="n">setup</span><span class="p">.</span> <span class="n">The</span> <span class="n">participant</span> <span class="n">was</span> <span class="n">able</span> <span class="n">to</span> <span class="n">connect</span> <span class="n">to</span> <span class="n">the</span> <span class="n">registry</span><span class="p">,</span> <span class="n">but</span> <span class="n">not</span> <span class="n">to</span> <span class="n">all</span> <span class="n">participants</span><span class="p">.</span>
    <span class="n">There</span> <span class="n">might</span> <span class="n">be</span> <span class="n">network</span> <span class="n">issues</span><span class="p">.</span> <span class="n">Check</span> <span class="n">network</span> <span class="n">settings</span> <span class="n">and</span> <span class="n">firewall</span> <span class="n">configuration</span><span class="p">.</span> <span class="n">Was</span> <span class="n">not</span> <span class="n">able</span> <span class="n">to</span> <span class="n">connect</span> <span class="n">to</span> <span class="n">the</span> <span class="n">following</span> <span class="n">participant</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>

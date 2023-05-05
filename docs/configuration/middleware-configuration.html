@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Middleware Configuration &mdash; Vector SIL Kit 4.0.23 documentation</title>
+  <title>Middleware Configuration &mdash; Vector SIL Kit 4.0.24 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.23
+                4.0.24
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -122,6 +122,7 @@ running on localhost listening on Port 8500. These values can be changed via the
 <span class="w">  </span><span class="nt">TcpQuickAck</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">  </span><span class="nt">TcpSendBufferSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1024</span>
 <span class="w">  </span><span class="nt">TcpReceiveBufferSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1024</span>
+<span class="w">  </span><span class="nt">RegistryAsFallbackProxy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </pre></div>
 </div>
 <table class="colwidths-given docutils align-default" id="id1">
@@ -164,6 +165,12 @@ field exists to support more complicated network setups, where the
 listening ports of the participant must have a known, fixed port number
 and address.
 It is <em>not</em> required to set this field under normal circumstances.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RegistryAsFallbackProxy</p></td>
+<td><p>Disable using the registry as a proxy for participant-to-participant
+communication as a fallback, if the direct connection attempts fail.
+The feature is enabled by default and can be disabled explicitly via this
+field.</p></td>
 </tr>
 </tbody>
 </table>
