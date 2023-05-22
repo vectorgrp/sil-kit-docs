@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC) &mdash; Vector SIL Kit 4.0.24 documentation</title>
+  <title>Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC) &mdash; Vector SIL Kit 4.0.26 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.24
+                4.0.26
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -240,15 +240,15 @@ The configuration of the single services is fully optional.</p>
 <td><p>The name of the FlexRay Controller</p></td>
 </tr>
 <tr class="row-odd"><td><p>ClusterParameters</p></td>
-<td><p>Allows to configure cluster specific settings. See ParticipantConfiguration.schema.json for a full set of parameters. (optional)</p></td>
+<td><p>Allows to configure cluster specific settings. See <code class="docutils literal notranslate"><span class="pre">ParticipantConfiguration.schema.json</span></code> for a full set of parameters. (optional)</p></td>
 </tr>
 <tr class="row-even"><td><p>NodeParameters</p></td>
-<td><p>Allows to configure node specific settings. See ParticipantConfiguration.schema.json for a full set of parameters. (optional)</p></td>
+<td><p>Allows to configure node specific settings. See <code class="docutils literal notranslate"><span class="pre">ParticipantConfiguration.schema.json</span></code> for a full set of parameters. (optional)</p></td>
 </tr>
 <tr class="row-odd"><td><p>TxBufferConfigurations</p></td>
-<td><p>Allows to configure TXBuffers by specifying “channels” (A, B, AB, None),
+<td><p>Allows to configure TXBuffers by specifying “channels” (<code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">B</span></code>, <code class="docutils literal notranslate"><span class="pre">AB</span></code>, <code class="docutils literal notranslate"><span class="pre">None</span></code>),
 “slotId”, “offset”, “repetition”, “PPindicator”, “headerCrc”
-and “transmissionMode” (SingleShot, Continuous). See ParticipantConfiguration.schema.json for a full set of parameters.(optional)</p></td>
+and “transmissionMode” (<code class="docutils literal notranslate"><span class="pre">SingleShot</span></code>, <code class="docutils literal notranslate"><span class="pre">Continuous</span></code>). See <code class="docutils literal notranslate"><span class="pre">ParticipantConfiguration.schema.json</span></code> for a full set of parameters. (optional)</p></td>
 </tr>
 </tbody>
 </table>
@@ -273,10 +273,10 @@ and “transmissionMode” (SingleShot, Continuous). See ParticipantConfiguratio
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Name</p></td>
-<td><p>The name of the DataPublisher.</p></td>
+<td><p>The name of the data publisher.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Topic</p></td>
-<td><p>The topic on which the DataPublisher publishs its information. (optional)</p></td>
+<td><p>The topic on which the data publisher publishes its information. (optional)</p></td>
 </tr>
 </tbody>
 </table>
@@ -301,10 +301,10 @@ and “transmissionMode” (SingleShot, Continuous). See ParticipantConfiguratio
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Name</p></td>
-<td><p>The name of the DataSubscriber.</p></td>
+<td><p>The name of the data subscriber.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Topic</p></td>
-<td><p>The topic on which the DataSubscriber publishs its information. (optional)</p></td>
+<td><p>The topic on which the data subscriber publishes its information. (optional)</p></td>
 </tr>
 </tbody>
 </table>
@@ -329,10 +329,10 @@ and “transmissionMode” (SingleShot, Continuous). See ParticipantConfiguratio
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Name</p></td>
-<td><p>The name of the RpcServer.</p></td>
+<td><p>The name of the RPC server.</p></td>
 </tr>
 <tr class="row-odd"><td><p>FunctionName</p></td>
-<td><p>The function name on which the RpcServer offers its service. (optional)</p></td>
+<td><p>The function name on which the RPC server offers its service. (optional)</p></td>
 </tr>
 </tbody>
 </table>
@@ -357,10 +357,10 @@ and “transmissionMode” (SingleShot, Continuous). See ParticipantConfiguratio
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Name</p></td>
-<td><p>The name of the RpcClient.</p></td>
+<td><p>The name of the RPC client.</p></td>
 </tr>
 <tr class="row-odd"><td><p>FunctionName</p></td>
-<td><p>The function name to which the RpcClient wants to connect to. (optional)</p></td>
+<td><p>The function name to which the RPC client wants to connect to. (optional)</p></td>
 </tr>
 </tbody>
 </table>
@@ -378,7 +378,7 @@ and “transmissionMode” (SingleShot, Continuous). See ParticipantConfiguratio
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+    <p>&#169; Copyright 2023 Vector Informatik GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

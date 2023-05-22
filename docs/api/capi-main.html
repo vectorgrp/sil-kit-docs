@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Entry Point and API Organization &mdash; Vector SIL Kit 4.0.24 documentation</title>
+  <title>Entry Point and API Organization &mdash; Vector SIL Kit 4.0.26 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -20,7 +20,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Can C API" href="capi-can.html" />
+    <link rel="next" title="CAN C API" href="capi-can.html" />
     <link rel="prev" title="Common Service Data Types" href="common.html" /> 
 </head>
 
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.24
+                4.0.26
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -115,7 +115,7 @@
 </div>
 <section id="sil-kit-entry-point-and-api-organization">
 <h2><a class="toc-backref" href="#id1">SIL Kit Entry Point and API Organization</a><a class="headerlink" href="#sil-kit-entry-point-and-api-organization" title="Permalink to this heading"></a></h2>
-<p>The main entry point of the C API is the function to obtain a SilKit_Participant:</p>
+<p>The main entry point of the C API is the function to obtain a <code class="docutils literal notranslate"><span class="pre">SilKit_Participant</span></code>:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">SilKit_ParticipantConfiguration</span><span class="o">*</span><span class="w"> </span><span class="n">participantConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 <span class="n">SilKit_Participant</span><span class="o">*</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 <span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">configString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;{ ... }&quot;</span><span class="p">;</span>
@@ -131,10 +131,10 @@
 </div>
 <p>All further services of the C API of the SIL Kit are requested through this Participant.</p>
 <p>Entities obtained through the Participant must not be destroyed/deleted by the user of the API.
-All entities, that are provided through the API expect for the SilKit_Participant are destroyed through
+All entities, that are provided through the API expect for the <code class="docutils literal notranslate"><span class="pre">SilKit_Participant</span></code> are destroyed through
 the internals of the SIL Kit implementation.</p>
-<p>After creation of a Participant it must be ensured that eventually SilKit_Participant_Destroy is called
-with the corresponding pointer to the SilKit_Participant entity.</p>
+<p>After creation of a Participant it must be ensured that eventually <code class="docutils literal notranslate"><span class="pre">SilKit_Participant_Destroy</span></code> is called
+with the corresponding pointer to the <code class="docutils literal notranslate"><span class="pre">SilKit_Participant</span></code> entity.</p>
 </section>
 <section id="api-and-data-type-reference">
 <h2><a class="toc-backref" href="#id2">API and Data Type Reference</a><a class="headerlink" href="#api-and-data-type-reference" title="Permalink to this heading"></a></h2>
@@ -199,7 +199,7 @@ with the corresponding pointer to the SilKit_Participant entity.</p>
 </dl>
 </dd></dl>
 
-<p>Most creator functions for other objects (such as bus controllers) require an SilKit_Participant,
+<p>Most creator functions for other objects (such as bus controllers) require a <code class="docutils literal notranslate"><span class="pre">SilKit_Participant</span></code>,
 which is the factory object, as input parameter.</p>
 </section>
 <section id="logger-api">
@@ -254,13 +254,13 @@ The lifetime of the returned logger is directly bound to the lifetime of the sim
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="common.html" class="btn btn-neutral float-left" title="Common Service Data Types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="capi-can.html" class="btn btn-neutral float-right" title="Can C API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="capi-can.html" class="btn btn-neutral float-right" title="CAN C API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+    <p>&#169; Copyright 2023 Vector Informatik GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FlexRay Service API &mdash; Vector SIL Kit 4.0.24 documentation</title>
+  <title>FlexRay Service API &mdash; Vector SIL Kit 4.0.26 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.24
+                4.0.26
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -144,7 +144,7 @@ Because of the intrinsic complexity within FlexRay, no trivial simulation exists
 <section id="initialization">
 <h3><a class="toc-backref" href="#id2">Initialization</a><a class="headerlink" href="#initialization" title="Permalink to this heading"></a></h3>
 <p>Before the FlexRay controller can be used and participate in FlexRay communication cycles,
-it must be configured and a startup phase must take place at the beginning of the simulation.</p>
+it must be configured, and a startup phase must take place at the beginning of the simulation.</p>
 <section id="configuration">
 <h4><a class="toc-backref" href="#id3">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h4>
 <p>The configuration is performed by setting up a <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray23FlexrayControllerConfigE" title="SilKit::Services::Flexray::FlexrayControllerConfig"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayControllerConfig</span></code></a> and passing it to <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController9ConfigureERK23FlexrayControllerConfig" title="SilKit::Services::Flexray::IFlexrayController::Configure"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Configure()</span></code></a>.
@@ -153,7 +153,7 @@ Furthermore, <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexra
 which are both best set in the participant configuration (see config section
 <a class="reference internal" href="../configuration/configuration-services.html#sec-cfg-participant-flexray"><span class="std std-ref">FlexrayControllers</span></a>). Furthermore, the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray23FlexrayControllerConfigE" title="SilKit::Services::Flexray::FlexrayControllerConfig"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayControllerConfig</span></code></a> contains one or
 more <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray21FlexrayTxBufferConfigE" title="SilKit::Services::Flexray::FlexrayTxBufferConfig"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayTxBufferConfig</span></code></a> instances, which can either be specified in the participant configuration or added
-manually at runtime. TxBuffers are used to initiate a transmission from one FlexRay controller to another.</p>
+manually at runtime. Tx buffers are used to initiate a transmission from one FlexRay controller to another.</p>
 <p>The following example configures a FlexRay controller with two <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray21FlexrayTxBufferConfigE" title="SilKit::Services::Flexray::FlexrayTxBufferConfig"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayTxBufferConfig</span></code></a> instances specifying two
 <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray17FlexrayFrameEventE" title="SilKit::Services::Flexray::FlexrayFrameEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayFrameEvent</span></code></a> instances, which will be sent during simulation. The <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray24FlexrayClusterParametersE" title="SilKit::Services::Flexray::FlexrayClusterParameters"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayClusterParameters</span></code></a> and the
 <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray21FlexrayNodeParametersE" title="SilKit::Services::Flexray::FlexrayNodeParameters"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayNodeParameters</span></code></a> are assumed to be set in the participant configuration:</p>
@@ -180,21 +180,21 @@ manually at runtime. TxBuffers are used to initiate a transmission from one Flex
 <span class="n">flexrayController</span><span class="o">-&gt;</span><span class="n">Configure</span><span class="p">(</span><span class="n">controllerConfig</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Note that <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController9ConfigureERK23FlexrayControllerConfig" title="SilKit::Services::Flexray::IFlexrayController::Configure"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Configure()</span></code></a> should be called in the CommunicationReadyHandler of the LifecycleService.</p>
+<p>Note that <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController9ConfigureERK23FlexrayControllerConfig" title="SilKit::Services::Flexray::IFlexrayController::Configure"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Configure()</span></code></a> should be called in the <code class="docutils literal notranslate"><span class="pre">CommunicationReadyHandler</span></code> of the <code class="docutils literal notranslate"><span class="pre">LifecycleService</span></code>.</p>
 </section>
 <section id="startup">
 <h4><a class="toc-backref" href="#id4">Startup</a><a class="headerlink" href="#startup" title="Permalink to this heading"></a></h4>
 <p>At least two FlexRay controllers are always required for a successful startup in a FlexRay cluster.
-The two participants responsible for startup are also called coldstart nodes. The “leading” coldstart node
+The two participants responsible for startup are also called cold start nodes. The “leading” cold start node
 (normally the first node that is in <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray15FlexrayPocState5ReadyE" title="SilKit::Services::Flexray::FlexrayPocState::Ready"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">FlexrayPocState::Ready</span></code></a>) has to send the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController6WakeupEv" title="SilKit::Services::Flexray::IFlexrayController::Wakeup"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Wakeup()</span></code></a> command to the other
-“following” coldstart node(s):</p>
+“following” cold start node(s):</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">leadingColdStartNode</span><span class="o">-&gt;</span><span class="n">Wakeup</span><span class="p">();</span>
 <span class="c1">// The leading controllers FlexrayPocState will change from</span>
 <span class="c1">// Ready to Wakeup triggering the PocStatusHandler.</span>
 </pre></div>
 </div>
-<p>The response of the following coldstart node must be the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController14AllowColdstartEv" title="SilKit::Services::Flexray::IFlexrayController::AllowColdstart"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AllowColdstart()</span></code></a> and <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController3RunEv" title="SilKit::Services::Flexray::IFlexrayController::Run"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Run()</span></code></a> command that can be send in the
-WakeupHandler callback:</p>
+<p>The response of the following cold start node must be the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController14AllowColdstartEv" title="SilKit::Services::Flexray::IFlexrayController::AllowColdstart"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AllowColdstart()</span></code></a> and <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController3RunEv" title="SilKit::Services::Flexray::IFlexrayController::Run"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Run()</span></code></a> command that can be sent in the
+<code class="docutils literal notranslate"><span class="pre">WakeupHandler</span></code> callback:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">WakeupHandler</span><span class="p">(</span><span class="n">IFlexrayController</span><span class="o">*</span><span class="w"> </span><span class="n">controller</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FlexraySymbolEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">symbol</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">followingColdStartNode</span><span class="o">-&gt;</span><span class="n">AllowColdstart</span><span class="p">();</span>
@@ -202,8 +202,8 @@ WakeupHandler callback:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Finally, the leading coldstart node has also to respond by sending the same commands after
-the FlexrayPocState state changed from <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray15FlexrayPocState6WakeupE" title="SilKit::Services::Flexray::FlexrayPocState::Wakeup"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">FlexrayPocState::Wakeup</span></code></a> to <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray15FlexrayPocState5ReadyE" title="SilKit::Services::Flexray::FlexrayPocState::Ready"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">FlexrayPocState::Ready</span></code></a>:</p>
+<p>Finally, the leading cold start node has also to respond by sending the same commands after
+the <code class="docutils literal notranslate"><span class="pre">FlexrayPocState</span></code> changed from <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray15FlexrayPocState6WakeupE" title="SilKit::Services::Flexray::FlexrayPocState::Wakeup"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">FlexrayPocState::Wakeup</span></code></a> to <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray15FlexrayPocState5ReadyE" title="SilKit::Services::Flexray::FlexrayPocState::Ready"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">FlexrayPocState::Ready</span></code></a>:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">oldState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">FlexrayPocState</span><span class="o">::</span><span class="n">Wakeup</span>
 <span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">newState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">FlexrayPocState</span><span class="o">::</span><span class="n">Ready</span><span class="p">)</span>
 <span class="p">{</span>
@@ -212,14 +212,14 @@ the FlexrayPocState state changed from <a class="reference internal" href="#_CPP
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Note that the leading coldstart node must send these commands in the next FlexRay cycle and not
-directly in a handler like the PocStatusHandler.</p>
+<p>Note that the leading cold start node must send these commands in the next FlexRay cycle and not
+directly in a handler like the <code class="docutils literal notranslate"><span class="pre">PocStatusHandler</span></code>.</p>
 </section>
 </section>
 <section id="tx-buffer-update-sending-flexray-messages">
 <h3><a class="toc-backref" href="#id5">Tx Buffer Update (Sending FlexRay Messages)</a><a class="headerlink" href="#tx-buffer-update-sending-flexray-messages" title="Permalink to this heading"></a></h3>
-<p>In each FlexRay cycle, data can be sent by using the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController14UpdateTxBufferERK21FlexrayTxBufferUpdate" title="SilKit::Services::Flexray::IFlexrayController::UpdateTxBuffer"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">UpdateTxBuffer()</span></code></a>. For this, an existing txBufferIndex,
-a payload and the payloadDataValid flag must be provided:</p>
+<p>In each FlexRay cycle, data can be sent by using the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController14UpdateTxBufferERK21FlexrayTxBufferUpdate" title="SilKit::Services::Flexray::IFlexrayController::UpdateTxBuffer"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">UpdateTxBuffer()</span></code></a>. For this, an existing <code class="docutils literal notranslate"><span class="pre">txBufferIndex</span></code>,
+a <code class="docutils literal notranslate"><span class="pre">payload</span></code> and the <code class="docutils literal notranslate"><span class="pre">payloadDataValid</span></code> flag must be provided:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">payloadString</span><span class="p">{</span><span class="s">&quot;FlexRay message&quot;</span><span class="p">};</span>
 
 <span class="n">FlexrayTxBufferUpdate</span><span class="w"> </span><span class="n">update</span><span class="p">;</span>
@@ -232,7 +232,7 @@ a payload and the payloadDataValid flag must be provided:</p>
 <span class="n">controller</span><span class="o">-&gt;</span><span class="n">UpdateTxBuffer</span><span class="p">(</span><span class="n">update</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>To be notified for the success or failure of the transmission, a FrameTransmitHandler should
+<p>To be notified for the success or failure of the transmission, a <code class="docutils literal notranslate"><span class="pre">FrameTransmitHandler</span></code> should
 be added:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Add FrameTransmitHandler to receive FlexRay transmit events from other FlexRay controllers.</span>
 <span class="k">auto</span><span class="w"> </span><span class="n">frameTransmitHandler</span><span class="w"> </span><span class="o">=</span>
@@ -253,13 +253,13 @@ by the FlexRay controller whenever a <a class="reference internal" href="#_CPPv4
 </div>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note</p>
-<p>For a successful Startup, also the <code class="docutils literal notranslate"><span class="pre">PocStatusHandler</span></code>, the <code class="docutils literal notranslate"><span class="pre">WakeupHandler</span></code>, the <code class="docutils literal notranslate"><span class="pre">SymbolHandler</span></code>
+<p>For a successful startup, also the <code class="docutils literal notranslate"><span class="pre">PocStatusHandler</span></code>, the <code class="docutils literal notranslate"><span class="pre">WakeupHandler</span></code>, the <code class="docutils literal notranslate"><span class="pre">SymbolHandler</span></code>
 and the <code class="docutils literal notranslate"><span class="pre">SymbolTransmitHandler</span></code> should be added to invoke the different necessary commands.</p>
 </div>
 </section>
 <section id="receiving-poc-status-changes">
 <span id="sec-poc-status-changes"></span><h3><a class="toc-backref" href="#id7">Receiving POC Status Changes</a><a class="headerlink" href="#receiving-poc-status-changes" title="Permalink to this heading"></a></h3>
-<p>The protocol operation control (POC) status is a structure consisting of status variables, substates and flags. It is
+<p>The protocol operation control (POC) status is a structure consisting of status variables, sub-states and flags. It is
 modelled by the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray21FlexrayPocStatusEventE" title="SilKit::Services::Flexray::FlexrayPocStatusEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayPocStatusEvent</span></code></a> structure. Updates to the controller’s POC status can be monitored using
 handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController19AddPocStatusHandlerE16PocStatusHandler" title="SilKit::Services::Flexray::IFlexrayController::AddPocStatusHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddPocStatusHandler()</span></code></a>:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Add a FlexrayPocStatusEvent handler, and handle status changes</span>
@@ -1597,7 +1597,7 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+    <p>&#169; Copyright 2023 Vector Informatik GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

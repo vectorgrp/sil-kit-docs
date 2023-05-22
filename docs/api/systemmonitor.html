@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>System Monitor &mdash; Vector SIL Kit 4.0.24 documentation</title>
+  <title>System Monitor &mdash; Vector SIL Kit 4.0.26 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.24
+                4.0.26
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -123,11 +123,11 @@
 <section id="using-the-system-monitor">
 <h2><a class="toc-backref" href="#id1">Using the System Monitor</a><a class="headerlink" href="#using-the-system-monitor" title="Permalink to this heading"></a></h2>
 <p>Each participant has access to a System Monitor and can register callbacks to get informed about
-changes of the ParticipantState or the SystemState that occur during the simulation.</p>
+changes of the <code class="docutils literal notranslate"><span class="pre">ParticipantState</span></code> or the <code class="docutils literal notranslate"><span class="pre">SystemState</span></code> that occur during the simulation.</p>
 <section id="register-callbacks-for-state-transitions">
 <h3><a class="toc-backref" href="#id2">Register Callbacks for State Transitions</a><a class="headerlink" href="#register-callbacks-for-state-transitions" title="Permalink to this heading"></a></h3>
-<p>To be notified about transitions of the ParticipantState, a ParticipantStatusHandler has to be registered. The
-<a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration17ParticipantStatusE" title="SilKit::Services::Orchestration::ParticipantStatus"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ParticipantStatus</span></code></a> contains the new ParticipantState and further details
+<p>To be notified about transitions of the <code class="docutils literal notranslate"><span class="pre">ParticipantState</span></code>, a <code class="docutils literal notranslate"><span class="pre">ParticipantStatusHandler</span></code> has to be registered. The
+<a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration17ParticipantStatusE" title="SilKit::Services::Orchestration::ParticipantStatus"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ParticipantStatus</span></code></a> contains the new <code class="docutils literal notranslate"><span class="pre">ParticipantState</span></code> and further details
 about the transition such as the name of the participant, the reason for the status change and timing information:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Register ParticipantStatusHandler to receive ParticipantStatus updates from all participants.</span>
 <span class="k">auto</span><span class="w"> </span><span class="n">participantStatusHandler</span><span class="w"> </span><span class="o">=</span>
@@ -137,7 +137,7 @@ about the transition such as the name of the participant, the reason for the sta
 <span class="n">systemMonitor</span><span class="o">-&gt;</span><span class="n">AddParticipantStatusHandler</span><span class="p">(</span><span class="n">participantStatusHandler</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>A SystemStateHandler can be registered to get informed about system state transitions:</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">SystemStateHandler</span></code> can be registered to get informed about system state transitions:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Register SystemStateHandler to receive SystemState transitions.</span>
 <span class="k">auto</span><span class="w"> </span><span class="n">systemStateHandler</span><span class="w"> </span><span class="o">=</span>
 <span class="w">    </span><span class="p">[](</span><span class="n">Orchestration</span><span class="o">::</span><span class="n">SystemState</span><span class="w"> </span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span>
@@ -193,13 +193,13 @@ They report the name of any other participant connecting and disconnecting from 
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor27ParticipantConnectedHandlerE">
-<span id="_CPPv3N6SilKit8Services13Orchestration14ISystemMonitor27ParticipantConnectedHandlerE"></span><span id="_CPPv2N6SilKit8Services13Orchestration14ISystemMonitor27ParticipantConnectedHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1a9c69464025999fcba637de491847eef6"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ParticipantConnectedHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">ParticipantConnectionInformation</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n"><span class="pre">participantInformation</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor27ParticipantConnectedHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services13Orchestration14ISystemMonitor27ParticipantConnectedHandlerE"></span><span id="_CPPv2N6SilKit8Services13Orchestration14ISystemMonitor27ParticipantConnectedHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1a9c69464025999fcba637de491847eef6"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ParticipantConnectedHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration32ParticipantConnectionInformationE" title="SilKit::Services::Orchestration::ParticipantConnectionInformation"><span class="n"><span class="pre">ParticipantConnectionInformation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n"><span class="pre">participantInformation</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor27ParticipantConnectedHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate that a participant has been connected. Cf., <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1a94432ddb52a51e3e689e788a47191b5e"><span class="std std-ref">SetParticipantConnectedHandler(ParticipantConnectedHandler)</span></a>; </p>
 </dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor30ParticipantDisconnectedHandlerE">
-<span id="_CPPv3N6SilKit8Services13Orchestration14ISystemMonitor30ParticipantDisconnectedHandlerE"></span><span id="_CPPv2N6SilKit8Services13Orchestration14ISystemMonitor30ParticipantDisconnectedHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1a0b87fb6e4c9d0929226dbc62b584b724"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ParticipantDisconnectedHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">ParticipantConnectionInformation</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n"><span class="pre">participantInformation</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor30ParticipantDisconnectedHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services13Orchestration14ISystemMonitor30ParticipantDisconnectedHandlerE"></span><span id="_CPPv2N6SilKit8Services13Orchestration14ISystemMonitor30ParticipantDisconnectedHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1a0b87fb6e4c9d0929226dbc62b584b724"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ParticipantDisconnectedHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration32ParticipantConnectionInformationE" title="SilKit::Services::Orchestration::ParticipantConnectionInformation"><span class="n"><span class="pre">ParticipantConnectionInformation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n"><span class="pre">participantInformation</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor30ParticipantDisconnectedHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate that a participant has been disconnected. Cf., <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1a300f5cc546b925e64c3f9f4671316dfe"><span class="std std-ref">SetParticipantDisconnectedHandler(ParticipantDisconnectedHandler)</span></a>; </p>
 </dd></dl>
 
@@ -635,7 +635,7 @@ different processes, their interaction is shown sequentially to demonstrate caus
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+    <p>&#169; Copyright 2023 Vector Informatik GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

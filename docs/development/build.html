@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>!!! Getting Started as a SIL Kit Developer &mdash; Vector SIL Kit 4.0.24 documentation</title>
+  <title>!!! Getting Started as a SIL Kit Developer &mdash; Vector SIL Kit 4.0.26 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -30,7 +30,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.24
+                4.0.26
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -135,20 +135,20 @@ The following options are available:</p>
 <td><p>Build the test cases</p></td>
 </tr>
 <tr class="row-even"><td><p>SILKIT_BUILD_UTILITIES</p></td>
-<td><p>Build the utility tools like the system controller or system monitor.</p></td>
+<td><p>Build the utility tools like the System Controller or Monitor.</p></td>
 </tr>
 <tr class="row-odd"><td><p>SILKIT_BUILD_DEMOS</p></td>
 <td><p>Build the demo applications</p></td>
 </tr>
 <tr class="row-even"><td><p>SILKIT_BUILD_DOCS</p></td>
-<td><p>Build the documentation using doxygen and sphinx</p></td>
+<td><p>Build the documentation using Doxygen and Sphinx</p></td>
 </tr>
 <tr class="row-odd"><td><p>SILKIT_INSTALL_SOURCE</p></td>
 <td><p>Installs the source-tree (used for packaging releases). Implies SILKIT_BUILD_DOCS.</p></td>
 </tr>
 </tbody>
 </table>
-<p>In general, the options can be combined and set using the cmake-gui, your IDE, or command line:</p>
+<p>In general, the options can be combined and set using the CMake GUI, your IDE, or command line:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">..</span> <span class="o">-</span><span class="n">D</span> <span class="n">SILKIT_BUILD_TESTS</span><span class="o">=</span><span class="n">ON</span> <span class="o">-</span><span class="n">D</span> <span class="n">SILKIT_BUILD_DOCS</span><span class="o">=</span><span class="n">ON</span>
 </pre></div>
 </div>
@@ -200,11 +200,11 @@ Its contents are as follows:</p>
 </tr>
 <tr class="row-odd"><td><p>SilKit/</p></td>
 <td></td>
-<td><p>The SIL Kit binaries and cmake config export</p></td>
+<td><p>The SIL Kit binaries and CMake config export</p></td>
 </tr>
 <tr class="row-even"><td><p>SilKit-Demos/</p></td>
 <td><p>SILKIT_INSTALL_SOURCE</p></td>
-<td><p>Source code of the demos. builds against ../SilKit</p></td>
+<td><p>Source code of the demos, builds against <code class="docutils literal notranslate"><span class="pre">../SilKit</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>SilKit-Source/</p></td>
 <td><p>SILKIT_INSTALL_SOURCE</p></td>
@@ -220,12 +220,12 @@ Its contents are as follows:</p>
 <section id="building-the-demos">
 <h2><a class="toc-backref" href="#id9">!!! Building the Demos</a><a class="headerlink" href="#building-the-demos" title="Permalink to this heading"></a></h2>
 <p>Building the demos from within the source tree is straight forward:
-just build the  <code class="docutils literal notranslate"><span class="pre">Demos</span></code> CMake target.
+just build the <code class="docutils literal notranslate"><span class="pre">Demos</span></code> CMake target.
 The individual demos are build as a dependency.</p>
 <p>The distributed Demos, as packaged by CPack, are preconfigured to build against
-a copy of the SIL Kit binaries in <code class="docutils literal notranslate"><span class="pre">../SilKit/</span></code> .
+a copy of the SIL Kit binaries in <code class="docutils literal notranslate"><span class="pre">../SilKit/</span></code>.
 This can be overriden by providing your own <code class="docutils literal notranslate"><span class="pre">SilKit</span></code> CMake target library,
-before the demos are configured by cmake.
+before the demos are configured by CMake.
 Or by changing the <code class="docutils literal notranslate"><span class="pre">find_package(SilKit</span> <span class="pre">...</span> <span class="pre">PATHS</span> <span class="pre">path/to/SilKit)</span></code> statement directly
 in the <code class="docutils literal notranslate"><span class="pre">SilKit-Demos/CMakeLists.txt</span></code> directory.</p>
 </section>
@@ -242,7 +242,7 @@ in the <code class="docutils literal notranslate"><span class="pre">SilKit-Demos
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+    <p>&#169; Copyright 2023 Vector Informatik GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

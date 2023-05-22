@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Utilities &mdash; Vector SIL Kit 4.0.24 documentation</title>
+  <title>Utilities &mdash; Vector SIL Kit 4.0.26 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.24
+                4.0.26
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -96,8 +96,8 @@
 </ul>
 </div>
 <p>Running a Vector SIL Kit system is supported by several utilities.
-The registry is a mandatory part of the SIL Kit integrated middleware – it is needed to establish the connections between simulation participants at the start of a simulation.
-The system monitor and controller are provided for convenience. They implement
+The Registry is a mandatory part of the SIL Kit integrated middleware – it is needed to establish the connections between simulation participants at the start of a simulation.
+The Monitor and System Controller are provided for convenience. They implement
 a simulation-wide state tracking and system command handling which is required
 in every simulation. However, using these utilities is not mandatory – users
 of the SIL Kit are free to implement their own system and state handling.</p>
@@ -110,7 +110,7 @@ of the SIL Kit are free to implement their own system and state handling.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><th class="stub"><p>Abstract</p></th>
-<td><p>The Registry enables discovery between SIL Kit participants. It is needed for Vector SIL Kit simulations.</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">sil-kit-registry</span></code> enables discovery between SIL Kit participants. It is needed for Vector SIL Kit simulations.</p></td>
 </tr>
 <tr class="row-even"><th class="stub"><p>Source location</p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">Utilities/SilKitRegistry</span></code></p></td>
@@ -130,16 +130,16 @@ of the SIL Kit are free to implement their own system and state handling.</p>
 <dd><p>Exit this process when a signal is received. If not set, the process runs infinitely.</p>
 </dd>
 <dt><kbd><span class="option">-u</span>, <span class="option">--listen-uri <var>&lt;silkit-uri&gt;</var></span></kbd></dt>
-<dd><p>The silkit:// URI the registry should listen on. Defaults to ‘silkit://localhost:8500’.</p>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">silkit://</span></code> URI the registry should listen on. Defaults to <code class="docutils literal notranslate"><span class="pre">silkit://localhost:8500</span></code>.</p>
 </dd>
 <dt><kbd><span class="option">-l</span>, <span class="option">--log <var>&lt;level&gt;</var></span></kbd></dt>
-<dd><p>Log to stdout with level ‘trace’, ‘debug’, ‘warn’, ‘info’, ‘error’, ‘critical’ or ‘off’. Defaults to ‘info’.</p>
+<dd><p>Log to stdout with level <code class="docutils literal notranslate"><span class="pre">trace</span></code>, <code class="docutils literal notranslate"><span class="pre">debug</span></code>, <code class="docutils literal notranslate"><span class="pre">warn</span></code>, <code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">error</span></code>, <code class="docutils literal notranslate"><span class="pre">critical</span></code> or <code class="docutils literal notranslate"><span class="pre">off</span></code>. Defaults to <code class="docutils literal notranslate"><span class="pre">info</span></code>.</p>
 </dd>
 <dt><kbd><span class="option">-g</span>, <span class="option">--generate-configuration <var>&lt;path&gt;</var></span></kbd></dt>
 <dd><p>Path and filename of a participant configuration file to generate containing the URI the registry is using.</p>
 </dd>
 <dt><kbd><span class="option">-d</span>, <span class="option">--dashboard-uri <var>&lt;dashboard-uri&gt;</var></span></kbd></dt>
-<dd><p>The <a class="reference external" href="http://">http://</a> URI the data should be sent to. Defaults to ‘<a class="reference external" href="http://localhost:8082">http://localhost:8082</a>’.</p>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">http://</span></code> URI the data should be sent to. Defaults to <code class="docutils literal notranslate"><span class="pre">http://localhost:8082</span></code>.</p>
 </dd>
 </dl>
 </td>
@@ -177,16 +177,16 @@ It will exit with an error if neither is available.</p></li>
 </colgroup>
 <tbody>
 <tr class="row-odd"><th class="stub"><p>Abstract</p></th>
-<td><p>The sil-kit-system-controller implements state handling for the participants of
-an SIL Kit system.
-Examples for state change commands called by the SystemController are
-‘Run’ or ‘Stop’.</p></td>
+<td><p>The <code class="docutils literal notranslate"><span class="pre">sil-kit-system-controller</span></code> implements state handling for the participants of
+a SIL Kit system.
+Examples for state change commands called by the System Controller are
+<code class="docutils literal notranslate"><span class="pre">Run</span></code> or <code class="docutils literal notranslate"><span class="pre">Stop</span></code>.</p></td>
 </tr>
 <tr class="row-even"><th class="stub"><p>Source location</p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">Utilities/SilKitSystemController</span></code></p></td>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Requirements</p></th>
-<td><p>The sil-kit-system-controller needs a running sil-kit-registry to connect to.
+<td><p>The <code class="docutils literal notranslate"><span class="pre">sil-kit-system-controller</span></code> needs a running <code class="docutils literal notranslate"><span class="pre">sil-kit-registry</span></code> to connect to.
 Furthermore, it requires a list of synchronized participants that are needed to start the simulation as input.</p></td>
 </tr>
 <tr class="row-even"><th class="stub"><p>Parameters</p></th>
@@ -195,13 +195,13 @@ Furthermore, it requires a list of synchronized participants that are needed to 
 <dd><p>Get version info.</p>
 </dd>
 <dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
-<dd><p>Show the help of sil-kit-system-controller.</p>
+<dd><p>Show the help of <code class="docutils literal notranslate"><span class="pre">sil-kit-system-controller</span></code>.</p>
 </dd>
 <dt><kbd><span class="option">-u</span>, <span class="option">--connect-uri <var>&lt;silkitUri&gt;</var></span></kbd></dt>
-<dd><p>The registry URI to connect to. Defaults to ‘silkit://localhost:8500’.</p>
+<dd><p>The registry’s URI to connect to. Defaults to <code class="docutils literal notranslate"><span class="pre">silkit://localhost:8500</span></code>.</p>
 </dd>
 <dt><kbd><span class="option">-n</span>, <span class="option">--name <var>&lt;participantName&gt;</var></span></kbd></dt>
-<dd><p>The participant name used to take part in the simulation. Defaults to ‘SystemController’.</p>
+<dd><p>The participant name used to take part in the simulation. Defaults to <code class="docutils literal notranslate"><span class="pre">SystemController</span></code>.</p>
 </dd>
 <dt><kbd><span class="option">-c</span>, <span class="option">--configuration <var>&lt;configuration&gt;</var></span></kbd></dt>
 <dd><p>Path and filename of the participant configuration YAML or JSON file.</p>
@@ -219,7 +219,7 @@ Furthermore, it requires a list of synchronized participants that are needed to 
 </td>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Usage Example</p></th>
-<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># Start sil-kit-system-controller process and wait for Participant1 and Participant2:</span>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># Start the SIL Kit System Controller and wait for &#39;Participant1&#39; and &#39;Participant2&#39;:</span>
 <span class="n">sil-kit-system-controller</span> <span class="n">Participant1</span> <span class="n">Participant2</span>
 </pre></div>
 </div>
@@ -227,7 +227,7 @@ Furthermore, it requires a list of synchronized participants that are needed to 
 </tr>
 <tr class="row-even"><th class="stub"><p>Notes</p></th>
 <td><ul class="simple">
-<li><p>The distribution package contains the sil-kit-system-controller in the
+<li><p>The distribution package contains the <code class="docutils literal notranslate"><span class="pre">sil-kit-system-controller</span></code> in the
 <code class="docutils literal notranslate"><span class="pre">SilKit/bin/</span></code> directory.</p></li>
 </ul>
 </td>
@@ -244,14 +244,14 @@ Furthermore, it requires a list of synchronized participants that are needed to 
 </colgroup>
 <tbody>
 <tr class="row-odd"><th class="stub"><p>Abstract</p></th>
-<td><p>The sil-kit-monitor visualizes the states of the participants of a
+<td><p>The <code class="docutils literal notranslate"><span class="pre">sil-kit-monitor</span></code> visualizes the states of the participants of a
 SIL Kit simulation.</p></td>
 </tr>
 <tr class="row-even"><th class="stub"><p>Source location</p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">Utilities/SilKitMonitor</span></code></p></td>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Requirements</p></th>
-<td><p>Requires a running sil-kit-registry to connect to.</p></td>
+<td><p>Requires a running <code class="docutils literal notranslate"><span class="pre">sil-kit-registry</span></code> to connect to.</p></td>
 </tr>
 <tr class="row-even"><th class="stub"><p>Parameters</p></th>
 <td><dl class="option-list">
@@ -259,13 +259,13 @@ SIL Kit simulation.</p></td>
 <dd><p>Get version info.</p>
 </dd>
 <dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
-<dd><p>Show the help of the sil-kit-monitor.</p>
+<dd><p>Show the help of the <code class="docutils literal notranslate"><span class="pre">sil-kit-monitor</span></code>.</p>
 </dd>
 <dt><kbd><span class="option">-u</span>, <span class="option">--connect-uri <var>&lt;silkitUri&gt;</var></span></kbd></dt>
-<dd><p>The registry URI to connect to. Defaults to ‘silkit://localhost:8500’.</p>
+<dd><p>The registry’s URI to connect to. Defaults to <code class="docutils literal notranslate"><span class="pre">silkit://localhost:8500</span></code>.</p>
 </dd>
 <dt><kbd><span class="option">-n</span>, <span class="option">--name <var>&lt;participantName&gt;</var></span></kbd></dt>
-<dd><p>The participant name used to take part in the simulation. Defaults to ‘SystemMonitor’.</p>
+<dd><p>The participant name used to take part in the simulation. Defaults to ‘<code class="docutils literal notranslate"><span class="pre">SystemMonitor</span></code>’.</p>
 </dd>
 <dt><kbd><span class="option">-c</span>, <span class="option">--configuration</span></kbd></dt>
 <dd><p>&lt;configuration&gt;    Path and filename of the participant configuration YAML or JSON file.</p>
@@ -274,7 +274,7 @@ SIL Kit simulation.</p></td>
 </td>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Usage Example</p></th>
-<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># Start SystemMonitor</span>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># Start the SIL Kit Monitor</span>
 <span class="n">sil-kit-monitor</span>
 </pre></div>
 </div>
@@ -282,8 +282,8 @@ SIL Kit simulation.</p></td>
 </tr>
 <tr class="row-even"><th class="stub"><p>Notes</p></th>
 <td><ul class="simple">
-<li><p>The distribution package contains the sil-kit-monitor in the <code class="docutils literal notranslate"><span class="pre">SilKit/bin/</span></code> directory.</p></li>
-<li><p>The sil-kit-monitor represents a passive participant in a SIL Kit system. Thus, it can be (re)started at any time.</p></li>
+<li><p>The distribution package contains the <code class="docutils literal notranslate"><span class="pre">sil-kit-monitor</span></code> in the <code class="docutils literal notranslate"><span class="pre">SilKit/bin/</span></code> directory.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">sil-kit-monitor</span></code> represents a passive participant in a SIL Kit system. It can therefore be (re)started at any time.</p></li>
 </ul>
 </td>
 </tr>
@@ -303,7 +303,7 @@ SIL Kit simulation.</p></td>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+    <p>&#169; Copyright 2023 Vector Informatik GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

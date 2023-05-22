@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAN Service API &mdash; Vector SIL Kit 4.0.24 documentation</title>
+  <title>CAN Service API &mdash; Vector SIL Kit 4.0.26 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.24
+                4.0.26
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -108,7 +108,7 @@
 <ul>
 <li><p><a class="reference internal" href="#sending-can-frames" id="id2">Sending CAN Frames</a></p></li>
 <li><p><a class="reference internal" href="#transmission-acknowledgement" id="id3">Transmission Acknowledgement</a></p></li>
-<li><p><a class="reference internal" href="#receiving-can-frameevents" id="id4">Receiving CAN FrameEvents</a></p></li>
+<li><p><a class="reference internal" href="#receiving-can-frame-events" id="id4">Receiving CAN Frame Events</a></p></li>
 <li><p><a class="reference internal" href="#receiving-state-change-events" id="id5">Receiving State Change Events</a></p></li>
 <li><p><a class="reference internal" href="#initialization" id="id6">Initialization</a></p></li>
 <li><p><a class="reference internal" href="#managing-the-event-handlers" id="id7">Managing the Event Handlers</a></p></li>
@@ -139,7 +139,7 @@ name:</p>
 <p>CAN controllers will only communicate within the same network.</p>
 <section id="sending-can-frames">
 <h3><a class="toc-backref" href="#id2">Sending CAN Frames</a><a class="headerlink" href="#sending-can-frames" title="Permalink to this heading"></a></h3>
-<p>Data is transfered in the form of a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can8CanFrameE" title="SilKit::Services::Can::CanFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrame</span></code></a> and received as a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can13CanFrameEventE" title="SilKit::Services::Can::CanFrameEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrameEvent</span></code></a>. To send a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can8CanFrameE" title="SilKit::Services::Can::CanFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrame</span></code></a>, it must be setup
+<p>Data is transferred in the form of a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can8CanFrameE" title="SilKit::Services::Can::CanFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrame</span></code></a> and received as a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can13CanFrameEventE" title="SilKit::Services::Can::CanFrameEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrameEvent</span></code></a>. To send a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can8CanFrameE" title="SilKit::Services::Can::CanFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrame</span></code></a>, it must be setup
 with a CAN ID and the data to be transmitted. Furthermore, valid <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrame::CanFrameFlag</span></code> have to be set:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Prepare a CAN message with id 0x17</span>
 <span class="n">CanFrame</span><span class="w"> </span><span class="n">canFrame</span><span class="p">;</span>
@@ -172,9 +172,9 @@ always be <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can17CanT
 causing the handler to be called with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can17CanTransmitStatus17TransmitQueueFullE" title="SilKit::Services::Can::TransmitQueueFull"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">CanTransmitStatus::TransmitQueueFull</span></code></a> signaling a transmission failure.</p>
 </div>
 </section>
-<section id="receiving-can-frameevents">
-<h3><a class="toc-backref" href="#id4">Receiving CAN FrameEvents</a><a class="headerlink" href="#receiving-can-frameevents" title="Permalink to this heading"></a></h3>
-<p>A <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can8CanFrameE" title="SilKit::Services::Can::CanFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrame</span></code></a> is received as a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can13CanFrameEventE" title="SilKit::Services::Can::CanFrameEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrameEvent</span></code></a> consisting of a transmitId used to identify the acknowledge of the
+<section id="receiving-can-frame-events">
+<h3><a class="toc-backref" href="#id4">Receiving CAN Frame Events</a><a class="headerlink" href="#receiving-can-frame-events" title="Permalink to this heading"></a></h3>
+<p>A <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can8CanFrameE" title="SilKit::Services::Can::CanFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrame</span></code></a> is received as a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can13CanFrameEventE" title="SilKit::Services::Can::CanFrameEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrameEvent</span></code></a> consisting of a <code class="docutils literal notranslate"><span class="pre">transmitId</span></code> used to identify the acknowledgement of the
 frame, a timestamp and the actual <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can8CanFrameE" title="SilKit::Services::Can::CanFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrame</span></code></a>. The handler is called whenever a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can8CanFrameE" title="SilKit::Services::Can::CanFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrame</span></code></a> is received:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">frameHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="n">ICanController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">CanFrameEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameEvent</span><span class="p">)</span>
 <span class="p">{</span>
@@ -212,7 +212,7 @@ rate of 1’000’000 baud for CAN FD messages. Then, the controller is started:
 </div>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note</p>
-<p>Both <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController11SetBaudRateE8uint32_t8uint32_t8uint32_t" title="SilKit::Services::Can::ICanController::SetBaudRate"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ICanController::SetBaudRate()</span></code></a> and <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController5StartEv" title="SilKit::Services::Can::ICanController::Start"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Start()</span></code></a>  should not be called earlier than in the life cycle service’s
+<p>Both <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController11SetBaudRateE8uint32_t8uint32_t8uint32_t" title="SilKit::Services::Can::ICanController::SetBaudRate"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ICanController::SetBaudRate()</span></code></a> and <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController5StartEv" title="SilKit::Services::Can::ICanController::Start"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Start()</span></code></a> should not be called earlier than in the life cycle service’s
 <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">communication</span> <span class="pre">ready</span> <span class="pre">handler</span></code>. Otherwise, it is not guaranteed
 that all participants are already connected, which can cause the call to have no effect.</p>
 </div>
@@ -688,7 +688,7 @@ controllers. Although the CAN controllers would typically belong to different pa
 processes, their interaction is shown sequentially to demonstrate cause and effect.</p>
 <p>Assumptions:</p>
 <ul class="simple">
-<li><p><em>canReceiver</em>, <em>canSender</em> are of type <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanControllerE" title="SilKit::Services::Can::ICanController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ICanController</span></code></a>.</p></li>
+<li><p>Variables <code class="docutils literal notranslate"><span class="pre">canReceiver</span></code> and <code class="docutils literal notranslate"><span class="pre">canSender</span></code> are of type <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanControllerE" title="SilKit::Services::Can::ICanController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ICanController</span></code></a>.</p></li>
 <li><p>All CAN controllers use the same CAN network.</p></li>
 </ul>
 <section id="simple-can-sender-receiver-example">
@@ -780,7 +780,7 @@ CAN network.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+    <p>&#169; Copyright 2023 Vector Informatik GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

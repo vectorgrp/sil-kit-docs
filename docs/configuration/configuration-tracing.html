@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tracing and Replay Configuration &mdash; Vector SIL Kit 4.0.24 documentation</title>
+  <title>Tracing and Replay Configuration &mdash; Vector SIL Kit 4.0.26 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.24
+                4.0.26
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -266,15 +266,15 @@ The timestamps present in the trace source are used to schedule when the message
 It is widely supported by tools, e.g., by Wireshark and the <code class="docutils literal notranslate"><span class="pre">tcpdump</span></code> family of command line tools.</p>
 <section id="pcapfile">
 <h4><a class="toc-backref" href="#id11">PcapFile</a><a class="headerlink" href="#pcapfile" title="Permalink to this heading"></a></h4>
-<p>When <code class="docutils literal notranslate"><span class="pre">PcapFile</span></code> is used for the <code class="docutils literal notranslate"><span class="pre">Type</span></code> property in the trace sink or source definition,
+<p>If <code class="docutils literal notranslate"><span class="pre">PcapFile</span></code> is used for the <code class="docutils literal notranslate"><span class="pre">Type</span></code> property in the trace sink or source definition,
 SIL Kit will write/read the trace to/from a normal file,
-identified by the <code class="docutils literal notranslate"><span class="pre">OutputPath</span></code> or <code class="docutils literal notranslate"><span class="pre">InputPath</span></code> properties.</p>
+identified by the <code class="docutils literal notranslate"><span class="pre">OutputPath</span></code> or <code class="docutils literal notranslate"><span class="pre">InputPath</span></code> properties respectively.</p>
 </section>
 <section id="pcappipe">
 <h4><a class="toc-backref" href="#id12">PcapPipe</a><a class="headerlink" href="#pcappipe" title="Permalink to this heading"></a></h4>
-<p>When <code class="docutils literal notranslate"><span class="pre">PcapPipe</span></code> is used for the <code class="docutils literal notranslate"><span class="pre">Type</span></code> property in the trace sink or source definition,
+<p>If <code class="docutils literal notranslate"><span class="pre">PcapPipe</span></code> is used for the <code class="docutils literal notranslate"><span class="pre">Type</span></code> property in the trace sink or source definition,
 SIL Kit will write/read the trace to/from a named pipe,
-identified by the <code class="docutils literal notranslate"><span class="pre">OutputPath</span></code> or <code class="docutils literal notranslate"><span class="pre">InputPath</span></code> properties.</p>
+identified by the <code class="docutils literal notranslate"><span class="pre">OutputPath</span></code> or <code class="docutils literal notranslate"><span class="pre">InputPath</span></code> properties respectively.</p>
 <p>SIL Kit will wait until the other end of the named pipe has been opened, e.g., opening Wireshark on the named pipe.</p>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note</p>
@@ -305,7 +305,7 @@ identified by the <code class="docutils literal notranslate"><span class="pre">O
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+    <p>&#169; Copyright 2023 Vector Informatik GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

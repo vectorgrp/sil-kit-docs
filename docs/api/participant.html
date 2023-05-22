@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Participant &mdash; Vector SIL Kit 4.0.24 documentation</title>
+  <title>Participant &mdash; Vector SIL Kit 4.0.26 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.24
+                4.0.26
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -107,7 +107,7 @@
 </div>
 <p>This document describes the main entry point to the SIL Kit simulation, the participant.
 By creating a participant with a given configuration, a connection
-to a simulation is established and the configured participant joins the simulation.</p>
+to a simulation is established, and the configured participant joins the simulation.</p>
 <section id="creating-the-participant">
 <h2><a class="toc-backref" href="#id1">Creating the Participant</a><a class="headerlink" href="#creating-the-participant" title="Permalink to this heading"></a></h2>
 <p>To create an <a class="reference internal" href="#_CPPv4N6SilKit12IParticipantE" title="SilKit::IParticipant"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IParticipant</span></code></a> you have to include the
@@ -172,7 +172,7 @@ configuration, a participant name and optionally the URI of the registry:</p>
 <section id="iparticipant-api">
 <span id="sec-iparticipant-api"></span><h2><a class="toc-backref" href="#id2">IParticipant API</a><a class="headerlink" href="#iparticipant-api" title="Permalink to this heading"></a></h2>
 <p>The instantiated <a class="reference internal" href="#_CPPv4N6SilKit12IParticipantE" title="SilKit::IParticipant"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IParticipant</span></code></a> can then be used to create and access services of the SIL Kit.
-A controller name (the <code class="docutils literal notranslate"><span class="pre">canonicalName</span></code> given in Create*-Calls) must be unqiue within a controller type, using the same name twice resuts in
+A controller name (the <code class="docutils literal notranslate"><span class="pre">canonicalName</span></code> given in Create*-Calls) must be unique within a controller type, using the same name twice results in
 a <code class="docutils literal notranslate"><span class="pre">ConfigurationError</span></code>.</p>
 <div class="admonition-warning admonition">
 <p class="admonition-title">Warning.</p>
@@ -235,7 +235,7 @@ a <code class="docutils literal notranslate"><span class="pre">ConfigurationErro
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit12IParticipant22CreateLifecycleServiceEN8Services13Orchestration22LifecycleConfigurationE">
-<span id="_CPPv3N6SilKit12IParticipant22CreateLifecycleServiceEN8Services13Orchestration22LifecycleConfigurationE"></span><span id="_CPPv2N6SilKit12IParticipant22CreateLifecycleServiceEN8Services13Orchestration22LifecycleConfigurationE"></span><span id="SilKit::IParticipant::CreateLifecycleService__Services::Orchestration::LifecycleConfiguration"></span><span class="target" id="class_sil_kit_1_1_i_participant_1a0e605892dfeda919928f28b95e8c8abb"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateLifecycleService</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Orchestration</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">LifecycleConfiguration</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">startConfiguration</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Orchestration</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleServiceE" title="SilKit::Services::Orchestration::ILifecycleService"><span class="n"><span class="pre">ILifecycleService</span></span></a><span class="p"><span class="pre">*</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12IParticipant22CreateLifecycleServiceEN8Services13Orchestration22LifecycleConfigurationE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit12IParticipant22CreateLifecycleServiceEN8Services13Orchestration22LifecycleConfigurationE"></span><span id="_CPPv2N6SilKit12IParticipant22CreateLifecycleServiceEN8Services13Orchestration22LifecycleConfigurationE"></span><span id="SilKit::IParticipant::CreateLifecycleService__Services::Orchestration::LifecycleConfiguration"></span><span class="target" id="class_sil_kit_1_1_i_participant_1a0e605892dfeda919928f28b95e8c8abb"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CreateLifecycleService</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Orchestration</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration22LifecycleConfigurationE" title="SilKit::Services::Orchestration::LifecycleConfiguration"><span class="n"><span class="pre">LifecycleConfiguration</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">startConfiguration</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Orchestration</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleServiceE" title="SilKit::Services::Orchestration::ILifecycleService"><span class="n"><span class="pre">ILifecycleService</span></span></a><span class="p"><span class="pre">*</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12IParticipant22CreateLifecycleServiceEN8Services13Orchestration22LifecycleConfigurationE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Return the ILifecycleService at this SIL Kit participant. </p>
 </dd></dl>
 
@@ -317,7 +317,7 @@ can be queried using the following functions:</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+    <p>&#169; Copyright 2023 Vector Informatik GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

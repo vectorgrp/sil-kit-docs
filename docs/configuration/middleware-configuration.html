@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Middleware Configuration &mdash; Vector SIL Kit 4.0.24 documentation</title>
+  <title>Middleware Configuration &mdash; Vector SIL Kit 4.0.26 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.24
+                4.0.26
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -113,7 +113,7 @@ This middleware is open source and included in the sources of the Vector SIL Kit
 <h2><a class="toc-backref" href="#id3">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h2>
 <p>For the initial discovery of the SIL Kit participants, the SIL Kit uses a central registry
 process at a preconfigured hostname and port. By default, the registry is expected to be
-running on localhost listening on Port 8500. These values can be changed via the
+running on ‘localhost’ listening on port 8500. These values can be changed via the
 <cite>RegistryUri</cite>, for example:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Middleware</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">RegistryUri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">silkit://localhost:8500</span>
@@ -139,7 +139,7 @@ running on localhost listening on Port 8500. These values can be changed via the
 <tbody>
 <tr class="row-even"><td><p>RegistryUri</p></td>
 <td><p>The URI used by participants when connecting to the SIL Kit Registry.
-By default, the registry is expected to be running on “localhost” with port 8500.
+By default, the registry is expected to be running on ‘localhost’ with port 8500.
 The URI uses a scheme of ‘silkit’, i.e., <code class="docutils literal notranslate"><span class="pre">silkit://localhost:8500</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ConnectAttempts</p></td>
@@ -188,7 +188,7 @@ field.</p></td>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+    <p>&#169; Copyright 2023 Vector Informatik GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

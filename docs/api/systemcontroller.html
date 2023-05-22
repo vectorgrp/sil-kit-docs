@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>System Controller &mdash; Vector SIL Kit 4.0.24 documentation</title>
+  <title>System Controller &mdash; Vector SIL Kit 4.0.26 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.24
+                4.0.26
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -121,7 +121,7 @@
 <div class="admonition-note admonition">
 <p class="admonition-title">Note</p>
 <p>The SIL Kit provides a utility called <a class="reference internal" href="../usage/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a>, that provides a
-command line linterface to define the required participant names of a simulation. In most cases this utility can be
+command line interface to define the required participant names of a simulation. In most cases this utility can be
 used and no own implementation is needed.</p>
 </div>
 <section id="create-a-system-controller">
@@ -138,7 +138,7 @@ used and no own implementation is needed.</p>
 simulation setup to function correctly. These participants are used to calculate the system state
 (see <a class="reference internal" href="../simulation/simulation.html#subsec-sim-lifecycle"><span class="std std-ref">System States</span></a>), which is used by coordinated participants
 (see <a class="reference internal" href="lifecycleService.html#subsec-sim-configuring-lifecycle"><span class="std std-ref">Configuring Lifecycle</span></a>) for their state transitions.</p>
-<p>To define the required participants, <a class="reference internal" href="#_CPPv4N6SilKit12Experimental8Services13Orchestration17ISystemController24SetWorkflowConfigurationERKN6SilKit8Services13Orchestration21WorkflowConfigurationE" title="SilKit::Experimental::Services::Orchestration::ISystemController::SetWorkflowConfiguration"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetWorkflowConfiguration()</span></code></a> must be called with a <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">WorkflowConfiguration</span></code>
+<p>To define the required participants, <a class="reference internal" href="#_CPPv4N6SilKit12Experimental8Services13Orchestration17ISystemController24SetWorkflowConfigurationERKN6SilKit8Services13Orchestration21WorkflowConfigurationE" title="SilKit::Experimental::Services::Orchestration::ISystemController::SetWorkflowConfiguration"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetWorkflowConfiguration()</span></code></a> must be called with a <a class="reference internal" href="lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration21WorkflowConfigurationE" title="SilKit::Services::Orchestration::WorkflowConfiguration"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">WorkflowConfiguration</span></code></a>
 containing the set of required participants names within the simulation.</p>
 </section>
 <section id="abort-the-simulation">
@@ -166,9 +166,9 @@ terminate and call the <code class="docutils literal notranslate"><span class="p
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental8Services13Orchestration17ISystemController24SetWorkflowConfigurationERKN6SilKit8Services13Orchestration21WorkflowConfigurationE">
-<span id="_CPPv3N6SilKit12Experimental8Services13Orchestration17ISystemController24SetWorkflowConfigurationERKN6SilKit8Services13Orchestration21WorkflowConfigurationE"></span><span id="_CPPv2N6SilKit12Experimental8Services13Orchestration17ISystemController24SetWorkflowConfigurationERKN6SilKit8Services13Orchestration21WorkflowConfigurationE"></span><span id="SilKit::Experimental::Services::Orchestration::ISystemController::SetWorkflowConfiguration__SilKit::Services::Orchestration::WorkflowConfigurationCR"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_services_1_1_orchestration_1_1_i_system_controller_1a61740bea6c07e05b0054ca10941491d1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetWorkflowConfiguration</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Orchestration</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">WorkflowConfiguration</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">workflowConfiguration</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental8Services13Orchestration17ISystemController24SetWorkflowConfigurationERKN6SilKit8Services13Orchestration21WorkflowConfigurationE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit12Experimental8Services13Orchestration17ISystemController24SetWorkflowConfigurationERKN6SilKit8Services13Orchestration21WorkflowConfigurationE"></span><span id="_CPPv2N6SilKit12Experimental8Services13Orchestration17ISystemController24SetWorkflowConfigurationERKN6SilKit8Services13Orchestration21WorkflowConfigurationE"></span><span id="SilKit::Experimental::Services::Orchestration::ISystemController::SetWorkflowConfiguration__SilKit::Services::Orchestration::WorkflowConfigurationCR"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_services_1_1_orchestration_1_1_i_system_controller_1a61740bea6c07e05b0054ca10941491d1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetWorkflowConfiguration</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Orchestration</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration21WorkflowConfigurationE" title="SilKit::Services::Orchestration::WorkflowConfiguration"><span class="n"><span class="pre">WorkflowConfiguration</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">workflowConfiguration</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental8Services13Orchestration17ISystemController24SetWorkflowConfigurationERKN6SilKit8Services13Orchestration21WorkflowConfigurationE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Configures details of the simulation workflow regarding lifecycle and participant coordination. </p>
-<p>Only the required participant defined in the SilKit::Services::Orchestration::WorkflowConfiguration are taken into account to define the system state. Further, the simulation time propagation also relies on the required participants. The SilKit::Services::Orchestration::WorkflowConfiguration is distributed to other participants, so it must only be set once by a single member of the simulation.</p>
+<p>Only the required participant defined in the <a class="reference internal" href="lifecycleService.html#struct_sil_kit_1_1_services_1_1_orchestration_1_1_workflow_configuration"><span class="std std-ref">SilKit::Services::Orchestration::WorkflowConfiguration</span></a> are taken into account to define the system state. Further, the simulation time propagation also relies on the required participants. The <a class="reference internal" href="lifecycleService.html#struct_sil_kit_1_1_services_1_1_orchestration_1_1_workflow_configuration"><span class="std std-ref">SilKit::Services::Orchestration::WorkflowConfiguration</span></a> is distributed to other participants, so it must only be set once by a single member of the simulation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>workflowConfiguration</strong> – The desired configuration, currently containing a list of required participants </p>
@@ -194,7 +194,7 @@ terminate and call the <code class="docutils literal notranslate"><span class="p
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+    <p>&#169; Copyright 2023 Vector Informatik GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

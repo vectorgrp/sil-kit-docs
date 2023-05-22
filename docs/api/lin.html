@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LIN Service API &mdash; Vector SIL Kit 4.0.24 documentation</title>
+  <title>LIN Service API &mdash; Vector SIL Kit 4.0.26 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.24
+                4.0.26
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -201,7 +201,7 @@ response was configured before at a LIN slave using <a class="reference internal
 payload provided in the frame parameter of <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController9SendFrameE8LinFrame20LinFrameResponseType" title="SilKit::Services::Lin::ILinController::SendFrame"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrame()</span></code></a> will be used. If the LIN master uses the non-AUTOSAR API
 <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController15SendFrameHeaderE5LinId" title="SilKit::Services::Lin::ILinController::SendFrameHeader"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrameHeader()</span></code></a>, a LIN node has to be configured with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseMode15TxUnconditionalE" title="SilKit::Services::Lin::LinFrameResponseMode::TxUnconditional"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseMode::TxUnconditional</span></code></a> on that ID, possibly the master
 itself.</p>
-<p>In all cases except <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController9SendFrameE8LinFrame20LinFrameResponseType" title="SilKit::Services::Lin::ILinController::SendFrame"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrame()</span></code></a> with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseType14MasterResponseE" title="SilKit::Services::Lin::LinFrameResponseType::MasterResponse"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseType::MasterResponse</span></code></a>, the responing node will receive the
+<p>In all cases except <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController9SendFrameE8LinFrame20LinFrameResponseType" title="SilKit::Services::Lin::ILinController::SendFrame"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrame()</span></code></a> with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseType14MasterResponseE" title="SilKit::Services::Lin::LinFrameResponseType::MasterResponse"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseType::MasterResponse</span></code></a>, the responding node will receive the
 header and complete the transmission using the payload of its current transmit buffer. The buffer can be updated
 with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController14UpdateTxBufferE8LinFrame" title="SilKit::Services::Lin::ILinController::UpdateTxBuffer"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">UpdateTxBuffer()</span></code></a> on the node that is configured with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseMode15TxUnconditionalE" title="SilKit::Services::Lin::LinFrameResponseMode::TxUnconditional"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseMode::TxUnconditional</span></code></a> for the corresponding ID.</p>
 <section id="sending-data">
@@ -210,7 +210,7 @@ with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinContr
 <ol class="arabic">
 <li><p>Using <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController9SendFrameE8LinFrame20LinFrameResponseType" title="SilKit::Services::Lin::ILinController::SendFrame"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrame()</span></code></a> with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseType14MasterResponseE" title="SilKit::Services::Lin::LinFrameResponseType::MasterResponse"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseType::MasterResponse</span></code></a>, the frame can be sent in one call
 and the master provides both header and response. A <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin8LinFrameE" title="SilKit::Services::Lin::LinFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">LinFrame</span></code></a> must be setup with the LIN ID,
-data, dataLength and the desired checksum model:</p>
+data, data length and the desired checksum model:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Prepare a frame with id 0x10 for transmission</span>
 <span class="n">LinFrame</span><span class="w"> </span><span class="n">masterFrame</span><span class="p">;</span>
 <span class="n">masterFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">;</span>
@@ -226,7 +226,7 @@ data, dataLength and the desired checksum model:</p>
 <li><p>When using <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController9SendFrameE8LinFrame20LinFrameResponseType" title="SilKit::Services::Lin::ILinController::SendFrame"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrame()</span></code></a> with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseType13SlaveResponseE" title="SilKit::Services::Lin::LinFrameResponseType::SlaveResponse"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseType::SlaveResponse</span></code></a> or <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseType12SlaveToSlaveE" title="SilKit::Services::Lin::LinFrameResponseType::SlaveToSlave"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseType::SlaveToSlave</span></code></a>,
 a slave has to be preconfigured with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseMode15TxUnconditionalE" title="SilKit::Services::Lin::LinFrameResponseMode::TxUnconditional"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseMode::TxUnconditional</span></code></a> on that ID. With these response types, only the
 ID of the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin8LinFrameE" title="SilKit::Services::Lin::LinFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">LinFrame</span></code></a> used in <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController9SendFrameE8LinFrame20LinFrameResponseType" title="SilKit::Services::Lin::ILinController::SendFrame"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrame()</span></code></a> is taken into account. The actual payload and frame settings are provided
-by the TX buffer of the responing slave. The following example assumes that a slave is configure as seen in
+by the Tx buffer of the responing slave. The following example assumes that a slave is configured as seen in
 <a class="reference internal" href="#sec-lin-initialization"><span class="std std-ref">Initialization</span></a>:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// The slave is configured to respond on ID 0x11</span>
 <span class="n">LinFrame</span><span class="w"> </span><span class="n">slaveResponseFrame</span><span class="p">;</span>
@@ -243,8 +243,8 @@ and will configure itself for reception (<a class="reference internal" href="#_C
 <ol class="arabic" start="3">
 <li><p>When using <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController15SendFrameHeaderE5LinId" title="SilKit::Services::Lin::ILinController::SendFrameHeader"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrameHeader()</span></code></a>, the transmission is initiated by sending the header. The node (either master or slave) configured with
 <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseMode15TxUnconditionalE" title="SilKit::Services::Lin::LinFrameResponseMode::TxUnconditional"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseMode::TxUnconditional</span></code></a> will provide the response. The actual payload and frame settings are
-provided by the TX buffer of the responing LIN node. The following example also assumes that a slave is
-configure as seen in <a class="reference internal" href="#sec-lin-initialization"><span class="std std-ref">Initialization</span></a>:</p>
+provided by the Tx buffer of the responing LIN node. The following example also assumes that a slave is
+configured as seen in <a class="reference internal" href="#sec-lin-initialization"><span class="std std-ref">Initialization</span></a>:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Slave:</span>
 <span class="n">LinFrame</span><span class="w"> </span><span class="n">updatedSlaveResponse</span><span class="p">;</span>
 <span class="n">updatedSlaveResponse</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span>
@@ -284,7 +284,7 @@ which is indicated by <a class="reference internal" href="#_CPPv4N6SilKit8Servic
 </section>
 <section id="receiving-data-from-a-slave">
 <h4><a class="toc-backref" href="#id7">Receiving data from a slave</a><a class="headerlink" href="#receiving-data-from-a-slave" title="Permalink to this heading"></a></h4>
-<p>Beside transmission acknowledgemets, the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a> is also used for reception. To receive data, the
+<p>Beside transmission acknowledgements, the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a> is also used for reception. To receive data, the
 <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a> must be registered using <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController21AddFrameStatusHandlerE18FrameStatusHandler" title="SilKit::Services::Lin::ILinController::AddFrameStatusHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddFrameStatusHandler()</span></code></a>, which is called by the LIN controller when
 a frame is received and the LIN node is configured for reception with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseMode2RxE" title="SilKit::Services::Lin::LinFrameResponseMode::Rx"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseMode::Rx</span></code></a> on that LIN ID:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Register FrameStatusHandler to receive data from the LIN slave</span>
@@ -986,11 +986,11 @@ controllers would typically belong to different participants and reside in diffe
 shown here sequentially to demonstrate cause and effect.</p>
 <p>Assumptions:</p>
 <ul class="simple">
-<li><p><em>master</em>, <em>slave</em>, <em>slave1</em>, and <em>slave2</em> are of type <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinControllerE" title="SilKit::Services::Lin::ILinController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ILinController</span></code></a>.</p></li>
-<li><p><em>timeEndOfFrame</em> indicates the end of frame time stamp when using the detiled simulation. Otherwise the value of
-<em>timeEndOfFrame</em> is undefined.</p></li>
-<li><p><em>UseAutosarInterface</em> is a boolean variable that indicates whether to use the AUTOSAR API or the non-AUTOSAR API.
-It will most likely not be used in practice and it merely intended to show the different usages of the API.</p></li>
+<li><p>Variables <code class="docutils literal notranslate"><span class="pre">master</span></code>, <code class="docutils literal notranslate"><span class="pre">slave</span></code>, <code class="docutils literal notranslate"><span class="pre">slave1</span></code>, and <code class="docutils literal notranslate"><span class="pre">slave2</span></code> are of type <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinControllerE" title="SilKit::Services::Lin::ILinController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ILinController</span></code></a>.</p></li>
+<li><p>Variable <code class="docutils literal notranslate"><span class="pre">timeEndOfFrame</span></code> indicates the end of frame time stamp when using the detailed simulation. Otherwise, the value of
+<code class="docutils literal notranslate"><span class="pre">timeEndOfFrame</span></code> is undefined.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UseAutosarInterface</span></code> is a boolean variable that indicates whether to use the AUTOSAR API or the non-AUTOSAR API.
+It will most likely not be used in practice, and only serves to show the various uses of the API.</p></li>
 </ul>
 <section id="successful-transmission-from-master-to-slave">
 <h3><a class="toc-backref" href="#id15">Successful Transmission from Master to slave</a><a class="headerlink" href="#successful-transmission-from-master-to-slave" title="Permalink to this heading"></a></h3>
@@ -1132,7 +1132,7 @@ the master.</p>
 
 <span class="n">slave</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span>
 
-<span class="c1">// Register FrameStatusHandler to receive an acknowledgment for</span>
+<span class="c1">// Register FrameStatusHandler to receive an acknowledgement for</span>
 <span class="c1">// the successful transmission</span>
 <span class="k">auto</span><span class="w"> </span><span class="n">slave_FrameStatusHandler</span><span class="w"> </span><span class="o">=</span>
 <span class="w">    </span><span class="p">[](</span><span class="n">ILinController</span><span class="o">*</span><span class="p">,</span><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">LinFrameStatusEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span>
@@ -1290,7 +1290,7 @@ LIN master.</p>
 </section>
 <section id="erroneous-transmission-from-master-to-slave-multiple-responses">
 <h3><a class="toc-backref" href="#id18">Erroneous Transmission from Master to Slave - Multiple Responses</a><a class="headerlink" href="#erroneous-transmission-from-master-to-slave-multiple-responses" title="Permalink to this heading"></a></h3>
-<p>This example shows what happens when a master atempts to send a Frame while there is slave that has configured a TX
+<p>This example shows what happens when a master attempts to send a Frame while there is slave that has configured a Tx
 response for the same LIN ID.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Copyright (c) 2022 Vector Informatik GmbH</span>
 
@@ -1386,7 +1386,7 @@ response for the same LIN ID.</p>
 </section>
 <section id="erroneous-transmission-from-slave-to-master-no-response">
 <h3><a class="toc-backref" href="#id19">Erroneous Transmission from Slave to Master - No Response</a><a class="headerlink" href="#erroneous-transmission-from-slave-to-master-no-response" title="Permalink to this heading"></a></h3>
-<p>This example shows what happens when a master initiates a transmission and no slave has configured a TX response for
+<p>This example shows what happens when a master initiates a transmission and no slave has configured a Tx response for
 this LIN ID.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Copyright (c) 2022 Vector Informatik GmbH</span>
 
@@ -1465,7 +1465,7 @@ this LIN ID.</p>
 </section>
 <section id="erroneous-transmission-from-slave-to-master-multiple-responses">
 <h3><a class="toc-backref" href="#id20">Erroneous Transmission from Slave to Master - Multiple Responses</a><a class="headerlink" href="#erroneous-transmission-from-slave-to-master-multiple-responses" title="Permalink to this heading"></a></h3>
-<p>This example shows what happens when a master initiates a transmission where multiple slaves have configured TX
+<p>This example shows what happens when a master initiates a transmission where multiple slaves have configured Tx
 responses for the same LIN ID.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Copyright (c) 2022 Vector Informatik GmbH</span>
 
@@ -1645,8 +1645,8 @@ responses for the same LIN ID.</p>
 </div>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note</p>
-<p>The <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController16GoToSleepHandlerE" title="SilKit::Services::Lin::ILinController::GoToSleepHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">GoToSleepHandler</span></code></a> is triggered even without configuring ID 0x3C for reception. However, the
-<a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a> for slaves is only called if ID 0x3C is configured for reception. The master initiated
+<p>The <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController16GoToSleepHandlerE" title="SilKit::Services::Lin::ILinController::GoToSleepHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">GoToSleepHandler</span></code></a> is triggered even without configuring ID <code class="docutils literal notranslate"><span class="pre">0x3C</span></code> for reception. However, the
+<a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a> for slaves is only called if ID <code class="docutils literal notranslate"><span class="pre">0x3C</span></code> is configured for reception. The master initiated
 the sleep mode, it’s <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a> is called with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14LinFrameStatus9LIN_TX_OKE" title="SilKit::Services::Lin::LIN_TX_OK"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LIN_TX_OK</span></code></a>.</p>
 </div>
 </section>
@@ -1831,7 +1831,7 @@ reside in the <cite>SilKit::Experimental::Services::Lin</cite> namespace and mig
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+    <p>&#169; Copyright 2023 Vector Informatik GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

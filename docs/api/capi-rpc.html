@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RPC C API &mdash; Vector SIL Kit 4.0.24 documentation</title>
+  <title>RPC C API &mdash; Vector SIL Kit 4.0.26 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.24
+                4.0.26
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -100,15 +100,15 @@
 <h1>RPC C API<a class="headerlink" href="#rpc-c-api" title="Permalink to this heading"></a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#rpcclients" id="id1">RpcClients</a></p></li>
-<li><p><a class="reference internal" href="#rpcservers" id="id2">RpcServers</a></p></li>
+<li><p><a class="reference internal" href="#rpc-clients" id="id1">RPC Clients</a></p></li>
+<li><p><a class="reference internal" href="#rpc-servers" id="id2">RPC Servers</a></p></li>
 <li><p><a class="reference internal" href="#data-structures" id="id3">Data Structures</a></p></li>
 </ul>
 </div>
-<p>The Rpc API provides client/server based Rpc functionality.
-It consists of RpcClients and RpcServers and a method to discover remote RpcServers.</p>
-<section id="rpcclients">
-<h2><a class="toc-backref" href="#id1">RpcClients</a><a class="headerlink" href="#rpcclients" title="Permalink to this heading"></a></h2>
+<p>The RPC API provides client/server based RPC functionality.
+It consists of RPC clients and RPC servers and a method to discover remote RPC servers.</p>
+<section id="rpc-clients">
+<h2><a class="toc-backref" href="#id1">RPC Clients</a><a class="headerlink" href="#rpc-clients" title="Permalink to this heading"></a></h2>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv423SilKit_RpcClient_CreatePP16SilKit_RpcClientP18SilKit_ParticipantPKcP14SilKit_RpcSpecPv29SilKit_RpcCallResultHandler_t">
 <span id="_CPPv323SilKit_RpcClient_CreatePP16SilKit_RpcClientP18SilKit_ParticipantPKcP14SilKit_RpcSpecPv29SilKit_RpcCallResultHandler_t"></span><span id="_CPPv223SilKit_RpcClient_CreatePP16SilKit_RpcClientP18SilKit_ParticipantPKcP14SilKit_RpcSpecPv29SilKit_RpcCallResultHandler_t"></span><span id="SilKit_RpcClient_Create__SilKit_RpcClientPP.SilKit_ParticipantP.cCP.SilKit_RpcSpecP.voidP.SilKit_RpcCallResultHandler_t"></span><span class="target" id="_rpc_8h_1afccf2a0c94af79ad2cff2cc5b661a9ff"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_RpcClient_Create</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_RpcClient</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outClient</span></span>, <span class="n"><span class="pre">SilKit_Participant</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controllerName</span></span>, <span class="n"><span class="pre">SilKit_RpcSpec</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">rpcSpec</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">resultHandlerContext</span></span>, <span class="n"><span class="pre">SilKit_RpcCallResultHandler_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">resultHandler</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423SilKit_RpcClient_CreatePP16SilKit_RpcClientP18SilKit_ParticipantPKcP14SilKit_RpcSpecPv29SilKit_RpcCallResultHandler_t" title="Permalink to this definition"></a><br /></dt>
@@ -142,11 +142,11 @@ It consists of RpcClients and RpcServers and a method to discover remote RpcServ
 </dl>
 </dd></dl>
 
-<p>A RpcClient is created with a handler for the call return by RpcServers:
+<p>An <code class="docutils literal notranslate"><span class="pre">RpcClient</span></code> is created with a handler for the call return by RPC servers:
 .. doxygentypedef:: SilKit_CallResultHandler_t</p>
 </section>
-<section id="rpcservers">
-<h2><a class="toc-backref" href="#id2">RpcServers</a><a class="headerlink" href="#rpcservers" title="Permalink to this heading"></a></h2>
+<section id="rpc-servers">
+<h2><a class="toc-backref" href="#id2">RPC Servers</a><a class="headerlink" href="#rpc-servers" title="Permalink to this heading"></a></h2>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv423SilKit_RpcServer_CreatePP16SilKit_RpcServerP18SilKit_ParticipantPKcP14SilKit_RpcSpecPv23SilKit_RpcCallHandler_t">
 <span id="_CPPv323SilKit_RpcServer_CreatePP16SilKit_RpcServerP18SilKit_ParticipantPKcP14SilKit_RpcSpecPv23SilKit_RpcCallHandler_t"></span><span id="_CPPv223SilKit_RpcServer_CreatePP16SilKit_RpcServerP18SilKit_ParticipantPKcP14SilKit_RpcSpecPv23SilKit_RpcCallHandler_t"></span><span id="SilKit_RpcServer_Create__SilKit_RpcServerPP.SilKit_ParticipantP.cCP.SilKit_RpcSpecP.voidP.SilKit_RpcCallHandler_t"></span><span class="target" id="_rpc_8h_1a25289642ef463a6413f7bb5e507450e9"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_RpcServer_Create</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_RpcServer</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outServer</span></span>, <span class="n"><span class="pre">SilKit_Participant</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controllerName</span></span>, <span class="n"><span class="pre">SilKit_RpcSpec</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">rpcSpec</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">callHandlerContext</span></span>, <span class="n"><span class="pre">SilKit_RpcCallHandler_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">callHandler</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423SilKit_RpcServer_CreatePP16SilKit_RpcServerP18SilKit_ParticipantPKcP14SilKit_RpcSpecPv23SilKit_RpcCallHandler_t" title="Permalink to this definition"></a><br /></dt>
@@ -180,7 +180,7 @@ It consists of RpcClients and RpcServers and a method to discover remote RpcServ
 </dl>
 </dd></dl>
 
-<p>A RpcServers is created with a handler to process incoming calls by RpcClients:
+<p>An <code class="docutils literal notranslate"><span class="pre">RpcServer</span></code> is created with a handler to process incoming calls by RPC clients:
 .. doxygentypedef:: SilKit_RpcCallHandler_t</p>
 </section>
 <section id="data-structures">
@@ -211,7 +211,7 @@ It consists of RpcClients and RpcServers and a method to discover remote RpcServ
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+    <p>&#169; Copyright 2023 Vector Informatik GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

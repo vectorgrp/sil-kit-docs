@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Publish/Subscribe C API &mdash; Vector SIL Kit 4.0.24 documentation</title>
+  <title>Data Publish/Subscribe C API &mdash; Vector SIL Kit 4.0.26 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.24
+                4.0.26
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -100,16 +100,16 @@
 <h1>Data Publish/Subscribe C API<a class="headerlink" href="#data-publish-subscribe-c-api" title="Permalink to this heading"></a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#datapublishers" id="id1">DataPublishers</a></p></li>
-<li><p><a class="reference internal" href="#datasubscribers" id="id2">DataSubscribers</a></p></li>
+<li><p><a class="reference internal" href="#data-publishers" id="id1">Data Publishers</a></p></li>
+<li><p><a class="reference internal" href="#data-subscribers" id="id2">Data Subscribers</a></p></li>
 <li><p><a class="reference internal" href="#handlers" id="id3">Handlers</a></p></li>
 <li><p><a class="reference internal" href="#data-structures" id="id4">Data Structures</a></p></li>
 </ul>
 </div>
-<p>The Publish/Subscribe API provides a topic-based publish / subscribe mechanism to exchange arbitrary user data.
-It consists of DataPublishers and DataSubscribers.</p>
-<section id="datapublishers">
-<h2><a class="toc-backref" href="#id1">DataPublishers</a><a class="headerlink" href="#datapublishers" title="Permalink to this heading"></a></h2>
+<p>The publish/subscribe API provides a topic-based publish/subscribe mechanism to exchange arbitrary user data.
+It consists of data publishers and data subscribers.</p>
+<section id="data-publishers">
+<h2><a class="toc-backref" href="#id1">Data Publishers</a><a class="headerlink" href="#data-publishers" title="Permalink to this heading"></a></h2>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv427SilKit_DataPublisher_CreatePP20SilKit_DataPublisherP18SilKit_ParticipantPKcP15SilKit_DataSpec7uint8_t">
 <span id="_CPPv327SilKit_DataPublisher_CreatePP20SilKit_DataPublisherP18SilKit_ParticipantPKcP15SilKit_DataSpec7uint8_t"></span><span id="_CPPv227SilKit_DataPublisher_CreatePP20SilKit_DataPublisherP18SilKit_ParticipantPKcP15SilKit_DataSpec7uint8_t"></span><span id="SilKit_DataPublisher_Create__SilKit_DataPublisherPP.SilKit_ParticipantP.cCP.SilKit_DataSpecP.uint8_t"></span><span class="target" id="_data_pub_sub_8h_1aea74de16d4f6e6c36979b99a96a92a5c"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_DataPublisher_Create</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_DataPublisher</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outPublisher</span></span>, <span class="n"><span class="pre">SilKit_Participant</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controllerName</span></span>, <span class="n"><span class="pre">SilKit_DataSpec</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">dataSpec</span></span>, <span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">history</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv427SilKit_DataPublisher_CreatePP20SilKit_DataPublisherP18SilKit_ParticipantPKcP15SilKit_DataSpec7uint8_t" title="Permalink to this definition"></a><br /></dt>
@@ -142,8 +142,8 @@ It consists of DataPublishers and DataSubscribers.</p>
 </dd></dl>
 
 </section>
-<section id="datasubscribers">
-<h2><a class="toc-backref" href="#id2">DataSubscribers</a><a class="headerlink" href="#datasubscribers" title="Permalink to this heading"></a></h2>
+<section id="data-subscribers">
+<h2><a class="toc-backref" href="#id2">Data Subscribers</a><a class="headerlink" href="#data-subscribers" title="Permalink to this heading"></a></h2>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv428SilKit_DataSubscriber_CreatePP21SilKit_DataSubscriberP18SilKit_ParticipantPKcP15SilKit_DataSpecPv27SilKit_DataMessageHandler_t">
 <span id="_CPPv328SilKit_DataSubscriber_CreatePP21SilKit_DataSubscriberP18SilKit_ParticipantPKcP15SilKit_DataSpecPv27SilKit_DataMessageHandler_t"></span><span id="_CPPv228SilKit_DataSubscriber_CreatePP21SilKit_DataSubscriberP18SilKit_ParticipantPKcP15SilKit_DataSpecPv27SilKit_DataMessageHandler_t"></span><span id="SilKit_DataSubscriber_Create__SilKit_DataSubscriberPP.SilKit_ParticipantP.cCP.SilKit_DataSpecP.voidP.SilKit_DataMessageHandler_t"></span><span class="target" id="_data_pub_sub_8h_1a5acdea100edec11604994e3ca2bb42ef"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_DataSubscriber_Create</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_DataSubscriber</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outSubscriber</span></span>, <span class="n"><span class="pre">SilKit_Participant</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controllerName</span></span>, <span class="n"><span class="pre">SilKit_DataSpec</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">dataSpec</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">dataHandlerContext</span></span>, <a class="reference internal" href="#_CPPv427SilKit_DataMessageHandler_t" title="SilKit_DataMessageHandler_t"><span class="n"><span class="pre">SilKit_DataMessageHandler_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">dataHandler</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv428SilKit_DataSubscriber_CreatePP21SilKit_DataSubscriberP18SilKit_ParticipantPKcP15SilKit_DataSpecPv27SilKit_DataMessageHandler_t" title="Permalink to this definition"></a><br /></dt>
@@ -180,7 +180,7 @@ It consists of DataPublishers and DataSubscribers.</p>
 </section>
 <section id="handlers">
 <h2><a class="toc-backref" href="#id3">Handlers</a><a class="headerlink" href="#handlers" title="Permalink to this heading"></a></h2>
-<p>The DataSubscriber is created with a handler for data reception:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">DataSubscriber</span></code> is created with a handler for data reception:</p>
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv427SilKit_DataMessageHandler_t">
 <span id="_CPPv327SilKit_DataMessageHandler_t"></span><span id="_CPPv227SilKit_DataMessageHandler_t"></span><span id="SilKit_DataMessageHandler_t"></span><span class="target" id="_data_pub_sub_8h_1ac4935c620c563a705e4bd93ebff9a816"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_DataMessageHandler_t</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit_DataSubscriber</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">subscriber</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv423SilKit_DataMessageEvent" title="SilKit_DataMessageEvent"><span class="n"><span class="pre">SilKit_DataMessageEvent</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">dataMessageEvent</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv427SilKit_DataMessageHandler_t" title="Permalink to this definition"></a><br /></dt>
@@ -236,7 +236,7 @@ It consists of DataPublishers and DataSubscribers.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+    <p>&#169; Copyright 2023 Vector Informatik GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

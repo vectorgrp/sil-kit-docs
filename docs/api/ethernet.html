@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ethernet Service API &mdash; Vector SIL Kit 4.0.24 documentation</title>
+  <title>Ethernet Service API &mdash; Vector SIL Kit 4.0.26 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.24
+                4.0.26
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -109,7 +109,7 @@
 <li><p><a class="reference internal" href="#initialization" id="id2">Initialization</a></p></li>
 <li><p><a class="reference internal" href="#sending-ethernet-frames" id="id3">Sending Ethernet Frames</a></p></li>
 <li><p><a class="reference internal" href="#transmission-acknowledgement" id="id4">Transmission Acknowledgement</a></p></li>
-<li><p><a class="reference internal" href="#receiving-ethernet-frameevents" id="id5">Receiving Ethernet FrameEvents</a></p></li>
+<li><p><a class="reference internal" href="#receiving-ethernet-frame-events" id="id5">Receiving Ethernet Frame Events</a></p></li>
 <li><p><a class="reference internal" href="#managing-the-event-handlers" id="id6">Managing the Event Handlers</a></p>
 <ul>
 <li><p><a class="reference internal" href="#switches" id="id7">Switches</a></p></li>
@@ -147,7 +147,7 @@ name:</p>
 <section id="initialization">
 <h3><a class="toc-backref" href="#id2">Initialization</a><a class="headerlink" href="#initialization" title="Permalink to this heading"></a></h3>
 <p>The Ethernet controller first has to call <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController8ActivateEv" title="SilKit::Services::Ethernet::IEthernetController::Activate"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Activate()</span></code></a> before being able to
-send frames. Note that <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController8ActivateEv" title="SilKit::Services::Ethernet::IEthernetController::Activate"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Activate()</span></code></a> can be called in the CommunicationReadyHandler of a LifecycleService.</p>
+send frames. Note that <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController8ActivateEv" title="SilKit::Services::Ethernet::IEthernetController::Activate"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Activate()</span></code></a> can be called in the <code class="docutils literal notranslate"><span class="pre">CommunicationReadyHandler</span></code> of a <code class="docutils literal notranslate"><span class="pre">LifecycleService</span></code>.</p>
 </section>
 <section id="sending-ethernet-frames">
 <h3><a class="toc-backref" href="#id3">Sending Ethernet Frames</a><a class="headerlink" href="#sending-ethernet-frames" title="Permalink to this heading"></a></h3>
@@ -156,7 +156,7 @@ according to layer 2 of IEEE 802.3, with</p>
 <ul class="simple">
 <li><p>a source and destination MAC address (6 octets each),</p></li>
 <li><p>an optional 802.1Q tag (4 octets),</p></li>
-<li><p>the Ethertype or length (Ethernet II or IEEE 802.3, 2 octets), and</p></li>
+<li><p>the <cite>EtherType</cite> or length (Ethernet II or IEEE 802.3, 2 octets), and</p></li>
 <li><p>the payload to be transmitted (46 octets or more).</p></li>
 </ul>
 <div class="admonition-note admonition">
@@ -208,11 +208,11 @@ according to layer 2 of IEEE 802.3, with</p>
 <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet26EthernetFrameTransmitEventE" title="SilKit::Services::Ethernet::EthernetFrameTransmitEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">EthernetFrameTransmitEvent</span></code></a> will always be <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet22EthernetTransmitStatus11TransmittedE" title="SilKit::Services::Ethernet::Transmitted"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">EthernetTransmitStatus::Transmitted</span></code></a>.</p>
 </div>
 </section>
-<section id="receiving-ethernet-frameevents">
-<h3><a class="toc-backref" href="#id5">Receiving Ethernet FrameEvents</a><a class="headerlink" href="#receiving-ethernet-frameevents" title="Permalink to this heading"></a></h3>
-<p>An <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet13EthernetFrameE" title="SilKit::Services::Ethernet::EthernetFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">EthernetFrame</span></code></a> is received as an <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet18EthernetFrameEventE" title="SilKit::Services::Ethernet::EthernetFrameEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">EthernetFrameEvent</span></code></a> consisting of a transmitId used to identify
-the acknowledge of the frame, a timestamp and the actual <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet13EthernetFrameE" title="SilKit::Services::Ethernet::EthernetFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">EthernetFrame</span></code></a>.</p>
-<p>To receive Ethernet frames, a FrameHandler must be registered using <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController15AddFrameHandlerE12FrameHandler13DirectionMask" title="SilKit::Services::Ethernet::IEthernetController::AddFrameHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddFrameHandler()</span></code></a>. The handler is called whenever
+<section id="receiving-ethernet-frame-events">
+<h3><a class="toc-backref" href="#id5">Receiving Ethernet Frame Events</a><a class="headerlink" href="#receiving-ethernet-frame-events" title="Permalink to this heading"></a></h3>
+<p>An <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet13EthernetFrameE" title="SilKit::Services::Ethernet::EthernetFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">EthernetFrame</span></code></a> is received as an <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet18EthernetFrameEventE" title="SilKit::Services::Ethernet::EthernetFrameEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">EthernetFrameEvent</span></code></a> consisting of a <code class="docutils literal notranslate"><span class="pre">transmitId</span></code> used to identify
+the acknowledgement of the frame, a timestamp and the actual <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet13EthernetFrameE" title="SilKit::Services::Ethernet::EthernetFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">EthernetFrame</span></code></a>.</p>
+<p>To receive Ethernet frames, a frame handler must be registered using <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController15AddFrameHandlerE12FrameHandler13DirectionMask" title="SilKit::Services::Ethernet::IEthernetController::AddFrameHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddFrameHandler()</span></code></a>. The handler is called whenever
 an Ethernet frame is received:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">frameHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="n">IEthernetController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">EthernetFrameEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameEvent</span><span class="p">)</span>
 <span class="p">{</span>
@@ -221,8 +221,8 @@ an Ethernet frame is received:</p>
 <span class="n">ethernetController</span><span class="o">-&gt;</span><span class="n">AddFrameHandler</span><span class="p">(</span><span class="n">frameHandler</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>An optional second parameter of <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController15AddFrameHandlerE12FrameHandler13DirectionMask" title="SilKit::Services::Ethernet::IEthernetController::AddFrameHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddFrameHandler()</span></code></a> allows to specify the direction (TX, RX, TX/RX) of the Ethernet frames to be
-received. By default, only frames of RX direction are handled.</p>
+<p>An optional second parameter of <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController15AddFrameHandlerE12FrameHandler13DirectionMask" title="SilKit::Services::Ethernet::IEthernetController::AddFrameHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddFrameHandler()</span></code></a> allows to specify the direction (Tx, Rx, Tx/Rx) of the Ethernet frames to be
+received. By default, only frames of Rx direction are handled.</p>
 </section>
 <section id="managing-the-event-handlers">
 <h3><a class="toc-backref" href="#id6">Managing the Event Handlers</a><a class="headerlink" href="#managing-the-event-handlers" title="Permalink to this heading"></a></h3>
@@ -632,7 +632,7 @@ the Ethernet controllers would typically belong to different participants and re
 interaction is shown sequentially to demonstrate cause and effect.</p>
 <p>Assumptions:</p>
 <ul class="simple">
-<li><p><em>ethernetReceiver</em>, <em>ethernetSender</em> are of type <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetControllerE" title="SilKit::Services::Ethernet::IEthernetController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IEthernetController</span></code></a>.</p></li>
+<li><p>Variables <code class="docutils literal notranslate"><span class="pre">ethernetReceiver</span></code>, <code class="docutils literal notranslate"><span class="pre">ethernetSender</span></code> are of type <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetControllerE" title="SilKit::Services::Ethernet::IEthernetController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IEthernetController</span></code></a>.</p></li>
 <li><p>All Ethernet controllers are connected to the same switch.</p></li>
 </ul>
 <section id="simple-ethernet-sender-receiver-example">
@@ -889,7 +889,7 @@ interaction is shown sequentially to demonstrate cause and effect.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Copyright (c) 2022 Vector Informatik GmbH.</p>
+    <p>&#169; Copyright 2023 Vector Informatik GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
