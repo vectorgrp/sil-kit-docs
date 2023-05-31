@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Configuration &mdash; Vector SIL Kit 4.0.26 documentation</title>
+  <title>Configuration &mdash; Vector SIL Kit 4.0.27 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.26
+                4.0.27
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -57,6 +57,10 @@
 <li class="toctree-l2"><a class="reference internal" href="middleware-configuration.html">Middleware Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-participant-configuration-file">The Participant Configuration File</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#configuration-options">Configuration Options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-registry-configuration-file">The Registry Configuration File</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Configuration Options</a></li>
 </ul>
 </li>
 </ul>
@@ -239,6 +243,70 @@ defined participant name.</p></td>
 <tr class="row-even"><td><p><a class="reference internal" href="middleware-configuration.html"><span class="doc">Middleware</span></a></p></td>
 <td><p>This optional section can be used to configure the middleware running the Vector SIL Kit.
 If this section is omitted, defaults will be used.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="the-registry-configuration-file">
+<h2>The Registry Configuration File<a class="headerlink" href="#the-registry-configuration-file" title="Permalink to this heading"></a></h2>
+<p>An instance of the SIL Kit Registry (<code class="docutils literal notranslate"><span class="pre">sil-kit-registry(.exe)</span></code>) can be
+configured via a YAML/JSON file.
+The configuration file is optional and overrides the settings specified on the
+command line.
+It also allows extended configuration, beyond what the command line allows,
+particularly for logging.</p>
+<p>The outline of a registry configuration file is as follows:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="nt">SchemaVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sample registry configuration.</span>
+
+<span class="nt">ListenUri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">silkit://0.0.0.0:8501</span>
+
+<span class="nt">Logging</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">Sinks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Stdout</span>
+<span class="w">      </span><span class="nt">Level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trace</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">File</span>
+<span class="w">      </span><span class="nt">Level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trace</span>
+<span class="w">      </span><span class="nt">LogName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SampleRegistryLogFile</span>
+</pre></div>
+</div>
+<section id="id1">
+<h3>Configuration Options<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SchemaVersion</span></code></p></td>
+<td><p>The version of the used registry configuration schema. Current version is 1.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Description</span></code></p></td>
+<td><p>Free text field allowing a user to describe the configuration file in
+their own words.
+The contents of this field are not parsed or used internally.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ListenUri</span></code></p></td>
+<td><p>The configured registry instance will listen on this address for
+incoming connections.
+This field overrides the <code class="docutils literal notranslate"><span class="pre">-u</span></code>, and <code class="docutils literal notranslate"><span class="pre">--listen-uri</span></code> command line
+parameters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Logging</span></code></p></td>
+<td><p>Configuration of where and how logs produced by the registry are
+processed. See <a class="reference internal" href="logging-configuration.html#sec-cfg-participant-logging"><span class="std std-ref">Logging</span></a>.</p>
+<p><strong>NOTE</strong> It is not possible to configure <code class="docutils literal notranslate"><span class="pre">LogFromRemotes</span></code>. Using this
+value will lead to an error during registry startup.</p>
+<p><strong>NOTE</strong> It is only possible to use the Sink types <code class="docutils literal notranslate"><span class="pre">Stdout</span></code> and
+<code class="docutils literal notranslate"><span class="pre">File</span></code>. Using <code class="docutils literal notranslate"><span class="pre">Remote</span></code> will lead to an error during registry startup.</p>
+</td>
 </tr>
 </tbody>
 </table>
