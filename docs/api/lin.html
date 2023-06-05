@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LIN Service API &mdash; Vector SIL Kit 4.0.27 documentation</title>
+  <title>LIN Service API &mdash; Vector SIL Kit 4.0.28 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.27
+                4.0.28
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -60,6 +60,7 @@
 <li class="toctree-l3"><a class="reference internal" href="api.html#data-publish-subscribe-and-rpc">Data Publish/Subscribe and RPC</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api.html#state-handling-and-synchronization">State Handling and Synchronization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api.html#common-data-types">Common Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html#utilities">Utilities</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#c-api">C API</a></li>
@@ -419,8 +420,8 @@ data length or checksum model provided by the sender is used in the <a class="re
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>frame</strong> – provides the LIN identifier, checksum model, and optional data. </p></li>
-<li><p><strong>responseType</strong> – determines which LIN Node will provide the frame response.</p></li>
+<li><p><strong>frame</strong> – Provides the LIN identifier, checksum model, and optional data. </p></li>
+<li><p><strong>responseType</strong> – Determines which LIN Node will provide the frame response.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Throws</dt>
@@ -435,7 +436,7 @@ data length or checksum model provided by the sender is used in the <a class="re
 <dd><p>Initiate a LIN data transfer by sending a LIN header (AUTOSAR LIN master interface) </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>linId</strong> – provides the LIN header identifier. The node that is configured to respond on this ID will complete the transmission and provide the response data.</p>
+<dd class="field-odd"><p><strong>linId</strong> – Provides the LIN header identifier. The node that is configured to respond on this ID will complete the transmission and provide the response data.</p>
 </dd>
 <dt class="field-even">Throws</dt>
 <dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">StateError</span></span></span> – if the LIN Controller is not initialized or not a master node. </p>
@@ -449,7 +450,7 @@ data length or checksum model provided by the sender is used in the <a class="re
 <dd><p>Update the response data. The LIN controller needs to be configured with TxUnconditional on this ID. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>frame</strong> – provides the LIN ID and data used for the update.</p>
+<dd class="field-odd"><p><strong>frame</strong> – Provides the LIN ID and data used for the update.</p>
 </dd>
 <dt class="field-even">Throws</dt>
 <dd class="field-even"><ul class="simple">
