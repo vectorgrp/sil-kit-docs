@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Demos &mdash; Vector SIL Kit 4.0.30 documentation</title>
+  <title>Demos &mdash; Vector SIL Kit 4.0.31 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.30
+                4.0.31
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -359,8 +359,7 @@ build/Release/SilKitDemoLin Demos/Lin/DemoLin.silkit.yaml LinSlave --async</pre>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Notes</p></th>
 <td><div class="line-block">
-<div class="line">- The LIN demo can only run in a synchronized mode.</div>
-<div class="line">- Both Master and Slave sleep for 500 milliseconds per simulation step to slow down execution.</div>
+<div class="line">Both Master and Slave sleep for 500 milliseconds per simulation step to slow down execution.</div>
 </div>
 </td>
 </tr>
@@ -493,6 +492,15 @@ build/Release/SilKitDemoPubSub Demos/PubSub/DemoPubSub.silkit.yaml Subscriber
 
 # System Controller:
 build/Release/sil-kit-system-controller Publisher Subscriber</pre>
+<p>For unsynchronized execution:</p>
+<pre class="literal-block"># Registry (if not already running):
+build/Release/sil-kit-registry
+
+# Publisher:
+build/Release/SilKitDemoPubSub Demos/PubSub/DemoPubSub.silkit.yaml Publisher --async
+
+# Subscriber:
+build/Release/SilKitDemoPubSub Demos/PubSub/DemoPubSub.silkit.yaml Subscriber --async</pre>
 </td>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Notes</p></th>
@@ -559,6 +567,15 @@ build/Release/SilKitDemoRpc Demos/Rpc/DemoRpc.silkit.yaml Client
 
 # System Controller:
 build/Release/sil-kit-system-controller Server Client</pre>
+<p>For unsynchronized execution:</p>
+<pre class="literal-block"># Registry (if not already running):
+build/Release/sil-kit-registry
+
+# Server:
+build/Release/SilKitDemoRpc Demos/Rpc/DemoRpc.silkit.yaml Server --async
+
+# Client:
+build/Release/SilKitDemoRpc Demos/Rpc/DemoRpc.silkit.yaml Client --async</pre>
 </td>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Notes</p></th>
@@ -642,19 +659,16 @@ build/Release/SilKitDemoBenchmark.exe --number-participants 4</pre>
 </td>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Notes</p></th>
-<td><p>This benchmark demo produces timings of a configurable simulation setup. &lt;N&gt; participants exchange &lt;M&gt;
-of &lt;B&gt; bytes per simulation step with a fixed period of 1ms and run for &lt;S&gt; seconds (virtual time).
-This simulation run is repeated &lt;K&gt; times and averages over all runs are calculated. Results for average
-runtime, speedup (virtual time/runtime), throughput (data size/runtime), message rate (count/runtime)
-including the standard deviation are printed.
-The demo uses publish/subscribe controllers with the same topic for the message exchange, so each participant broadcasts
-the messages to all other participants. The configuration file
-<code class="docutils literal notranslate"><span class="pre">DemoBenchmarkDomainSocketsOff.silkit.yaml</span></code> can be used to disable domain socket usage
-for more realistic timings of TCP/IP traffic. With <code class="docutils literal notranslate"><span class="pre">DemoBenchmarkTCPNagleOff.silkit.yaml</span></code>,
-Nagle’s algorithm and domain sockets are switched off.
-The demo can be wrapped in helper scripts to run parameter scans, e.g., for performance analysis regarding
-different message sizes. See <code class="docutils literal notranslate"><span class="pre">\Demos\Benchmark\msg-size-scaling\Readme.md</span></code> and
-<code class="docutils literal notranslate"><span class="pre">Demos\Benchmark\performance-diff\Readme.md</span></code> for further information.</p></td>
+<td><div class="line-block">
+<div class="line">This benchmark demo produces timings of a configurable simulation setup. &lt;N&gt; participants exchange &lt;M&gt; of &lt;B&gt; bytes per simulation step with a fixed period of 1ms and run for &lt;S&gt; seconds (virtual time).</div>
+<div class="line"><br /></div>
+<div class="line">This simulation run is repeated &lt;K&gt; times and averages over all runs  are calculated. Results for average runtime, speedup (virtual time/runtime), throughput (data size/runtime), message rate (count/runtime) including the standard deviation are printed.</div>
+<div class="line"><br /></div>
+<div class="line">The demo uses publish/subscribe controllers with the same topic for the message exchange, so each participant broadcasts the messages to all other participants. The configuration file <code class="docutils literal notranslate"><span class="pre">DemoBenchmarkDomainSocketsOff.silkit.yaml</span></code> can be used to disable domain socket usage for more realistic timings of TCP/IP traffic. With <code class="docutils literal notranslate"><span class="pre">DemoBenchmarkTCPNagleOff.silkit.yaml</span></code>, Nagle’s algorithm and domain sockets are switched off.</div>
+<div class="line"><br /></div>
+<div class="line">The demo can be wrapped in helper scripts to run parameter scans, e.g., for performance analysis regarding different message sizes. See <code class="docutils literal notranslate"><span class="pre">\Demos\Benchmark\msg-size-scaling\Readme.md</span></code> and <code class="docutils literal notranslate"><span class="pre">Demos\Benchmark\performance-diff\Readme.md</span></code> for further information.</div>
+</div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -722,10 +736,14 @@ build/Release/SilKitDemoLatency.exe 100 1000 --configuration ./DemoBenchmarkDoma
 </td>
 </tr>
 <tr class="row-odd"><th class="stub"><p>Notes</p></th>
-<td><p>This latency demo produces timings of a configurable simulation setup. Two participants exchange &lt;M&gt; messages
-of &lt;B&gt; bytes without time synchronization. The demo uses publish/subscribe controllers performing a message roundtrip (ping-pong)
-to calculate latency and throughput timings. Note that the two participants must use the same parameters for a
-valid measurement and one participant must use the –isReceiver flag.</p></td>
+<td><div class="line-block">
+<div class="line">This latency demo produces timings of a configurable simulation setup. Two participants exchange &lt;M&gt; messages of &lt;B&gt; bytes without time synchronization.</div>
+<div class="line"><br /></div>
+<div class="line">The demo uses publish/subscribe controllers performing a message roundtrip (ping-pong) to calculate latency and throughput timings.</div>
+<div class="line"><br /></div>
+<div class="line">Note that the two participants must use the same parameters for valid measurement and one participant must use the <code class="docutils literal notranslate"><span class="pre">--isReceiver</span></code> flag.</div>
+</div>
+</td>
 </tr>
 </tbody>
 </table>
