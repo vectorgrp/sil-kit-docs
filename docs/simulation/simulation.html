@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simulation &mdash; Vector SIL Kit 4.0.32 documentation</title>
+  <title>Simulation &mdash; Vector SIL Kit 4.0.33 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="API" href="../api/api.html" />
-    <link rel="prev" title="Quick Start" href="../usage/quickstart.html" /> 
+    <link rel="prev" title="Developer Guide" href="../for-developers/developers.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.32
+                4.0.33
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -43,8 +43,9 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-users/users.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-developers/developers.html">Developer Guide</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Simulation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#properties-of-participants">Properties of Participants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lifecycle-management">Lifecycle Management</a><ul>
@@ -74,9 +75,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 </ul>
 
         </div>
@@ -198,7 +199,7 @@ lifecycle (see <a class="reference internal" href="../api/systemcontroller.html"
 <figure class="align-center" id="id1">
 <span id="label-sim-lifecycle"></span><a class="reference internal image-reference" href="../_images/ParticipantLifecycle_3.png"><img alt=": Participant state machine" src="../_images/ParticipantLifecycle_3.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Figure 1 </span><span class="caption-text">: SIL Kit participant state machine.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Figure 7 </span><span class="caption-text">: SIL Kit participant state machine.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>A participant enters the distributed state machine by calling <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService14StartLifecycleEv" title="SilKit::Services::Orchestration::ILifecycleService::StartLifecycle"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">StartLifecycle()</span></code></a>.
@@ -265,7 +266,7 @@ The last part details what time information SIL Kit clients provide, depending o
 is not supported. Therefore, all participants of a simulation must either be synchronized or unsynchronized.</p>
 </div>
 <section id="simulation-overview">
-<h3><a class="toc-backref" href="#id14">Simulation Overview</a><a class="headerlink" href="#simulation-overview" title="Permalink to this heading"></a></h3>
+<span id="subsec-sim-overview"></span><h3><a class="toc-backref" href="#id14">Simulation Overview</a><a class="headerlink" href="#simulation-overview" title="Permalink to this heading"></a></h3>
 <p>A SIL Kit simulation is designed as a discrete-event simulation.
 This means, that each event of a participant occurs at a distinct point in time.
 Synchronized participants exchange information about the next point in time at which they intend to execute their <em>simulation step</em>.
@@ -340,11 +341,11 @@ If a network simulator is available for a given network, it takes precedence of 
 Within it, all participants exchange their messages via direct messaging based on TCP connections or Unix domain sockets.</p>
 <p>The internal middleware guarantees message delivery to always be in-order.
 This enables the usage of a distributed synchronization algorithm.
-<a class="reference internal" href="#label-sim-messagedelivery"><span class="std std-numref">Figure 2</span></a> shows the synchronization algorithm:</p>
+<a class="reference internal" href="#label-sim-messagedelivery"><span class="std std-numref">Figure 8</span></a> shows the synchronization algorithm:</p>
 <figure class="align-center" id="id3">
 <span id="label-sim-messagedelivery"></span><a class="reference internal image-reference" href="../_images/sim-inorder-strict.png"><img alt="Vector SIL Kit message delivery" src="../_images/sim-inorder-strict.png" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Figure 2 </span><span class="caption-text">: SIL Kit delivery of messages.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Figure 8 </span><span class="caption-text">: SIL Kit delivery of messages.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The algorithm reports the start time of the next due simulation step to all other participants (<code class="docutils literal notranslate"><span class="pre">next&#64;</span></code> messages in the figure).
@@ -358,7 +359,7 @@ That is, when there are no more simulation steps of other participants with an e
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../usage/quickstart.html" class="btn btn-neutral float-left" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../for-developers/developers.html" class="btn btn-neutral float-left" title="Developer Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../api/api.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

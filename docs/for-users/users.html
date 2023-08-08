@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Guide &mdash; Vector SIL Kit 4.0.33 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Developer Guide" href="../for-developers/developers.html" />
+    <link rel="prev" title="Vector SIL Kit Overview" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.33
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#preparations">Preparations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#participants">Participants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utility-processes">Utility Processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#network-topology-examples">Network Topology / Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#re-configuration">(Re-)Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../for-developers/developers.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+      <li>User Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/for-users/users.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="user-guide">
+<h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this heading"></a></h1>
+<p>The following section explains how to bring together Vector SIL Kit enabled applications and how to successfully run a simulation.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#preparations" id="id7">Preparations</a></p></li>
+<li><p><a class="reference internal" href="#quick-start" id="id8">Quick Start</a></p></li>
+<li><p><a class="reference internal" href="#participants" id="id9">Participants</a></p></li>
+<li><p><a class="reference internal" href="#utility-processes" id="id10">Utility Processes</a></p></li>
+<li><p><a class="reference internal" href="#network-topology-examples" id="id11">Network Topology / Examples</a></p></li>
+<li><p><a class="reference internal" href="#re-configuration" id="id12">(Re-)Configuration</a></p></li>
+</ul>
+</div>
+<figure class="align-center" id="id1">
+<span id="label-users-setup-simple-example"></span><a class="reference internal image-reference" href="../_images/simSetup_simple.svg"><img alt=": Simple simulation setup with two participants communicating on a network named &quot;CAN1&quot;." src="../_images/simSetup_simple.svg" width="800" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 1 </span><span class="caption-text">: Example of a simple simulation setup with two participants that communicate on a bus network named “CAN1”.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="preparations">
+<span id="sec-users-setup"></span><h2><a class="toc-backref" href="#id7">Preparations</a><a class="headerlink" href="#preparations" title="Permalink to this heading"></a></h2>
+<p>If you do not have a SIL Kit package at hand, please do the following:</p>
+<ol class="arabic simple">
+<li><p>Visit our Releases page on GitHub (<a class="reference external" href="https://github.com/vectorgrp/sil-kit/releases">https://github.com/vectorgrp/sil-kit/releases</a>).</p></li>
+<li><p>Find your desired SIL Kit version.
+We recommend the most recent version, as it may have new features and bug fixes.</p></li>
+<li><p>Download the zip file for your platform.
+If there are no prebuilt binaries for your platform, then you must build from source.
+For more information, please see <a class="reference external" href="https://github.com/vectorgrp/sil-kit#getting-started---git-clone">Build Instructions</a>.</p></li>
+<li><p>Unzip the archive.</p></li>
+<li><p>SIL Kit might be installed on your system.
+In that case a registry service may already be running on your system.
+Otherwise, if you want to run the simulation locally, start the registry service (located at <cite>SilKit/bin/sil-kit-registry</cite>).</p></li>
+</ol>
+</section>
+<section id="quick-start">
+<h2><a class="toc-backref" href="#id8">Quick Start</a><a class="headerlink" href="#quick-start" title="Permalink to this heading"></a></h2>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>This guide assumes you want to run the simulation locally.
+If you have a more complex scenario, take a look at <a class="reference internal" href="../configuration/configuration.html#sec-participant-config"><span class="std std-ref">The Participant Configuration File</span></a> first.</p>
+</div>
+<p>In general a SIL Kit simulation consists out of a central sil-kit-registry process and one or multiple simulation participants/SIL Kit enabled applications.
+The registry’s purpose is to provide SIL Kit participants with information of which participants are present and how to connect to them.
+Besides this central book keeping, a SIL Kit registry does not participate in the SIL Kit simulation itself.
+To join the simulation SIL Kit participants/SIL Kit enabled applications must only be able to connect to this SIL Kit registry.</p>
+<p>The following steps are required to set up a simulation and run it:</p>
+<ol class="arabic simple">
+<li><p>Make sure a SIL Kit registry is running.
+If no sil-kit-registry process is running, you can start one by simply starting the executable.</p></li>
+<li><p>Start the SIL Kit enabled application(s) with the desired arguments.
+Participants without a lifecycle and autonomous participants will start directly.
+For example, the applications to start in <a class="reference internal" href="#label-users-setup-simple-example"><span class="std std-numref">Figure 1</span></a> are both <cite>SilKitDemoCan`</cite> with their respective participant name <cite>CanWriter</cite> and <cite>CanReader</cite> as arguments.
+See <a class="reference internal" href="../usage/demos.html"><span class="doc">demo applications</span></a> for informatio of how to build and start the sample applications.
+If you have access to the registry’s log, you should see log entries stating that the participant(s) connected.</p></li>
+<li><p>Depending of the needs of your SIL Kit simulation, it may be necessary to start the <a class="reference internal" href="../usage/utilities.html#sec-util-system-controller"><span class="std std-ref">System Controller Utility</span></a> (see <a class="reference internal" href="../api/lifecycleService.html#subsec-sim-configuring-lifecycle"><span class="std std-ref">Configuring the Lifecycle Service</span></a> for more information).
+Once all required simulation participants have joined the simulation, the coordinated participants within the simulation will start.</p></li>
+<li><p>Coordinated participants can be stopped externally by the system controller utility; autonomous participants must stop themselves (see <a class="reference internal" href="../index.html#sec-overview-terminology"><span class="std std-ref">Terminology</span></a>).</p></li>
+</ol>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>If you encounter any problems during the initial setup (e.g., you started the registry and the participants but nothing happens), refer to <a class="reference internal" href="../usage/troubleshooting.html"><span class="doc">Troubleshooting</span></a>.</p>
+</div>
+</section>
+<section id="participants">
+<span id="sec-users-participants"></span><h2><a class="toc-backref" href="#id9">Participants</a><a class="headerlink" href="#participants" title="Permalink to this heading"></a></h2>
+<p>A participant in SIL Kit is a node in a simulation; Depending on the application, it may send or receive messages from other participants in the simulation.
+Each participant must have a unique name to be able to join the simulation.
+After a participant connects to a SIL Kit Registry, peer-to-peer connections are established with all other participants.</p>
+<p>Participants have their own set of SIL Kit services to communicate with other participants.
+For example, CAN controllers send and receive CAN frames, which comprise an ID, flags, and the actual payload.
+Refer to <a class="reference internal" href="../index.html#sec-overview-supported-services"><span class="std std-ref">Supported Services</span></a> for each service’s capabilities.</p>
+<p>Participants can be configured to coordinate their simulation start and stop behavior with other participants through use of the <a class="reference internal" href="../simulation/simulation.html#sec-sim-lifecycle-syncparticipants"><span class="std std-ref">Lifecycle Service</span></a>.
+To synchronize their virtual time with others, a participant can use the <a class="reference internal" href="../simulation/simulation.html#subsubsec-sim-lifecycle-timesyncservice"><span class="std std-ref">Time Synchronization Service</span></a>.</p>
+<p>Users can (re-)configure parts of the SIL Kit participants if the application allows the user to pass in a SIL Kit participant configuration file.
+For example, the user may want to configure logging to the standard output or to a file.
+See <a class="reference internal" href="#sec-users-config"><span class="std std-ref">(Re-)Configuration</span></a> for more information.</p>
+</section>
+<section id="utility-processes">
+<span id="sec-users-utilities"></span><h2><a class="toc-backref" href="#id10">Utility Processes</a><a class="headerlink" href="#utility-processes" title="Permalink to this heading"></a></h2>
+<p>The <a class="reference internal" href="../usage/utilities.html#sec-util-registry"><span class="std std-ref">Registry</span></a> is a utility which enables discovery between SIL Kit participants.
+Thus, it is mandatory and must be started prior to the creation of any participants.
+Once the registry is created, it listens for participants on a specified URI.
+Once a participant is created, if configured properly, it sends a message to the registry URI asking for the list of active participants.
+The registry, once receiving the message, sends the requested information back to the new participant.
+The new participant, once receiving the message from the registry, attempts to establish a peer-to-peer connection with all participants listed in the message.</p>
+<p>The <a class="reference internal" href="../usage/utilities.html#sec-util-system-controller"><span class="std std-ref">System Controller</span></a> is an application which orchestrates participants in a SIL Kit simulation by specifying a list of required participant names at start up.
+A simulation’s coordinated participants are dependent on the state of all required participants.
+The coordinated participants won’t start if any required participant is still missing.
+In contrast, autonomous participants do not consider the state of other participants.</p>
+<p>The <a class="reference internal" href="../usage/utilities.html#sec-util-monitor"><span class="std std-ref">Monitor</span></a> utility tracks and displays participant state within a simulation.
+It’s an optional utility which can be started and stopped at any time.</p>
+</section>
+<section id="network-topology-examples">
+<span id="sec-users-network-example"></span><h2><a class="toc-backref" href="#id11">Network Topology / Examples</a><a class="headerlink" href="#network-topology-examples" title="Permalink to this heading"></a></h2>
+<p>SIL Kit supports TCP/IP and Unix Domain Socket network types.
+When joining a simulation, new participants will first open a publically visible listening socket.
+Then, it connects to the SIL Kit Registry and tells it its connection information (especially the port number of the just opened listening socket).
+If the registry was not configured before it was started, it will open a listening port at localhost:8500.</p>
+<p>Once the connection to the registry is established, the registry replies with the connection information of all already connected participants.
+The new participant will try to connect to each of the other participants directly.
+By default, it will first connect via Unix Domain Sockets and if this does not work, it will try to connect via TCP.
+In case both connection attempts fail, the registry will act as a proxy between the participants.</p>
+<p>In the most simple case, the registry as well as all participants are running on your local machine (shown in <a class="reference internal" href="#label-users-config-setup-local"><span class="std std-numref">Figure 2</span></a>).</p>
+<figure class="align-center" id="id2">
+<span id="label-users-config-setup-local"></span><a class="reference internal image-reference" href="../_images/simSetup_local.svg"><img alt=": Setup in which registry and all participants run on a local host with their default configuration." src="../_images/simSetup_local.svg" width="800" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 2 </span><span class="caption-text">: Setup in which registry and all participants run on a local host with their default configuration.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>By default, connections to the simulation are established via TCP on the ‘localhost’ on port 8500.
+<a class="reference internal" href="#label-users-config-setup-remote-autonomous"><span class="std std-numref">Figure 3</span></a> displays a simulation where the registry runs on a different machine and the participants are reconfigured to connect to it.</p>
+<figure class="align-center" id="id3">
+<span id="label-users-config-setup-remote-autonomous"></span><a class="reference internal image-reference" href="../_images/simSetup_remote_autonomous.svg"><img alt=": A simulation setup in which the registry is running on a remote machine." src="../_images/simSetup_remote_autonomous.svg" width="800" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3 </span><span class="caption-text">: A simulation setup in which the registry is running on a remote machine.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>A special case are setups that involve containers, as it is common in docker or cloud setups.
+As mentioned before, SIL Kit participants open a socket on a (random) port that other participants can connect with.
+If you have a setup that involves containers you may need more control regarding the used ports.
+For that reason, participants may explicitly configure the listening port (or ports if you have the choice) that the participant opens its socket on.
+<a class="reference internal" href="#label-users-config-setup-remote-docker"><span class="std std-numref">Figure 4</span></a> shows a container setup in which the registry and a participant run inside a docker runtime but on separate containers and one more participant connects from outside of the runtime.</p>
+<figure class="align-center" id="id4">
+<span id="label-users-config-setup-remote-docker"></span><a class="reference internal image-reference" href="../_images/simSetup_remote_docker.svg"><img alt=": Docker setup with a SIL Kit Registry and a participant running in separate containers and another participant connecting from outside the runtime. The runtime is running on the local host." src="../_images/simSetup_remote_docker.svg" width="1200" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 4 </span><span class="caption-text">: Docker setup with a SIL Kit Registry and a participant running in separate containers and another participant connecting from outside the runtime. The runtime is running on the local host.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="re-configuration">
+<span id="sec-users-config"></span><h2><a class="toc-backref" href="#id12">(Re-)Configuration</a><a class="headerlink" href="#re-configuration" title="Permalink to this heading"></a></h2>
+<p>Sometimes, it may be necessary to change the SIL Kit Registry’s configuration or the configuration of individual SIL Kit enabled application(s) that are only available as executables in binary form.
+The configuration can be changed through the use of a YAML configuration file.
+It is passed to a SIL Kit enabled application or Registry and overrides its initial configuration.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>If you do not want to change the default behavior or your SIL Kit application, it should be unnecessary to provide a configuration file.</p>
+</div>
+<p>Some of the most common <a class="reference internal" href="../configuration/configuration.html#sec-sil-kit-config-yaml"><span class="std std-ref">options</span></a> configured by users include the participant name, logging, bus network specifics, registry location, and health monitoring.
+For example, a user may need to modify an already existing participant to use a different name and change the network name that one of its bus services connects to (see <a class="reference internal" href="#label-users-config-config-original"><span class="std std-numref">Figure 5</span></a>).
+To address this, the user can provide a configuration file, which contains the needed changes (see <a class="reference internal" href="#label-users-config-config-reconfigured"><span class="std std-numref">Figure 6</span></a>).</p>
+<figure class="align-center" id="id5">
+<span id="label-users-config-config-original"></span><a class="reference internal image-reference" href="../_images/configuration_original.svg"><img alt=": Faulty simulation setup with two participants that have the same name and a mismatch in their bus network names." src="../_images/configuration_original.svg" width="800" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 5 </span><span class="caption-text">: Faulty simulation setup with two participants that have the same name and a mismatch in their bus network names.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<figure class="align-center" id="id6">
+<span id="label-users-config-config-reconfigured"></span><a class="reference internal image-reference" href="../_images/configuration_reconfigured.svg"><img alt=": Setup from :numref:`Figure %s &lt;label:users-config-config-original&gt;` in which the left participant was reconfigured via a configuration file." src="../_images/configuration_reconfigured.svg" width="800" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 6 </span><span class="caption-text">: Setup from <a class="reference internal" href="#label-users-config-config-original"><span class="std std-numref">Figure 5</span></a> in which the left participant was reconfigured via a configuration file.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>See <a class="reference internal" href="../configuration/configuration.html#sec-participant-config"><span class="std std-ref">The Participant Configuration File</span></a> for more information.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Vector SIL Kit Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../for-developers/developers.html" class="btn btn-neutral float-right" title="Developer Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

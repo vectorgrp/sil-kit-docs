@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quick Start &mdash; Vector SIL Kit 4.0.32 documentation</title>
+  <title>Developer Guide &mdash; Vector SIL Kit 4.0.33 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Simulation" href="../simulation/simulation.html" />
-    <link rel="prev" title="Vector SIL Kit" href="../index.html" /> 
+    <link rel="prev" title="User Guide" href="../for-users/users.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.32
+                4.0.33
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -43,28 +43,29 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#terminology">Terminology</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#writing-your-first-sil-kit-application">Writing your first SIL Kit application</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#using-the-sil-kit-package">Using the SIL Kit package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-users/users.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Developer Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-the-productname">Getting the SIL Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#architecture">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-your-first-productname-application">Writing your first SIL Kit application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-productname-package">Using the SIL Kit package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#a-simple-publish-subscribe-application">A simple Publish / Subscribe application</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#running-the-simulation">Running the simulation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#further-reading">Further Reading</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/api.html">API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 </ul>
 
         </div>
@@ -81,9 +82,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Quick Start</li>
+      <li>Developer Guide</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/usage/quickstart.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/for-developers/developers.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -91,81 +92,47 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="quick-start">
-<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this heading"></a></h1>
+  <section id="developer-guide">
+<h1>Developer Guide<a class="headerlink" href="#developer-guide" title="Permalink to this heading"></a></h1>
+<p>The following sections explain, how to consume the Vector SIL Kit library in your own application and how to use the SIL Kit API to communicate with other participants of a simulation.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#terminology" id="id1">Terminology</a></p></li>
-<li><p><a class="reference internal" href="#writing-your-first-sil-kit-application" id="id2">Writing your first SIL Kit application</a></p>
+<li><p><a class="reference internal" href="#getting-the-productname" id="id1">Getting the SIL Kit</a></p></li>
+<li><p><a class="reference internal" href="#architecture" id="id2">Architecture</a></p></li>
+<li><p><a class="reference internal" href="#writing-your-first-productname-application" id="id3">Writing your first SIL Kit application</a></p>
 <ul>
-<li><p><a class="reference internal" href="#using-the-sil-kit-package" id="id3">Using the SIL Kit package</a></p></li>
-<li><p><a class="reference internal" href="#a-simple-publish-subscribe-application" id="id4">A simple Publish / Subscribe application</a></p></li>
-<li><p><a class="reference internal" href="#running-the-simulation" id="id5">Running the simulation</a></p></li>
+<li><p><a class="reference internal" href="#using-the-productname-package" id="id4">Using the SIL Kit package</a></p></li>
+<li><p><a class="reference internal" href="#a-simple-publish-subscribe-application" id="id5">A simple Publish / Subscribe application</a></p></li>
+<li><p><a class="reference internal" href="#running-the-simulation" id="id6">Running the simulation</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#further-reading" id="id6">Further Reading</a></p></li>
 </ul>
 </div>
-<p>The Vector SIL Kit is a C++ library for the distributed simulation of automotive networks.
-It is designed to work on Windows and Linux.
-This quick start demonstrates how to get started using the pre-built SIL Kit release distribution.</p>
-<p>This guide will walk you through setting up a SIL Kit project from scratch. First, the terminology
-required to understand the functionality is briefly discussed, then the build process and the actual code.</p>
-<section id="terminology">
-<span id="sec-quickstart-terminology"></span><h2><a class="toc-backref" href="#id1">Terminology</a><a class="headerlink" href="#terminology" title="Permalink to this heading"></a></h2>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="../api/participant.html"><span class="doc">Participant</span></a></p></td>
-<td><p>A communication node in the distributed simulation and entry point to the SIL Kit library.
-Allows creation of vehicle network controllers and other services.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../api/api.html#sec-api-services"><span class="std std-ref">Services</span></a></p></td>
-<td><p>Participants interact with each other through the means of services, e.g.,
-a <a class="reference internal" href="../api/can.html"><span class="doc">CAN Controller</span></a> or a <a class="reference internal" href="../api/pubsub.html"><span class="doc">DataPublisher</span></a>. A special service is the
-<a class="reference internal" href="../api/lifecycleService.html"><span class="doc">Life Cycle Service</span></a>, which
-provides state handling and access to the time synchronization service.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../configuration/configuration.html"><span class="doc">Configuration</span></a></p></td>
-<td><p>The optional participant configuration file allows easy configuration of a participant and its interconnection within the
-simulation. It can be used to change a participant’s behavior without recompiling its sources.</p></td>
-</tr>
-<tr class="row-even"><td><p>Registry</p></td>
-<td><p>The registry is a central service that enables participant discovery in a distributed simulation.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Registry URI</p></td>
-<td><p>The registry’s URI specifies where the registry can be reached.
-It defaults to <code class="docutils literal notranslate"><span class="pre">silkit://localhost:8500</span></code>, that is, the registry is reachable via TCP on the ‘localhost’ on port 8500.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../configuration/middleware-configuration.html"><span class="doc">Middleware</span></a></p></td>
-<td><p>The concrete distributed communication implementation. That is, the software layer
-implementing the distributed message passing mechanism.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../simulation/simulation.html#sec-sim-synchronization"><span class="std std-ref">Simulation Time</span></a></p></td>
-<td><p>The simulated time within a simulation as it is perceived by a participant. Participants might be synchronized or
-unsynchronized.</p></td>
-</tr>
-</tbody>
-</table>
-<p>A simulation consists of participants which all connect to the same registry’s URI.
-An instance of the registry is required for coordination, either as a standalone process (see <a class="reference internal" href="utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a>) or created programmatically.
-The participants might be physically distributed in a network or running on the same host.</p>
-<p>Thus, it is feasible to have multiple simulations running in parallel on the same host computer.
-Some participants can have special roles, depending on e.g., the synchronization and detail of the simulation.</p>
+<section id="getting-the-productname">
+<h2><a class="toc-backref" href="#id1">Getting the SIL Kit</a><a class="headerlink" href="#getting-the-productname" title="Permalink to this heading"></a></h2>
+<p>Precompiled SIL Kit packages are regularly released on GitHub (<a class="reference external" href="https://github.com/vectorgrp/sil-kit/releases">https://github.com/vectorgrp/sil-kit/releases</a>).
+If you need to build the library yourself, take a look at the readme file of the repository’s root folder.</p>
 </section>
-<section id="writing-your-first-sil-kit-application">
-<h2><a class="toc-backref" href="#id2">Writing your first SIL Kit application</a><a class="headerlink" href="#writing-your-first-sil-kit-application" title="Permalink to this heading"></a></h2>
+<section id="architecture">
+<h2><a class="toc-backref" href="#id2">Architecture</a><a class="headerlink" href="#architecture" title="Permalink to this heading"></a></h2>
+<p>The SIL Kit implements a layered architecture:</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/SilKitArchitecture.svg"><img alt="../_images/SilKitArchitecture.svg" src="../_images/SilKitArchitecture.svg" width="800" /></a>
+</figure>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="writing-your-first-productname-application">
+<h2><a class="toc-backref" href="#id3">Writing your first SIL Kit application</a><a class="headerlink" href="#writing-your-first-productname-application" title="Permalink to this heading"></a></h2>
 <p>This tutorial assumes that you are familiar with <a class="reference external" href="https://cmake.org">CMake (https://cmake.org)</a> and C++.</p>
-<section id="using-the-sil-kit-package">
-<h3><a class="toc-backref" href="#id3">Using the SIL Kit package</a><a class="headerlink" href="#using-the-sil-kit-package" title="Permalink to this heading"></a></h3>
+<section id="using-the-productname-package">
+<h3><a class="toc-backref" href="#id4">Using the SIL Kit package</a><a class="headerlink" href="#using-the-productname-package" title="Permalink to this heading"></a></h3>
 <p>The SIL Kit distribution contains a self-contained and deployable installation in the <em>SilKit</em> directory.
-The CMake build configuration required is exported to <code class="docutils literal notranslate"><span class="pre">SilKit/lib/cmake/SilKit</span></code> and
-defines the <code class="docutils literal notranslate"><span class="pre">SilKit::SilKit</span></code> target.</p>
-<p>From CMake this can be easily used via the <code class="docutils literal notranslate"><span class="pre">find_package(SilKit</span> <span class="pre">CONFIG)</span></code> mechanism.
-For example, the following CMakeLists.txt is able to import the SIL Kit library based on its file system path.</p>
+The CMake build configuration required is exported to <code class="docutils literal notranslate"><span class="pre">SilKit/lib/cmake/SilKit</span></code> and defines the <code class="docutils literal notranslate"><span class="pre">SilKit::SilKit</span></code> target.</p>
+<p>From CMake this can be consumed via the <code class="docutils literal notranslate"><span class="pre">find_package(SilKit</span> <span class="pre">CONFIG)</span></code> mechanism.
+For example, the following CMakeLists.txt imports the SIL Kit library based on its file system path.</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">Project</span><span class="p">(</span><span class="s">SampleSilKit</span><span class="p">)</span>
 <span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.0</span><span class="p">)</span>
 <span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_BUILD_TYPE</span><span class="w"> </span><span class="s">Debug</span><span class="p">)</span>
@@ -179,14 +146,12 @@ For example, the following CMakeLists.txt is able to import the SIL Kit library 
 </pre></div>
 </div>
 <p>Properties, like include directories and compile flags, are automatically handled by the imported target.
-If you use another method to build your software you can directly use the <code class="docutils literal notranslate"><span class="pre">SilKit/include</span></code> and
-<code class="docutils literal notranslate"><span class="pre">SilKit/lib</span></code> directories for C++ headers and libraries.</p>
+If you use another method to build your software you can directly use the <code class="docutils literal notranslate"><span class="pre">SilKit/include</span></code> and <code class="docutils literal notranslate"><span class="pre">SilKit/lib</span></code> directories for C++ headers and libraries.</p>
 </section>
 <section id="a-simple-publish-subscribe-application">
-<span id="sec-quickstart-simple"></span><h3><a class="toc-backref" href="#id4">A simple Publish / Subscribe application</a><a class="headerlink" href="#a-simple-publish-subscribe-application" title="Permalink to this heading"></a></h3>
-<p>We’ll create a simple, self-contained SIL Kit application that uses <a class="reference internal" href="../api/pubsub.html"><span class="doc">Publish/Subscribe</span></a>
-to exchange user-defined data among two participants. First, we include the system and SIL Kit headers and
-define namespaces and constants in our C++ file <code class="docutils literal notranslate"><span class="pre">simple.cpp</span></code>:</p>
+<span id="sec-developer-simple"></span><h3><a class="toc-backref" href="#id5">A simple Publish / Subscribe application</a><a class="headerlink" href="#a-simple-publish-subscribe-application" title="Permalink to this heading"></a></h3>
+<p>We’ll create a simple, self-contained SIL Kit application that uses <a class="reference internal" href="../api/pubsub.html"><span class="doc">Publish/Subscribe</span></a> to exchange user-defined data between two participants.
+In our C++ file <code class="docutils literal notranslate"><span class="pre">simple.cpp</span></code>, we include the headers and define namespaces and constants:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;thread&gt;</span>
 
@@ -199,9 +164,14 @@ define namespaces and constants in our C++ file <code class="docutils literal no
 <span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">registryUri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;silkit://localhost:8500&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>SIL Kit participants are created with a configuration that is used to change certain aspects of the simulation
-without recompiling the application. This can be done by loading an existing <a class="reference internal" href="../configuration/configuration.html#sec-ibconfig-json"><span class="std std-ref">YAML file</span></a>.
-Here, we use the configuration file <code class="docutils literal notranslate"><span class="pre">simple.yaml</span></code> that logs all error messages to a file:</p>
+<p>SIL Kit participants are created with a configuration that is used to change certain aspects of the simulation without recompiling the application.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>SIL Kit applications should be able to run without a configuration file.
+However, applications should allow users to provide one in case they want to reconfigure the behavior of the application (see <a class="reference internal" href="../configuration/configuration.html#sec-participant-config"><span class="std std-ref">The Participant Configuration File</span></a> for details).</p>
+</div>
+<p>This can be done by loading an existing <a class="reference internal" href="../configuration/configuration.html#sec-sil-kit-config-yaml"><span class="std std-ref">YAML file</span></a>.
+Here, we use the configuration file <code class="docutils literal notranslate"><span class="pre">simple.yaml</span></code> to configure a logger that logs all error messages to a file:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Logging</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Sinks</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">File</span>
@@ -258,17 +228,14 @@ One thread will act as a publisher by sending a test string to its subscribers:<
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>First, the simulation is joined by creating the participant called “PublisherParticipant”.
-This properly initializes the SIL Kit library; enables the instantiation of
-<a class="reference internal" href="../api/api.html"><span class="doc">Services</span></a> and offers access to the <a class="reference internal" href="../api/lifecycleService.html"><span class="doc">Life Cycle Service</span></a>, which
-controls the orchestration of our simulation. Next, we create a
-<a class="reference internal" href="../api/pubsub.html#_CPPv4N6SilKit8Services6PubSub14IDataPublisherE" title="SilKit::Services::PubSub::IDataPublisher"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">publisher</span></code></a> for the <code class="docutils literal notranslate"><span class="pre">DataService</span></code> topic. Later, we subscribe
-to the same topic name in our subscriber to enable communication between the participants. The actual simulation
-is performed in the simulation task. This is a callback that is executed by the SIL Kit runtime whenever the
-simulation time advances. This callback has to be registered with the time synchronization service’s
-<a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService24SetSimulationStepHandlerE21SimulationStepHandlerNSt6chrono11nanosecondsE" title="SilKit::Services::Orchestration::ITimeSyncService::SetSimulationStepHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetSimulationStepHandler()</span></code></a>.
-We hand over the publisher object in the capture list of our simulation task and use it to send data through its
-<a class="reference internal" href="../api/pubsub.html#_CPPv4N6SilKit8Services6PubSub14IDataPublisher7PublishEN4Util4SpanIK7uint8_tEE" title="SilKit::Services::PubSub::IDataPublisher::Publish"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Publish()</span></code></a> method.</p>
+<p>Initially, the simulation is joined by creating the participant called “PublisherParticipant”.
+This properly initializes the SIL Kit library; enables the instantiation of <a class="reference internal" href="../api/api.html"><span class="doc">Services</span></a> and offers access to the <a class="reference internal" href="../api/lifecycleService.html"><span class="doc">Life Cycle Service</span></a>, which controls the orchestration of our simulation.
+Next, we create a <a class="reference internal" href="../api/pubsub.html#_CPPv4N6SilKit8Services6PubSub14IDataPublisherE" title="SilKit::Services::PubSub::IDataPublisher"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">publisher</span></code></a> for the <code class="docutils literal notranslate"><span class="pre">DataService</span></code> topic.
+Later, we subscribe to the same topic name in our subscriber to enable communication between the participants.
+The actual simulation is performed in the simulation task.
+This is a callback that is executed by the SIL Kit runtime whenever the simulation time advances.
+This callback has to be registered with the time synchronization service’s <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService24SetSimulationStepHandlerE21SimulationStepHandlerNSt6chrono11nanosecondsE" title="SilKit::Services::Orchestration::ITimeSyncService::SetSimulationStepHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetSimulationStepHandler()</span></code></a>.
+We hand over the publisher object in the capture list of our simulation task and use it to send data through its <a class="reference internal" href="../api/pubsub.html#_CPPv4N6SilKit8Services6PubSub14IDataPublisher7PublishEN4Util4SpanIK7uint8_tEE" title="SilKit::Services::PubSub::IDataPublisher::Publish"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Publish()</span></code></a> method.</p>
 <p>The subscriber runs in its own thread, too:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">subscriber_main</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">SilKit</span><span class="o">::</span><span class="n">Config</span><span class="o">::</span><span class="n">IParticipantConfiguration</span><span class="o">&gt;</span><span class="w"> </span><span class="n">config</span><span class="p">)</span>
 <span class="p">{</span>
@@ -304,13 +271,11 @@ We hand over the publisher object in the capture list of our simulation task and
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The setup is similar to the publisher, except that we instantiate a
-<a class="reference internal" href="../api/pubsub.html#_CPPv4N6SilKit8Services6PubSub15IDataSubscriberE" title="SilKit::Services::PubSub::IDataSubscriber"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">subscriber</span></code></a> interface. This allows us to register a
-<a class="reference internal" href="../api/pubsub.html#_CPPv4N6SilKit8Services6PubSub15IDataSubscriber21SetDataMessageHandlerE18DataMessageHandler" title="SilKit::Services::PubSub::IDataSubscriber::SetDataMessageHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetDataMessageHandler()</span></code></a>
-callback to receive data value updates. The simulation task has to be defined, even though no simulation work is
-performed.</p>
+<p>The setup is similar to the publisher, except that we instantiate a <a class="reference internal" href="../api/pubsub.html#_CPPv4N6SilKit8Services6PubSub15IDataSubscriberE" title="SilKit::Services::PubSub::IDataSubscriber"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">subscriber</span></code></a> interface.
+This allows us to register a <a class="reference internal" href="../api/pubsub.html#_CPPv4N6SilKit8Services6PubSub15IDataSubscriber21SetDataMessageHandlerE18DataMessageHandler" title="SilKit::Services::PubSub::IDataSubscriber::SetDataMessageHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetDataMessageHandler()</span></code></a> callback to receive data value updates.
+The simulation task has to be defined, even though no simulation work is performed.</p>
 <p>We extend our main function to spawn both threads and join them again once finished.
-Also, we use a try-catch block here to get proper error handling e.g. if the configuration file cannot be loaded.</p>
+Also, we use a try-catch block here to get proper error handling e.g., if the configuration file cannot be loaded.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">try</span>
@@ -337,18 +302,16 @@ Also, we use a try-catch block here to get proper error handling e.g. if the con
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The application is built with CMake on the command line (from a build directory) by calling <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">..</span></code> to generate
-and then build via <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span> <span class="pre">.</span></code>. A more convenient way is to open the folder in an IDE with CMake support.
-To run this sample, copy the shared library files (e.g. on Windows the <code class="docutils literal notranslate"><span class="pre">SilKit.dll</span></code>, <code class="docutils literal notranslate"><span class="pre">SilKitd.dll</span></code> from <code class="docutils literal notranslate"><span class="pre">SilKit/bin</span></code>) and the <code class="docutils literal notranslate"><span class="pre">simple.yaml</span></code> next
-to the compiled executable.</p>
+<p>The application is built with CMake on the command line (from a build directory) by calling <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">..</span></code> to generate and then build via <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span> <span class="pre">.</span></code>.
+A more convenient way is to open the folder in an IDE with CMake support.
+To run this sample, copy the shared library files (e.g., on Windows the <code class="docutils literal notranslate"><span class="pre">SilKit.dll</span></code>, <code class="docutils literal notranslate"><span class="pre">SilKitd.dll</span></code> from <code class="docutils literal notranslate"><span class="pre">SilKit/bin</span></code>) and the <code class="docutils literal notranslate"><span class="pre">simple.yaml</span></code> next to the compiled executable.</p>
 </section>
 <section id="running-the-simulation">
-<h3><a class="toc-backref" href="#id5">Running the simulation</a><a class="headerlink" href="#running-the-simulation" title="Permalink to this heading"></a></h3>
-<p>Our sample needs the utility processes <a class="reference internal" href="utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a> and <a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> to run. The
-registry is required for participant discovery. The <a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> takes the participant names
-as command line arguments, initializes the connected participants and starts the simulation until the return key is
-pressed. For convenience and to reduce code duplication, these utility programs are implemented in separate executables
-and distributed in binary forms.</p>
+<h3><a class="toc-backref" href="#id6">Running the simulation</a><a class="headerlink" href="#running-the-simulation" title="Permalink to this heading"></a></h3>
+<p>Our sample needs the utility processes <a class="reference internal" href="../usage/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a> and <a class="reference internal" href="../usage/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> to run.
+The registry is required for participant discovery.
+The <a class="reference internal" href="../usage/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> takes the participant names as command line arguments, initializes the connected participants and starts the simulation until the return key is pressed.
+For convenience and to reduce code duplication, these utility programs are implemented in separate executables and distributed in binary forms.</p>
 <p>The final simulation setup can be run through the following commands:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start the Middleware Registry</span>
 <span class="o">./</span><span class="n">sil</span><span class="o">-</span><span class="n">kit</span><span class="o">-</span><span class="n">registry</span><span class="o">.</span><span class="n">exe</span>
@@ -365,23 +328,13 @@ and distributed in binary forms.</p>
 <a class="reference download internal" download="" href="../_downloads/2666ef56b8a361ce2c6faa71db2950dc/simple.cpp"><code class="xref download docutils literal notranslate"><span class="pre">simple.cpp</span></code></a> <a class="reference download internal" download="" href="../_downloads/230d4f71bf17ec74a25548e8338f04ac/simple.yaml"><code class="xref download docutils literal notranslate"><span class="pre">simple.yaml</span></code></a></p>
 </section>
 </section>
-<section id="further-reading">
-<h2><a class="toc-backref" href="#id6">Further Reading</a><a class="headerlink" href="#further-reading" title="Permalink to this heading"></a></h2>
-<p>More real-world examples involving time synchronization and simulated
-automotive networks, can be found in the <a class="reference internal" href="../api/api.html"><span class="doc">API sections</span></a>.  Also,
-studying the source code of the bundled <a class="reference internal" href="demos.html"><span class="doc">demo applications</span></a> is a
-good start. The simulation lifecycle and supported simulation time
-synchronization are discussed in <a class="reference internal" href="../simulation/simulation.html"><span class="doc">Simulation</span></a>.
-Additionally, <a class="reference internal" href="../configuration/configuration.html"><span class="doc">Configuration</span></a> describes how the participant
-configuration file can be used to change the behavior of participants.</p>
-</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="Vector SIL Kit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../for-users/users.html" class="btn btn-neutral float-left" title="User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../simulation/simulation.html" class="btn btn-neutral float-right" title="Simulation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

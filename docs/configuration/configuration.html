@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Configuration &mdash; Vector SIL Kit 4.0.32 documentation</title>
+  <title>Configuration &mdash; Vector SIL Kit 4.0.33 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -20,7 +20,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)" href="configuration-services.html" />
+    <link rel="next" title="Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)" href="configuration-services.html" />
     <link rel="prev" title="Demos" href="../usage/demos.html" /> 
 </head>
 
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.32
+                4.0.33
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -43,24 +43,32 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-users/users.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-developers/developers.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/api.html">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration-services.html">Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="healthcheck-configuration.html">HealthCheck Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-tracing.html">Tracing and Replay Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="extension-configuration.html">Extensions Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="middleware-configuration.html">Middleware Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-participant-configuration-file">The Participant Configuration File</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#configuration-options">Configuration Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-options">Configuration Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="configuration-services.html">Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="healthcheck-configuration.html">HealthCheck Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="configuration-tracing.html">Tracing and Replay Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="extension-configuration.html">Extensions Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="middleware-configuration.html">Middleware Configuration</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#the-registry-configuration-file">The Registry Configuration File</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Configuration Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subsec-registry-config-overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subsec-registry-config-options">Configuration Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -68,9 +76,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 </ul>
 
         </div>
@@ -99,50 +107,27 @@
              
   <section id="configuration">
 <h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h1>
-<div class="toctree-wrapper compound" id="sec-ibconfig-json">
+<p id="sec-sil-kit-config-yaml">The Vector SIL Kit provides optional configuration to enhance flexibility and control through use of YAML files.
+This allows users to modify behavior without recompiling source code.
+Further, it allows configuration of services which are inactive by default, such as tracing and logging.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#the-participant-configuration-file" id="id3">The Participant Configuration File</a></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="configuration-services.html">Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#cancontrollers">CanControllers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#lincontrollers">LinControllers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#ethernetcontrollers">EthernetControllers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#flexraycontrollers">FlexrayControllers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#datapublishers">DataPublishers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#datasubscribers">DataSubscribers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#rpcservers">RpcServers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#rpcclients">RpcClients</a></li>
+<li><p><a class="reference internal" href="#overview" id="id4">Overview</a></p></li>
+<li><p><a class="reference internal" href="#configuration-options" id="id5">Configuration Options</a></p></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="logging-configuration.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="logging-configuration.html#configuration">Configuration</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="healthcheck-configuration.html">HealthCheck Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="healthcheck-configuration.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="healthcheck-configuration.html#configuration">Configuration</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="configuration-tracing.html">Tracing and Replay Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration-tracing.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-tracing.html#tracing">Tracing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-tracing.html#replay">Replay</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-tracing.html#trace-sink-and-source-types">Trace Sink and Source Types</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="extension-configuration.html">Extensions Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="extension-configuration.html#overview">Overview</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="middleware-configuration.html">Middleware Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="middleware-configuration.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="middleware-configuration.html#configuration">Configuration</a></li>
+<li><p><a class="reference internal" href="#the-registry-configuration-file" id="id6">The Registry Configuration File</a></p>
+<ul>
+<li><p><a class="reference internal" href="#subsec-registry-config-overview" id="id7">Overview</a></p></li>
+<li><p><a class="reference internal" href="#subsec-registry-config-options" id="id8">Configuration Options</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
 <section id="the-participant-configuration-file">
-<h2>The Participant Configuration File<a class="headerlink" href="#the-participant-configuration-file" title="Permalink to this heading"></a></h2>
+<span id="sec-participant-config"></span><h2><a class="toc-backref" href="#id3">The Participant Configuration File</a><a class="headerlink" href="#the-participant-configuration-file" title="Permalink to this heading"></a></h2>
 <p>Vector SIL Kit simulation participants are primarily configured by developers in source code using the SIL Kit API.
 However, the following scenarios are conceivable in which some flexibility is useful even after compile-time:</p>
 <ul class="simple">
@@ -168,7 +153,7 @@ a simulation with multiple instances of a participant from a single implementati
 <p>It is recommended that all configuration be done at the source code level so that an empty configuration file can be provided for most simulation runs.
 A user should be able to create (or modify an existing) configuration file for a participant, if behavior or network connections need to be reconfigured.</p>
 </div>
-<p>A participant configuration file is written in YAML/JSON syntax according to a specified schema. It begins with some general information
+<p>A participant configuration file is written in YAML syntax according to a specified schema. It begins with some general information
 about the configuration file itself, followed by several subsections for the different services of the Vector SIL Kit.</p>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note</p>
@@ -208,8 +193,8 @@ about the configuration file itself, followed by several subsections for the dif
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 </div>
-<section id="configuration-options">
-<h3>Configuration Options<a class="headerlink" href="#configuration-options" title="Permalink to this heading"></a></h3>
+<section id="overview">
+<span id="subsec-participant-config-overview"></span><h3><a class="toc-backref" href="#id4">Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading"></a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 15%" />
@@ -262,11 +247,57 @@ If this section is omitted, defaults will be used.</p></td>
 </tbody>
 </table>
 </section>
+<section id="configuration-options">
+<span id="subsec-participant-config-options"></span><h3><a class="toc-backref" href="#id5">Configuration Options</a><a class="headerlink" href="#configuration-options" title="Permalink to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="configuration-services.html">Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#cancontrollers">CanControllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#lincontrollers">LinControllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#ethernetcontrollers">EthernetControllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#flexraycontrollers">FlexrayControllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#datapublishers">DataPublishers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#datasubscribers">DataSubscribers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#rpcservers">RpcServers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#rpcclients">RpcClients</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="logging-configuration.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging-configuration.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="healthcheck-configuration.html">HealthCheck Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="healthcheck-configuration.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="healthcheck-configuration.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration-tracing.html">Tracing and Replay Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration-tracing.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-tracing.html#tracing">Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-tracing.html#replay">Replay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration-tracing.html#trace-sink-and-source-types">Trace Sink and Source Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extension-configuration.html">Extensions Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extension-configuration.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension-configuration.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="middleware-configuration.html">Middleware Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="middleware-configuration.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="middleware-configuration.html#configuration">Configuration</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
 </section>
 <section id="the-registry-configuration-file">
-<h2>The Registry Configuration File<a class="headerlink" href="#the-registry-configuration-file" title="Permalink to this heading"></a></h2>
+<span id="sec-registry-config"></span><h2><a class="toc-backref" href="#id6">The Registry Configuration File</a><a class="headerlink" href="#the-registry-configuration-file" title="Permalink to this heading"></a></h2>
 <p>An instance of the SIL Kit Registry (<code class="docutils literal notranslate"><span class="pre">sil-kit-registry(.exe)</span></code>) can be
-configured via a YAML/JSON file.
+configured via a YAML file.
 The configuration file is optional and overrides the settings specified on the
 command line.
 It also allows extended configuration, beyond what the command line allows,
@@ -287,8 +318,8 @@ particularly for logging.</p>
 <span class="w">      </span><span class="nt">LogName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SampleRegistryLogFile</span>
 </pre></div>
 </div>
-<section id="id1">
-<h3>Configuration Options<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<section id="subsec-registry-config-overview">
+<span id="id1"></span><h3><a class="toc-backref" href="#id7">Overview</a><a class="headerlink" href="#subsec-registry-config-overview" title="Permalink to this heading"></a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 15%" />
@@ -326,6 +357,18 @@ value will lead to an error during registry startup.</p>
 </tbody>
 </table>
 </section>
+<section id="subsec-registry-config-options">
+<span id="id2"></span><h3><a class="toc-backref" href="#id8">Configuration Options</a><a class="headerlink" href="#subsec-registry-config-options" title="Permalink to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="logging-configuration.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging-configuration.html#configuration">Configuration</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
 </section>
 </section>
 
@@ -334,7 +377,7 @@ value will lead to an error during registry startup.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../usage/demos.html" class="btn btn-neutral float-left" title="Demos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="configuration-services.html" class="btn btn-neutral float-right" title="Service Configuration (CAN, LIN, FlexRay, Ethernet, Data, RPC)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="configuration-services.html" class="btn btn-neutral float-right" title="Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
