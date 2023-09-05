@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Management &mdash; Vector SIL Kit 4.0.35 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Logging Service API" href="logging.html" />
+    <link rel="prev" title="Header Files" href="header.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.35
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-users/users.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-developers/developers.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#api-entry-point-and-api-organization">API Entry Point and API Organization</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="participant.html">Participant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="header.html">Header Files</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Memory Management</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#callbacks">Callbacks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controllers">Controllers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#participant-and-participantconfiguration">Participant and ParticipantConfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sil-kit-spans-vs-vectors">SIL Kit Spans vs Vectors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#services">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#c-api">C API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="api.html">API</a> &raquo;</li>
+      <li>Memory Management</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/memory-management.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="memory-management">
+<h1>Memory Management<a class="headerlink" href="#memory-management" title="Permalink to this heading"></a></h1>
+<p>This document describes what a user of the SIL Kit API has to be aware of regarding memory management.</p>
+<section id="callbacks">
+<h2>Callbacks<a class="headerlink" href="#callbacks" title="Permalink to this heading"></a></h2>
+<p>When SIL Kit triggers a callback through an event handler such as e.g. <a class="reference internal" href="ethernet.html#_CPPv4N6SilKit8Services8Ethernet19IEthernetController15AddFrameHandlerE12FrameHandler13DirectionMask" title="SilKit::Services::Ethernet::IEthernetController::AddFrameHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">EthernetController::AddFrameHandler()</span></code></a>, a user must not free or modify data provided through such an handler.
+SIL Kit does own this data and deals with the needed memory management itself.
+It is important to note that data provided in SIL Kit event handlers is only available during execution of the callback.
+A user must not interact with such data after the execution of the callback since the corresponding memory may already be freed or reused by SIL Kit.
+If data of an event handler is needed outside the scope of the callback, it must be copied. The memory management of the copied data is up to the user.</p>
+<p>Handlers that are registered through an <code class="docutils literal notranslate"><span class="pre">Add...Handler</span></code> call can be removed by a user through a corresponding <code class="docutils literal notranslate"><span class="pre">Remove...Handler</span></code> call.
+These <code class="docutils literal notranslate"><span class="pre">Remove...Handler</span></code> calls are optional. SIL Kit removes these handlers during simulation shutdown itself.</p>
+</section>
+<section id="controllers">
+<h2>Controllers<a class="headerlink" href="#controllers" title="Permalink to this heading"></a></h2>
+<p>Controllers such as those created through e.g. <a class="reference internal" href="participant.html#_CPPv4N6SilKit12IParticipant24CreateEthernetControllerERKNSt6stringERKNSt6stringE" title="SilKit::IParticipant::CreateEthernetController"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateEthernetController</span></code></a>, do not have to be removed by a user manually.
+These controllers are removed during simulation shutdown through SIL Kit itself.</p>
+</section>
+<section id="participant-and-participantconfiguration">
+<h2>Participant and ParticipantConfiguration<a class="headerlink" href="#participant-and-participantconfiguration" title="Permalink to this heading"></a></h2>
+<p>Participants and ParticipantConfigurations are created by users directly.
+They are provided through smart pointers.
+As soon as these pointers are not referenced any more, the corresponding entities will be cleaned up automatically by SIL Kit.</p>
+<p>For the C API Participants have to be cleaned up by the user by calling <code class="docutils literal notranslate"><span class="pre">SilKit_Participant_Destroy</span></code>.
+ParticipantConfigurations are not modeled separately in the C API and therefore do not have to be considered in memory management.</p>
+</section>
+<section id="sil-kit-spans-vs-vectors">
+<h2>SIL Kit Spans vs Vectors<a class="headerlink" href="#sil-kit-spans-vs-vectors" title="Permalink to this heading"></a></h2>
+<p>SIL Kit provides payloads received through SIL Kit through a <code class="docutils literal notranslate"><span class="pre">SilKit::Util::Span</span></code> instead of a regular vector.
+This allows SIL Kit to provide access to these payloads without introducing an additional copy of these payloads.
+Through avoiding these copies, SIL Kit’s performance is optimized.</p>
+<p>To obtain a real copy of these payloads <code class="docutils literal notranslate"><span class="pre">SilKit::Util::ToStdVector</span></code> can be used.</p>
+<p>SIL Kit requires these <code class="docutils literal notranslate"><span class="pre">SilKit::Util::Span</span></code> as well for sending payloads, e.g. in the <a class="reference internal" href="can.html#_CPPv4N6SilKit8Services3Can8CanFrameE" title="SilKit::Services::Can::CanFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrame</span></code></a> that is provided to <a class="reference internal" href="can.html#_CPPv4N6SilKit8Services3Can14ICanController9SendFrameERK8CanFramePv" title="SilKit::Services::Can::ICanController::SendFrame"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ICanController::SendFrame()</span></code></a>.
+For converting byte vectors to these spans, <code class="docutils literal notranslate"><span class="pre">SilKit::Util::ToSpan</span></code> or the <code class="docutils literal notranslate"><span class="pre">SilKit::Util::Span</span></code> constructor can be used.</p>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h2>
+<p>Within this section examples of how and how not to use the SIL Kit API regarding memory management are shown.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// do copy data provided in handlers into own structures when needed</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lastCanPayload</span><span class="p">;</span>
+<span class="n">canController</span><span class="o">-&gt;</span><span class="n">AddFrameHandler</span><span class="p">([</span><span class="o">&amp;</span><span class="p">](</span><span class="n">ICanController</span><span class="o">*</span><span class="w"> </span><span class="n">canController</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">CanFrameEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">lastCanPayload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">ToStdVector</span><span class="p">(</span><span class="n">frameEvent</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">dataField</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// don&#39;t access references to data received in handlers outside of the handlers</span>
+<span class="k">const</span><span class="w"> </span><span class="n">CanFrameEvent</span><span class="o">*</span><span class="w"> </span><span class="n">lastCanFrameEvent</span><span class="p">;</span>
+<span class="n">canController</span><span class="o">-&gt;</span><span class="n">AddFrameHandler</span><span class="p">([</span><span class="o">&amp;</span><span class="p">](</span><span class="n">ICanController</span><span class="o">*</span><span class="w"> </span><span class="n">canController</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">CanFrameEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">lastCanFrameEvent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">frameEvent</span><span class="p">;</span>
+<span class="p">});</span>
+<span class="c1">//...</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Frame Received:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">lastCanFrameEvent</span><span class="o">-&gt;</span><span class="n">frame</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+<span class="c1">// don&#39;t free any memory/structure provided through SIL Kit manually</span>
+<span class="k">delete</span><span class="w"> </span><span class="n">canController</span><span class="p">;</span>
+
+<span class="c1">// don&#39;t modify data provided in handlers</span>
+<span class="n">canController</span><span class="o">-&gt;</span><span class="n">AddFrameHandler</span><span class="p">([</span><span class="o">&amp;</span><span class="p">](</span><span class="n">ICanController</span><span class="o">*</span><span class="w"> </span><span class="n">canController</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">CanFrameEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">frameEvent</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">canId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="header.html" class="btn btn-neutral float-left" title="Header Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="logging.html" class="btn btn-neutral float-right" title="Logging Service API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
