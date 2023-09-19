@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Configuration &mdash; Vector SIL Kit 4.0.35 documentation</title>
+  <title>Configuration &mdash; Vector SIL Kit 4.0.36 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.35
+                4.0.36
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -307,7 +307,7 @@ particularly for logging.</p>
 <span class="nt">SchemaVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sample registry configuration.</span>
 
-<span class="nt">ListenUri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">silkit://0.0.0.0:8501</span>
+<span class="nt">ListenUri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">silkit://localhost:8500</span>
 
 <span class="nt">Logging</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Sinks</span><span class="p">:</span>
@@ -316,6 +316,7 @@ particularly for logging.</p>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">File</span>
 <span class="w">      </span><span class="nt">Level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trace</span>
 <span class="w">      </span><span class="nt">LogName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SampleRegistryLogFile</span>
+<span class="nt">DashboardUri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost:8082</span>
 </pre></div>
 </div>
 <section id="subsec-registry-config-overview">
@@ -352,6 +353,13 @@ processed. See <a class="reference internal" href="logging-configuration.html#se
 value will lead to an error during registry startup.</p>
 <p><strong>NOTE</strong> It is only possible to use the Sink types <code class="docutils literal notranslate"><span class="pre">Stdout</span></code> and
 <code class="docutils literal notranslate"><span class="pre">File</span></code>. Using <code class="docutils literal notranslate"><span class="pre">Remote</span></code> will lead to an error during registry startup.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DashboardUri</span></code></p></td>
+<td><p>The configured registry instance will send data to this address to show it on the dashboard
+This field overrides the <code class="docutils literal notranslate"><span class="pre">-d</span></code>, and <code class="docutils literal notranslate"><span class="pre">--dashboard-uri</span></code> command line
+parameters.</p>
+<p><strong>NOTE</strong> The default URI to use for a local SIL Kit dashboard setup is <a class="reference external" href="http://localhost:8082">http://localhost:8082</a>.</p>
 </td>
 </tr>
 </tbody>
