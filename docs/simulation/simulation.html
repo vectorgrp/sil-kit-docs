@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simulation &mdash; Vector SIL Kit 4.0.36 documentation</title>
+  <title>Simulation &mdash; Vector SIL Kit 4.0.37 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -17,6 +17,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -32,7 +33,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.36
+                4.0.37
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -47,24 +48,41 @@
 <li class="toctree-l1"><a class="reference internal" href="../for-users/users.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../for-developers/developers.html">Developer Guide</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Simulation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#properties-of-participants">Properties of Participants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#participants-in-the-distributed-system">Participants in the Distributed System</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#communication">Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connection-notification">Connection notification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#orchestration-services">Orchestration Services</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#lifecycle-management">Lifecycle Management</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#lifecycle-control">Lifecycle Control</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#lifecycle-service">Lifecycle Service</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#time-synchronization-service">Time Synchronization Service</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#system-monitor">System Monitor</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#system-controller">System Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lifecycle-service">Lifecycle Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time-synchronization-service">Time Synchronization Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#system-monitor">System Monitor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#system-controller">System Controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-lifecycle-state-machine">The Lifecycle State Machine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#starting-a-simulation">Starting a Simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#autonomous-operation-mode">Autonomous Operation Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-a-simulation">Running a Simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stopping-a-simulation">Stopping a Simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#error-handling">Error Handling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#aborting-a-simulation">Aborting a Simulation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#lifecycle-coordination-between-participants">Lifecycle Coordination Between Participants</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#simulation-wide-lifecycle-system-state">Simulation-wide Lifecycle (System State)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time-synchronization-and-lifecycle-operation-modes">Time Synchronization and Lifecycle Operation Modes</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#synchronized-simulation-run">Synchronized Simulation Run</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#simulation-overview">Simulation Overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#configuration-of-the-simulation-step">Configuration of the Simulation Step</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#virtual-time-synchronization">Virtual Time Synchronization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup-and-participant-state-flow">Setup and Participant State Flow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#timestamps-in-messages">Timestamps in Messages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sil-kit-middleware">SIL Kit Middleware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#properties-and-limitations">Properties and Limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#blocking-vs-asynchronous-step-handler">Blocking vs. Asynchronous Step Handler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-time-distribution-algorithm">The Time Distribution Algorithm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#participants-with-equal-step-sizes">Participants with Equal Step Sizes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#participants-with-different-step-sizes">Participants with Different Step Sizes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#joining-a-running-simulation-with-virtual-time">Joining a Running Simulation with Virtual Time</a></li>
 </ul>
 </li>
 </ul>
@@ -108,27 +126,32 @@
 <h1>Simulation<a class="headerlink" href="#simulation" title="Permalink to this heading"></a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#properties-of-participants" id="id4">Properties of Participants</a></p></li>
-<li><p><a class="reference internal" href="#lifecycle-management" id="id5">Lifecycle Management</a></p>
+<li><p><a class="reference internal" href="#participants-in-the-distributed-system" id="id6">Participants in the Distributed System</a></p>
 <ul>
-<li><p><a class="reference internal" href="#lifecycle-control" id="id6">Lifecycle Control</a></p>
-<ul>
-<li><p><a class="reference internal" href="#lifecycle-service" id="id7">Lifecycle Service</a></p></li>
-<li><p><a class="reference internal" href="#time-synchronization-service" id="id8">Time Synchronization Service</a></p></li>
-<li><p><a class="reference internal" href="#system-monitor" id="id9">System Monitor</a></p></li>
-<li><p><a class="reference internal" href="#system-controller" id="id10">System Controller</a></p></li>
+<li><p><a class="reference internal" href="#communication" id="id7">Communication</a></p></li>
+<li><p><a class="reference internal" href="#connection-notification" id="id8">Connection notification</a></p></li>
+<li><p><a class="reference internal" href="#orchestration-services" id="id9">Orchestration Services</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#lifecycle-coordination-between-participants" id="id11">Lifecycle Coordination Between Participants</a></p></li>
-<li><p><a class="reference internal" href="#simulation-wide-lifecycle-system-state" id="id12">Simulation-wide Lifecycle (System State)</a></p></li>
+<li><p><a class="reference internal" href="#lifecycle-management" id="id10">Lifecycle Management</a></p>
+<ul>
+<li><p><a class="reference internal" href="#lifecycle-service" id="id11">Lifecycle Service</a></p></li>
+<li><p><a class="reference internal" href="#time-synchronization-service" id="id12">Time Synchronization Service</a></p></li>
+<li><p><a class="reference internal" href="#system-monitor" id="id13">System Monitor</a></p></li>
+<li><p><a class="reference internal" href="#system-controller" id="id14">System Controller</a></p></li>
+<li><p><a class="reference internal" href="#the-lifecycle-state-machine" id="id15">The Lifecycle State Machine</a></p></li>
+<li><p><a class="reference internal" href="#simulation-wide-lifecycle-system-state" id="id16">Simulation-wide Lifecycle (System State)</a></p></li>
+<li><p><a class="reference internal" href="#time-synchronization-and-lifecycle-operation-modes" id="id17">Time Synchronization and Lifecycle Operation Modes</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#synchronized-simulation-run" id="id13">Synchronized Simulation Run</a></p>
+<li><p><a class="reference internal" href="#virtual-time-synchronization" id="id18">Virtual Time Synchronization</a></p>
 <ul>
-<li><p><a class="reference internal" href="#simulation-overview" id="id14">Simulation Overview</a></p></li>
-<li><p><a class="reference internal" href="#configuration-of-the-simulation-step" id="id15">Configuration of the Simulation Step</a></p></li>
-<li><p><a class="reference internal" href="#timestamps-in-messages" id="id16">Timestamps in Messages</a></p></li>
-<li><p><a class="reference internal" href="#sil-kit-middleware" id="id17">SIL Kit Middleware</a></p></li>
+<li><p><a class="reference internal" href="#setup-and-participant-state-flow" id="id19">Setup and Participant State Flow</a></p></li>
+<li><p><a class="reference internal" href="#timestamps-in-messages" id="id20">Timestamps in Messages</a></p></li>
+<li><p><a class="reference internal" href="#properties-and-limitations" id="id21">Properties and Limitations</a></p></li>
+<li><p><a class="reference internal" href="#blocking-vs-asynchronous-step-handler" id="id22">Blocking vs. Asynchronous Step Handler</a></p></li>
+<li><p><a class="reference internal" href="#the-time-distribution-algorithm" id="id23">The Time Distribution Algorithm</a></p></li>
+<li><p><a class="reference internal" href="#joining-a-running-simulation-with-virtual-time" id="id24">Joining a Running Simulation with Virtual Time</a></p></li>
 </ul>
 </li>
 </ul>
@@ -136,27 +159,42 @@
 <p>The following chapter explains how a simulation using the SIL Kit works.
 It first introduces the properties that affect the participants’ behavior towards other participants.
 Then, the lifecycle of individual simulation participants and the overall simulation are detailed.
-Afterwards, details about a simulation run with synchronized participants are presented.
-The chapter closes with details about the middleware that the reference implementation of the SIL Kit uses.</p>
-<section id="properties-of-participants">
-<span id="sec-sim-types"></span><h2><a class="toc-backref" href="#id4">Properties of Participants</a><a class="headerlink" href="#properties-of-participants" title="Permalink to this heading"></a></h2>
-<p>Generally, a SIL Kit participant can communicate with other participants without knowledge about their existence.
-However, participants can register a <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor30SetParticipantConnectedHandlerE27ParticipantConnectedHandler" title="SilKit::Services::Orchestration::ISystemMonitor::SetParticipantConnectedHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetParticipantConnectedHandler()</span></code></a> callback that notifies them once a new participant connects.
-Analogously, they can register a <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor33SetParticipantDisconnectedHandlerE30ParticipantDisconnectedHandler" title="SilKit::Services::Orchestration::ISystemMonitor::SetParticipantDisconnectedHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetParticipantDisconnectedHandler()</span></code></a> callback that notifies them when a participant disconnects.</p>
-<p>However, participants can also use a lifecycle service that allows them to coordinate their startup and shutdown phase with other participants (see <a class="reference internal" href="#sec-sim-lifecycle-management"><span class="std std-ref">Lifecycle Coordination Between Participants</span></a>).
-In addition, participants with a lifecycle can use the virtual time synchronization (see <a class="reference internal" href="#sec-sim-synchronization"><span class="std std-ref">Synchronized Simulation Run</span></a>).</p>
+Afterwards, details about the virtual time synchronization are presented.</p>
+<section id="participants-in-the-distributed-system">
+<span id="sec-sim-types"></span><h2><a class="toc-backref" href="#id6">Participants in the Distributed System</a><a class="headerlink" href="#participants-in-the-distributed-system" title="Permalink to this heading"></a></h2>
+<p>This chapter gives a quick overview about how a SIL Kit participant is related to other participant in the distributed system.</p>
+<section id="communication">
+<h3><a class="toc-backref" href="#id7">Communication</a><a class="headerlink" href="#communication" title="Permalink to this heading"></a></h3>
+<p>Generally, a SIL Kit participant can communicate with other participants without knowledge of their existence.
+The message transport in a SIL Kit simulation relies on string-based <strong>network names</strong> for bus systems and <strong>topics</strong> for PubSub/RPC.
+These are specified by the individual communication services of a participant.
+If they match for any services across all participants in the system, the services will be able to exchange messages.</p>
+</section>
+<section id="connection-notification">
+<h3><a class="toc-backref" href="#id8">Connection notification</a><a class="headerlink" href="#connection-notification" title="Permalink to this heading"></a></h3>
+<p>Participants can register a handler with <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor30SetParticipantConnectedHandlerE27ParticipantConnectedHandler" title="SilKit::Services::Orchestration::ISystemMonitor::SetParticipantConnectedHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetParticipantConnectedHandler()</span></code></a> that is called when a new participant connects.
+Analogously, <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor33SetParticipantDisconnectedHandlerE30ParticipantDisconnectedHandler" title="SilKit::Services::Orchestration::ISystemMonitor::SetParticipantDisconnectedHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetParticipantDisconnectedHandler()</span></code></a> is used to get notified when a participant disconnects.</p>
+</section>
+<section id="orchestration-services">
+<h3><a class="toc-backref" href="#id9">Orchestration Services</a><a class="headerlink" href="#orchestration-services" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Participants can optionally use a <a class="reference internal" href="#subsubsec-sim-lifecycle-lifecycleservice"><span class="std std-ref">lifecycle service</span></a> to have a more detailed control about the simulation flow and the state of other participants.
+Also, the lifecycle service allows participants to coordinate their startup and shutdown phase among each other.</p></li>
+<li><p>In addition, participants with a lifecycle can optionally use the time synchronization service to enable <a class="reference internal" href="#sec-sim-synchronization"><span class="std std-ref">virtual time synchronization</span></a>.</p></li>
+<li><p>To observe lifecycle state transitions by the participants, the <a class="reference internal" href="#subsubsec-sim-lifecycle-systemmonitor"><span class="std std-ref">system monitor service</span></a> can be used.</p></li>
+<li><p>To have a central instance that define which participants are required for the simulation and to trigger system-wide commands like aborting the simulation, SIL Kit provides the <a class="reference internal" href="#subsubsec-sim-lifecycle-systemcontroller"><span class="std std-ref">system controller service</span></a>.</p></li>
+</ul>
+</section>
 </section>
 <section id="lifecycle-management">
-<span id="sec-sim-lifecycle-management"></span><h2><a class="toc-backref" href="#id5">Lifecycle Management</a><a class="headerlink" href="#lifecycle-management" title="Permalink to this heading"></a></h2>
+<span id="sec-sim-lifecycle-management"></span><h2><a class="toc-backref" href="#id10">Lifecycle Management</a><a class="headerlink" href="#lifecycle-management" title="Permalink to this heading"></a></h2>
 <p>The SIL Kit provides lifecycle management for individual participants and the overall simulation.
 The following first introduces means to observe and control the lifecycle.
-Afterwards, the lifecycle of synchronized participants and the lifecycle of the overall simulation are introduced.</p>
-<section id="lifecycle-control">
-<h3><a class="toc-backref" href="#id6">Lifecycle Control</a><a class="headerlink" href="#lifecycle-control" title="Permalink to this heading"></a></h3>
-<p>There are two levels of granularity when it comes to lifecycle management: a local lifecycle that affects the state of an individual participant and a simulation-wide system Lifecycle.
+Afterwards, the participants’ states, the transition logic between the states, and the lifecycle of the overall simulation are introduced.</p>
+<p>There are two levels of granularity when it comes to lifecycle management: a local lifecycle that affects the state of an individual participant and a simulation-wide system lifecycle.
 The following introduces the three components that can affect and observe the individual and global lifecycle.</p>
 <section id="lifecycle-service">
-<span id="subsubsec-sim-lifecycle-lifecycleservice"></span><h4><a class="toc-backref" href="#id7">Lifecycle Service</a><a class="headerlink" href="#lifecycle-service" title="Permalink to this heading"></a></h4>
+<span id="subsubsec-sim-lifecycle-lifecycleservice"></span><h3><a class="toc-backref" href="#id11">Lifecycle Service</a><a class="headerlink" href="#lifecycle-service" title="Permalink to this heading"></a></h3>
 <p>The <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleServiceE" title="SilKit::Services::Orchestration::ILifecycleService"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ILifecycleService</span></code></a> interface allows each participant to access various functions related to its lifecycle.
 Users can register callbacks that trigger once a participant reaches certain states.
 Available callbacks are <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService28SetCommunicationReadyHandlerE25CommunicationReadyHandler" title="SilKit::Services::Orchestration::ILifecycleService::SetCommunicationReadyHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetCommunicationReadyHandler()</span></code></a>, <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService14SetStopHandlerE11StopHandler" title="SilKit::Services::Orchestration::ILifecycleService::SetStopHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetStopHandler()</span></code></a>, and <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService18SetShutdownHandlerE15ShutdownHandler" title="SilKit::Services::Orchestration::ILifecycleService::SetShutdownHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetShutdownHandler()</span></code></a>.
@@ -165,13 +203,16 @@ If this service is not used, an additional <a class="reference internal" href=".
 Once all needed controllers are registered and, if needed, the time synchronization service was retrieved and configured, the participants’ lifecycle can be published by calling <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService14StartLifecycleEv" title="SilKit::Services::Orchestration::ILifecycleService::StartLifecycle"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">StartLifecycle()</span></code></a> (see <a class="reference internal" href="#sec-sim-lifecycle-syncparticipants"><span class="std std-ref">Lifecycle Coordination Between Participants</span></a>).</p>
 </section>
 <section id="time-synchronization-service">
-<span id="subsubsec-sim-lifecycle-timesyncservice"></span><h4><a class="toc-backref" href="#id8">Time Synchronization Service</a><a class="headerlink" href="#time-synchronization-service" title="Permalink to this heading"></a></h4>
-<p>The <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncServiceE" title="SilKit::Services::Orchestration::ITimeSyncService"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ITimeSyncService</span></code></a> interface allows users to set a simulation step, which is important for participants with virtual time synchronization.
-A simulation step defines the operations that are repeatedly performed in the interval of the simulation step size.
-The simulation step as well as the initial step size are configured via <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService24SetSimulationStepHandlerE21SimulationStepHandlerNSt6chrono11nanosecondsE" title="SilKit::Services::Orchestration::ITimeSyncService::SetSimulationStepHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ITimeSyncService::SetSimulationStepHandler()</span></code></a></p>
+<span id="subsubsec-sim-lifecycle-timesyncservice"></span><h3><a class="toc-backref" href="#id12">Time Synchronization Service</a><a class="headerlink" href="#time-synchronization-service" title="Permalink to this heading"></a></h3>
+<p>When the <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncServiceE" title="SilKit::Services::Orchestration::ITimeSyncService"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ITimeSyncService</span></code></a> is created, the participant depends on the virtual time and takes part in the distributed virtual time synchronization with other participants.
+The service allows users to set a <em>simulation step handler</em>, define its individual simulation step size and retrieve the current time.
+When the virtual time advances in the distributed simulation, the <em>simulation step handler</em> is called and the participant must perform its task for the current time step.
+It is assured that the virtual time will only increase throughout the simulation, simulation steps will never jump back or be triggered twice on a certain time.
+Subsequent calls to a <em>simulation step handler</em> happen in the interval defined by the participants’ simulation step size.
+A time dependent participant might also rely on timestamps of incoming messages, thus the SIL Kit takes care that a time dependent participant always receives a meaningful timestamp in bus or application data messages.</p>
 </section>
 <section id="system-monitor">
-<span id="subsubsec-sim-lifecycle-systemmonitor"></span><h4><a class="toc-backref" href="#id9">System Monitor</a><a class="headerlink" href="#system-monitor" title="Permalink to this heading"></a></h4>
+<span id="subsubsec-sim-lifecycle-systemmonitor"></span><h3><a class="toc-backref" href="#id13">System Monitor</a><a class="headerlink" href="#system-monitor" title="Permalink to this heading"></a></h3>
 <p>To observe the state transitions of other participants, users first need to retrieve the <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitorE" title="SilKit::Services::Orchestration::ISystemMonitor"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ISystemMonitor</span></code></a> interface via <a class="reference internal" href="../api/participant.html#_CPPv4N6SilKit12IParticipant19CreateSystemMonitorEv" title="SilKit::IParticipant::CreateSystemMonitor"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateSystemMonitor()</span></code></a>.
 Afterwards, they can register a participant status callback via <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor27AddParticipantStatusHandlerE24ParticipantStatusHandler" title="SilKit::Services::Orchestration::ISystemMonitor::AddParticipantStatusHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddParticipantStatusHandler()</span></code></a>.
 In addition, users can register a callback for changes of the overall system state via <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor21AddSystemStateHandlerE18SystemStateHandler" title="SilKit::Services::Orchestration::ISystemMonitor::AddSystemStateHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddSystemStateHandler()</span></code></a>.
@@ -179,7 +220,7 @@ The system state corresponds to the earliest state of all required participants.
 For example, two Participants A and B are required. A is in state <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState10ReadyToRunE" title="SilKit::Services::Orchestration::ParticipantState::ReadyToRun"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">ReadyToRun</span></code></a> and B is in <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState7RunningE" title="SilKit::Services::Orchestration::ParticipantState::Running"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Running</span></code></a>, then the system state would be <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration11SystemState10ReadyToRunE" title="SilKit::Services::Orchestration::SystemState::ReadyToRun"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">ReadyToRun</span></code></a> (as Running follows ReadyToRun).</p>
 </section>
 <section id="system-controller">
-<span id="subsubsec-sim-lifecycle-systemcontroller"></span><h4><a class="toc-backref" href="#id10">System Controller</a><a class="headerlink" href="#system-controller" title="Permalink to this heading"></a></h4>
+<span id="subsubsec-sim-lifecycle-systemcontroller"></span><h3><a class="toc-backref" href="#id14">System Controller</a><a class="headerlink" href="#system-controller" title="Permalink to this heading"></a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The System Controller is experimental and might be changed or removed in future versions of the SIL Kit.</p>
@@ -192,9 +233,8 @@ lifecycle (see <a class="reference internal" href="../api/systemcontroller.html"
 <p>A coordinated participant must be required, or otherwise the simulation will enter an error state.</p>
 </div>
 </section>
-</section>
-<section id="lifecycle-coordination-between-participants">
-<span id="sec-sim-lifecycle-syncparticipants"></span><h3><a class="toc-backref" href="#id11">Lifecycle Coordination Between Participants</a><a class="headerlink" href="#lifecycle-coordination-between-participants" title="Permalink to this heading"></a></h3>
+<section id="the-lifecycle-state-machine">
+<span id="sec-sim-lifecycle-syncparticipants"></span><h3><a class="toc-backref" href="#id15">The Lifecycle State Machine</a><a class="headerlink" href="#the-lifecycle-state-machine" title="Permalink to this heading"></a></h3>
 <p>Each participant has an independent lifecycle that other participants can observe through the <a class="reference internal" href="#subsubsec-sim-lifecycle-systemmonitor"><span class="std std-ref">System Monitor</span></a>.</p>
 <figure class="align-center" id="id1">
 <span id="label-sim-lifecycle"></span><a class="reference internal image-reference" href="../_images/ParticipantLifecycle_3.png"><img alt=": Participant state machine" src="../_images/ParticipantLifecycle_3.png" style="width: 800px;" /></a>
@@ -202,11 +242,13 @@ lifecycle (see <a class="reference internal" href="../api/systemcontroller.html"
 <p><span class="caption-number">Figure 7 </span><span class="caption-text">: SIL Kit participant state machine.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
+<section id="starting-a-simulation">
+<h4>Starting a Simulation<a class="headerlink" href="#starting-a-simulation" title="Permalink to this heading"></a></h4>
 <p>A participant enters the distributed state machine by calling <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService14StartLifecycleEv" title="SilKit::Services::Orchestration::ILifecycleService::StartLifecycle"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">StartLifecycle()</span></code></a>.
 This will cause the <a class="reference internal" href="#subsubsec-sim-lifecycle-lifecycleservice"><span class="std std-ref">Lifecycle Service</span></a> to announce its state as <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState15ServicesCreatedE" title="SilKit::Services::Orchestration::ParticipantState::ServicesCreated"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">ServicesCreated</span></code></a>, indicating that all services were created and announced to other participants.</p>
-<p>A participant that uses the lifecycle service may choose to coordinate its state with other participants.
-In that case, they will align their participant state based on the current system state until they reach <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState24CommunicationInitializedE" title="SilKit::Services::Orchestration::ParticipantState::CommunicationInitialized"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">CommunicationInitialized</span></code></a>.
-Once the system state also changes to CommunicationInitialized, the communication between all participants via <a class="reference internal" href="../api/pubsub.html#_CPPv4N6SilKit8Services6PubSub14IDataPublisherE" title="SilKit::Services::PubSub::IDataPublisher"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">DataPublisher</span></code></a> and <a class="reference internal" href="../api/pubsub.html#_CPPv4N6SilKit8Services6PubSub15IDataSubscriberE" title="SilKit::Services::PubSub::IDataSubscriber"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">DataSubscriber</span></code></a> is possible.
+<p>A participant that uses the lifecycle service may choose to coordinate its state with other participants by creating the <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleServiceE" title="SilKit::Services::Orchestration::ILifecycleService"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ILifecycleService</span></code></a> with <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration13OperationMode11CoordinatedE" title="SilKit::Services::Orchestration::OperationMode::Coordinated"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">OperationMode::Coordinated</span></code></a>.
+In that case, they will align their participant state based on the current system state until they reach <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState24CommunicationInitializedE" title="SilKit::Services::Orchestration::ParticipantState::CommunicationInitialized"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">CommunicationInitialized</span></code></a>.</p>
+<p>Once the system state also changes to CommunicationInitialized, the communication between all participants via <a class="reference internal" href="../api/pubsub.html#_CPPv4N6SilKit8Services6PubSub14IDataPublisherE" title="SilKit::Services::PubSub::IDataPublisher"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">DataPublisher</span></code></a> and <a class="reference internal" href="../api/pubsub.html#_CPPv4N6SilKit8Services6PubSub15IDataSubscriberE" title="SilKit::Services::PubSub::IDataSubscriber"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">DataSubscriber</span></code></a> is possible.
 This information is propagated to the user if they registered the callback via <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService28SetCommunicationReadyHandlerE25CommunicationReadyHandler" title="SilKit::Services::Orchestration::ILifecycleService::SetCommunicationReadyHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetCommunicationReadyHandler()</span></code></a>.
 Once the callback is finished, the participant state changes to <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState10ReadyToRunE" title="SilKit::Services::Orchestration::ParticipantState::ReadyToRun"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">ReadyToRun</span></code></a>.
 The participant will wait for the system state to change to <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration11SystemState10ReadyToRunE" title="SilKit::Services::Orchestration::SystemState::ReadyToRun"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">ReadyToRun</span></code></a> as well and then proceeds to the <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState7RunningE" title="SilKit::Services::Orchestration::ParticipantState::Running"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Running</span></code></a> state.</p>
@@ -216,11 +258,20 @@ If it is necessary to exchange information during the <code class="docutils lite
 After <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService38CompleteCommunicationReadyHandlerAsyncEv" title="SilKit::Services::Orchestration::ILifecycleService::CompleteCommunicationReadyHandlerAsync"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CompleteCommunicationReadyHandlerAsync()</span></code></a> is called, the participants state will switch to participant state changes to <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState10ReadyToRunE" title="SilKit::Services::Orchestration::ParticipantState::ReadyToRun"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">ReadyToRun</span></code></a>.</p>
 <p>Participants that coordinate their state but do not use the virtual time synchronization can register a <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService18SetStartingHandlerE15StartingHandler" title="SilKit::Services::Orchestration::ILifecycleService::SetStartingHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetStartingHandler()</span></code></a>, which indicates that the synchronized participants will start the virtual time synchronization and thus the simulation.
 This callback does not block the other participants and should only be used to start timers etc., it will trigger when the state transition to <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState7RunningE" title="SilKit::Services::Orchestration::ParticipantState::Running"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Running</span></code></a> is imminent.</p>
-<p>Participants may also choose not to coordinate their state with other participants.
+</section>
+<section id="autonomous-operation-mode">
+<span id="subsec-lifecycle-autonomous"></span><h4>Autonomous Operation Mode<a class="headerlink" href="#autonomous-operation-mode" title="Permalink to this heading"></a></h4>
+<p>Participants may also choose not to coordinate their state with other participants by creating the <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleServiceE" title="SilKit::Services::Orchestration::ILifecycleService"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ILifecycleService</span></code></a> with <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration13OperationMode10AutonomousE" title="SilKit::Services::Orchestration::OperationMode::Autonomous"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">OperationMode::Autonomous</span></code></a>.
 In this case, their state will transition to the Running phase without waiting for any system states.
 They still receive the <code class="docutils literal notranslate"><span class="pre">CommunicationReady</span></code> callback before changing to <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState10ReadyToRunE" title="SilKit::Services::Orchestration::ParticipantState::ReadyToRun"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">ReadyToRun</span></code></a>, but the communication guarantee does not apply.</p>
-<p>Participants that use the virtual time synchronization repeatedly execute their registered simulation steps while advancement of time is handled by the middleware implementation.
-If a participant temporarily cannot advance the simulation, e.g., because a debugger is attached to investigate its internal state, a participant can be put into the <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState6PausedE" title="SilKit::Services::Orchestration::ParticipantState::Paused"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Paused</span></code></a> state.</p>
+</section>
+<section id="running-a-simulation">
+<h4>Running a Simulation<a class="headerlink" href="#running-a-simulation" title="Permalink to this heading"></a></h4>
+<p>Participants that use the virtual time synchronization repeatedly execute their registered simulation steps while advancement of time is handled by the time synchronization service.
+If a participant temporarily cannot advance the simulation, e.g., because a debugger is attached to investigate its internal state, the participant can be put into the <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState6PausedE" title="SilKit::Services::Orchestration::ParticipantState::Paused"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Paused</span></code></a> state.</p>
+</section>
+<section id="stopping-a-simulation">
+<h4>Stopping a Simulation<a class="headerlink" href="#stopping-a-simulation" title="Permalink to this heading"></a></h4>
 <p>Generally, any participant can stop its simulation run by calling <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService4StopENSt6stringE" title="SilKit::Services::Orchestration::ILifecycleService::Stop"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Stop()</span></code></a>.
 If the participant is part of the required participants of a simulation, all other coordinated participants will also stop their simulation.
 Please note that participants that are not coordinated must call stop by themselves to end their simulation run regularly.</p>
@@ -228,18 +279,25 @@ Please note that participants that are not coordinated must call stop by themsel
 A callback registered via <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService14SetStopHandlerE11StopHandler" title="SilKit::Services::Orchestration::ILifecycleService::SetStopHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetStopHandler()</span></code></a> can be used to detect the state transition and perform a collection of simulation results.
 Once the callback execution is finished, the participant will change its state to <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Stop</span></code>.
 Afterwards, they transition to the <code class="docutils literal notranslate"><span class="pre">ShuttingDown</span></code> state, call the <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService18SetShutdownHandlerE15ShutdownHandler" title="SilKit::Services::Orchestration::ILifecycleService::SetShutdownHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetShutdownHandler()</span></code></a> and transition to the <code class="docutils literal notranslate"><span class="pre">Shutdown</span></code> state.</p>
+</section>
+<section id="error-handling">
+<h4>Error Handling<a class="headerlink" href="#error-handling" title="Permalink to this heading"></a></h4>
 <p>Whenever a participant encounters an error from which it cannot recover, it switches to the <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState5ErrorE" title="SilKit::Services::Orchestration::ParticipantState::Error"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Error</span></code></a> state to indicate this situation to the system.
 Users can manually trigger a transition to the error state and provide more information about the cause by calling <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService11ReportErrorENSt6stringE" title="SilKit::Services::Orchestration::ILifecycleService::ReportError"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ReportError()</span></code></a>.
 In some situations, a lifecycle service automatically enters the error state, e.g., when an uncaught exception is thrown in a callback.
 A participant can only recover from the <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState5ErrorE" title="SilKit::Services::Orchestration::ParticipantState::Error"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Error</span></code></a> state in one way: by shutting down.</p>
+</section>
+<section id="aborting-a-simulation">
+<h4>Aborting a Simulation<a class="headerlink" href="#aborting-a-simulation" title="Permalink to this heading"></a></h4>
 <p>All participants can also be forced to end their lifecycle by calling <a class="reference internal" href="../api/systemcontroller.html#_CPPv4NK6SilKit12Experimental8Services13Orchestration17ISystemController15AbortSimulationEv" title="SilKit::Experimental::Services::Orchestration::ISystemController::AbortSimulation"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AbortSimulation()</span></code></a> from any participant.
 This will trigger the <code class="docutils literal notranslate"><span class="pre">Abort</span></code> callback, which indicates that the simulation was aborted and provide the participant state that was active when the abort event was received.</p>
 </section>
+</section>
 <section id="simulation-wide-lifecycle-system-state">
-<span id="subsec-sim-lifecycle"></span><h3><a class="toc-backref" href="#id12">Simulation-wide Lifecycle (System State)</a><a class="headerlink" href="#simulation-wide-lifecycle-system-state" title="Permalink to this heading"></a></h3>
+<span id="subsec-sim-lifecycle"></span><h3><a class="toc-backref" href="#id16">Simulation-wide Lifecycle (System State)</a><a class="headerlink" href="#simulation-wide-lifecycle-system-state" title="Permalink to this heading"></a></h3>
 <p>The lifecycle of the overall simulation is derived from the states of a defined set of participants.
-Changes to the system state can be observed via the System Monitor.</p>
-<p>The set of participants that define the system state must be defined via <a class="reference internal" href="../api/systemcontroller.html#_CPPv4N6SilKit12Experimental8Services13Orchestration17ISystemController24SetWorkflowConfigurationERKN6SilKit8Services13Orchestration21WorkflowConfigurationE" title="SilKit::Experimental::Services::Orchestration::ISystemController::SetWorkflowConfiguration"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetWorkflowConfiguration()</span></code></a> before the simulation is started (see <a class="reference internal" href="#subsubsec-sim-lifecycle-systemcontroller"><span class="std std-ref">above</span></a> for details).
+Changes to the system state can be observed via the System Monitor.
+The set of participants that define the system state must be defined via <a class="reference internal" href="../api/systemcontroller.html#_CPPv4N6SilKit12Experimental8Services13Orchestration17ISystemController24SetWorkflowConfigurationERKN6SilKit8Services13Orchestration21WorkflowConfigurationE" title="SilKit::Experimental::Services::Orchestration::ISystemController::SetWorkflowConfiguration"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetWorkflowConfiguration()</span></code></a> before the simulation is started (see <a class="reference internal" href="#subsubsec-sim-lifecycle-systemcontroller"><span class="std std-ref">above</span></a> for details).
 The system state is defined as follows:</p>
 <ol class="arabic simple">
 <li><p>If any required participant is not available, the system state is <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState7InvalidE" title="SilKit::Services::Orchestration::ParticipantState::Invalid"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Invalid</span></code></a>.</p></li>
@@ -250,107 +308,216 @@ The system state is defined as follows:</p>
 For example, if just one participant enters the <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState5ErrorE" title="SilKit::Services::Orchestration::ParticipantState::Error"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Error</span></code></a> state, the system state will be change to <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration11SystemState5ErrorE" title="SilKit::Services::Orchestration::SystemState::Error"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Error</span></code></a> as well.</p>
 <p>The system state follows state transitions in a lazy manner.
 This means that the system state remains the old state until all relevant participants have reached the new state.
-For example, the system state remains <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration11SystemState15ServicesCreatedE" title="SilKit::Services::Orchestration::SystemState::ServicesCreated"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">ServicesCreated</span></code></a> until all relevant participants have achieved the <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState25CommunicationInitializingE" title="SilKit::Services::Orchestration::ParticipantState::CommunicationInitializing"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">CommunicationInitializing</span></code></a> state.</p>
-<p>In all cases that do not match any of the above, the system state will be regarded as <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration11SystemState7InvalidE" title="SilKit::Services::Orchestration::SystemState::Invalid"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Invalid</span></code></a>.
+For example, the system state remains <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration11SystemState15ServicesCreatedE" title="SilKit::Services::Orchestration::SystemState::ServicesCreated"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">ServicesCreated</span></code></a> until all relevant participants have achieved the <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState25CommunicationInitializingE" title="SilKit::Services::Orchestration::ParticipantState::CommunicationInitializing"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">CommunicationInitializing</span></code></a> state.
+In all cases that do not match any of the above, the system state will be regarded as <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration11SystemState7InvalidE" title="SilKit::Services::Orchestration::SystemState::Invalid"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Invalid</span></code></a>.
 This should typically not occur.</p>
 </section>
+<section id="time-synchronization-and-lifecycle-operation-modes">
+<h3><a class="toc-backref" href="#id17">Time Synchronization and Lifecycle Operation Modes</a><a class="headerlink" href="#time-synchronization-and-lifecycle-operation-modes" title="Permalink to this heading"></a></h3>
+<p>If a group of participants wants to collectively start a simulation, the <a class="reference internal" href="#subsubsec-sim-lifecycle-lifecycleservice"><span class="std std-ref">Lifecycle Service</span></a> must be created with <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration13OperationMode11CoordinatedE" title="SilKit::Services::Orchestration::OperationMode::Coordinated"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">OperationMode::Coordinated</span></code></a>.
+This implies that the participant must be included in the list of required participant names defined by the <a class="reference internal" href="#subsubsec-sim-lifecycle-systemcontroller"><span class="std std-ref">System Controller</span></a> utility.
+With this setup, the <a class="reference internal" href="#subsubsec-sim-lifecycle-lifecycleservice"><span class="std std-ref">Lifecycle Service</span></a> takes care that the <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState7RunningE" title="SilKit::Services::Orchestration::ParticipantState::Running"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Running</span></code></a> state and thus the start of the virtual time is only reached when all required participants are available.
+A call to <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService4StopENSt6stringE" title="SilKit::Services::Orchestration::ILifecycleService::Stop"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Stop()</span></code></a> on any participant will stop the time synchronization of all coordinated participants.</p>
+<p>The <a class="reference internal" href="#subsubsec-sim-lifecycle-lifecycleservice"><span class="std std-ref">Lifecycle Service</span></a> can also be created with the <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration13OperationMode10AutonomousE" title="SilKit::Services::Orchestration::OperationMode::Autonomous"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">OperationMode::Autonomous</span></code></a>.
+Here, no coordination of participant states takes place, the <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState7RunningE" title="SilKit::Services::Orchestration::ParticipantState::Running"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Running</span></code></a> state and the start of the virtual time will be reached autonomously.
+Participants with an autonomous lifecycle can only be stopped individually by calling <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService4StopENSt6stringE" title="SilKit::Services::Orchestration::ILifecycleService::Stop"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Stop()</span></code></a> on the respective participant.</p>
 </section>
-<section id="synchronized-simulation-run">
-<span id="sec-sim-synchronization"></span><h2><a class="toc-backref" href="#id13">Synchronized Simulation Run</a><a class="headerlink" href="#synchronized-simulation-run" title="Permalink to this heading"></a></h2>
-<p>The following first gives a general overview of a simulation run using the SIL Kit.
-Afterwards, possibilities to configure the simulation step length of a simulation step and to define the simulation step that is being executed are introduced.
-The last part details what time information SIL Kit clients provide, depending on their synchronization mode.</p>
-<div class="admonition-note admonition">
-<p class="admonition-title">Note</p>
-<p>A mixed operation mode, where some participants operate synchronized and some unsynchronized,
-is not supported. Therefore, all participants of a simulation must either be synchronized or unsynchronized.</p>
-</div>
-<section id="simulation-overview">
-<span id="subsec-sim-overview"></span><h3><a class="toc-backref" href="#id14">Simulation Overview</a><a class="headerlink" href="#simulation-overview" title="Permalink to this heading"></a></h3>
-<p>A SIL Kit simulation is designed as a discrete-event simulation.
-This means, that each event of a participant occurs at a distinct point in time.
-Synchronized participants exchange information about the next point in time at which they intend to execute their <em>simulation step</em>.
-Based on this information they can infer if they can trigger their next simulation step or if they still need to wait for other participants to finish their steps.
-Each participant executes its simulation step periodically.
-The simulation time between the execution must be set when registering the simulation step.</p>
 </section>
-<section id="configuration-of-the-simulation-step">
-<h3><a class="toc-backref" href="#id15">Configuration of the Simulation Step</a><a class="headerlink" href="#configuration-of-the-simulation-step" title="Permalink to this heading"></a></h3>
-<p>Each synchronized participant <strong>must</strong> define a simulation step that will be executed at the beginning of the interval defined by the simulation step size.
-The size of the simulation step is provided when setting the simulation step handler.
-Users can provide the simulation step either synchronously or asynchronously.
-The synchronous simulation step is set by calling <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService24SetSimulationStepHandlerE21SimulationStepHandlerNSt6chrono11nanosecondsE" title="SilKit::Services::Orchestration::ITimeSyncService::SetSimulationStepHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetSimulationStepHandler()</span></code></a>
-and providing the simulation step to be executed as a delegate function.
-Note that the simulation step is not necessarily executed on the main thread of the application.
-After the execution of the simulation step is finished, the other participants are informed about the next point in time at which the participant intends to execute its next step.
-Users can exchange the simulation step by calling <code class="docutils literal notranslate"><span class="pre">SetSimulationStepHandler</span></code> again, but they cannot intervene during its execution.</p>
-<p>Sometimes, it may be desirable to have more control about the simulation step execution.
-In these cases, the asynchronous simulation step execution may be preferable.</p>
-<p>Similar to the synchronous case, an asynchronous simulation step is set by calling <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService29SetSimulationStepHandlerAsyncE21SimulationStepHandlerNSt6chrono11nanosecondsE" title="SilKit::Services::Orchestration::ITimeSyncService::SetSimulationStepHandlerAsync"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetSimulationStepHandlerAsync()</span></code></a>.
-It is executed at the start of each simulation step, but it does not automatically signal other participants that the current simulation step is finished.
-Instead, the user is required to call <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService22CompleteSimulationStepEv" title="SilKit::Services::Orchestration::ITimeSyncService::CompleteSimulationStep"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CompleteSimulationStep()</span></code></a> to signal the completion of the current simulation step.
-This enables the user to have fine-grained control over the synchronous simulation progress.
-Also, this allows two participants to communicate without increasing the simulation time.</p>
-<div class="admonition-note admonition">
-<p class="admonition-title">Note</p>
-<p>Asynchronous simulation steps are non-blocking.
-This means that it is possible that callbacks from received messages are triggered concurrently during the execution of the simulation step.
-Users need to make sure that their data is protected against concurrent read/write access.</p>
-</div>
-<div class="admonition-note admonition">
-<p class="admonition-title">Note</p>
-<p>Calling <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService22CompleteSimulationStepEv" title="SilKit::Services::Orchestration::ITimeSyncService::CompleteSimulationStep"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CompleteSimulationStep()</span></code></a> will advance the simulation time regardless of the execution state of the asynchronous simulation step.</p>
-</div>
+<section id="virtual-time-synchronization">
+<span id="sec-sim-synchronization"></span><h2><a class="toc-backref" href="#id18">Virtual Time Synchronization</a><a class="headerlink" href="#virtual-time-synchronization" title="Permalink to this heading"></a></h2>
+<p>SIL Kit can run simulations with <em>virtual, discrete time synchronization</em> between participants.
+<em>Virtual</em> in this context means that the time is not based on a real clock, but the participants use a common synchronization algorithm to <em>agree</em> on a time in the simulation and how this advances.
+This allows virtualization of time-driven systems and to correctly simulate time dependent behavior without having to fulfill real-time requirements for the actual computations.
+<em>Discrete</em> refers to the fact that the virtual time increases stepwise.
+Each of these <em>simulation steps</em> describes a slice in time with a defined starting point and a duration (also called <em>step size</em>, denoted as <span class="math notranslate nohighlight">\(\Delta t\)</span>).
+In SIL Kit, all events that are generated during this time span are mapped to the starting point of the <em>simulation step</em>.
+The <em>step size</em> can be chosen individually for every participant.</p>
+<section id="setup-and-participant-state-flow">
+<h3><a class="toc-backref" href="#id19">Setup and Participant State Flow</a><a class="headerlink" href="#setup-and-participant-state-flow" title="Permalink to this heading"></a></h3>
+<p>Concerning the SIL Kit API, the participant must be set up as follows to be part of the virtual time synchronization:</p>
+<ol class="arabic simple">
+<li><p>Create an <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleServiceE" title="SilKit::Services::Orchestration::ILifecycleService"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ILifecycleService</span></code></a> from the participant object.
+This is necessary because start and finish of the time synchronization is coupled to the participant states controlled by the <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleServiceE" title="SilKit::Services::Orchestration::ILifecycleService"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ILifecycleService</span></code></a>.</p></li>
+<li><p>Via the <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleServiceE" title="SilKit::Services::Orchestration::ILifecycleService"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ILifecycleService</span></code></a>, the <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncServiceE" title="SilKit::Services::Orchestration::ITimeSyncService"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ITimeSyncService</span></code></a> can be created with <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService21CreateTimeSyncServiceEv" title="SilKit::Services::Orchestration::ILifecycleService::CreateTimeSyncService"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateTimeSyncService</span></code></a>.
+Only participants with an <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncServiceE" title="SilKit::Services::Orchestration::ITimeSyncService"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ITimeSyncService</span></code></a> are taken into account in the time synchronization.</p></li>
+<li><p>On the <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncServiceE" title="SilKit::Services::Orchestration::ITimeSyncService"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ITimeSyncService</span></code></a>, the user must set a handler that is called when the virtual time increases.
+This is done with <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService24SetSimulationStepHandlerE21SimulationStepHandlerNSt6chrono11nanosecondsE" title="SilKit::Services::Orchestration::ITimeSyncService::SetSimulationStepHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetSimulationStepHandler()</span></code></a> or <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService29SetSimulationStepHandlerAsyncE21SimulationStepHandlerNSt6chrono11nanosecondsE" title="SilKit::Services::Orchestration::ITimeSyncService::SetSimulationStepHandlerAsync"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetSimulationStepHandlerAsync()</span></code></a> and includes the definition of the participant’s time resolution by setting its constant <em>step size</em>.</p></li>
+<li><p>With a call to <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService14StartLifecycleEv" title="SilKit::Services::Orchestration::ILifecycleService::StartLifecycle"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">StartLifecycle()</span></code></a>, the participant indicates that it is ready to start the virtual time synchronization.
+The lifecycle now attempts to advance to the <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState7RunningE" title="SilKit::Services::Orchestration::ParticipantState::Running"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Running</span></code></a> state of the participant according to the conditions of the lifecycle logic.</p></li>
+<li><p>As soon as the <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState7RunningE" title="SilKit::Services::Orchestration::ParticipantState::Running"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Running</span></code></a> state is reached, the participant takes part in the virtual time synchronization.</p></li>
+<li><p>From now on, the participant’s <em>simulation step handler</em> is called when the virtual time increases.
+The handler transports the <em>current time</em> and the <em>step size</em> of the participant.
+Participants with <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration13OperationMode11CoordinatedE" title="SilKit::Services::Orchestration::OperationMode::Coordinated"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">OperationMode::Coordinated</span></code></a> always start at <span class="math notranslate nohighlight">\(T=0\)</span>, whereas participants with <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration13OperationMode10AutonomousE" title="SilKit::Services::Orchestration::OperationMode::Autonomous"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">OperationMode::Autonomous</span></code></a> are able to join a simulation with an already advanced time.</p></li>
+<li><p>The current virtual time can be issues by calling <a class="reference internal" href="../api/timeSyncService.html#_CPPv4NK6SilKit8Services13Orchestration16ITimeSyncService3NowEv" title="SilKit::Services::Orchestration::ITimeSyncService::Now"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Now()</span></code></a>. This returns the <em>current time</em>, which is updated just before the call to the <em>simulation step handler</em>.</p></li>
+<li><p>When the participant reached the <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState8StoppingE" title="SilKit::Services::Orchestration::ParticipantState::Stopping"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Stopping</span></code></a> state, no more calls to the <em>simulation step handler</em> of this participant will be triggered.</p></li>
+<li><p>When a participant disconnects, it is no longer considered in the time synchronization.</p></li>
+</ol>
 </section>
 <section id="timestamps-in-messages">
-<span id="subsec-sim-sync-timestamps"></span><h3><a class="toc-backref" href="#id16">Timestamps in Messages</a><a class="headerlink" href="#timestamps-in-messages" title="Permalink to this heading"></a></h3>
-<p>Each sent bus event is annotated with a timestamp, at which it was sent.
-The timestamp is set automatically by the SIL Kit client.
-Users do not have to (and should not try to) manually set the timestamp of a message.
-Depending on the mode of the participant (synchronized/unsynchronized) and whether the network is managed by a network simulator, the timestamp’s meaning and precision may differ.
-If a network simulator is available for a given network, it takes precedence of the timestamp control and overrides the timestamps of any bus message.</p>
-<p>The following table provides an overview of the behavior, if no network simulator is available.</p>
-<table class="colwidths-given docutils align-default" id="id2">
-<caption><span class="caption-number">Table 1 </span><span class="caption-text">: Message timestamp by synchronization mode</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
-<colgroup>
-<col style="width: 30%" />
-<col style="width: 35%" />
-<col style="width: 35%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"></th>
-<th class="head"><p>Unsynchronized (Sender)</p></th>
-<th class="head"><p>Synchronized (Sender)</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Unsynchronized (Receiver)</p></td>
-<td><p>Undefined</p></td>
-<td><p>Use timestamp of own simulation step</p></td>
-</tr>
-<tr class="row-odd"><td><p>Synchronized (Receiver)</p></td>
-<td><p>Undefined</p></td>
-<td><p>Use timestamp of sender</p></td>
-</tr>
-</tbody>
-</table>
+<h3><a class="toc-backref" href="#id20">Timestamps in Messages</a><a class="headerlink" href="#timestamps-in-messages" title="Permalink to this heading"></a></h3>
+<p>All bus and application data events are annotated with a timestamp, which is set automatically by the SIL Kit.
+Users cannot manually set the timestamp of a message.
+Depending on the mode (with / without virtual time synchronization) of the sender and receiver and whether the network is managed by a network simulator, the timestamps’ meaning and precision differs:</p>
+<ul>
+<li><p>Participants <strong>with</strong> virtual time synchronization:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Outgoing events are annotated with the virtual time at which the event was <strong>sent</strong>.</p></li>
+<li><p>Incoming events from participants <strong>without</strong> virtual time synchronization will be annotated with the time at which the event was <strong>received</strong>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Participants <strong>without</strong> virtual time synchronization:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Outgoing events will have an invalid timestamp (<code class="docutils literal notranslate"><span class="pre">std::chrono::nanoseconds::duration::min()</span></code>)</p></li>
+<li><p>Incoming events from participants <strong>with</strong> virtual time synchronization keep the timestamp at which the event was <strong>sent</strong>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Timestamps assigned by network simulators take precedence of the rules above.</p></li>
+</ul>
 </section>
-<section id="sil-kit-middleware">
-<span id="subsec-sim-syncexample"></span><h3><a class="toc-backref" href="#id17">SIL Kit Middleware</a><a class="headerlink" href="#sil-kit-middleware" title="Permalink to this heading"></a></h3>
-<p>The provided implementation of the SIL Kit headers uses an internal middleware that is provided with the SIL Kit.
-Within it, all participants exchange their messages via direct messaging based on TCP connections or Unix domain sockets.</p>
-<p>The internal middleware guarantees message delivery to always be in-order.
-This enables the usage of a distributed synchronization algorithm.
-<a class="reference internal" href="#label-sim-messagedelivery"><span class="std std-numref">Figure 8</span></a> shows the synchronization algorithm:</p>
-<figure class="align-center" id="id3">
-<span id="label-sim-messagedelivery"></span><a class="reference internal image-reference" href="../_images/sim-inorder-strict.png"><img alt="Vector SIL Kit message delivery" src="../_images/sim-inorder-strict.png" style="width: 800px;" /></a>
+<section id="properties-and-limitations">
+<h3><a class="toc-backref" href="#id21">Properties and Limitations</a><a class="headerlink" href="#properties-and-limitations" title="Permalink to this heading"></a></h3>
+<p>General important properties of synchronized simulations are listed in the following:</p>
+<ul class="simple">
+<li><p>Mixed systems with time dependent and time independent participants are allowed.</p></li>
+<li><p>The sending order of messages is equal to the reception order - messages between two participants cannot overtake each other.</p></li>
+<li><p>The <a class="reference internal" href="#subsec-time-distribution-algorithm"><span class="std std-ref">time distribution algorithm</span></a> requires no central instance to manage the time and no sorting of messages based on their timestamps takes place.</p></li>
+<li><p>Because the virtual time will not advance until all participants have completed their current <em>simulation step</em>, the overall progress in the distributed system will be limited by the <em>slowest</em> participant.
+Usually this participant takes the longest (in real-time) for its computations in the <em>simulation step</em>.</p></li>
+<li><p>During the evaluation of a <em>simulation step</em> for time <span class="math notranslate nohighlight">\(T\)</span>, the application needs to cover the range <span class="math notranslate nohighlight">\([T, T + \Delta t)\)</span> (excluding the upper bound).</p></li>
+</ul>
+<p>The relation of message timestamps to the participant’s virtual time and guarantees regarding message delivery and reception are described below:</p>
+<ul class="simple">
+<li><p>When the <em>simulation step</em> with time <span class="math notranslate nohighlight">\(T\)</span> is reached, no messages with a timestamp smaller than <span class="math notranslate nohighlight">\(T\)</span> can arrive.</p></li>
+<li><p>After the participant completes its current <em>simulation step</em> for a certain time <span class="math notranslate nohighlight">\(T\)</span>, the participant notifies to be ready up to <span class="math notranslate nohighlight">\(T + \Delta t\)</span>.
+Thus, the participant may validly receive messages with a timestamp from the interval <span class="math notranslate nohighlight">\([T, T + \Delta t]\)</span>.</p></li>
+<li><p>The next <em>simulation step</em> contains the time <span class="math notranslate nohighlight">\(T + \Delta t\)</span> and the participant afterwards notifies to be ready up to <span class="math notranslate nohighlight">\(T + 2 \Delta t\)</span>.
+Thus, the participant may receive messages with a timestamp from the interval <span class="math notranslate nohighlight">\([T + \Delta t, T + 2 \Delta t]\)</span>.</p></li>
+<li><p>Overall, a message with timestamp <span class="math notranslate nohighlight">\(T + \Delta t\)</span> can be received <strong>after completion</strong> of the last <em>simulation step</em> with time <span class="math notranslate nohighlight">\(T\)</span> and <strong>before triggering</strong> the next <em>simulation step handler</em> with time <span class="math notranslate nohighlight">\(T + 2 \Delta t\)</span>.
+In other words, it is not deterministic if a message with timestamp <span class="math notranslate nohighlight">\(T\)</span> is received directly <strong>before</strong> or <strong>after</strong> the <em>simulation step</em> for time <span class="math notranslate nohighlight">\(T\)</span>.</p></li>
+<li><p>When a <em>simulation step handler</em> for time <span class="math notranslate nohighlight">\(T\)</span> is called, the participant simulates its interval <span class="math notranslate nohighlight">\([T, T + \Delta t)\)</span>.
+The participant can be sure that it has knowledge of the past (i.e., <span class="math notranslate nohighlight">\(&lt;T\)</span>), but not of the time <span class="math notranslate nohighlight">\(T\)</span> of its current <em>simulation step</em> or the future (i.e., <span class="math notranslate nohighlight">\(&gt; T\)</span>).</p></li>
+</ul>
+<p>Note that these guarantees are only valid for messages sent within the <em>simulation step</em>.
+Messages that are sent <em>outside</em> of the <em>simulation step</em> (e.g., reactively in a message reception handler) cannot fulfil the guarantees.
+This can lead to reception of messages with a timestamp lower that the participant’s <em>current time</em>.</p>
+<figure class="align-center" id="id2">
+<span id="label-timesync-realtime"></span><a class="reference internal image-reference" href="../_images/timesync-realtime.svg"><img alt=": Real-time perspective of the virtual time synchronization with two participants including a legend of the involved symbols" src="../_images/timesync-realtime.svg" width="1000" /></a>
 <figcaption>
-<p><span class="caption-number">Figure 8 </span><span class="caption-text">: SIL Kit delivery of messages.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Figure 8 </span><span class="caption-text">: Real-time perspective of the virtual time synchronization with two participants including a legend of the involved symbols.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<p>The algorithm reports the start time of the next due simulation step to all other participants (<code class="docutils literal notranslate"><span class="pre">next&#64;</span></code> messages in the figure).
-By taking the other participants’ next simulation step into account, a participant knows when it can safely execute its next simulation step.
-That is, when there are no more simulation steps of other participants with an earlier timestamp than its own next simulation step.</p>
+<p><a class="reference internal" href="#label-timesync-realtime"><span class="std std-numref">Figure 8</span></a> shows a sequence of <em>simulation steps</em> from a real-time perspective.
+The <em>step handlers</em> in the distributed system are not executed at the same point in real-time.
+Also, their execution takes various amounts of real-time depending on the computational load.
+Furthermore, the reception of messages is not restricted to the scope of the <em>simulation step handler</em>, the first message sent by <em>Participant 2</em> arrives outside the handler execution of <em>Participant 1</em>, whereas the second message arrives during the execution.
+Regarding the message reception, this sketch is slightly simplified because SIL Kit comes with two modes for the <em>simulation step handler</em>, which is explained in the following section.</p>
+</section>
+<section id="blocking-vs-asynchronous-step-handler">
+<span id="subsubsec-sim-step-handlers"></span><h3><a class="toc-backref" href="#id22">Blocking vs. Asynchronous Step Handler</a><a class="headerlink" href="#blocking-vs-asynchronous-step-handler" title="Permalink to this heading"></a></h3>
+<p>With the <code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">SimulationStepHandler</span></code> and the <code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">SimulationStepHandlerAsync</span></code>, the SIL Kit offers two alternative ways to handle a participants’ <em>simulation step</em>.
+The two handler types cannot be mixed, only one can be used on a participant by registration on the <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncServiceE" title="SilKit::Services::Orchestration::ITimeSyncService"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ITimeSyncService</span></code></a>.
+Their different behavior and recommended usage scenarios are described in the following section.</p>
+<p>The scope of the <code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">SimulationStepHandler</span></code> covers the entire <em>simulation step</em>:
+The invocation of the <code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">SimulationStepHandler</span></code> marks the point of a simulation time update, leaving the scope of the handler triggers the notification that the participant is done with the <em>current time</em>.
+Like all communication reception handlers in the SIL Kit, the <code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">SimulationStepHandler</span></code> is executed on the communication thread of the SIL Kit.
+As a result, no other handler of the SIL Kit can be called during its execution, so the <code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">SimulationStepHandler</span></code> is referred to as the <strong>blocking</strong> <em>simulation step</em> handler.
+Messages sent by users during in the <code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">SimulationStepHandler</span></code> are distributed when the <code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">SimulationStepHandler</span></code> completes.</p>
+<p>If the blocking behavior is not suitable, e.g., if handling the <em>simulation step</em> must happen in another thread, a non-blocking (also called <em>asynchronous</em>) variant for the <em>simulation step</em> callback may be used.
+The invocation of the <code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">SimulationStepHandlerAsync</span></code> still happens when the virtual time has advanced, and the communication is also blocked during execution of the handler.
+However, the end of the <em>simulation step</em> is no longer triggered when leaving the scope of the handler, but the user has to <em>manually</em> complete the simulation step by calling <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService22CompleteSimulationStepEv" title="SilKit::Services::Orchestration::ITimeSyncService::CompleteSimulationStep"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CompleteSimulationStep()</span></code></a>.
+This allows to directly return from the <code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">SimulationStepHandlerAsync</span></code> to unblock the communication and signal the end of the <em>simulation step</em> by a separate call to <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService22CompleteSimulationStepEv" title="SilKit::Services::Orchestration::ITimeSyncService::CompleteSimulationStep"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CompleteSimulationStep()</span></code></a> at a later point in time.
+This enables the user to have fine-grained control over the start and end of the participant’s <em>simulation step</em> and allows that messages can be sent and received during the <em>simulation step</em>.</p>
+<figure class="align-center" id="id3">
+<span id="label-timesync-step-modes"></span><a class="reference internal image-reference" href="../_images/timesync-step-modes.svg"><img alt=": Message delivery in the real-time perspective with **asynchronous** (*Participant 1*) and **blocking** (*Participant 2*) simulation step handlers" src="../_images/timesync-step-modes.svg" width="800" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 9 </span><span class="caption-text">: Message delivery in the real-time perspective with <strong>asynchronous</strong> (<em>Participant 1</em>) and <strong>blocking</strong> (<em>Participant 2</em>) simulation step handlers.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In <a class="reference internal" href="#label-timesync-step-modes"><span class="std std-numref">Figure 9</span></a>, the two participants utilize the two different <em>step handlers</em>.
+The <strong>Async Step</strong> of <em>Participant 1</em> now is split into the invocation of the <code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">SimulationStepHandlerAsync</span></code> and the call to <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService22CompleteSimulationStepEv" title="SilKit::Services::Orchestration::ITimeSyncService::CompleteSimulationStep"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CompleteSimulationStep()</span></code></a>.
+When <em>Participant 2</em> triggers a message in its <strong>Blocking Step</strong>, it will not be sent right away but is put on the wire after the handler returns.
+Similarly, when <em>Participant 2</em> receives the message from <em>Participant 1</em>, the reception handler cannot be called immediately but only after the handler has returned.</p>
+<p>The recommended usage of the <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService29SetSimulationStepHandlerAsyncE21SimulationStepHandlerNSt6chrono11nanosecondsE" title="SilKit::Services::Orchestration::ITimeSyncService::SetSimulationStepHandlerAsync"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetSimulationStepHandlerAsync()</span></code></a> can be sketched as follows:</p>
+<ol class="arabic simple">
+<li><p>SIL Kit invokes the <code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">SimulationStepHandlerAsync</span></code>.</p></li>
+<li><p>Inside the <code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">SimulationStepHandlerAsync</span></code>, store the provided virtual time and return from the handler to unblock communication.</p></li>
+<li><p>Send out all messages that belong to the current <em>simulation step</em> (i.e., from the interval <span class="math notranslate nohighlight">\([T, T + \Delta t]\)</span>).</p></li>
+<li><p>Call <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService22CompleteSimulationStepEv" title="SilKit::Services::Orchestration::ITimeSyncService::CompleteSimulationStep"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CompleteSimulationStep()</span></code></a> to complete the <em>simulation step</em>.</p></li>
+</ol>
+<p>Using the <code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">SimulationStepHandlerAsync</span></code> instead of the <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService24SetSimulationStepHandlerE21SimulationStepHandlerNSt6chrono11nanosecondsE" title="SilKit::Services::Orchestration::ITimeSyncService::SetSimulationStepHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetSimulationStepHandler()</span></code></a> enables the following scenarios:</p>
+<ul class="simple">
+<li><p>Handling the <em>simulation step</em> in another thread.</p></li>
+<li><p>Not blocking the SIL Kit communication during a <em>simulation step</em> without increasing the simulation time.
+For example, if the application must always respond to user input to immediately trigger a message.</p></li>
+<li><p>Two-way communication inside the <em>simulation step</em>.
+For example, a participant may want to make a remote procedure call to another participant to decide if a <em>simulation step</em> is completed.</p></li>
+</ul>
+</section>
+<section id="the-time-distribution-algorithm">
+<span id="subsec-time-distribution-algorithm"></span><h3><a class="toc-backref" href="#id23">The Time Distribution Algorithm</a><a class="headerlink" href="#the-time-distribution-algorithm" title="Permalink to this heading"></a></h3>
+<p>In SIL Kit’s time distribution algorithm, the simulation time is computed locally on each participant, not on a central instance.
+The participants internally broadcast <em>time advance notifications</em> informing the other participants at what time they want to execute their next simulation step.
+Based on this information, participants can infer if they are ready to execute their next <em>simulation step</em> or if they still need to wait for other participants.</p>
+<p>The algorithm starts with the first <em>simulation step</em> at time <span class="math notranslate nohighlight">\(T=0\)</span>.
+We consider the algorithm from the point of view of <em>Participant A</em> with <em>step size</em> of <span class="math notranslate nohighlight">\(\Delta t\)</span> in a system with an arbitrary number of other time dependent participants.
+All steps that happen for <em>Participant A</em> also happen for the other participants.
+Starting at an intermediate time <span class="math notranslate nohighlight">\(T_i\)</span>, the time distribution algorithm progresses as follows:</p>
+<ol class="arabic simple">
+<li><p>The <em>simulation step</em> is triggered for <em>Participant A</em> with the <em>current time</em> <span class="math notranslate nohighlight">\(T_i\)</span>.</p></li>
+<li><p><em>Participant A</em> now executes all of its tasks and sends out messages for the interval <span class="math notranslate nohighlight">\([T_i, T_i + \Delta t)\)</span>.</p></li>
+<li><p><em>Participant A</em> completes the <em>simulation step</em>.</p></li>
+<li><p><em>Participant A</em> now sends out a notification to all other participants that it is ready to advance to <span class="math notranslate nohighlight">\(T_i + \Delta t\)</span>.</p></li>
+<li><p><em>Participant A</em> has received notifications <span class="math notranslate nohighlight">\(T_n\)</span> from all other participants for times <span class="math notranslate nohighlight">\(T_n \geq T_i + \Delta t\)</span>. Now <em>Participant A</em> knows that it can safely execute its next <em>simulation step</em>.</p></li>
+<li><p><em>Participant A</em> updates its virtual time to <span class="math notranslate nohighlight">\(T_{i+1} = T_{i} + \Delta t\)</span>.</p></li>
+</ol>
+<p>This cycle repeats and leads to a periodical execution of <em>simulation steps</em> with an increasing virtual time.</p>
+<section id="participants-with-equal-step-sizes">
+<h4>Participants with Equal Step Sizes<a class="headerlink" href="#participants-with-equal-step-sizes" title="Permalink to this heading"></a></h4>
+<figure class="align-center" id="id4">
+<span id="label-timesync-equal-steps"></span><a class="reference internal image-reference" href="../_images/timesync-equal-steps.svg"><img alt=": Schematic virtual time synchronization with two participants and equal *step size*" src="../_images/timesync-equal-steps.svg" width="800" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 10 </span><span class="caption-text">: Schematic virtual time synchronization with two participants and equal <em>step size</em>.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="#label-timesync-equal-steps"><span class="std std-numref">Figure 10</span></a> sketches the time distribution algorithm.
+It includes three steps for two participants with equal <em>step size</em> and shows the simulation steps, important points (orange dialogs), the notification messages and points in the virtual time.
+The simulation step’s start and end are marked by the small triangles attached to the simulation steps.
+The start of the simulation step is the point, where the virtual time for a participant increases.
+At the end of the simulation step, the participant must have performed all task related to the current interval <span class="math notranslate nohighlight">\([T, T + \Delta t)\)</span> and notifies that it is ready to advance to the next step.
+The figure also highlights the discrete nature of the virtual time in the simulation:
+Only time points that are actually reached by the participants’ simulation steps are well-defined.
+In-between times are mapped to the starting point of the simulation step.</p>
+</section>
+<section id="participants-with-different-step-sizes">
+<h4>Participants with Different Step Sizes<a class="headerlink" href="#participants-with-different-step-sizes" title="Permalink to this heading"></a></h4>
+<p>In a system of participants with different <em>step sizes</em>, the time distribution algorithm in principle is the same.
+However, a participant with a larger <em>step size</em> will wait until all intermediate <em>simulation steps</em> of a participant with a smaller <em>step size</em> are done.
+This is reflected in the <em>greater or equal</em> of the condition <span class="math notranslate nohighlight">\(\geq T_i + \Delta t\)</span> to advance to the next step.</p>
+<figure class="align-center" id="id5">
+<span id="label-timesync-diff-steps"></span><a class="reference internal image-reference" href="../_images/timesync-diff-steps.svg"><img alt=": Schematic virtual time synchronization with two participants and different *step sizes*" src="../_images/timesync-diff-steps.svg" width="800" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 11 </span><span class="caption-text">: Schematic virtual time synchronization with two participants and different <em>step sizes</em>.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="#label-timesync-diff-steps"><span class="std std-numref">Figure 11</span></a> sketches the algorithm in this setup.
+After finishing its simulation step, <em>Participant 2</em> with the <em>step size</em> of <span class="math notranslate nohighlight">\(\Delta t=2\)</span> sends out a single notification for <span class="math notranslate nohighlight">\(T=2\)</span>.
+Only <em>Participant 1</em> with the smaller <em>step size</em> of <span class="math notranslate nohighlight">\(\Delta t=1\)</span> triggers the <em>simulation step handler</em> for <span class="math notranslate nohighlight">\(T=1\)</span>.</p>
+</section>
+</section>
+<section id="joining-a-running-simulation-with-virtual-time">
+<h3><a class="toc-backref" href="#id24">Joining a Running Simulation with Virtual Time</a><a class="headerlink" href="#joining-a-running-simulation-with-virtual-time" title="Permalink to this heading"></a></h3>
+<p>Participants with an <a class="reference internal" href="#subsec-lifecycle-autonomous"><span class="std std-ref">autonomous lifecycle</span></a> and virtual time synchronization are allowed to join a running simulation with an advanced virtual time.
+After starting the lifecycle, the participant checks if the virtual time is greater than zero and triggers its first <em>simulation step handler</em> with the advanced time of the simulation.
+This feature can be useful for monitoring or disturbing already running simulations.
+To detect a <em>late joining</em> scenario, the user can check if the first call to the <code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">SimulationStepHandler</span></code> contains a <em>current time</em> greater than zero.
+Similar to joining at any time, such an autonomous participant may also leave the simulation at any point.
+After the participant has disconnected, the remaining participants will no longer wait for time advance notifications by this participant and continue with the time distribution algorithm.</p>
+<p>If a coordinated participant (<a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration13OperationMode11CoordinatedE" title="SilKit::Services::Orchestration::OperationMode::Coordinated"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">OperationMode::Coordinated</span></code></a>) starts its lifecycle and finds that the virtual time has already advanced, it will enter the <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState5ErrorE" title="SilKit::Services::Orchestration::ParticipantState::Error"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Error</span></code></a> state.
+This happens if a participant with an autonomous lifecycle (<a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration13OperationMode10AutonomousE" title="SilKit::Services::Orchestration::OperationMode::Autonomous"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">OperationMode::Autonomous</span></code></a>) and a <a class="reference internal" href="#subsubsec-sim-lifecycle-timesyncservice"><span class="std std-ref">Time Synchronization Service</span></a> was started before the coordinated participant.</p>
 </section>
 </section>
 </section>

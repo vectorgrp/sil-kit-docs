@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAN Service API &mdash; Vector SIL Kit 4.0.36 documentation</title>
+  <title>CAN Service API &mdash; Vector SIL Kit 4.0.37 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.36
+                4.0.37
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -214,7 +214,7 @@ rate of 1’000’000 baud for CAN FD messages. Then, the controller is started
 </div>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note</p>
-<p>Both <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController11SetBaudRateE8uint32_t8uint32_t8uint32_t" title="SilKit::Services::Can::ICanController::SetBaudRate"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ICanController::SetBaudRate()</span></code></a> and <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController5StartEv" title="SilKit::Services::Can::ICanController::Start"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Start()</span></code></a> should not be called earlier than in the life cycle service’s
+<p>Both <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController11SetBaudRateE8uint32_t8uint32_t8uint32_t" title="SilKit::Services::Can::ICanController::SetBaudRate"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ICanController::SetBaudRate()</span></code></a> and <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController5StartEv" title="SilKit::Services::Can::ICanController::Start"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Start()</span></code></a> should not be called earlier than in the lifecycle service’s
 <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">communication</span> <span class="pre">ready</span> <span class="pre">handler</span></code>. Otherwise, it is not guaranteed
 that all participants are already connected, which can cause the call to have no effect.</p>
 </div>

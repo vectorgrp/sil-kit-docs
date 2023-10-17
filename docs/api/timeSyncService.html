@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Time Synchronization Service &mdash; Vector SIL Kit 4.0.36 documentation</title>
+  <title>Time Synchronization Service &mdash; Vector SIL Kit 4.0.37 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.36
+                4.0.37
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -108,25 +108,28 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="#using-the-time-synchronization-service" id="id1">Using the Time Synchronization Service</a></p>
 <ul>
-<li><p><a class="reference internal" href="#controlling-the-participant" id="id2">Controlling the Participant</a></p></li>
-<li><p><a class="reference internal" href="#synchronizing-an-application-thread-with-the-simulation-step" id="id3">Synchronizing an Application Thread with the Simulation Step</a></p></li>
+<li><p><a class="reference internal" href="#retrieving-the-current-time" id="id2">Retrieving the Current Time</a></p></li>
+<li><p><a class="reference internal" href="#asynchronous-step-handler" id="id3">Asynchronous Step Handler</a></p></li>
 </ul>
 </li>
 <li><p><a class="reference internal" href="#api-reference" id="id4">API Reference</a></p></li>
-<li><p><a class="reference internal" href="#usage-example" id="id5">Usage Example</a></p></li>
 </ul>
 </div>
 <p>The time synchronization service is the main interface to model a participant’s behavior in case virtual time synchronization shall be used.
-It allows configuring a simulation step length and set the simulation step that will be executed repeatedly.
-For an overview of the time behavior see <a class="reference internal" href="../simulation/simulation.html#sec-sim-synchronization"><span class="std std-ref">synchronized simulation run</span></a>.</p>
+It allows configuring a simulation step length and set the simulation step that will be executed repeatedly.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>Here, only a brief overview of the API is given, see <a class="reference internal" href="../simulation/simulation.html#sec-sim-synchronization"><span class="std std-ref">Virtual Time Synchronization</span></a> for more information on time synchronization with the SIL Kit.</p>
+</div>
 <section id="using-the-time-synchronization-service">
 <h2><a class="toc-backref" href="#id1">Using the Time Synchronization Service</a><a class="headerlink" href="#using-the-time-synchronization-service" title="Permalink to this heading"></a></h2>
 <p>Once the time synchronization service was created, the participant will automatically partake in the virtual time synchronization.
-Setting a simulation step, even an empty one, is mandatory for participants using
-the time synchronization service interface.
-The simulation step will be executed asynchronously:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Orchestration</span><span class="o">::</span><span class="n">LifecycleConfiguration</span><span class="w"> </span><span class="n">lc</span><span class="p">{</span>
-<span class="w">    </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Orchestration</span><span class="o">::</span><span class="n">OperationMode</span><span class="o">::</span><span class="n">Coordinated</span><span class="p">};</span>
+Setting a simulation step, even an empty one, is mandatory for participants using the time synchronization service interface.
+Please note that the lifecycle service and the time synchronization service can only be created once.
+Calling these methods more than once throws an exception.
+The following code creates a lifecycle service, a time synchronization service and defines the simulation step handler with the participant’s step duration:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Orchestration</span><span class="o">::</span><span class="n">LifecycleConfiguration</span><span class="w"> </span><span class="n">lc</span>
+<span class="w">    </span><span class="p">{</span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Orchestration</span><span class="o">::</span><span class="n">OperationMode</span><span class="o">::</span><span class="n">Coordinated</span><span class="p">};</span>
 <span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">lifecycleService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateLifecycleService</span><span class="p">(</span><span class="n">lc</span><span class="p">);</span>
 <span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">timeSyncService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">CreateTimeSyncService</span><span class="p">();</span>
 
@@ -138,28 +141,20 @@ The simulation step will be executed asynchronously:</p>
 <span class="p">);</span>
 </pre></div>
 </div>
+<section id="retrieving-the-current-time">
+<h3><a class="toc-backref" href="#id2">Retrieving the Current Time</a><a class="headerlink" href="#retrieving-the-current-time" title="Permalink to this heading"></a></h3>
+<p>After a successful startup according to the <a class="reference internal" href="../simulation/simulation.html#sec-sim-lifecycle-syncparticipants"><span class="std std-ref">Lifecycle State Machine</span></a>, the participant will enter the <a class="reference internal" href="systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState7RunningE" title="SilKit::Services::Orchestration::ParticipantState::Running"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Running</span></code></a> state.
+The participant can now access the current simulation time using the <a class="reference internal" href="#_CPPv4NK6SilKit8Services13Orchestration16ITimeSyncService3NowEv" title="SilKit::Services::Orchestration::ITimeSyncService::Now"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Now()</span></code></a> method which will be equal to the time transported in the last simulation step handler.</p>
+</section>
+<section id="asynchronous-step-handler">
+<h3><a class="toc-backref" href="#id3">Asynchronous Step Handler</a><a class="headerlink" href="#asynchronous-step-handler" title="Permalink to this heading"></a></h3>
+<p>In special cases, it may be required to synchronize an application thread with the execution of the simulation step.
+That is, the application wants to execute some code during a simulation step, <em>but on a different thread</em> than where the simulation step is executing.
+To achieve this, use <a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService29SetSimulationStepHandlerAsyncE21SimulationStepHandlerNSt6chrono11nanosecondsE" title="SilKit::Services::Orchestration::ITimeSyncService::SetSimulationStepHandlerAsync"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetSimulationStepHandlerAsync()</span></code></a> to assign the simulation step function that is triggered when the virtual time advances, and <a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService22CompleteSimulationStepEv" title="SilKit::Services::Orchestration::ITimeSyncService::CompleteSimulationStep"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CompleteSimulationStep()</span></code></a> to manually trigger the end of the simulation step and continue the simulation.</p>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note</p>
-<p>Please note that the lifecycle service and the time synchronization service can only be created once.
-Calling these methods more than once throws an exception.</p>
+<p>See <a class="reference internal" href="../simulation/simulation.html#subsubsec-sim-step-handlers"><span class="std std-ref">Blocking vs. Asynchronous Step Handler</span></a> for more details and the differences between the handler modes.</p>
 </div>
-<section id="controlling-the-participant">
-<h3><a class="toc-backref" href="#id2">Controlling the Participant</a><a class="headerlink" href="#controlling-the-participant" title="Permalink to this heading"></a></h3>
-<p>After a successful startup, the participant will enter the <a class="reference internal" href="systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState7RunningE" title="SilKit::Services::Orchestration::Running"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Running</span></code></a> state.
-The participant can now access the current simulation time using the
-<a class="reference internal" href="#_CPPv4NK6SilKit8Services13Orchestration16ITimeSyncService3NowEv" title="SilKit::Services::Orchestration::ITimeSyncService::Now"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Now()</span></code></a> method.</p>
-</section>
-<section id="synchronizing-an-application-thread-with-the-simulation-step">
-<h3><a class="toc-backref" href="#id3">Synchronizing an Application Thread with the Simulation Step</a><a class="headerlink" href="#synchronizing-an-application-thread-with-the-simulation-step" title="Permalink to this heading"></a></h3>
-<p>In special cases, it may be required to synchronize an application thread with the execution of the simulation step.
-That is, the application wants to execute some code between time steps (given by invocations of the simulation step), <em>but on a different thread</em>
-than where the simulation step is executing.
-To achieve this, use <a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService29SetSimulationStepHandlerAsyncE21SimulationStepHandlerNSt6chrono11nanosecondsE" title="SilKit::Services::Orchestration::ITimeSyncService::SetSimulationStepHandlerAsync"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetSimulationStepHandlerAsync()</span></code></a> to assign
-the simulation step function, and <a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService22CompleteSimulationStepEv" title="SilKit::Services::Orchestration::ITimeSyncService::CompleteSimulationStep"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CompleteSimulationStep()</span></code></a> to let
-the SIL Kit continue the simulation.
-If the simulation step has been assigned using that function, execution will stop after the simulation step has finished executing.
-By invoking <a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService22CompleteSimulationStepEv" title="SilKit::Services::Orchestration::ITimeSyncService::CompleteSimulationStep"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CompleteSimulationStep()</span></code></a> SIL Kit’s simulation loop
-(implemented in <a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService29SetSimulationStepHandlerAsyncE21SimulationStepHandlerNSt6chrono11nanosecondsE" title="SilKit::Services::Orchestration::ITimeSyncService::SetSimulationStepHandlerAsync"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetSimulationStepHandlerAsync()</span></code></a>) will continue to the next time step.</p>
 </section>
 </section>
 <section id="api-reference">
@@ -201,87 +196,6 @@ By invoking <a class="reference internal" href="#_CPPv4N6SilKit8Services13Orches
 </div>
 </dd></dl>
 
-</section>
-<section id="usage-example">
-<h2><a class="toc-backref" href="#id5">Usage Example</a><a class="headerlink" href="#usage-example" title="Permalink to this heading"></a></h2>
-<p>The following example is based on the <code class="docutils literal notranslate"><span class="pre">SilKitCanDemo</span></code> source code which is
-distributed with the SIL Kit, and slightly abridged for clarity.
-It demonstrates how to set up a life cycle service and register callbacks
-to monitor participant state changes.</p>
-<p>To demonstrate how to properly initialize other services, a CAN controller is
-initialized within the <code class="docutils literal notranslate"><span class="pre">CommunicationReady</span></code> callback of the life cycle service.
-This is the recommended way to set up controllers before first use.</p>
-<p>Within the simulation step callback, the controller’s
-<a class="reference internal" href="can.html#_CPPv4N6SilKit8Services3Can14ICanController9SendFrameERK8CanFramePv" title="SilKit::Services::Can::ICanController::SendFrame"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrame()</span></code></a>
-is used to transmit data frames to the virtual CAN bus.</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Copyright (c) 2022 Vector Informatik GmbH</span>
-
-<span class="cm">Permission is hereby granted, free of charge, to any person obtaining</span>
-<span class="cm">a copy of this software and associated documentation files (the</span>
-<span class="cm">&quot;Software&quot;), to deal in the Software without restriction, including</span>
-<span class="cm">without limitation the rights to use, copy, modify, merge, publish,</span>
-<span class="cm">distribute, sublicense, and/or sell copies of the Software, and to</span>
-<span class="cm">permit persons to whom the Software is furnished to do so, subject to</span>
-<span class="cm">the following conditions:</span>
-
-<span class="cm">The above copyright notice and this permission notice shall be</span>
-<span class="cm">included in all copies or substantial portions of the Software.</span>
-
-<span class="cm">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,</span>
-<span class="cm">EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF</span>
-<span class="cm">MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND</span>
-<span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
-<span class="cm">LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION</span>
-<span class="cm">OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION</span>
-<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span>
-<span class="k">auto</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">participantName</span><span class="p">,</span><span class="w"> </span><span class="n">registryUri</span><span class="p">);</span>
-<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">lifecycleService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateLifecycleService</span><span class="p">({</span><span class="n">OperationMode</span><span class="o">::</span><span class="n">Coordinated</span><span class="p">});</span>
-<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">timeSyncService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">CreateTimeSyncService</span><span class="p">();</span>
-<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">canController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateCanController</span><span class="p">(</span><span class="s">&quot;CAN1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CAN1&quot;</span><span class="p">);</span>
-
-<span class="n">canController</span><span class="o">-&gt;</span><span class="n">AddFrameTransmitHandler</span><span class="p">(</span>
-<span class="w">	</span><span class="p">[](</span><span class="n">Can</span><span class="o">::</span><span class="n">ICanController</span><span class="o">*</span><span class="w"> </span><span class="cm">/*ctrl*/</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Can</span><span class="o">::</span><span class="n">CanFrameTransmitEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ack</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">		</span><span class="c1">// Asynchroneously handle transmit status</span>
-<span class="p">});</span>
-<span class="n">canController</span><span class="o">-&gt;</span><span class="n">AddFrameHandler</span><span class="p">(</span>
-<span class="w">	</span><span class="p">[](</span><span class="n">Can</span><span class="o">::</span><span class="n">ICanController</span><span class="o">*</span><span class="w"> </span><span class="cm">/*ctrl*/</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Can</span><span class="o">::</span><span class="n">CanFrameEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">		</span><span class="c1">// Asynchroneously handle message reception</span>
-<span class="p">});</span>
-
-<span class="c1">// Set an Init Handler</span>
-<span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">SetCommunicationReadyHandler</span><span class="p">(</span>
-<span class="w">	</span><span class="p">[</span><span class="n">canController</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">participantName</span><span class="p">]()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Initializing &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">participantName</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="w">		</span><span class="n">canController</span><span class="o">-&gt;</span><span class="n">SetBaudRate</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="mi">1000000</span><span class="p">);</span>
-<span class="w">		</span><span class="n">canController</span><span class="o">-&gt;</span><span class="n">Start</span><span class="p">();</span>
-<span class="p">});</span>
-
-<span class="c1">// Set a Stop Handler</span>
-<span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">SetStopHandler</span><span class="p">([]()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Stopping...&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">});</span>
-
-<span class="c1">// Set a Shutdown Handler</span>
-<span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">SetShutdownHandler</span><span class="p">([]()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Shutting down...&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">});</span>
-
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">participantName</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;CanWriter&quot;</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">	</span><span class="n">timeSyncService</span><span class="o">-&gt;</span><span class="n">SetSimulationStepHandler</span><span class="p">(</span>
-<span class="w">		</span><span class="p">[</span><span class="n">canController</span><span class="p">,</span><span class="w"> </span><span class="n">sleepTimePerTick</span><span class="p">](</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span><span class="w"> </span><span class="n">now</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span><span class="w"> </span><span class="n">duration</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">			</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;now=&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, duration=&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">duration</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="w">			</span><span class="n">SilKit</span><span class="o">::</span><span class="n">Core</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Can</span><span class="o">::</span><span class="n">CanFrame</span><span class="w"> </span><span class="n">msg</span><span class="p">;</span>
-<span class="w">			</span><span class="n">msg</span><span class="p">.</span><span class="n">timestamp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
-<span class="w">			</span><span class="n">msg</span><span class="p">.</span><span class="n">canId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">17</span><span class="p">;</span>
-<span class="w">			</span><span class="n">canController</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">msg</span><span class="p">));</span>
-<span class="w">	</span><span class="p">},</span><span class="w"> </span><span class="mi">1</span><span class="n">ms</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="k">auto</span><span class="w"> </span><span class="n">finalStateFuture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">StartLifecycle</span><span class="p">();</span>
-<span class="k">auto</span><span class="w"> </span><span class="n">finalState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">finalStateFuture</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
-</pre></div>
-</div>
 </section>
 </section>
 

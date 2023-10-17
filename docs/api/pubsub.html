@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Publish/Subscribe API &mdash; Vector SIL Kit 4.0.36 documentation</title>
+  <title>Data Publish/Subscribe API &mdash; Vector SIL Kit 4.0.37 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.36
+                4.0.37
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -166,7 +166,7 @@ Data subscribers will only communicate if their labels conform to the following 
 match corresponding to their labels. Note that the label matching is symmetric, so publishers and subscribers
 are interchangeable here.</p>
 <table class="docutils align-default" id="id1">
-<caption><span class="caption-number">Table 3 </span><span class="caption-text">Label combinations</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">Label combinations</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -237,7 +237,7 @@ be preferred over a programmatically set topic.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Participant1 (Publisher)</span>
 <span class="c1">// ------------------------</span>
 <span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">PubSub</span><span class="o">::</span><span class="n">PubSubSpec</span><span class="w"> </span><span class="n">pubDataSpec</span><span class="p">{</span><span class="s">&quot;Topic1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/json&quot;</span><span class="p">};</span>
-<span class="n">pubDataSpec</span><span class="p">.</span><span class="n">AddLabel</span><span class="p">(</span><span class="s">&quot;KeyA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ValA&quot;</span><span class="p">);</span>
+<span class="n">pubDataSpec</span><span class="p">.</span><span class="n">AddLabel</span><span class="p">(</span><span class="s">&quot;KeyA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ValA&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">MatchingLabel</span><span class="o">::</span><span class="n">Kind</span><span class="o">::</span><span class="n">Optional</span><span class="p">);</span>
 <span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">publisher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateDataPublisher</span><span class="p">(</span><span class="s">&quot;PubCtrl1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pubDataSpec</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <span class="n">publisher</span><span class="o">-&gt;</span><span class="n">Publish</span><span class="p">(</span><span class="n">user_data</span><span class="p">);</span>
 
