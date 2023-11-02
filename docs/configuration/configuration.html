@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Configuration &mdash; Vector SIL Kit 4.0.37 documentation</title>
+  <title>Configuration &mdash; Vector SIL Kit 4.0.38 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -20,7 +20,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)" href="configuration-services.html" />
+    <link rel="next" title="Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)" href="services-configuration.html" />
     <link rel="prev" title="Demos" href="../usage/demos.html" /> 
 </head>
 
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.37
+                4.0.38
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -53,10 +53,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#the-participant-configuration-file">The Participant Configuration File</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#configuration-options">Configuration Options</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="configuration-services.html">Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="services-configuration.html">Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="healthcheck-configuration.html">HealthCheck Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="configuration-tracing.html">Tracing and Replay Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tracing-configuration.html">Tracing and Replay Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="extension-configuration.html">Extensions Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="middleware-configuration.html">Middleware Configuration</a></li>
 </ul>
@@ -67,6 +67,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#subsec-registry-config-overview">Overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#subsec-registry-config-options">Configuration Options</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api-and-data-type-reference">API and Data Type Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -109,92 +110,84 @@
 <h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h1>
 <p id="sec-sil-kit-config-yaml">The Vector SIL Kit provides optional configuration to enhance flexibility and control through use of YAML files.
 This allows users to modify behavior without recompiling source code.
-Further, it allows configuration of services which are inactive by default, such as tracing and logging.</p>
+Further, it allows configuration of services which are inactive by default, such as tracing and logging.
+Different configuration options are available for SIL Kit participants and the SIL Kit Registry.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#the-participant-configuration-file" id="id3">The Participant Configuration File</a></p>
-<ul>
-<li><p><a class="reference internal" href="#overview" id="id4">Overview</a></p></li>
-<li><p><a class="reference internal" href="#configuration-options" id="id5">Configuration Options</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#the-registry-configuration-file" id="id6">The Registry Configuration File</a></p>
-<ul>
-<li><p><a class="reference internal" href="#subsec-registry-config-overview" id="id7">Overview</a></p></li>
-<li><p><a class="reference internal" href="#subsec-registry-config-options" id="id8">Configuration Options</a></p></li>
-</ul>
-</li>
+<li><p><a class="reference internal" href="#the-participant-configuration-file" id="id3">The Participant Configuration File</a></p></li>
+<li><p><a class="reference internal" href="#the-registry-configuration-file" id="id4">The Registry Configuration File</a></p></li>
 </ul>
 </div>
 <section id="the-participant-configuration-file">
 <span id="sec-participant-config"></span><h2><a class="toc-backref" href="#id3">The Participant Configuration File</a><a class="headerlink" href="#the-participant-configuration-file" title="Permalink to this heading"></a></h2>
-<p>Vector SIL Kit simulation participants are primarily configured by developers in source code using the SIL Kit API.
+<p>Participants are primarily configured by developers in source code using the SIL Kit API.
 However, the following scenarios are conceivable in which some flexibility is useful even after compile-time:</p>
 <ul class="simple">
-<li><p>A simulation participant is distributed in binary form to integrators. In order to integrate such
-participants into simulations, an integrator must be able to post-configure some aspects of the participant to make it fit,
-particularly its properties, behavior and how it interconnects within a simulation.</p></li>
-<li><p>A simulation consists of multiple participants that share the same behavior. An integrator would have to ask developers to compile
-these participants from the same sources multiple times, with only the participant names differing.</p></li>
-<li><p>Developers or integrators want to temporarily enable debugging features without the need or the ability to recompile the sources,
-for example logging, tracing, and health checking.</p></li>
+<li><p>A simulation participant is distributed in binary form to integrators.
+In order to integrate such participants into simulations, an integrator must be able to post-configure some aspects of the participant to make it fit, particularly its properties, behavior and how it interconnects within a simulation.</p></li>
+<li><p>A simulation consists of multiple participants that share the same behavior.
+An integrator would have to ask developers to compile these participants from the same sources multiple times, with only the participant names differing.</p></li>
+<li><p>Developers or integrators want to temporarily enable debugging features without the need or the ability to recompile the sources, for example logging, tracing, and health checking.</p></li>
 </ul>
-<p>To cover these scenarios, Vector SIL Kit offers the ability to modify a participant’s configuration via participant configuration files,
-often simply referred to as <em>participant configuration</em>. The feature can be enabled by passing the file as an argument when a participant
-is created, <a class="reference internal" href="../api/participant.html#_CPPv4N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringE" title="SilKit::CreateParticipant"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateParticipant(std::shared_ptr&lt;SilKit::Config::IParticipantConfiguration&gt;</span> <span class="pre">participantConfig,</span> <span class="pre">...)</span></code></a>.</p>
+<p>To cover these scenarios, SIL Kit participants can be modified by <em>participant configuration files</em>.
+This is done by creating a participant configuration object from a given file and passing the object as an argument when a participant is created:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">participantConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Config</span><span class="o">::</span><span class="n">ParticipantConfigurationFromFile</span><span class="p">(</span><span class="n">participantConfigurationFilename</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">participantConfiguration</span><span class="p">,</span><span class="w"> </span><span class="n">participantName</span><span class="p">,</span><span class="w"> </span><span class="n">registryUri</span><span class="p">);</span>
+</pre></div>
+</div>
 <p>Participant configuration files allow to override a subset of parameters which are configurable via the SIL Kit API.
-Configuration parameters that are specified within the participant configuration override corresponding
-programmatically defined values. For example, the <code class="docutils literal notranslate"><span class="pre">ParticipantName</span></code> field of the participant configuration overrides the
-participant name that is provided through the API of the Vector SIL Kit when participants are created, namely
-<a class="reference internal" href="../api/participant.html#_CPPv4N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringE" title="SilKit::CreateParticipant"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateParticipant(...,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">participantName,</span> <span class="pre">...)</span></code></a>. This gives integrators the ability to run
-a simulation with multiple instances of a participant from a single implementation.</p>
+Configuration parameters that are specified within the participant configuration override corresponding programmatically defined values.
+For example, the <code class="docutils literal notranslate"><span class="pre">ParticipantName</span></code> field overrides the participant name that is provided through the API when a participant is created, namely <a class="reference internal" href="../api/participant.html#_CPPv4N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringE" title="SilKit::CreateParticipant"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateParticipant(...,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">participantName,</span> <span class="pre">...)</span></code></a>.
+This gives integrators the ability to run a simulation with multiple instances of a participant from a single implementation.</p>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note</p>
-<p>It is recommended that all configuration be done at the source code level so that an empty configuration file can be provided for most simulation runs.
-A user should be able to create (or modify an existing) configuration file for a participant, if behavior or network connections need to be reconfigured.</p>
+<p>It is recommended that configurations are specified in the source code where possible.
+That way, an empty configuration file can be provided for most simulation runs.
+However, a process that creates a SIL Kit participant should also accept a configuration file
+such that a user is able to reconfigure names or network connections without recompiling the application.</p>
 </div>
-<p>A participant configuration file is written in YAML syntax according to a specified schema. It begins with some general information
-about the configuration file itself, followed by several subsections for the different services of the Vector SIL Kit.</p>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note</p>
 <p>Many IDEs automatically support participant configuration schema support when the participant configuration file ends with the suffix <code class="docutils literal notranslate"><span class="pre">.silkit.json/yaml</span></code>.</p>
 </div>
-<p>The outline of a participant configuration file is as follows:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
-<span class="s">&quot;$schema&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;./ParticipantConfiguration.schema.json&quot;</span>
-<span class="nt">schemaVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sample configuration with all major subsections</span>
+<p>A participant configuration file is written in YAML syntax according to a specified schema.
+It starts with the <code class="docutils literal notranslate"><span class="pre">SchemaVersion</span></code>, the <code class="docutils literal notranslate"><span class="pre">Description</span></code> for the configuration and the <code class="docutils literal notranslate"><span class="pre">ParticipantName</span></code>.
+This is followed by further sections for <code class="docutils literal notranslate"><span class="pre">Middleware</span></code>, <code class="docutils literal notranslate"><span class="pre">Logging</span></code>, <code class="docutils literal notranslate"><span class="pre">HealthCheck</span></code>, <code class="docutils literal notranslate"><span class="pre">Tracing</span></code>, <code class="docutils literal notranslate"><span class="pre">Extentions</span></code> and sections for the different services of the SIL Kit.
+The outline of a participant configuration file is as follows:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;$schema&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;./ParticipantConfiguration.schema.json&quot;</span>
+<span class="nt">SchemaVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sample configuration with all root nodes</span>
 <span class="nt">ParticipantName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Participant1</span>
-<span class="nt">CanControllers</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="nt">LinControllers</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="nt">FlexrayControllers</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="nt">EthernetControllers</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="nt">DataPublishers</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="nt">DataSubscribers</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="nt">RpcClients</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="nt">RpcServers</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="nt">Middleware</span><span class="p">:</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 <span class="nt">Logging</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 <span class="nt">HealthCheck</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 <span class="nt">Tracing</span><span class="p">:</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 <span class="nt">Extensions</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="nt">Middleware</span><span class="p">:</span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="nt">CanControllers</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="nt">LinControllers</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="nt">FlexrayControllers</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="nt">EthernetControllers</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="nt">DataPublishers</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="nt">DataSubscribers</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="nt">RpcClients</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="nt">RpcServers</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 </div>
 <section id="overview">
-<span id="subsec-participant-config-overview"></span><h3><a class="toc-backref" href="#id4">Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading"></a></h3>
+<span id="subsec-participant-config-overview"></span><h3>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 15%" />
@@ -207,26 +200,18 @@ about the configuration file itself, followed by several subsections for the dif
 </thead>
 <tbody>
 <tr class="row-even"><td><p>$schema</p></td>
-<td><p>The location of the participant configuration schema file. The <code class="docutils literal notranslate"><span class="pre">ParticipantConfiguration.schema.json</span></code> is
-part of the SIL Kit sources and can be found in the folder
-<code class="docutils literal notranslate"><span class="pre">./SilKit/source/config/</span></code>.</p></td>
+<td><p>File path to the participant configuration schema.
+The <code class="docutils literal notranslate"><span class="pre">ParticipantConfiguration.schema.json</span></code> is part of the SIL Kit sources and can be found in the folder <code class="docutils literal notranslate"><span class="pre">./SilKit/source/config/</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>schemaVersion</p></td>
 <td><p>The version of the used participant configuration schema. Current version is 1.</p></td>
 </tr>
-<tr class="row-even"><td><p>ParticipantName</p></td>
-<td><p>The name of the simulation participant that joins the Vector SIL Kit simulation. Overrides a programmatically
-defined participant name.</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Description</span></code></p></td>
+<td><p>User defined description for the configuration.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="configuration-services.html"><span class="doc">CanControllers</span></a>,
-<a class="reference internal" href="configuration-services.html"><span class="doc">LinControllers</span></a>,
-<a class="reference internal" href="configuration-services.html"><span class="doc">FlexrayControllers</span></a>,
-<a class="reference internal" href="configuration-services.html"><span class="doc">EthernetControllers</span></a>,
-<a class="reference internal" href="configuration-services.html"><span class="doc">DataPublishers</span></a>,
-<a class="reference internal" href="configuration-services.html"><span class="doc">DataSubscribers</span></a>,
-<a class="reference internal" href="configuration-services.html"><span class="doc">RpcClients</span></a>,
-<a class="reference internal" href="configuration-services.html"><span class="doc">RpcServers</span></a></p></td>
-<td><p>These sections are used to configure bus controllers and other communication services.</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ParticipantName</span></code></p></td>
+<td><p>The name of the simulation participant that joins the SIL Kit simulation.
+Overrides a programmatically defined participant name.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="logging-configuration.html#sec-cfg-participant-logging"><span class="std std-ref">Logging</span></a></p></td>
 <td><p>The logger configuration for this participant.</p></td>
@@ -234,74 +219,62 @@ defined participant name.</p></td>
 <tr class="row-odd"><td><p><a class="reference internal" href="healthcheck-configuration.html#sec-cfg-participant-healthcheck"><span class="std std-ref">HealthCheck</span></a></p></td>
 <td><p>Configuration concerning soft and hard timeouts for simulation task execution.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="configuration-tracing.html#sec-cfg-participant-tracing"><span class="std std-ref">Tracing</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="tracing-configuration.html#sec-cfg-participant-tracing"><span class="std std-ref">Tracing</span></a></p></td>
 <td><p>Configuration of experimental tracing and replay functionality.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="extension-configuration.html"><span class="doc">Extensions</span></a></p></td>
-<td><p>Configuration of optional extensions to the Vector SIL Kit and where to find them.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="extension-configuration.html#sec-cfg-participant-extensions"><span class="std std-ref">Extensions</span></a></p></td>
+<td><p>Configuration of optional extensions to the SIL Kit and where to find them.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="middleware-configuration.html"><span class="doc">Middleware</span></a></p></td>
-<td><p>This optional section can be used to configure the middleware running the Vector SIL Kit.
+<tr class="row-even"><td><p><a class="reference internal" href="middleware-configuration.html#sec-cfg-participant-middleware"><span class="std std-ref">Middleware</span></a></p></td>
+<td><p>This optional section can be used to configure the middleware running the SIL Kit.
 If this section is omitted, defaults will be used.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="services-configuration.html#sec-cfg-participant-can"><span class="std std-ref">CanControllers</span></a></p></td>
+<td><p>Configure CAN controllers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="services-configuration.html#sec-cfg-participant-lin"><span class="std std-ref">LinControllers</span></a></p></td>
+<td><p>Configure LIN controllers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="services-configuration.html#sec-cfg-participant-ethernet"><span class="std std-ref">EthernetControllers</span></a></p></td>
+<td><p>Configure Ethernet controllers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="services-configuration.html#sec-cfg-participant-flexray"><span class="std std-ref">FlexrayControllers</span></a></p></td>
+<td><p>Configure Flexray controllers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="services-configuration.html#sec-cfg-participant-data-publishers"><span class="std std-ref">DataPublishers</span></a></p></td>
+<td><p>Configure data publishers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="services-configuration.html#sec-cfg-participant-data-subscribers"><span class="std std-ref">DataSubscribers</span></a></p></td>
+<td><p>Configure data subscribers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="services-configuration.html#sec-cfg-participant-rpc-servers"><span class="std std-ref">RpcServers</span></a></p></td>
+<td><p>Configure RPC servers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="services-configuration.html#sec-cfg-participant-rpc-clients"><span class="std std-ref">RpcClients</span></a></p></td>
+<td><p>Configure RPC clients.</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="configuration-options">
-<span id="subsec-participant-config-options"></span><h3><a class="toc-backref" href="#id5">Configuration Options</a><a class="headerlink" href="#configuration-options" title="Permalink to this heading"></a></h3>
+<h3>Configuration Options<a class="headerlink" href="#configuration-options" title="Permalink to this heading"></a></h3>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="configuration-services.html">Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#cancontrollers">CanControllers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#lincontrollers">LinControllers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#ethernetcontrollers">EthernetControllers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#flexraycontrollers">FlexrayControllers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#datapublishers">DataPublishers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#datasubscribers">DataSubscribers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#rpcservers">RpcServers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-services.html#rpcclients">RpcClients</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="logging-configuration.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="logging-configuration.html#configuration">Configuration</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="healthcheck-configuration.html">HealthCheck Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="healthcheck-configuration.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="healthcheck-configuration.html#configuration">Configuration</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="configuration-tracing.html">Tracing and Replay Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="configuration-tracing.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-tracing.html#tracing">Tracing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-tracing.html#replay">Replay</a></li>
-<li class="toctree-l2"><a class="reference internal" href="configuration-tracing.html#trace-sink-and-source-types">Trace Sink and Source Types</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="extension-configuration.html">Extensions Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="extension-configuration.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="extension-configuration.html#configuration">Configuration</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="middleware-configuration.html">Middleware Configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="middleware-configuration.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="middleware-configuration.html#configuration">Configuration</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="services-configuration.html">Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="healthcheck-configuration.html">HealthCheck Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tracing-configuration.html">Tracing and Replay Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension-configuration.html">Extensions Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="middleware-configuration.html">Middleware Configuration</a></li>
 </ul>
 </div>
 </section>
 </section>
 <section id="the-registry-configuration-file">
-<span id="sec-registry-config"></span><h2><a class="toc-backref" href="#id6">The Registry Configuration File</a><a class="headerlink" href="#the-registry-configuration-file" title="Permalink to this heading"></a></h2>
-<p>An instance of the SIL Kit Registry (<code class="docutils literal notranslate"><span class="pre">sil-kit-registry(.exe)</span></code>) can be
-configured via a YAML file.
-The configuration file is optional and overrides the settings specified on the
-command line.
-It also allows extended configuration, beyond what the command line allows,
-particularly for logging.</p>
+<span id="sec-registry-config"></span><h2><a class="toc-backref" href="#id4">The Registry Configuration File</a><a class="headerlink" href="#the-registry-configuration-file" title="Permalink to this heading"></a></h2>
+<p>An instance of the SIL Kit Registry (<code class="docutils literal notranslate"><span class="pre">sil-kit-registry(.exe)</span></code>) can be configured via a YAML file.
+The configuration file is optional and overrides the settings specified on the command line.
+It also allows extended configuration, beyond what the command line allows, particularly for logging.</p>
 <p>The outline of a registry configuration file is as follows:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
 <span class="nt">SchemaVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
@@ -320,7 +293,7 @@ particularly for logging.</p>
 </pre></div>
 </div>
 <section id="subsec-registry-config-overview">
-<span id="id1"></span><h3><a class="toc-backref" href="#id7">Overview</a><a class="headerlink" href="#subsec-registry-config-overview" title="Permalink to this heading"></a></h3>
+<span id="id1"></span><h3>Overview<a class="headerlink" href="#subsec-registry-config-overview" title="Permalink to this heading"></a></h3>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 15%" />
@@ -366,7 +339,7 @@ parameters.</p>
 </table>
 </section>
 <section id="subsec-registry-config-options">
-<span id="id2"></span><h3><a class="toc-backref" href="#id8">Configuration Options</a><a class="headerlink" href="#subsec-registry-config-options" title="Permalink to this heading"></a></h3>
+<span id="id2"></span><h3>Configuration Options<a class="headerlink" href="#subsec-registry-config-options" title="Permalink to this heading"></a></h3>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a><ul>
@@ -376,6 +349,45 @@ parameters.</p>
 </li>
 </ul>
 </div>
+<section id="api-and-data-type-reference">
+<h4>API and Data Type Reference<a class="headerlink" href="#api-and-data-type-reference" title="Permalink to this heading"></a></h4>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit6Config32ParticipantConfigurationFromFileERKNSt6stringE">
+<span id="_CPPv3N6SilKit6Config32ParticipantConfigurationFromFileERKNSt6stringE"></span><span id="_CPPv2N6SilKit6Config32ParticipantConfigurationFromFileERKNSt6stringE"></span><span id="SilKit::Config::ParticipantConfigurationFromFile__ssCR"></span><span class="target" id="namespace_sil_kit_1_1_config_1aba6460df755722f0542bb3107528af42"></span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Config</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">ParticipantConfigurationFromFile</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">filename</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Config</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IParticipantConfiguration</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit6Config32ParticipantConfigurationFromFileERKNSt6stringE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Parse configuration from a YAML or JSON file. </p>
+<p>Create a configuration data object from settings described by a YAML or JSON file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> – Path to the YAML or JSON file. </p>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">ConfigurationError</span></span></span> – The file could not be read, or the input string violates the YAML/JSON format, schema or an integrity rule. </p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The configuration data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit6Config34ParticipantConfigurationFromStringERKNSt6stringE">
+<span id="_CPPv3N6SilKit6Config34ParticipantConfigurationFromStringERKNSt6stringE"></span><span id="_CPPv2N6SilKit6Config34ParticipantConfigurationFromStringERKNSt6stringE"></span><span id="SilKit::Config::ParticipantConfigurationFromString__ssCR"></span><span class="target" id="namespace_sil_kit_1_1_config_1afbd1399dc59eea55e53a3f9f5485a51c"></span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Config</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">ParticipantConfigurationFromString</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">text</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Config</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">IParticipantConfiguration</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit6Config34ParticipantConfigurationFromStringERKNSt6stringE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Parse configuration from a YAML or JSON string. </p>
+<p>Create a configuration data object from settings described by a YAML or JSON formatted string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>text</strong> – A string that adheres to our JSON schema. </p>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">ConfigurationError</span></span></span> – The input string violates the JSON format, schema or an integrity rule. </p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The configuration data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 </section>
 </section>
 </section>
@@ -385,7 +397,7 @@ parameters.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../usage/demos.html" class="btn btn-neutral float-left" title="Demos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="configuration-services.html" class="btn btn-neutral float-right" title="Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="services-configuration.html" class="btn btn-neutral float-right" title="Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

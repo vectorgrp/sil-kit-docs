@@ -7,6 +7,28 @@ All notable changes to the Vector SIL Kit project shall be documented in this fi
 The format is based on `Keep a Changelog (http://keepachangelog.com/en/1.0.0/) <http://keepachangelog.com/en/1.0.0/>`_.
 
 
+[4.0.38] - 2023-11-02
+---------------------
+
+Fixed
+~~~~~
+
+- The dashboard now handles AbortSimulation.
+- The dashboard resolves the registry IP address if needed.
+
+
+Added
+~~~~~
+
+- Reintroduced build requirements to documentation
+
+
+Changed
+~~~~~~~
+
+- Consolidate SIL Kit tests into four executables
+
+
 [4.0.37] - 2023-10-17
 ---------------------
 
@@ -4772,7 +4794,7 @@ Removed
     - removed FastRtps specific integration tests.
     - API: removed deprecated `ib::CreateFastRtpsComAdapter` and `ib::CreateVAsioComAdapter`.
       Users should use the generic :cpp:func:`CreateComAdapter<ib::CreateComAdapter()>`,
-      refer to :ref:`changelog-outdated-reference` (``sec:mwcfg-vasio``).
+      refer to :ref:`changelog-outdated-reference`.
     - ConfigBuilder: removed FastRtps configuration mechanism: `ib::cfg::ConfigBuilder::ConfigureFastRtps`.
 
   
@@ -5032,10 +5054,10 @@ the removal of ``ComAdapter::SendIbMessage`` methods.
 Changed
 ~~~~~~~
 
-.. admonition:: Note: the FastRTPS middleware is now deprecated
-  
-   See :ref:`sec:mwcfg` for migration instructions.
+.. admonition:: Note:
 
+   The FastRTPS middleware is now deprecated
+  
 - The middleware `FastRTPS` is now marked as deprecated.
   This middleware will be removed in the future.
   The middleware specific `CreateFastRtpsComAdapter` API has been

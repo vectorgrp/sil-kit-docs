@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FlexRay Service API &mdash; Vector SIL Kit 4.0.37 documentation</title>
+  <title>FlexRay Service API &mdash; Vector SIL Kit 4.0.38 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.37
+                4.0.38
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -153,7 +153,7 @@ it must be configured, and a startup phase must take place at the beginning of t
 Furthermore, <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController9ConfigureERK23FlexrayControllerConfig" title="SilKit::Services::Flexray::IFlexrayController::Configure"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Configure()</span></code></a> switches the controller to <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray15FlexrayPocState5ReadyE" title="SilKit::Services::Flexray::FlexrayPocState::Ready"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">FlexrayPocState::Ready</span></code></a> signaling that it is ready for startup.</p>
 <p>The <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray23FlexrayControllerConfigE" title="SilKit::Services::Flexray::FlexrayControllerConfig"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayControllerConfig</span></code></a> consists of global <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray24FlexrayClusterParametersE" title="SilKit::Services::Flexray::FlexrayClusterParameters"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayClusterParameters</span></code></a> and node-specific <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray21FlexrayNodeParametersE" title="SilKit::Services::Flexray::FlexrayNodeParameters"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayNodeParameters</span></code></a>,
 which are both best set in the participant configuration (see config section
-<a class="reference internal" href="../configuration/configuration-services.html#sec-cfg-participant-flexray"><span class="std std-ref">FlexrayControllers</span></a>). Furthermore, the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray23FlexrayControllerConfigE" title="SilKit::Services::Flexray::FlexrayControllerConfig"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayControllerConfig</span></code></a> contains one or
+<a class="reference internal" href="../configuration/services-configuration.html#sec-cfg-participant-flexray"><span class="std std-ref">FlexrayControllers</span></a>). Furthermore, the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray23FlexrayControllerConfigE" title="SilKit::Services::Flexray::FlexrayControllerConfig"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayControllerConfig</span></code></a> contains one or
 more <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray21FlexrayTxBufferConfigE" title="SilKit::Services::Flexray::FlexrayTxBufferConfig"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayTxBufferConfig</span></code></a> instances, which can either be specified in the participant configuration or added
 manually at runtime. Tx buffers are used to initiate a transmission from one FlexRay controller to another.</p>
 <p>The following example configures a FlexRay controller with two <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray21FlexrayTxBufferConfigE" title="SilKit::Services::Flexray::FlexrayTxBufferConfig"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayTxBufferConfig</span></code></a> instances specifying two

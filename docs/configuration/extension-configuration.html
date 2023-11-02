@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Extensions Configuration &mdash; Vector SIL Kit 4.0.37 documentation</title>
+  <title>Extensions Configuration &mdash; Vector SIL Kit 4.0.38 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Middleware Configuration" href="middleware-configuration.html" />
-    <link rel="prev" title="Tracing and Replay Configuration" href="configuration-tracing.html" /> 
+    <link rel="prev" title="Tracing and Replay Configuration" href="tracing-configuration.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.37
+                4.0.38
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -53,10 +53,10 @@
 <li class="toctree-l2 current"><a class="reference internal" href="configuration.html#the-participant-configuration-file">The Participant Configuration File</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="configuration.html#overview">Overview</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="configuration.html#configuration-options">Configuration Options</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="configuration-services.html">Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="services-configuration.html">Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="healthcheck-configuration.html">HealthCheck Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="configuration-tracing.html">Tracing and Replay Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tracing-configuration.html">Tracing and Replay Configuration</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Extensions Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="middleware-configuration.html">Middleware Configuration</a></li>
 </ul>
@@ -100,7 +100,7 @@
            <div itemprop="articleBody">
              
   <section id="extensions-configuration">
-<h1>Extensions Configuration<a class="headerlink" href="#extensions-configuration" title="Permalink to this heading"></a></h1>
+<span id="sec-cfg-participant-extensions"></span><h1>Extensions Configuration<a class="headerlink" href="#extensions-configuration" title="Permalink to this heading"></a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#overview" id="id2">Overview</a></p></li>
@@ -108,7 +108,7 @@
 </ul>
 </div>
 <section id="overview">
-<span id="sec-cfg-extension-configuration-overview"></span><h2><a class="toc-backref" href="#id2">Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id2">Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
 <p>The Vector SIL Kit Extensions are developed by Vector and provided in binary form.
 To facilitate the lookup of these binaries, specific search paths can be configured as explained below.</p>
 </section>
@@ -135,8 +135,9 @@ To facilitate the lookup of these binaries, specific search paths can be configu
 <tr class="row-even"><td><p>SearchPathHints</p></td>
 <td><p>Optional search path hints which will be considered if an extension is loaded by the SIL Kit,
 additionally to the default ones. A search path hint can contain the prefix <code class="docutils literal notranslate"><span class="pre">ENV:</span></code>
-to refer to an environment variable name. The default search paths are the
-environment variable <code class="docutils literal notranslate"><span class="pre">SILKIT_EXTENSION_PATH</span></code> and the current working directory.</p></td>
+to refer to an environment variable name. The default search paths are path given in the
+environment variable <code class="docutils literal notranslate"><span class="pre">SILKIT_EXTENSION_PATH</span></code> and the current working directory.
+Relative paths refer to the working directory of the process using the configuration.</p></td>
 </tr>
 </tbody>
 </table>
@@ -147,7 +148,7 @@ environment variable <code class="docutils literal notranslate"><span class="pre
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="configuration-tracing.html" class="btn btn-neutral float-left" title="Tracing and Replay Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tracing-configuration.html" class="btn btn-neutral float-left" title="Tracing and Replay Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="middleware-configuration.html" class="btn btn-neutral float-right" title="Middleware Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

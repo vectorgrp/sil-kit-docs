@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Logging Configuration &mdash; Vector SIL Kit 4.0.37 documentation</title>
+  <title>Logging Configuration &mdash; Vector SIL Kit 4.0.38 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="HealthCheck Configuration" href="healthcheck-configuration.html" />
-    <link rel="prev" title="Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)" href="configuration-services.html" /> 
+    <link rel="prev" title="Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)" href="services-configuration.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.37
+                4.0.38
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -53,10 +53,10 @@
 <li class="toctree-l2 current"><a class="reference internal" href="configuration.html#the-participant-configuration-file">The Participant Configuration File</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="configuration.html#overview">Overview</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="configuration.html#configuration-options">Configuration Options</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="configuration-services.html">Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="services-configuration.html">Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Logging Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="healthcheck-configuration.html">HealthCheck Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="configuration-tracing.html">Tracing and Replay Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tracing-configuration.html">Tracing and Replay Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="extension-configuration.html">Extensions Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="middleware-configuration.html">Middleware Configuration</a></li>
 </ul>
@@ -67,6 +67,7 @@
 <li class="toctree-l3"><a class="reference internal" href="configuration.html#subsec-registry-config-overview">Overview</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="configuration.html#subsec-registry-config-options">Configuration Options</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Logging Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="configuration.html#api-and-data-type-reference">API and Data Type Reference</a></li>
 </ul>
 </li>
 </ul>
@@ -107,7 +108,7 @@
            <div itemprop="articleBody">
              
   <section id="logging-configuration">
-<h1>Logging Configuration<a class="headerlink" href="#logging-configuration" title="Permalink to this heading"></a></h1>
+<span id="sec-cfg-participant-logging"></span><h1>Logging Configuration<a class="headerlink" href="#logging-configuration" title="Permalink to this heading"></a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#overview" id="id3">Overview</a></p></li>
@@ -115,8 +116,8 @@
 </ul>
 </div>
 <section id="overview">
-<span id="sec-cfg-logging-configuration-overview"></span><h2><a class="toc-backref" href="#id3">Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
-<p id="sec-cfg-participant-logging">Within the Vector SIL Kit, the Logger provides features for local and distributed logging on different log
+<h2><a class="toc-backref" href="#id3">Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<p>Within the Vector SIL Kit, the Logger provides features for local and distributed logging on different log
 levels.</p>
 </section>
 <section id="configuration">
@@ -128,6 +129,8 @@ messages with log level <code class="docutils literal notranslate"><span class="
 logs to a file, the following configuration could be used:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Logging</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Sinks</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Stdout</span>
+<span class="w">    </span><span class="nt">Level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Info</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Remote</span>
 <span class="w">    </span><span class="nt">Level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Debug</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">File</span>
@@ -198,7 +201,7 @@ resulting filename is <code class="docutils literal notranslate"><span class="pr
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="configuration-services.html" class="btn btn-neutral float-left" title="Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="services-configuration.html" class="btn btn-neutral float-left" title="Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="healthcheck-configuration.html" class="btn btn-neutral float-right" title="HealthCheck Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
