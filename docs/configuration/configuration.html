@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Configuration &mdash; Vector SIL Kit 4.0.38 documentation</title>
+  <title>Configuration &mdash; Vector SIL Kit 4.0.39 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.38
+                4.0.39
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -123,11 +123,11 @@ Different configuration options are available for SIL Kit participants and the S
 <p>Participants are primarily configured by developers in source code using the SIL Kit API.
 However, the following scenarios are conceivable in which some flexibility is useful even after compile-time:</p>
 <ul class="simple">
-<li><p>A simulation participant is distributed in binary form to integrators.
-In order to integrate such participants into simulations, an integrator must be able to post-configure some aspects of the participant to make it fit, particularly its properties, behavior and how it interconnects within a simulation.</p></li>
+<li><p>A simulation participant is distributed in binary form to users.
+In order to integrate such participants into simulations, a user must be able to post-configure some aspects of the participant to make it fit, particularly its properties, behavior and how it interconnects within a simulation.</p></li>
 <li><p>A simulation consists of multiple participants that share the same behavior.
-An integrator would have to ask developers to compile these participants from the same sources multiple times, with only the participant names differing.</p></li>
-<li><p>Developers or integrators want to temporarily enable debugging features without the need or the ability to recompile the sources, for example logging, tracing, and health checking.</p></li>
+A user would have to ask developers to compile these participants from the same sources multiple times, with only the participant names differing.</p></li>
+<li><p>Developers or users want to temporarily enable debugging features without the need or the ability to recompile the sources, for example logging, tracing, and health checking.</p></li>
 </ul>
 <p>To cover these scenarios, SIL Kit participants can be modified by <em>participant configuration files</em>.
 This is done by creating a participant configuration object from a given file and passing the object as an argument when a participant is created:</p>
@@ -138,7 +138,7 @@ This is done by creating a participant configuration object from a given file an
 <p>Participant configuration files allow to override a subset of parameters which are configurable via the SIL Kit API.
 Configuration parameters that are specified within the participant configuration override corresponding programmatically defined values.
 For example, the <code class="docutils literal notranslate"><span class="pre">ParticipantName</span></code> field overrides the participant name that is provided through the API when a participant is created, namely <a class="reference internal" href="../api/participant.html#_CPPv4N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringE" title="SilKit::CreateParticipant"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateParticipant(...,</span> <span class="pre">const</span> <span class="pre">std::string&amp;</span> <span class="pre">participantName,</span> <span class="pre">...)</span></code></a>.
-This gives integrators the ability to run a simulation with multiple instances of a participant from a single implementation.</p>
+This gives users the ability to run a simulation with multiple instances of a participant from a single implementation.</p>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note</p>
 <p>It is recommended that configurations are specified in the source code where possible.
