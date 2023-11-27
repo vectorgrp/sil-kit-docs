@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RPC (Remote Procedure Call) API &mdash; Vector SIL Kit 4.0.39 documentation</title>
+  <title>RPC (Remote Procedure Call) API &mdash; Vector SIL Kit 4.0.40 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -20,7 +20,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lifecycle Service" href="lifecycleService.html" />
+    <link rel="next" title="Data Serialization/Deserialization API" href="serdes.html" />
     <link rel="prev" title="Data Publish/Subscribe API" href="pubsub.html" /> 
 </head>
 
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.39
+                4.0.40
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -55,11 +55,11 @@
 <li class="toctree-l3 current"><a class="reference internal" href="api.html#data-publish-subscribe-and-rpc">Data Publish/Subscribe and RPC</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="pubsub.html">Data Publish/Subscribe API</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">RPC (Remote Procedure Call) API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="serdes.html">Data Serialization/Deserialization API</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="api.html#state-handling-and-synchronization">State Handling and Synchronization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api.html#common-data-types">Common Data Types</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api.html#utilities">Utilities</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="api.html#c-api">C API</a></li>
@@ -106,173 +106,157 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="#using-the-rpc-api" id="id2">Using the RPC API</a></p>
 <ul>
-<li><p><a class="reference internal" href="#argument-and-return-data" id="id3">Argument and Return Data</a></p>
-<ul>
-<li><p><a class="reference internal" href="#function-name" id="id4">Function Name</a></p></li>
-<li><p><a class="reference internal" href="#media-type" id="id5">Media Type</a></p></li>
-<li><p><a class="reference internal" href="#labels" id="id6">Labels</a></p></li>
-<li><p><a class="reference internal" href="#error-handling" id="id7">Error handling</a></p></li>
-<li><p><a class="reference internal" href="#usage-example" id="id8">Usage Example</a></p></li>
-<li><p><a class="reference internal" href="#rpcclient-api" id="id9">RpcClient API</a></p></li>
-<li><p><a class="reference internal" href="#rpcservers-api" id="id10">RpcServers API</a></p></li>
-<li><p><a class="reference internal" href="#data-structures" id="id11">Data Structures</a></p></li>
-<li><p><a class="reference internal" href="#enumerations" id="id12">Enumerations</a></p></li>
+<li><p><a class="reference internal" href="#calling-a-remote-procedure" id="id3">Calling a Remote Procedure</a></p></li>
+<li><p><a class="reference internal" href="#serving-a-remote-procedure" id="id4">Serving a Remote Procedure</a></p></li>
 </ul>
 </li>
+<li><p><a class="reference internal" href="#usage-examples" id="id5">Usage Examples</a></p>
+<ul>
+<li><p><a class="reference internal" href="#example-simple-calculator" id="id6">Example: Simple Calculator</a></p>
+<ul>
+<li><p><a class="reference internal" href="#server-addition" id="id7">Server - Addition</a></p></li>
+<li><p><a class="reference internal" href="#client-addition" id="id8">Client - Addition</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#api-and-data-type-reference" id="id9">API and Data Type Reference</a></p>
+<ul>
+<li><p><a class="reference internal" href="#rpcclient-api" id="id10">RpcClient API</a></p></li>
+<li><p><a class="reference internal" href="#rpcservers-api" id="id11">RpcServers API</a></p></li>
+<li><p><a class="reference internal" href="#callback-types" id="id12">Callback Types</a></p></li>
+<li><p><a class="reference internal" href="#data-structures" id="id13">Data Structures</a></p></li>
+<li><p><a class="reference internal" href="#enumerations" id="id14">Enumerations</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#advanced-usage-and-configuration" id="id15">Advanced Usage and Configuration</a></p>
+<ul>
+<li><p><a class="reference internal" href="#function-name" id="id16">Function Name</a></p></li>
+<li><p><a class="reference internal" href="#media-type" id="id17">Media Type</a></p></li>
+<li><p><a class="reference internal" href="#labels" id="id18">Labels</a></p></li>
+<li><p><a class="reference internal" href="#error-handling" id="id19">Error handling</a></p></li>
 </ul>
 </li>
 </ul>
 </div>
 <section id="using-the-rpc-api">
 <h2><a class="toc-backref" href="#id2">Using the RPC API</a><a class="headerlink" href="#using-the-rpc-api" title="Permalink to this heading"></a></h2>
-<p>This API provides a client-server model for remote calls with arbitrary argument- and return data.
-The <code class="docutils literal notranslate"><span class="pre">RpcClient</span></code> and <code class="docutils literal notranslate"><span class="pre">RpcServer</span></code> interfaces are instantiated from an <a class="reference internal" href="participant.html#_CPPv4N6SilKit12IParticipantE" title="SilKit::IParticipant"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IParticipant</span></code></a> interface by calling
-<a class="reference internal" href="participant.html#_CPPv4N6SilKit12IParticipant15CreateRpcClientERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc20RpcCallResultHandlerE" title="SilKit::IParticipant::CreateRpcClient"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateRpcClient()</span></code></a> and <a class="reference internal" href="participant.html#_CPPv4N6SilKit12IParticipant15CreateRpcServerERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc14RpcCallHandlerE" title="SilKit::IParticipant::CreateRpcServer"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateRpcServer()</span></code></a>, respectively.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">RpcClient</span></code> can trigger a call using the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient4CallEN4Util4SpanIK7uint8_tEEPv" title="SilKit::Services::Rpc::IRpcClient::Call"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Call()</span></code></a> method providing argument data as a vector of bytes.
-The <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient4CallEN4Util4SpanIK7uint8_tEEPv" title="SilKit::Services::Rpc::IRpcClient::Call"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Call()</span></code></a> method is non-blocking and allows for later identification of the call through an
-additional user context pointer passed as an optional second argument.
-The call arrives at the <code class="docutils literal notranslate"><span class="pre">RpcServer</span></code> and is delivered via a callback, which has to be specified on
-creation of the <code class="docutils literal notranslate"><span class="pre">RpcServer</span></code> and can be overwritten using the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServer14SetCallHandlerE14RpcCallHandler" title="SilKit::Services::Rpc::IRpcServer::SetCallHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetRpcHandler()</span></code></a> method.
-There, the argument data and call handle arrive and can be processed.
-The <code class="docutils literal notranslate"><span class="pre">RpcServer</span></code> must submit the answer to the call at a later point in time with the call handle
-obtained in the <code class="docutils literal notranslate"><span class="pre">RpcCallHandler</span></code> by using the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServer12SubmitResultEP14IRpcCallHandleN4Util4SpanIK7uint8_tEE" title="SilKit::Services::Rpc::IRpcServer::SubmitResult"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SubmitResult()</span></code></a> method providing the return data for the
-calling <code class="docutils literal notranslate"><span class="pre">RpcClient</span></code>.
-The <code class="docutils literal notranslate"><span class="pre">RpcClient</span></code> receives the call return in a callback which is also specified on creation and can
-be overwritten with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient20SetCallResultHandlerE20RpcCallResultHandler" title="SilKit::Services::Rpc::IRpcClient::SetCallResultHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetCallReturnHandler()</span></code></a>.
-The callback provides the user context pointer passed to <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient4CallEN4Util4SpanIK7uint8_tEEPv" title="SilKit::Services::Rpc::IRpcClient::Call"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Call()</span></code></a>, the return data and a call status indicating
-success or an error during the procedure.
-Additionally, <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient15CallWithTimeoutEN4Util4SpanIK7uint8_tEENSt6chrono11nanosecondsEPv" title="SilKit::Services::Rpc::IRpcClient::CallWithTimeout"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CallWithTimeout()</span></code></a> can be used to trigger calls that have to be replied to within a specified
-timeout duration.
-Otherwise the call will lead to a timeout RpcCallResultEvent.</p>
-<section id="argument-and-return-data">
-<h3><a class="toc-backref" href="#id3">Argument and Return Data</a><a class="headerlink" href="#argument-and-return-data" title="Permalink to this heading"></a></h3>
-<p>In theory, users can freely decide on how to de/serialize argument and return data into and out of a byte vector.
-However, it is strongly recommended to use SIL Kit’s serialization schema implemented by the <a class="reference internal" href="serdes.html"><span class="doc">Data Serialization/Deserialization API</span></a>
-to ensure compatibility among all SIL Kit participants.</p>
-<section id="function-name">
-<h4><a class="toc-backref" href="#id4">Function Name</a><a class="headerlink" href="#function-name" title="Permalink to this heading"></a></h4>
-<p>RPC clients and RPC servers provide a function name which is part of their <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpecE" title="SilKit::Services::Rpc::RpcSpec"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">RpcSpec</span></code></a>.</p>
-<p>Communication only takes place among RPC clients and RPC servers with the same function name.</p>
-</section>
-<section id="media-type">
-<h4><a class="toc-backref" href="#id5">Media Type</a><a class="headerlink" href="#media-type" title="Permalink to this heading"></a></h4>
-<p>Both RPC clients and RPC servers define a media type as part of their <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpecE" title="SilKit::Services::Rpc::RpcSpec"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">RpcSpec</span></code></a>. It is a meta description
-of the transmitted data in accordance to <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc2046">RFC2046</a> and should be used
-to provide information about the de-/serialization of the underlying user data. Just like the topic, the media type
-has to match between RPC clients / RPC servers for communication to take place. An empty string on an RPC client will
-match any other media type on a server.</p>
-<p>When data is serialized using SIL Kit’s <a class="reference internal" href="serdes.html"><span class="doc">Data Serialization/Deserialization API</span></a>, media type constant <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">MediaTypeRpc()</span></code>
-must be used.</p>
-</section>
-<section id="labels">
-<h4><a class="toc-backref" href="#id6">Labels</a><a class="headerlink" href="#labels" title="Permalink to this heading"></a></h4>
-<p>Both RPC clients and RPC servers can be annotated with string-based key-value pairs (labels) which can be either
-mandatory or optional. In addition to the matching requirements given by topic and media type, RPC clients and
-RPC servers will only communicate if their labels conform to the following matching rules:</p>
-<ul class="simple">
-<li><p>A mandatory label matches, if a label of the same key and value is found on the corresponding counterpart.</p></li>
-<li><p>An optional label matches, if the label key does not exist on the counterpart or both its key and value are equal.</p></li>
-</ul>
-<p>The following table shows how RPC clients and RPC servers with matching topics and matching media type would
-match corresponding to their labels. Note that the label matching is symmetric, so clients and servers
-are interchangeable here.</p>
-<table class="docutils align-default" id="id1">
-<caption><span class="caption-number">Table 3 </span><span class="caption-text">Label combinations</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"></th>
-<th class="head"><p>Server {“KeyA”, “Val1”, Optional}</p></th>
-<th class="head"><p>Server {“KeyA”, “Val1”, Mandatory}</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Client {}</p></td>
-<td><p>Match</p></td>
-<td><p>No Match</p></td>
-</tr>
-<tr class="row-odd"><td><p>Client {“KeyA”, “Val1”, Optional}</p></td>
-<td><p>Match</p></td>
-<td><p>Match</p></td>
-</tr>
-<tr class="row-even"><td><p>Client {“KeyA”, “Val2”, Optional}</p></td>
-<td><p>No Match</p></td>
-<td><p>No Match</p></td>
-</tr>
-<tr class="row-odd"><td><p>Client {“KeyB”, “Val1”, Optional}</p></td>
-<td><p>Match</p></td>
-<td><p>No Match</p></td>
-</tr>
-<tr class="row-even"><td><p>Client {“KeyB”, “Val1”, Mandatory}</p></td>
-<td><p>No Match</p></td>
-<td><p>No Match</p></td>
-</tr>
-</tbody>
-</table>
-<p>The labels are stored in the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpecE" title="SilKit::Services::Rpc::RpcSpec"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">RpcSpec</span></code></a>. A <a class="reference internal" href="common.html#_CPPv4N6SilKit8Services13MatchingLabelE" title="SilKit::Services::MatchingLabel"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">MatchingLabel</span></code></a> can be added via <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpec8AddLabelERKN6SilKit8Services13MatchingLabelE" title="SilKit::Services::Rpc::RpcSpec::AddLabel"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddLabel()</span></code></a>,
-see the following code snippet:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Rpc</span><span class="o">::</span><span class="n">RpcSpec</span><span class="w"> </span><span class="n">clientSpec</span><span class="p">{</span><span class="s">&quot;Topic1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/json&quot;</span><span class="p">};</span>
-<span class="n">clientSpec</span><span class="p">.</span><span class="n">AddLabel</span><span class="p">(</span><span class="s">&quot;KeyA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ValA&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">MatchingLabel</span><span class="o">::</span><span class="n">Kind</span><span class="o">::</span><span class="n">Optional</span><span class="p">);</span>
-<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateRpcClient</span><span class="p">(</span><span class="s">&quot;ClientCtrl1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">clientSpec</span><span class="p">,</span><span class="w"> </span><span class="n">callResultHandler</span><span class="p">);</span>
+<p>This API provides a client-server model for remote calls with serialized argument- and return data.</p>
+<section id="calling-a-remote-procedure">
+<h3><a class="toc-backref" href="#id3">Calling a Remote Procedure</a><a class="headerlink" href="#calling-a-remote-procedure" title="Permalink to this heading"></a></h3>
+<p>The <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClientE" title="SilKit::Services::Rpc::IRpcClient"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IRpcClient</span></code></a> is instantiated from an <a class="reference internal" href="participant.html#_CPPv4N6SilKit12IParticipantE" title="SilKit::IParticipant"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IParticipant</span></code></a> instance by calling the <a class="reference internal" href="participant.html#_CPPv4N6SilKit12IParticipant15CreateRpcClientERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc20RpcCallResultHandlerE" title="SilKit::IParticipant::CreateRpcClient"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateRpcClient()</span></code></a> method.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">rpcCallResultHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">(</span><span class="n">IRpcClient</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">RpcCallResultEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">callStatus</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Rpc</span><span class="o">::</span><span class="n">RpcCallStatus</span><span class="o">::</span><span class="n">Success</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">SerDes</span><span class="o">::</span><span class="n">Deserializer</span><span class="w"> </span><span class="n">deserializer</span><span class="p">{</span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">ToStdVector</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">resultData</span><span class="p">)};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;sum is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">deserializer</span><span class="p">.</span><span class="n">Deserialize</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; with user context &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="n">userContext</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Rpc</span><span class="o">::</span><span class="n">RpcSpec</span><span class="w"> </span><span class="n">rpcSpec</span><span class="p">{</span><span class="s">&quot;Add&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">SerDes</span><span class="o">::</span><span class="n">MediaTypeRpc</span><span class="p">()};</span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateRpcClient</span><span class="p">(</span><span class="s">&quot;AddClient&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rpcSpec</span><span class="p">,</span><span class="w"> </span><span class="n">rpcCallResultHandler</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Remote procedures are invoked through the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient4CallEN4Util4SpanIK7uint8_tEEPv" title="SilKit::Services::Rpc::IRpcClient::Call"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Call()</span></code></a> method of an <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClientE" title="SilKit::Services::Rpc::IRpcClient"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IRpcClient</span></code></a> instance.
+The <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient4CallEN4Util4SpanIK7uint8_tEEPv" title="SilKit::Services::Rpc::IRpcClient::Call"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Call()</span></code></a> method is non-blocking and allows for later identification of the call through an additional user context pointer (of type <code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">*</span></code>) which is passed as an optional, second argument and provided in the call return handler.</p>
+<p>Additionally, <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient15CallWithTimeoutEN4Util4SpanIK7uint8_tEENSt6chrono11nanosecondsEPv" title="SilKit::Services::Rpc::IRpcClient::CallWithTimeout"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CallWithTimeout()</span></code></a> can be used to trigger calls that have to be replied to within a specified timeout duration.
+Otherwise the call will lead to a timeout <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc18RpcCallResultEventE" title="SilKit::Services::Rpc::RpcCallResultEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">RpcCallResultEvent</span></code></a>.</p>
+<p>The <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClientE" title="SilKit::Services::Rpc::IRpcClient"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IRpcClient</span></code></a> receives the call result in a callback specified during creation of the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClientE" title="SilKit::Services::Rpc::IRpcClient"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IRpcClient</span></code></a>, and can be overwritten with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient20SetCallResultHandlerE20RpcCallResultHandler" title="SilKit::Services::Rpc::IRpcClient::SetCallResultHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetCallReturnHandler()</span></code></a>.
+The callback provides the user context pointer passed to <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient4CallEN4Util4SpanIK7uint8_tEEPv" title="SilKit::Services::Rpc::IRpcClient::Call"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Call()</span></code></a> or <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient15CallWithTimeoutEN4Util4SpanIK7uint8_tEENSt6chrono11nanosecondsEPv" title="SilKit::Services::Rpc::IRpcClient::CallWithTimeout"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CallWithTimeout()</span></code></a>, the return data, and a call status indicating success or an error during the procedure.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">SerDes</span><span class="o">::</span><span class="n">Serializer</span><span class="w"> </span><span class="n">serializer</span><span class="p">;</span>
+<span class="n">serializer</span><span class="p">.</span><span class="n">BeginStruct</span><span class="p">();</span>
+<span class="n">serializer</span><span class="p">.</span><span class="n">Serialize</span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">{</span><span class="mi">31</span><span class="p">});</span>
+<span class="n">serializer</span><span class="p">.</span><span class="n">Serialize</span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">{</span><span class="mi">11</span><span class="p">});</span>
+<span class="n">serializer</span><span class="p">.</span><span class="n">EndStruct</span><span class="p">();</span>
+
+<span class="n">client</span><span class="o">-&gt;</span><span class="n">Call</span><span class="p">(</span><span class="n">serializer</span><span class="p">.</span><span class="n">ReleaseBuffer</span><span class="p">());</span>
 </pre></div>
 </div>
 </section>
-<section id="error-handling">
-<h4><a class="toc-backref" href="#id7">Error handling</a><a class="headerlink" href="#error-handling" title="Permalink to this heading"></a></h4>
-<ul class="simple">
-<li><p>If using <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient4CallEN4Util4SpanIK7uint8_tEEPv" title="SilKit::Services::Rpc::IRpcClient::Call"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Call()</span></code></a> with no corresponding server available, the <code class="docutils literal notranslate"><span class="pre">CallReturnHandler</span></code> is triggered immediately with
-<code class="docutils literal notranslate"><span class="pre">RpcCallStatus::ServerNotReachable</span></code>.</p></li>
-<li><p><a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServer12SubmitResultEP14IRpcCallHandleN4Util4SpanIK7uint8_tEE" title="SilKit::Services::Rpc::IRpcServer::SubmitResult"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SubmitResult()</span></code></a> must only be used with a valid call handle received in the <code class="docutils literal notranslate"><span class="pre">RpcHandler</span></code>.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">RpcCallResultEvent::resultData</span></code> member is only valid if <code class="docutils literal notranslate"><span class="pre">callStatus</span> <span class="pre">==</span> <span class="pre">RpcCallStatus::Success</span></code>.</p></li>
-<li><p>If the RPC server receives a call but does not have a valid call handler, the RPC client will receive an
-<code class="docutils literal notranslate"><span class="pre">RpcCallResultEvent</span></code> with <code class="docutils literal notranslate"><span class="pre">callStatus</span> <span class="pre">==</span> <span class="pre">RpcCallStatus::InternalServerError</span></code>.</p></li>
-<li><p>If the RpcServer does not reply within the specified timeout of <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient15CallWithTimeoutEN4Util4SpanIK7uint8_tEENSt6chrono11nanosecondsEPv" title="SilKit::Services::Rpc::IRpcClient::CallWithTimeout"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CallWithTimeout()</span></code></a>, the CallReturnHandler is triggered
-immediately with <code class="docutils literal notranslate"><span class="pre">RpcCallStatus::Timeout</span></code>.</p></li>
-</ul>
+<section id="serving-a-remote-procedure">
+<h3><a class="toc-backref" href="#id4">Serving a Remote Procedure</a><a class="headerlink" href="#serving-a-remote-procedure" title="Permalink to this heading"></a></h3>
+<p>The <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServerE" title="SilKit::Services::Rpc::IRpcServer"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IRpcServer</span></code></a> is instantiated from an <a class="reference internal" href="participant.html#_CPPv4N6SilKit12IParticipantE" title="SilKit::IParticipant"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IParticipant</span></code></a> instance by calling the <a class="reference internal" href="participant.html#_CPPv4N6SilKit12IParticipant15CreateRpcServerERKNSt6stringERKN6SilKit8Services3Rpc7RpcSpecEN8Services3Rpc14RpcCallHandlerE" title="SilKit::IParticipant::CreateRpcServer"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateRpcServer()</span></code></a> method.</p>
+<p>Any call that arrives at the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServerE" title="SilKit::Services::Rpc::IRpcServer"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IRpcServer</span></code></a> is delivered via a callback specified during creation of the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServerE" title="SilKit::Services::Rpc::IRpcServer"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IRpcServer</span></code></a>, which can be overwritten using the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServer14SetCallHandlerE14RpcCallHandler" title="SilKit::Services::Rpc::IRpcServer::SetCallHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetCallHandler()</span></code></a> method.
+There, the argument data and call handle are provided and can be processed.</p>
+<p>The <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServerE" title="SilKit::Services::Rpc::IRpcServer"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IRpcServer</span></code></a> must submit the answer to the call at a later point in time with the call handle obtained in the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc14RpcCallHandlerE" title="SilKit::Services::Rpc::RpcCallHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">RpcCallHandler</span></code></a> by using the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServer12SubmitResultEP14IRpcCallHandleN4Util4SpanIK7uint8_tEE" title="SilKit::Services::Rpc::IRpcServer::SubmitResult"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SubmitResult()</span></code></a> method providing the return data for the calling <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClientE" title="SilKit::Services::Rpc::IRpcClient"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IRpcClient</span></code></a>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">rpcCallHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="n">IRpcServer</span><span class="o">*</span><span class="w"> </span><span class="n">server</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">RpcCallEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">SerDes</span><span class="o">::</span><span class="n">Deserializer</span><span class="w"> </span><span class="n">deserializer</span><span class="p">{</span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">ToStdVector</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">argumentData</span><span class="p">)};</span>
+<span class="w">    </span><span class="n">deserializer</span><span class="p">.</span><span class="n">BeginStruct</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">deserializer</span><span class="p">.</span><span class="n">Deserialize</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">deserializer</span><span class="p">.</span><span class="n">Deserialize</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="n">deserializer</span><span class="p">.</span><span class="n">EndStruct</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">SerDes</span><span class="o">::</span><span class="n">Serializer</span><span class="w"> </span><span class="n">serializer</span><span class="p">;</span>
+<span class="w">    </span><span class="n">serializer</span><span class="p">.</span><span class="n">Serialize</span><span class="p">(</span><span class="n">lhs</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">SubmitResult</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">callHandle</span><span class="p">,</span><span class="w"> </span><span class="n">serializer</span><span class="p">.</span><span class="n">ReleaseBuffer</span><span class="p">());</span>
+<span class="p">};</span>
+
+<span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Rpc</span><span class="o">::</span><span class="n">RpcSpec</span><span class="w"> </span><span class="n">rpcSpec</span><span class="p">{</span><span class="s">&quot;Add&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">SerDes</span><span class="o">::</span><span class="n">MediaTypeRpc</span><span class="p">()};</span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateRpcServer</span><span class="p">(</span><span class="s">&quot;AddServer, rpcSpec, rpcCallHandler);</span>
+</pre></div>
+</div>
+<p>Argument and return data is represented as a byte vector, so the serialization schema can be chosen by the user.
+Nonetheless, it is highly recommended to use SIL Kit’s <a class="reference internal" href="serdes.html"><span class="doc">Data Serialization/Deserialization API</span></a> to ensure compatibility among all SIL Kit participants.</p>
 </section>
-<section id="usage-example">
-<h4><a class="toc-backref" href="#id8">Usage Example</a><a class="headerlink" href="#usage-example" title="Permalink to this heading"></a></h4>
-<p>The interfaces for the RPC mechanism can be instantiated from an <a class="reference internal" href="participant.html#_CPPv4N6SilKit12IParticipantE" title="SilKit::IParticipant"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IParticipant</span></code></a>:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// ------------------</span>
-<span class="c1">// Client participant</span>
-<span class="c1">// ------------------</span>
+</section>
+<section id="usage-examples">
+<h2><a class="toc-backref" href="#id5">Usage Examples</a><a class="headerlink" href="#usage-examples" title="Permalink to this heading"></a></h2>
+<section id="example-simple-calculator">
+<h3><a class="toc-backref" href="#id6">Example: Simple Calculator</a><a class="headerlink" href="#example-simple-calculator" title="Permalink to this heading"></a></h3>
+<section id="server-addition">
+<h4><a class="toc-backref" href="#id7">Server - Addition</a><a class="headerlink" href="#server-addition" title="Permalink to this heading"></a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">rpcCallHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="n">IRpcServer</span><span class="o">*</span><span class="w"> </span><span class="n">server</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">RpcCallEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">SerDes</span><span class="o">::</span><span class="n">Deserializer</span><span class="w"> </span><span class="n">deserializer</span><span class="p">{</span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">ToStdVector</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">argumentData</span><span class="p">)};</span>
+<span class="w">    </span><span class="n">deserializer</span><span class="p">.</span><span class="n">BeginStruct</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">deserializer</span><span class="p">.</span><span class="n">Deserialize</span><span class="o">&lt;</span><span class="n">uint32</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">deserializer</span><span class="p">.</span><span class="n">Deserialize</span><span class="o">&lt;</span><span class="n">uint32</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="n">deserializer</span><span class="p">.</span><span class="n">EndStruct</span><span class="p">();</span>
 
-<span class="k">auto</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">config</span><span class="p">),</span><span class="w"> </span><span class="n">participant_name</span><span class="p">,</span><span class="w"> </span><span class="n">registryUri</span><span class="p">);</span>
+<span class="w">    </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">SerDes</span><span class="o">::</span><span class="n">Serializer</span><span class="w"> </span><span class="n">serializer</span><span class="p">;</span>
+<span class="w">    </span><span class="n">serializer</span><span class="p">.</span><span class="n">Serialize</span><span class="p">(</span><span class="n">lhs</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rhs</span><span class="p">);</span>
 
-<span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Rpc</span><span class="o">::</span><span class="n">RpcSpec</span><span class="w"> </span><span class="n">dataSpecClient</span><span class="p">{</span><span class="s">&quot;TestFunc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/octet-stream&quot;</span><span class="p">};</span>
-<span class="k">auto</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateRpcClient</span><span class="p">(</span><span class="s">&quot;ClientCtrl1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dataSpecClient</span><span class="p">,</span>
-<span class="w">    </span><span class="p">[](</span><span class="n">IRpcClient</span><span class="o">*</span><span class="w"> </span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="n">RpcCallResultEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// handle event.callStatus and/or event.resultData</span>
-<span class="w">    </span><span class="p">});</span>
-<span class="p">);</span>
+<span class="w">    </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">SubmitResult</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">callHandle</span><span class="p">,</span><span class="w"> </span><span class="n">serializer</span><span class="p">.</span><span class="n">ReleaseBuffer</span><span class="p">());</span>
+<span class="p">};</span>
 
-<span class="c1">// define argumentData</span>
-<span class="n">client</span><span class="o">-&gt;</span><span class="n">Call</span><span class="p">(</span><span class="n">argumentData</span><span class="p">);</span>
-
-<span class="c1">// define userContext (void *)</span>
-<span class="n">client</span><span class="o">-&gt;</span><span class="n">Call</span><span class="p">(</span><span class="n">argumentData</span><span class="p">,</span><span class="w"> </span><span class="n">userContext</span><span class="p">);</span>
-
-<span class="c1">// ------------------</span>
-<span class="c1">// Server participant</span>
-<span class="c1">// ------------------</span>
-
-<span class="k">auto</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">config</span><span class="p">),</span><span class="w"> </span><span class="n">participant_name</span><span class="p">,</span><span class="w"> </span><span class="n">registryUri</span><span class="p">);</span>
-<span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Rpc</span><span class="o">::</span><span class="n">RpcSpec</span><span class="w"> </span><span class="n">dataSpecServer</span><span class="p">{</span><span class="s">&quot;TestFunc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/octet-stream&quot;</span><span class="p">};</span>
-
-<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateRpcServer</span><span class="p">(</span><span class="s">&quot;ServerCtrl1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dataSpecServer</span><span class="p">,</span>
-<span class="w">    </span><span class="p">[](</span><span class="n">IRpcServer</span><span class="o">*</span><span class="w"> </span><span class="n">server</span><span class="p">,</span><span class="w"> </span><span class="n">RpcCallEvent</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// handle argumentData</span>
-<span class="w">        </span><span class="c1">// define resultData</span>
-<span class="w">        </span><span class="n">server</span><span class="o">-&gt;</span><span class="n">SubmitResult</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">callHandle</span><span class="p">,</span><span class="w"> </span><span class="n">resultData</span><span class="p">)</span>
-<span class="w">    </span><span class="p">});</span>
+<span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Rpc</span><span class="o">::</span><span class="n">RpcSpec</span><span class="w"> </span><span class="n">rpcSpec</span><span class="p">{</span><span class="s">&quot;Add&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">SerDes</span><span class="o">::</span><span class="n">MediaTypeRpc</span><span class="p">()};</span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateRpcServer</span><span class="p">(</span><span class="s">&quot;AddServer, rpcSpec, rpcCallHandler);</span>
 </pre></div>
 </div>
 </section>
+<section id="client-addition">
+<h4><a class="toc-backref" href="#id8">Client - Addition</a><a class="headerlink" href="#client-addition" title="Permalink to this heading"></a></h4>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">rpcCallResultHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">(</span><span class="n">IRpcClient</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">RpcCallResultEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">callStatus</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Rpc</span><span class="o">::</span><span class="n">RpcCallStatus</span><span class="o">::</span><span class="n">Success</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">SerDes</span><span class="o">::</span><span class="n">Deserializer</span><span class="w"> </span><span class="n">deserializer</span><span class="p">{</span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">ToStdVector</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">resultData</span><span class="p">)};</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;sum is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">deserializer</span><span class="p">.</span><span class="n">Deserialize</span><span class="o">&lt;</span><span class="kt">uint32_t</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Rpc</span><span class="o">::</span><span class="n">RpcSpec</span><span class="w"> </span><span class="n">rpcSpec</span><span class="p">{</span><span class="s">&quot;Add&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">SerDes</span><span class="o">::</span><span class="n">MediaTypeRpc</span><span class="p">()};</span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateRpcClient</span><span class="p">(</span><span class="s">&quot;AddClient&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rpcSpec</span><span class="p">,</span><span class="w"> </span><span class="n">rpcCallResultHandler</span><span class="p">);</span>
+
+<span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">SerDes</span><span class="o">::</span><span class="n">Serializer</span><span class="w"> </span><span class="n">serializer</span><span class="p">;</span>
+<span class="n">serializer</span><span class="p">.</span><span class="n">BeginStruct</span><span class="p">();</span>
+<span class="n">serializer</span><span class="p">.</span><span class="n">Serialize</span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">{</span><span class="mi">31</span><span class="p">});</span>
+<span class="n">serializer</span><span class="p">.</span><span class="n">Serialize</span><span class="p">(</span><span class="kt">uint32_t</span><span class="p">{</span><span class="mi">11</span><span class="p">});</span>
+<span class="n">serializer</span><span class="p">.</span><span class="n">EndStruct</span><span class="p">();</span>
+
+<span class="n">client</span><span class="o">-&gt;</span><span class="n">Call</span><span class="p">(</span><span class="n">serializer</span><span class="p">.</span><span class="n">ReleaseBuffer</span><span class="p">());</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="api-and-data-type-reference">
+<h2><a class="toc-backref" href="#id9">API and Data Type Reference</a><a class="headerlink" href="#api-and-data-type-reference" title="Permalink to this heading"></a></h2>
 <section id="rpcclient-api">
-<h4><a class="toc-backref" href="#id9">RpcClient API</a><a class="headerlink" href="#rpcclient-api" title="Permalink to this heading"></a></h4>
+<h3><a class="toc-backref" href="#id10">RpcClient API</a><a class="headerlink" href="#rpcclient-api" title="Permalink to this heading"></a></h3>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc10IRpcClientE">
 <span id="_CPPv3N6SilKit8Services3Rpc10IRpcClientE"></span><span id="_CPPv2N6SilKit8Services3Rpc10IRpcClientE"></span><span id="SilKit::Services::Rpc::IRpcClient"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_client"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IRpcClient</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClientE" title="Permalink to this definition"></a><br /></dt>
@@ -294,7 +278,7 @@ immediately with <code class="docutils literal notranslate"><span class="pre">Rp
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc10IRpcClient20SetCallResultHandlerE20RpcCallResultHandler">
-<span id="_CPPv3N6SilKit8Services3Rpc10IRpcClient20SetCallResultHandlerE20RpcCallResultHandler"></span><span id="_CPPv2N6SilKit8Services3Rpc10IRpcClient20SetCallResultHandlerE20RpcCallResultHandler"></span><span id="SilKit::Services::Rpc::IRpcClient::SetCallResultHandler__RpcCallResultHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_client_1aa2319a20175bec425d87df2fba6e46fd"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetCallResultHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">RpcCallResultHandler</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient20SetCallResultHandlerE20RpcCallResultHandler" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services3Rpc10IRpcClient20SetCallResultHandlerE20RpcCallResultHandler"></span><span id="_CPPv2N6SilKit8Services3Rpc10IRpcClient20SetCallResultHandlerE20RpcCallResultHandler"></span><span id="SilKit::Services::Rpc::IRpcClient::SetCallResultHandler__RpcCallResultHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_client_1aa2319a20175bec425d87df2fba6e46fd"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetCallResultHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc20RpcCallResultHandlerE" title="SilKit::Services::Rpc::RpcCallResultHandler"><span class="n"><span class="pre">RpcCallResultHandler</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient20SetCallResultHandlerE20RpcCallResultHandler" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Overwrite the call return handler of this client. </p>
 <p>The signature of the handler is void(IRpcClient* client, RpcCallResultEvent event).</p>
 <dl class="field-list simple">
@@ -325,7 +309,7 @@ immediately with <code class="docutils literal notranslate"><span class="pre">Rp
 
 </section>
 <section id="rpcservers-api">
-<h4><a class="toc-backref" href="#id10">RpcServers API</a><a class="headerlink" href="#rpcservers-api" title="Permalink to this heading"></a></h4>
+<h3><a class="toc-backref" href="#id11">RpcServers API</a><a class="headerlink" href="#rpcservers-api" title="Permalink to this heading"></a></h3>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc10IRpcServerE">
 <span id="_CPPv3N6SilKit8Services3Rpc10IRpcServerE"></span><span id="_CPPv2N6SilKit8Services3Rpc10IRpcServerE"></span><span id="SilKit::Services::Rpc::IRpcServer"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_server"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IRpcServer</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServerE" title="Permalink to this definition"></a><br /></dt>
@@ -348,7 +332,7 @@ immediately with <code class="docutils literal notranslate"><span class="pre">Rp
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc10IRpcServer14SetCallHandlerE14RpcCallHandler">
-<span id="_CPPv3N6SilKit8Services3Rpc10IRpcServer14SetCallHandlerE14RpcCallHandler"></span><span id="_CPPv2N6SilKit8Services3Rpc10IRpcServer14SetCallHandlerE14RpcCallHandler"></span><span id="SilKit::Services::Rpc::IRpcServer::SetCallHandler__RpcCallHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_server_1a7123815c6618d166a56c6acdac523617"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetCallHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">RpcCallHandler</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServer14SetCallHandlerE14RpcCallHandler" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services3Rpc10IRpcServer14SetCallHandlerE14RpcCallHandler"></span><span id="_CPPv2N6SilKit8Services3Rpc10IRpcServer14SetCallHandlerE14RpcCallHandler"></span><span id="SilKit::Services::Rpc::IRpcServer::SetCallHandler__RpcCallHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_server_1a7123815c6618d166a56c6acdac523617"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetCallHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc14RpcCallHandlerE" title="SilKit::Services::Rpc::RpcCallHandler"><span class="n"><span class="pre">RpcCallHandler</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServer14SetCallHandlerE14RpcCallHandler" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Overwrite the call handler of this server. </p>
 <p>The signature of the call handler is void(IRpcServer* server, RpcCallEvent event).</p>
 <dl class="field-list simple">
@@ -362,8 +346,23 @@ immediately with <code class="docutils literal notranslate"><span class="pre">Rp
 </dd></dl>
 
 </section>
+<section id="callback-types">
+<h3><a class="toc-backref" href="#id12">Callback Types</a><a class="headerlink" href="#callback-types" title="Permalink to this heading"></a></h3>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc14RpcCallHandlerE">
+<span id="_CPPv3N6SilKit8Services3Rpc14RpcCallHandlerE"></span><span id="_CPPv2N6SilKit8Services3Rpc14RpcCallHandlerE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_rpc_1a78d20cab9fa8ca53c21d2a0e9f0f4e74"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Rpc</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">RpcCallHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServerE" title="SilKit::Services::Rpc::IRpcServer"><span class="n"><span class="pre">IRpcServer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">server</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc12RpcCallEventE" title="SilKit::Services::Rpc::RpcCallEvent"><span class="n"><span class="pre">RpcCallEvent</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc14RpcCallHandlerE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The callback function invoked when a call is to be handled by the <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_server"><span class="std std-ref">IRpcServer</span></a>. </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc20RpcCallResultHandlerE">
+<span id="_CPPv3N6SilKit8Services3Rpc20RpcCallResultHandlerE"></span><span id="_CPPv2N6SilKit8Services3Rpc20RpcCallResultHandlerE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_rpc_1a1f1dd3242932f41d00a5c001923a087e"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Rpc</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">RpcCallResultHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClientE" title="SilKit::Services::Rpc::IRpcClient"><span class="n"><span class="pre">IRpcClient</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc18RpcCallResultEventE" title="SilKit::Services::Rpc::RpcCallResultEvent"><span class="n"><span class="pre">RpcCallResultEvent</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc20RpcCallResultHandlerE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The callback function invoked when a call result is delivered to the <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_rpc_1_1_i_rpc_client"><span class="std std-ref">IRpcClient</span></a>. </p>
+</dd></dl>
+
+</section>
 <section id="data-structures">
-<h4><a class="toc-backref" href="#id11">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this heading"></a></h4>
+<h3><a class="toc-backref" href="#id13">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this heading"></a></h3>
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc12RpcCallEventE">
 <span id="_CPPv3N6SilKit8Services3Rpc12RpcCallEventE"></span><span id="_CPPv2N6SilKit8Services3Rpc12RpcCallEventE"></span><span id="SilKit::Services::Rpc::RpcCallEvent"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_rpc_1_1_rpc_call_event"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RpcCallEvent</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc12RpcCallEventE" title="Permalink to this definition"></a><br /></dt>
@@ -471,7 +470,7 @@ immediately with <code class="docutils literal notranslate"><span class="pre">Rp
 
 </section>
 <section id="enumerations">
-<h4><a class="toc-backref" href="#id12">Enumerations</a><a class="headerlink" href="#enumerations" title="Permalink to this heading"></a></h4>
+<h3><a class="toc-backref" href="#id14">Enumerations</a><a class="headerlink" href="#enumerations" title="Permalink to this heading"></a></h3>
 <dl class="cpp enum">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Rpc13RpcCallStatusE">
 <span id="_CPPv3N6SilKit8Services3Rpc13RpcCallStatusE"></span><span id="_CPPv2N6SilKit8Services3Rpc13RpcCallStatusE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_rpc_1a3b48d16da133323a38bba98c33e6c45d"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Rpc</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">RpcCallStatus</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Rpc13RpcCallStatusE" title="Permalink to this definition"></a><br /></dt>
@@ -511,6 +510,89 @@ immediately with <code class="docutils literal notranslate"><span class="pre">Rp
 
 </section>
 </section>
+<section id="advanced-usage-and-configuration">
+<h2><a class="toc-backref" href="#id15">Advanced Usage and Configuration</a><a class="headerlink" href="#advanced-usage-and-configuration" title="Permalink to this heading"></a></h2>
+<section id="function-name">
+<h3><a class="toc-backref" href="#id16">Function Name</a><a class="headerlink" href="#function-name" title="Permalink to this heading"></a></h3>
+<p>RPC clients and RPC servers provide a function name which is part of their <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpecE" title="SilKit::Services::Rpc::RpcSpec"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">RpcSpec</span></code></a>.</p>
+<p>Communication only takes place among RPC clients and RPC servers with the same function name.</p>
+</section>
+<section id="media-type">
+<h3><a class="toc-backref" href="#id17">Media Type</a><a class="headerlink" href="#media-type" title="Permalink to this heading"></a></h3>
+<p>Both RPC clients and RPC servers define a media type as part of their <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpecE" title="SilKit::Services::Rpc::RpcSpec"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">RpcSpec</span></code></a>.
+It is a meta description of the transmitted data in accordance to <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc2046">RFC2046</a> and should be used to provide information about the de-/serialization of the underlying user data.
+Just like the function name, the media type has to match between RPC clients / RPC servers for communication to take place.
+An empty string on an RPC client will match any other media type on a server.</p>
+<p>When data is serialized using SIL Kit’s <a class="reference internal" href="serdes.html"><span class="doc">Data Serialization/Deserialization API</span></a>, the media type constant <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">MediaTypeRpc()</span></code> must be used.</p>
+</section>
+<section id="labels">
+<h3><a class="toc-backref" href="#id18">Labels</a><a class="headerlink" href="#labels" title="Permalink to this heading"></a></h3>
+<p>Both RPC clients and RPC servers can be annotated with string-based key-value pairs (labels) which can be either mandatory or optional.
+In addition to the matching requirements given by topic and media type, RPC clients and RPC servers will only communicate if their labels match.</p>
+<p>The labels are stored in the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpecE" title="SilKit::Services::Rpc::RpcSpec"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">RpcSpec</span></code></a>. A <a class="reference internal" href="common.html#_CPPv4N6SilKit8Services13MatchingLabelE" title="SilKit::Services::MatchingLabel"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">MatchingLabel</span></code></a> can be added via <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc7RpcSpec8AddLabelERKN6SilKit8Services13MatchingLabelE" title="SilKit::Services::Rpc::RpcSpec::AddLabel"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddLabel()</span></code></a>, see the following code snippet:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Rpc</span><span class="o">::</span><span class="n">RpcSpec</span><span class="w"> </span><span class="n">rpcSpec</span><span class="p">{</span><span class="s">&quot;OpenMirror&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/json&quot;</span><span class="p">};</span>
+<span class="n">rpcSpec</span><span class="p">.</span><span class="n">AddLabel</span><span class="p">(</span><span class="s">&quot;Instance&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;FrontLeft&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">MatchingLabel</span><span class="o">::</span><span class="n">Kind</span><span class="o">::</span><span class="n">Optional</span><span class="p">);</span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateRpcClient</span><span class="p">(</span><span class="s">&quot;FrontLeftDoorMirrorPanel&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rpcSpec</span><span class="p">,</span><span class="w"> </span><span class="n">callResultHandler</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To communicate, RPC clients and RPC Servers must conform to the following matching rules:</p>
+<ul class="simple">
+<li><p>A mandatory label matches, if a label of the same key and value is found on the corresponding counterpart.</p></li>
+<li><p>An optional label matches, if the label key does not exist on the counterpart or both its key and value are equal.</p></li>
+</ul>
+<p>The following table shows how RPC clients and RPC servers with matching topics and matching media type would
+match corresponding to their labels. Note that the label matching is symmetric, so clients and servers
+are interchangeable here.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-number">Table 3 </span><span class="caption-text">Label combinations</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Server {“Instance”, “Left”, Optional}</p></th>
+<th class="head"><p>Server {“Instance”, “Left”, Mandatory}</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Client {}</p></td>
+<td><p>Match</p></td>
+<td><p>No Match</p></td>
+</tr>
+<tr class="row-odd"><td><p>Client {“Instance”, “Left”, Optional}</p></td>
+<td><p>Match</p></td>
+<td><p>Match</p></td>
+</tr>
+<tr class="row-even"><td><p>Client {“Instance”, “Right”, Optional}</p></td>
+<td><p>No Match</p></td>
+<td><p>No Match</p></td>
+</tr>
+<tr class="row-odd"><td><p>Client {“Namespace”, “Car”, Optional}</p></td>
+<td><p>Match</p></td>
+<td><p>No Match</p></td>
+</tr>
+<tr class="row-even"><td><p>Client {“Namespace”, “Car”, Mandatory}</p></td>
+<td><p>No Match</p></td>
+<td><p>No Match</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="error-handling">
+<h3><a class="toc-backref" href="#id19">Error handling</a><a class="headerlink" href="#error-handling" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>If using <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient4CallEN4Util4SpanIK7uint8_tEEPv" title="SilKit::Services::Rpc::IRpcClient::Call"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Call()</span></code></a> with no corresponding server available, the <code class="docutils literal notranslate"><span class="pre">CallReturnHandler</span></code> is triggered immediately with
+<code class="docutils literal notranslate"><span class="pre">RpcCallStatus::ServerNotReachable</span></code>.</p></li>
+<li><p><a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcServer12SubmitResultEP14IRpcCallHandleN4Util4SpanIK7uint8_tEE" title="SilKit::Services::Rpc::IRpcServer::SubmitResult"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SubmitResult()</span></code></a> must only be used with a valid call handle received in the <code class="docutils literal notranslate"><span class="pre">RpcHandler</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">RpcCallResultEvent::resultData</span></code> member is only valid if <code class="docutils literal notranslate"><span class="pre">callStatus</span> <span class="pre">==</span> <span class="pre">RpcCallStatus::Success</span></code>.</p></li>
+<li><p>If the RPC server receives a call but does not have a valid call handler, the RPC client will receive an
+<code class="docutils literal notranslate"><span class="pre">RpcCallResultEvent</span></code> with <code class="docutils literal notranslate"><span class="pre">callStatus</span> <span class="pre">==</span> <span class="pre">RpcCallStatus::InternalServerError</span></code>.</p></li>
+<li><p>If the RpcServer does not reply within the specified timeout of <a class="reference internal" href="#_CPPv4N6SilKit8Services3Rpc10IRpcClient15CallWithTimeoutEN4Util4SpanIK7uint8_tEENSt6chrono11nanosecondsEPv" title="SilKit::Services::Rpc::IRpcClient::CallWithTimeout"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CallWithTimeout()</span></code></a>, the CallReturnHandler is triggered
+immediately with <code class="docutils literal notranslate"><span class="pre">RpcCallStatus::Timeout</span></code>.</p></li>
+</ul>
+</section>
 </section>
 </section>
 
@@ -519,7 +601,7 @@ immediately with <code class="docutils literal notranslate"><span class="pre">Rp
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="pubsub.html" class="btn btn-neutral float-left" title="Data Publish/Subscribe API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="lifecycleService.html" class="btn btn-neutral float-right" title="Lifecycle Service" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="serdes.html" class="btn btn-neutral float-right" title="Data Serialization/Deserialization API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
