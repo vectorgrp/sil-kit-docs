@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vector SIL Kit Overview &mdash; Vector SIL Kit 4.0.43 documentation</title>
+  <title>Vector SIL Kit Overview &mdash; Vector SIL Kit 4.0.44 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.43
+                4.0.44
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -47,6 +47,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#supported-services">Supported Services</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#vehicle-networks">Vehicle Networks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#simulation-basics">Simulation Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-productname-ecosystem">The SIL Kit Ecosystem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#related-projects">Related Projects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#related-applications">Related Applications</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#guiding-principles">Guiding Principles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#terminology">Terminology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#further-reading">Further Reading</a></li>
@@ -150,6 +155,33 @@ A similar configuration file is available for the SIL Kit Registry as well.</p>
 <li><p>For getting started developing with the SIL Kit, see the <a class="reference internal" href="for-developers/developers.html"><span class="doc">Developer Guide</span></a>.</p></li>
 </ul>
 </section>
+<section id="the-productname-ecosystem">
+<span id="sec-overview-ecosystem"></span><h2>The SIL Kit Ecosystem<a class="headerlink" href="#the-productname-ecosystem" title="Permalink to this heading"></a></h2>
+<section id="related-projects">
+<h3>Related Projects<a class="headerlink" href="#related-projects" title="Permalink to this heading"></a></h3>
+<p>One of the design goals of the SIL Kit is to easily connect different third-party tools,
+such as emulators, virtual machines and simulation tools.</p>
+<p>The SIL Kit ecosystem comprises the following turn-key solutions:</p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://github.com/vectorgrp/sil-kit-adapters-qemu">SIL Kit Adapters for QEMU</a>
+integrates with QEMU to support co-simulation with emulated targets.</p></li>
+<li><p>The <a class="reference external" href="https://github.com/vectorgrp/sil-kit-adapters-tap">SIL Kit Adapters for TAP devices</a>
+project provides first-class support for TAP devices of the host operating system.</p></li>
+<li><p>The <a class="reference external" href="https://github.com/vectorgrp/sil-kit-adapters-vcan">SIL Kit Adapter for SocketCAN</a>
+can be used to attach a virtual CAN (Controller Area Network) interface (SocketCAN) to a SIL Kit CAN bus.</p></li>
+<li><p>The <a class="reference external" href="https://github.com/vectorgrp/sil-kit-fmu-importer">SIL Kit FMU Importer</a>
+allows to import Functional Mockup Units (FMUs) as SIL Kit participants.</p></li>
+</ul>
+</section>
+<section id="related-applications">
+<h3>Related Applications<a class="headerlink" href="#related-applications" title="Permalink to this heading"></a></h3>
+<p>The SIL Kit ecosystem also offers the following desktop applications:</p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://www.vector.com/SIL-Kit-Dashboard/">SIL Kit Dashboard</a>  collects, persists
+and displays information from different SIL Kit systems.</p></li>
+</ul>
+</section>
+</section>
 <section id="guiding-principles">
 <span id="sec-overview-guiding-principles"></span><h2>Guiding Principles<a class="headerlink" href="#guiding-principles" title="Permalink to this heading"></a></h2>
 <p>SIL Kit follows a few fundamental principles:</p>
@@ -243,7 +275,7 @@ Additionally, <a class="reference internal" href="configuration/configuration.ht
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023 Vector Informatik GmbH.</p>
+    <p>&#169; Copyright 2024 Vector Informatik GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

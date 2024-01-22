@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>System Monitor C API &mdash; Vector SIL Kit 4.0.43 documentation</title>
+  <title>System Monitor C API &mdash; Vector SIL Kit 4.0.44 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.43
+                4.0.44
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -102,6 +102,22 @@
 <p>The features of the System Monitor in the C++ API are not provided through a <code class="docutils literal notranslate"><span class="pre">SystemMonitor</span></code> abstraction
 in the C API but directly provided through the <code class="docutils literal notranslate"><span class="pre">SilKit_Participant</span></code>.</p>
 <dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv427SilKit_SystemMonitor_CreatePP20SilKit_SystemMonitorP18SilKit_Participant">
+<span id="_CPPv327SilKit_SystemMonitor_CreatePP20SilKit_SystemMonitorP18SilKit_Participant"></span><span id="_CPPv227SilKit_SystemMonitor_CreatePP20SilKit_SystemMonitorP18SilKit_Participant"></span><span id="SilKit_SystemMonitor_Create__SilKit_SystemMonitorPP.SilKit_ParticipantP"></span><span class="target" id="_orchestration_8h_1ab97a97556028d82321ec805efbb388ff"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_SystemMonitor_Create</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_SystemMonitor</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outSystemMonitor</span></span>, <span class="n"><span class="pre">SilKit_Participant</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">participant</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv427SilKit_SystemMonitor_CreatePP20SilKit_SystemMonitorP18SilKit_Participant" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create a system monitor at this SIL Kit simulation participant. </p>
+<p>
+The object returned must not be deallocated using free()! </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outSystemMonitor</strong> – Pointer that refers to the resulting sytem monitor (out parameter). </p></li>
+<li><p><strong>participant</strong> – The simulation participant at which the system monitor should be created.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv442SilKit_SystemMonitor_AddSystemStateHandlerP20SilKit_SystemMonitorPv27SilKit_SystemStateHandler_tP16SilKit_HandlerId">
 <span id="_CPPv342SilKit_SystemMonitor_AddSystemStateHandlerP20SilKit_SystemMonitorPv27SilKit_SystemStateHandler_tP16SilKit_HandlerId"></span><span id="_CPPv242SilKit_SystemMonitor_AddSystemStateHandlerP20SilKit_SystemMonitorPv27SilKit_SystemStateHandler_tP16SilKit_HandlerId"></span><span id="SilKit_SystemMonitor_AddSystemStateHandler__SilKit_SystemMonitorP.voidP.SilKit_SystemStateHandler_t.SilKit_HandlerIdP"></span><span class="target" id="_orchestration_8h_1a02e798cf7a9ad0a4254037bdb4782ec3"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_SystemMonitor_AddSystemStateHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_SystemMonitor</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">systemMonitor</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">context</span></span>, <span class="n"><span class="pre">SilKit_SystemStateHandler_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outHandlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv442SilKit_SystemMonitor_AddSystemStateHandlerP20SilKit_SystemMonitorPv27SilKit_SystemStateHandler_tP16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Register a callback for system state changes. </p>
@@ -109,7 +125,7 @@ in the C API but directly provided through the <code class="docutils literal not
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>systemMonitor</strong> – The system monitor obtained via SilKit_SystemMonitor_Create. </p></li>
+<li><p><strong>systemMonitor</strong> – The system monitor obtained via <a class="reference internal" href="#_orchestration_8h_1ab97a97556028d82321ec805efbb388ff"><span class="std std-ref">SilKit_SystemMonitor_Create</span></a>. </p></li>
 <li><p><strong>context</strong> – The user context pointer made available to the handler. </p></li>
 <li><p><strong>handler</strong> – The handler to be called to be called when the SilKit_SystemState changes. </p></li>
 <li><p><strong>outHandlerId</strong> – The handler identifier that can be used to remove the callback. </p></li>
@@ -126,7 +142,7 @@ in the C API but directly provided through the <code class="docutils literal not
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>systemMonitor</strong> – The system monitor obtained via SilKit_SystemMonitor_Create. </p></li>
+<li><p><strong>systemMonitor</strong> – The system monitor obtained via <a class="reference internal" href="#_orchestration_8h_1ab97a97556028d82321ec805efbb388ff"><span class="std std-ref">SilKit_SystemMonitor_Create</span></a>. </p></li>
 <li><p><strong>context</strong> – The user context pointer made available to the handler. </p></li>
 <li><p><strong>handler</strong> – The handler to be called to be called when the participant status changes. </p></li>
 <li><p><strong>outHandlerId</strong> – The handler identifier that can be used to remove the callback. </p></li>
@@ -142,7 +158,7 @@ in the C API but directly provided through the <code class="docutils literal not
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>systemMonitor</strong> – The system monitor obtained via SilKit_SystemMonitor_Create. </p></li>
+<li><p><strong>systemMonitor</strong> – The system monitor obtained via <a class="reference internal" href="#_orchestration_8h_1ab97a97556028d82321ec805efbb388ff"><span class="std std-ref">SilKit_SystemMonitor_Create</span></a>. </p></li>
 <li><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p></li>
 </ul>
 </dd>
@@ -156,7 +172,7 @@ in the C API but directly provided through the <code class="docutils literal not
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>systemMonitor</strong> – The system monitor obtained via SilKit_SystemMonitor_Create. </p></li>
+<li><p><strong>systemMonitor</strong> – The system monitor obtained via <a class="reference internal" href="#_orchestration_8h_1ab97a97556028d82321ec805efbb388ff"><span class="std std-ref">SilKit_SystemMonitor_Create</span></a>. </p></li>
 <li><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p></li>
 </ul>
 </dd>
@@ -188,7 +204,7 @@ in the C API but directly provided through the <code class="docutils literal not
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023 Vector Informatik GmbH.</p>
+    <p>&#169; Copyright 2024 Vector Informatik GmbH.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
