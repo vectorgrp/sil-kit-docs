@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LIN C API &mdash; Vector SIL Kit 4.0.44 documentation</title>
+  <title>LIN C API &mdash; Vector SIL Kit 4.0.45 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.44
+                4.0.45
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -107,7 +107,7 @@
 </ul>
 </div>
 <p>The LIN API for the C language provides communication in a LIN bus master/slave-architecture.
-The functionality is analogous to the C++ API described in <a class="reference internal" href="lin.html#sec-lin"><span class="std std-ref">LIN Service API</span></a>.</p>
+The functionality is analogous to the C++ API described in <a class="reference internal" href="lin.html#chap-lin-service-api"><span class="std std-ref">LIN Service API</span></a>.</p>
 <section id="lin-controller">
 <h2><a class="toc-backref" href="#id1">LIN Controller</a><a class="headerlink" href="#lin-controller" title="Permalink to this heading"></a></h2>
 <p><strong>A LIN controller is created with the following function:</strong></p>
@@ -121,8 +121,8 @@ The functionality is analogous to the C++ API described in <a class="reference i
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>outLinController</strong> – Pointer into which the resulting LIN controller will be written (out parameter). </p></li>
 <li><p><strong>participant</strong> – The simulation participant at which the LIN controller should be created. </p></li>
-<li><p><strong>name</strong> – The name of the new LIN controller. </p></li>
-<li><p><strong>network</strong> – The network of the LIN controller to operate in.</p></li>
+<li><p><strong>name</strong> – The name of the new LIN controller (UTF-8). </p></li>
+<li><p><strong>network</strong> – The network of the LIN controller to operate in (UTF-8).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

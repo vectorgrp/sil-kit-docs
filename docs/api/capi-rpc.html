@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RPC C API &mdash; Vector SIL Kit 4.0.44 documentation</title>
+  <title>RPC C API &mdash; Vector SIL Kit 4.0.45 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.44
+                4.0.45
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -119,7 +119,7 @@ It consists of RPC clients and RPC servers and a method to discover remote RPC s
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>outClient</strong> – Pointer to which the resulting RPC client reference will be written. </p></li>
 <li><p><strong>participant</strong> – The simulation participant for which the RPC client should be created. </p></li>
-<li><p><strong>controllerName</strong> – The name of this controller. </p></li>
+<li><p><strong>controllerName</strong> – The name of this controller (UTF-8). </p></li>
 <li><p><strong>rpcSpec</strong> – The specification of function name, media type and labels. </p></li>
 <li><p><strong>resultHandlerContext</strong> – A user provided context that is reobtained on call result in the resultHandler. </p></li>
 <li><p><strong>resultHandler</strong> – A callback that is called when a call result is received. </p></li>
@@ -174,7 +174,7 @@ It consists of RPC clients and RPC servers and a method to discover remote RPC s
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>outServer</strong> – Pointer to which the resulting RPC server reference will be written. </p></li>
 <li><p><strong>participant</strong> – The simulation participant for which the RPC server should be created. </p></li>
-<li><p><strong>controllerName</strong> – The name of this controller. </p></li>
+<li><p><strong>controllerName</strong> – The name of this controller (UTF-8). </p></li>
 <li><p><strong>rpcSpec</strong> – A struct containing all matching related information </p></li>
 <li><p><strong>callHandlerContext</strong> – A user provided context pointer that is passed to the callHandler on call. </p></li>
 <li><p><strong>callHandler</strong> – A callback function that is triggered on invocation of the server functionality. </p></li>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Orchestration C API &mdash; Vector SIL Kit 4.0.44 documentation</title>
+  <title>Orchestration C API &mdash; Vector SIL Kit 4.0.45 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.44
+                4.0.45
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -213,7 +213,15 @@ The object returned must not be deallocated using free()! </p>
 <dd><p>Pause execution of the participant. </p>
 <p>Switch to SilKit_ParticipantState_Paused due to the provided <code class="docutils literal notranslate"><span class="pre">reason</span></code>.</p>
 <p>When a client is in state SilKit_ParticipantState_Paused, it must not be considered as unresponsive even if a health monitoring related timeout occurs.</p>
-<p>Precondition: State() == SilKit_ParticipantState_Running </p>
+<p>Precondition: State() == SilKit_ParticipantState_Running</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lifecycleService</strong> – The lifecycle service of the simulation. </p></li>
+<li><p><strong>reason</strong> – A string describing the reason why the simulation was paused (UTF-8). </p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="cpp function">

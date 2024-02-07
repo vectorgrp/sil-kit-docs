@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Entry Point and API Organization &mdash; Vector SIL Kit 4.0.44 documentation</title>
+  <title>Entry Point and API Organization &mdash; Vector SIL Kit 4.0.45 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.44
+                4.0.45
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -149,7 +149,7 @@ with the corresponding pointer to the <code class="docutils literal notranslate"
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>outString</strong> – The pointer through which the resulting human readable error string will be returned. </p></li>
+<li><p><strong>outString</strong> – The pointer through which the resulting human readable error string, encoded in UTF-8, will be returned. </p></li>
 <li><p><strong>returnCode</strong> – The return code for which the string should be obtained.</p></li>
 </ul>
 </dd>
@@ -231,7 +231,7 @@ The lifetime of the returned logger is directly bound to the lifetime of the sim
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>logger</strong> – The logger to use. </p></li>
 <li><p><strong>level</strong> – The log level for the message. </p></li>
-<li><p><strong>message</strong> – The message which shall be logged. </p></li>
+<li><p><strong>message</strong> – The message which shall be logged (UTF-8). </p></li>
 </ul>
 </dd>
 </dl>

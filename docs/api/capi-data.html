@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Publish/Subscribe C API &mdash; Vector SIL Kit 4.0.44 documentation</title>
+  <title>Data Publish/Subscribe C API &mdash; Vector SIL Kit 4.0.45 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.44
+                4.0.45
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -120,7 +120,7 @@ It consists of data publishers and data subscribers.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>outPublisher</strong> – Pointer to which the resulting DataPublisher reference will be written. </p></li>
 <li><p><strong>participant</strong> – The simulation participant for which the DataPublisher should be created. </p></li>
-<li><p><strong>controllerName</strong> – The name of this controller. </p></li>
+<li><p><strong>controllerName</strong> – The name of this controller (UTF-8). </p></li>
 <li><p><strong>dataSpec</strong> – The specification of topic, media type and labels. </p></li>
 <li><p><strong>history</strong> – A number indicating the number of historic values that should be replayed for a new DataSubscriber. Restricted to {0|1}. </p></li>
 </ul>
@@ -154,7 +154,7 @@ It consists of data publishers and data subscribers.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>outSubscriber</strong> – Pointer to which the resulting DataSubscriber reference will be written. </p></li>
 <li><p><strong>participant</strong> – The simulation participant for which the DataSubscriber should be created. </p></li>
-<li><p><strong>controllerName</strong> – The name of this controller. </p></li>
+<li><p><strong>controllerName</strong> – The name of this controller (UTF-8). </p></li>
 <li><p><strong>dataSpec</strong> – The specification of topic, media type and labels. </p></li>
 <li><p><strong>dataHandlerContext</strong> – A user provided context that is reobtained on data reception in the dataHandler. </p></li>
 <li><p><strong>dataHandler</strong> – The handler that is called on data reception. Can be overwritten by <a class="reference internal" href="#_data_pub_sub_8h_1a18f068f41e812fbfe98ecedda5a6e751"><span class="std std-ref">SilKit_DataSubscriber_SetDataMessageHandler</span></a>. </p></li>

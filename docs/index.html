@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vector SIL Kit Overview &mdash; Vector SIL Kit 4.0.44 documentation</title>
+  <title>Vector SIL Kit Overview &mdash; Vector SIL Kit 4.0.45 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.44
+                4.0.45
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -97,30 +97,25 @@
              
   <section id="vector-sil-kit-overview">
 <h1>Vector SIL Kit Overview<a class="headerlink" href="#vector-sil-kit-overview" title="Permalink to this heading"></a></h1>
-<p>The Vector SIL Kit is an open source library for connecting Software-in-the-Loop Environments.</p>
-<p>Vector SIL Kit provides</p>
-<ul>
-<li><p>communication infrastructure for automotive and non-automotive applications</p></li>
-<li><p>interoperability between any SIL Kit enabled applications</p></li>
-<li><p>cross platform communication</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>implemented in C++ w/o platform dependencies</p></li>
-<li><p>interoperability between Windows, Linux, and other UNIX derivates​</p></li>
-</ul>
-</div></blockquote>
-</li>
+<p>The Vector SIL Kit is an open source library for connecting Software-in-the-Loop Environments.
+It provides:</p>
+<ul class="simple">
+<li><p>Communication infrastructure for automotive and non-automotive applications</p></li>
+<li><p>Interoperability between any SIL Kit enabled applications</p></li>
+<li><p>Cross platform communication</p></li>
+<li><p>Implemented in C++ w/o platform dependencies</p></li>
+<li><p>Interoperability between Windows, Linux, and other UNIX derivates​</p></li>
 <li><p>Stable API and ABI as well as long-term network layer compatibility</p></li>
 </ul>
 <section id="supported-services">
 <span id="sec-overview-supported-services"></span><h2>Supported Services<a class="headerlink" href="#supported-services" title="Permalink to this heading"></a></h2>
-<p>The currently supported services of the SIL Kit consist of the following categories:</p>
+<p>The services currently supported by the SIL Kit consist of the following categories:</p>
 <ul class="simple">
-<li><p><strong>Vehicle Network Controllers:</strong> CAN / CAN FD, Ethernet, FlexRay, and LIN</p></li>
-<li><p><strong>Data Publish/Subscribe:</strong> exchange of arbitrary data</p></li>
-<li><p><strong>RPC Servers/Clients:</strong> for dynamic remote procedure execution</p></li>
-<li><p><strong>Orchestration:</strong> for lifecycle and time synchronization control</p></li>
-<li><p><strong>Logging:</strong> for logging messages into a file, standard output, or to other participants</p></li>
+<li><p><strong>Vehicle Network Controllers:</strong> <a class="reference internal" href="api/can.html#chap-can-service-api"><span class="std std-ref">CAN / CAN FD</span></a>, <a class="reference internal" href="api/ethernet.html#chap-ethernet-service-api"><span class="std std-ref">Ethernet</span></a>, <a class="reference internal" href="api/flexray.html#chap-flexray-service-api"><span class="std std-ref">FlexRay</span></a>, and <a class="reference internal" href="api/lin.html#chap-lin-service-api"><span class="std std-ref">LIN</span></a></p></li>
+<li><p><strong>Data Publish/Subscribe:</strong> topic-based <a class="reference internal" href="api/pubsub.html#chap-pubsub-service-api"><span class="std std-ref">publish/subscribe</span></a> mechanism to exchange arbitrary data</p></li>
+<li><p><strong>RPC Servers/Clients:</strong> for dynamic <a class="reference internal" href="api/rpc.html#chap-rpc-service-api"><span class="std std-ref">remote procedure execution</span></a></p></li>
+<li><p><strong>Orchestration:</strong> for <a class="reference internal" href="api/lifecycleService.html#chap-lifecycle-service-api"><span class="std std-ref">lifecycle</span></a> and <a class="reference internal" href="api/timeSyncService.html#chap-timesync-service-api"><span class="std std-ref">time synchronization</span></a> control</p></li>
+<li><p><strong>Logging:</strong> for <a class="reference internal" href="api/logging.html#chap-logging-service-api"><span class="std std-ref">logging</span></a> messages into a file, standard output, or to other participants</p></li>
 </ul>
 </section>
 <section id="vehicle-networks">

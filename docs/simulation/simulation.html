@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simulation &mdash; Vector SIL Kit 4.0.44 documentation</title>
+  <title>Simulation &mdash; Vector SIL Kit 4.0.45 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -33,7 +33,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.44
+                4.0.45
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -243,12 +243,12 @@ lifecycle (see <a class="reference internal" href="../api/systemcontroller.html"
 </figcaption>
 </figure>
 <section id="starting-a-simulation">
-<h4>Starting a Simulation<a class="headerlink" href="#starting-a-simulation" title="Permalink to this heading"></a></h4>
+<span id="subsubsec-sim-lifecycle-starting-a-simulation"></span><h4>Starting a Simulation<a class="headerlink" href="#starting-a-simulation" title="Permalink to this heading"></a></h4>
 <p>A participant enters the distributed state machine by calling <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService14StartLifecycleEv" title="SilKit::Services::Orchestration::ILifecycleService::StartLifecycle"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">StartLifecycle()</span></code></a>.
 This will cause the <a class="reference internal" href="#subsubsec-sim-lifecycle-lifecycleservice"><span class="std std-ref">Lifecycle Service</span></a> to announce its state as <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState15ServicesCreatedE" title="SilKit::Services::Orchestration::ParticipantState::ServicesCreated"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">ServicesCreated</span></code></a>, indicating that all services were created and announced to other participants.</p>
 <p>A participant that uses the lifecycle service may choose to coordinate its state with other participants by creating the <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleServiceE" title="SilKit::Services::Orchestration::ILifecycleService"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ILifecycleService</span></code></a> with <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration13OperationMode11CoordinatedE" title="SilKit::Services::Orchestration::OperationMode::Coordinated"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">OperationMode::Coordinated</span></code></a>.
 In that case, they will align their participant state based on the current system state until they reach <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState24CommunicationInitializedE" title="SilKit::Services::Orchestration::ParticipantState::CommunicationInitialized"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">CommunicationInitialized</span></code></a>.</p>
-<p>Once the system state also changes to CommunicationInitialized, the communication between all participants via <a class="reference internal" href="../api/pubsub.html#_CPPv4N6SilKit8Services6PubSub14IDataPublisherE" title="SilKit::Services::PubSub::IDataPublisher"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">DataPublisher</span></code></a> and <a class="reference internal" href="../api/pubsub.html#_CPPv4N6SilKit8Services6PubSub15IDataSubscriberE" title="SilKit::Services::PubSub::IDataSubscriber"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">DataSubscriber</span></code></a> is possible.
+<p>Once the system state also changes to CommunicationInitialized, the communication between all participants via PubSub / RPC is possible.
 This information is propagated to the user if they registered the callback via <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService28SetCommunicationReadyHandlerE25CommunicationReadyHandler" title="SilKit::Services::Orchestration::ILifecycleService::SetCommunicationReadyHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetCommunicationReadyHandler()</span></code></a>.
 Once the callback is finished, the participant state changes to <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState10ReadyToRunE" title="SilKit::Services::Orchestration::ParticipantState::ReadyToRun"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">ReadyToRun</span></code></a>.
 The participant will wait for the system state to change to <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration11SystemState10ReadyToRunE" title="SilKit::Services::Orchestration::SystemState::ReadyToRun"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">ReadyToRun</span></code></a> as well and then proceeds to the <a class="reference internal" href="../api/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState7RunningE" title="SilKit::Services::Orchestration::ParticipantState::Running"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Running</span></code></a> state.</p>

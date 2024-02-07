@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>System Monitor &mdash; Vector SIL Kit 4.0.44 documentation</title>
+  <title>System Monitor &mdash; Vector SIL Kit 4.0.45 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.44
+                4.0.45
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -265,7 +265,7 @@ They report the name of any other participant connecting and disconnecting from 
 <dd><p>Get the current <a class="reference internal" href="#struct_sil_kit_1_1_services_1_1_orchestration_1_1_participant_status"><span class="std std-ref">ParticipantStatus</span></a> of specific participant. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>participantName</strong> – The name of the participant for which the status is queried. </p>
+<dd class="field-odd"><p><strong>participantName</strong> – The name of the participant for which the status is queried (UTF-8). </p>
 </dd>
 <dt class="field-even">Throws</dt>
 <dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">SilKitError</span></span></span> – If the participant name does not identify a participant that participates in synchronization. </p>
@@ -301,7 +301,7 @@ They report the name of any other participant connecting and disconnecting from 
 <dd><p>Check if a participant identified by the participantName is present. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>participantName</strong> – The name of the participant for which presence is queried. </p>
+<dd class="field-odd"><p><strong>participantName</strong> – The name of the participant for which presence is queried (UTF-8). </p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>true if the participant is present </p>
@@ -324,7 +324,7 @@ They report the name of any other participant connecting and disconnecting from 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ParticipantStatus15participantNameE">
 <span id="_CPPv3N6SilKit8Services13Orchestration17ParticipantStatus15participantNameE"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ParticipantStatus15participantNameE"></span><span id="SilKit::Services::Orchestration::ParticipantStatus::participantName__ss"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_orchestration_1_1_participant_status_1ae5193e8d76104d2ba72de9fd94852501"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">participantName</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ParticipantStatus15participantNameE" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Name of the participant. </p>
+<dd><p>Name of the participant (UTF-8). </p>
 </dd></dl>
 
 <dl class="cpp var">
@@ -336,7 +336,7 @@ They report the name of any other participant connecting and disconnecting from 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ParticipantStatus11enterReasonE">
 <span id="_CPPv3N6SilKit8Services13Orchestration17ParticipantStatus11enterReasonE"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ParticipantStatus11enterReasonE"></span><span id="SilKit::Services::Orchestration::ParticipantStatus::enterReason__ss"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_orchestration_1_1_participant_status_1a913627b7eb380d7611fd3fcd9424c3ca"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">enterReason</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ParticipantStatus11enterReasonE" title="Permalink to this definition"></a><br /></dt>
-<dd><p>The reason for the participant to enter the new state. </p>
+<dd><p>The reason for the participant to enter the new state (UTF-8). </p>
 </dd></dl>
 
 <dl class="cpp var">
