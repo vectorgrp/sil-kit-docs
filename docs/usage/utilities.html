@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Utilities &mdash; Vector SIL Kit 4.0.45 documentation</title>
+  <title>Utilities &mdash; Vector SIL Kit 4.0.46 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.45
+                4.0.46
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -134,7 +134,7 @@ of the SIL Kit are free to implement their own system and state handling.</p>
 <dd><p>The <code class="docutils literal notranslate"><span class="pre">silkit://</span></code> URI the registry should listen on. Defaults to <code class="docutils literal notranslate"><span class="pre">silkit://localhost:8500</span></code>.</p>
 </dd>
 <dt><kbd><span class="option">-l</span>, <span class="option">--log <var>&lt;level&gt;</var></span></kbd></dt>
-<dd><p>Log to stdout with level <code class="docutils literal notranslate"><span class="pre">trace</span></code>, <code class="docutils literal notranslate"><span class="pre">debug</span></code>, <code class="docutils literal notranslate"><span class="pre">warn</span></code>, <code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">error</span></code>, <code class="docutils literal notranslate"><span class="pre">critical</span></code> or <code class="docutils literal notranslate"><span class="pre">off</span></code>. Defaults to <code class="docutils literal notranslate"><span class="pre">info</span></code>.</p>
+<dd><p>Log to stdout with level <code class="docutils literal notranslate"><span class="pre">off</span></code>, <code class="docutils literal notranslate"><span class="pre">critical</span></code>, <code class="docutils literal notranslate"><span class="pre">error</span></code>, <code class="docutils literal notranslate"><span class="pre">warn</span></code>, <code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">debug</span></code>, or <code class="docutils literal notranslate"><span class="pre">trace</span></code>. Defaults to <code class="docutils literal notranslate"><span class="pre">info</span></code>.</p>
 </dd>
 <dt><kbd><span class="option">-g</span>, <span class="option">--generate-configuration <var>&lt;path&gt;</var></span></kbd></dt>
 <dd><p>Path and filename of a participant configuration file to generate containing the URI the registry is using.</p>
@@ -207,8 +207,11 @@ Furthermore, it requires a list of synchronized participants that are needed to 
 <dt><kbd><span class="option">-n</span>, <span class="option">--name <var>&lt;participantName&gt;</var></span></kbd></dt>
 <dd><p>The participant name used to take part in the simulation. Defaults to <code class="docutils literal notranslate"><span class="pre">SystemController</span></code>.</p>
 </dd>
+<dt><kbd><span class="option">-l</span>, <span class="option">--log <var>&lt;level&gt;</var></span></kbd></dt>
+<dd><p>Log to stdout with level <code class="docutils literal notranslate"><span class="pre">trace</span></code>, <code class="docutils literal notranslate"><span class="pre">debug</span></code>, <code class="docutils literal notranslate"><span class="pre">warn</span></code>, <code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">error</span></code>, <code class="docutils literal notranslate"><span class="pre">critical</span></code> or <code class="docutils literal notranslate"><span class="pre">off</span></code>. Defaults to <code class="docutils literal notranslate"><span class="pre">info</span></code>. Cannot be used together with <code class="docutils literal notranslate"><span class="pre">--configuration</span></code>.</p>
+</dd>
 <dt><kbd><span class="option">-c</span>, <span class="option">--configuration <var>&lt;configuration&gt;</var></span></kbd></dt>
-<dd><p>Path and filename of the participant configuration YAML file.</p>
+<dd><p>Path and filename of the participant configuration YAML file. Cannot be used together with <code class="docutils literal notranslate"><span class="pre">--log</span></code>.</p>
 </dd>
 <dt><kbd><span class="option">-n<var>i</var></span>, <span class="option">--non-interactive</span></kbd></dt>
 <dd><p>Run without awaiting any user interactions at any time.</p>

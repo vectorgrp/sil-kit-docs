@@ -6,6 +6,31 @@ All notable changes to the Vector SIL Kit project shall be documented in this fi
 
 The format is based on `Keep a Changelog (http://keepachangelog.com/en/1.0.0/) <http://keepachangelog.com/en/1.0.0/>`_.
 
+
+[4.0.46] - 2024-02-27
+---------------------
+
+Fixed
+~~~~~
+
+- Added the ``*.manifest`` files to the source distribution. Building from the ``SilKit-Source``
+  directory in the distributed ``.zip`` files was broken.
+
+- Update ``yaml-cpp`` to version 0.8.0 to fix linker errors caused by a missing symbol.
+
+- The system controller utility now logs parts of the command line output using the logger object
+  of the participant.
+
+Added
+~~~~~
+
+- Added a ``--log`` option to the system controller utility which cannot be used together with the
+  ``--configuration`` option. It provides a shortcut to set the log level of the utility.
+
+- Utilities: prepare the registry for handling multiple simulations
+
+- Added a licensecheck to prevent source files without a license header
+
 [4.0.45] - 2024-02-06
 ---------------------
 
