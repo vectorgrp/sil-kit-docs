@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAN C API &mdash; Vector SIL Kit 4.0.46 documentation</title>
+  <title>CAN C API &mdash; Vector SIL Kit 4.0.47 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.46
+                4.0.47
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -103,6 +103,7 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="#can-controller" id="id1">CAN Controller</a></p></li>
 <li><p><a class="reference internal" href="#data-structures" id="id2">Data Structures</a></p></li>
+<li><p><a class="reference internal" href="#enumerations-and-typedefs" id="id3">Enumerations and Typedefs</a></p></li>
 </ul>
 </div>
 <section id="can-controller">
@@ -342,7 +343,7 @@ In a detailed simulation, the baud rate is used to calculate transmission delays
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N15SilKit_CanFrame5flagsE">
-<span id="_CPPv3N15SilKit_CanFrame5flagsE"></span><span id="_CPPv2N15SilKit_CanFrame5flagsE"></span><span id="SilKit_CanFrame::flags__SilKit_CanFrameFlag"></span><span class="target" id="struct_sil_kit___can_frame_1a1d6d81dfea2c7a89ab9ebec62e16da75"></span><span class="n"><span class="pre">SilKit_CanFrameFlag</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">flags</span></span></span><a class="headerlink" href="#_CPPv4N15SilKit_CanFrame5flagsE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N15SilKit_CanFrame5flagsE"></span><span id="_CPPv2N15SilKit_CanFrame5flagsE"></span><span id="SilKit_CanFrame::flags__SilKit_CanFrameFlag"></span><span class="target" id="struct_sil_kit___can_frame_1a1d6d81dfea2c7a89ab9ebec62e16da75"></span><a class="reference internal" href="#_CPPv419SilKit_CanFrameFlag" title="SilKit_CanFrameFlag"><span class="n"><span class="pre">SilKit_CanFrameFlag</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">flags</span></span></span><a class="headerlink" href="#_CPPv4N15SilKit_CanFrame5flagsE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>CAN Arbitration and Control Field Flags; see SilKit_CanFrameFlag. </p>
 </dd></dl>
 
@@ -514,6 +515,57 @@ You must check that the structure version is sufficient before accessing this fi
 </dd></dl>
 
 </div>
+</dd></dl>
+
+</section>
+<section id="enumerations-and-typedefs">
+<h2><a class="toc-backref" href="#id3">Enumerations and Typedefs</a><a class="headerlink" href="#enumerations-and-typedefs" title="Permalink to this heading"></a></h2>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv419SilKit_CanFrameFlag">
+<span id="_CPPv319SilKit_CanFrameFlag"></span><span id="_CPPv219SilKit_CanFrameFlag"></span><span id="SilKit_CanFrameFlag"></span><span class="target" id="_can_8h_1a1b2fa7ad68009b3514d76713d951f07b"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_CanFrameFlag</span></span></span><a class="headerlink" href="#_CPPv419SilKit_CanFrameFlag" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The available flags within the flags member of a CAN frame. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.SilKit_CanFrameFlag_ide">
+<span class="target" id="_can_8h_1a7ccfd7c89abc096a4c4cf464f00b8492"></span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_CanFrameFlag_ide</span></span></span><a class="headerlink" href="#c.SilKit_CanFrameFlag_ide" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Identifier Extension. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.SilKit_CanFrameFlag_rtr">
+<span class="target" id="_can_8h_1ad2edd7ae1592d1c44c1e2af233d2ddaf"></span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_CanFrameFlag_rtr</span></span></span><a class="headerlink" href="#c.SilKit_CanFrameFlag_rtr" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Remote Transmission Request. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.SilKit_CanFrameFlag_fdf">
+<span class="target" id="_can_8h_1ae0755ca18aafb8f6909d1b2b16a7f2b1"></span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_CanFrameFlag_fdf</span></span></span><a class="headerlink" href="#c.SilKit_CanFrameFlag_fdf" title="Permalink to this definition"></a><br /></dt>
+<dd><p>FD Format Indicator. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.SilKit_CanFrameFlag_brs">
+<span class="target" id="_can_8h_1ab60d62126d938a4d065b5b975892e019"></span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_CanFrameFlag_brs</span></span></span><a class="headerlink" href="#c.SilKit_CanFrameFlag_brs" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Bit Rate Switch (for FD Format only) </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.SilKit_CanFrameFlag_esi">
+<span class="target" id="_can_8h_1a94f9b48a6488ed713c1793c3281dfc82"></span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_CanFrameFlag_esi</span></span></span><a class="headerlink" href="#c.SilKit_CanFrameFlag_esi" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Error State indicator (for FD Format only) </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.SilKit_CanFrameFlag_xlf">
+<span class="target" id="_can_8h_1ab7647e1e8d769a98e48ade205b0ddf91"></span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_CanFrameFlag_xlf</span></span></span><a class="headerlink" href="#c.SilKit_CanFrameFlag_xlf" title="Permalink to this definition"></a><br /></dt>
+<dd><p>XL Format Indicator. </p>
+</dd></dl>
+
+<dl class="cpp macro">
+<dt class="sig sig-object cpp" id="c.SilKit_CanFrameFlag_sec">
+<span class="target" id="_can_8h_1af0ef1f3e841a4d0efffcbf045825ecc4"></span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_CanFrameFlag_sec</span></span></span><a class="headerlink" href="#c.SilKit_CanFrameFlag_sec" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Simple Extended Content (for XL Format only) </p>
 </dd></dl>
 
 </section>
