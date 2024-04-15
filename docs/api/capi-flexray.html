@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FlexRay C API &mdash; Vector SIL Kit 4.0.47 documentation</title>
+  <title>FlexRay C API &mdash; Vector SIL Kit 4.0.48 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.47
+                4.0.48
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -753,6 +753,11 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 <dd><p>FlexRay buffer configs. </p>
 </dd></dl>
 
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N30SilKit_FlexrayControllerConfig13bufferConfigsE">
+<span id="_CPPv3N30SilKit_FlexrayControllerConfig13bufferConfigsE"></span><span id="_CPPv2N30SilKit_FlexrayControllerConfig13bufferConfigsE"></span><span id="SilKit_FlexrayControllerConfig::bufferConfigs__SilKit_FlexrayTxBufferConfigP"></span><span class="target" id="struct_sil_kit___flexray_controller_config_1aab794d4408790156b25c643336cdaaf3"></span><a class="reference internal" href="#_CPPv428SilKit_FlexrayTxBufferConfig" title="SilKit_FlexrayTxBufferConfig"><span class="n"><span class="pre">SilKit_FlexrayTxBufferConfig</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">bufferConfigs</span></span></span><a class="headerlink" href="#_CPPv4N30SilKit_FlexrayControllerConfig13bufferConfigsE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
 </div>
 </dd></dl>
 
@@ -815,6 +820,26 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 </p>
 </dd></dl>
 
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20SilKit_FlexrayHeader7frameIdE">
+<span id="_CPPv3N20SilKit_FlexrayHeader7frameIdE"></span><span id="_CPPv2N20SilKit_FlexrayHeader7frameIdE"></span><span id="SilKit_FlexrayHeader::frameId__uint16_t"></span><span class="target" id="struct_sil_kit___flexray_header_1a18c4c77fef8bef13d04d21f8b8cc69f4"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">frameId</span></span></span><a class="headerlink" href="#_CPPv4N20SilKit_FlexrayHeader7frameIdE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20SilKit_FlexrayHeader13payloadLengthE">
+<span id="_CPPv3N20SilKit_FlexrayHeader13payloadLengthE"></span><span id="_CPPv2N20SilKit_FlexrayHeader13payloadLengthE"></span><span id="SilKit_FlexrayHeader::payloadLength__uint8_t"></span><span class="target" id="struct_sil_kit___flexray_header_1aaec5733d839c9b824aa9d07519833d43"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">payloadLength</span></span></span><a class="headerlink" href="#_CPPv4N20SilKit_FlexrayHeader13payloadLengthE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20SilKit_FlexrayHeader9headerCrcE">
+<span id="_CPPv3N20SilKit_FlexrayHeader9headerCrcE"></span><span id="_CPPv2N20SilKit_FlexrayHeader9headerCrcE"></span><span id="SilKit_FlexrayHeader::headerCrc__uint16_t"></span><span class="target" id="struct_sil_kit___flexray_header_1a9fb450cd31a522ec568ea724cef8ffab"></span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">headerCrc</span></span></span><a class="headerlink" href="#_CPPv4N20SilKit_FlexrayHeader9headerCrcE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20SilKit_FlexrayHeader10cycleCountE">
+<span id="_CPPv3N20SilKit_FlexrayHeader10cycleCountE"></span><span id="_CPPv2N20SilKit_FlexrayHeader10cycleCountE"></span><span id="SilKit_FlexrayHeader::cycleCount__uint8_t"></span><span class="target" id="struct_sil_kit___flexray_header_1a482318469bb6c9ea1e0118c17451e773"></span><span class="n"><span class="pre">uint8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cycleCount</span></span></span><a class="headerlink" href="#_CPPv4N20SilKit_FlexrayHeader10cycleCountE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
 </div>
 </dd></dl>
 
@@ -834,6 +859,11 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 <span id="_CPPv3N19SilKit_FlexrayFrame6headerE"></span><span id="_CPPv2N19SilKit_FlexrayFrame6headerE"></span><span id="SilKit_FlexrayFrame::header__SilKit_FlexrayHeaderP"></span><span class="target" id="struct_sil_kit___flexray_frame_1aab782642778dc01faacc0e07da96ce53"></span><a class="reference internal" href="#_CPPv420SilKit_FlexrayHeader" title="SilKit_FlexrayHeader"><span class="n"><span class="pre">SilKit_FlexrayHeader</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">header</span></span></span><a class="headerlink" href="#_CPPv4N19SilKit_FlexrayFrame6headerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Header flags, slot, crc, and cycle indidcators. </p>
 </dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N19SilKit_FlexrayFrame7payloadE">
+<span id="_CPPv3N19SilKit_FlexrayFrame7payloadE"></span><span id="_CPPv2N19SilKit_FlexrayFrame7payloadE"></span><span id="SilKit_FlexrayFrame::payload__SilKit_ByteVector"></span><span class="target" id="struct_sil_kit___flexray_frame_1a4ca89177352f566b06500091eaa2602b"></span><span class="n"><span class="pre">SilKit_ByteVector</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">payload</span></span></span><a class="headerlink" href="#_CPPv4N19SilKit_FlexrayFrame7payloadE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
 
 </div>
 </dd></dl>
@@ -987,6 +1017,11 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 <span id="_CPPv3N28SilKit_FlexrayPocStatusEvent9timestampE"></span><span id="_CPPv2N28SilKit_FlexrayPocStatusEvent9timestampE"></span><span id="SilKit_FlexrayPocStatusEvent::timestamp__SilKit_NanosecondsTime"></span><span class="target" id="struct_sil_kit___flexray_poc_status_event_1a3602eb9d3a6adc3b21c804940ec848d4"></span><span class="n"><span class="pre">SilKit_NanosecondsTime</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">timestamp</span></span></span><a class="headerlink" href="#_CPPv4N28SilKit_FlexrayPocStatusEvent9timestampE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>SIL Kit timestamp. </p>
 </dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N28SilKit_FlexrayPocStatusEvent5stateE">
+<span id="_CPPv3N28SilKit_FlexrayPocStatusEvent5stateE"></span><span id="_CPPv2N28SilKit_FlexrayPocStatusEvent5stateE"></span><span id="SilKit_FlexrayPocStatusEvent::state__SilKit_FlexrayPocState"></span><span class="target" id="struct_sil_kit___flexray_poc_status_event_1a08e8553530a23ad19a3082ef680ad46f"></span><a class="reference internal" href="#_CPPv422SilKit_FlexrayPocState" title="SilKit_FlexrayPocState"><span class="n"><span class="pre">SilKit_FlexrayPocState</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">state</span></span></span><a class="headerlink" href="#_CPPv4N28SilKit_FlexrayPocStatusEvent5stateE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
 
 <dl class="cpp var">
 <dt class="sig sig-object cpp" id="_CPPv4N28SilKit_FlexrayPocStatusEvent14chiHaltRequestE">
