@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Demos &mdash; Vector SIL Kit 4.0.48 documentation</title>
+  <title>Demos &mdash; Vector SIL Kit 4.0.49 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.48
+                4.0.49
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -58,9 +58,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#rpc-demo">RPC Demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#benchmark-demo">Benchmark Demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#latency-demo">Latency Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#network-simulator-demo">Network Simulator Demo</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../netsim/netsim.html">Custom Network Simulator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
@@ -752,6 +754,76 @@ the ./SilKit/bin/sil-kit-system-controller to start.</p>
 <div class="line"><br /></div>
 <div class="line">Note that the two participants must use the same parameters for valid measurement and one participant must use the <code class="docutils literal notranslate"><span class="pre">--isReceiver</span></code> flag.</div>
 </div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="network-simulator-demo">
+<span id="sec-util-netsim-demo"></span><h2>Network Simulator Demo<a class="headerlink" href="#network-simulator-demo" title="Permalink to this heading"></a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 92%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Abstract</p></th>
+<td><p>Demo usage of the Network Simulation API</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Source location</p></th>
+<td><p>./SilKit-Demos/NetworkSimulator</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Requirements</p></th>
+<td><ul class="simple">
+<li><p><a class="reference internal" href="utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
+<li><p><a class="reference internal" href="utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></p></li>
+<li><p><a class="reference internal" href="utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Parameters</p></th>
+<td><dl class="simple">
+<dt>&lt;ParticipantConfiguration.yaml&gt;</dt><dd><p>File name of the participant configuration to be used;
+use <code class="docutils literal notranslate"><span class="pre">DemoNetSim.silkit.yaml</span></code> for an example configuration.</p>
+</dd>
+<dt>&lt;ParticipantName&gt;</dt><dd><p>The name of the participant within the simulation.</p>
+</dd>
+<dt>[RegistryUri]</dt><dd><p>The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Parameter Example</p></th>
+<td><pre class="literal-block"># Start the Network Simulator Demo with the given config and participant name
+./SilKit/bin/SilKitDemoNetSim ./SilKit-Demos/NetworkSimulator/DemoNetSim.silkit.silkit.yaml NetworkSimulator</pre>
+</td>
+</tr>
+<tr class="row-even"><th class="stub"><p>System Example</p></th>
+<td><p>Interplay with CAN Demo:</p>
+<pre class="literal-block"># Registry (if not already running):
+./SilKit/bin/sil-kit-registry
+
+# Monitor (optional):
+./SilKit/bin/sil-kit-monitor
+
+# CAN Reader:
+./SilKit/bin/SilKitDemoCan ./SilKit-Demos/Can/DemoCan.silkit.yaml CanReader
+
+# CAN Writer:
+./SilKit/bin/SilKitDemoCan ./SilKit-Demos/Can/DemoCan.silkit.yaml CanWriter
+
+# System Controller:
+./SilKit/bin/sil-kit-system-controller CanReader CanWriter NetworkSimulator
+
+# Network Simulator Demo:
+./SilKit/bin/SilKitDemoNetSim ./SilKit-Demos/NetworkSimulator/DemoNetSim.silkit.silkit.yaml NetworkSimulator</pre>
+</td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Notes</p></th>
+<td><ul class="simple">
+<li><p>The CAN Reader and Writer configure their controller on the network “CAN1”, which is simulated by the network simulator demo.</p></li>
+<li><p>In the simple bus logic of the network simulation demo (see <code class="docutils literal notranslate"><span class="pre">Demos\NetworkSimulator\src\Can\MySimulatedCanController.cpp</span></code>), the acknowledgement (CanFrameTransmitEvent) is sent directly to the CAN Writer. The frame itself (CanFrameEvent) is sent with a delay of 2ms.</p></li>
+</ul>
 </td>
 </tr>
 </tbody>

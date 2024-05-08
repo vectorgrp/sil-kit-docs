@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Network Simulator &mdash; Vector SIL Kit 4.0.49 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Utilities" href="../usage/utilities.html" />
+    <link rel="prev" title="Middleware Configuration" href="../configuration/middleware-configuration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.49
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-users/users.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-developers/developers.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Custom Network Simulator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-netsim-api">Using the Network Simulator API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-phase">Configuration phase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-phase">Simulation phase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#handling-simulation-time">Handling simulation time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integrating-in-the-productname-lifecycle">Integrating in the SIL Kit Lifecycle</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#api-and-data-type-reference">API and Data Type Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#networksimulator-api">NetworkSimulator API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enumerations-and-typedefs">Enumerations and Typedefs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Custom Network Simulator</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/netsim/netsim.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="custom-network-simulator">
+<h1>Custom Network Simulator<a class="headerlink" href="#custom-network-simulator" title="Permalink to this heading"></a></h1>
+<p id="sec-sil-kit-netsim">With the Network Simulator API, a custom network simulation for CAN, LIN, Ethernet or Flexray is made accessible.
+The core concept is that all controller communication is redirected to a network simulator participant who performs the detailed simulation and is responsible for the final message distribution.
+The scope of the Network Simulator API is to manage the message flow for incoming and outgoing messages, not to perform the simulation logic.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The Network Simulator API is experimental and might be changed or removed in future versions of the SIL Kit.</p>
+</div>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#using-the-netsim-api" id="id3">Using the Network Simulator API</a></p>
+<ul>
+<li><p><a class="reference internal" href="#configuration-phase" id="id4">Configuration phase</a></p></li>
+<li><p><a class="reference internal" href="#simulation-phase" id="id5">Simulation phase</a></p></li>
+<li><p><a class="reference internal" href="#handling-simulation-time" id="id6">Handling simulation time</a></p></li>
+<li><p><a class="reference internal" href="#integrating-in-the-productname-lifecycle" id="id7">Integrating in the SIL Kit Lifecycle</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#api-and-data-type-reference" id="id8">API and Data Type Reference</a></p>
+<ul>
+<li><p><a class="reference internal" href="#networksimulator-api" id="id9">NetworkSimulator API</a></p></li>
+<li><p><a class="reference internal" href="#enumerations-and-typedefs" id="id10">Enumerations and Typedefs</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="using-the-netsim-api">
+<h2><a class="toc-backref" href="#id3">Using the Network Simulator API</a><a class="headerlink" href="#using-the-netsim-api" title="Permalink to this heading"></a></h2>
+<p>The usage of the Network Simulator API can be split into a configuration- and a simulation phase.
+In the <em>configuration phase</em>, the Network Simulator defines the simulated networks while other participants create their controllers.
+The SIL Kit takes care of informing the Network Simulator about the emerging controllers.
+Vice versa, the controllers are informed that their network is simulated by the Network Simulator.
+The controllers on a simulated network will route their outgoing messages exclusively to the Network Simulator.
+Note that this behavior switch does not require any action on the participant that holds the controller.
+If the controller was configured with a network name that the Network Simulator defined as a simulated network, the new routing will take place automatically.</p>
+<p>In the <em>simulation phase</em>, each message (e.g., controller configuration, frame requests) triggers a callback on the Network Simulator.
+These callbacks will drive the simulation implemented by the user.
+For outgoing messages, the Network Simulator API allows to produce events that can target individual controllers.
+E.g., a frame request will finally result in a frame transmission for all controllers and an acknowledge message for the triggering controller.</p>
+<section id="configuration-phase">
+<h3><a class="toc-backref" href="#id4">Configuration phase</a><a class="headerlink" href="#configuration-phase" title="Permalink to this heading"></a></h3>
+<p>The entry point of the Network Simulator API is the creation of an <a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17INetworkSimulatorE" title="SilKit::Experimental::NetworkSimulation::INetworkSimulator"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">INetworkSimulator</span></code></a> at a participant.
+Only one network simulator per participant is allowed:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">INetworkSimulator</span><span class="o">*</span><span class="w"> </span><span class="n">networkSimulator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Experimental</span><span class="o">::</span><span class="n">Participant</span><span class="o">::</span><span class="n">CreateNetworkSimulator</span><span class="p">(</span><span class="n">participant</span><span class="p">.</span><span class="n">get</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>On the <a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17INetworkSimulatorE" title="SilKit::Experimental::NetworkSimulation::INetworkSimulator"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">INetworkSimulator</span></code></a> instance, simulated networks can be registered.
+This affects controller of the given type in the whole SIL Kit simulation, if their configured network name and type matches.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">mySimulatedCanNetwork</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">MySimulatedCanNetwork</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;CAN1&quot;</span><span class="p">);</span>
+<span class="n">networkSimulator</span><span class="o">-&gt;</span><span class="n">SimulateNetwork</span><span class="p">(</span><span class="s">&quot;CAN1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SimulatedNetworkType</span><span class="o">::</span><span class="n">CAN</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">mySimulatedCanNetwork</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>The instance <code class="docutils literal notranslate"><span class="pre">mySimulatedCanNetwork</span></code> passed in <a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17INetworkSimulator15SimulateNetworkERKNSt6stringE20SimulatedNetworkTypeNSt10unique_ptrI17ISimulatedNetworkEE" title="SilKit::Experimental::NetworkSimulation::INetworkSimulator::SimulateNetwork"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SimulateNetwork</span></code></a> represents a specific, named simulated network.
+The underlying class must inherit from the <a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17ISimulatedNetworkE" title="SilKit::Experimental::NetworkSimulation::ISimulatedNetwork"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ISimulatedNetwork</span></code></a> interface and must be implemented by the user of the Network Simulator API.
+Its purpose is twofold:</p>
+<ol class="arabic simple">
+<li><p>Providing a producer object to send out messages to targeted controllers.
+This happens once per network by a a call from the SIL Kit to <a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17ISimulatedNetwork16SetEventProducerENSt10unique_ptrI14IEventProducerEE" title="SilKit::Experimental::NetworkSimulation::ISimulatedNetwork::SetEventProducer"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetEventProducer()</span></code></a>, here on the <em>mySimulatedCanNetwork</em> instance.
+In <a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17ISimulatedNetwork16SetEventProducerENSt10unique_ptrI14IEventProducerEE" title="SilKit::Experimental::NetworkSimulation::ISimulatedNetwork::SetEventProducer"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetEventProducer()</span></code></a>, an <code class="docutils literal notranslate"><span class="pre">IEventProducer</span></code> instance is handed over to the user.
+After casting to the specific event producer for the corresponding network type (e.g. to <code class="docutils literal notranslate"><span class="pre">ICanEventProducer</span></code>), the event producer can send targeted messages to the desired recipients.</p></li>
+</ol>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">MySimulatedCanNetwork::SetEventProducer</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">IEventProducer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">eventProducer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="c1">// Store the incoming event producer</span>
+<span class="w">    </span><span class="n">_eventProducer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">eventProducer</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">auto</span><span class="w"> </span><span class="n">MySimulatedCanNetwork</span><span class="o">::</span><span class="n">GetCanEventProducer</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Cast and return the CAN event producer</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Can</span><span class="o">::</span><span class="n">ICanEventProducer</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">_eventProducer</span><span class="p">.</span><span class="n">get</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Getting informed about emerging remote controllers and providing a target for the redirected communication (i.e. the <em>simulated controller</em>).
+This happens by calls from the SIL Kit to <a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17ISimulatedNetwork26ProvideSimulatedControllerE20ControllerDescriptor" title="SilKit::Experimental::NetworkSimulation::ISimulatedNetwork::ProvideSimulatedController"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ProvideSimulatedController()</span></code></a>, here on the <em>mySimulatedCanNetwork</em> instance, whenever a participant creates a controller.
+The method provides routing information to address the controller (i.e., the <em>controller descriptor</em>) and expects the user to return an instance that implements the <a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation20ISimulatedControllerE" title="SilKit::Experimental::NetworkSimulation::ISimulatedController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ISimulatedController</span></code></a> interface.
+For the different network types, one of the specific child classes (e.g., <a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanControllerE" title="SilKit::Experimental::NetworkSimulation::Can::ISimulatedCanController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ISimulatedCanController</span></code></a> for CAN networks) must be used.
+After providing the simulated controller, all messages from the original controller will be routed only to the Network Simulator and trigger message specific reception functions on the provided simulated controller instance.
+Other controllers will no longer receive the messages.</p></li>
+</ol>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">MySimulatedCanNetwork</span><span class="o">::</span><span class="n">ProvideSimulatedController</span><span class="p">(</span><span class="n">ControllerDescriptor</span><span class="w"> </span><span class="n">controllerDescriptor</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ISimulatedController</span><span class="o">*</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Bookkeeping of the controller descriptors</span>
+<span class="w">    </span><span class="n">_controllerDescriptors</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">controllerDescriptor</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Store the simulated controllers</span>
+<span class="w">    </span><span class="n">_mySimulatedCanControllers</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">MySimulatedCanController</span><span class="o">&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">controllerDescriptor</span><span class="p">));</span>
+
+<span class="w">    </span><span class="c1">// Return the interface pointer</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">_mySimulatedControllers</span><span class="p">.</span><span class="n">back</span><span class="p">().</span><span class="n">get</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The following graph shows the Network Simulator API usage of the configuration phase:</p>
+<figure class="align-center" id="id1">
+<span id="label-netsim-api-discovery"></span><a class="reference internal image-reference" href="../_images/netsim-api-discovery.svg"><img alt=": Exemplary configuration phase of a network simulation" src="../_images/netsim-api-discovery.svg" width="1000" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 14 </span><span class="caption-text">: Exemplary configuration phase of a network simulation.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="simulation-phase">
+<h3><a class="toc-backref" href="#id5">Simulation phase</a><a class="headerlink" href="#simulation-phase" title="Permalink to this heading"></a></h3>
+<p>Via the provided implementation of an <a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation20ISimulatedControllerE" title="SilKit::Experimental::NetworkSimulation::ISimulatedController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ISimulatedController</span></code></a> in <a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17ISimulatedNetwork26ProvideSimulatedControllerE20ControllerDescriptor" title="SilKit::Experimental::NetworkSimulation::ISimulatedNetwork::ProvideSimulatedController"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ProvideSimulatedController()</span></code></a>, the user receives events generated by the original controller.
+An <code class="docutils literal notranslate"><span class="pre">On...()</span></code> callback exists for each possible message of a controller.
+E.g., if a remote controller on a simulated network intends to sends a CAN frame and calls <a class="reference internal" href="../api/can.html#_CPPv4N6SilKit8Services3Can14ICanController9SendFrameERK8CanFramePv" title="SilKit::Services::Can::ICanController::SendFrame"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrame()</span></code></a>, <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">OnFrameRequest()</span></code> is triggered on the <a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanControllerE" title="SilKit::Experimental::NetworkSimulation::Can::ISimulatedCanController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ISimulatedCanController</span></code></a>.
+The <code class="docutils literal notranslate"><span class="pre">On...()</span></code> callbacks represent the message input of the Network Simulator.
+For outgoing CAN messages, the <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Produce()</span></code> methods from the <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ICanEventProducer</span></code> can be used.</p>
+<p>In the following code snippet, the simple simulation logic is to send out a <em>CAN frame transmit event</em> to the requesting controller and the actual <em>CAN frame event</em> as a broadcast to all controllers.
+Here, the <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IEventProducer</span></code> was obtained in <a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17ISimulatedNetwork16SetEventProducerENSt10unique_ptrI14IEventProducerEE" title="SilKit::Experimental::NetworkSimulation::ISimulatedNetwork::SetEventProducer"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetEventProducer()</span></code></a> and is stored in <code class="docutils literal notranslate"><span class="pre">MySimulatedCanNetwork</span></code>.
+To target only the desired recipients, the receivers must be specified as a <a class="reference internal" href="../api/memory-management.html#sec-memory-man-span"><span class="std std-ref">span</span></a> of controller descriptors in all <code class="docutils literal notranslate"><span class="pre">Produce()</span></code> methods.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">MySimulatedCanController::OnFrameRequest</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CanFrameRequest</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameRequest</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="c1">// Create the transmit acknowledge for the sending CAN controller</span>
+<span class="w">    </span><span class="n">Services</span><span class="o">::</span><span class="n">Can</span><span class="o">::</span><span class="n">CanFrameTransmitEvent</span><span class="w"> </span><span class="n">ack</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ack</span><span class="p">.</span><span class="n">canId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frameRequest</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">canId</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ack</span><span class="p">.</span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Services</span><span class="o">::</span><span class="n">Can</span><span class="o">::</span><span class="n">CanTransmitStatus</span><span class="o">::</span><span class="n">Transmitted</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ack</span><span class="p">.</span><span class="n">timestamp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_scheduler</span><span class="o">-&gt;</span><span class="n">Now</span><span class="p">();</span><span class="w"> </span><span class="c1">// The custom scheduler has knowledge about the virtual simulation time</span>
+<span class="w">    </span><span class="n">ack</span><span class="p">.</span><span class="n">userContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frameRequest</span><span class="p">.</span><span class="n">userContext</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Define the single receiver (the remote controller)</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">ControllerDescriptor</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">singleReceiverArray</span><span class="p">{</span><span class="n">_controllerDescriptor</span><span class="p">};</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">singleReceiver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">MakeSpan</span><span class="p">(</span><span class="n">singleReceiverArray</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Produce the transmit acknowledge event</span>
+<span class="w">    </span><span class="n">_mySimulatedCanNetwork</span><span class="o">-&gt;</span><span class="n">GetCanEventProducer</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Produce</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">ack</span><span class="p">),</span><span class="w"> </span><span class="n">singleReceiver</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Distribute the frame to all controllers</span>
+<span class="w">    </span><span class="n">Services</span><span class="o">::</span><span class="n">Can</span><span class="o">::</span><span class="n">CanFrameEvent</span><span class="w"> </span><span class="n">frameEvent</span><span class="p">;</span>
+<span class="w">    </span><span class="n">frameEvent</span><span class="p">.</span><span class="n">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Services</span><span class="o">::</span><span class="n">TransmitDirection</span><span class="o">::</span><span class="n">RX</span><span class="p">;</span>
+<span class="w">    </span><span class="n">frameEvent</span><span class="p">.</span><span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frameRequest</span><span class="p">.</span><span class="n">frame</span><span class="p">;</span>
+<span class="w">    </span><span class="n">frameEvent</span><span class="p">.</span><span class="n">timestamp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_scheduler</span><span class="o">-&gt;</span><span class="n">Now</span><span class="p">();</span>
+<span class="w">    </span><span class="n">frameEvent</span><span class="p">.</span><span class="n">userContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">frameRequest</span><span class="p">.</span><span class="n">userContext</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">payloadBytes</span><span class="p">{</span><span class="n">frameRequest</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">dataField</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">frameRequest</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">dataField</span><span class="p">.</span><span class="n">end</span><span class="p">()};</span>
+<span class="w">    </span><span class="n">frameEvent</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">dataField</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">ToSpan</span><span class="p">(</span><span class="n">payloadBytes</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Produce the actual frame event</span>
+<span class="w">    </span><span class="n">_mySimulatedNetwork</span><span class="o">-&gt;</span><span class="n">GetCanEventProducer</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Produce</span><span class="p">(</span><span class="n">frameEvent</span><span class="p">,</span><span class="w"> </span><span class="n">_mySimulatedNetwork</span><span class="o">-&gt;</span><span class="n">GetAllReceivers</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The following graph shows the corresponding event flow and Network Simulator API for the code snippet:</p>
+<figure class="align-center" id="id2">
+<span id="label-netsim-api-runtime"></span><a class="reference internal image-reference" href="../_images/netsim-api-runtime.svg"><img alt=": Exemplary simulation phase of a network simulation" src="../_images/netsim-api-runtime.svg" width="750" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 15 </span><span class="caption-text">: Exemplary simulation phase of a network simulation.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>See the <a class="reference internal" href="../usage/demos.html#sec-util-netsim-demo"><span class="std std-ref">Network Simulator Demo</span></a> for a complete example with class definitions and a custom scheduler.</p>
+</section>
+<section id="handling-simulation-time">
+<h3><a class="toc-backref" href="#id6">Handling simulation time</a><a class="headerlink" href="#handling-simulation-time" title="Permalink to this heading"></a></h3>
+<p>A central use case of a Network Simulator is to simulate detailed time behavior of a virtual bus network.
+Emulating network specific behavior is not part of the Network Simulator API and has to be implemented by the user.
+For a simulation with <a class="reference internal" href="../simulation/simulation.html#sec-sim-synchronization"><span class="std std-ref">virtual time synchronization</span></a>, this can be achieved by a custom scheduler.
+The scheduler is provided with time-related events in the Network Simulator and updates the simulation time in the <a class="reference internal" href="../api/timeSyncService.html#_CPPv4N6SilKit8Services13Orchestration16ITimeSyncService24SetSimulationStepHandlerE21SimulationStepHandlerNSt6chrono11nanosecondsE" title="SilKit::Services::Orchestration::ITimeSyncService::SetSimulationStepHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetSimulationStepHandler()</span></code></a>.
+When the virtual time advances, the custom scheduler triggers the due events.
+Further, the scheduler can provide the current simulation time for the produced events as shown in the code snippets.</p>
+</section>
+<section id="integrating-in-the-productname-lifecycle">
+<h3><a class="toc-backref" href="#id7">Integrating in the SIL Kit Lifecycle</a><a class="headerlink" href="#integrating-in-the-productname-lifecycle" title="Permalink to this heading"></a></h3>
+<p>Usually, a Network Simulator is integrated in setup with distributed participants that use a <a class="reference internal" href="../simulation/simulation.html#subsubsec-sim-lifecycle-starting-a-simulation"><span class="std std-ref">coordinated lifecycle</span></a>.
+This means that it is mandatory to know beforehand which participants will take part in the simulation and that all participants agree on a starting point of the simulation.
+Although it is not enforced by the Network Simulator API, this is the recommended lifecycle operation mode for SIL Kit simulations with a Network Simulator.
+The central reason is that in using a coordinated lifecycle, the Network Simulator cannot miss any message sent by the controllers, especially initial configuration messages that are essential to perform the bus simulation.
+The following aspects have to be considered that the Network Simulator is guaranteed to receive all messages in the distributed setup without any restrictions to the starting order of the participants:</p>
+<ul class="simple">
+<li><p>The Network Simulator and all participants that hold simulated controllers must use a <em>coordinated lifecycle</em>.</p></li>
+<li><p>As a consequence, a <a class="reference internal" href="../usage/utilities.html#sec-util-system-controller"><span class="std std-ref">System Controller</span></a> must be used that knows all required participant names.</p></li>
+<li><p>The Network Simulator must call <a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17INetworkSimulator5StartEv" title="SilKit::Experimental::NetworkSimulation::INetworkSimulator::Start"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Start()</span></code></a> before starting his lifecycle via <a class="reference internal" href="../api/lifecycleService.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService14StartLifecycleEv" title="SilKit::Services::Orchestration::ILifecycleService::StartLifecycle"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">StartLifecycle()</span></code></a>.</p></li>
+<li><p>The participants must not trigger any bus message before their lifecycle state reaches <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">CommunicationReady</span></code>.
+Read the documentation on <a class="reference internal" href="../simulation/simulation.html#sec-sim-lifecycle-management"><span class="std std-ref">Lifecycle Management</span></a> for further details.</p></li>
+</ul>
+</section>
+</section>
+<section id="api-and-data-type-reference">
+<h2><a class="toc-backref" href="#id8">API and Data Type Reference</a><a class="headerlink" href="#api-and-data-type-reference" title="Permalink to this heading"></a></h2>
+<section id="networksimulator-api">
+<h3><a class="toc-backref" href="#id9">NetworkSimulator API</a><a class="headerlink" href="#networksimulator-api" title="Permalink to this heading"></a></h3>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation17INetworkSimulatorE">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation17INetworkSimulatorE"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation17INetworkSimulatorE"></span><span id="SilKit::Experimental::NetworkSimulation::INetworkSimulator"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_network_simulator"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">INetworkSimulator</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17INetworkSimulatorE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Network Simulator interface to register simulated networks and to start the network simulation. A network simulator object can be obtained via SilKit::Experimental::Participant::CreateNetworkSimulator. Note that there can only be one network simulater per participant. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation17INetworkSimulatorD0Ev">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation17INetworkSimulatorD0Ev"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation17INetworkSimulatorD0Ev"></span><span id="SilKit::Experimental::NetworkSimulation::INetworkSimulator::~INetworkSimulator"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_network_simulator_1a6f672089729decc53c6c4585b27be082"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~INetworkSimulator</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17INetworkSimulatorD0Ev" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation17INetworkSimulator15SimulateNetworkERKNSt6stringE20SimulatedNetworkTypeNSt10unique_ptrI17ISimulatedNetworkEE">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation17INetworkSimulator15SimulateNetworkERKNSt6stringE20SimulatedNetworkTypeNSt10unique_ptrI17ISimulatedNetworkEE"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation17INetworkSimulator15SimulateNetworkERKNSt6stringE20SimulatedNetworkTypeNSt10unique_ptrI17ISimulatedNetworkEE"></span><span id="SilKit::Experimental::NetworkSimulation::INetworkSimulator::SimulateNetwork__ssCR.SimulatedNetworkType.std::unique_ptr:ISimulatedNetwork:"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_network_simulator_1adaa01f1fd61079acc7f8e40304786b6c"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SimulateNetwork</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">networkName</span></span>, <a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkTypeE" title="SilKit::Experimental::NetworkSimulation::SimulatedNetworkType"><span class="n"><span class="pre">SimulatedNetworkType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">networkType</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17ISimulatedNetworkE" title="SilKit::Experimental::NetworkSimulation::ISimulatedNetwork"><span class="n"><span class="pre">ISimulatedNetwork</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">simulatedNetwork</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17INetworkSimulator15SimulateNetworkERKNSt6stringE20SimulatedNetworkTypeNSt10unique_ptrI17ISimulatedNetworkEE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Register a simulated network. The network of the given name and type is subject to a detailed simulation whose logic is provided by the custom network simulator. Controllers with the same network name and type will no longer broadcast their outgoing messages to other controllers. Instead, the traffic is routed to the network simulator participant and will arrive on a <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_simulated_controller"><span class="std std-ref">ISimulatedController</span></a>. Based on the incoming messages (e.g., a frame request), the simulation logic can be performed and outgoing events (e.g. acknowledgments, frames) can be produced. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>networkName</strong> – The name of the simulated network. </p></li>
+<li><p><strong>networkType</strong> – The type of the simulated network. </p></li>
+<li><p><strong>simulatedNetwork</strong> – Provided <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_simulated_network"><span class="std std-ref">ISimulatedNetwork</span></a> object to manage a simulated network. When a controller appears on a simulated network, the <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_simulated_network"><span class="std std-ref">ISimulatedNetwork</span></a>, which was passed as argument to this method, is informed with a call to <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_simulated_network_1ac26b7f559a829d3ad8d72bda7b86e5d5"><span class="std std-ref">ISimulatedNetwork::ProvideSimulatedController</span></a>. There, a specific <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_simulated_controller"><span class="std std-ref">ISimulatedController</span></a> (e.g. <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_can_1_1_i_simulated_can_controller"><span class="std std-ref">Can::ISimulatedCanController</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_flexray_1_1_i_simulated_flex_ray_controller"><span class="std std-ref">Flexray::ISimulatedFlexRayController</span></a>, etc.) can be provided to receive the messages sent by the original controller. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation17INetworkSimulator5StartEv">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation17INetworkSimulator5StartEv"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation17INetworkSimulator5StartEv"></span><span id="SilKit::Experimental::NetworkSimulation::INetworkSimulator::Start"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_network_simulator_1a15bac6eca4e868f81442b7a031810121"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Start</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17INetworkSimulator5StartEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Start the network simulation of all previously registered networks. Simulated networks registered via <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_network_simulator_1adaa01f1fd61079acc7f8e40304786b6c"><span class="std std-ref">INetworkSimulator::SimulateNetwork</span></a> will be informed about corresponding controllers in the simulation with calls to <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_simulated_network_1ac26b7f559a829d3ad8d72bda7b86e5d5"><span class="std std-ref">ISimulatedNetwork::ProvideSimulatedController</span></a>. This holds true for remote controllers that have been created before the call to <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_network_simulator_1a15bac6eca4e868f81442b7a031810121"><span class="std std-ref">INetworkSimulator::Start</span></a>. Internally, remote controllers are informed that they are now part of a detailed network simulation and will route their messages to the network simulator. See the documentation for further information about the usage within the SIL Kit Lifecyle in order not to miss any messages on the network simulator. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation17ISimulatedNetworkE">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation17ISimulatedNetworkE"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation17ISimulatedNetworkE"></span><span id="SilKit::Experimental::NetworkSimulation::ISimulatedNetwork"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_simulated_network"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ISimulatedNetwork</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17ISimulatedNetworkE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interface for a simulated network. An instance of a class inheriting from this interface is passed to the SIL Kit via <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_network_simulator_1adaa01f1fd61079acc7f8e40304786b6c"><span class="std std-ref">INetworkSimulator::SimulateNetwork</span></a>. The interface functions are then invoked by the SIL Kit. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation17ISimulatedNetworkD0Ev">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation17ISimulatedNetworkD0Ev"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation17ISimulatedNetworkD0Ev"></span><span id="SilKit::Experimental::NetworkSimulation::ISimulatedNetwork::~ISimulatedNetwork"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_simulated_network_1aebfa116abde7a871f86d53c998030aec"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~ISimulatedNetwork</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17ISimulatedNetworkD0Ev" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation17ISimulatedNetwork26ProvideSimulatedControllerE20ControllerDescriptor">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation17ISimulatedNetwork26ProvideSimulatedControllerE20ControllerDescriptor"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation17ISimulatedNetwork26ProvideSimulatedControllerE20ControllerDescriptor"></span><span id="SilKit::Experimental::NetworkSimulation::ISimulatedNetwork::ProvideSimulatedController__ControllerDescriptor"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_simulated_network_1ac26b7f559a829d3ad8d72bda7b86e5d5"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ProvideSimulatedController</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ControllerDescriptor</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">controllerDescriptor</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation20ISimulatedControllerE" title="SilKit::Experimental::NetworkSimulation::ISimulatedController"><span class="n"><span class="pre">ISimulatedController</span></span></a><span class="p"><span class="pre">*</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17ISimulatedNetwork26ProvideSimulatedControllerE20ControllerDescriptor" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Called when the API requires the implementation of a simulated controller. This happens when a controller is created on a simulated network. The network must be registered via <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_network_simulator_1adaa01f1fd61079acc7f8e40304786b6c"><span class="std std-ref">SilKit::Experimental::NetworkSimulation::INetworkSimulator::SimulateNetwork</span></a> beforehand. After a simulated controller is provided, messages sent by the original controller will triggers message specific callbacks on the simulated controller. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>controllerDescriptor</strong> – The identifier of a remote controller. Used to address a specific controller as receiver when using the eventProducer. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The implementation must return a valid pointer to a <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_simulated_controller"><span class="std std-ref">SilKit::Experimental::NetworkSimulation::ISimulatedController</span></a>. Note that this interface is abstract, the underlying class must inherit from the appropriate network-specific interface (e.g. <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_can_1_1_i_simulated_can_controller"><span class="std std-ref">Can::ISimulatedCanController</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_flexray_1_1_i_simulated_flex_ray_controller"><span class="std std-ref">Flexray::ISimulatedFlexRayController</span></a>, etc.). </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation17ISimulatedNetwork26SimulatedControllerRemovedE20ControllerDescriptor">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation17ISimulatedNetwork26SimulatedControllerRemovedE20ControllerDescriptor"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation17ISimulatedNetwork26SimulatedControllerRemovedE20ControllerDescriptor"></span><span id="SilKit::Experimental::NetworkSimulation::ISimulatedNetwork::SimulatedControllerRemoved__ControllerDescriptor"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_simulated_network_1a9a13e96e4be011a37435fe12ccb77cbe"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SimulatedControllerRemoved</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">ControllerDescriptor</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">controllerDescriptor</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17ISimulatedNetwork26SimulatedControllerRemovedE20ControllerDescriptor" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Deregistration of a simulated controller. Called when the participant that owns the controller leaves the simulation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>controllerDescriptor</strong> – The identifier of a remote controller. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation17ISimulatedNetwork16SetEventProducerENSt10unique_ptrI14IEventProducerEE">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation17ISimulatedNetwork16SetEventProducerENSt10unique_ptrI14IEventProducerEE"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation17ISimulatedNetwork16SetEventProducerENSt10unique_ptrI14IEventProducerEE"></span><span id="SilKit::Experimental::NetworkSimulation::ISimulatedNetwork::SetEventProducer__std::unique_ptr:IEventProducer:"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_simulated_network_1a9e5d8cb5f401efb96f2f03269ec8a933"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetEventProducer</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">IEventProducer</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">eventProducer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17ISimulatedNetwork16SetEventProducerENSt10unique_ptrI14IEventProducerEE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Called once to provide an SilKit::Experimental::NetworkSimulation::IEventProducer. This happens when the first controller appears on a simulated network. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>eventProducer</strong> – Used to generate events for a given group of receivers. Note that this interface is abstract, the object must be cast to the specific interface for the underlying network type (Can::ICanEventProducer, Flexray::IFlexRayEventProducer, etc.). </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation20ISimulatedControllerE">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation20ISimulatedControllerE"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation20ISimulatedControllerE"></span><span id="SilKit::Experimental::NetworkSimulation::ISimulatedController"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_simulated_controller"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ISimulatedController</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation20ISimulatedControllerE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Base class of a simulated controller. </p>
+<p>Subclassed by <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_can_1_1_i_simulated_can_controller"><span class="std std-ref">SilKit::Experimental::NetworkSimulation::Can::ISimulatedCanController</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_ethernet_1_1_i_simulated_ethernet_controller"><span class="std std-ref">SilKit::Experimental::NetworkSimulation::Ethernet::ISimulatedEthernetController</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_flexray_1_1_i_simulated_flex_ray_controller"><span class="std std-ref">SilKit::Experimental::NetworkSimulation::Flexray::ISimulatedFlexRayController</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_lin_1_1_i_simulated_lin_controller"><span class="std std-ref">SilKit::Experimental::NetworkSimulation::Lin::ISimulatedLinController</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation20ISimulatedControllerD0Ev">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation20ISimulatedControllerD0Ev"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation20ISimulatedControllerD0Ev"></span><span id="SilKit::Experimental::NetworkSimulation::ISimulatedController::~ISimulatedController"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_simulated_controller_1a06f9e21bfdfc5a7e7b811cf8aa9bd71f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~ISimulatedController</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation20ISimulatedControllerD0Ev" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanControllerE">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanControllerE"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanControllerE"></span><span id="SilKit::Experimental::NetworkSimulation::Can::ISimulatedCanController"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_can_1_1_i_simulated_can_controller"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ISimulatedCanController</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Experimental</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">NetworkSimulation</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation20ISimulatedControllerE" title="SilKit::Experimental::NetworkSimulation::ISimulatedController"><span class="n"><span class="pre">ISimulatedController</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanControllerE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>API for simulated CAN controllers. If a new CAN controller is created on a simulated network, an implementation of this interface can be provided in <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_simulated_network_1ac26b7f559a829d3ad8d72bda7b86e5d5"><span class="std std-ref">ISimulatedNetwork::ProvideSimulatedController</span></a>. Messages generated by the original controller will be redirected to the simulated controller and trigger the On… callbacks. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanControllerD0Ev">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanControllerD0Ev"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanControllerD0Ev"></span><span id="SilKit::Experimental::NetworkSimulation::Can::ISimulatedCanController::~ISimulatedCanController"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_can_1_1_i_simulated_can_controller_1a80dacfe7bee64f14ed16692b8a35c187"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~ISimulatedCanController</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanControllerD0Ev" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanController13OnSetBaudrateERK20CanConfigureBaudrate">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanController13OnSetBaudrateERK20CanConfigureBaudrate"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanController13OnSetBaudrateERK20CanConfigureBaudrate"></span><span id="SilKit::Experimental::NetworkSimulation::Can::ISimulatedCanController::OnSetBaudrate__CanConfigureBaudrateCR"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_can_1_1_i_simulated_can_controller_1aceadd33006d82d058958ee0c0b3ddcac"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OnSetBaudrate</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">CanConfigureBaudrate</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">canConfigureBaudrate</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanController13OnSetBaudrateERK20CanConfigureBaudrate" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Incoming CAN controller message. Triggered when a CAN controller calls <a class="reference internal" href="../api/can.html#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1aa18f5af4b1c0cb35c3e7762cf045250a"><span class="std std-ref">SilKit::Services::Can::ICanController::SetBaudRate()</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>canConfigureBaudrate</strong> – The configured baud rate of the controller. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanController14OnFrameRequestERK15CanFrameRequest">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanController14OnFrameRequestERK15CanFrameRequest"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanController14OnFrameRequestERK15CanFrameRequest"></span><span id="SilKit::Experimental::NetworkSimulation::Can::ISimulatedCanController::OnFrameRequest__CanFrameRequestCR"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_can_1_1_i_simulated_can_controller_1a9d5c486b66300c68b5ebc1f6bb3c8736"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OnFrameRequest</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">CanFrameRequest</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">canFrameRequest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanController14OnFrameRequestERK15CanFrameRequest" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Incoming CAN controller message. Triggered when a CAN controller calls <a class="reference internal" href="../api/can.html#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1aeb0d58b5ad76d942c84f35943ad4b24a"><span class="std std-ref">SilKit::Services::Can::ICanController::SendFrame()</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>canFrameRequest</strong> – The CAN frame requested to be sent. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanController19OnSetControllerModeERK17CanControllerMode">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanController19OnSetControllerModeERK17CanControllerMode"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanController19OnSetControllerModeERK17CanControllerMode"></span><span id="SilKit::Experimental::NetworkSimulation::Can::ISimulatedCanController::OnSetControllerMode__CanControllerModeCR"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_can_1_1_i_simulated_can_controller_1a26f4481b66849580eea45a2eff3ba36c"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OnSetControllerMode</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">CanControllerMode</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">canControllerMode</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation3Can23ISimulatedCanController19OnSetControllerModeERK17CanControllerMode" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Incoming CAN controller message. Triggered when a CAN controller calls <a class="reference internal" href="../api/can.html#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a54f6d6d50b0865a11240cc7497c60e6b"><span class="std std-ref">SilKit::Services::Can::ICanController::Start()</span></a>, <a class="reference internal" href="../api/can.html#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1adebcfa618d7d7dee9b3be0934dde46a8"><span class="std std-ref">SilKit::Services::Can::ICanController::Stop()</span></a>, <a class="reference internal" href="../api/can.html#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a70038185075a4074dbcdafc3e6cbd2b0"><span class="std std-ref">SilKit::Services::Can::ICanController::Sleep()</span></a> or <a class="reference internal" href="../api/can.html#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a0d22a13b0b166d9048701c341ed6dfad"><span class="std std-ref">SilKit::Services::Can::ICanController::Reset()</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>canControllerMode</strong> – The new controller state. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation8Ethernet28ISimulatedEthernetControllerE">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation8Ethernet28ISimulatedEthernetControllerE"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation8Ethernet28ISimulatedEthernetControllerE"></span><span id="SilKit::Experimental::NetworkSimulation::Ethernet::ISimulatedEthernetController"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_ethernet_1_1_i_simulated_ethernet_controller"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ISimulatedEthernetController</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Experimental</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">NetworkSimulation</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation20ISimulatedControllerE" title="SilKit::Experimental::NetworkSimulation::ISimulatedController"><span class="n"><span class="pre">ISimulatedController</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation8Ethernet28ISimulatedEthernetControllerE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>API for simulated Ethernet controllers. If a new Ethernet controller is created on a simulated network, an implementation of this interface can be provided in <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_simulated_network_1ac26b7f559a829d3ad8d72bda7b86e5d5"><span class="std std-ref">ISimulatedNetwork::ProvideSimulatedController</span></a>. Messages generated by the original controller will be redirected to the simulated controller and trigger the On… callbacks. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation8Ethernet28ISimulatedEthernetControllerD0Ev">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation8Ethernet28ISimulatedEthernetControllerD0Ev"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation8Ethernet28ISimulatedEthernetControllerD0Ev"></span><span id="SilKit::Experimental::NetworkSimulation::Ethernet::ISimulatedEthernetController::~ISimulatedEthernetController"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_ethernet_1_1_i_simulated_ethernet_controller_1a9a2b99717b37361f913feaa3ab10cf66"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~ISimulatedEthernetController</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation8Ethernet28ISimulatedEthernetControllerD0Ev" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation8Ethernet28ISimulatedEthernetController14OnFrameRequestERK20EthernetFrameRequest">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation8Ethernet28ISimulatedEthernetController14OnFrameRequestERK20EthernetFrameRequest"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation8Ethernet28ISimulatedEthernetController14OnFrameRequestERK20EthernetFrameRequest"></span><span id="SilKit::Experimental::NetworkSimulation::Ethernet::ISimulatedEthernetController::OnFrameRequest__EthernetFrameRequestCR"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_ethernet_1_1_i_simulated_ethernet_controller_1a14dd05129d00e8046cbc2aecfa7c9c51"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OnFrameRequest</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">EthernetFrameRequest</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ethernetFrameRequest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation8Ethernet28ISimulatedEthernetController14OnFrameRequestERK20EthernetFrameRequest" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Incoming Ethernet controller message. Triggered when a Ethernet controller calls <a class="reference internal" href="../api/ethernet.html#class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1a8447b75162f83c068c6667dd723d4bf7"><span class="std std-ref">SilKit::Services::Ethernet::IEthernetController::SendFrame</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ethernetFrameRequest</strong> – The Ethernet frame requested to be sent. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation8Ethernet28ISimulatedEthernetController19OnSetControllerModeERK22EthernetControllerMode">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation8Ethernet28ISimulatedEthernetController19OnSetControllerModeERK22EthernetControllerMode"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation8Ethernet28ISimulatedEthernetController19OnSetControllerModeERK22EthernetControllerMode"></span><span id="SilKit::Experimental::NetworkSimulation::Ethernet::ISimulatedEthernetController::OnSetControllerMode__EthernetControllerModeCR"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_ethernet_1_1_i_simulated_ethernet_controller_1a115ab9c79ffaabb231281b903ec8920a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OnSetControllerMode</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">EthernetControllerMode</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ethernetControllerMode</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation8Ethernet28ISimulatedEthernetController19OnSetControllerModeERK22EthernetControllerMode" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Incoming Ethernet controller message. Triggered when a Ethernet controller calls <a class="reference internal" href="../api/ethernet.html#class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1aa42c293611f6d790fe9bedf0e749ada9"><span class="std std-ref">SilKit::Services::Ethernet::IEthernetController::Activate</span></a> or . <a class="reference internal" href="../api/ethernet.html#class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1a93f7edc2bb3c7320e2641b9250862548"><span class="std std-ref">SilKit::Services::Ethernet::IEthernetController::Deactivate</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ethernetControllerMode</strong> – The current Ethernet controller mode. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinControllerE">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinControllerE"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinControllerE"></span><span id="SilKit::Experimental::NetworkSimulation::Lin::ISimulatedLinController"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_lin_1_1_i_simulated_lin_controller"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ISimulatedLinController</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Experimental</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">NetworkSimulation</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation20ISimulatedControllerE" title="SilKit::Experimental::NetworkSimulation::ISimulatedController"><span class="n"><span class="pre">ISimulatedController</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinControllerE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>API for simulated LIN controllers. If a new LIN controller is created on a simulated network, an implementation of this interface can be provided in <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_simulated_network_1ac26b7f559a829d3ad8d72bda7b86e5d5"><span class="std std-ref">ISimulatedNetwork::ProvideSimulatedController</span></a>. Messages generated by the original controller will be redirected to the simulated controller and trigger the On… callbacks. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinControllerD0Ev">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinControllerD0Ev"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinControllerD0Ev"></span><span id="SilKit::Experimental::NetworkSimulation::Lin::ISimulatedLinController::~ISimulatedLinController"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_lin_1_1_i_simulated_lin_controller_1a11eb553fffb83641ff2317c943c84b97"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~ISimulatedLinController</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinControllerD0Ev" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController14OnFrameRequestERK15LinFrameRequest">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController14OnFrameRequestERK15LinFrameRequest"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController14OnFrameRequestERK15LinFrameRequest"></span><span id="SilKit::Experimental::NetworkSimulation::Lin::ISimulatedLinController::OnFrameRequest__LinFrameRequestCR"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_lin_1_1_i_simulated_lin_controller_1a005d52912275460a8c407969b15d67b0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OnFrameRequest</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">LinFrameRequest</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">linFrameRequest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController14OnFrameRequestERK15LinFrameRequest" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Incoming LIN controller message. Triggered when a LIN controller calls <a class="reference internal" href="../api/lin.html#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a22cf269b1445836f3d1dde378e654d0d"><span class="std std-ref">SilKit::Services::Lin::ILinController::SendFrame</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>linFrameRequest</strong> – The LIN frame requested to be sent. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController20OnFrameHeaderRequestERK21LinFrameHeaderRequest">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController20OnFrameHeaderRequestERK21LinFrameHeaderRequest"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController20OnFrameHeaderRequestERK21LinFrameHeaderRequest"></span><span id="SilKit::Experimental::NetworkSimulation::Lin::ISimulatedLinController::OnFrameHeaderRequest__LinFrameHeaderRequestCR"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_lin_1_1_i_simulated_lin_controller_1a1d5769a50a3b9f36186216cbc5ca276e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OnFrameHeaderRequest</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">LinFrameHeaderRequest</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">linFrameHeaderRequest</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController20OnFrameHeaderRequestERK21LinFrameHeaderRequest" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Incoming LIN controller message. Triggered when a LIN controller calls <a class="reference internal" href="../api/lin.html#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a227e7bb4579dbb850b51f2c7d1f4129a"><span class="std std-ref">SilKit::Services::Lin::ILinController::SendFrameHeader</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>linFrameHeaderRequest</strong> – A LIN frame header. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController13OnWakeupPulseERK14LinWakeupPulse">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController13OnWakeupPulseERK14LinWakeupPulse"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController13OnWakeupPulseERK14LinWakeupPulse"></span><span id="SilKit::Experimental::NetworkSimulation::Lin::ISimulatedLinController::OnWakeupPulse__LinWakeupPulseCR"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_lin_1_1_i_simulated_lin_controller_1ada0e311394b56fa9525e40a50b94c8e9"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OnWakeupPulse</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">LinWakeupPulse</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">linWakeupPulse</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController13OnWakeupPulseERK14LinWakeupPulse" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Incoming LIN controller message. Triggered when a LIN controller calls <a class="reference internal" href="../api/lin.html#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a752fb41ccb24d931b8f8dd70fc9e11e3"><span class="std std-ref">SilKit::Services::Lin::ILinController::Wakeup</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>linWakeupPulse</strong> – The Wakeup pulse without any further data except the event timestamp. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController18OnControllerConfigERK19LinControllerConfig">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController18OnControllerConfigERK19LinControllerConfig"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController18OnControllerConfigERK19LinControllerConfig"></span><span id="SilKit::Experimental::NetworkSimulation::Lin::ISimulatedLinController::OnControllerConfig__LinControllerConfigCR"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_lin_1_1_i_simulated_lin_controller_1a0b5bcd32a76359f2ef479c03e4b5d7ee"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OnControllerConfig</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">LinControllerConfig</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">linControllerConfig</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController18OnControllerConfigERK19LinControllerConfig" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Incoming LIN controller message. Triggered when a LIN controller calls <a class="reference internal" href="../api/lin.html#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1afa08859707a1386f08ca6d5f9d933d02"><span class="std std-ref">SilKit::Services::Lin::ILinController::Init</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>linControllerConfig</strong> – The LIN controller configuration and frame response data. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController21OnFrameResponseUpdateERK22LinFrameResponseUpdate">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController21OnFrameResponseUpdateERK22LinFrameResponseUpdate"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController21OnFrameResponseUpdateERK22LinFrameResponseUpdate"></span><span id="SilKit::Experimental::NetworkSimulation::Lin::ISimulatedLinController::OnFrameResponseUpdate__LinFrameResponseUpdateCR"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_lin_1_1_i_simulated_lin_controller_1a6962d997c48f16973e7c88cee6265413"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OnFrameResponseUpdate</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">LinFrameResponseUpdate</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">linFrameResponseUpdate</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController21OnFrameResponseUpdateERK22LinFrameResponseUpdate" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Incoming LIN controller message. Triggered when a LIN controller calls <a class="reference internal" href="../api/lin.html#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a5f99b7c0089b4701a4e85b41e1b6240e"><span class="std std-ref">SilKit::Services::Lin::ILinController::UpdateTxBuffer</span></a> or <a class="reference internal" href="../api/lin.html#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a22cf269b1445836f3d1dde378e654d0d"><span class="std std-ref">SilKit::Services::Lin::ILinController::SendFrame</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>linFrameResponseUpdate</strong> – An update for the frame response data. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController24OnControllerStatusUpdateERK25LinControllerStatusUpdate">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController24OnControllerStatusUpdateERK25LinControllerStatusUpdate"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController24OnControllerStatusUpdateERK25LinControllerStatusUpdate"></span><span id="SilKit::Experimental::NetworkSimulation::Lin::ISimulatedLinController::OnControllerStatusUpdate__LinControllerStatusUpdateCR"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_lin_1_1_i_simulated_lin_controller_1a871b4a5cddaa3bd5d0e33fa728571b5d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OnControllerStatusUpdate</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">LinControllerStatusUpdate</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">linControllerStatusUpdate</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation3Lin23ISimulatedLinController24OnControllerStatusUpdateERK25LinControllerStatusUpdate" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Incoming LIN controller message. Triggered when a LIN controller calls <a class="reference internal" href="../api/lin.html#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a752fb41ccb24d931b8f8dd70fc9e11e3"><span class="std std-ref">SilKit::Services::Lin::ILinController::Wakeup</span></a>, <a class="reference internal" href="../api/lin.html#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1aaa456ee4ac5d3bef87476d52fd90012e"><span class="std std-ref">SilKit::Services::Lin::ILinController::WakeupInternal</span></a>, <a class="reference internal" href="../api/lin.html#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a04e39bc6c4cb2c502aca29cf883652a1"><span class="std std-ref">SilKit::Services::Lin::ILinController::GoToSleep</span></a> or <a class="reference internal" href="../api/lin.html#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a0e4b25e848f1b6919939747be64d1924"><span class="std std-ref">SilKit::Services::Lin::ILinController::GoToSleepInternal</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>linControllerStatusUpdate</strong> – The new LIN controller status. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayControllerE">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayControllerE"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayControllerE"></span><span id="SilKit::Experimental::NetworkSimulation::Flexray::ISimulatedFlexRayController"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_flexray_1_1_i_simulated_flex_ray_controller"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ISimulatedFlexRayController</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Experimental</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">NetworkSimulation</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation20ISimulatedControllerE" title="SilKit::Experimental::NetworkSimulation::ISimulatedController"><span class="n"><span class="pre">ISimulatedController</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayControllerE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>API for simulated FlexRay controllers. If a new FlexRay controller is created on a simulated network, an implementation of this interface can be provided in <a class="reference internal" href="#class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_i_simulated_network_1ac26b7f559a829d3ad8d72bda7b86e5d5"><span class="std std-ref">ISimulatedNetwork::ProvideSimulatedController</span></a>. Messages generated by the original controller will be redirected to the simulated controller and trigger the On… callbacks. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayControllerD0Ev">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayControllerD0Ev"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayControllerD0Ev"></span><span id="SilKit::Experimental::NetworkSimulation::Flexray::ISimulatedFlexRayController::~ISimulatedFlexRayController"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_flexray_1_1_i_simulated_flex_ray_controller_1a37757a2eb583abadaebb8eae3818d4e3"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~ISimulatedFlexRayController</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayControllerD0Ev" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayController13OnHostCommandERK18FlexrayHostCommand">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayController13OnHostCommandERK18FlexrayHostCommand"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayController13OnHostCommandERK18FlexrayHostCommand"></span><span id="SilKit::Experimental::NetworkSimulation::Flexray::ISimulatedFlexRayController::OnHostCommand__FlexrayHostCommandCR"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_flexray_1_1_i_simulated_flex_ray_controller_1a82db736b4419f46f9999bc8303d5586b"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OnHostCommand</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">FlexrayHostCommand</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">flexrayHostCommand</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayController13OnHostCommandERK18FlexrayHostCommand" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Incoming FlexRay controller message. Triggered when a FlexRay controller calls <a class="reference internal" href="../api/flexray.html#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a1311d9bfd4d1262a325ed4f8a6179dab"><span class="std std-ref">SilKit::Services::Flexray::IFlexrayController::Run()</span></a>, <a class="reference internal" href="../api/flexray.html#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a37fce44d4a444f303c680619e46b116d"><span class="std std-ref">SilKit::Services::Flexray::IFlexrayController::DeferredHalt()</span></a>, <a class="reference internal" href="../api/flexray.html#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a6fc2c0aef3266b4c79fe6abd12ac362a"><span class="std std-ref">SilKit::Services::Flexray::IFlexrayController::Freeze()</span></a>, <a class="reference internal" href="../api/flexray.html#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1ae0dbb51593878027179367bdb7c03ed9"><span class="std std-ref">SilKit::Services::Flexray::IFlexrayController::AllowColdstart()</span></a>, <a class="reference internal" href="../api/flexray.html#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1aa29a5cc8fa8cd1f324423e28f9f1c47e"><span class="std std-ref">SilKit::Services::Flexray::IFlexrayController::Wakeup()</span></a> or <a class="reference internal" href="../api/flexray.html#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1ace8114a4eb4102d8ce0b30c8cb5106df"><span class="std std-ref">SilKit::Services::Flexray::IFlexrayController::AllSlots()</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>flexrayHostCommand</strong> – An identifier of the host command. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayController18OnControllerConfigERK23FlexrayControllerConfig">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayController18OnControllerConfigERK23FlexrayControllerConfig"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayController18OnControllerConfigERK23FlexrayControllerConfig"></span><span id="SilKit::Experimental::NetworkSimulation::Flexray::ISimulatedFlexRayController::OnControllerConfig__FlexrayControllerConfigCR"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_flexray_1_1_i_simulated_flex_ray_controller_1a9ebeaf282964f9f3629babb6d61bbd41"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OnControllerConfig</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">FlexrayControllerConfig</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">flexrayControllerConfig</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayController18OnControllerConfigERK23FlexrayControllerConfig" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Incoming FlexRay controller message. Triggered when a FlexRay controller calls <a class="reference internal" href="../api/flexray.html#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a92ec50f1c0e17f92f469c54d497f255d"><span class="std std-ref">SilKit::Services::Flexray::IFlexrayController::Configure</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>flexrayControllerConfig</strong> – The FlexRay cluster parameters, node parameters and initial TX buffer configuration. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayController22OnTxBufferConfigUpdateERK27FlexrayTxBufferConfigUpdate">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayController22OnTxBufferConfigUpdateERK27FlexrayTxBufferConfigUpdate"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayController22OnTxBufferConfigUpdateERK27FlexrayTxBufferConfigUpdate"></span><span id="SilKit::Experimental::NetworkSimulation::Flexray::ISimulatedFlexRayController::OnTxBufferConfigUpdate__FlexrayTxBufferConfigUpdateCR"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_flexray_1_1_i_simulated_flex_ray_controller_1a2584077fefc76297afd10d0584472906"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OnTxBufferConfigUpdate</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">FlexrayTxBufferConfigUpdate</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">flexrayTxBufferConfigUpdate</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayController22OnTxBufferConfigUpdateERK27FlexrayTxBufferConfigUpdate" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Incoming FlexRay controller message. Triggered when a FlexRay controller calls <a class="reference internal" href="../api/flexray.html#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1ad7270a559de94a5e8c86ed6275b0f590"><span class="std std-ref">SilKit::Services::Flexray::IFlexrayController::ReconfigureTxBuffer</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>flexrayTxBufferConfigUpdate</strong> – The index and the new configuration of a TX buffer . </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayController16OnTxBufferUpdateERK21FlexrayTxBufferUpdate">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayController16OnTxBufferUpdateERK21FlexrayTxBufferUpdate"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayController16OnTxBufferUpdateERK21FlexrayTxBufferUpdate"></span><span id="SilKit::Experimental::NetworkSimulation::Flexray::ISimulatedFlexRayController::OnTxBufferUpdate__FlexrayTxBufferUpdateCR"></span><span class="target" id="class_sil_kit_1_1_experimental_1_1_network_simulation_1_1_flexray_1_1_i_simulated_flex_ray_controller_1a7a41f46e4d3b1de4d4a3fdc41c39c560"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OnTxBufferUpdate</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">FlexrayTxBufferUpdate</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">flexrayTxBufferUpdate</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation7Flexray27ISimulatedFlexRayController16OnTxBufferUpdateERK21FlexrayTxBufferUpdate" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Incoming FlexRay controller message. Triggered when a FlexRay controller calls <a class="reference internal" href="../api/flexray.html#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a9d2e6512d3d377de6eb649cef838417c"><span class="std std-ref">SilKit::Services::Flexray::IFlexrayController::UpdateTxBuffer</span></a>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>flexrayTxBufferUpdate</strong> – The index and the new payload of a TX buffer. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="enumerations-and-typedefs">
+<h3><a class="toc-backref" href="#id10">Enumerations and Typedefs</a><a class="headerlink" href="#enumerations-and-typedefs" title="Permalink to this heading"></a></h3>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkTypeE">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkTypeE"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkTypeE"></span><span class="target" id="namespace_sil_kit_1_1_experimental_1_1_network_simulation_1a99ebe8e99078b1130a329ed973ac55b9"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Experimental</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">NetworkSimulation</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">SimulatedNetworkType</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkTypeE" title="Permalink to this definition"></a><br /></dt>
+<dd><p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType9UndefinedE">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType9UndefinedE"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType9UndefinedE"></span><span class="target" id="namespace_sil_kit_1_1_experimental_1_1_network_simulation_1a99ebe8e99078b1130a329ed973ac55b9aec0fc0100c4fc1ce4eea230c3dc10360"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Undefined</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType9UndefinedE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType3CANE">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType3CANE"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType3CANE"></span><span class="target" id="namespace_sil_kit_1_1_experimental_1_1_network_simulation_1a99ebe8e99078b1130a329ed973ac55b9a6d5050f7a97e7e2e881a4e09dfbd6087"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CAN</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType3CANE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType3LINE">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType3LINE"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType3LINE"></span><span class="target" id="namespace_sil_kit_1_1_experimental_1_1_network_simulation_1a99ebe8e99078b1130a329ed973ac55b9a90c3fd5ee0c6c471cac39b5f9a4ffae2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LIN</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType3LINE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType8EthernetE">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType8EthernetE"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType8EthernetE"></span><span class="target" id="namespace_sil_kit_1_1_experimental_1_1_network_simulation_1a99ebe8e99078b1130a329ed973ac55b9abe2ae05fb04ddcf6efa31e63e0f0e111"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Ethernet</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType8EthernetE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType7FlexRayE">
+<span id="_CPPv3N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType7FlexRayE"></span><span id="_CPPv2N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType7FlexRayE"></span><span class="target" id="namespace_sil_kit_1_1_experimental_1_1_network_simulation_1a99ebe8e99078b1130a329ed973ac55b9a01ae658e39b5a3a94590c6d88cffe050"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FlexRay</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType7FlexRayE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../configuration/middleware-configuration.html" class="btn btn-neutral float-left" title="Middleware Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../usage/utilities.html" class="btn btn-neutral float-right" title="Utilities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
