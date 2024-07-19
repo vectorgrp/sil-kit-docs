@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RPC C API &mdash; Vector SIL Kit 4.0.50 documentation</title>
+  <title>RPC C API &mdash; Vector SIL Kit 4.0.51 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.50
+                4.0.51
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -202,7 +202,7 @@ It consists of RPC clients and RPC servers and a method to discover remote RPC s
 <p>An <code class="docutils literal notranslate"><span class="pre">RpcServer</span></code> is created with a handler to process incoming calls by RPC clients:</p>
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv423SilKit_RpcCallHandler_t">
-<span id="_CPPv323SilKit_RpcCallHandler_t"></span><span id="_CPPv223SilKit_RpcCallHandler_t"></span><span id="SilKit_RpcCallHandler_t"></span><span class="target" id="_rpc_8h_1a2e5e29697b113652d396eed018961466"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_RpcCallHandler_t</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit_RpcServer</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">server</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit_RpcCallEvent</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv423SilKit_RpcCallHandler_t" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv323SilKit_RpcCallHandler_t"></span><span id="_CPPv223SilKit_RpcCallHandler_t"></span><span id="SilKit_RpcCallHandler_t"></span><span class="target" id="_rpc_8h_1a152b46c2b09b3023cee8a2bf1fb78be8"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_RpcCallHandler_t</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit_RpcServer</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">server</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit_RpcCallEvent</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv423SilKit_RpcCallHandler_t" title="Permalink to this definition"></a><br /></dt>
 <dd><p>A callback function that is called on a RPC server triggered by client. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Param context</dt>

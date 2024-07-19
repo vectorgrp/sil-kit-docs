@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Publish/Subscribe C API &mdash; Vector SIL Kit 4.0.50 documentation</title>
+  <title>Data Publish/Subscribe C API &mdash; Vector SIL Kit 4.0.51 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.50
+                4.0.51
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -185,7 +185,7 @@ It consists of data publishers and data subscribers.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">DataSubscriber</span></code> is created with a handler for data reception:</p>
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv427SilKit_DataMessageHandler_t">
-<span id="_CPPv327SilKit_DataMessageHandler_t"></span><span id="_CPPv227SilKit_DataMessageHandler_t"></span><span id="SilKit_DataMessageHandler_t"></span><span class="target" id="_data_pub_sub_8h_1ac4935c620c563a705e4bd93ebff9a816"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_DataMessageHandler_t</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit_DataSubscriber</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">subscriber</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv423SilKit_DataMessageEvent" title="SilKit_DataMessageEvent"><span class="n"><span class="pre">SilKit_DataMessageEvent</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">dataMessageEvent</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv427SilKit_DataMessageHandler_t" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv327SilKit_DataMessageHandler_t"></span><span id="_CPPv227SilKit_DataMessageHandler_t"></span><span id="SilKit_DataMessageHandler_t"></span><span class="target" id="_data_pub_sub_8h_1a85809dfebe4c5bc07d76046a830f0a59"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_DataMessageHandler_t</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit_DataSubscriber</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">subscriber</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv423SilKit_DataMessageEvent" title="SilKit_DataMessageEvent"><span class="n"><span class="pre">SilKit_DataMessageEvent</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">dataMessageEvent</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv427SilKit_DataMessageHandler_t" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Handler type for incoming data message events on DataSubscribers. </p>
 <dl class="field-list simple">
 <dt class="field-odd">Param context</dt>

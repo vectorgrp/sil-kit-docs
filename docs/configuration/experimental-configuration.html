@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HealthCheck Configuration &mdash; Vector SIL Kit 4.0.51 documentation</title>
+  <title>Experimental Configuration &mdash; Vector SIL Kit 4.0.51 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -20,8 +20,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tracing and Replay Configuration" href="tracing-configuration.html" />
-    <link rel="prev" title="Logging Configuration" href="logging-configuration.html" /> 
+    <link rel="next" title="Custom Network Simulator" href="../netsim/netsim.html" />
+    <link rel="prev" title="Middleware Configuration" href="middleware-configuration.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,11 +56,11 @@
 <li class="toctree-l4"><a class="reference internal" href="services-configuration.html">Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="includes-configuration.html">Includes Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">HealthCheck Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="healthcheck-configuration.html">HealthCheck Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="tracing-configuration.html">Tracing and Replay Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="extension-configuration.html">Extensions Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="middleware-configuration.html">Middleware Configuration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="experimental-configuration.html">Experimental Configuration</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Experimental Configuration</a></li>
 </ul>
 </li>
 </ul>
@@ -92,9 +92,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="configuration.html">Configuration</a> &raquo;</li>
-      <li>HealthCheck Configuration</li>
+      <li>Experimental Configuration</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/configuration/healthcheck-configuration.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/configuration/experimental-configuration.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -102,28 +102,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="healthcheck-configuration">
-<span id="sec-cfg-participant-healthcheck"></span><h1>HealthCheck Configuration<a class="headerlink" href="#healthcheck-configuration" title="Permalink to this heading"></a></h1>
+  <section id="experimental-configuration">
+<span id="sec-cfg-participant-experimental"></span><h1>Experimental Configuration<a class="headerlink" href="#experimental-configuration" title="Permalink to this heading"></a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#overview" id="id2">Overview</a></p></li>
-<li><p><a class="reference internal" href="#configuration" id="id3">Configuration</a></p></li>
+<li><p><a class="reference internal" href="#timesynchronization" id="id3">TimeSynchronization</a></p></li>
 </ul>
 </div>
 <section id="overview">
 <h2><a class="toc-backref" href="#id2">Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
-<p>In the <code class="docutils literal notranslate"><span class="pre">HealthCheck</span></code> section of the participant configuration, it is possible to set soft and hard time limits for the execution of the individual
-simulation steps.</p>
+<p>This section includes experimental configuration fields.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The featues available through the experimental section might be changed or removed in future versions of the SIL Kit.</p>
+</div>
 </section>
-<section id="configuration">
-<h2><a class="toc-backref" href="#id3">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">HealthCheck</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">SoftResponseTimeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500</span>
-<span class="w">  </span><span class="nt">HardResponseTimeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<section id="timesynchronization">
+<h2><a class="toc-backref" href="#id3">TimeSynchronization</a><a class="headerlink" href="#timesynchronization" title="Permalink to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Experimental</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">TimeSynchronization</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">AnimationFactor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span>
 </pre></div>
 </div>
 <table class="colwidths-given docutils align-default" id="id1">
-<caption><span class="caption-number">Table 15 </span><span class="caption-text">HealthCheck Configuration</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<caption><span class="caption-number">Table 21 </span><span class="caption-text">TimeSynchronization Configuration</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 15%" />
 <col style="width: 85%" />
@@ -134,17 +137,18 @@ simulation steps.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>SoftResponseTimeout</p></td>
-<td><p>The soft limit for the execution of a simulation step given in
-milliseconds. If the simulation task does not finish within this limit, a warning
-message is logged. This limit is checked for each execution of the simulation
-task. (optional)</p></td>
-</tr>
-<tr class="row-odd"><td><p>HardResponseTimeout</p></td>
-<td><p>The hard limit for the execution of a simulation task given in
-milliseconds. If the simulation step does not finish within this limit, an
-error message is logged and the participant switches to the Error state,
-which suspends further execution of the simulation. (optional)</p></td>
+<tr class="row-even"><td><p>AnimationFactor</p></td>
+<td><p>This value affects SIL Kit simulations where a time synchronization service is used.
+When this value is set, the virtual time is coulped to the local wall clock of the underlying system, scaled down by the given factor.
+E.g., a value of 1.0 means direct coupling to the wall clock.
+A value of 2.0 means that the virtual time runs <strong>twice as slow</strong> as the local wall clock.
+Accordingly, a value of 0.5 will cause the virtual time to run <strong>twice as fast</strong>.
+When omitting the value or setting it to zero, no coupling to the wall clock takes place.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depending on the simulation step size, the choosen animation factor and the computational load per simulation step, it might not be possible to couple the virtual time to the wall clock with the desired factor.</p>
+</div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -155,8 +159,8 @@ which suspends further execution of the simulation. (optional)</p></td>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="logging-configuration.html" class="btn btn-neutral float-left" title="Logging Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="tracing-configuration.html" class="btn btn-neutral float-right" title="Tracing and Replay Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="middleware-configuration.html" class="btn btn-neutral float-left" title="Middleware Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../netsim/netsim.html" class="btn btn-neutral float-right" title="Custom Network Simulator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

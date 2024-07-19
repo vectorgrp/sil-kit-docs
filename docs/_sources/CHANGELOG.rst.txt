@@ -6,6 +6,18 @@ All notable changes to the Vector SIL Kit project shall be documented in this fi
 
 The format is based on `Keep a Changelog (http://keepachangelog.com/en/1.0.0/) <http://keepachangelog.com/en/1.0.0/>`_.
 
+[4.0.51] - 2024-07-18 
+---------------------
+
+Added
+~~~~~
+
+- Couple the virtual time to the wall clock. 
+  An animation factor can be configured that describes how fast the simulation is allowed to run relative to the local wall clock.
+  Accessible via a new experimental section in the Participant Configuration (Experimental | TimeSynchronization | AnimationFactor).
+- Event flow documentation for the Network Simulation API.
+- Registry (Dashboard): Automatically use bulk-endpoint if it is available
+
 
 [4.0.50] - 2024-05-15
 ---------------------
