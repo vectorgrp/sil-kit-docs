@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Utilities &mdash; Vector SIL Kit 4.0.52 documentation</title>
+  <title>Utilities &mdash; Vector SIL Kit 4.0.53 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.52
+                4.0.53
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -128,23 +128,23 @@ of the SIL Kit are free to implement their own system and state handling.</p>
 <dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
 <dd><p>Show the help of the SIL Kit Registry.</p>
 </dd>
-<dt><kbd><span class="option">-s</span>, <span class="option">--use-signal-handler</span></kbd></dt>
-<dd><p>Exit this process when a signal is received. If not set, the process runs infinitely.</p>
-</dd>
-<dt><kbd><span class="option">-u</span>, <span class="option">--listen-uri <var>&lt;silkit-uri&gt;</var></span></kbd></dt>
+<dt><kbd><span class="option">-u</span>, <span class="option">--listen-uri <var>&lt;silkitUri&gt;</var></span></kbd></dt>
 <dd><p>The <code class="docutils literal notranslate"><span class="pre">silkit://</span></code> URI the registry should listen on. Defaults to <code class="docutils literal notranslate"><span class="pre">silkit://localhost:8500</span></code>.</p>
+</dd>
+<dt><kbd><span class="option">-g</span>, <span class="option">--generate-configuration <var>&lt;path&gt;</var></span></kbd></dt>
+<dd><p>Generate a configuration file which includes the URI the registry listens on.</p>
+</dd>
+<dt><kbd><span class="option">-d</span>, <span class="option">--dashboard-uri <var>&lt;uri&gt;</var></span></kbd></dt>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">http://</span></code> URI of the SIL Kit Dashboard to which data is sent.</p>
 </dd>
 <dt><kbd><span class="option">-l</span>, <span class="option">--log <var>&lt;level&gt;</var></span></kbd></dt>
 <dd><p>Log to stdout with level <code class="docutils literal notranslate"><span class="pre">off</span></code>, <code class="docutils literal notranslate"><span class="pre">critical</span></code>, <code class="docutils literal notranslate"><span class="pre">error</span></code>, <code class="docutils literal notranslate"><span class="pre">warn</span></code>, <code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">debug</span></code>, or <code class="docutils literal notranslate"><span class="pre">trace</span></code>. Defaults to <code class="docutils literal notranslate"><span class="pre">info</span></code>.</p>
 </dd>
-<dt><kbd><span class="option">-g</span>, <span class="option">--generate-configuration <var>&lt;path&gt;</var></span></kbd></dt>
-<dd><p>Path and filename of a participant configuration file to generate containing the URI the registry is using.</p>
+<dt><kbd><span class="option">-c</span>, <span class="option">--registry-configuration <var>&lt;filePath&gt;</var></span></kbd></dt>
+<dd><p>The configuration read from this file overrides the values specified on the command line.</p>
 </dd>
-<dt><kbd><span class="option">-d</span>, <span class="option">--dashboard-uri <var>&lt;dashboard-uri&gt;</var></span></kbd></dt>
-<dd><p>The <code class="docutils literal notranslate"><span class="pre">http://</span></code> URI the data should be sent to. Defaults to <code class="docutils literal notranslate"><span class="pre">http://localhost:8082</span></code>.</p>
-</dd>
-<dt><kbd><span class="option">-c</span>, <span class="option">--registry-configuration <var>&lt;path&gt;</var></span></kbd></dt>
-<dd><p>Path to the registry configuration file (YAML).</p>
+<dt><kbd><span class="option">-s</span>, <span class="option">--use-signal-handler</span></kbd></dt>
+<dd><p>Terminate when an OS signal is received. <strong>Deprecated:</strong> Since v4.0.53, this is the default behavior.</p>
 </dd>
 </dl>
 </td>
@@ -200,22 +200,22 @@ Furthermore, it requires a list of synchronized participants that are needed to 
 <dd><p>Get version info.</p>
 </dd>
 <dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
-<dd><p>Show the help of <code class="docutils literal notranslate"><span class="pre">sil-kit-system-controller</span></code>.</p>
+<dd><p>Show the help of the SIL Kit System Controller.</p>
 </dd>
 <dt><kbd><span class="option">-u</span>, <span class="option">--connect-uri <var>&lt;silkitUri&gt;</var></span></kbd></dt>
-<dd><p>The registry’s URI to connect to. Defaults to <code class="docutils literal notranslate"><span class="pre">silkit://localhost:8500</span></code>.</p>
+<dd><p>The registry URI to connect to. Defaults to <code class="docutils literal notranslate"><span class="pre">silkit://localhost:8500</span></code>.</p>
 </dd>
 <dt><kbd><span class="option">-n</span>, <span class="option">--name <var>&lt;participantName&gt;</var></span></kbd></dt>
 <dd><p>The participant name used to take part in the simulation. Defaults to <code class="docutils literal notranslate"><span class="pre">SystemController</span></code>.</p>
 </dd>
-<dt><kbd><span class="option">-l</span>, <span class="option">--log <var>&lt;level&gt;</var></span></kbd></dt>
-<dd><p>Log to stdout with level <code class="docutils literal notranslate"><span class="pre">trace</span></code>, <code class="docutils literal notranslate"><span class="pre">debug</span></code>, <code class="docutils literal notranslate"><span class="pre">warn</span></code>, <code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">error</span></code>, <code class="docutils literal notranslate"><span class="pre">critical</span></code> or <code class="docutils literal notranslate"><span class="pre">off</span></code>. Defaults to <code class="docutils literal notranslate"><span class="pre">info</span></code>. Cannot be used together with <code class="docutils literal notranslate"><span class="pre">--configuration</span></code>.</p>
+<dt><kbd><span class="option">-c</span>, <span class="option">--configuration <var>&lt;filePath&gt;</var></span></kbd></dt>
+<dd><p>Path to the Participant configuration YAML or JSON file. Note that the format was changed in v3.6.11. Cannot be used together with the <code class="docutils literal notranslate"><span class="pre">--log</span></code> option.</p>
 </dd>
-<dt><kbd><span class="option">-c</span>, <span class="option">--configuration <var>&lt;configuration&gt;</var></span></kbd></dt>
-<dd><p>Path and filename of the participant configuration YAML file. Cannot be used together with <code class="docutils literal notranslate"><span class="pre">--log</span></code>.</p>
+<dt><kbd><span class="option">-l</span>, <span class="option">--log <var>&lt;level&gt;</var></span></kbd></dt>
+<dd><p>Log to stdout with level <code class="docutils literal notranslate"><span class="pre">trace</span></code>, <code class="docutils literal notranslate"><span class="pre">debug</span></code>, <code class="docutils literal notranslate"><span class="pre">warn</span></code>, <code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">error</span></code>, <code class="docutils literal notranslate"><span class="pre">critical</span></code> or <code class="docutils literal notranslate"><span class="pre">off</span></code>. Defaults to <code class="docutils literal notranslate"><span class="pre">info</span></code> if the <code class="docutils literal notranslate"><span class="pre">--configuration</span></code> option is not specified. Cannot be used together with the <code class="docutils literal notranslate"><span class="pre">--configuration</span></code> option.</p>
 </dd>
 <dt><kbd><span class="option">-n<var>i</var></span>, <span class="option">--non-interactive</span></kbd></dt>
-<dd><p>Run without awaiting any user interactions at any time.</p>
+<dd><p>Never prompt the user. <em>Deprecated:</em> Since v4.0.53, this is the default behavior.</p>
 </dd>
 </dl>
 <div class="line-block">
@@ -267,16 +267,25 @@ SIL Kit simulation.</p></td>
 <dd><p>Get version info.</p>
 </dd>
 <dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
-<dd><p>Show the help of the <code class="docutils literal notranslate"><span class="pre">sil-kit-monitor</span></code>.</p>
+<dd><p>Show the help of the SIL Kit Monitor.</p>
 </dd>
 <dt><kbd><span class="option">-u</span>, <span class="option">--connect-uri <var>&lt;silkitUri&gt;</var></span></kbd></dt>
-<dd><p>The registry’s URI to connect to. Defaults to <code class="docutils literal notranslate"><span class="pre">silkit://localhost:8500</span></code>.</p>
+<dd><p>The registry URI to connect to. Defaults to <code class="docutils literal notranslate"><span class="pre">silkit://localhost:8500</span></code>.</p>
 </dd>
 <dt><kbd><span class="option">-n</span>, <span class="option">--name <var>&lt;participantName&gt;</var></span></kbd></dt>
-<dd><p>The participant name used to take part in the simulation. Defaults to ‘<code class="docutils literal notranslate"><span class="pre">SystemMonitor</span></code>’.</p>
+<dd><p>The participant name used to take part in the simulation. Defaults to <code class="docutils literal notranslate"><span class="pre">SystemMonitor</span></code>.</p>
 </dd>
-<dt><kbd><span class="option">-c</span>, <span class="option">--configuration</span></kbd></dt>
-<dd><p>&lt;configuration&gt;    Path and filename of the participant configuration YAML file.</p>
+<dt><kbd><span class="option">-c</span>, <span class="option">--configuration <var>&lt;filePath&gt;</var></span></kbd></dt>
+<dd><p>Path to the Participant configuration YAML or JSON file.</p>
+</dd>
+<dt><kbd><span class="option">-a</span>, <span class="option">--autonomous</span></kbd></dt>
+<dd><p>Run with an autonomous lifecycle.</p>
+</dd>
+<dt><kbd><span class="option">-r</span>, <span class="option">--coordinated</span></kbd></dt>
+<dd><p>Run with a coordinated lifecycle.</p>
+</dd>
+<dt><kbd><span class="option">-s</span>, <span class="option">--sync</span></kbd></dt>
+<dd><p>Run with virtual time synchronization.</p>
 </dd>
 </dl>
 </td>
