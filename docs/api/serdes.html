@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Serialization/Deserialization API &mdash; Vector SIL Kit 4.0.52 documentation</title>
+  <title>Data Serialization/Deserialization API &mdash; Vector SIL Kit 4.0.53 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.52
+                4.0.53
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -326,13 +326,20 @@ query the serialized data as a byte vector.</p>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
-<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">BeginUnion</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="sig-paren">)</span><br /></dt>
-<dd></dd></dl>
+<span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">BeginUnion</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">discriminator</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Serialize the start of a union with a particular discriminator. Only the active union member must be serialized prior to calling EndUnion. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>discriminator</strong> – 1-based index of the active union member or 0 for an invalid ‘empty’ union </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
 <span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">EndUnion</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
-<dd></dd></dl>
+<dd><p>Serialize the end of a union. </p>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
@@ -504,12 +511,19 @@ query the serialized data as a byte vector.</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
 <span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">BeginUnion</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><br /></dt>
-<dd></dd></dl>
+<dd><p>Deserializes the start of a union and returns the discriminator. Only the active union member must be deserialized before calling EndUnion. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>1-based index of the active union member or 0 for an invalid ‘empty’ union </p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
 <span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">EndUnion</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
-<dd></dd></dl>
+<dd><p>Deserializes the end of a union. </p>
+</dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp">
