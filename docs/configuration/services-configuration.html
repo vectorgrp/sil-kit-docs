@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC) &mdash; Vector SIL Kit 4.0.53 documentation</title>
+  <title>Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC) &mdash; Vector SIL Kit 4.0.54 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.53
+                4.0.54
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -46,14 +46,25 @@
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../for-users/users.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../for-developers/developers.html">Developer Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/api.html">API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">C/C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/demos.html">Demos</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="configuration.html">Configuration</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="configuration.html#the-participant-configuration-file">The Participant Configuration File</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="configuration.html#overview">Overview</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="configuration.html#configuration-options">Configuration Options</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC)</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#cancontrollers">CanControllers</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#lincontrollers">LinControllers</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#ethernetcontrollers">EthernetControllers</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#flexraycontrollers">FlexrayControllers</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#datapublishers">DataPublishers</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#datasubscribers">DataSubscribers</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#rpcservers">RpcServers</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#rpcclients">RpcClients</a></li>
+</ul>
+</li>
 <li class="toctree-l4"><a class="reference internal" href="includes-configuration.html">Includes Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="healthcheck-configuration.html">HealthCheck Configuration</a></li>
@@ -68,12 +79,10 @@
 <li class="toctree-l2"><a class="reference internal" href="configuration.html#the-registry-configuration-file">The Registry Configuration File</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../netsim/netsim.html">Custom Network Simulator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">Licenses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 </ul>
 
@@ -258,6 +267,13 @@ and “transmissionMode” (<code class="docutils literal notranslate"><span cla
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">DataPublishers</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DataPublisher1</span>
 <span class="w">  </span><span class="nt">Topic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SomeTopic1</span>
+<span class="w">  </span><span class="nt">Labels</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SomeKey</span>
+<span class="w">      </span><span class="nt">Value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SomeValue</span>
+<span class="w">      </span><span class="nt">Kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mandatory</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AnotherKey</span>
+<span class="w">      </span><span class="nt">Value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AnotherValue</span>
+<span class="w">      </span><span class="nt">Kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional</span>
 </pre></div>
 </div>
 <table class="colwidths-given docutils align-default" id="id5">
@@ -278,6 +294,13 @@ and “transmissionMode” (<code class="docutils literal notranslate"><span cla
 <tr class="row-odd"><td><p>Topic</p></td>
 <td><p>The topic on which the data publisher publishes its information. (optional)</p></td>
 </tr>
+<tr class="row-even"><td><p>Labels</p></td>
+<td><dl class="simple">
+<dt>The labels determining matching subscribers with the same topic and media type. (optional)</dt><dd><p>Note that these labels will replace all programmatically provided labels.</p>
+</dd>
+</dl>
+</td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -286,6 +309,13 @@ and “transmissionMode” (<code class="docutils literal notranslate"><span cla
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">DataSubscribers</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DataSubscriber1</span>
 <span class="w">  </span><span class="nt">Topic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SomeTopic1</span>
+<span class="w">  </span><span class="nt">Labels</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SomeKey</span>
+<span class="w">      </span><span class="nt">Value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SomeValue</span>
+<span class="w">      </span><span class="nt">Kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mandatory</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AnotherKey</span>
+<span class="w">      </span><span class="nt">Value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AnotherValue</span>
+<span class="w">      </span><span class="nt">Kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional</span>
 </pre></div>
 </div>
 <table class="colwidths-given docutils align-default" id="id6">
@@ -306,6 +336,9 @@ and “transmissionMode” (<code class="docutils literal notranslate"><span cla
 <tr class="row-odd"><td><p>Topic</p></td>
 <td><p>The topic on which the data subscriber publishes its information. (optional)</p></td>
 </tr>
+<tr class="row-even"><td><p>Labels</p></td>
+<td><p>The labels determining matching publishers with the same topic and media type. (optional)</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -314,6 +347,13 @@ and “transmissionMode” (<code class="docutils literal notranslate"><span cla
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">RpcServers</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RpcServer1</span>
 <span class="w">  </span><span class="nt">FunctionName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SomeFunction1</span>
+<span class="w">  </span><span class="nt">Labels</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SomeKey</span>
+<span class="w">      </span><span class="nt">Value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SomeValue</span>
+<span class="w">      </span><span class="nt">Kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mandatory</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AnotherKey</span>
+<span class="w">      </span><span class="nt">Value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AnotherValue</span>
+<span class="w">      </span><span class="nt">Kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional</span>
 </pre></div>
 </div>
 <table class="colwidths-given docutils align-default" id="id7">
@@ -334,6 +374,9 @@ and “transmissionMode” (<code class="docutils literal notranslate"><span cla
 <tr class="row-odd"><td><p>FunctionName</p></td>
 <td><p>The function name on which the RPC server offers its service. (optional)</p></td>
 </tr>
+<tr class="row-even"><td><p>Labels</p></td>
+<td><p>The labels determining matching clients with the same function name and media type. (optional)</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -342,6 +385,13 @@ and “transmissionMode” (<code class="docutils literal notranslate"><span cla
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">RpcClients</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RpcClient1</span>
 <span class="w">  </span><span class="nt">FunctionName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SomeFunction1</span>
+<span class="w">  </span><span class="nt">Labels</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SomeKey</span>
+<span class="w">      </span><span class="nt">Value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SomeValue</span>
+<span class="w">      </span><span class="nt">Kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mandatory</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AnotherKey</span>
+<span class="w">      </span><span class="nt">Value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AnotherValue</span>
+<span class="w">      </span><span class="nt">Kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Optional</span>
 </pre></div>
 </div>
 <table class="colwidths-given docutils align-default" id="id8">
@@ -361,6 +411,9 @@ and “transmissionMode” (<code class="docutils literal notranslate"><span cla
 </tr>
 <tr class="row-odd"><td><p>FunctionName</p></td>
 <td><p>The function name to which the RPC client wants to connect to. (optional)</p></td>
+</tr>
+<tr class="row-even"><td><p>Labels</p></td>
+<td><p>The labels determining matching servers with the same function name and media type. (optional)</p></td>
 </tr>
 </tbody>
 </table>

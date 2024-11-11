@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>System Monitor C API &mdash; Vector SIL Kit 4.0.54 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Demos" href="../../demos/demos.html" />
+    <link rel="prev" title="Orchestration C API" href="capi-orchestration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.54
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Vector SIL Kit Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../for-users/users.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../for-developers/developers.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../simulation/simulation.html">Simulation Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">C/C++ API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../header.html">Header Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../memory-management.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#c-api">C++ API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#id1">C API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="capi-main.html">Entry Point and API Organization</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../api.html#id2">Services</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../api.html#id3">Vehicle Network Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api.html#id4">Data Publish/Subscribe and RPC</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../api.html#id5">State Handling and Synchronization</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="capi-orchestration.html">Orchestration C API</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">System Monitor C API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../demos/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../licenses/license.html">Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../contents.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../api.html">C/C++ API</a> &raquo;</li>
+      <li>System Monitor C API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/api/capi/capi-systemmonitor.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="system-monitor-c-api">
+<h1>System Monitor C API<a class="headerlink" href="#system-monitor-c-api" title="Permalink to this heading"></a></h1>
+<p>The features of the System Monitor in the C++ API are not provided through a <code class="docutils literal notranslate"><span class="pre">SystemMonitor</span></code> abstraction
+in the C API but directly provided through the <code class="docutils literal notranslate"><span class="pre">SilKit_Participant</span></code>.</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv427SilKit_SystemMonitor_CreatePP20SilKit_SystemMonitorP18SilKit_Participant">
+<span id="_CPPv327SilKit_SystemMonitor_CreatePP20SilKit_SystemMonitorP18SilKit_Participant"></span><span id="_CPPv227SilKit_SystemMonitor_CreatePP20SilKit_SystemMonitorP18SilKit_Participant"></span><span id="SilKit_SystemMonitor_Create__SilKit_SystemMonitorPP.SilKit_ParticipantP"></span><span class="target" id="_orchestration_8h_1ab97a97556028d82321ec805efbb388ff"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_SystemMonitor_Create</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_SystemMonitor</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outSystemMonitor</span></span>, <span class="n"><span class="pre">SilKit_Participant</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">participant</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv427SilKit_SystemMonitor_CreatePP20SilKit_SystemMonitorP18SilKit_Participant" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create a system monitor at this SIL Kit simulation participant. </p>
+<p>
+The object returned must not be deallocated using free()! </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outSystemMonitor</strong> – Pointer that refers to the resulting sytem monitor (out parameter). </p></li>
+<li><p><strong>participant</strong> – The simulation participant at which the system monitor should be created.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv442SilKit_SystemMonitor_AddSystemStateHandlerP20SilKit_SystemMonitorPv27SilKit_SystemStateHandler_tP16SilKit_HandlerId">
+<span id="_CPPv342SilKit_SystemMonitor_AddSystemStateHandlerP20SilKit_SystemMonitorPv27SilKit_SystemStateHandler_tP16SilKit_HandlerId"></span><span id="_CPPv242SilKit_SystemMonitor_AddSystemStateHandlerP20SilKit_SystemMonitorPv27SilKit_SystemStateHandler_tP16SilKit_HandlerId"></span><span id="SilKit_SystemMonitor_AddSystemStateHandler__SilKit_SystemMonitorP.voidP.SilKit_SystemStateHandler_t.SilKit_HandlerIdP"></span><span class="target" id="_orchestration_8h_1a02e798cf7a9ad0a4254037bdb4782ec3"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_SystemMonitor_AddSystemStateHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_SystemMonitor</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">systemMonitor</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">context</span></span>, <span class="n"><span class="pre">SilKit_SystemStateHandler_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outHandlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv442SilKit_SystemMonitor_AddSystemStateHandlerP20SilKit_SystemMonitorPv27SilKit_SystemStateHandler_tP16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Register a callback for system state changes. </p>
+<p>If the current SystemState is not SilKit_SystemState_Invalid, the handler will be called immediately.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>systemMonitor</strong> – The system monitor obtained via <a class="reference internal" href="#_orchestration_8h_1ab97a97556028d82321ec805efbb388ff"><span class="std std-ref">SilKit_SystemMonitor_Create</span></a>. </p></li>
+<li><p><strong>context</strong> – The user context pointer made available to the handler. </p></li>
+<li><p><strong>handler</strong> – The handler to be called to be called when the SilKit_SystemState changes. </p></li>
+<li><p><strong>outHandlerId</strong> – The handler identifier that can be used to remove the callback. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv448SilKit_SystemMonitor_AddParticipantStatusHandlerP20SilKit_SystemMonitorPv33SilKit_ParticipantStatusHandler_tP16SilKit_HandlerId">
+<span id="_CPPv348SilKit_SystemMonitor_AddParticipantStatusHandlerP20SilKit_SystemMonitorPv33SilKit_ParticipantStatusHandler_tP16SilKit_HandlerId"></span><span id="_CPPv248SilKit_SystemMonitor_AddParticipantStatusHandlerP20SilKit_SystemMonitorPv33SilKit_ParticipantStatusHandler_tP16SilKit_HandlerId"></span><span id="SilKit_SystemMonitor_AddParticipantStatusHandler__SilKit_SystemMonitorP.voidP.SilKit_ParticipantStatusHandler_t.SilKit_HandlerIdP"></span><span class="target" id="_orchestration_8h_1a2344753af998c32f04d6fe58ae0e2108"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_SystemMonitor_AddParticipantStatusHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_SystemMonitor</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">systemMonitor</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">context</span></span>, <span class="n"><span class="pre">SilKit_ParticipantStatusHandler_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outHandlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv448SilKit_SystemMonitor_AddParticipantStatusHandlerP20SilKit_SystemMonitorPv33SilKit_ParticipantStatusHandler_tP16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Register a callback for status changes of participants. </p>
+<p>The handler will be called immediately for any participant that is not in SilKit_ParticipantState_Invalid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>systemMonitor</strong> – The system monitor obtained via <a class="reference internal" href="#_orchestration_8h_1ab97a97556028d82321ec805efbb388ff"><span class="std std-ref">SilKit_SystemMonitor_Create</span></a>. </p></li>
+<li><p><strong>context</strong> – The user context pointer made available to the handler. </p></li>
+<li><p><strong>handler</strong> – The handler to be called to be called when the participant status changes. </p></li>
+<li><p><strong>outHandlerId</strong> – The handler identifier that can be used to remove the callback. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv445SilKit_SystemMonitor_RemoveSystemStateHandlerP20SilKit_SystemMonitor16SilKit_HandlerId">
+<span id="_CPPv345SilKit_SystemMonitor_RemoveSystemStateHandlerP20SilKit_SystemMonitor16SilKit_HandlerId"></span><span id="_CPPv245SilKit_SystemMonitor_RemoveSystemStateHandlerP20SilKit_SystemMonitor16SilKit_HandlerId"></span><span id="SilKit_SystemMonitor_RemoveSystemStateHandler__SilKit_SystemMonitorP.SilKit_HandlerId"></span><span class="target" id="_orchestration_8h_1a528bffc36891a864c039943633867f53"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_SystemMonitor_RemoveSystemStateHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_SystemMonitor</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">systemMonitor</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv445SilKit_SystemMonitor_RemoveSystemStateHandlerP20SilKit_SystemMonitor16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Remove a SilKit_SystemStateHandler_t by SilKit_HandlerId on this participant. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>systemMonitor</strong> – The system monitor obtained via <a class="reference internal" href="#_orchestration_8h_1ab97a97556028d82321ec805efbb388ff"><span class="std std-ref">SilKit_SystemMonitor_Create</span></a>. </p></li>
+<li><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv451SilKit_SystemMonitor_RemoveParticipantStatusHandlerP20SilKit_SystemMonitor16SilKit_HandlerId">
+<span id="_CPPv351SilKit_SystemMonitor_RemoveParticipantStatusHandlerP20SilKit_SystemMonitor16SilKit_HandlerId"></span><span id="_CPPv251SilKit_SystemMonitor_RemoveParticipantStatusHandlerP20SilKit_SystemMonitor16SilKit_HandlerId"></span><span id="SilKit_SystemMonitor_RemoveParticipantStatusHandler__SilKit_SystemMonitorP.SilKit_HandlerId"></span><span class="target" id="_orchestration_8h_1a3518f8af4c7f5b82816e64b6a88a2663"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_SystemMonitor_RemoveParticipantStatusHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_SystemMonitor</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">systemMonitor</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv451SilKit_SystemMonitor_RemoveParticipantStatusHandlerP20SilKit_SystemMonitor16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Remove a SilKit_ParticipantStatusHandler_t by SilKit_HandlerId on this participant. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>systemMonitor</strong> – The system monitor obtained via <a class="reference internal" href="#_orchestration_8h_1ab97a97556028d82321ec805efbb388ff"><span class="std std-ref">SilKit_SystemMonitor_Create</span></a>. </p></li>
+<li><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv441SilKit_SystemMonitor_GetParticipantStatusP24SilKit_ParticipantStatusP20SilKit_SystemMonitorPKc">
+<span id="_CPPv341SilKit_SystemMonitor_GetParticipantStatusP24SilKit_ParticipantStatusP20SilKit_SystemMonitorPKc"></span><span id="_CPPv241SilKit_SystemMonitor_GetParticipantStatusP24SilKit_ParticipantStatusP20SilKit_SystemMonitorPKc"></span><span id="SilKit_SystemMonitor_GetParticipantStatus__SilKit_ParticipantStatusP.SilKit_SystemMonitorP.cCP"></span><span class="target" id="_orchestration_8h_1ad744d214d02c60478e5d62c86291c688"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_SystemMonitor_GetParticipantStatus</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_ParticipantStatus</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outParticipantState</span></span>, <span class="n"><span class="pre">SilKit_SystemMonitor</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">systemMonitor</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">participantName</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv441SilKit_SystemMonitor_GetParticipantStatusP24SilKit_ParticipantStatusP20SilKit_SystemMonitorPKc" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get the current participant state of the participant given by participantName (UTF-8) </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv435SilKit_SystemMonitor_GetSystemStateP18SilKit_SystemStateP20SilKit_SystemMonitor">
+<span id="_CPPv335SilKit_SystemMonitor_GetSystemStateP18SilKit_SystemStateP20SilKit_SystemMonitor"></span><span id="_CPPv235SilKit_SystemMonitor_GetSystemStateP18SilKit_SystemStateP20SilKit_SystemMonitor"></span><span id="SilKit_SystemMonitor_GetSystemState__SilKit_SystemStateP.SilKit_SystemMonitorP"></span><span class="target" id="_orchestration_8h_1af32b26cd58da91ce3289bb2020a14f7c"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_SystemMonitor_GetSystemState</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_SystemState</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outSystemState</span></span>, <span class="n"><span class="pre">SilKit_SystemMonitor</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">systemMonitor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv435SilKit_SystemMonitor_GetSystemStateP18SilKit_SystemStateP20SilKit_SystemMonitor" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get the current SilKit_SystemState. </p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="capi-orchestration.html" class="btn btn-neutral float-left" title="Orchestration C API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../demos/demos.html" class="btn btn-neutral float-right" title="Demos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

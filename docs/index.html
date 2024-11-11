@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vector SIL Kit Overview &mdash; Vector SIL Kit 4.0.53 documentation</title>
+  <title>Vector SIL Kit Overview &mdash; Vector SIL Kit 4.0.54 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.53
+                4.0.54
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -59,16 +59,14 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="for-users/users.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="for-developers/developers.html">Developer Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="simulation/simulation.html">Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api/api.html">API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulation/simulation.html">Simulation Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/api.html">C/C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demos/demos.html">Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration/configuration.html">Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="netsim/netsim.html">Custom Network Simulator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/utilities.html">Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq/faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="licenses/license.html">SIL Kit License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licenses/license.html">Licenses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CHANGELOG.html">Changelog</a></li>
 </ul>
 
@@ -110,13 +108,14 @@ It provides:</p>
 </ul>
 <section id="supported-services">
 <span id="sec-overview-supported-services"></span><h2>Supported Services<a class="headerlink" href="#supported-services" title="Permalink to this heading"></a></h2>
-<p>The services currently supported by the SIL Kit consist of the following categories:</p>
+<p>The SIL Kit supports the following services:</p>
 <ul class="simple">
-<li><p><strong>Vehicle Network Controllers:</strong> <a class="reference internal" href="api/can.html#chap-can-service-api"><span class="std std-ref">CAN / CAN FD</span></a>, <a class="reference internal" href="api/ethernet.html#chap-ethernet-service-api"><span class="std std-ref">Ethernet</span></a>, <a class="reference internal" href="api/flexray.html#chap-flexray-service-api"><span class="std std-ref">FlexRay</span></a>, and <a class="reference internal" href="api/lin.html#chap-lin-service-api"><span class="std std-ref">LIN</span></a></p></li>
-<li><p><strong>Data Publish/Subscribe:</strong> topic-based <a class="reference internal" href="api/pubsub.html#chap-pubsub-service-api"><span class="std std-ref">publish/subscribe</span></a> mechanism to exchange arbitrary data</p></li>
-<li><p><strong>RPC Servers/Clients:</strong> for dynamic <a class="reference internal" href="api/rpc.html#chap-rpc-service-api"><span class="std std-ref">remote procedure execution</span></a></p></li>
-<li><p><strong>Orchestration:</strong> for <a class="reference internal" href="api/lifecycleService.html#chap-lifecycle-service-api"><span class="std std-ref">lifecycle</span></a> and <a class="reference internal" href="api/timeSyncService.html#chap-timesync-service-api"><span class="std std-ref">time synchronization</span></a> control</p></li>
-<li><p><strong>Logging:</strong> for <a class="reference internal" href="api/logging.html#chap-logging-service-api"><span class="std std-ref">logging</span></a> messages into a file, standard output, or to other participants</p></li>
+<li><p><strong>Vehicle Network Controllers:</strong> <a class="reference internal" href="api/services/can.html#chap-can-service-api"><span class="std std-ref">CAN / CAN FD</span></a>, <a class="reference internal" href="api/services/ethernet.html#chap-ethernet-service-api"><span class="std std-ref">Ethernet</span></a>, <a class="reference internal" href="api/services/flexray.html#chap-flexray-service-api"><span class="std std-ref">FlexRay</span></a>, and <a class="reference internal" href="api/services/lin.html#chap-lin-service-api"><span class="std std-ref">LIN</span></a></p></li>
+<li><p><strong>Data Publish/Subscribe:</strong> topic-based <a class="reference internal" href="api/services/pubsub.html#chap-pubsub-service-api"><span class="std std-ref">publish/subscribe</span></a> mechanism to exchange arbitrary data</p></li>
+<li><p><strong>RPC Servers/Clients:</strong> for dynamic <a class="reference internal" href="api/services/rpc.html#chap-rpc-service-api"><span class="std std-ref">remote procedure execution</span></a></p></li>
+<li><p><strong>Orchestration:</strong> for <a class="reference internal" href="api/services/lifecycle.html#chap-lifecycle-service-api"><span class="std std-ref">lifecycle</span></a> and <a class="reference internal" href="api/services/timesync.html#chap-timesync-service-api"><span class="std std-ref">time synchronization</span></a> control</p></li>
+<li><p><strong>Logging:</strong> for <a class="reference internal" href="api/services/logging.html#chap-logging-service-api"><span class="std std-ref">logging</span></a> messages into a file, standard output, or to other participants</p></li>
+<li><p><strong>Custom Network Simulator:</strong> takes control over the message flow to simulate network details</p></li>
 </ul>
 </section>
 <section id="vehicle-networks">
@@ -135,7 +134,7 @@ The section <a class="reference internal" href="api/api.html#sec-api-services"><
 <section id="simulation-basics">
 <h2>Simulation Basics<a class="headerlink" href="#simulation-basics" title="Permalink to this heading"></a></h2>
 <p>Every simulation setup comprises several components.
-The <a class="reference internal" href="usage/utilities.html#sec-util-registry"><span class="std std-ref">SIL Kit Registry</span></a> establishes connections between participants in a simulation.
+The <a class="reference internal" href="utilities/utilities.html#sec-util-registry"><span class="std std-ref">SIL Kit Registry</span></a> establishes connections between participants in a simulation.
 The SIL Kit Registry process is required and must be started as a first step.
 It acts as a connection broker between the actual simulation participants.</p>
 <p>One or more <a class="reference internal" href="api/participant.html"><span class="doc">participants</span></a> take care of the actual simulation logic and communicate via built-in <a class="reference internal" href="#sec-overview-supported-services"><span class="std std-ref">services</span></a>.
@@ -159,12 +158,14 @@ A similar configuration file is available for the SIL Kit Registry as well.</p>
 such as emulators, virtual machines and simulation tools.</p>
 <p>The SIL Kit ecosystem comprises the following turn-key solutions:</p>
 <ul class="simple">
-<li><p>The <a class="reference external" href="https://github.com/vectorgrp/sil-kit-adapters-qemu">SIL Kit Adapters for QEMU</a>
+<li><p>The <a class="reference external" href="https://github.com/vectorgrp/sil-kit-adapters-qemu">SIL Kit Adapter for QEMU</a>
 integrates with QEMU to support co-simulation with emulated targets.</p></li>
-<li><p>The <a class="reference external" href="https://github.com/vectorgrp/sil-kit-adapters-tap">SIL Kit Adapters for TAP devices</a>
+<li><p>The <a class="reference external" href="https://github.com/vectorgrp/sil-kit-adapters-tap">SIL Kit Adapter for TAP devices</a>
 project provides first-class support for TAP devices of the host operating system.</p></li>
-<li><p>The <a class="reference external" href="https://github.com/vectorgrp/sil-kit-adapters-vcan">SIL Kit Adapter for SocketCAN</a>
-can be used to attach a virtual CAN (Controller Area Network) interface (SocketCAN) to a SIL Kit CAN bus.</p></li>
+<li><p>The <a class="reference external" href="https://github.com/vectorgrp/sil-kit-adapters-vcan">SIL Kit Adapter for virtual CAN</a>
+can be used to attach a virtual CAN (Controller Area Network) interface (SocketCAN) to a Vector SIL Kit CAN bus.</p></li>
+<li><p>The <a class="reference external" href="https://github.com/vectorgrp/sil-kit-adapters-generic-linux-io">SIL Kit Adapter for Generic Linux IO</a>
+allows to attach SIL Kit to a generic Linux IO device, such as character devices or GPIOs.</p></li>
 <li><p>The <a class="reference external" href="https://github.com/vectorgrp/sil-kit-fmu-importer">SIL Kit FMU Importer</a>
 allows to import Functional Mockup Units (FMUs) as SIL Kit participants.</p></li>
 </ul>
@@ -209,7 +210,7 @@ The participants and the registry can be distributed in a network or running on 
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/api.html#sec-api-services"><span class="std std-ref">Services</span></a></p></td>
 <td><p>Participants interact with each other through the means of services.
-These can be communication services, e.g., a <a class="reference internal" href="api/can.html"><span class="doc">CAN Controller</span></a> and orchestration services, such as the the Lifecycle Service, Time Synchronization Service, and the Logging Service.</p></td>
+These can be communication services, e.g., a <a class="reference internal" href="api/services/can.html"><span class="doc">CAN Controller</span></a> and orchestration services, such as the the Lifecycle Service, Time Synchronization Service, and the Logging Service.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="configuration/configuration.html"><span class="doc">Configuration</span></a></p></td>
 <td><p>The optional participant configuration file allows easy configuration of a participant and its interconnection within the simulation.
@@ -217,7 +218,7 @@ It can be used to change a participant’s behavior without recompiling its sour
 </tr>
 <tr class="row-odd"><td><p>Registry</p></td>
 <td><p>The registry is a central process that enables participant discovery in a distributed simulation.
-An instance of the registry is required for coordination, either as a standalone process (see <a class="reference internal" href="usage/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a>) or created programmatically.</p></td>
+An instance of the registry is required for coordination, either as a standalone process (see <a class="reference internal" href="utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a>) or created programmatically.</p></td>
 </tr>
 <tr class="row-even"><td><p>Registry URI</p></td>
 <td><p>The registry’s URI specifies where the registry can be reached.
@@ -238,7 +239,7 @@ If none of these work, they try to communicate by using the SIL Kit Registry as 
 <tr class="row-even"><td><p>Required participant</p></td>
 <td><p>A participant that is required for a successful simulation.
 All required participants impact the system state (see <a class="reference internal" href="simulation/simulation.html#sec-sim-lifecycle-syncparticipants"><span class="std std-ref">Lifecycle Coordination Between Participants</span></a>).
-Required participants are defined by the <a class="reference internal" href="usage/utilities.html#sec-util-system-controller"><span class="std std-ref">System Controller Utility</span></a>.</p></td>
+Required participants are defined by the <a class="reference internal" href="utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">System Controller Utility</span></a>.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Coordinated participant</p></td>
 <td><p>Participants can opt to synchronize their lifecycle state with other participants.
@@ -254,8 +255,8 @@ Autonomous participants are not stopped by the system state and therefore must b
 <section id="further-reading">
 <h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this heading"></a></h2>
 <p>More real-world examples involving time synchronization and simulated automotive networks, can be found in the <a class="reference internal" href="api/api.html"><span class="doc">API sections</span></a>.
-Also, studying the source code of the bundled <a class="reference internal" href="usage/demos.html"><span class="doc">demo applications</span></a> is a good start.
-The simulation lifecycle and supported simulation time synchronization are discussed in <a class="reference internal" href="simulation/simulation.html"><span class="doc">Simulation</span></a>.
+Also, studying the source code of the bundled <a class="reference internal" href="demos/demos.html"><span class="doc">demo applications</span></a> is a good start.
+The simulation lifecycle and supported simulation time synchronization are discussed in <a class="reference internal" href="simulation/simulation.html"><span class="doc">Simulation Concepts</span></a>.
 Additionally, <a class="reference internal" href="configuration/configuration.html"><span class="doc">Configuration</span></a> describes how the participant configuration file can be used to change the behavior of participants.</p>
 </section>
 </section>

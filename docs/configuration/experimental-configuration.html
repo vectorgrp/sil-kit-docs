@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Experimental Configuration &mdash; Vector SIL Kit 4.0.53 documentation</title>
+  <title>Experimental Configuration &mdash; Vector SIL Kit 4.0.54 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -20,7 +20,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Custom Network Simulator" href="../netsim/netsim.html" />
+    <link rel="next" title="Utilities" href="../utilities/utilities.html" />
     <link rel="prev" title="Middleware Configuration" href="middleware-configuration.html" /> 
 </head>
 
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.53
+                4.0.54
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -46,9 +46,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../for-users/users.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../for-developers/developers.html">Developer Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/api.html">API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">C/C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/demos.html">Demos</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="configuration.html">Configuration</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="configuration.html#the-participant-configuration-file">The Participant Configuration File</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="configuration.html#overview">Overview</a></li>
@@ -60,7 +60,11 @@
 <li class="toctree-l4"><a class="reference internal" href="tracing-configuration.html">Tracing and Replay Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="extension-configuration.html">Extensions Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="middleware-configuration.html">Middleware Configuration</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Experimental Configuration</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Experimental Configuration</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#timesynchronization">TimeSynchronization</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -68,12 +72,10 @@
 <li class="toctree-l2"><a class="reference internal" href="configuration.html#the-registry-configuration-file">The Registry Configuration File</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../netsim/netsim.html">Custom Network Simulator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">Licenses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 </ul>
 
@@ -174,7 +176,7 @@ In this case, the time step will not be terminated and the communication will bl
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="middleware-configuration.html" class="btn btn-neutral float-left" title="Middleware Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../netsim/netsim.html" class="btn btn-neutral float-right" title="Custom Network Simulator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../utilities/utilities.html" class="btn btn-neutral float-right" title="Utilities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

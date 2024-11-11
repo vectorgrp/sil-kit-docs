@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Memory Management &mdash; Vector SIL Kit 4.0.53 documentation</title>
+  <title>Memory Management &mdash; Vector SIL Kit 4.0.54 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -20,7 +20,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Logging Service API" href="logging.html" />
+    <link rel="next" title="Participant" href="participant.html" />
     <link rel="prev" title="Header Files" href="header.html" /> 
 </head>
 
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.53
+                4.0.54
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -46,33 +46,27 @@
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../for-users/users.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../for-developers/developers.html">Developer Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="api.html#api-entry-point-and-api-organization">API Entry Point and API Organization</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="participant.html">Participant</a></li>
-<li class="toctree-l3"><a class="reference internal" href="header.html">Header Files</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Memory Management</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#callbacks">Callbacks</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#controllers">Controllers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#participant-and-participantconfiguration">Participant and ParticipantConfiguration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sil-kit-spans-vs-vectors">SIL Kit Spans vs Vectors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">C/C++ API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="header.html">Header Files</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Memory Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#callbacks">Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#controllers">Controllers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#participant-and-participantconfiguration">Participant and ParticipantConfiguration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sil-kit-spans-vs-vectors">SIL Kit Spans vs Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#c-api">C++ API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#id1">C API</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#services">Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#c-api">C API</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/demos.html">Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../netsim/netsim.html">Custom Network Simulator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">Licenses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 </ul>
 
@@ -90,7 +84,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="api.html">API</a> &raquo;</li>
+          <li><a href="api.html">C/C++ API</a> &raquo;</li>
       <li>Memory Management</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/memory-management.rst.txt" rel="nofollow"> View page source</a>
@@ -106,7 +100,7 @@
 <p>This document describes what a user of the SIL Kit API has to be aware of regarding memory management.</p>
 <section id="callbacks">
 <h2>Callbacks<a class="headerlink" href="#callbacks" title="Permalink to this heading"></a></h2>
-<p>When SIL Kit triggers a callback through an event handler such as e.g. <a class="reference internal" href="ethernet.html#_CPPv4N6SilKit8Services8Ethernet19IEthernetController15AddFrameHandlerE12FrameHandler13DirectionMask" title="SilKit::Services::Ethernet::IEthernetController::AddFrameHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">EthernetController::AddFrameHandler()</span></code></a>, a user must not free or modify data provided through such an handler.
+<p>When SIL Kit triggers a callback through an event handler such as e.g. <a class="reference internal" href="services/ethernet.html#_CPPv4N6SilKit8Services8Ethernet19IEthernetController15AddFrameHandlerE12FrameHandler13DirectionMask" title="SilKit::Services::Ethernet::IEthernetController::AddFrameHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">EthernetController::AddFrameHandler()</span></code></a>, a user must not free or modify data provided through such an handler.
 SIL Kit does own this data and deals with the needed memory management itself.
 It is important to note that data provided in SIL Kit event handlers is only available during execution of the callback.
 A user must not interact with such data after the execution of the callback since the corresponding memory may already be freed or reused by SIL Kit.
@@ -133,7 +127,7 @@ ParticipantConfigurations are not modeled separately in the C API and therefore 
 This allows SIL Kit to provide access to these payloads without introducing an additional copy of these payloads.
 Through avoiding these copies, SIL Kit’s performance is optimized.</p>
 <p>To obtain a real copy of these payloads <code class="docutils literal notranslate"><span class="pre">SilKit::Util::ToStdVector</span></code> can be used.</p>
-<p>SIL Kit requires these <code class="docutils literal notranslate"><span class="pre">SilKit::Util::Span</span></code> as well for sending payloads, e.g. in the <a class="reference internal" href="can.html#_CPPv4N6SilKit8Services3Can8CanFrameE" title="SilKit::Services::Can::CanFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrame</span></code></a> that is provided to <a class="reference internal" href="can.html#_CPPv4N6SilKit8Services3Can14ICanController9SendFrameERK8CanFramePv" title="SilKit::Services::Can::ICanController::SendFrame"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ICanController::SendFrame()</span></code></a>.
+<p>SIL Kit requires these <code class="docutils literal notranslate"><span class="pre">SilKit::Util::Span</span></code> as well for sending payloads, e.g. in the <a class="reference internal" href="services/can.html#_CPPv4N6SilKit8Services3Can8CanFrameE" title="SilKit::Services::Can::CanFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrame</span></code></a> that is provided to <a class="reference internal" href="services/can.html#_CPPv4N6SilKit8Services3Can14ICanController9SendFrameERK8CanFramePv" title="SilKit::Services::Can::ICanController::SendFrame"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ICanController::SendFrame()</span></code></a>.
 For converting byte vectors to these spans, <code class="docutils literal notranslate"><span class="pre">SilKit::Util::ToSpan</span></code> or the <code class="docutils literal notranslate"><span class="pre">SilKit::Util::Span</span></code> constructor can be used.</p>
 </section>
 <section id="examples">
@@ -170,7 +164,7 @@ For converting byte vectors to these spans, <code class="docutils literal notran
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="header.html" class="btn btn-neutral float-left" title="Header Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="logging.html" class="btn btn-neutral float-right" title="Logging Service API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="participant.html" class="btn btn-neutral float-right" title="Participant" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

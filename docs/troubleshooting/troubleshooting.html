@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Troubleshooting &mdash; Vector SIL Kit 4.0.54 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Connectivity" href="connectivity.html" />
+    <link rel="prev" title="Utilities" href="../utilities/utilities.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.54
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-users/users.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-developers/developers.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">C/C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/utilities.html">Utilities</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="connectivity.html">Connectivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">Lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interoperability.html">Interoperability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connection-guides.html">Connection Guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Troubleshooting</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/troubleshooting/troubleshooting.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h1>
+<p>This section provides in-depth troubleshooting information about common problems of SIL Kit simulations.
+Most issues can be identified based on log messages by the application.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>To troubleshoot any problem involving the SIL Kit, activate the built-in <a class="reference internal" href="../configuration/logging-configuration.html#sec-cfg-participant-logging"><span class="std std-ref">logging</span></a> on all involved applications.
+It is recommended to write the participant log to a file with the most detailed log level <code class="docutils literal notranslate"><span class="pre">Trace</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Logging</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">Sinks</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">File</span>
+<span class="w">    </span><span class="nt">Level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trace</span>
+<span class="w">    </span><span class="nt">LogName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ParticipantLog</span>
+</pre></div>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="connectivity.html">Connectivity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="connectivity.html#connectivity-issues-with-the-productname-registry">Connectivity Issues with the SIL Kit Registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connectivity.html#using-the-registry-as-a-proxy-for-participant-to-participant-connections">Using the Registry as a Proxy for Participant-to-Participant Connections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connectivity.html#connectivity-issues-between-participants">Connectivity issues between participants</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lifecycle.html">Lifecycle</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html#coordinated-required-participants">Coordinated required participants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html#attempt-to-instantiate-a-service-multiple-times">Attempt to instantiate a service multiple times</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html#required-participant-names-are-already-set">Required participant names are already set</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interoperability.html">Interoperability</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="interoperability.html#duplicate-participant-names">Duplicate Participant Names</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="connection-guides.html">Connection Guides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="connection-guides.html#windows-and-wsl">Windows and WSL</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../utilities/utilities.html" class="btn btn-neutral float-left" title="Utilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="connectivity.html" class="btn btn-neutral float-right" title="Connectivity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

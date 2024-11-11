@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entry Point and API Organization &mdash; Vector SIL Kit 4.0.54 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="CAN C API" href="capi-can.html" />
+    <link rel="prev" title="Custom Network Simulator" href="../netsim.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.54
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Vector SIL Kit Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../for-users/users.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../for-developers/developers.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../simulation/simulation.html">Simulation Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">C/C++ API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../header.html">Header Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../memory-management.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#c-api">C++ API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#id1">C API</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Entry Point and API Organization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sil-kit-entry-point-and-api-organization">SIL Kit Entry Point and API Organization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api-and-data-type-reference">API and Data Type Reference</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#general-api">General API</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#participant-api">Participant API</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#logger-api">Logger API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api.html#id2">Services</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../demos/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../licenses/license.html">Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../contents.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../api.html">C/C++ API</a> &raquo;</li>
+      <li>Entry Point and API Organization</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/api/capi/capi-main.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="entry-point-and-api-organization">
+<span id="sec-capi"></span><h1>Entry Point and API Organization<a class="headerlink" href="#entry-point-and-api-organization" title="Permalink to this heading"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#sil-kit-entry-point-and-api-organization" id="id1">SIL Kit Entry Point and API Organization</a></p></li>
+<li><p><a class="reference internal" href="#api-and-data-type-reference" id="id2">API and Data Type Reference</a></p>
+<ul>
+<li><p><a class="reference internal" href="#general-api" id="id3">General API</a></p></li>
+<li><p><a class="reference internal" href="#participant-api" id="id4">Participant API</a></p></li>
+<li><p><a class="reference internal" href="#logger-api" id="id5">Logger API</a></p>
+<ul>
+<li><p><a class="reference internal" href="#enumerations-and-typedefs" id="id6">Enumerations and Typedefs</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="sil-kit-entry-point-and-api-organization">
+<h2><a class="toc-backref" href="#id1">SIL Kit Entry Point and API Organization</a><a class="headerlink" href="#sil-kit-entry-point-and-api-organization" title="Permalink to this heading"></a></h2>
+<p>The main entry point of the C API is the function to obtain a <code class="docutils literal notranslate"><span class="pre">SilKit_Participant</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">SilKit_ParticipantConfiguration</span><span class="o">*</span><span class="w"> </span><span class="n">participantConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="n">SilKit_Participant</span><span class="o">*</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">configString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;{ ... }&quot;</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">participantName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CanWriter&quot;</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">registryUri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;silkit://localhost:8500&quot;</span><span class="p">;</span>
+<span class="n">SilKit_ReturnCode</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit_ParticipantConfiguration_FromString</span><span class="p">(</span><span class="o">&amp;</span><span class="n">participantConfiguration</span><span class="p">,</span><span class="w"> </span><span class="n">configString</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">SilKit_ReturnCode_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit_Participant_Create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">participant</span><span class="p">,</span><span class="w"> </span><span class="n">configString</span><span class="p">,</span>
+<span class="w">                                                        </span><span class="n">participantName</span><span class="p">,</span><span class="w"> </span><span class="n">registryUri</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">SilKit_ReturnCode_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>All further services of the C API of the SIL Kit are requested through this Participant.</p>
+<p>Entities obtained through the Participant must not be destroyed/deleted by the user of the API.
+All entities, that are provided through the API expect for the <code class="docutils literal notranslate"><span class="pre">SilKit_Participant</span></code> are destroyed through
+the internals of the SIL Kit implementation.</p>
+<p>After creation of a Participant it must be ensured that eventually <code class="docutils literal notranslate"><span class="pre">SilKit_Participant_Destroy</span></code> is called
+with the corresponding pointer to the <code class="docutils literal notranslate"><span class="pre">SilKit_Participant</span></code> entity.</p>
+</section>
+<section id="api-and-data-type-reference">
+<h2><a class="toc-backref" href="#id2">API and Data Type Reference</a><a class="headerlink" href="#api-and-data-type-reference" title="Permalink to this heading"></a></h2>
+<section id="general-api">
+<h3><a class="toc-backref" href="#id3">General API</a><a class="headerlink" href="#general-api" title="Permalink to this heading"></a></h3>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv425SilKit_ReturnCodeToStringPPKc17SilKit_ReturnCode">
+<span id="_CPPv325SilKit_ReturnCodeToStringPPKc17SilKit_ReturnCode"></span><span id="_CPPv225SilKit_ReturnCodeToStringPPKc17SilKit_ReturnCode"></span><span id="SilKit_ReturnCodeToString__cCPP.SilKit_ReturnCode"></span><span class="target" id="_sil_kit_8h_1a2620c10b459188e44daf8bf440759a9e"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_ReturnCodeToString</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outString</span></span>, <span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">returnCode</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425SilKit_ReturnCodeToStringPPKc17SilKit_ReturnCode" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get the corresponding static error string for a given return code. </p>
+<p><a class="reference internal" href="#_sil_kit_8h_1ad16b354817790f8abe87100c60516e25"><span class="std std-ref">SilKit_GetLastErrorString()</span></a> </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outString</strong> – The pointer through which the resulting human readable error string, encoded in UTF-8, will be returned. </p></li>
+<li><p><strong>returnCode</strong> – The return code for which the string should be obtained.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv425SilKit_GetLastErrorStringv">
+<span id="_CPPv325SilKit_GetLastErrorStringv"></span><span id="_CPPv225SilKit_GetLastErrorStringv"></span><span id="SilKit_GetLastErrorString"></span><span class="target" id="_sil_kit_8h_1ad16b354817790f8abe87100c60516e25"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_GetLastErrorString</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425SilKit_GetLastErrorStringv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get a human readable error description of the last error on the current thread. </p>
+<p>This method is intended to get specific error messages in case of a non success return code. In comparison to SilKit_ReturnCodeToString this function returns dynamic and more specific error messages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A specific string containing the last error message of the current thread. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="participant-api">
+<h3><a class="toc-backref" href="#id4">Participant API</a><a class="headerlink" href="#participant-api" title="Permalink to this heading"></a></h3>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv425SilKit_Participant_CreatePP18SilKit_ParticipantP31SilKit_ParticipantConfigurationPKcPKc">
+<span id="_CPPv325SilKit_Participant_CreatePP18SilKit_ParticipantP31SilKit_ParticipantConfigurationPKcPKc"></span><span id="_CPPv225SilKit_Participant_CreatePP18SilKit_ParticipantP31SilKit_ParticipantConfigurationPKcPKc"></span><span id="SilKit_Participant_Create__SilKit_ParticipantPP.SilKit_ParticipantConfigurationP.cCP.cCP"></span><span class="target" id="_participant_8h_1a96d8265705e0f76df13eeb17d00624c1"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_Participant_Create</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_Participant</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outParticipant</span></span>, <span class="n"><span class="pre">SilKit_ParticipantConfiguration</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">participantConfiguration</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">participantName</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">registryUri</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425SilKit_Participant_CreatePP18SilKit_ParticipantP31SilKit_ParticipantConfigurationPKcPKc" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Join the SIL Kit simulation hosted by the registry listening at URI as a participant. </p>
+<p>Join the SIL Kit simulation and become a participant based on the given configuration options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outParticipant</strong> – The pointer through which the simulation participant will be returned (out parameter). </p></li>
+<li><p><strong>participantConfiguration</strong> – Configuration of the participant (see SilKit_ParticipantConfiguration_FromString) </p></li>
+<li><p><strong>participantName</strong> – Name of the participant </p></li>
+<li><p><strong>registryUri</strong> – The <code class="docutils literal notranslate"><span class="pre">silkit://</span></code> URI of the registry </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv426SilKit_Participant_DestroyP18SilKit_Participant">
+<span id="_CPPv326SilKit_Participant_DestroyP18SilKit_Participant"></span><span id="_CPPv226SilKit_Participant_DestroyP18SilKit_Participant"></span><span id="SilKit_Participant_Destroy__SilKit_ParticipantP"></span><span class="target" id="_participant_8h_1a7bf46dc1c047b2dc93ba5edd9d4912ed"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_Participant_Destroy</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_Participant</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">participant</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv426SilKit_Participant_DestroyP18SilKit_Participant" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Destroy a simulation participant and its associated simulation elements. </p>
+<p>Destroys the simulation participant and its created simulation elements such as e.g. Can controllers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>participant</strong> – The simulation participant to be destroyed. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Most creator functions for other objects (such as bus controllers) require a <code class="docutils literal notranslate"><span class="pre">SilKit_Participant</span></code>,
+which is the factory object, as input parameter.</p>
+</section>
+<section id="logger-api">
+<h3><a class="toc-backref" href="#id5">Logger API</a><a class="headerlink" href="#logger-api" title="Permalink to this heading"></a></h3>
+<p>The Logger API can be used to write log messages.</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv428SilKit_Participant_GetLoggerPP13SilKit_LoggerP18SilKit_Participant">
+<span id="_CPPv328SilKit_Participant_GetLoggerPP13SilKit_LoggerP18SilKit_Participant"></span><span id="_CPPv228SilKit_Participant_GetLoggerPP13SilKit_LoggerP18SilKit_Participant"></span><span id="SilKit_Participant_GetLogger__SilKit_LoggerPP.SilKit_ParticipantP"></span><span class="target" id="_participant_8h_1ad49558ac4dc48cd41bd2e073a7571515"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_Participant_GetLogger</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_Logger</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outLogger</span></span>, <span class="n"><span class="pre">SilKit_Participant</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">participant</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv428SilKit_Participant_GetLoggerPP13SilKit_LoggerP18SilKit_Participant" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Obtain the logger of a particular simulation participant. </p>
+<p>
+The lifetime of the returned logger is directly bound to the lifetime of the simulation participant. There is no futher cleanup necessary, except for destroying the simulation participant at the end of the simulation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outLogger</strong> – Pointer to the resulting logger instance (out parameter). </p></li>
+<li><p><strong>participant</strong> – The simulation participant whose logger should be returned.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417SilKit_Logger_LogP13SilKit_Logger19SilKit_LoggingLevelPKc">
+<span id="_CPPv317SilKit_Logger_LogP13SilKit_Logger19SilKit_LoggingLevelPKc"></span><span id="_CPPv217SilKit_Logger_LogP13SilKit_Logger19SilKit_LoggingLevelPKc"></span><span id="SilKit_Logger_Log__SilKit_LoggerP.SilKit_LoggingLevel.cCP"></span><span class="target" id="_logger_8h_1a368dfdf207ff252e3f55ae3e02edc56f"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_Logger_Log</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_Logger</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">logger</span></span>, <a class="reference internal" href="#_CPPv419SilKit_LoggingLevel" title="SilKit_LoggingLevel"><span class="n"><span class="pre">SilKit_LoggingLevel</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">level</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">message</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417SilKit_Logger_LogP13SilKit_Logger19SilKit_LoggingLevelPKc" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Log a message with a specified level. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>logger</strong> – The logger to use. </p></li>
+<li><p><strong>level</strong> – The log level for the message. </p></li>
+<li><p><strong>message</strong> – The message which shall be logged (UTF-8). </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<section id="enumerations-and-typedefs">
+<h4><a class="toc-backref" href="#id6">Enumerations and Typedefs</a><a class="headerlink" href="#enumerations-and-typedefs" title="Permalink to this heading"></a></h4>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv419SilKit_LoggingLevel">
+<span id="_CPPv319SilKit_LoggingLevel"></span><span id="_CPPv219SilKit_LoggingLevel"></span><span id="SilKit_LoggingLevel"></span><span class="target" id="_logger_8h_1a97ff35fa72b19cc16bb033344bcd2e18"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_LoggingLevel</span></span></span><a class="headerlink" href="#_CPPv419SilKit_LoggingLevel" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Information level of log messages. </p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../netsim.html" class="btn btn-neutral float-left" title="Custom Network Simulator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="capi-can.html" class="btn btn-neutral float-right" title="CAN C API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>System Monitor &mdash; Vector SIL Kit 4.0.54 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Common Service Data Types" href="../common-data-types.html" />
+    <link rel="prev" title="System Controller" href="systemcontroller.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.54
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Vector SIL Kit Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../for-users/users.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../for-developers/developers.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../simulation/simulation.html">Simulation Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">C/C++ API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../header.html">Header Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../memory-management.html">Memory Management</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#c-api">C++ API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../api.html#participant">Participant</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../api.html#services">Services</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../api.html#logging">Logging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api.html#vehicle-network-controller">Vehicle Network Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api.html#data-publish-subscribe-and-rpc">Data Publish/Subscribe and RPC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api.html#state-handling-and-synchronization">State Handling and Synchronization</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../api.html#system-utilities">System Utilities</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="systemcontroller.html">System Controller</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">System Monitor</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../api.html#common-data-types">Common Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api.html#custom-network-simulator">Custom Network Simulator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#id1">C API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../demos/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../licenses/license.html">Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../contents.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../api.html">C/C++ API</a> &raquo;</li>
+      <li>System Monitor</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/api/system-utilities/systemmonitor.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="system-monitor">
+<h1>System Monitor<a class="headerlink" href="#system-monitor" title="Permalink to this heading"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#using-the-system-monitor" id="id1">Using the System Monitor</a></p>
+<ul>
+<li><p><a class="reference internal" href="#register-callbacks-for-state-transitions" id="id2">Register Callbacks for State Transitions</a></p></li>
+<li><p><a class="reference internal" href="#register-callbacks-for-other-participants" id="id3">Register Callbacks for Other Participants</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#api-and-data-type-reference" id="id4">API and Data Type Reference</a></p>
+<ul>
+<li><p><a class="reference internal" href="#system-monitor-api" id="id5">System Monitor API</a></p></li>
+<li><p><a class="reference internal" href="#data-structures" id="id6">Data Structures</a></p></li>
+<li><p><a class="reference internal" href="#enumerations-and-typedefs" id="id7">Enumerations and Typedefs</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#usage-example" id="id8">Usage Example</a></p></li>
+</ul>
+</div>
+<section id="using-the-system-monitor">
+<h2><a class="toc-backref" href="#id1">Using the System Monitor</a><a class="headerlink" href="#using-the-system-monitor" title="Permalink to this heading"></a></h2>
+<p>Each participant has access to a System Monitor and can register callbacks to get informed about
+changes of the <code class="docutils literal notranslate"><span class="pre">ParticipantState</span></code> or the <code class="docutils literal notranslate"><span class="pre">SystemState</span></code> that occur during the simulation.</p>
+<section id="register-callbacks-for-state-transitions">
+<h3><a class="toc-backref" href="#id2">Register Callbacks for State Transitions</a><a class="headerlink" href="#register-callbacks-for-state-transitions" title="Permalink to this heading"></a></h3>
+<p>To be notified about transitions of the <code class="docutils literal notranslate"><span class="pre">ParticipantState</span></code>, a <code class="docutils literal notranslate"><span class="pre">ParticipantStatusHandler</span></code> has to be registered. The
+<a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration17ParticipantStatusE" title="SilKit::Services::Orchestration::ParticipantStatus"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ParticipantStatus</span></code></a> contains the new <code class="docutils literal notranslate"><span class="pre">ParticipantState</span></code> and further details
+about the transition such as the name of the participant, the reason for the status change and timing information:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Register ParticipantStatusHandler to receive ParticipantStatus updates from all participants.</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">participantStatusHandler</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="p">[](</span><span class="n">Orchestration</span><span class="o">::</span><span class="n">ParticipantStatus</span><span class="w"> </span><span class="n">status</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span>
+
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">systemMonitor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">GetSystemMonitor</span><span class="p">();</span>
+<span class="n">systemMonitor</span><span class="o">-&gt;</span><span class="n">AddParticipantStatusHandler</span><span class="p">(</span><span class="n">participantStatusHandler</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>A <code class="docutils literal notranslate"><span class="pre">SystemStateHandler</span></code> can be registered to get informed about system state transitions:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Register SystemStateHandler to receive SystemState transitions.</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">systemStateHandler</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="p">[](</span><span class="n">Orchestration</span><span class="o">::</span><span class="n">SystemState</span><span class="w"> </span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span>
+
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">systemMonitor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">GetSystemMonitor</span><span class="p">();</span>
+<span class="n">systemMonitor</span><span class="o">-&gt;</span><span class="n">AddSystemStateHandler</span><span class="p">(</span><span class="n">systemStateHandler</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="register-callbacks-for-other-participants">
+<h3><a class="toc-backref" href="#id3">Register Callbacks for Other Participants</a><a class="headerlink" href="#register-callbacks-for-other-participants" title="Permalink to this heading"></a></h3>
+<p>A <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ParticipantConnectedHandler</span></code> and <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ParticipantDisconnectedHandler</span></code> can be registered.
+They report the name of any other participant connecting and disconnecting from the participant:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">systemMonitor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">GetSystemMonitor</span><span class="p">();</span>
+
+<span class="k">auto</span><span class="w"> </span><span class="n">participantConnectedHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">participantName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">};</span>
+<span class="n">systemMonitor</span><span class="o">-&gt;</span><span class="n">SetParticipantConnectedHandler</span><span class="p">(</span><span class="n">participantConnectedHandler</span><span class="p">);</span>
+
+<span class="k">auto</span><span class="w"> </span><span class="n">participantDisconnectedHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">participantName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">};</span>
+<span class="n">systemMonitor</span><span class="o">-&gt;</span><span class="n">SetParticipantDisconnectedHandler</span><span class="p">(</span><span class="n">participantConnectedHandler</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Additionally, there is a function which checks if a participant identified by it’s name is connected or not:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">systemMonitor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">GetSystemMonitor</span><span class="p">();</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">systemMonitor</span><span class="o">-&gt;</span><span class="n">IsParticipantConnected</span><span class="p">(</span><span class="s">&quot;SomeParticipant&quot;</span><span class="p">))</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="c1">// things to do only if the other participant is connected</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="api-and-data-type-reference">
+<h2><a class="toc-backref" href="#id4">API and Data Type Reference</a><a class="headerlink" href="#api-and-data-type-reference" title="Permalink to this heading"></a></h2>
+<section id="system-monitor-api">
+<h3><a class="toc-backref" href="#id5">System Monitor API</a><a class="headerlink" href="#system-monitor-api" title="Permalink to this heading"></a></h3>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration14ISystemMonitorE">
+<span id="_CPPv3N6SilKit8Services13Orchestration14ISystemMonitorE"></span><span id="_CPPv2N6SilKit8Services13Orchestration14ISystemMonitorE"></span><span id="SilKit::Services::Orchestration::ISystemMonitor"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ISystemMonitor</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitorE" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor18SystemStateHandlerE">
+<span id="_CPPv3N6SilKit8Services13Orchestration14ISystemMonitor18SystemStateHandlerE"></span><span id="_CPPv2N6SilKit8Services13Orchestration14ISystemMonitor18SystemStateHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1a41144217f327138c0f5669a5d2990c7c"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SystemStateHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#_CPPv4NK6SilKit8Services13Orchestration14ISystemMonitor11SystemStateEv" title="SilKit::Services::Orchestration::ISystemMonitor::SystemState"><span class="n"><span class="pre">SystemState</span></span></a><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor18SystemStateHandlerE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Callback type to indicate that a <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_orchestration_1a8f7ecee5fe126b34db1c00144099cd8e"><span class="std std-ref">SilKit::Services::Orchestration::SystemState</span></a> has been received. Cf., <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1ac337e3a1020f8c57f18f3f02310ac094"><span class="std std-ref">AddSystemStateHandler(SystemStateHandler)</span></a>; </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor24ParticipantStatusHandlerE">
+<span id="_CPPv3N6SilKit8Services13Orchestration14ISystemMonitor24ParticipantStatusHandlerE"></span><span id="_CPPv2N6SilKit8Services13Orchestration14ISystemMonitor24ParticipantStatusHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1a9434dd27a277ec6fda5b3a2c8ba936a6"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ParticipantStatusHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4NK6SilKit8Services13Orchestration14ISystemMonitor17ParticipantStatusERKNSt6stringE" title="SilKit::Services::Orchestration::ISystemMonitor::ParticipantStatus"><span class="n"><span class="pre">ParticipantStatus</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor24ParticipantStatusHandlerE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Callback type to indicate that a <a class="reference internal" href="#struct_sil_kit_1_1_services_1_1_orchestration_1_1_participant_status"><span class="std std-ref">ParticipantStatus</span></a> has been received. Cf., <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1afd858050233ed8b4a498564723940928"><span class="std std-ref">AddParticipantStatusHandler(ParticipantStatusHandler)</span></a>; </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor27ParticipantConnectedHandlerE">
+<span id="_CPPv3N6SilKit8Services13Orchestration14ISystemMonitor27ParticipantConnectedHandlerE"></span><span id="_CPPv2N6SilKit8Services13Orchestration14ISystemMonitor27ParticipantConnectedHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1a9c69464025999fcba637de491847eef6"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ParticipantConnectedHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../services/lifecycle.html#_CPPv4N6SilKit8Services13Orchestration32ParticipantConnectionInformationE" title="SilKit::Services::Orchestration::ParticipantConnectionInformation"><span class="n"><span class="pre">ParticipantConnectionInformation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n"><span class="pre">participantInformation</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor27ParticipantConnectedHandlerE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Callback type to indicate that a participant has been connected. Cf., <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1a94432ddb52a51e3e689e788a47191b5e"><span class="std std-ref">SetParticipantConnectedHandler(ParticipantConnectedHandler)</span></a>; </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor30ParticipantDisconnectedHandlerE">
+<span id="_CPPv3N6SilKit8Services13Orchestration14ISystemMonitor30ParticipantDisconnectedHandlerE"></span><span id="_CPPv2N6SilKit8Services13Orchestration14ISystemMonitor30ParticipantDisconnectedHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1a0b87fb6e4c9d0929226dbc62b584b724"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ParticipantDisconnectedHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../services/lifecycle.html#_CPPv4N6SilKit8Services13Orchestration32ParticipantConnectionInformationE" title="SilKit::Services::Orchestration::ParticipantConnectionInformation"><span class="n"><span class="pre">ParticipantConnectionInformation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n"><span class="pre">participantInformation</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor30ParticipantDisconnectedHandlerE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Callback type to indicate that a participant has been disconnected. Cf., <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1a300f5cc546b925e64c3f9f4671316dfe"><span class="std std-ref">SetParticipantDisconnectedHandler(ParticipantDisconnectedHandler)</span></a>; </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor21AddSystemStateHandlerE18SystemStateHandler">
+<span id="_CPPv3N6SilKit8Services13Orchestration14ISystemMonitor21AddSystemStateHandlerE18SystemStateHandler"></span><span id="_CPPv2N6SilKit8Services13Orchestration14ISystemMonitor21AddSystemStateHandlerE18SystemStateHandler"></span><span id="SilKit::Services::Orchestration::ISystemMonitor::AddSystemStateHandler__SystemStateHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1ac337e3a1020f8c57f18f3f02310ac094"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddSystemStateHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor18SystemStateHandlerE" title="SilKit::Services::Orchestration::ISystemMonitor::SystemStateHandler"><span class="n"><span class="pre">SystemStateHandler</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor21AddSystemStateHandlerE18SystemStateHandler" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Register a callback for <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_orchestration_1a8f7ecee5fe126b34db1c00144099cd8e"><span class="std std-ref">SilKit::Services::Orchestration::SystemState</span></a> changes. </p>
+<p>If the current system state is not <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a4bbb8f967da6d1a610596d7257179c2b"><span class="std std-ref">SilKit::Services::Orchestration::SystemState::Invalid</span></a>, the handler will be called immediately.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor24RemoveSystemStateHandlerE9HandlerId">
+<span id="_CPPv3N6SilKit8Services13Orchestration14ISystemMonitor24RemoveSystemStateHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services13Orchestration14ISystemMonitor24RemoveSystemStateHandlerE9HandlerId"></span><span id="SilKit::Services::Orchestration::ISystemMonitor::RemoveSystemStateHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1ae4464adb21c971630e0d68bfd2f69569"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemoveSystemStateHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor24RemoveSystemStateHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Remove a SystemStateHandler by SilKit::Util::HandlerId on this monitor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor27AddParticipantStatusHandlerE24ParticipantStatusHandler">
+<span id="_CPPv3N6SilKit8Services13Orchestration14ISystemMonitor27AddParticipantStatusHandlerE24ParticipantStatusHandler"></span><span id="_CPPv2N6SilKit8Services13Orchestration14ISystemMonitor27AddParticipantStatusHandlerE24ParticipantStatusHandler"></span><span id="SilKit::Services::Orchestration::ISystemMonitor::AddParticipantStatusHandler__ParticipantStatusHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1afd858050233ed8b4a498564723940928"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddParticipantStatusHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor24ParticipantStatusHandlerE" title="SilKit::Services::Orchestration::ISystemMonitor::ParticipantStatusHandler"><span class="n"><span class="pre">ParticipantStatusHandler</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor27AddParticipantStatusHandlerE24ParticipantStatusHandler" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Register a callback for <a class="reference internal" href="#struct_sil_kit_1_1_services_1_1_orchestration_1_1_participant_status"><span class="std std-ref">SilKit::Services::Orchestration::ParticipantStatus</span></a> changes. </p>
+<p>The handler will be called immediately for any participant that is not in <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a4bbb8f967da6d1a610596d7257179c2b"><span class="std std-ref">SilKit::Services::Orchestration::ParticipantState::Invalid</span></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor30RemoveParticipantStatusHandlerE9HandlerId">
+<span id="_CPPv3N6SilKit8Services13Orchestration14ISystemMonitor30RemoveParticipantStatusHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services13Orchestration14ISystemMonitor30RemoveParticipantStatusHandlerE9HandlerId"></span><span id="SilKit::Services::Orchestration::ISystemMonitor::RemoveParticipantStatusHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1a88d7391ca7a88fb8cd45303f6857365e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemoveParticipantStatusHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor30RemoveParticipantStatusHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Remove a ParticipantStatusHandler by SilKit::Util::HandlerId on this monitor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK6SilKit8Services13Orchestration14ISystemMonitor11SystemStateEv">
+<span id="_CPPv3NK6SilKit8Services13Orchestration14ISystemMonitor11SystemStateEv"></span><span id="_CPPv2NK6SilKit8Services13Orchestration14ISystemMonitor11SystemStateEv"></span><span id="SilKit::Services::Orchestration::ISystemMonitor::SystemStateC"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1a189eeb293bede9e3a0c432307376ec76"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SystemState</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">Orchestration</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration11SystemStateE" title="SilKit::Services::Orchestration::SystemState"><span class="n"><span class="pre">SystemState</span></span></a><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4NK6SilKit8Services13Orchestration14ISystemMonitor11SystemStateEv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get the current <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_orchestration_1a8f7ecee5fe126b34db1c00144099cd8e"><span class="std std-ref">SilKit::Services::Orchestration::SystemState</span></a>. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK6SilKit8Services13Orchestration14ISystemMonitor17ParticipantStatusERKNSt6stringE">
+<span id="_CPPv3NK6SilKit8Services13Orchestration14ISystemMonitor17ParticipantStatusERKNSt6stringE"></span><span id="_CPPv2NK6SilKit8Services13Orchestration14ISystemMonitor17ParticipantStatusERKNSt6stringE"></span><span id="SilKit::Services::Orchestration::ISystemMonitor::ParticipantStatus__ssCRC"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1ae33ba6aeaa209061d3f464c85472e309"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ParticipantStatus</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">participantName</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">Orchestration</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration17ParticipantStatusE" title="SilKit::Services::Orchestration::ParticipantStatus"><span class="n"><span class="pre">ParticipantStatus</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4NK6SilKit8Services13Orchestration14ISystemMonitor17ParticipantStatusERKNSt6stringE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get the current <a class="reference internal" href="#struct_sil_kit_1_1_services_1_1_orchestration_1_1_participant_status"><span class="std std-ref">ParticipantStatus</span></a> of specific participant. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>participantName</strong> – The name of the participant for which the status is queried (UTF-8). </p>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">SilKitError</span></span></span> – If the participant name does not identify a participant that participates in synchronization. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor30SetParticipantConnectedHandlerE27ParticipantConnectedHandler">
+<span id="_CPPv3N6SilKit8Services13Orchestration14ISystemMonitor30SetParticipantConnectedHandlerE27ParticipantConnectedHandler"></span><span id="_CPPv2N6SilKit8Services13Orchestration14ISystemMonitor30SetParticipantConnectedHandlerE27ParticipantConnectedHandler"></span><span id="SilKit::Services::Orchestration::ISystemMonitor::SetParticipantConnectedHandler__ParticipantConnectedHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1a94432ddb52a51e3e689e788a47191b5e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetParticipantConnectedHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor27ParticipantConnectedHandlerE" title="SilKit::Services::Orchestration::ISystemMonitor::ParticipantConnectedHandler"><span class="n"><span class="pre">ParticipantConnectedHandler</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor30SetParticipantConnectedHandlerE27ParticipantConnectedHandler" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set a callback for participants being connected. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>handler</strong> – The callback which overwrites any previously set callback </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor33SetParticipantDisconnectedHandlerE30ParticipantDisconnectedHandler">
+<span id="_CPPv3N6SilKit8Services13Orchestration14ISystemMonitor33SetParticipantDisconnectedHandlerE30ParticipantDisconnectedHandler"></span><span id="_CPPv2N6SilKit8Services13Orchestration14ISystemMonitor33SetParticipantDisconnectedHandlerE30ParticipantDisconnectedHandler"></span><span id="SilKit::Services::Orchestration::ISystemMonitor::SetParticipantDisconnectedHandler__ParticipantDisconnectedHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1a300f5cc546b925e64c3f9f4671316dfe"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetParticipantDisconnectedHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor30ParticipantDisconnectedHandlerE" title="SilKit::Services::Orchestration::ISystemMonitor::ParticipantDisconnectedHandler"><span class="n"><span class="pre">ParticipantDisconnectedHandler</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration14ISystemMonitor33SetParticipantDisconnectedHandlerE30ParticipantDisconnectedHandler" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Set a callback for participants being disconnected. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>handler</strong> – The callback which overwrites any previously set callback </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK6SilKit8Services13Orchestration14ISystemMonitor22IsParticipantConnectedERKNSt6stringE">
+<span id="_CPPv3NK6SilKit8Services13Orchestration14ISystemMonitor22IsParticipantConnectedERKNSt6stringE"></span><span id="_CPPv2NK6SilKit8Services13Orchestration14ISystemMonitor22IsParticipantConnectedERKNSt6stringE"></span><span id="SilKit::Services::Orchestration::ISystemMonitor::IsParticipantConnected__ssCRC"></span><span class="target" id="class_sil_kit_1_1_services_1_1_orchestration_1_1_i_system_monitor_1ad06241d81bcb45693de1f43b225fda34"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsParticipantConnected</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">participantName</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4NK6SilKit8Services13Orchestration14ISystemMonitor22IsParticipantConnectedERKNSt6stringE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Check if a participant identified by the participantName is present. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>participantName</strong> – The name of the participant for which presence is queried (UTF-8). </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>true if the participant is present </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="data-structures">
+<h3><a class="toc-backref" href="#id6">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this heading"></a></h3>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ParticipantStatusE">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ParticipantStatusE"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ParticipantStatusE"></span><span id="SilKit::Services::Orchestration::ParticipantStatus"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_orchestration_1_1_participant_status"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ParticipantStatus</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ParticipantStatusE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Details about a participant state change. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ParticipantStatus15participantNameE">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ParticipantStatus15participantNameE"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ParticipantStatus15participantNameE"></span><span id="SilKit::Services::Orchestration::ParticipantStatus::participantName__ss"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_orchestration_1_1_participant_status_1ae5193e8d76104d2ba72de9fd94852501"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">participantName</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ParticipantStatus15participantNameE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Name of the participant (UTF-8). </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ParticipantStatus5stateE">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ParticipantStatus5stateE"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ParticipantStatus5stateE"></span><span id="SilKit::Services::Orchestration::ParticipantStatus::state__ParticipantState"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_orchestration_1_1_participant_status_1aed0e2f99f63f43d795218bfe8fac2712"></span><a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration16ParticipantStateE" title="SilKit::Services::Orchestration::ParticipantState"><span class="n"><span class="pre">ParticipantState</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">state</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration16ParticipantStateE" title="SilKit::Services::Orchestration::ParticipantState"><span class="n"><span class="pre">ParticipantState</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services13Orchestration16ParticipantState7InvalidE" title="SilKit::Services::Orchestration::ParticipantState::Invalid"><span class="n"><span class="pre">Invalid</span></span></a><span class="p"><span class="pre">}</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ParticipantStatus5stateE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The new state of the participant. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ParticipantStatus11enterReasonE">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ParticipantStatus11enterReasonE"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ParticipantStatus11enterReasonE"></span><span id="SilKit::Services::Orchestration::ParticipantStatus::enterReason__ss"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_orchestration_1_1_participant_status_1a913627b7eb380d7611fd3fcd9424c3ca"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">enterReason</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ParticipantStatus11enterReasonE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The reason for the participant to enter the new state (UTF-8). </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ParticipantStatus9enterTimeE">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ParticipantStatus9enterTimeE"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ParticipantStatus9enterTimeE"></span><span id="SilKit::Services::Orchestration::ParticipantStatus::enterTime__std::chrono::system_clock::time_point"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_orchestration_1_1_participant_status_1a7934974f88999320278a96232c6b6766"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">system_clock</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">time_point</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">enterTime</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ParticipantStatus9enterTimeE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The enter time of the participant. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration17ParticipantStatus11refreshTimeE">
+<span id="_CPPv3N6SilKit8Services13Orchestration17ParticipantStatus11refreshTimeE"></span><span id="_CPPv2N6SilKit8Services13Orchestration17ParticipantStatus11refreshTimeE"></span><span id="SilKit::Services::Orchestration::ParticipantStatus::refreshTime__std::chrono::system_clock::time_point"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_orchestration_1_1_participant_status_1ab623b070d90ae9bf44ff5350c5ee2cdb"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">chrono</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">system_clock</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">time_point</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">refreshTime</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration17ParticipantStatus11refreshTimeE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The refresh time. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="enumerations-and-typedefs">
+<h3><a class="toc-backref" href="#id7">Enumerations and Typedefs</a><a class="headerlink" href="#enumerations-and-typedefs" title="Permalink to this heading"></a></h3>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration16ParticipantStateE">
+<span id="_CPPv3N6SilKit8Services13Orchestration16ParticipantStateE"></span><span id="_CPPv2N6SilKit8Services13Orchestration16ParticipantStateE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Orchestration</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">ParticipantState</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration16ParticipantStateE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Available participant states. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration16ParticipantState7InvalidE">
+<span id="_CPPv3N6SilKit8Services13Orchestration16ParticipantState7InvalidE"></span><span id="_CPPv2N6SilKit8Services13Orchestration16ParticipantState7InvalidE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a4bbb8f967da6d1a610596d7257179c2b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Invalid</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration16ParticipantState7InvalidE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>An invalid participant state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration16ParticipantState15ServicesCreatedE">
+<span id="_CPPv3N6SilKit8Services13Orchestration16ParticipantState15ServicesCreatedE"></span><span id="_CPPv2N6SilKit8Services13Orchestration16ParticipantState15ServicesCreatedE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7ae8341c26e22e6a849ac831df3bcec259"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ServicesCreated</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration16ParticipantState15ServicesCreatedE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The controllers created state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration16ParticipantState25CommunicationInitializingE">
+<span id="_CPPv3N6SilKit8Services13Orchestration16ParticipantState25CommunicationInitializingE"></span><span id="_CPPv2N6SilKit8Services13Orchestration16ParticipantState25CommunicationInitializingE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7ad0d2c4bd304c41d1e53f17769f371faa"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CommunicationInitializing</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration16ParticipantState25CommunicationInitializingE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The communication initializing state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration16ParticipantState24CommunicationInitializedE">
+<span id="_CPPv3N6SilKit8Services13Orchestration16ParticipantState24CommunicationInitializedE"></span><span id="_CPPv2N6SilKit8Services13Orchestration16ParticipantState24CommunicationInitializedE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7ae0c6e2cbc44ad9effe99a95a9270accd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CommunicationInitialized</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration16ParticipantState24CommunicationInitializedE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The communication initialized state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration16ParticipantState10ReadyToRunE">
+<span id="_CPPv3N6SilKit8Services13Orchestration16ParticipantState10ReadyToRunE"></span><span id="_CPPv2N6SilKit8Services13Orchestration16ParticipantState10ReadyToRunE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a506db5c85cf0fd10f93e5478013650b6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ReadyToRun</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration16ParticipantState10ReadyToRunE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The initialized state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration16ParticipantState7RunningE">
+<span id="_CPPv3N6SilKit8Services13Orchestration16ParticipantState7RunningE"></span><span id="_CPPv2N6SilKit8Services13Orchestration16ParticipantState7RunningE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a5bda814c4aedb126839228f1a3d92f09"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Running</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration16ParticipantState7RunningE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The running state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration16ParticipantState6PausedE">
+<span id="_CPPv3N6SilKit8Services13Orchestration16ParticipantState6PausedE"></span><span id="_CPPv2N6SilKit8Services13Orchestration16ParticipantState6PausedE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7ae99180abf47a8b3a856e0bcb2656990a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Paused</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration16ParticipantState6PausedE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The paused state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration16ParticipantState8StoppingE">
+<span id="_CPPv3N6SilKit8Services13Orchestration16ParticipantState8StoppingE"></span><span id="_CPPv2N6SilKit8Services13Orchestration16ParticipantState8StoppingE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a7b7ecb39b9e110c2a31409a1672bad23"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Stopping</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration16ParticipantState8StoppingE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The stopping state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration16ParticipantState7StoppedE">
+<span id="_CPPv3N6SilKit8Services13Orchestration16ParticipantState7StoppedE"></span><span id="_CPPv2N6SilKit8Services13Orchestration16ParticipantState7StoppedE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7ac23e2b09ebe6bf4cb5e2a9abe85c0be2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Stopped</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration16ParticipantState7StoppedE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The stopped state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration16ParticipantState5ErrorE">
+<span id="_CPPv3N6SilKit8Services13Orchestration16ParticipantState5ErrorE"></span><span id="_CPPv2N6SilKit8Services13Orchestration16ParticipantState5ErrorE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a902b0d55fddef6f8d651fe1035b7d4bd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Error</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration16ParticipantState5ErrorE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The error state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration16ParticipantState12ShuttingDownE">
+<span id="_CPPv3N6SilKit8Services13Orchestration16ParticipantState12ShuttingDownE"></span><span id="_CPPv2N6SilKit8Services13Orchestration16ParticipantState12ShuttingDownE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a075d9c9ae8c8f1c79c1a1965cd8c5a42"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ShuttingDown</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration16ParticipantState12ShuttingDownE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The shutting down state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration16ParticipantState8ShutdownE">
+<span id="_CPPv3N6SilKit8Services13Orchestration16ParticipantState8ShutdownE"></span><span id="_CPPv2N6SilKit8Services13Orchestration16ParticipantState8ShutdownE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a1a4ebb180ba59b067782515ffee6e975"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Shutdown</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration16ParticipantState8ShutdownE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The shutdown state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration16ParticipantState8AbortingE">
+<span id="_CPPv3N6SilKit8Services13Orchestration16ParticipantState8AbortingE"></span><span id="_CPPv2N6SilKit8Services13Orchestration16ParticipantState8AbortingE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a10f3b203b67107d670a31d9b39cc1983"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Aborting</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration16ParticipantState8AbortingE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The aborting state. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration11SystemStateE">
+<span id="_CPPv3N6SilKit8Services13Orchestration11SystemStateE"></span><span id="_CPPv2N6SilKit8Services13Orchestration11SystemStateE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a8f7ecee5fe126b34db1c00144099cd8e"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Orchestration</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">SystemState</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration11SystemStateE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Available system states. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration11SystemState7InvalidE">
+<span id="_CPPv3N6SilKit8Services13Orchestration11SystemState7InvalidE"></span><span id="_CPPv2N6SilKit8Services13Orchestration11SystemState7InvalidE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a8f7ecee5fe126b34db1c00144099cd8ea4bbb8f967da6d1a610596d7257179c2b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Invalid</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration11SystemState7InvalidE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>An invalid participant state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration11SystemState15ServicesCreatedE">
+<span id="_CPPv3N6SilKit8Services13Orchestration11SystemState15ServicesCreatedE"></span><span id="_CPPv2N6SilKit8Services13Orchestration11SystemState15ServicesCreatedE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a8f7ecee5fe126b34db1c00144099cd8eae8341c26e22e6a849ac831df3bcec259"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ServicesCreated</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration11SystemState15ServicesCreatedE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The controllers created state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration11SystemState25CommunicationInitializingE">
+<span id="_CPPv3N6SilKit8Services13Orchestration11SystemState25CommunicationInitializingE"></span><span id="_CPPv2N6SilKit8Services13Orchestration11SystemState25CommunicationInitializingE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a8f7ecee5fe126b34db1c00144099cd8ead0d2c4bd304c41d1e53f17769f371faa"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CommunicationInitializing</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration11SystemState25CommunicationInitializingE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The communication initializing state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration11SystemState24CommunicationInitializedE">
+<span id="_CPPv3N6SilKit8Services13Orchestration11SystemState24CommunicationInitializedE"></span><span id="_CPPv2N6SilKit8Services13Orchestration11SystemState24CommunicationInitializedE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a8f7ecee5fe126b34db1c00144099cd8eae0c6e2cbc44ad9effe99a95a9270accd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CommunicationInitialized</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration11SystemState24CommunicationInitializedE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The communication initialized state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration11SystemState10ReadyToRunE">
+<span id="_CPPv3N6SilKit8Services13Orchestration11SystemState10ReadyToRunE"></span><span id="_CPPv2N6SilKit8Services13Orchestration11SystemState10ReadyToRunE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a8f7ecee5fe126b34db1c00144099cd8ea506db5c85cf0fd10f93e5478013650b6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ReadyToRun</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration11SystemState10ReadyToRunE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The initialized state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration11SystemState7RunningE">
+<span id="_CPPv3N6SilKit8Services13Orchestration11SystemState7RunningE"></span><span id="_CPPv2N6SilKit8Services13Orchestration11SystemState7RunningE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a8f7ecee5fe126b34db1c00144099cd8ea5bda814c4aedb126839228f1a3d92f09"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Running</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration11SystemState7RunningE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The running state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration11SystemState6PausedE">
+<span id="_CPPv3N6SilKit8Services13Orchestration11SystemState6PausedE"></span><span id="_CPPv2N6SilKit8Services13Orchestration11SystemState6PausedE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a8f7ecee5fe126b34db1c00144099cd8eae99180abf47a8b3a856e0bcb2656990a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Paused</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration11SystemState6PausedE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The paused state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration11SystemState8StoppingE">
+<span id="_CPPv3N6SilKit8Services13Orchestration11SystemState8StoppingE"></span><span id="_CPPv2N6SilKit8Services13Orchestration11SystemState8StoppingE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a8f7ecee5fe126b34db1c00144099cd8ea7b7ecb39b9e110c2a31409a1672bad23"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Stopping</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration11SystemState8StoppingE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The stopping state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration11SystemState7StoppedE">
+<span id="_CPPv3N6SilKit8Services13Orchestration11SystemState7StoppedE"></span><span id="_CPPv2N6SilKit8Services13Orchestration11SystemState7StoppedE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a8f7ecee5fe126b34db1c00144099cd8eac23e2b09ebe6bf4cb5e2a9abe85c0be2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Stopped</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration11SystemState7StoppedE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The stopped state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration11SystemState5ErrorE">
+<span id="_CPPv3N6SilKit8Services13Orchestration11SystemState5ErrorE"></span><span id="_CPPv2N6SilKit8Services13Orchestration11SystemState5ErrorE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a8f7ecee5fe126b34db1c00144099cd8ea902b0d55fddef6f8d651fe1035b7d4bd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Error</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration11SystemState5ErrorE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The error state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration11SystemState12ShuttingDownE">
+<span id="_CPPv3N6SilKit8Services13Orchestration11SystemState12ShuttingDownE"></span><span id="_CPPv2N6SilKit8Services13Orchestration11SystemState12ShuttingDownE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a8f7ecee5fe126b34db1c00144099cd8ea075d9c9ae8c8f1c79c1a1965cd8c5a42"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ShuttingDown</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration11SystemState12ShuttingDownE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The shutting down state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration11SystemState8ShutdownE">
+<span id="_CPPv3N6SilKit8Services13Orchestration11SystemState8ShutdownE"></span><span id="_CPPv2N6SilKit8Services13Orchestration11SystemState8ShutdownE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a8f7ecee5fe126b34db1c00144099cd8ea1a4ebb180ba59b067782515ffee6e975"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Shutdown</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration11SystemState8ShutdownE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The shutdown state. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13Orchestration11SystemState8AbortingE">
+<span id="_CPPv3N6SilKit8Services13Orchestration11SystemState8AbortingE"></span><span id="_CPPv2N6SilKit8Services13Orchestration11SystemState8AbortingE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_orchestration_1a8f7ecee5fe126b34db1c00144099cd8ea10f3b203b67107d670a31d9b39cc1983"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Aborting</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13Orchestration11SystemState8AbortingE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The aborting state. </p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+<section id="usage-example">
+<h2><a class="toc-backref" href="#id8">Usage Example</a><a class="headerlink" href="#usage-example" title="Permalink to this heading"></a></h2>
+<p>This section contains a complete example that shows the use of the System Monitor and
+the order of callbacks in a complete state transition with two participants.
+Although the participants would typically reside in
+different processes, their interaction is shown sequentially to demonstrate cause and effect:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Copyright (c) 2022 Vector Informatik GmbH</span>
+
+<span class="cm">Permission is hereby granted, free of charge, to any person obtaining</span>
+<span class="cm">a copy of this software and associated documentation files (the</span>
+<span class="cm">&quot;Software&quot;), to deal in the Software without restriction, including</span>
+<span class="cm">without limitation the rights to use, copy, modify, merge, publish,</span>
+<span class="cm">distribute, sublicense, and/or sell copies of the Software, and to</span>
+<span class="cm">permit persons to whom the Software is furnished to do so, subject to</span>
+<span class="cm">the following conditions:</span>
+
+<span class="cm">The above copyright notice and this permission notice shall be</span>
+<span class="cm">included in all copies or substantial portions of the Software.</span>
+
+<span class="cm">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,</span>
+<span class="cm">EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF</span>
+<span class="cm">MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND</span>
+<span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
+<span class="cm">LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION</span>
+<span class="cm">OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION</span>
+<span class="cm">WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */</span>
+<span class="c1">// ------------------------------------------------------------</span>
+<span class="c1">// Setup of the Participants</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">participant1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">participantName1</span><span class="p">,</span><span class="w"> </span><span class="n">registryUri</span><span class="p">);</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">participant2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">participantName2</span><span class="p">,</span><span class="w"> </span><span class="n">registryUri</span><span class="p">);</span>
+
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">systemMonitor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant1</span><span class="o">-&gt;</span><span class="n">CreateSystemMonitor</span><span class="p">();</span>
+
+<span class="c1">// Register ParticipantStatusHandler to receive ParticipantStatus transitions</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">participantStatusHandler</span><span class="w"> </span><span class="o">=</span>
+</pre></div>
+</div>
+<p>This might lead to the following function call invocations at runtime:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">participantStatusHandler</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="p">[](</span><span class="k">const</span><span class="w"> </span><span class="n">ParticipantStatus</span><span class="o">&amp;</span><span class="w"> </span><span class="n">participantStatus</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span>
+<span class="n">systemMonitor</span><span class="o">-&gt;</span><span class="n">RegisterParticipantStatusHandler</span><span class="p">(</span><span class="n">participantStatusHandler</span><span class="p">);</span>
+
+<span class="c1">// Register SystemStateHandler to receive SystemState transitions</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">systemStateHandler</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="p">[](</span><span class="n">SystemState</span><span class="w"> </span><span class="n">state</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span>
+<span class="n">systemMonitor</span><span class="o">-&gt;</span><span class="n">RegisterSystemStateHandler</span><span class="p">(</span><span class="n">systemStateHandler</span><span class="p">);</span>
+
+<span class="c1">// ------------------------------------------------------------</span>
+<span class="c1">// Transition from Invalid to ServicesCreated.</span>
+
+<span class="c1">// LifecycleService needs to call StartLifecycle for a transition to ParticipantState::ServicesCreated.</span>
+<span class="c1">// For more information about the use of the life cycle service and time synchronization service refer to the corresponding section.</span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">lifecycleService1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant1</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CreateLifecycleService</span><span class="p">({</span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Orchestration</span><span class="o">::</span><span class="n">OperationMode</span><span class="o">::</span><span class="n">Coordinated</span><span class="p">});</span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">timeSyncService1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lifecycleService1</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CreateTimeSyncService</span><span class="p">();</span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">lifecycleService2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant2</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CreateLifecycleService</span><span class="p">({</span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">Orchestration</span><span class="o">::</span><span class="n">OperationMode</span><span class="o">::</span><span class="n">Coordinated</span><span class="p">});</span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">timeSyncService2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lifecycleService2</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CreateTimeSyncService</span><span class="p">();</span>
+
+<span class="n">timeSyncService1</span><span class="o">-&gt;</span><span class="n">SetSimulationStepHandler</span><span class="p">(</span>
+<span class="w">    </span><span class="p">[](</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span><span class="w"> </span><span class="n">now</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span><span class="w"> </span><span class="n">duration</span><span class="p">)</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="mi">1</span><span class="n">ms</span>
+<span class="p">);</span>
+<span class="n">timeSyncService2</span><span class="o">-&gt;</span><span class="n">SetSimulationStepHandler</span><span class="p">(</span>
+<span class="w">  </span><span class="p">[](</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span><span class="w"> </span><span class="n">now</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span><span class="w"> </span><span class="n">duration</span><span class="p">)</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="mi">1</span><span class="n">ms</span>
+<span class="p">);</span>
+
+<span class="n">lifecycleService1</span><span class="o">-&gt;</span><span class="n">StartLifecycle</span><span class="p">();</span>
+
+<span class="c1">// The call of Run() leads to a participant state transition from Invalid to ServicesCreated</span>
+<span class="c1">// and will trigger the callback of the ParticipantStatusHandler:</span>
+<span class="n">participantStatusHandler</span><span class="p">(</span><span class="n">participantStatus</span><span class="p">);</span>
+<span class="c1">// with:</span>
+<span class="c1">//  - participantStatus.participantName == participantName1</span>
+<span class="c1">//  - participantStatus.state == ParticipantState::ServicesCreated</span>
+<span class="c1">//  - participantStatus.reason = &quot;LifecycleService::StartLifecycle was called&quot;</span>
+<span class="c1">//  - participantStatus.enterTime == enter time_point</span>
+<span class="c1">//  - participantStatus.refreshTime == enter time_point</span>
+
+<span class="n">lifecycleService2</span><span class="o">-&gt;</span><span class="n">StartLifecycle</span><span class="p">();</span>
+
+<span class="c1">// The call of Run() by the second participant again triggers</span>
+<span class="c1">// the callback of the ParticipantStatusHandler:</span>
+<span class="n">participantStatusHandler</span><span class="p">(</span><span class="n">participantStatus</span><span class="p">);</span>
+<span class="c1">// with:</span>
+<span class="c1">//  - participantStatus.participantName == participantName2</span>
+<span class="c1">//  - participantStatus.state == ParticipantState::ServicesCreated</span>
+<span class="c1">//  - participantStatus.reason = &quot;LifecycleService::StartLifecycle was called&quot;</span>
+<span class="c1">//  - participantStatus.enterTime == enter time_point</span>
+<span class="c1">//  - participantStatus.refreshTime == enter time_point</span>
+
+<span class="c1">// Since all participants are now in ParticipantState::ServicesCreated,</span>
+<span class="c1">// the callback of the SystemStateHandler is triggered with SystemState::ServicesCreated:</span>
+<span class="n">systemStateHandler</span><span class="p">(</span><span class="n">state</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="systemcontroller.html" class="btn btn-neutral float-left" title="System Controller" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../common-data-types.html" class="btn btn-neutral float-right" title="Common Service Data Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
