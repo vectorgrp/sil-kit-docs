@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Common Service Data Types &mdash; Vector SIL Kit 4.0.54 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Custom Network Simulator" href="netsim.html" />
+    <link rel="prev" title="System Monitor" href="system-utilities/systemmonitor.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.54
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-users/users.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-developers/developers.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">C/C++ API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="header.html">Header Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory-management.html">Memory Management</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#c-api">C++ API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="api.html#participant">Participant</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="api.html#services">Services</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="api.html#logging">Logging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.html#vehicle-network-controller">Vehicle Network Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.html#data-publish-subscribe-and-rpc">Data Publish/Subscribe and RPC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.html#state-handling-and-synchronization">State Handling and Synchronization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.html#system-utilities">System Utilities</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="api.html#common-data-types">Common Data Types</a><ul class="current">
+<li class="toctree-l5 current"><a class="current reference internal" href="#">Common Service Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="api.html#custom-network-simulator">Custom Network Simulator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#id1">C API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="api.html">C/C++ API</a> &raquo;</li>
+      <li>Common Service Data Types</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/common-data-types.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="common-service-data-types">
+<h1>Common Service Data Types<a class="headerlink" href="#common-service-data-types" title="Permalink to this heading"></a></h1>
+<section id="data-type-reference">
+<h2>Data Type Reference<a class="headerlink" href="#data-type-reference" title="Permalink to this heading"></a></h2>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13MatchingLabelE">
+<span id="_CPPv3N6SilKit8Services13MatchingLabelE"></span><span id="_CPPv2N6SilKit8Services13MatchingLabelE"></span><span id="SilKit::Services::MatchingLabel"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_matching_label"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MatchingLabel</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13MatchingLabelE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>A label to control the matching behavior of DataPublishers, DataSubscribers, RpcServers, and RpcClients. </p>
+<p>Used in <a class="reference internal" href="services/pubsub.html#class_sil_kit_1_1_services_1_1_pub_sub_1_1_pub_sub_spec"><span class="std std-ref">SilKit::Services::PubSub::PubSubSpec</span></a> and <a class="reference internal" href="services/rpc.html#class_sil_kit_1_1_services_1_1_rpc_1_1_rpc_spec"><span class="std std-ref">SilKit::Services::Rpc::RpcSpec</span></a> </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13MatchingLabel4KindE">
+<span id="_CPPv3N6SilKit8Services13MatchingLabel4KindE"></span><span id="_CPPv2N6SilKit8Services13MatchingLabel4KindE"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_matching_label_1adc7e18571703da96831e8093f0d96829"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Kind</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13MatchingLabel4KindE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The different kinds of matching rules for labels. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13MatchingLabel4Kind8OptionalE">
+<span id="_CPPv3N6SilKit8Services13MatchingLabel4Kind8OptionalE"></span><span id="_CPPv2N6SilKit8Services13MatchingLabel4Kind8OptionalE"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_matching_label_1adc7e18571703da96831e8093f0d96829aebb061953c0454b2c8ee7b0ac615ebcd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Optional</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13MatchingLabel4Kind8OptionalE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>If this label is available, its value must match. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13MatchingLabel4Kind9MandatoryE">
+<span id="_CPPv3N6SilKit8Services13MatchingLabel4Kind9MandatoryE"></span><span id="_CPPv2N6SilKit8Services13MatchingLabel4Kind9MandatoryE"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_matching_label_1adc7e18571703da96831e8093f0d96829ae89ab59baea830bd940c300886c50efe"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mandatory</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13MatchingLabel4Kind9MandatoryE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>This label must be available and its value must match. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13MatchingLabel3keyE">
+<span id="_CPPv3N6SilKit8Services13MatchingLabel3keyE"></span><span id="_CPPv2N6SilKit8Services13MatchingLabel3keyE"></span><span id="SilKit::Services::MatchingLabel::key__ss"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_matching_label_1abc4d02e4ab95c4a3c9519a29da57932c"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">key</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13MatchingLabel3keyE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The label’s key. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13MatchingLabel5valueE">
+<span id="_CPPv3N6SilKit8Services13MatchingLabel5valueE"></span><span id="_CPPv2N6SilKit8Services13MatchingLabel5valueE"></span><span id="SilKit::Services::MatchingLabel::value__ss"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_matching_label_1a7244d006f4f9a416a145463f35e872eb"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">value</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13MatchingLabel5valueE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The label’s key. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services13MatchingLabel4kindE">
+<span id="_CPPv3N6SilKit8Services13MatchingLabel4kindE"></span><span id="_CPPv2N6SilKit8Services13MatchingLabel4kindE"></span><span id="SilKit::Services::MatchingLabel::kind__Kind"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_matching_label_1a1ec6b3eb1e89a39bbe278b563d23bec0"></span><a class="reference internal" href="#_CPPv4N6SilKit8Services13MatchingLabel4KindE" title="SilKit::Services::MatchingLabel::Kind"><span class="n"><span class="pre">Kind</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kind</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services13MatchingLabel4kindE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The matching kind to apply for this label. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services17TransmitDirectionE">
+<span id="_CPPv3N6SilKit8Services17TransmitDirectionE"></span><span id="_CPPv2N6SilKit8Services17TransmitDirectionE"></span><span class="target" id="namespace_sil_kit_1_1_services_1aa5a31d6e49bc06fab1273a5235445531"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">TransmitDirection</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services17TransmitDirectionE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Flag indicating the direction of a message. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services17TransmitDirection9UndefinedE">
+<span id="_CPPv3N6SilKit8Services17TransmitDirection9UndefinedE"></span><span id="_CPPv2N6SilKit8Services17TransmitDirection9UndefinedE"></span><span class="target" id="namespace_sil_kit_1_1_services_1aa5a31d6e49bc06fab1273a5235445531aec0fc0100c4fc1ce4eea230c3dc10360"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Undefined</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services17TransmitDirection9UndefinedE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services17TransmitDirection2TXE">
+<span id="_CPPv3N6SilKit8Services17TransmitDirection2TXE"></span><span id="_CPPv2N6SilKit8Services17TransmitDirection2TXE"></span><span class="target" id="namespace_sil_kit_1_1_services_1aa5a31d6e49bc06fab1273a5235445531a869036c9d97cf6593c6f1c2ccfd99a49"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TX</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services17TransmitDirection2TXE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services17TransmitDirection2RXE">
+<span id="_CPPv3N6SilKit8Services17TransmitDirection2RXE"></span><span id="_CPPv2N6SilKit8Services17TransmitDirection2RXE"></span><span class="target" id="namespace_sil_kit_1_1_services_1aa5a31d6e49bc06fab1273a5235445531af9c24782c24c237d16e79f18e2fa9046"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RX</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services17TransmitDirection2RXE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services17TransmitDirection4TXRXE">
+<span id="_CPPv3N6SilKit8Services17TransmitDirection4TXRXE"></span><span id="_CPPv2N6SilKit8Services17TransmitDirection4TXRXE"></span><span class="target" id="namespace_sil_kit_1_1_services_1aa5a31d6e49bc06fab1273a5235445531a4d7563140f90f851fb6e3258b3782701"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TXRX</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services17TransmitDirection4TXRXE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="system-utilities/systemmonitor.html" class="btn btn-neutral float-left" title="System Monitor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="netsim.html" class="btn btn-neutral float-right" title="Custom Network Simulator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connectivity &mdash; Vector SIL Kit 4.0.54 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lifecycle" href="lifecycle.html" />
+    <link rel="prev" title="Troubleshooting" href="troubleshooting.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.54
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-users/users.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-developers/developers.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">C/C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/utilities.html">Utilities</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Connectivity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#connectivity-issues-with-the-productname-registry">Connectivity Issues with the SIL Kit Registry</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#step-by-step-solution">Step-by-step Solution</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-registry-as-a-proxy-for-participant-to-participant-connections">Using the Registry as a Proxy for Participant-to-Participant Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connectivity-issues-between-participants">Connectivity issues between participants</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">Lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interoperability.html">Interoperability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connection-guides.html">Connection Guides</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="troubleshooting.html">Troubleshooting</a> &raquo;</li>
+      <li>Connectivity</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/troubleshooting/connectivity.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="connectivity">
+<h1>Connectivity<a class="headerlink" href="#connectivity" title="Permalink to this heading"></a></h1>
+<section id="connectivity-issues-with-the-productname-registry">
+<h2>Connectivity Issues with the SIL Kit Registry<a class="headerlink" href="#connectivity-issues-with-the-productname-registry" title="Permalink to this heading"></a></h2>
+<p>A SIL Kit simulation needs a running <a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a> to establish the connection between the participants.
+All participants and the registry must use a common URI to establish the connection.
+For the participants, this is called the <cite>connect URI</cite>, for the registry process, this is called the <cite>listen URI</cite>.
+The participant logs the following messages if it can’t connect to the registry:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[yyyy-mm-dd hh:mm:ss] [CanWriter] [error] Failed to connect to SIL Kit Registry (number of attempts: 1)</span>
+<span class="go">[yyyy-mm-dd hh:mm:ss] [CanWriter] [info]    Make sure that the SIL Kit Registry is up and running and is listening on the following URIs: silkit://localhost:8500, local://&lt;PATH&gt;.silkit.</span>
+<span class="go">[yyyy-mm-dd hh:mm:ss] [CanWriter] [info]    If a registry is unable to open a listening socket it will only be reachable via local domain sockets, which depend on the working directory and the middleware configuration (&#39;enableDomainSockets&#39;).</span>
+<span class="go">[yyyy-mm-dd hh:mm:ss] [CanWriter] [info]    Make sure that the hostname can be resolved and is reachable.</span>
+<span class="go">[yyyy-mm-dd hh:mm:ss] [CanWriter] [info]    You can configure the SIL Kit Registry hostname and port via the SilKitConfig.</span>
+<span class="go">[yyyy-mm-dd hh:mm:ss] [CanWriter] [info]    The SIL Kit Registry executable can be found in your SIL Kit installation folder:</span>
+<span class="go">[yyyy-mm-dd hh:mm:ss] [CanWriter] [info]      INSTALL_DIR/bin/sil-kit-registry[.exe]</span>
+<span class="go">Something went wrong: ERROR: Failed to connect to SIL Kit Registry</span>
+</pre></div>
+</div>
+<section id="step-by-step-solution">
+<h3>Step-by-step Solution<a class="headerlink" href="#step-by-step-solution" title="Permalink to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Find out the connect URI the participant is using
+This can be found in</p>
+<ul class="simple">
+<li><p>The <a class="reference internal" href="../api/participant.html#_CPPv4N6SilKit17CreateParticipantENSt10shared_ptrIN6SilKit6Config25IParticipantConfigurationEEERKNSt6stringE" title="SilKit::CreateParticipant"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateParticipant()</span></code></a> call</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">RegistryUri</span></code> provided in the Participant Configuration file.
+This takes precedence over the previously mentioned API call.</p></li>
+<li><p>The log message <code class="docutils literal notranslate"><span class="pre">Make</span> <span class="pre">sure</span> <span class="pre">that</span> <span class="pre">the</span> <span class="pre">SIL</span> <span class="pre">Kit</span> <span class="pre">Registry</span> <span class="pre">is</span> <span class="pre">up</span> <span class="pre">and</span> <span class="pre">running</span> <span class="pre">and</span> <span class="pre">is</span> <span class="pre">listening</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">following</span> <span class="pre">URIs:</span> <span class="pre">&lt;List</span> <span class="pre">of</span> <span class="pre">URIs&gt;</span></code></p></li>
+</ul>
+</li>
+<li><p>Double check if the registry process is running and listens on the correct connect URI</p>
+<ol class="loweralpha simple">
+<li><p>If you have started the registry yourself, check if the provided <code class="docutils literal notranslate"><span class="pre">--listen-uri</span></code> is correct.
+The registry can also use a configuration file which specify the listen URI.
+The configuration file takes precedence over the previously mentioned command line argument.</p></li>
+<li><p>If you have used the SIL Kit MSI installer, check if the Windows service <cite>VectorSilKitRegistry</cite> is running.</p></li>
+</ol>
+</li>
+<li><p>Check if <code class="docutils literal notranslate"><span class="pre">localhost</span></code> in the connect URI makes sense</p>
+<p>By default, a SIL Kit registry will bind to <code class="docutils literal notranslate"><span class="pre">silkit://localhost:8500</span></code>.
+Out of the box, ‘localhost’ cannot be resolved between virtualized networks (e.g., Windows connecting to VM, WSL, Docker).
+In this case, you have to bind the SIL Kit registry to a publicly reachable URI, such as <code class="docutils literal notranslate"><span class="pre">silkit://0.0.0.0:8501</span></code>.
+Please note that this opens a public listening port and may not be suitable for your work environment.
+Consult your system administrator when in doubt.</p>
+</li>
+<li><p>Check if the connection between the network of the participant and the registry is possible</p>
+<p>Often, issues within your network will lead to this error message.
+Test if your host running the SIL Kit participant is able to establish a TCP connection to the registry.</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># Use your IP (here 172.19.71.101) and port (here 8501) of the registry</span>
+<span class="nb">Test-NetConnection</span> <span class="n">-ComputerName</span> <span class="n">172</span><span class="p">.</span><span class="n">19</span><span class="p">.</span><span class="n">71</span><span class="p">.</span><span class="n">101</span> <span class="n">-Port</span> <span class="n">8501</span>
+</pre></div>
+</div>
+<p>If Telnet does not print that it established a connection, you are having networking issues.</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">Trying</span> <span class="p">&lt;</span><span class="n">IP</span> <span class="n">of</span> <span class="n">registry</span><span class="p">&gt;...</span>
+<span class="n">Connected</span> <span class="n">to</span> <span class="p">&lt;</span><span class="n">IP</span> <span class="n">of</span> <span class="n">registry</span><span class="p">&gt;.</span>
+<span class="n">Escape</span> <span class="n">character</span> <span class="n">is</span> <span class="s1">&#39;^]&#39;</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>In this case your network configuration prevents a connection to the registry.
+Refer to your network administrator for further assistance.
+Some potential issues might be firewalls, VM network configuration (if using a VM), NATs, Docker network configuration (if using Docker).</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>Telnet can be terminated with the key combination Ctrl+C.</p>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="using-the-registry-as-a-proxy-for-participant-to-participant-connections">
+<h2>Using the Registry as a Proxy for Participant-to-Participant Connections<a class="headerlink" href="#using-the-registry-as-a-proxy-for-participant-to-participant-connections" title="Permalink to this heading"></a></h2>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">yyyy-mm-dd</span> <span class="n">hh</span><span class="p">:</span><span class="n">mm</span><span class="p">:</span><span class="n">ss</span><span class="p">.</span><span class="n">sss</span><span class="p">]</span> <span class="no">[EthernetReader] [info]</span> <span class="n">Connected</span> <span class="n">to</span> <span class="n">registry</span> <span class="n">at</span> <span class="s1">&#39;tcp://127.0.0.1:8501&#39;</span> <span class="n">via</span> <span class="s1">&#39;tcp://127.0.0.1:63107&#39;</span> <span class="p">(</span><span class="n">silkit</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">8501</span><span class="p">)</span>
+<span class="p">[</span><span class="n">yyyy-mm-dd</span> <span class="n">hh</span><span class="p">:</span><span class="n">mm</span><span class="p">:</span><span class="n">ss</span><span class="p">.</span><span class="n">sss</span><span class="p">]</span> <span class="no">[EthernetReader] [warning]</span> <span class="n">VAsioConnection</span><span class="p">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">connect</span> <span class="n">directly</span> <span class="n">to</span> <span class="n">EthernetWriter</span><span class="p">,</span> <span class="n">trying</span> <span class="n">to</span> <span class="n">proxy</span> <span class="n">messages</span> <span class="n">through</span> <span class="n">the</span> <span class="n">registry</span><span class="p">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">connect</span> <span class="n">to</span> <span class="n">host</span> <span class="n">URIs</span><span class="p">:</span> <span class="s2">&quot;tcp://127.0.0.1:37117,&quot;</span>
+</pre></div>
+</div>
+<p>When a SIL Kit participant joins a simulation, it first connects to the SIL Kit registry (<a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a>), which informs the participant about all other participants, that have already joined the simulation.
+The participant then tries to connect to all the other participants.</p>
+<p>If another participant cannot be connected to directly, as a last resort, it tries to use the registry as a proxy for participant-to-participant communication.
+The warning is issued, since sending the participant-to-participant messages via the registry will add latency and overhead.</p>
+<p>A SIL Kit participant will only attempt to use the registry as a proxy if the remote participant, that could not be connected to directly, supports receiving messages via the registry.</p>
+</section>
+<section id="connectivity-issues-between-participants">
+<h2>Connectivity issues between participants<a class="headerlink" href="#connectivity-issues-between-participants" title="Permalink to this heading"></a></h2>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">yyyy-mm-dd</span> <span class="n">hh</span><span class="p">:</span><span class="n">mm</span><span class="p">:</span><span class="n">ss</span><span class="p">]</span> <span class="no">[CanReader] [info]</span> <span class="n">Connected</span> <span class="n">to</span> <span class="n">registry</span> <span class="n">at</span> <span class="s1">&#39;tcp://192.168.1.12:8500&#39;</span> <span class="n">via</span> <span class="s1">&#39;tcp://192.168.1.12:8500&#39;</span> <span class="p">(</span><span class="n">silkit</span><span class="p">://</span><span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">1</span><span class="p">.</span><span class="n">12</span><span class="p">:</span><span class="n">8500</span><span class="p">)</span>
+<span class="p">[</span><span class="n">yyyy-mm-dd</span> <span class="n">hh</span><span class="p">:</span><span class="n">mm</span><span class="p">:</span><span class="n">ss</span><span class="p">]</span> <span class="no">[CanReader] [error]</span> <span class="n">Timeout</span> <span class="n">during</span> <span class="n">connection</span> <span class="n">setup</span><span class="p">.</span> <span class="n">The</span> <span class="n">participant</span> <span class="n">was</span> <span class="n">able</span> <span class="n">to</span> <span class="n">connect</span> <span class="n">to</span> <span class="n">the</span> <span class="n">registry</span><span class="p">,</span> <span class="n">but</span> <span class="n">not</span> <span class="n">to</span> <span class="n">all</span> <span class="n">participants</span><span class="p">.</span>
+   <span class="n">There</span> <span class="n">might</span> <span class="n">be</span> <span class="n">network</span> <span class="n">issues</span><span class="p">.</span> <span class="n">Check</span> <span class="n">network</span> <span class="n">settings</span> <span class="n">and</span> <span class="n">firewall</span> <span class="n">configuration</span><span class="p">.</span> <span class="n">Was</span> <span class="n">not</span> <span class="n">able</span> <span class="n">to</span> <span class="n">connect</span> <span class="n">to</span> <span class="n">the</span> <span class="n">following</span> <span class="n">participant</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+   <span class="n">CanWriter</span><span class="p">(</span><span class="n">local</span><span class="p">://</span><span class="n">D</span><span class="p">:\</span><span class="n">TEMP</span><span class="p">\\</span><span class="n">CanWriterd81c9d2684952765</span><span class="p">.</span><span class="n">silkit</span><span class="p">,</span> <span class="n">tcp</span><span class="p">://</span><span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">1</span><span class="p">.</span><span class="n">12</span><span class="p">:</span><span class="n">52125</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When a SIL Kit participant joins a simulation, it first connects to the SIL Kit registry (<a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a>), to be informed of the other simulation participants and how they can be reached.
+This error message is shown if this second step of a simulation setup fails. It occurs when the peer to peer connection between the observed participant and one or more other participants was not possible.
+Usually, this problem occurs when a network configuration does not allow for said connections. Check your network setup and firewall configuration.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="troubleshooting.html" class="btn btn-neutral float-left" title="Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lifecycle.html" class="btn btn-neutral float-right" title="Lifecycle" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

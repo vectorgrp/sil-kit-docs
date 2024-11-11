@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>API &mdash; Vector SIL Kit 4.0.53 documentation</title>
+  <title>C/C++ API &mdash; Vector SIL Kit 4.0.54 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -20,8 +20,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Participant" href="participant.html" />
-    <link rel="prev" title="Simulation" href="../simulation/simulation.html" /> 
+    <link rel="next" title="Header Files" href="header.html" />
+    <link rel="prev" title="Simulation Concepts" href="../simulation/simulation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.53
+                4.0.54
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -46,62 +46,87 @@
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../for-users/users.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../for-developers/developers.html">Developer Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#api-entry-point-and-api-organization">API Entry Point and API Organization</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="participant.html">Participant</a></li>
-<li class="toctree-l3"><a class="reference internal" href="header.html">Header Files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="memory-management.html">Memory Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation Concepts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">C/C++ API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="header.html">Header Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory-management.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#c-api">C++ API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#participant">Participant</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="participant.html">Participant</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#services">Services</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="logging.html">Logging Service API</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#vehicle-network-controller">Vehicle Network Controller</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="can.html">CAN Service API</a></li>
-<li class="toctree-l4"><a class="reference internal" href="lin.html">LIN Service API</a></li>
-<li class="toctree-l4"><a class="reference internal" href="flexray.html">FlexRay Service API</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ethernet.html">Ethernet Service API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#services">Services</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#logging">Logging</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="services/logging.html">Logging Service API</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#data-publish-subscribe-and-rpc">Data Publish/Subscribe and RPC</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pubsub.html">Data Publish/Subscribe API</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rpc.html">RPC (Remote Procedure Call) API</a></li>
-<li class="toctree-l4"><a class="reference internal" href="serdes.html">Data Serialization/Deserialization API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vehicle-network-controller">Vehicle Network Controller</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="services/can.html">CAN Service API</a></li>
+<li class="toctree-l5"><a class="reference internal" href="services/lin.html">LIN Service API</a></li>
+<li class="toctree-l5"><a class="reference internal" href="services/flexray.html">FlexRay Service API</a></li>
+<li class="toctree-l5"><a class="reference internal" href="services/ethernet.html">Ethernet Service API</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#state-handling-and-synchronization">State Handling and Synchronization</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="lifecycleService.html">Lifecycle Service</a></li>
-<li class="toctree-l4"><a class="reference internal" href="timeSyncService.html">Time Synchronization Service</a></li>
-<li class="toctree-l4"><a class="reference internal" href="systemcontroller.html">System Controller</a></li>
-<li class="toctree-l4"><a class="reference internal" href="systemmonitor.html">System Monitor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-publish-subscribe-and-rpc">Data Publish/Subscribe and RPC</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="services/pubsub.html">Data Publish/Subscribe API</a></li>
+<li class="toctree-l5"><a class="reference internal" href="services/rpc.html">RPC (Remote Procedure Call) API</a></li>
+<li class="toctree-l5"><a class="reference internal" href="serdes.html">Data Serialization/Deserialization API</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#common-data-types">Common Data Types</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="common.html">Common Service Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#state-handling-and-synchronization">State Handling and Synchronization</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="services/lifecycle.html">Lifecycle Service</a></li>
+<li class="toctree-l5"><a class="reference internal" href="services/timesync.html">Time Synchronization Service</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#system-utilities">System Utilities</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="system-utilities/systemcontroller.html">System Controller</a></li>
+<li class="toctree-l5"><a class="reference internal" href="system-utilities/systemmonitor.html">System Monitor</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#common-data-types">Common Data Types</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="common-data-types.html">Common Service Data Types</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#custom-network-simulator">Custom Network Simulator</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="netsim.html">Custom Network Simulator</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#c-api">C API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="capi-main.html">Entry Point and API Organization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Services</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id2">Vehicle Network Controller</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">Data Publish/Subscribe and RPC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">State Handling and Synchronization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">C API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="capi/capi-main.html">Entry Point and API Organization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Services</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Vehicle Network Controller</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="capi/capi-can.html">CAN C API</a></li>
+<li class="toctree-l5"><a class="reference internal" href="capi/capi-ethernet.html">Ethernet C API</a></li>
+<li class="toctree-l5"><a class="reference internal" href="capi/capi-lin.html">LIN C API</a></li>
+<li class="toctree-l5"><a class="reference internal" href="capi/capi-flexray.html">FlexRay C API</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Data Publish/Subscribe and RPC</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="capi/capi-data.html">Data Publish/Subscribe C API</a></li>
+<li class="toctree-l5"><a class="reference internal" href="capi/capi-rpc.html">RPC C API</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">State Handling and Synchronization</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="capi/capi-orchestration.html">Orchestration C API</a></li>
+<li class="toctree-l5"><a class="reference internal" href="capi/capi-systemmonitor.html">System Monitor C API</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/demos.html">Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../netsim/netsim.html">Custom Network Simulator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">Licenses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 </ul>
 
@@ -119,7 +144,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
-      <li>API</li>
+      <li>C/C++ API</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/api.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -129,51 +154,59 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="api">
-<h1>API<a class="headerlink" href="#api" title="Permalink to this heading"></a></h1>
-<p>This document describes the user available programming interfaces of the Vector
-SIL Kit (SIL Kit). If you are not yet familiar with the SIL Kit, have a look at
-the <a class="reference internal" href="../for-developers/developers.html"><span class="doc">Developers Guide</span></a>.</p>
-<section id="api-entry-point-and-api-organization">
-<h2>API Entry Point and API Organization<a class="headerlink" href="#api-entry-point-and-api-organization" title="Permalink to this heading"></a></h2>
-<p>The Participant constitutes the main entry point into the SIL Kit API.</p>
+  <section id="c-c-api">
+<h1>C/C++ API<a class="headerlink" href="#c-c-api" title="Permalink to this heading"></a></h1>
+<p>This document describes the user available programming interfaces of the Vector SIL Kit.
+If you are not yet familiar with the SIL Kit, have a look at the <a class="reference internal" href="../for-developers/developers.html"><span class="doc">Developers Guide</span></a>.
+Information on API organization in the SIL Kit:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="participant.html">Participant</a></li>
 <li class="toctree-l1"><a class="reference internal" href="header.html">Header Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="memory-management.html">Memory Management</a></li>
 </ul>
 </div>
-</section>
-<section id="services">
-<span id="sec-api-services"></span><h2>Services<a class="headerlink" href="#services" title="Permalink to this heading"></a></h2>
-<p>The services API includes common data types, supports various vehicular networks, and provides generic publish/subscribe and RPC facilities.</p>
+<section id="c-api">
+<h2>C++ API<a class="headerlink" href="#c-api" title="Permalink to this heading"></a></h2>
+<section id="participant">
+<h3>Participant<a class="headerlink" href="#participant" title="Permalink to this heading"></a></h3>
+<p>The Participant constitutes the main entry point into the SIL Kit API.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="logging.html">Logging Service API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="participant.html">Participant</a></li>
 </ul>
 </div>
-<section id="vehicle-network-controller">
-<h3>Vehicle Network Controller<a class="headerlink" href="#vehicle-network-controller" title="Permalink to this heading"></a></h3>
-<p>Several different vehicular networks are supported by corresponding
-controller interfaces.</p>
+</section>
+<section id="services">
+<span id="sec-api-services"></span><h3>Services<a class="headerlink" href="#services" title="Permalink to this heading"></a></h3>
+<p>The services API includes common data types, supports various vehicular networks, and provides generic publish/subscribe and RPC facilities.</p>
+<section id="logging">
+<h4>Logging<a class="headerlink" href="#logging" title="Permalink to this heading"></a></h4>
+<p>The Logging service can be used for writing log messages of specified log levels to various types of sinks.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="can.html">CAN Service API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lin.html">LIN Service API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="flexray.html">FlexRay Service API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ethernet.html">Ethernet Service API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services/logging.html">Logging Service API</a></li>
+</ul>
+</div>
+</section>
+<section id="vehicle-network-controller">
+<h4>Vehicle Network Controller<a class="headerlink" href="#vehicle-network-controller" title="Permalink to this heading"></a></h4>
+<p>Several different vehicular networks are supported by corresponding controller interfaces.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="services/can.html">CAN Service API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services/lin.html">LIN Service API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services/flexray.html">FlexRay Service API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services/ethernet.html">Ethernet Service API</a></li>
 </ul>
 </div>
 </section>
 <section id="data-publish-subscribe-and-rpc">
-<h3>Data Publish/Subscribe and RPC<a class="headerlink" href="#data-publish-subscribe-and-rpc" title="Permalink to this heading"></a></h3>
-<p>These services do not model a real-world bus and can be used for
-generic programming and interoperability tasks.</p>
+<h4>Data Publish/Subscribe and RPC<a class="headerlink" href="#data-publish-subscribe-and-rpc" title="Permalink to this heading"></a></h4>
+<p>These services do not model a real-world bus and can be used for generic programming and interoperability tasks.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="pubsub.html">Data Publish/Subscribe API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rpc.html">RPC (Remote Procedure Call) API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services/pubsub.html">Data Publish/Subscribe API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services/rpc.html">RPC (Remote Procedure Call) API</a></li>
 </ul>
 </div>
 <p>SIL Kit provides a recommended default serialization/deserialization API for Data Publish/Subscribe and RPC:</p>
@@ -184,64 +217,81 @@ generic programming and interoperability tasks.</p>
 </div>
 </section>
 <section id="state-handling-and-synchronization">
-<h3>State Handling and Synchronization<a class="headerlink" href="#state-handling-and-synchronization" title="Permalink to this heading"></a></h3>
-<p>The following services provide time synchronization and orchestrated state
-management.</p>
+<h4>State Handling and Synchronization<a class="headerlink" href="#state-handling-and-synchronization" title="Permalink to this heading"></a></h4>
+<p>The following services provide time synchronization and orchestrated state management.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="lifecycleService.html">Lifecycle Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="timeSyncService.html">Time Synchronization Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="systemcontroller.html">System Controller</a></li>
-<li class="toctree-l1"><a class="reference internal" href="systemmonitor.html">System Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services/lifecycle.html">Lifecycle Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="services/timesync.html">Time Synchronization Service</a></li>
+</ul>
+</div>
+</section>
+<section id="system-utilities">
+<h4>System Utilities<a class="headerlink" href="#system-utilities" title="Permalink to this heading"></a></h4>
+<p>These system utilities can be used to control and monitor the simulation as a whole.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="system-utilities/systemcontroller.html">System Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system-utilities/systemmonitor.html">System Monitor</a></li>
 </ul>
 </div>
 </section>
 <section id="common-data-types">
-<h3>Common Data Types<a class="headerlink" href="#common-data-types" title="Permalink to this heading"></a></h3>
+<h4>Common Data Types<a class="headerlink" href="#common-data-types" title="Permalink to this heading"></a></h4>
+<p>Some data types are shared between services of the SIL Kit.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="common.html">Common Service Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-data-types.html">Common Service Data Types</a></li>
+</ul>
+</div>
+</section>
+<section id="custom-network-simulator">
+<h4>Custom Network Simulator<a class="headerlink" href="#custom-network-simulator" title="Permalink to this heading"></a></h4>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="netsim.html">Custom Network Simulator</a></li>
 </ul>
 </div>
 </section>
 </section>
-<section id="c-api">
-<h2>C API<a class="headerlink" href="#c-api" title="Permalink to this heading"></a></h2>
+</section>
+<section id="id1">
+<h2>C API<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
 <p>The SIL Kit provides an additional API that allows to use the SIL Kit directly
 with the C programming language:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="capi-main.html">Entry Point and API Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capi/capi-main.html">Entry Point and API Organization</a></li>
 </ul>
 </div>
-<section id="id1">
-<h3>Services<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
 <section id="id2">
-<h4>Vehicle Network Controller<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h4>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="capi-can.html">CAN C API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="capi-ethernet.html">Ethernet C API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="capi-lin.html">LIN C API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="capi-flexray.html">FlexRay C API</a></li>
-</ul>
-</div>
-</section>
+<h3>Services<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
 <section id="id3">
-<h4>Data Publish/Subscribe and RPC<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h4>
+<h4>Vehicle Network Controller<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h4>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="capi-data.html">Data Publish/Subscribe C API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="capi-rpc.html">RPC C API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capi/capi-can.html">CAN C API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capi/capi-ethernet.html">Ethernet C API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capi/capi-lin.html">LIN C API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capi/capi-flexray.html">FlexRay C API</a></li>
 </ul>
 </div>
 </section>
 <section id="id4">
-<h4>State Handling and Synchronization<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h4>
+<h4>Data Publish/Subscribe and RPC<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h4>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="capi-orchestration.html">Orchestration C API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="capi-systemmonitor.html">System Monitor C API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capi/capi-data.html">Data Publish/Subscribe C API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capi/capi-rpc.html">RPC C API</a></li>
+</ul>
+</div>
+</section>
+<section id="id5">
+<h4>State Handling and Synchronization<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h4>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="capi/capi-orchestration.html">Orchestration C API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capi/capi-systemmonitor.html">System Monitor C API</a></li>
 </ul>
 </div>
 </section>
@@ -253,8 +303,8 @@ with the C programming language:</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../simulation/simulation.html" class="btn btn-neutral float-left" title="Simulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="participant.html" class="btn btn-neutral float-right" title="Participant" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../simulation/simulation.html" class="btn btn-neutral float-left" title="Simulation Concepts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="header.html" class="btn btn-neutral float-right" title="Header Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

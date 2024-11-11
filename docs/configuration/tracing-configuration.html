@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tracing and Replay Configuration &mdash; Vector SIL Kit 4.0.53 documentation</title>
+  <title>Tracing and Replay Configuration &mdash; Vector SIL Kit 4.0.54 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.53
+                4.0.54
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -46,9 +46,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../for-users/users.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../for-developers/developers.html">Developer Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api/api.html">API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">C/C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/demos.html">Demos</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="configuration.html">Configuration</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="configuration.html#the-participant-configuration-file">The Participant Configuration File</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="configuration.html#overview">Overview</a></li>
@@ -57,7 +57,13 @@
 <li class="toctree-l4"><a class="reference internal" href="includes-configuration.html">Includes Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="logging-configuration.html">Logging Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="healthcheck-configuration.html">HealthCheck Configuration</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Tracing and Replay Configuration</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Tracing and Replay Configuration</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#tracing">Tracing</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#replay">Replay</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#trace-sink-and-source-types">Trace Sink and Source Types</a></li>
+</ul>
+</li>
 <li class="toctree-l4"><a class="reference internal" href="extension-configuration.html">Extensions Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="middleware-configuration.html">Middleware Configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="experimental-configuration.html">Experimental Configuration</a></li>
@@ -68,12 +74,10 @@
 <li class="toctree-l2"><a class="reference internal" href="configuration.html#the-registry-configuration-file">The Registry Configuration File</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../netsim/netsim.html">Custom Network Simulator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">Licenses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 </ul>
 
@@ -224,7 +228,7 @@ The defined trace sink is assigned to The <code class="docutils literal notransl
 <figure class="align-center" id="id4">
 <span id="label-configuration-tracing-example"></span><a class="reference internal image-reference" href="../_images/ethernet_tracing_example_config.svg"><img alt=": Simple simulation setup with two participants and tracing enabled." src="../_images/ethernet_tracing_example_config.svg" width="800" /></a>
 <figcaption>
-<p><span class="caption-number">Figure 12 </span><span class="caption-text">: Simple simulation setup with two participants and tracing enabled.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Figure 18 </span><span class="caption-text">: Simple simulation setup with two participants and tracing enabled.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The following YAML code shows the participant configuration of the EthernetReader with tracing enabled.</p>
@@ -308,7 +312,7 @@ The defined trace source is assigned to The <code class="docutils literal notran
 <figure class="align-center" id="id6">
 <span id="label-configuration-replay-example"></span><a class="reference internal image-reference" href="../_images/ethernet_replay_example_config.svg"><img alt=": Simple simulation setup with two participants and replay enabled." src="../_images/ethernet_replay_example_config.svg" width="800" /></a>
 <figcaption>
-<p><span class="caption-number">Figure 13 </span><span class="caption-text">: Simple simulation setup with two participants and replay enabled.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+<p><span class="caption-number">Figure 19 </span><span class="caption-text">: Simple simulation setup with two participants and replay enabled.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The following YAML code shows the participant configuration of the EthernetWriter with replay enabled.</p>

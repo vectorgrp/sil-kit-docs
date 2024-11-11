@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ethernet C API &mdash; Vector SIL Kit 4.0.54 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="LIN C API" href="capi-lin.html" />
+    <link rel="prev" title="CAN C API" href="capi-can.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.54
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Vector SIL Kit Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../for-users/users.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../for-developers/developers.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../simulation/simulation.html">Simulation Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">C/C++ API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../header.html">Header Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../memory-management.html">Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#c-api">C++ API</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#id1">C API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="capi-main.html">Entry Point and API Organization</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../api.html#id2">Services</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../api.html#id3">Vehicle Network Controller</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="capi-can.html">CAN C API</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">Ethernet C API</a></li>
+<li class="toctree-l5"><a class="reference internal" href="capi-lin.html">LIN C API</a></li>
+<li class="toctree-l5"><a class="reference internal" href="capi-flexray.html">FlexRay C API</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../api.html#id4">Data Publish/Subscribe and RPC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api.html#id5">State Handling and Synchronization</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../demos/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../licenses/license.html">Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../contents.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../api.html">C/C++ API</a> &raquo;</li>
+      <li>Ethernet C API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/api/capi/capi-ethernet.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ethernet-c-api">
+<h1>Ethernet C API<a class="headerlink" href="#ethernet-c-api" title="Permalink to this heading"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#ethernet-controller" id="id1">Ethernet Controller</a></p></li>
+<li><p><a class="reference internal" href="#ethernet-frame" id="id2">Ethernet Frame</a></p></li>
+<li><p><a class="reference internal" href="#data-structures" id="id3">Data Structures</a></p></li>
+<li><p><a class="reference internal" href="#enumerations-and-typedefs" id="id4">Enumerations and Typedefs</a></p></li>
+</ul>
+</div>
+<p>The Ethernet API consists of two main parts:</p>
+<ol class="arabic simple">
+<li><p>The Ethernet controller</p></li>
+<li><p>The Ethernet frame</p></li>
+</ol>
+<section id="ethernet-controller">
+<h2><a class="toc-backref" href="#id1">Ethernet Controller</a><a class="headerlink" href="#ethernet-controller" title="Permalink to this heading"></a></h2>
+<p><strong>An Ethernet controller is created with the following function:</strong></p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv432SilKit_EthernetController_CreatePP25SilKit_EthernetControllerP18SilKit_ParticipantPKcPKc">
+<span id="_CPPv332SilKit_EthernetController_CreatePP25SilKit_EthernetControllerP18SilKit_ParticipantPKcPKc"></span><span id="_CPPv232SilKit_EthernetController_CreatePP25SilKit_EthernetControllerP18SilKit_ParticipantPKcPKc"></span><span id="SilKit_EthernetController_Create__SilKit_EthernetControllerPP.SilKit_ParticipantP.cCP.cCP"></span><span class="target" id="_ethernet_8h_1abb65560a24876e752f032602d87c311c"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetController_Create</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv425SilKit_EthernetController" title="SilKit_EthernetController"><span class="n"><span class="pre">SilKit_EthernetController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outController</span></span>, <span class="n"><span class="pre">SilKit_Participant</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">participant</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">name</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">network</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv432SilKit_EthernetController_CreatePP25SilKit_EthernetControllerP18SilKit_ParticipantPKcPKc" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Create an Ethernet controller at this SIL Kit simulation participant. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The object returned must not be deallocated using free()! </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outController</strong> – A pointer to a pointer in which the Ethernet controller will be stored (out parameter). </p></li>
+<li><p><strong>participant</strong> – The simulation participant for which the Ethernet controller should be created. </p></li>
+<li><p><strong>name</strong> – The name of the new Ethernet controller (UTF-8). </p></li>
+<li><p><strong>network</strong> – The network of the Ethernet controller to operate in (UTF-8). </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A return code identifying the success/failure of the call. ! </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>It’s status can be controlled with the functions:</strong></p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv434SilKit_EthernetController_ActivateP25SilKit_EthernetController">
+<span id="_CPPv334SilKit_EthernetController_ActivateP25SilKit_EthernetController"></span><span id="_CPPv234SilKit_EthernetController_ActivateP25SilKit_EthernetController"></span><span id="SilKit_EthernetController_Activate__SilKit_EthernetControllerP"></span><span class="target" id="_ethernet_8h_1a7afa9ba2b7d262c422f7bfe07ed441ca"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetController_Activate</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv425SilKit_EthernetController" title="SilKit_EthernetController"><span class="n"><span class="pre">SilKit_EthernetController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv434SilKit_EthernetController_ActivateP25SilKit_EthernetController" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Activates the Ethernet controller. </p>
+<p>Upon activation of the controller, the controller attempts to establish a link. Messages can only be sent once the link has been successfully established,</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>controller</strong> – The Ethernet controller to be activated. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A return code identifying the success/failure of the call. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv436SilKit_EthernetController_DeactivateP25SilKit_EthernetController">
+<span id="_CPPv336SilKit_EthernetController_DeactivateP25SilKit_EthernetController"></span><span id="_CPPv236SilKit_EthernetController_DeactivateP25SilKit_EthernetController"></span><span id="SilKit_EthernetController_Deactivate__SilKit_EthernetControllerP"></span><span class="target" id="_ethernet_8h_1aa00b2c7c0b58636d8c6f3e9d4ace032b"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetController_Deactivate</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv425SilKit_EthernetController" title="SilKit_EthernetController"><span class="n"><span class="pre">SilKit_EthernetController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv436SilKit_EthernetController_DeactivateP25SilKit_EthernetController" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Deactivate the Ethernet controller. </p>
+<p>Deactivate the controller and shut down the link. The controller will no longer receive messages, and it cannot send messages anymore.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>controller</strong> – The Ethernet controller to be deactivated. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A return code identifying the success/failure of the call. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>The Ethernet controller can send Ethernet frames with:</strong></p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv435SilKit_EthernetController_SendFrameP25SilKit_EthernetControllerP20SilKit_EthernetFramePv">
+<span id="_CPPv335SilKit_EthernetController_SendFrameP25SilKit_EthernetControllerP20SilKit_EthernetFramePv"></span><span id="_CPPv235SilKit_EthernetController_SendFrameP25SilKit_EthernetControllerP20SilKit_EthernetFramePv"></span><span id="SilKit_EthernetController_SendFrame__SilKit_EthernetControllerP.SilKit_EthernetFrameP.voidP"></span><span class="target" id="_ethernet_8h_1a6a9844903d6bda1cd07d4625359e1b14"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetController_SendFrame</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv425SilKit_EthernetController" title="SilKit_EthernetController"><span class="n"><span class="pre">SilKit_EthernetController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <a class="reference internal" href="#_CPPv420SilKit_EthernetFrame" title="SilKit_EthernetFrame"><span class="n"><span class="pre">SilKit_EthernetFrame</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">frame</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">userContext</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv435SilKit_EthernetController_SendFrameP25SilKit_EthernetControllerP20SilKit_EthernetFramePv" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send an Ethernet frame. </p>
+<p>Requires previous activation of the controller and a successfully established link. Also, the entire EthernetFrame must be valid, e.g., destination and source MAC addresses must be valid, ether type and vlan tags must be correct.</p>
+<p>These requirements are not enforced in simple simulation. In this case, the message is simply passed on to all connected controllers without performing any check. The user must ensure that a valid frame is provided.</p>
+<p>If the frame size is smaller than the minimum of 60 bytes, the frame will be padded with zeros.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>controller</strong> – The Ethernet controller that should send the frame. </p></li>
+<li><p><strong>frame</strong> – The Ethernet frame to be sent. </p></li>
+<li><p><strong>userContext</strong> – The user provided context pointer, that is reobtained in the frame ack handler </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A return code identifying the success/failure of the call. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>The following set of functions can be used to add and remove event handlers on the controller:</strong></p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv441SilKit_EthernetController_AddFrameHandlerP25SilKit_EthernetControllerPv29SilKit_EthernetFrameHandler_t16SilKit_DirectionP16SilKit_HandlerId">
+<span id="_CPPv341SilKit_EthernetController_AddFrameHandlerP25SilKit_EthernetControllerPv29SilKit_EthernetFrameHandler_t16SilKit_DirectionP16SilKit_HandlerId"></span><span id="_CPPv241SilKit_EthernetController_AddFrameHandlerP25SilKit_EthernetControllerPv29SilKit_EthernetFrameHandler_t16SilKit_DirectionP16SilKit_HandlerId"></span><span id="SilKit_EthernetController_AddFrameHandler__SilKit_EthernetControllerP.voidP.SilKit_EthernetFrameHandler_t.SilKit_Direction.SilKit_HandlerIdP"></span><span class="target" id="_ethernet_8h_1ab90a54e7a8d5634eea32fa2922841666"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetController_AddFrameHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv425SilKit_EthernetController" title="SilKit_EthernetController"><span class="n"><span class="pre">SilKit_EthernetController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">context</span></span>, <a class="reference internal" href="#_CPPv429SilKit_EthernetFrameHandler_t" title="SilKit_EthernetFrameHandler_t"><span class="n"><span class="pre">SilKit_EthernetFrameHandler_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span>, <span class="n"><span class="pre">SilKit_Direction</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">directionMask</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outHandlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv441SilKit_EthernetController_AddFrameHandlerP25SilKit_EthernetControllerPv29SilKit_EthernetFrameHandler_t16SilKit_DirectionP16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Register a callback for Ethernet message reception. </p>
+<p>The handler is called when the controller receives a new Ethernet message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>controller</strong> – The Ethernet controller for which the message callback should be registered. </p></li>
+<li><p><strong>context</strong> – The user provided context pointer, that is reobtained in the callback. </p></li>
+<li><p><strong>handler</strong> – The handler to be called on reception. </p></li>
+<li><p><strong>directionMask</strong> – A bit mask defining the transmit direction of the messages (rx/tx) </p></li>
+<li><p><strong>outHandlerId</strong> – The handler identifier that can be used to remove the callback. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A return code identifying the success/failure of the call. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv449SilKit_EthernetController_AddFrameTransmitHandlerP25SilKit_EthernetControllerPv37SilKit_EthernetFrameTransmitHandler_t29SilKit_EthernetTransmitStatusP16SilKit_HandlerId">
+<span id="_CPPv349SilKit_EthernetController_AddFrameTransmitHandlerP25SilKit_EthernetControllerPv37SilKit_EthernetFrameTransmitHandler_t29SilKit_EthernetTransmitStatusP16SilKit_HandlerId"></span><span id="_CPPv249SilKit_EthernetController_AddFrameTransmitHandlerP25SilKit_EthernetControllerPv37SilKit_EthernetFrameTransmitHandler_t29SilKit_EthernetTransmitStatusP16SilKit_HandlerId"></span><span id="SilKit_EthernetController_AddFrameTransmitHandler__SilKit_EthernetControllerP.voidP.SilKit_EthernetFrameTransmitHandler_t.SilKit_EthernetTransmitStatus.SilKit_HandlerIdP"></span><span class="target" id="_ethernet_8h_1a7b8f8392e3d3915c9355782c22a6201d"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetController_AddFrameTransmitHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv425SilKit_EthernetController" title="SilKit_EthernetController"><span class="n"><span class="pre">SilKit_EthernetController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">context</span></span>, <a class="reference internal" href="#_CPPv437SilKit_EthernetFrameTransmitHandler_t" title="SilKit_EthernetFrameTransmitHandler_t"><span class="n"><span class="pre">SilKit_EthernetFrameTransmitHandler_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span>, <a class="reference internal" href="#_CPPv429SilKit_EthernetTransmitStatus" title="SilKit_EthernetTransmitStatus"><span class="n"><span class="pre">SilKit_EthernetTransmitStatus</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">transmitStatusMask</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outHandlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv449SilKit_EthernetController_AddFrameTransmitHandlerP25SilKit_EthernetControllerPv37SilKit_EthernetFrameTransmitHandler_t29SilKit_EthernetTransmitStatusP16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Register a callback for Ethernet transmit acknowledgments. </p>
+<p>The handler is called when a previously sent message was successfully transmitted or when the transmission has failed. The original message is identified by the userContext.</p>
+<p>NB: Full support in a detailed simulation. In a simple simulation, all messages are immediately positively acknowledged by a receiving controller.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>controller</strong> – The Ethernet controller for which the message acknowledge callback should be registered. </p></li>
+<li><p><strong>context</strong> – The user provided context pointer, that is reobtained in the callback. </p></li>
+<li><p><strong>handler</strong> – The handler to be called on reception. </p></li>
+<li><p><strong>transmitStatusMask</strong> – A bit mask defining the transmit status of the message </p></li>
+<li><p><strong>outHandlerId</strong> – The handler identifier that can be used to remove the callback. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A return code identifying the success/failure of the call. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv447SilKit_EthernetController_AddStateChangeHandlerP25SilKit_EthernetControllerPv35SilKit_EthernetStateChangeHandler_tP16SilKit_HandlerId">
+<span id="_CPPv347SilKit_EthernetController_AddStateChangeHandlerP25SilKit_EthernetControllerPv35SilKit_EthernetStateChangeHandler_tP16SilKit_HandlerId"></span><span id="_CPPv247SilKit_EthernetController_AddStateChangeHandlerP25SilKit_EthernetControllerPv35SilKit_EthernetStateChangeHandler_tP16SilKit_HandlerId"></span><span id="SilKit_EthernetController_AddStateChangeHandler__SilKit_EthernetControllerP.voidP.SilKit_EthernetStateChangeHandler_t.SilKit_HandlerIdP"></span><span class="target" id="_ethernet_8h_1aa8638b5b6c3d8d96dbc76aefb2945cbc"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetController_AddStateChangeHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv425SilKit_EthernetController" title="SilKit_EthernetController"><span class="n"><span class="pre">SilKit_EthernetController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">context</span></span>, <a class="reference internal" href="#_CPPv435SilKit_EthernetStateChangeHandler_t" title="SilKit_EthernetStateChangeHandler_t"><span class="n"><span class="pre">SilKit_EthernetStateChangeHandler_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outHandlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv447SilKit_EthernetController_AddStateChangeHandlerP25SilKit_EthernetControllerPv35SilKit_EthernetStateChangeHandler_tP16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Register a callback for changes of the controller state. </p>
+<p>The handler is called when the state of the controller changes. E.g., a call to <a class="reference internal" href="#_ethernet_8h_1a7afa9ba2b7d262c422f7bfe07ed441ca"><span class="std std-ref">SilKit_EthernetController_Activate()</span></a> causes the controller to change from state SilKit_EthernetState_Inactive to SilKit_EthernetState_LinkDown. Later, when the link has been established, the state changes again from SilKit_EthernetState_LinkDown to SilKit_EthernetState_LinkUp. Similarly, the status changes back to SilKit_EthernetState_Inactive upon a call to <a class="reference internal" href="#_ethernet_8h_1aa00b2c7c0b58636d8c6f3e9d4ace032b"><span class="std std-ref">SilKit_EthernetController_Deactivate()</span></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>controller</strong> – The Ethernet controller for which the message acknowledge callback should be registered. </p></li>
+<li><p><strong>context</strong> – The user provided context pointer, that is reobtained in the callback. </p></li>
+<li><p><strong>handler</strong> – The handler to be called on reception. </p></li>
+<li><p><strong>outHandlerId</strong> – The handler identifier that can be used to remove the callback. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A return code identifying the success/failure of the call. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv449SilKit_EthernetController_AddBitrateChangeHandlerP25SilKit_EthernetControllerPv37SilKit_EthernetBitrateChangeHandler_tP16SilKit_HandlerId">
+<span id="_CPPv349SilKit_EthernetController_AddBitrateChangeHandlerP25SilKit_EthernetControllerPv37SilKit_EthernetBitrateChangeHandler_tP16SilKit_HandlerId"></span><span id="_CPPv249SilKit_EthernetController_AddBitrateChangeHandlerP25SilKit_EthernetControllerPv37SilKit_EthernetBitrateChangeHandler_tP16SilKit_HandlerId"></span><span id="SilKit_EthernetController_AddBitrateChangeHandler__SilKit_EthernetControllerP.voidP.SilKit_EthernetBitrateChangeHandler_t.SilKit_HandlerIdP"></span><span class="target" id="_ethernet_8h_1ab485725ae01d3bf7e246d75beecdf0fa"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetController_AddBitrateChangeHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv425SilKit_EthernetController" title="SilKit_EthernetController"><span class="n"><span class="pre">SilKit_EthernetController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">context</span></span>, <a class="reference internal" href="#_CPPv437SilKit_EthernetBitrateChangeHandler_t" title="SilKit_EthernetBitrateChangeHandler_t"><span class="n"><span class="pre">SilKit_EthernetBitrateChangeHandler_t</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outHandlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv449SilKit_EthernetController_AddBitrateChangeHandlerP25SilKit_EthernetControllerPv37SilKit_EthernetBitrateChangeHandler_tP16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Register a callback for changes of the link bit rate. </p>
+<p>The handler is called when the bit rate of the connected link changes. This is typically the case when a link was successfully established, or the controller was deactivated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>controller</strong> – The Ethernet controller for which the bitrate change callback should be registered. </p></li>
+<li><p><strong>context</strong> – The user provided context pointer, that is reobtained in the callback. </p></li>
+<li><p><strong>handler</strong> – The handler to be called on change. </p></li>
+<li><p><strong>outHandlerId</strong> – The handler identifier that can be used to remove the callback. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A return code identifying the success/failure of the call. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv444SilKit_EthernetController_RemoveFrameHandlerP25SilKit_EthernetController16SilKit_HandlerId">
+<span id="_CPPv344SilKit_EthernetController_RemoveFrameHandlerP25SilKit_EthernetController16SilKit_HandlerId"></span><span id="_CPPv244SilKit_EthernetController_RemoveFrameHandlerP25SilKit_EthernetController16SilKit_HandlerId"></span><span id="SilKit_EthernetController_RemoveFrameHandler__SilKit_EthernetControllerP.SilKit_HandlerId"></span><span class="target" id="_ethernet_8h_1aa603a491bd29a5730ac47ba23bb766c3"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetController_RemoveFrameHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv425SilKit_EthernetController" title="SilKit_EthernetController"><span class="n"><span class="pre">SilKit_EthernetController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv444SilKit_EthernetController_RemoveFrameHandlerP25SilKit_EthernetController16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Remove a <a class="reference internal" href="#_ethernet_8h_1a2d9ce7fcc76a0745e058022e02c6db74"><span class="std std-ref">SilKit_EthernetFrameHandler_t</span></a> by SilKit_HandlerId on this controller. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>controller</strong> – The Ethernet controller for which the callback should be removed. </p></li>
+<li><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv452SilKit_EthernetController_RemoveFrameTransmitHandlerP25SilKit_EthernetController16SilKit_HandlerId">
+<span id="_CPPv352SilKit_EthernetController_RemoveFrameTransmitHandlerP25SilKit_EthernetController16SilKit_HandlerId"></span><span id="_CPPv252SilKit_EthernetController_RemoveFrameTransmitHandlerP25SilKit_EthernetController16SilKit_HandlerId"></span><span id="SilKit_EthernetController_RemoveFrameTransmitHandler__SilKit_EthernetControllerP.SilKit_HandlerId"></span><span class="target" id="_ethernet_8h_1a96d327c9d26d3762c820244ec1423da8"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetController_RemoveFrameTransmitHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv425SilKit_EthernetController" title="SilKit_EthernetController"><span class="n"><span class="pre">SilKit_EthernetController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv452SilKit_EthernetController_RemoveFrameTransmitHandlerP25SilKit_EthernetController16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Remove a <a class="reference internal" href="#_ethernet_8h_1a0e615318b25a44ad75c521f3b600eb73"><span class="std std-ref">SilKit_EthernetFrameTransmitHandler_t</span></a> by SilKit_HandlerId on this controller. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>controller</strong> – The Ethernet controller for which the callback should be removed. </p></li>
+<li><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv450SilKit_EthernetController_RemoveStateChangeHandlerP25SilKit_EthernetController16SilKit_HandlerId">
+<span id="_CPPv350SilKit_EthernetController_RemoveStateChangeHandlerP25SilKit_EthernetController16SilKit_HandlerId"></span><span id="_CPPv250SilKit_EthernetController_RemoveStateChangeHandlerP25SilKit_EthernetController16SilKit_HandlerId"></span><span id="SilKit_EthernetController_RemoveStateChangeHandler__SilKit_EthernetControllerP.SilKit_HandlerId"></span><span class="target" id="_ethernet_8h_1ad9c441b647789dbdafafda862eb3c663"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetController_RemoveStateChangeHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv425SilKit_EthernetController" title="SilKit_EthernetController"><span class="n"><span class="pre">SilKit_EthernetController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv450SilKit_EthernetController_RemoveStateChangeHandlerP25SilKit_EthernetController16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Remove a <a class="reference internal" href="#_ethernet_8h_1a8083cb19f09368edddcb8c143651a9c2"><span class="std std-ref">SilKit_EthernetStateChangeHandler_t</span></a> by SilKit_HandlerId on this controller. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>controller</strong> – The Ethernet controller for which the callback should be removed. </p></li>
+<li><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv452SilKit_EthernetController_RemoveBitrateChangeHandlerP25SilKit_EthernetController16SilKit_HandlerId">
+<span id="_CPPv352SilKit_EthernetController_RemoveBitrateChangeHandlerP25SilKit_EthernetController16SilKit_HandlerId"></span><span id="_CPPv252SilKit_EthernetController_RemoveBitrateChangeHandlerP25SilKit_EthernetController16SilKit_HandlerId"></span><span id="SilKit_EthernetController_RemoveBitrateChangeHandler__SilKit_EthernetControllerP.SilKit_HandlerId"></span><span class="target" id="_ethernet_8h_1a37d97a3065d163d25058d67aba41aeaf"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetController_RemoveBitrateChangeHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv425SilKit_EthernetController" title="SilKit_EthernetController"><span class="n"><span class="pre">SilKit_EthernetController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv452SilKit_EthernetController_RemoveBitrateChangeHandlerP25SilKit_EthernetController16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Remove a <a class="reference internal" href="#_ethernet_8h_1a76f6dcdc95535d292fede0fa241b2649"><span class="std std-ref">SilKit_EthernetBitrateChangeHandler_t</span></a> by SilKit_HandlerId on this controller. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>controller</strong> – The Ethernet controller for which the callback should be removed. </p></li>
+<li><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="ethernet-frame">
+<h2><a class="toc-backref" href="#id2">Ethernet Frame</a><a class="headerlink" href="#ethernet-frame" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">SilKit_EthernetFrame</span></code> is a raw Ethernet frame consisting of the destination MAC, the source MAC, the <cite>EtherType</cite> and a
+payload.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For an example of manual frame construction one can refer to the C Ethernet demo.</p>
+</div>
+</section>
+<section id="data-structures">
+<h2><a class="toc-backref" href="#id3">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this heading"></a></h2>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv431SilKit_EthernetStateChangeEvent">
+<span id="_CPPv331SilKit_EthernetStateChangeEvent"></span><span id="_CPPv231SilKit_EthernetStateChangeEvent"></span><span id="SilKit_EthernetStateChangeEvent"></span><span class="target" id="struct_sil_kit___ethernet_state_change_event"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetStateChangeEvent</span></span></span><a class="headerlink" href="#_CPPv431SilKit_EthernetStateChangeEvent" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N31SilKit_EthernetStateChangeEvent12structHeaderE">
+<span id="_CPPv3N31SilKit_EthernetStateChangeEvent12structHeaderE"></span><span id="_CPPv2N31SilKit_EthernetStateChangeEvent12structHeaderE"></span><span id="SilKit_EthernetStateChangeEvent::structHeader__SilKit_StructHeader"></span><span class="target" id="struct_sil_kit___ethernet_state_change_event_1a25ca90d5a3691d62327c3ea17c74542c"></span><span class="n"><span class="pre">SilKit_StructHeader</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">structHeader</span></span></span><a class="headerlink" href="#_CPPv4N31SilKit_EthernetStateChangeEvent12structHeaderE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The interface id that specifies which version of this struct was obtained. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N31SilKit_EthernetStateChangeEvent9timestampE">
+<span id="_CPPv3N31SilKit_EthernetStateChangeEvent9timestampE"></span><span id="_CPPv2N31SilKit_EthernetStateChangeEvent9timestampE"></span><span id="SilKit_EthernetStateChangeEvent::timestamp__SilKit_NanosecondsTime"></span><span class="target" id="struct_sil_kit___ethernet_state_change_event_1a4a86f97530ce7d65d88773fe508008ac"></span><span class="n"><span class="pre">SilKit_NanosecondsTime</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">timestamp</span></span></span><a class="headerlink" href="#_CPPv4N31SilKit_EthernetStateChangeEvent9timestampE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Timestamp of the state change event. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N31SilKit_EthernetStateChangeEvent5stateE">
+<span id="_CPPv3N31SilKit_EthernetStateChangeEvent5stateE"></span><span id="_CPPv2N31SilKit_EthernetStateChangeEvent5stateE"></span><span id="SilKit_EthernetStateChangeEvent::state__SilKit_EthernetState"></span><span class="target" id="struct_sil_kit___ethernet_state_change_event_1a6ff53422fb3084c769065088d8e5ef8d"></span><a class="reference internal" href="#_CPPv420SilKit_EthernetState" title="SilKit_EthernetState"><span class="n"><span class="pre">SilKit_EthernetState</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">state</span></span></span><a class="headerlink" href="#_CPPv4N31SilKit_EthernetStateChangeEvent5stateE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>New state of the Ethernet controller. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv433SilKit_EthernetBitrateChangeEvent">
+<span id="_CPPv333SilKit_EthernetBitrateChangeEvent"></span><span id="_CPPv233SilKit_EthernetBitrateChangeEvent"></span><span id="SilKit_EthernetBitrateChangeEvent"></span><span class="target" id="struct_sil_kit___ethernet_bitrate_change_event"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetBitrateChangeEvent</span></span></span><a class="headerlink" href="#_CPPv433SilKit_EthernetBitrateChangeEvent" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N33SilKit_EthernetBitrateChangeEvent12structHeaderE">
+<span id="_CPPv3N33SilKit_EthernetBitrateChangeEvent12structHeaderE"></span><span id="_CPPv2N33SilKit_EthernetBitrateChangeEvent12structHeaderE"></span><span id="SilKit_EthernetBitrateChangeEvent::structHeader__SilKit_StructHeader"></span><span class="target" id="struct_sil_kit___ethernet_bitrate_change_event_1a3d1320c750a47b58ea6488419c808607"></span><span class="n"><span class="pre">SilKit_StructHeader</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">structHeader</span></span></span><a class="headerlink" href="#_CPPv4N33SilKit_EthernetBitrateChangeEvent12structHeaderE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The interface id that specifies which version of this struct was obtained. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N33SilKit_EthernetBitrateChangeEvent9timestampE">
+<span id="_CPPv3N33SilKit_EthernetBitrateChangeEvent9timestampE"></span><span id="_CPPv2N33SilKit_EthernetBitrateChangeEvent9timestampE"></span><span id="SilKit_EthernetBitrateChangeEvent::timestamp__SilKit_NanosecondsTime"></span><span class="target" id="struct_sil_kit___ethernet_bitrate_change_event_1ae5edb93b15560aa6fb4675d72358ffd6"></span><span class="n"><span class="pre">SilKit_NanosecondsTime</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">timestamp</span></span></span><a class="headerlink" href="#_CPPv4N33SilKit_EthernetBitrateChangeEvent9timestampE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Timestamp of the bitrate change event. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N33SilKit_EthernetBitrateChangeEvent7bitrateE">
+<span id="_CPPv3N33SilKit_EthernetBitrateChangeEvent7bitrateE"></span><span id="_CPPv2N33SilKit_EthernetBitrateChangeEvent7bitrateE"></span><span id="SilKit_EthernetBitrateChangeEvent::bitrate__SilKit_EthernetBitrate"></span><span class="target" id="struct_sil_kit___ethernet_bitrate_change_event_1a644d859b0aa19362b6641fcabfbf6354"></span><a class="reference internal" href="#_CPPv422SilKit_EthernetBitrate" title="SilKit_EthernetBitrate"><span class="n"><span class="pre">SilKit_EthernetBitrate</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bitrate</span></span></span><a class="headerlink" href="#_CPPv4N33SilKit_EthernetBitrateChangeEvent7bitrateE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>New bitrate in kBit/sec. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv425SilKit_EthernetFrameEvent">
+<span id="_CPPv325SilKit_EthernetFrameEvent"></span><span id="_CPPv225SilKit_EthernetFrameEvent"></span><span id="SilKit_EthernetFrameEvent"></span><span class="target" id="struct_sil_kit___ethernet_frame_event"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetFrameEvent</span></span></span><a class="headerlink" href="#_CPPv425SilKit_EthernetFrameEvent" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N25SilKit_EthernetFrameEvent12structHeaderE">
+<span id="_CPPv3N25SilKit_EthernetFrameEvent12structHeaderE"></span><span id="_CPPv2N25SilKit_EthernetFrameEvent12structHeaderE"></span><span id="SilKit_EthernetFrameEvent::structHeader__SilKit_StructHeader"></span><span class="target" id="struct_sil_kit___ethernet_frame_event_1a2fa2748f222069f6d5af9ab61e36704b"></span><span class="n"><span class="pre">SilKit_StructHeader</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">structHeader</span></span></span><a class="headerlink" href="#_CPPv4N25SilKit_EthernetFrameEvent12structHeaderE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The interface id that specifies which version of this struct was obtained. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N25SilKit_EthernetFrameEvent9timestampE">
+<span id="_CPPv3N25SilKit_EthernetFrameEvent9timestampE"></span><span id="_CPPv2N25SilKit_EthernetFrameEvent9timestampE"></span><span id="SilKit_EthernetFrameEvent::timestamp__SilKit_NanosecondsTime"></span><span class="target" id="struct_sil_kit___ethernet_frame_event_1a2a99c2ce3da02776a04f651d70df5ec8"></span><span class="n"><span class="pre">SilKit_NanosecondsTime</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">timestamp</span></span></span><a class="headerlink" href="#_CPPv4N25SilKit_EthernetFrameEvent9timestampE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Send time. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N25SilKit_EthernetFrameEvent13ethernetFrameE">
+<span id="_CPPv3N25SilKit_EthernetFrameEvent13ethernetFrameE"></span><span id="_CPPv2N25SilKit_EthernetFrameEvent13ethernetFrameE"></span><span id="SilKit_EthernetFrameEvent::ethernetFrame__SilKit_EthernetFrameP"></span><span class="target" id="struct_sil_kit___ethernet_frame_event_1a28aab61d46e664a9b09376c4098a046b"></span><a class="reference internal" href="#_CPPv420SilKit_EthernetFrame" title="SilKit_EthernetFrame"><span class="n"><span class="pre">SilKit_EthernetFrame</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">ethernetFrame</span></span></span><a class="headerlink" href="#_CPPv4N25SilKit_EthernetFrameEvent13ethernetFrameE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The raw Ethernet frame. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N25SilKit_EthernetFrameEvent9directionE">
+<span id="_CPPv3N25SilKit_EthernetFrameEvent9directionE"></span><span id="_CPPv2N25SilKit_EthernetFrameEvent9directionE"></span><span id="SilKit_EthernetFrameEvent::direction__SilKit_Direction"></span><span class="target" id="struct_sil_kit___ethernet_frame_event_1a14c6a6d1cdc3e4e0d3814e3e37e9a890"></span><span class="n"><span class="pre">SilKit_Direction</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">direction</span></span></span><a class="headerlink" href="#_CPPv4N25SilKit_EthernetFrameEvent9directionE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Receive/Transmit direction. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N25SilKit_EthernetFrameEvent11userContextE">
+<span id="_CPPv3N25SilKit_EthernetFrameEvent11userContextE"></span><span id="_CPPv2N25SilKit_EthernetFrameEvent11userContextE"></span><span id="SilKit_EthernetFrameEvent::userContext__voidP"></span><span class="target" id="struct_sil_kit___ethernet_frame_event_1a54bfe8d8955c3a96fea5931562a99caa"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">userContext</span></span></span><a class="headerlink" href="#_CPPv4N25SilKit_EthernetFrameEvent11userContextE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Optional pointer provided by user when sending the frame. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv433SilKit_EthernetFrameTransmitEvent">
+<span id="_CPPv333SilKit_EthernetFrameTransmitEvent"></span><span id="_CPPv233SilKit_EthernetFrameTransmitEvent"></span><span id="SilKit_EthernetFrameTransmitEvent"></span><span class="target" id="struct_sil_kit___ethernet_frame_transmit_event"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetFrameTransmitEvent</span></span></span><a class="headerlink" href="#_CPPv433SilKit_EthernetFrameTransmitEvent" title="Permalink to this definition"></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N33SilKit_EthernetFrameTransmitEvent12structHeaderE">
+<span id="_CPPv3N33SilKit_EthernetFrameTransmitEvent12structHeaderE"></span><span id="_CPPv2N33SilKit_EthernetFrameTransmitEvent12structHeaderE"></span><span id="SilKit_EthernetFrameTransmitEvent::structHeader__SilKit_StructHeader"></span><span class="target" id="struct_sil_kit___ethernet_frame_transmit_event_1aff36edca9fbdb29f0e9884f2b6320f7e"></span><span class="n"><span class="pre">SilKit_StructHeader</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">structHeader</span></span></span><a class="headerlink" href="#_CPPv4N33SilKit_EthernetFrameTransmitEvent12structHeaderE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The interface id that specifies which version of this struct was obtained. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N33SilKit_EthernetFrameTransmitEvent11userContextE">
+<span id="_CPPv3N33SilKit_EthernetFrameTransmitEvent11userContextE"></span><span id="_CPPv2N33SilKit_EthernetFrameTransmitEvent11userContextE"></span><span id="SilKit_EthernetFrameTransmitEvent::userContext__voidP"></span><span class="target" id="struct_sil_kit___ethernet_frame_transmit_event_1a23b8e417b87907a1f93bf24d91519b5b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">userContext</span></span></span><a class="headerlink" href="#_CPPv4N33SilKit_EthernetFrameTransmitEvent11userContextE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Value that was provided by user in corresponding parameter on send of Ethernet frame. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N33SilKit_EthernetFrameTransmitEvent9timestampE">
+<span id="_CPPv3N33SilKit_EthernetFrameTransmitEvent9timestampE"></span><span id="_CPPv2N33SilKit_EthernetFrameTransmitEvent9timestampE"></span><span id="SilKit_EthernetFrameTransmitEvent::timestamp__SilKit_NanosecondsTime"></span><span class="target" id="struct_sil_kit___ethernet_frame_transmit_event_1a1ce8e1c81a4ddfcbc49c59ac6f414cbc"></span><span class="n"><span class="pre">SilKit_NanosecondsTime</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">timestamp</span></span></span><a class="headerlink" href="#_CPPv4N33SilKit_EthernetFrameTransmitEvent9timestampE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Reception time. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N33SilKit_EthernetFrameTransmitEvent6statusE">
+<span id="_CPPv3N33SilKit_EthernetFrameTransmitEvent6statusE"></span><span id="_CPPv2N33SilKit_EthernetFrameTransmitEvent6statusE"></span><span id="SilKit_EthernetFrameTransmitEvent::status__SilKit_EthernetTransmitStatus"></span><span class="target" id="struct_sil_kit___ethernet_frame_transmit_event_1a25951c71f78e1706b1e7e245cd939077"></span><a class="reference internal" href="#_CPPv429SilKit_EthernetTransmitStatus" title="SilKit_EthernetTransmitStatus"><span class="n"><span class="pre">SilKit_EthernetTransmitStatus</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">status</span></span></span><a class="headerlink" href="#_CPPv4N33SilKit_EthernetFrameTransmitEvent6statusE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Status of the EthernetTransmitRequest. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+<section id="enumerations-and-typedefs">
+<h2><a class="toc-backref" href="#id4">Enumerations and Typedefs</a><a class="headerlink" href="#enumerations-and-typedefs" title="Permalink to this heading"></a></h2>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv429SilKit_EthernetTransmitStatus">
+<span id="_CPPv329SilKit_EthernetTransmitStatus"></span><span id="_CPPv229SilKit_EthernetTransmitStatus"></span><span id="SilKit_EthernetTransmitStatus"></span><span class="target" id="_ethernet_8h_1ac01f1737e7c6a07fec8d8e0c0a5f1d0f"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetTransmitStatus</span></span></span><a class="headerlink" href="#_CPPv429SilKit_EthernetTransmitStatus" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv420SilKit_EthernetState">
+<span id="_CPPv320SilKit_EthernetState"></span><span id="_CPPv220SilKit_EthernetState"></span><span id="SilKit_EthernetState"></span><span class="target" id="_ethernet_8h_1a410841cd46540ba5a8e3b7e6548ec41a"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetState</span></span></span><a class="headerlink" href="#_CPPv420SilKit_EthernetState" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv422SilKit_EthernetBitrate">
+<span id="_CPPv322SilKit_EthernetBitrate"></span><span id="_CPPv222SilKit_EthernetBitrate"></span><span id="SilKit_EthernetBitrate"></span><span class="target" id="_ethernet_8h_1ac407cf86d233a4665cca9fc07cf12167"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetBitrate</span></span></span><a class="headerlink" href="#_CPPv422SilKit_EthernetBitrate" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Bitrate in kBit/sec. </p>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv420SilKit_EthernetFrame">
+<span id="_CPPv320SilKit_EthernetFrame"></span><span id="_CPPv220SilKit_EthernetFrame"></span><span id="SilKit_EthernetFrame"></span><span class="target" id="struct_sil_kit___ethernet_frame"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetFrame</span></span></span><a class="headerlink" href="#_CPPv420SilKit_EthernetFrame" title="Permalink to this definition"></a><br /></dt>
+<dd><p>A raw Ethernet frame. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20SilKit_EthernetFrame12structHeaderE">
+<span id="_CPPv3N20SilKit_EthernetFrame12structHeaderE"></span><span id="_CPPv2N20SilKit_EthernetFrame12structHeaderE"></span><span id="SilKit_EthernetFrame::structHeader__SilKit_StructHeader"></span><span class="target" id="struct_sil_kit___ethernet_frame_1aae2b10853c298482fe58a3c3c437059f"></span><span class="n"><span class="pre">SilKit_StructHeader</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">structHeader</span></span></span><a class="headerlink" href="#_CPPv4N20SilKit_EthernetFrame12structHeaderE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>The interface id that specifies which version of this struct was obtained. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N20SilKit_EthernetFrame3rawE">
+<span id="_CPPv3N20SilKit_EthernetFrame3rawE"></span><span id="_CPPv2N20SilKit_EthernetFrame3rawE"></span><span id="SilKit_EthernetFrame::raw__SilKit_ByteVector"></span><span class="target" id="struct_sil_kit___ethernet_frame_1aa28917fcb9af3fc7862bc06743dd5aa7"></span><span class="n"><span class="pre">SilKit_ByteVector</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">raw</span></span></span><a class="headerlink" href="#_CPPv4N20SilKit_EthernetFrame3rawE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv425SilKit_EthernetController">
+<span id="_CPPv325SilKit_EthernetController"></span><span id="_CPPv225SilKit_EthernetController"></span><span id="SilKit_EthernetController"></span><span class="target" id="_ethernet_8h_1a7951c8f9768ef57acbfae8805c212516"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv425SilKit_EthernetController" title="SilKit_EthernetController"><span class="n"><span class="pre">SilKit_EthernetController</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetController</span></span></span><a class="headerlink" href="#_CPPv425SilKit_EthernetController" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv429SilKit_EthernetFrameHandler_t">
+<span id="_CPPv329SilKit_EthernetFrameHandler_t"></span><span id="_CPPv229SilKit_EthernetFrameHandler_t"></span><span id="SilKit_EthernetFrameHandler_t"></span><span class="target" id="_ethernet_8h_1a2d9ce7fcc76a0745e058022e02c6db74"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetFrameHandler_t</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv425SilKit_EthernetController" title="SilKit_EthernetController"><span class="n"><span class="pre">SilKit_EthernetController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">controller</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv425SilKit_EthernetFrameEvent" title="SilKit_EthernetFrameEvent"><span class="n"><span class="pre">SilKit_EthernetFrameEvent</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">frameEvent</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv429SilKit_EthernetFrameHandler_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Callback type to indicate that a EthernetMessage has been received. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param context</dt>
+<dd class="field-odd"><p>The context provided by the user upon registration. </p>
+</dd>
+<dt class="field-even">Param controller</dt>
+<dd class="field-even"><p>The Ethernet controller that received the message. </p>
+</dd>
+<dt class="field-odd">Param frameEvent</dt>
+<dd class="field-odd"><p>Contains the raw frame and the timestamp of the event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv437SilKit_EthernetFrameTransmitHandler_t">
+<span id="_CPPv337SilKit_EthernetFrameTransmitHandler_t"></span><span id="_CPPv237SilKit_EthernetFrameTransmitHandler_t"></span><span id="SilKit_EthernetFrameTransmitHandler_t"></span><span class="target" id="_ethernet_8h_1a0e615318b25a44ad75c521f3b600eb73"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetFrameTransmitHandler_t</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv425SilKit_EthernetController" title="SilKit_EthernetController"><span class="n"><span class="pre">SilKit_EthernetController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">controller</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv433SilKit_EthernetFrameTransmitEvent" title="SilKit_EthernetFrameTransmitEvent"><span class="n"><span class="pre">SilKit_EthernetFrameTransmitEvent</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">frameTransmitEvent</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv437SilKit_EthernetFrameTransmitHandler_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Callback type to indicate that a EthernetFrame has been sent. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param context</dt>
+<dd class="field-odd"><p>The by the user provided context on registration. </p>
+</dd>
+<dt class="field-even">Param controller</dt>
+<dd class="field-even"><p>The Ethernet controller that received the acknowledge. </p>
+</dd>
+<dt class="field-odd">Param frameTransmitEvent</dt>
+<dd class="field-odd"><p>Contains the transmit status and the timestamp of the event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv435SilKit_EthernetStateChangeHandler_t">
+<span id="_CPPv335SilKit_EthernetStateChangeHandler_t"></span><span id="_CPPv235SilKit_EthernetStateChangeHandler_t"></span><span id="SilKit_EthernetStateChangeHandler_t"></span><span class="target" id="_ethernet_8h_1a8083cb19f09368edddcb8c143651a9c2"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetStateChangeHandler_t</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv425SilKit_EthernetController" title="SilKit_EthernetController"><span class="n"><span class="pre">SilKit_EthernetController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">controller</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv431SilKit_EthernetStateChangeEvent" title="SilKit_EthernetStateChangeEvent"><span class="n"><span class="pre">SilKit_EthernetStateChangeEvent</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">stateChangeEvent</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv435SilKit_EthernetStateChangeHandler_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Callback type to indicate that the Ethernet controller state has changed. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param context</dt>
+<dd class="field-odd"><p>The by the user provided context on registration. </p>
+</dd>
+<dt class="field-even">Param controller</dt>
+<dd class="field-even"><p>The Ethernet controller whose state did change. </p>
+</dd>
+<dt class="field-odd">Param stateChangeEvent</dt>
+<dd class="field-odd"><p>Contains the new state and the timestamp of the event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv437SilKit_EthernetBitrateChangeHandler_t">
+<span id="_CPPv337SilKit_EthernetBitrateChangeHandler_t"></span><span id="_CPPv237SilKit_EthernetBitrateChangeHandler_t"></span><span id="SilKit_EthernetBitrateChangeHandler_t"></span><span class="target" id="_ethernet_8h_1a76f6dcdc95535d292fede0fa241b2649"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_EthernetBitrateChangeHandler_t</span></span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv425SilKit_EthernetController" title="SilKit_EthernetController"><span class="n"><span class="pre">SilKit_EthernetController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">controller</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv433SilKit_EthernetBitrateChangeEvent" title="SilKit_EthernetBitrateChangeEvent"><span class="n"><span class="pre">SilKit_EthernetBitrateChangeEvent</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">bitrateChangeEvent</span></span><span class="p"><span class="pre">)</span></span><a class="headerlink" href="#_CPPv437SilKit_EthernetBitrateChangeHandler_t" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Callback type to indicate that the link bit rate has changed. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Param context</dt>
+<dd class="field-odd"><p>Context pointer provided by the user on registration. </p>
+</dd>
+<dt class="field-even">Param controller</dt>
+<dd class="field-even"><p>The Ethernet controller that is affected. </p>
+</dd>
+<dt class="field-odd">Param bitrateChangeEvent</dt>
+<dd class="field-odd"><p>Contains the new bitrate and the timestamp of the event. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="capi-can.html" class="btn btn-neutral float-left" title="CAN C API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="capi-lin.html" class="btn btn-neutral float-right" title="LIN C API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

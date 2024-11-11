@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Serialization/Deserialization API &mdash; Vector SIL Kit 4.0.53 documentation</title>
+  <title>Data Serialization/Deserialization API &mdash; Vector SIL Kit 4.0.54 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -20,8 +20,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lifecycle Service" href="lifecycleService.html" />
-    <link rel="prev" title="RPC (Remote Procedure Call) API" href="rpc.html" /> 
+    <link rel="next" title="Lifecycle Service" href="services/lifecycle.html" />
+    <link rel="prev" title="RPC (Remote Procedure Call) API" href="services/rpc.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.53
+                4.0.54
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -46,33 +46,38 @@
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../for-users/users.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../for-developers/developers.html">Developer Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="api.html#api-entry-point-and-api-organization">API Entry Point and API Organization</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="api.html#services">Services</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="logging.html">Logging Service API</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api.html#vehicle-network-controller">Vehicle Network Controller</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="api.html#data-publish-subscribe-and-rpc">Data Publish/Subscribe and RPC</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="pubsub.html">Data Publish/Subscribe API</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rpc.html">RPC (Remote Procedure Call) API</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Data Serialization/Deserialization API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">C/C++ API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="header.html">Header Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory-management.html">Memory Management</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="api.html#c-api">C++ API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="api.html#participant">Participant</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="api.html#services">Services</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="api.html#logging">Logging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.html#vehicle-network-controller">Vehicle Network Controller</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="api.html#data-publish-subscribe-and-rpc">Data Publish/Subscribe and RPC</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="services/pubsub.html">Data Publish/Subscribe API</a></li>
+<li class="toctree-l5"><a class="reference internal" href="services/rpc.html">RPC (Remote Procedure Call) API</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">Data Serialization/Deserialization API</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="api.html#state-handling-and-synchronization">State Handling and Synchronization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api.html#common-data-types">Common Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.html#state-handling-and-synchronization">State Handling and Synchronization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.html#system-utilities">System Utilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.html#common-data-types">Common Data Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api.html#custom-network-simulator">Custom Network Simulator</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#c-api">C API</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/demos.html">Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#id1">C API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/demos.html">Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../netsim/netsim.html">Custom Network Simulator</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/utilities.html">Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">SIL Kit License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html#third-party-licenses">Third-Party Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">Licenses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
 </ul>
 
@@ -90,7 +95,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="api.html">API</a> &raquo;</li>
+          <li><a href="api.html">C/C++ API</a> &raquo;</li>
       <li>Data Serialization/Deserialization API</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/serdes.rst.txt" rel="nofollow"> View page source</a>
@@ -124,7 +129,7 @@
 <p>The <cite>Data Serialization/Deserialization (SerDes) API</cite> provides serialization and deserialization of data using a simple serialization scheme.
 Both <cite>Data Publish/Subscribe API</cite> and <cite>RPC API</cite> support any serialization format for the transmission of the data or arguments for maximum flexibility.
 However, to ensure compatibility with other simulation participants, it is strongly recommended to use <cite>SerDes</cite> for all data transferred via the
-<a class="reference internal" href="pubsub.html"><span class="doc">Data Publish/Subscribe API</span></a> and the <a class="reference internal" href="rpc.html"><span class="doc">RPC API</span></a>.</p>
+<a class="reference internal" href="services/pubsub.html"><span class="doc">Data Publish/Subscribe API</span></a> and the <a class="reference internal" href="services/rpc.html"><span class="doc">RPC API</span></a>.</p>
 <div class="admonition-caution admonition">
 <p class="admonition-title">Caution</p>
 <p>If other de/serialization schemes are used, it must be ensured that all other participants use this same scheme to avoid interoperability errors.</p>
@@ -143,8 +148,8 @@ However, to ensure compatibility with other simulation participants, it is stron
 <p>Unions are currently not supported.</p>
 <section id="usage-example">
 <h3><a class="toc-backref" href="#id2">Usage Example</a><a class="headerlink" href="#usage-example" title="Permalink to this heading"></a></h3>
-<p>Consider an example type from the <a class="reference internal" href="../usage/demos.html#sec-util-pubsub-demo"><span class="std std-ref">Publish/Subscribe Demo</span></a>:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">GpsData</span>
+<p>Consider an example type from the <a class="reference internal" href="../demos/demos.html#sec-pubsub-demo"><span class="std std-ref">Publish/Subscribe Demo</span></a>:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">GpsData</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">latitude</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">longitude</span><span class="p">;</span>
@@ -153,7 +158,7 @@ However, to ensure compatibility with other simulation participants, it is stron
 </pre></div>
 </div>
 <p>Functions to serialize and deserialize this type can be written this way:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Serialize</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">GpsData</span><span class="o">&amp;</span><span class="w"> </span><span class="n">gpsData</span><span class="p">)</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Serialize</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">GpsData</span><span class="o">&amp;</span><span class="w"> </span><span class="n">gpsData</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">SerDes</span><span class="o">::</span><span class="n">Serializer</span><span class="w"> </span><span class="n">serializer</span><span class="p">;</span>
 <span class="w">    </span><span class="n">serializer</span><span class="p">.</span><span class="n">BeginStruct</span><span class="p">();</span>
@@ -166,7 +171,7 @@ However, to ensure compatibility with other simulation participants, it is stron
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">GpsData</span><span class="w"> </span><span class="nf">Deserialize</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">data</span><span class="p">)</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">GpsData</span><span class="w"> </span><span class="nf">Deserialize</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">data</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">GpsData</span><span class="w"> </span><span class="n">gpsData</span><span class="p">;</span>
 
@@ -572,8 +577,8 @@ query the serialized data as a byte vector.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="rpc.html" class="btn btn-neutral float-left" title="RPC (Remote Procedure Call) API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="lifecycleService.html" class="btn btn-neutral float-right" title="Lifecycle Service" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="services/rpc.html" class="btn btn-neutral float-left" title="RPC (Remote Procedure Call) API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="services/lifecycle.html" class="btn btn-neutral float-right" title="Lifecycle Service" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
