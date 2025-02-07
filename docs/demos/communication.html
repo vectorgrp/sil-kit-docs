@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Communication Protocols &mdash; Vector SIL Kit 4.0.55 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API" href="api.html" />
+    <link rel="prev" title="Sample participant configurations" href="configs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.55
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-users/users.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-developers/developers.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">C/C++ API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="demos.html">Demos</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="build.html">Building the Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configs.html">Sample participant configurations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Communication Protocols</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#command-line-arguments">Command line arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#can">Can</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ethernet">Ethernet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lin">Lin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flexray">FlexRay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#publish-subscribe">Publish/Subscribe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rpc">Rpc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-details">Implementation details</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool.html">Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="demos.html">Demos</a> &raquo;</li>
+      <li>Communication Protocols</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/demos/communication.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="communication-protocols">
+<h1>Communication Protocols<a class="headerlink" href="#communication-protocols" title="Permalink to this heading"></a></h1>
+<p>The demos shown here are build on top of a base implementation that provides general SIL Kit features.
+This allows to separate the demo specific use case (e.g. how to use Ethernet with the SIL Kit) from general features (e.g. setup the SIL Kit lifecycle).</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#command-line-arguments" id="id1">Command line arguments</a></p></li>
+<li><p><a class="reference internal" href="#can" id="id2">Can</a></p></li>
+<li><p><a class="reference internal" href="#ethernet" id="id3">Ethernet</a></p></li>
+<li><p><a class="reference internal" href="#lin" id="id4">Lin</a></p></li>
+<li><p><a class="reference internal" href="#flexray" id="id5">FlexRay</a></p></li>
+<li><p><a class="reference internal" href="#publish-subscribe" id="id6">Publish/Subscribe</a></p></li>
+<li><p><a class="reference internal" href="#rpc" id="id7">Rpc</a></p></li>
+<li><p><a class="reference internal" href="#implementation-details" id="id8">Implementation details</a></p></li>
+</ul>
+</div>
+<section id="command-line-arguments">
+<h2><a class="toc-backref" href="#id1">Command line arguments</a><a class="headerlink" href="#command-line-arguments" title="Permalink to this heading"></a></h2>
+<p>The following arguments are available for all demos described in this chapter:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">-h, --help                   | Get this help.</span>
+<span class="go">-n, --name &lt;name&gt;            | The participant name used to take part in the simulation.</span>
+<span class="go">                               Defaults to &#39;&lt;set by the individual demo&gt;&#39;.</span>
+<span class="go">-u, --registry-uri &lt;uri&gt;     | The registry URI to connect to.</span>
+<span class="go">                               Defaults to &#39;silkit://localhost:8500&#39;.</span>
+<span class="go">-l, --log &lt;level&gt;            | Log to stdout with level:</span>
+<span class="go">                               &#39;trace&#39;, &#39;debug&#39;, &#39;warn&#39;, &#39;info&#39;, &#39;error&#39;, &#39;critical&#39; or &#39;off&#39;.</span>
+<span class="go">                               Defaults to &#39;info&#39;.</span>
+<span class="go">                               Cannot be used together with &#39;--config&#39;.</span>
+<span class="go">-c, --config &lt;filePath&gt;      | Path to the Participant configuration YAML or JSON file.</span>
+<span class="go">                               Cannot be used together with &#39;--log&#39;.</span>
+<span class="go">                               Will always run as fast as possible.</span>
+<span class="go">-a, --async                  | Run without time synchronization mode.</span>
+<span class="go">                               Cannot be used together with &#39;--sim-step-duration&#39;.</span>
+<span class="go">-A, --autonomous             | Start the simulation autonomously.</span>
+<span class="go">                               Without this flag, a coordinated start is performed</span>
+<span class="go">                               which requires the SIL Kit System Controller.</span>
+<span class="go">-d, --sim-step-duration &lt;us&gt; | The duration of a simulation step in microseconds.</span>
+<span class="go">                               Defaults to &lt;set by the individual demo&gt;us.</span>
+<span class="go">                               Cannot be used together with &#39;--async&#39;.</span>
+<span class="go">-f, --fast                   | Run the simulation as fast as possible.</span>
+<span class="go">                               By default, the execution is slowed down to two work cycles per second.</span>
+<span class="go">                               Cannot be used together with &#39;--config&#39;.</span>
+<span class="go">-s, --sleep &lt;ms&gt;             | The sleep duration per work cycle in milliseconds.</span>
+<span class="go">                               Default is no sleeping.</span>
+<span class="go">                               Using this options overrides the default execution slow down.</span>
+<span class="go">                               Cannot be used together with &#39;--fast&#39;.</span>
+</pre></div>
+</div>
+<p>The default behavior of these options is:</p>
+<ul class="simple">
+<li><p>Participant name is set by the individual demo executable (e.g. <code class="docutils literal notranslate"><span class="pre">CanWriter</span></code> for <code class="docutils literal notranslate"><span class="pre">SilKitDemoCanWriter</span></code>).</p></li>
+<li><p>Default registry-uri <code class="docutils literal notranslate"><span class="pre">silkit://localhost:8500</span></code>.</p></li>
+<li><p>Logging to Stdout with Level Info.</p></li>
+<li><p>No participant configuration file in use.</p></li>
+<li><p>Virtual time synchronization enabled.</p></li>
+<li><p>Coordinated start (requires a <code class="docutils literal notranslate"><span class="pre">sil-kit-system-controller</span></code>).</p></li>
+<li><p>Simulation step duration set by the individual demo executable.</p></li>
+<li><p>Slowed down execution to two work cycles per second.</p></li>
+</ul>
+<p>Useful execution modes that are made accessible by the general options:</p>
+<ul class="simple">
+<li><p>Spawn multiple demo participants by using collision free participant names, e.g. add a second Can reader with  <code class="docutils literal notranslate"><span class="pre">--name</span> <span class="pre">CanReader1</span></code>.</p></li>
+<li><p>Run without time synchronization and start coordination: <code class="docutils literal notranslate"><span class="pre">--async</span> <span class="pre">--autonomous</span></code>, or short <code class="docutils literal notranslate"><span class="pre">-aA</span></code>.
+This allows to start/stop the participants individually without requiring a <code class="docutils literal notranslate"><span class="pre">sil-kit-system-controller</span></code>.</p></li>
+<li><p>Join a already running simulation with time synchronization: <code class="docutils literal notranslate"><span class="pre">--autonomous</span></code> (without <code class="docutils literal notranslate"><span class="pre">--async</span></code>).</p></li>
+<li><p>Perform a coordinated start without time synchronization: <code class="docutils literal notranslate"><span class="pre">--async</span></code> (without <code class="docutils literal notranslate"><span class="pre">--autonomous</span></code>).
+This requires a <code class="docutils literal notranslate"><span class="pre">sil-kit-system-controller</span></code>.</p></li>
+</ul>
+<p>Some demos extend these options by the following command line arguments:</p>
+<ul class="simple">
+<li><p>For the bus demos (Can, Ethernet, Lin, Flexray): <code class="docutils literal notranslate"><span class="pre">--network</span></code> to override the default bus network name.</p></li>
+<li><p>For Can and Ethernet: <code class="docutils literal notranslate"><span class="pre">--hex</span></code> to print payloads in hexadecimal format.</p></li>
+</ul>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>In the following, the system examples are meant to be executed in the repository build of the SIL Kit.</p>
+<p>Further, the command line instructions given here are for Linux builds (forward slashes for paths, no filename suffix for executables).
+When using Windows (e.g. Powershell), these have to be replaced with backward slashed and the executable suffix.
+E.g., instead of <code class="docutils literal notranslate"><span class="pre">./SilKitDemoCanReader</span></code>, use <code class="docutils literal notranslate"><span class="pre">.\SilKitDemoCanReader.exe</span></code></p>
+</div>
+</section>
+<section id="can">
+<span id="sec-can-demo"></span><h2><a class="toc-backref" href="#id2">Can</a><a class="headerlink" href="#can" title="Permalink to this heading"></a></h2>
+<dl>
+<dt>Abstract</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">CanWriter</span></code> participant sends Can frames to the <code class="docutils literal notranslate"><span class="pre">CanReader</span></code> participant including frame acknowledgment handling.</p>
+</dd>
+<dt>Executables</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKitDemoCanReader</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKitDemoCanWriter</span></code></p></li>
+</ul>
+</dd>
+<dt>Sources</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/communication/Can/CanReaderDemo.cpp">CanReaderDemo.cpp</a></p></li>
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/communication/Can/CanWriterDemo.cpp">CanWriterDemo.cpp</a></p></li>
+</ul>
+</dd>
+<dt>Requirements</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
+<li><p>SIL Kit Network Simulator (optional)</p></li>
+</ul>
+</dd>
+<dt>Parameters</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--network</span> <span class="pre">&lt;name&gt;</span></code>
+Name of the Can network to use.
+Defaults to ‘CAN1’.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--hex</span></code>
+Print the Can payloads in hexadecimal format.
+Otherwise, the payloads are interpreted as strings.</p></li>
+</ul>
+</dd>
+<dt>System Example</dt><dd><p>Run the following commands in separate terminals:</p>
+<pre class="literal-block"># Registry (if not already running):
+./sil-kit-registry
+
+# Monitor (optional):
+./sil-kit-monitor
+
+# Can Reader:
+./SilKitDemoCanReader
+
+# Can Writer:
+./SilKitDemoCanWriter
+
+# System Controller:
+./sil-kit-system-controller CanReader CanWriter</pre>
+<p>To run the demo without virtual time synchronization and start coordination, use the following commands in separate terminals:</p>
+<pre class="literal-block"># Registry (if not already running):
+./sil-kit-registry
+
+# Can Reader:
+./SilKitDemoCanReader --async --autonomous
+
+# Can Writer:
+./SilKitDemoCanWriter --async --autonomous</pre>
+</dd>
+</dl>
+</section>
+<section id="ethernet">
+<span id="sec-eth-demo"></span><h2><a class="toc-backref" href="#id3">Ethernet</a><a class="headerlink" href="#ethernet" title="Permalink to this heading"></a></h2>
+<dl>
+<dt>Abstract</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">EthernetWriter</span></code> participant sends Ethernet frames to the <code class="docutils literal notranslate"><span class="pre">EthernetReader</span></code> participant including frame acknowledgment handling.</p>
+</dd>
+<dt>Executables</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKitDemoEthernetReader</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKitDemoEthernetWriter</span></code></p></li>
+</ul>
+</dd>
+<dt>Sources</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/communication/Ethernet/EthernetReaderDemo.cpp">EthernetReaderDemo.cpp</a></p></li>
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/communication/Ethernet/EthernetWriterDemo.cpp">EthernetWriterDemo.cpp</a></p></li>
+</ul>
+</dd>
+<dt>Requirements</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
+<li><p>SIL Kit Network Simulator (optional)</p></li>
+</ul>
+</dd>
+<dt>Parameters</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--network</span> <span class="pre">&lt;name&gt;</span></code>
+Name of the Ethernet network to use.
+Defaults to ‘Eth1’.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--hex</span></code>
+Print the Ethernet payloads in hexadecimal format.
+Otherwise, the payloads are interpreted as strings.</p></li>
+</ul>
+</dd>
+<dt>System Example</dt><dd><p>Run the following commands in separate terminals:</p>
+<pre class="literal-block"># Registry (if not already running):
+./sil-kit-registry
+
+# Ethernet Reader:
+./SilKitDemoEthernetReader
+
+# Ethernet Writer:
+./SilKitDemoEthernetWriter
+
+# System Controller:
+./sil-kit-system-controller EthernetReader EthernetWriter</pre>
+<p>To run the demo without virtual time synchronization and start coordination, use the following commands in separate terminals:</p>
+<pre class="literal-block"># Registry (if not already running):
+./sil-kit-registry
+
+# Ethernet Reader:
+./SilKitDemoEthernetReader --async --autonomous
+
+# Ethernet Writer:
+./SilKitDemoEthernetWriter --async --autonomous</pre>
+</dd>
+</dl>
+</section>
+<section id="lin">
+<span id="sec-lin-demo"></span><h2><a class="toc-backref" href="#id4">Lin</a><a class="headerlink" href="#lin" title="Permalink to this heading"></a></h2>
+<dl>
+<dt>Abstract</dt><dd><p>A two-node Lin Setup with a <code class="docutils literal notranslate"><span class="pre">LinMaster</span></code> and a <code class="docutils literal notranslate"><span class="pre">LinSlave</span></code>.
+Includes a simple scheduling mechanism and demonstrates controller sleep / wakeup handling.</p>
+</dd>
+<dt>Executables</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKitDemoLinMaster</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKitDemoLinSlave</span></code></p></li>
+</ul>
+</dd>
+<dt>Sources</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/communication/Ethernet/LinMasterDemo.cpp">LinMasterDemo.cpp</a></p></li>
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/communication/Ethernet/LinSlaveDemo.cpp">LinSlaveDemo.cpp</a></p></li>
+</ul>
+</dd>
+<dt>Requirements</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
+<li><p>SIL Kit Network Simulator (optional)</p></li>
+</ul>
+</dd>
+<dt>Parameters</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--network</span> <span class="pre">&lt;name&gt;</span></code>
+Name of the Lin network to use.
+Defaults to ‘LIN1’.</p></li>
+</ul>
+</dd>
+<dt>System Example</dt><dd><p>Run the following commands in separate terminals:</p>
+<pre class="literal-block"># Registry (if not already running):
+./sil-kit-registry
+
+# Monitor (optional):
+./sil-kit-monitor
+
+# Lin Master:
+./SilKitDemoLinMaster
+
+# Lin Slave:
+./SilKitDemoLinSlave
+
+# System Controller:
+./sil-kit-system-controller LinSlave LinMaster</pre>
+<p>To run the demo without virtual time synchronization and start coordination, use the following commands in separate terminals:</p>
+<pre class="literal-block"># Registry (if not already running):
+./sil-kit-registry
+
+# Lin Master:
+./SilKitDemoLinMaster --async --autonomous
+
+# Lin Slave:
+./SilKitDemoLinSlave --async --autonomous</pre>
+</dd>
+</dl>
+</section>
+<section id="flexray">
+<span id="sec-flexray-demo"></span><h2><a class="toc-backref" href="#id5">FlexRay</a><a class="headerlink" href="#flexray" title="Permalink to this heading"></a></h2>
+<dl>
+<dt>Abstract</dt><dd><p>A two-node FlexRay Setup with a full cluster and node parametrization. Includes POC Status handling, buffer updates and reconfiguration.
+This Demo requires a separate <code class="docutils literal notranslate"><span class="pre">Network</span> <span class="pre">Simulator</span></code> application to simulate the details of the FlexRay cluster, which is not included in the SIL Kit.</p>
+</dd>
+<dt>Executables</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKitDemoFlexrayNode0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKitDemoFlexrayNode1</span></code></p></li>
+</ul>
+</dd>
+<dt>Sources</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/communication/Flexray/FlexrayNode0Demo.cpp">FlexrayNode0Demo.cpp</a></p></li>
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/communication/Flexray/FlexrayNode1Demo.cpp">FlexrayNode1Demo.cpp</a></p></li>
+</ul>
+</dd>
+<dt>Requirements</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></p></li>
+<li><p>SIL Kit Network Simulator (mandatory)</p></li>
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
+</ul>
+</dd>
+<dt>Parameters</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--network</span> <span class="pre">&lt;name&gt;</span></code>
+Name of the FlexRay network to use.
+Defaults to ‘PowerTrain1’.</p></li>
+</ul>
+</dd>
+<dt>System Example</dt><dd><p>Run the following commands in separate terminals:</p>
+<pre class="literal-block"># Registry (if not already running):
+./sil-kit-registry
+
+# Network Simulator (assumed to be in PATH, necessary):
+sil-kit-network-simulator ./SilKit-Demos/FlexRay/NetworkSimulatorConfig.yaml
+
+# Monitor (optional):
+./sil-kit-monitor
+
+# Node 0:
+./SilKitDemoFlexrayNode0
+
+# Node 1:
+./SilKitDemoFlexrayNode1
+
+# System Controller:
+./sil-kit-system-controller Node0 Node1 NetworkSimulator</pre>
+</dd>
+<dt>Notes</dt><dd><ul class="simple">
+<li><p>The FlexRay demo requires the usage of the SIL Kit Network Simulator and virtual time synchronization.</p></li>
+<li><p>It takes about 65ms (virtual time) until the starting the FlexRay cycle has started and the first FlexRay messages are transmitted.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="publish-subscribe">
+<span id="sec-pubsub-demo"></span><h2><a class="toc-backref" href="#id6">Publish/Subscribe</a><a class="headerlink" href="#publish-subscribe" title="Permalink to this heading"></a></h2>
+<dl>
+<dt>Abstract</dt><dd><p>One participant publishes GPS and temperature data, another participant subscribes to these topics.
+Including (de-)serialization of the C++ structures into a transmittable format.</p>
+</dd>
+<dt>Executables</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKitDemoPublisher</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKitDemoSubscriber</span></code></p></li>
+</ul>
+</dd>
+<dt>Sources</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/communication/PubSub/PublisherDemo.cpp">PublisherDemo.cpp</a></p></li>
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/communication/PubSub/SubscriberDemo.cpp">SubscriberDemo.cpp</a></p></li>
+</ul>
+</dd>
+<dt>Requirements</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
+</ul>
+</dd>
+<dt>Parameters</dt><dd><ul class="simple">
+<li><p>No demo specific command line arguments</p></li>
+</ul>
+</dd>
+<dt>System Example</dt><dd><p>Run the following commands in separate terminals:</p>
+<pre class="literal-block"># Registry (if not already running):
+./sil-kit-registry
+
+# Monitor (optional):
+./sil-kit-monitor
+
+# Publisher:
+./SilKitDemoPublisher
+
+# Subscriber:
+./SilKitDemoSubscriber
+
+# System Controller:
+./sil-kit-system-controller Publisher Subscriber</pre>
+<p>To run the demo without virtual time synchronization and start coordination, use the following commands in separate terminals:</p>
+<pre class="literal-block"># Registry (if not already running):
+./sil-kit-registry
+
+# Publisher:
+./SilKitDemoPublisher --async --autonomous
+
+# Subscriber:
+./SilKitDemoSubscriber --async --autonomous</pre>
+</dd>
+</dl>
+</section>
+<section id="rpc">
+<span id="sec-rpc-demo"></span><h2><a class="toc-backref" href="#id7">Rpc</a><a class="headerlink" href="#rpc" title="Permalink to this heading"></a></h2>
+<dl>
+<dt>Abstract</dt><dd><p>The Rpc server participant provides two simple functions which are called by a Rpc client participant.
+Includes (de-)serialization of the function parameters.</p>
+</dd>
+<dt>Executables</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKitDemoRpcClient</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKitDemoRpcServer</span></code></p></li>
+</ul>
+</dd>
+<dt>Sources</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/communication/Rpc/RpcClientDemo.cpp">RpcClientDemo.cpp</a></p></li>
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/communication/Rpc/RpcServerDemo.cpp">RpcServerDemo.cpp</a></p></li>
+</ul>
+</dd>
+<dt>Requirements</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
+</ul>
+</dd>
+<dt>Parameters</dt><dd><ul class="simple">
+<li><p>No demo specific command line arguments</p></li>
+</ul>
+</dd>
+<dt>System Example</dt><dd><p>Run the following commands in separate terminals:</p>
+<pre class="literal-block"># Registry (if not already running):
+./sil-kit-registry
+
+# Monitor (optional):
+./sil-kit-monitor
+
+# Server:
+./SilKitDemoRpcServer
+
+# Client:
+./SilKitDemoRpcClient
+
+# System Controller:
+./sil-kit-system-controller RpcServer RpcClient</pre>
+<p>To run the demo without virtual time synchronization and start coordination, use the following commands in separate terminals:</p>
+<pre class="literal-block"># Registry (if not already running):
+./sil-kit-registry
+
+# Server:
+./SilKitDemoRpcServer --async --autonomous
+
+# Client:
+./SilKitDemoRpcClient --async --autonomous</pre>
+</dd>
+</dl>
+</section>
+<section id="implementation-details">
+<h2><a class="toc-backref" href="#id8">Implementation details</a><a class="headerlink" href="#implementation-details" title="Permalink to this heading"></a></h2>
+<p>The base implementation of the demos is located in <code class="docutils literal notranslate"><span class="pre">Demos\include\ApplicationBase.hpp</span></code>.</p>
+<p>Further, the participant pairs of the demos share some common behavior like printing frames, status handling or small helper classes.
+This is located in the header <code class="docutils literal notranslate"><span class="pre">&lt;DemoName&gt;Common.hpp</span></code> of the respective demo folders.</p>
+<p>To constructed your own demo, use the following template:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;ApplicationBase.hpp&quot;</span>
+
+<span class="c1">// Inherit from ApplicationBase that provides common SIL Kit features</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyDemoParticipant</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ApplicationBase</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="c1">// Inherit constructors</span>
+<span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">ApplicationBase</span><span class="o">::</span><span class="n">ApplicationBase</span><span class="p">;</span>
+
+<span class="k">private</span><span class="o">:</span>
+
+<span class="w">    </span><span class="c1">// Member variables like SIL Kit controller pointers, Demo state, etc</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">_myOption</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">_myFlag</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// The following overrides are invoked in the right order by the ApplicationBase</span>
+<span class="w">    </span><span class="c1">// This enables:</span>
+<span class="w">    </span><span class="c1">// - General and demo specific command line arguments</span>
+<span class="w">    </span><span class="c1">// - Setup of the SIL Kit lifecycle</span>
+<span class="w">    </span><span class="c1">// - Controller creation and initialization</span>
+<span class="w">    </span><span class="c1">// - SimulationStepHandler vs. thread based execution (--async)</span>
+<span class="w">    </span><span class="c1">// - Signal handling to CTRL-C at any time</span>
+<span class="w">    </span><span class="c1">// - Basic logging</span>
+
+<span class="w">    </span><span class="c1">// Extend the command line argument list</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">AddCommandLineArgs</span><span class="p">()</span><span class="w"> </span><span class="k">override</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">GetCommandLineParser</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Add</span><span class="o">&lt;</span><span class="n">CommandlineParser</span><span class="o">::</span><span class="n">Option</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;myOption&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;o&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;DefaultValue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;-o, --myOption &lt;value&gt;&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">{</span><span class="s">&quot;Description Line 1.&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Description Line 2&quot;</span><span class="p">});</span>
+
+<span class="w">        </span><span class="n">GetCommandLineParser</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Add</span><span class="o">&lt;</span><span class="n">CommandlineParser</span><span class="o">::</span><span class="n">Flag</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">            </span><span class="s">&quot;myFlag&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;f&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;-f, --myFlag&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">{</span><span class="s">&quot;Description Line 1.&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Description Line 2&quot;</span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Evaluate the command line argument list</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">EvaluateCommandLineArgs</span><span class="p">()</span><span class="w"> </span><span class="k">override</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_myOption</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetCommandLineParser</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Get</span><span class="o">&lt;</span><span class="n">CommandlineParser</span><span class="o">::</span><span class="n">Option</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;myOption&quot;</span><span class="p">).</span><span class="n">Value</span><span class="p">();</span>
+<span class="w">        </span><span class="n">_myFlag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetCommandLineParser</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Get</span><span class="o">&lt;</span><span class="n">CommandlineParser</span><span class="o">::</span><span class="n">Flag</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;myFlag&quot;</span><span class="p">).</span><span class="n">Value</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Create all SIL Kit controllers here</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">CreateControllers</span><span class="p">()</span><span class="w"> </span><span class="k">override</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// All SIL Kit features can be accessed via GetParticipant()</span>
+<span class="w">        </span><span class="c1">// _myController = GetParticipant()-&gt;CreateXYZController(...);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Controller initialization goes here</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">InitControllers</span><span class="p">()</span><span class="w"> </span><span class="k">override</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Called in each simulation step when running with time synchronization</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">DoWorkSync</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span><span class="w"> </span><span class="n">now</span><span class="p">)</span><span class="w"> </span><span class="k">override</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// _myController-&gt;Send(...)</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Called in a worker thread when running without time synchronization</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">DoWorkAsync</span><span class="p">()</span><span class="w"> </span><span class="k">override</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// _myController-&gt;Send(...)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Arguments</span><span class="w"> </span><span class="n">args</span><span class="p">;</span>
+<span class="w">    </span><span class="n">args</span><span class="p">.</span><span class="n">participantName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;MyDemoParticipant&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Always specify a meaningful default participant name</span>
+
+<span class="w">    </span><span class="n">MyDemoParticipant</span><span class="w"> </span><span class="n">app</span><span class="p">{</span><span class="n">args</span><span class="p">};</span>
+
+<span class="w">    </span><span class="c1">// This will trigger AddCommandLineArgs() and EvaluateCommandLineArgs()</span>
+<span class="w">    </span><span class="c1">// Optionally, a set of excluded default command line arguments can be specified</span>
+<span class="w">    </span><span class="n">app</span><span class="p">.</span><span class="n">SetupCommandLineArgs</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Description for the command line help&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// This will trigger CreateControllers(), InitControllers() and then cyclically DoWorkSync() or DoWorkAsync()</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">Run</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="configs.html" class="btn btn-neutral float-left" title="Sample participant configurations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

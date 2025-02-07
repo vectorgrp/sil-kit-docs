@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Demos &mdash; Vector SIL Kit 4.0.54 documentation</title>
+  <title>Demos &mdash; Vector SIL Kit 4.0.55 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -20,7 +20,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Configuration" href="../configuration/configuration.html" />
+    <link rel="next" title="Building the Demos" href="build.html" />
     <link rel="prev" title="System Monitor C API" href="../api/capi/capi-systemmonitor.html" /> 
 </head>
 
@@ -32,7 +32,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.54
+                4.0.55
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -49,22 +49,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/api.html">C/C++ API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Demos</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#building-the-demos">Building the Demos</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#vs-code">VS Code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#visual-studio">Visual Studio</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#command-line">Command Line</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#advanced-cmake-configuration">Advanced CMake configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#can-demo">CAN Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ethernet-demo">Ethernet Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lin-demo">LIN Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#flexray-demo">FlexRay Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#publish-subscribe-demo">Publish/Subscribe Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rpc-demo">RPC Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#benchmark-demo">Benchmark Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#latency-demo">Latency Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#network-simulator-demo">Network Simulator Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build.html">Building the Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configs.html">Sample participant configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication.html">Communication Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool.html">Tools</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
@@ -101,717 +90,68 @@
              
   <section id="demos">
 <h1>Demos<a class="headerlink" href="#demos" title="Permalink to this heading"></a></h1>
-<p>This chapter describes the demo projects showcasing the core features of the SIL Kit.
-Available demos are:</p>
-<table class="colwidths-given docutils align-default">
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 85%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Demo</p></th>
-<th class="head"><p>Abstract</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="#sec-can-demo"><span class="std std-ref">CAN Demo</span></a></p></td>
-<td><p>The <cite>CanWriter</cite> application sends CAN frames to the <cite>CanReader</cite> application including frame acknowledgment handling.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sec-eth-demo"><span class="std std-ref">Ethernet Demo</span></a></p></td>
-<td><p>The <cite>EthernetWriter</cite> application sends Ethernet frames to the <cite>EthernetReader</cite> application including frame acknowledgment handling.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sec-lin-demo"><span class="std std-ref">LIN Demo</span></a></p></td>
-<td><p>A two-node LIN Setup with a <cite>LinMaster</cite> and a <cite>LinSlave</cite> application.
-Includes a simple scheduling mechanism and demonstrates controller sleep / wakeup handling.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sec-flexray-demo"><span class="std std-ref">FlexRay Demo</span></a></p></td>
-<td><p>A two-node FlexRay Setup with a full cluster and node parametrization. Includes POC Status handling, buffer updates and reconfiguration.
-This Demo requires a separate <cite>Network Simulator</cite> application to simulate the details of the FlexRay cluster, which is not included in the SIL Kit.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sec-pubsub-demo"><span class="std std-ref">Publish/Subscribe Demo</span></a></p></td>
-<td><p>One application publishes GPS and temperature data, another application subscribes to these topics.
-Including (de-)serialization of the C++ structures into a transmittable format.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sec-rpc-demo"><span class="std std-ref">RPC Demo</span></a></p></td>
-<td><p>The RPC server application provides two simple functions which are called by a RPC client application.
-Includes (de-)serialization of the function parameters.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sec-benchmark-demo"><span class="std std-ref">Benchmark Demo</span></a></p></td>
-<td><p>This demo sets up a simulation with various command line arguments for benchmarking purposes.
-A configurable amount of participants are spawned by a single process on different threads.
-The demo calculates averaged running times, throughput, speed-up and message rates for performance evaluation.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#sec-latency-demo"><span class="std std-ref">Latency Demo</span></a></p></td>
-<td><p>A sender and a receiver application use the Publish/Subscribe services and measure the round trip time of the communication.
-This setup is useful to evaluate the performance of a SIL Kit setup running on different platforms.
-E.g., between a local host, a virtual machine, a remote network, etc.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#sec-netsim-demo"><span class="std std-ref">Network Simulator Demo</span></a></p></td>
-<td><p>Demonstrates the usage of the experimental SIL Kit NetworkSimulator API.
-A custom network simulation for CAN is set up, the network simulator application can be used together with the CAN demo.</p></td>
-</tr>
-</tbody>
-</table>
-<section id="building-the-demos">
-<span id="sec-build-demos"></span><h2>Building the Demos<a class="headerlink" href="#building-the-demos" title="Permalink to this heading"></a></h2>
-<p>The SIL Kit Demos are not available as pre-built binaries and have to be compiled from source first.</p>
-<ul class="simple">
-<li><p>If you plan to use the demos as a starting point for further development, start by cloning the <a class="reference external" href="https://github.com/vectorgrp/sil-kit">SIL Kit git repository</a>.
-Don’t forget to call <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">submodule</span> <span class="pre">update</span> <span class="pre">--init</span> <span class="pre">--recursive</span></code> after cloning the repository for the first time.
-Using the build instructions below will build the complete SIL Kit library including the Demos.</p></li>
-<li><p>If you just want to try out the demos, download a <a class="reference external" href="https://github.com/vectorgrp/sil-kit/releases">SIL Kit release package</a> which also includes all sources.
-Using the build instructions below will only build the SIL Kit Demos and use the precompiled library of the package.</p></li>
-<li><p>Building the Demos from the installation folder of the SIL Kit MSI Installer is strongly discouraged, as all involved tools require administrative privileges if the default installation directory is used.</p></li>
+<p>This chapter describes the demo projects of the SIL Kit.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Building the Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configs.html">Sample participant configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="communication.html">Communication Protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tool.html">Tools</a></li>
 </ul>
-<p>There are several options to build the demos, all require the installation of a C++ compiler and CMake.</p>
-<div class="admonition-note admonition">
-<p class="admonition-title">Note</p>
-<p>If you don’t have any experience with setting up C++ / CMake projects, we recommend using VS Code and a <a class="reference external" href="https://github.com/vectorgrp/sil-kit/releases">SIL Kit release package</a>.
-VS Code is free to use, and the prerequisites can be quickly set up using the recommended VS Code extensions.</p>
 </div>
-<section id="vs-code">
-<h3>VS Code<a class="headerlink" href="#vs-code" title="Permalink to this heading"></a></h3>
-<ol class="arabic simple">
-<li><p>Install the VS Code extensions <cite>C/C++</cite> and <cite>CMake</cite></p></li>
-<li><p>Open the folder with VS Code</p>
-<ol class="loweralpha simple">
-<li><p>For the git repository: open the root folder of the repository</p></li>
-<li><p>For a SIL Kit package: open the <cite>SilKit-Demos</cite> folder</p></li>
-</ol>
-</li>
-<li><p>Opening the folder automatically starts the CMake configuration step.
-You can also manually call this step in the CMake extension page under <cite>Project Status | Configure</cite>.</p></li>
-<li><p>In the CMake extension page, build the project under <cite>Project Status | Build</cite></p></li>
-<li><p>Locate the binaries</p>
-<ol class="loweralpha simple">
-<li><p>For the git repository: The binaries reside in <code class="docutils literal notranslate"><span class="pre">_build/&lt;build</span> <span class="pre">config&gt;/&lt;build</span> <span class="pre">type,</span> <span class="pre">e.g.</span> <span class="pre">Debug,</span> <span class="pre">Release&gt;/</span></code></p></li>
-<li><p>For a SIL Kit package: The binaries reside in <code class="docutils literal notranslate"><span class="pre">&lt;package</span> <span class="pre">folder&gt;/SilKit/bin</span></code></p></li>
-</ol>
-</li>
-</ol>
-</section>
-<section id="visual-studio">
-<h3>Visual Studio<a class="headerlink" href="#visual-studio" title="Permalink to this heading"></a></h3>
-<ol class="arabic simple">
-<li><p>Make sure Visual Studio is set up for C++ and CMake is installed</p></li>
-<li><p>Open the folder with Visual Studio</p>
-<ol class="loweralpha simple">
-<li><p>For the git repository: open the root folder of the repository</p></li>
-<li><p>For a SIL Kit package: open the <cite>SilKit-Demos</cite> folder</p></li>
-</ol>
-</li>
-<li><p>Opening the folder automatically starts the CMake configuration step.
-You can also manually call this step under <cite>Project | Configure Cache</cite>.</p></li>
-<li><p>Build the project with <cite>Build | Build All</cite></p></li>
-<li><p>Locate the binaries</p>
-<ol class="loweralpha simple">
-<li><p>For the git repository: The binaries reside in <code class="docutils literal notranslate"><span class="pre">_build/&lt;build</span> <span class="pre">config&gt;/&lt;build</span> <span class="pre">type,</span> <span class="pre">e.g.</span> <span class="pre">Debug,</span> <span class="pre">Release&gt;/</span></code></p></li>
-<li><p>For a SIL Kit package: The binaries reside in <code class="docutils literal notranslate"><span class="pre">&lt;package</span> <span class="pre">folder&gt;/SilKit/bin</span></code></p></li>
-</ol>
-</li>
-</ol>
-</section>
-<section id="command-line">
-<h3>Command Line<a class="headerlink" href="#command-line" title="Permalink to this heading"></a></h3>
-<ol class="arabic simple">
-<li><p>Make sure a C++ compiler and CMake is installed</p></li>
-<li><p>Open a terminal</p>
-<ol class="loweralpha simple">
-<li><p>For the git repository: navigate to the root folder of the repository</p></li>
-<li><p>For a SIL Kit package: navigate to <code class="docutils literal notranslate"><span class="pre">&lt;package</span> <span class="pre">folder&gt;/SilKit-Demos</span></code></p></li>
-</ol>
-</li>
-<li><p>Run the following commands:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">build</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">build</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">..</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span> <span class="pre">.</span></code></p></li>
-</ul>
-</li>
-<li><p>Locate the binaries</p>
-<ol class="loweralpha simple">
-<li><p>For the git repository: The binaries reside in <code class="docutils literal notranslate"><span class="pre">build/&lt;build</span> <span class="pre">config&gt;/&lt;build</span> <span class="pre">type,</span> <span class="pre">e.g.</span> <span class="pre">Debug,</span> <span class="pre">Release&gt;/</span></code></p></li>
-<li><p>For a SIL Kit package: The binaries reside in <code class="docutils literal notranslate"><span class="pre">&lt;package</span> <span class="pre">folder&gt;/SilKit/bin</span></code></p></li>
-</ol>
-</li>
-</ol>
-<p>Due to the large variety of terminals, different operating systems and availability of environment variables, the previous instruction can fail for several reasons.
-Usually, the configuration step performed in  <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">..</span></code> will give useful hints of what went wrong.</p>
-</section>
-</section>
-<section id="advanced-cmake-configuration">
-<h2>Advanced CMake configuration<a class="headerlink" href="#advanced-cmake-configuration" title="Permalink to this heading"></a></h2>
+<p>The demos are organized into three categories:</p>
+<p class="rubric">1. Communication Protocols</p>
+<p>These demos showcase multi-participant systems for communication via Can, Ethernet, Lin, Flexray, PubSub or Rpc:</p>
 <dl class="simple">
-<dt>Build the Demos from a SIL Kit package against your own target library</dt><dd><p>The distributed Demos, as packaged by CPack, are preconfigured to build against a copy of the SIL Kit binaries in <code class="docutils literal notranslate"><span class="pre">../SilKit/</span></code>.
-This can be overridden by providing your own <code class="docutils literal notranslate"><span class="pre">SilKit</span></code> CMake target library, before the demos are configured by CMake.
-Or by changing the <code class="docutils literal notranslate"><span class="pre">find_package(SilKit</span> <span class="pre">...</span> <span class="pre">PATHS</span> <span class="pre">path/to/SilKit)</span></code> statement directly in the <code class="docutils literal notranslate"><span class="pre">./SilKit-Demos/CMakeLists.txt</span></code> directory.</p>
+<dt><a class="reference internal" href="communication.html#sec-can-demo"><span class="std std-ref">Can</span></a></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">CanWriter</span></code> participant sends Can frames to the <code class="docutils literal notranslate"><span class="pre">CanReader</span></code> participant including frame acknowledgment handling.</p>
 </dd>
-</dl>
-<div class="admonition-note admonition">
-<p class="admonition-title">Note</p>
-<p>In the following, the paths to run the demos are relative to the top level of the pre-built SIL Kit package.
-To adapt them to run from a git repository build, you have to change the relative path to the configuration file.
-E.g. use <code class="docutils literal notranslate"><span class="pre">../../../Demos/Can/DemoCan.silkit.yaml</span></code> instead of <code class="docutils literal notranslate"><span class="pre">./SilKit-Demos/Can/DemoCan.silkit.yaml</span></code>.</p>
-<p>Further, the command line instructions use forward slashes for paths.
-When using Windows (e.g. Powershell), these have to be replaced with backward slashed.
-E.g., instead of <code class="docutils literal notranslate"><span class="pre">./SilKit/bin/SilKitDemoCan</span> <span class="pre">./SilKit-Demos/Can/DemoCan.silkit.yaml</span> <span class="pre">CanReader</span></code>, use <code class="docutils literal notranslate"><span class="pre">.\SilKit\bin\SilKitDemoCan</span> <span class="pre">.\SilKit-Demos\Can\DemoCan.silkit.yaml</span> <span class="pre">CanReader</span></code></p>
-</div>
-</section>
-<section id="can-demo">
-<span id="sec-can-demo"></span><h2>CAN Demo<a class="headerlink" href="#can-demo" title="Permalink to this heading"></a></h2>
-<dl>
-<dt>Abstract</dt><dd><p>The <cite>CanWriter</cite> application sends CAN frames to the <cite>CanReader</cite> application including frame acknowledgment handling.</p>
+<dt><a class="reference internal" href="communication.html#sec-eth-demo"><span class="std std-ref">Ethernet</span></a></dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">EthernetWriter</span></code> participant sends Ethernet frames to the <code class="docutils literal notranslate"><span class="pre">EthernetReader</span></code> participant including frame acknowledgment handling.</p>
 </dd>
-<dt>Source location</dt><dd><p><code class="docutils literal notranslate"><span class="pre">./SilKit-Demos/Can</span></code></p>
-</dd>
-<dt>Requirements</dt><dd><ul class="simple">
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
-<li><p>SIL Kit Network Simulator (optional)</p></li>
-</ul>
-</dd>
-<dt>Parameters</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantConfiguration.yaml&gt;</span></code>
-File name of the participant configuration to be used;
-use <code class="docutils literal notranslate"><span class="pre">DemoCan.silkit.yaml</span></code> for an example configuration.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantName&gt;</span></code>
-The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">CanWriter</span></code> or <code class="docutils literal notranslate"><span class="pre">CanReader</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[RegistryUri]</span></code>
-The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[--async]</span></code>
-If async flag is set, the participant will join the simulation unsynchronized and it will not need
-the ./SilKit/bin/sil-kit-system-controller to start.</p></li>
-</ul>
-</dd>
-<dt>Parameter Example</dt><dd><pre class="literal-block"># Creates a CAN Writer Process with the registry's default URI
-./SilKit/bin/SilKitDemoCan ./SilKit-Demos/Can/DemoCan.silkit.yaml CanWriter</pre>
-</dd>
-<dt>System Example</dt><dd><p>Run the following commands in separate terminals:</p>
-<pre class="literal-block"># Registry (if not already running):
-./SilKit/bin/sil-kit-registry
-
-# Monitor (optional):
-./SilKit/bin/sil-kit-monitor
-
-# CAN Reader:
-./SilKit/bin/SilKitDemoCan ./SilKit-Demos/Can/DemoCan.silkit.yaml CanReader
-
-# CAN Writer:
-./SilKit/bin/SilKitDemoCan ./SilKit-Demos/Can/DemoCan.silkit.yaml CanWriter
-
-# System Controller:
-./SilKit/bin/sil-kit-system-controller CanReader CanWriter</pre>
-<p>To run the demo without virtual time synchronization, use the following commands in separate terminals:</p>
-<pre class="literal-block"># Registry (if not already running):
-./SilKit/bin/sil-kit-registry
-
-# CAN Reader:
-./SilKit/bin/SilKitDemoCan ./SilKit-Demos/Can/DemoCan.silkit.yaml CanReader --async
-
-# CAN Writer:
-./SilKit/bin/SilKitDemoCan ./SilKit-Demos/Can/DemoCan.silkit.yaml CanWriter --async</pre>
-</dd>
-<dt>Notes</dt><dd><ul class="simple">
-<li><p>The writer sends CAN frames at a fixed rate of one frame per simulation step (1ms).</p></li>
-<li><p>Both reader and writer sleep for 1 second per simulation step to slow down the execution.</p></li>
-</ul>
-</dd>
-</dl>
-</section>
-<section id="ethernet-demo">
-<span id="sec-eth-demo"></span><h2>Ethernet Demo<a class="headerlink" href="#ethernet-demo" title="Permalink to this heading"></a></h2>
-<dl>
-<dt>Abstract</dt><dd><p>The <cite>EthernetWriter</cite> application sends Ethernet frames to the <cite>EthernetReader</cite> application including frame acknowledgment handling.</p>
-</dd>
-<dt>Source location</dt><dd><p><code class="docutils literal notranslate"><span class="pre">./SilKit-Demos/Ethernet</span></code></p>
-</dd>
-<dt>Requirements</dt><dd><ul class="simple">
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
-<li><p>SIL Kit Network Simulator (optional)</p></li>
-</ul>
-</dd>
-<dt>Parameters</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantConfiguration.yaml&gt;</span></code>
-File name of the participant configuration to be used;
-use <code class="docutils literal notranslate"><span class="pre">DemoEthernet.silkit.yaml</span></code> for an example configuration.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantName&gt;</span></code>
-The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">EthernetWriter</span></code> or
-<code class="docutils literal notranslate"><span class="pre">EthernetReader</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[RegistryUri]</span></code>
-The <code class="docutils literal notranslate"><span class="pre">silkit://</span></code> URI of the registry to connect to; defaults to <code class="docutils literal notranslate"><span class="pre">silkit://localhost:8500</span></code> (optional).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[--async]</span></code>
-If async flag is set, the participant will join the simulation unsynchronized and it will not need
-the ./SilKit/bin/sil-kit-system-controller to start.</p></li>
-</ul>
-</dd>
-<dt>Parameter Example</dt><dd><pre class="literal-block"># Creates an Ethernet Writer Process with the registry's default URI:
-./SilKit/bin/SilKitDemoEthernet ./SilKit-Demos/Ethernet/DemoEthernet.silkit.yaml EthernetWriter</pre>
-</dd>
-<dt>System Example</dt><dd><p>Run the following commands in separate terminals:</p>
-<pre class="literal-block"># Registry (if not already running):
-./SilKit/bin/sil-kit-registry
-
-# Monitor (optional):
-./SilKit/bin/sil-kit-monitor
-
-# Ethernet Reader:
-./SilKit/bin/SilKitDemoEthernet ./SilKit-Demos/Ethernet/DemoEthernet.silkit.yaml EthernetReader
-
-# Ethernet Writer:
-./SilKit/bin/SilKitDemoEthernet ./SilKit-Demos/Ethernet/DemoEthernet.silkit.yaml EthernetWriter
-
-# System Controller:
-./SilKit/bin/sil-kit-system-controller EthernetReader EthernetWriter</pre>
-<p>To run the demo without virtual time synchronization, use the following commands in separate terminals:</p>
-<pre class="literal-block"># Registry (if not already running):
-./SilKit/bin/sil-kit-registry
-
-# Ethernet Reader:
-./SilKit/bin/SilKitDemoEthernet ./SilKit-Demos/Ethernet/DemoEthernet.silkit.yaml EthernetReader --async
-
-# Ethernet Writer:
-./SilKit/bin/SilKitDemoEthernet ./SilKit-Demos/Ethernet/DemoEthernet.silkit.yaml EthernetWriter --async</pre>
-</dd>
-<dt>Notes</dt><dd><ul class="simple">
-<li><p>The writer sends Ethernet frames at a fixed rate of one frame per simulation step (1ms).</p></li>
-<li><p>Both reader and writer sleep for 1 second per simulation step to slow down execution.</p></li>
-</ul>
-</dd>
-</dl>
-</section>
-<section id="lin-demo">
-<span id="sec-lin-demo"></span><h2>LIN Demo<a class="headerlink" href="#lin-demo" title="Permalink to this heading"></a></h2>
-<dl>
-<dt>Abstract</dt><dd><p>A two-node LIN Setup with a <cite>LinMaster</cite> and a <cite>LinSlave</cite> application.
+<dt><a class="reference internal" href="communication.html#sec-lin-demo"><span class="std std-ref">Lin</span></a></dt><dd><p>A two-node Lin Setup with a <code class="docutils literal notranslate"><span class="pre">LinMaster</span></code> and a <code class="docutils literal notranslate"><span class="pre">LinSlave</span></code>.
 Includes a simple scheduling mechanism and demonstrates controller sleep / wakeup handling.</p>
 </dd>
-<dt>Source location</dt><dd><p><code class="docutils literal notranslate"><span class="pre">./SilKit-Demos/Lin</span></code></p>
+<dt><a class="reference internal" href="communication.html#sec-flexray-demo"><span class="std std-ref">FlexRay</span></a></dt><dd><p>A two-node FlexRay Setup with a full cluster and node parametrization. Includes POC Status handling, buffer updates and reconfiguration.
+This Demo requires a separate <code class="docutils literal notranslate"><span class="pre">Network</span> <span class="pre">Simulator</span></code> application to simulate the details of the FlexRay cluster, which is not included in the SIL Kit.</p>
 </dd>
-<dt>Requirements</dt><dd><ul class="simple">
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
-<li><p>SIL Kit Network Simulator (optional)</p></li>
-</ul>
-</dd>
-<dt>Parameters</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantConfiguration.yaml&gt;</span></code>
-File name of the participant configuration to be used;
-use <code class="docutils literal notranslate"><span class="pre">DemoLin.silkit.yaml</span></code> for an example configuration.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantName&gt;</span></code>
-The name of the participant within the simulation;
-must either be <code class="docutils literal notranslate"><span class="pre">EthernetWriter</span></code> or <code class="docutils literal notranslate"><span class="pre">EthernetReader</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[RegistryUri]</span></code>
-The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[--async]</span></code>
-If async flag is set, the participant will join the simulation unsynchronized and it will not need the ./SilKit/bin/sil-kit-system-controller to start.</p></li>
-</ul>
-</dd>
-<dt>Parameter Example</dt><dd><pre class="literal-block"># Creates a LIN Master Process with the registry's default URI:
-./SilKit/bin/SilKitDemoLin ./SilKit-Demos/Lin/DemoLin.silkit.yaml LinMaster</pre>
-</dd>
-<dt>System Example</dt><dd><p>Run the following commands in separate terminals:</p>
-<pre class="literal-block"># Registry (if not already running):
-./SilKit/bin/sil-kit-registry
-
-# Monitor (optional):
-./SilKit/bin/sil-kit-monitor
-
-# LIN Master:
-./SilKit/bin/SilKitDemoLin ./SilKit-Demos/Lin/DemoLin.silkit.yaml LinMaster
-
-# LIN Slave:
-./SilKit/bin/SilKitDemoLin ./SilKit-Demos/Lin/DemoLin.silkit.yaml LinSlave
-
-# System Controller:
-./SilKit/bin/sil-kit-system-controller LinSlave LinMaster</pre>
-<p>To run the demo without virtual time synchronization, use the following commands in separate terminals:</p>
-<pre class="literal-block"># Registry (if not already running):
-./SilKit/bin/sil-kit-registry
-
-# LIN Master:
-./SilKit/bin/SilKitDemoLin ./SilKit-Demos/Lin/DemoLin.silkit.yaml LinMaster --async
-
-# LIN Slave:
-./SilKit/bin/SilKitDemoLin ./SilKit-Demos/Lin/DemoLin.silkit.yaml LinSlave --async</pre>
-</dd>
-<dt>Notes</dt><dd><ul class="simple">
-<li><p>Both Master and Slave sleep for 100ms per simulation step to slow down execution.</p></li>
-</ul>
-</dd>
-</dl>
-</section>
-<section id="flexray-demo">
-<span id="sec-flexray-demo"></span><h2>FlexRay Demo<a class="headerlink" href="#flexray-demo" title="Permalink to this heading"></a></h2>
-<dl>
-<dt>Abstract</dt><dd><p>A two-node FlexRay Setup with a full cluster and node parametrization. Includes POC Status handling, buffer updates and reconfiguration.
-This Demo requires a separate <cite>Network Simulator</cite> application to simulate the details of the FlexRay cluster, which is not included in the SIL Kit.</p>
-</dd>
-<dt>Source location</dt><dd><p><code class="docutils literal notranslate"><span class="pre">./SilKit-Demos/FlexRay</span></code></p>
-</dd>
-<dt>Requirements</dt><dd><ul class="simple">
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></p></li>
-<li><p>SIL Kit Network Simulator (mandatory)</p></li>
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
-</ul>
-</dd>
-<dt>Parameters</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantConfiguration.yaml&gt;</span></code>
-File name of the participant configuration to be used;
-use <code class="docutils literal notranslate"><span class="pre">DemoFlexRay.silkit.yaml</span></code> for an example configuration.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantName&gt;</span></code>
-The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">Node0</span></code> or
-<code class="docutils literal notranslate"><span class="pre">Node1</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[RegistryUri]</span></code>
-The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</p></li>
-</ul>
-</dd>
-<dt>Parameter Example</dt><dd><pre class="literal-block"># Creates a FlexRay Process for Node 0 with the registry's default URI:
-./SilKit/bin/SilKitDemoFlexRay ./SilKit-Demos/FlexRay/DemoFlexRay.silkit.yaml Node0</pre>
-</dd>
-<dt>System Example</dt><dd><p>Run the following commands in separate terminals:</p>
-<pre class="literal-block"># Registry (if not already running):
-./SilKit/bin/sil-kit-registry
-
-# Network Simulator (assumed to be in PATH, necessary):
-sil-kit-network-simulator ./SilKit-Demos/FlexRay/NetworkSimulatorConfig.yaml
-
-# Monitor (optional):
-./SilKit/bin/sil-kit-monitor
-
-# Node 0:
-./SilKit/bin/SilKitDemoFlexRay ./SilKit-Demos/FlexRay/DemoFlexRay.silkit.yaml Node0
-
-# Node 1:
-./SilKit/bin/SilKitDemoFlexRay ./SilKit-Demos/FlexRay/DemoFlexRay.silkit.yaml Node1
-
-# System Controller:
-./SilKit/bin/sil-kit-system-controller Node0 Node1 NetworkSimulator</pre>
-</dd>
-<dt>Notes</dt><dd><ul class="simple">
-<li><p>Starting the FlexRay cycle takes quite some time, which is accurately modeled by the SIL Kit Network Simulator.</p></li>
-<li><p>It takes somewhat between 50 and 100 ms until the first FlexRay messages are transmitted.</p></li>
-</ul>
-</dd>
-</dl>
-</section>
-<section id="publish-subscribe-demo">
-<span id="sec-pubsub-demo"></span><h2>Publish/Subscribe Demo<a class="headerlink" href="#publish-subscribe-demo" title="Permalink to this heading"></a></h2>
-<dl>
-<dt>Abstract</dt><dd><p>One application publishes GPS and temperature data, another application subscribes to these topics.
+<dt><a class="reference internal" href="communication.html#sec-pubsub-demo"><span class="std std-ref">Publish/Subscribe</span></a></dt><dd><p>One participant publishes GPS and temperature data, another participant subscribes to these topics.
 Including (de-)serialization of the C++ structures into a transmittable format.</p>
 </dd>
-<dt>Source location</dt><dd><p><code class="docutils literal notranslate"><span class="pre">./SilKit-Demos/PubSub</span></code></p>
-</dd>
-<dt>Requirements</dt><dd><ul class="simple">
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
-</ul>
-</dd>
-<dt>Parameters</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantConfiguration.yaml&gt;</span></code>
-File name of the participant configuration to be used;
-use <code class="docutils literal notranslate"><span class="pre">DemoPubSub.silkit.yaml</span></code> for an example configuration.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantName&gt;</span></code>
-The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">Publisher</span></code> or
-<code class="docutils literal notranslate"><span class="pre">Subscriber</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[RegistryUri]</span></code>
-The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[--async]</span></code>
-If async flag is set, the participant will join the simulation unsynchronized and it will not need
-the ./SilKit/bin/sil-kit-system-controller to start.</p></li>
-</ul>
-</dd>
-<dt>Parameter Example</dt><dd><pre class="literal-block"># Creates a publisher with the registry's default URI:
-./SilKit/bin/SilKitDemoPubSub ./SilKit-Demos/PubSub/DemoPubSub.silkit.yaml Publisher</pre>
-</dd>
-<dt>System Example</dt><dd><p>Run the following commands in separate terminals:</p>
-<pre class="literal-block"># Registry (if not already running):
-./SilKit/bin/sil-kit-registry
-
-# Monitor (optional):
-./SilKit/bin/sil-kit-monitor
-
-# Publisher:
-./SilKit/bin/SilKitDemoPubSub ./SilKit-Demos/PubSub/DemoPubSub.silkit.yaml Publisher
-
-# Subscriber:
-./SilKit/bin/SilKitDemoPubSub ./SilKit-Demos/PubSub/DemoPubSub.silkit.yaml Subscriber
-
-# System Controller:
-./SilKit/bin/sil-kit-system-controller Publisher Subscriber</pre>
-<p>To run the demo without virtual time synchronization, use the following commands in separate terminals:</p>
-<pre class="literal-block"># Registry (if not already running):
-./SilKit/bin/sil-kit-registry
-
-# Publisher:
-./SilKit/bin/SilKitDemoPubSub ./SilKit-Demos/PubSub/DemoPubSub.silkit.yaml Publisher --async
-
-# Subscriber:
-./SilKit/bin/SilKitDemoPubSub ./SilKit-Demos/PubSub/DemoPubSub.silkit.yaml Subscriber --async</pre>
-</dd>
-<dt>Notes</dt><dd><ul class="simple">
-<li><p>The publisher and subscriber show how to serialize/deserialize different kinds of data with the built-in <a class="reference internal" href="../api/serdes.html"><span class="doc">Data Serialization API</span></a>.</p></li>
-</ul>
-</dd>
-</dl>
-</section>
-<section id="rpc-demo">
-<span id="sec-rpc-demo"></span><h2>RPC Demo<a class="headerlink" href="#rpc-demo" title="Permalink to this heading"></a></h2>
-<dl>
-<dt>Abstract</dt><dd><p>The RPC server application provides two simple functions which are called by a RPC client application.
+<dt><a class="reference internal" href="communication.html#sec-rpc-demo"><span class="std std-ref">Rpc</span></a></dt><dd><p>The Rpc server participant provides two simple functions which are called by a Rpc client participant.
 Includes (de-)serialization of the function parameters.</p>
 </dd>
-<dt>Source location</dt><dd><p><code class="docutils literal notranslate"><span class="pre">./SilKit-Demos/Rpc</span></code></p>
+</dl>
+<p class="rubric">2. API</p>
+<p>These demos focus on a basic systems and single topic of the SIL Kit API:</p>
+<dl class="simple">
+<dt><a class="reference internal" href="api.html#sec-simple-can-demo"><span class="std std-ref">Simple Can</span></a></dt><dd><p>Minimalistic demo for a participant with Can communication and virtual time synchronization.</p>
 </dd>
-<dt>Requirements</dt><dd><ul class="simple">
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> (not needed for unsynchronized execution)</p></li>
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
-</ul>
+<dt><a class="reference internal" href="api.html#sec-autonomous-lifecycle-demo"><span class="std std-ref">Autonomous lifecycle</span></a></dt><dd><p>Minimal example of a participant with an autonomous lifecycle.
+The demo shows that this participant can be started and stopped independently from other participants.</p>
 </dd>
-<dt>Parameters</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantConfiguration.yaml&gt;</span></code>
-File name of the participant configuration to be used;
-use <code class="docutils literal notranslate"><span class="pre">DemoRpc.silkit.yaml</span></code> for an example configuration.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantName&gt;</span></code>
-The name of the participant within the simulation; must either be <code class="docutils literal notranslate"><span class="pre">Server</span></code> or
-<code class="docutils literal notranslate"><span class="pre">Client</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[RegistryUri]</span></code>
-The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[--async]</span></code>
-If async flag is set, the participant will join the simulation unsynchronized and it will not need
-the ./SilKit/bin/sil-kit-system-controller to start.</p></li>
-</ul>
+<dt><a class="reference internal" href="api.html#sec-coordinated-lifecycle-demo"><span class="std std-ref">Coordinated lifecycle</span></a></dt><dd><p>Minimal example of a participant with a coordinated lifecycle.
+This shows how multiple participants can be started and stopped simultaneously, controlled by the <code class="docutils literal notranslate"><span class="pre">sil-kit-system-controller</span></code>.</p>
 </dd>
-<dt>Parameter Example</dt><dd><pre class="literal-block"># Creates an RPC server process with the registry's default URI:
-./SilKit/bin/SilKitDemoRpc ./SilKit-Demos/Rpc/DemoRpc.silkit.yaml Server</pre>
+<dt><a class="reference internal" href="api.html#sec-sim-step-demo"><span class="std std-ref">Simulation step handler</span></a></dt><dd><p>Minimal example of a participant with time synchronization and a simulation step handler.</p>
 </dd>
-<dt>System Example</dt><dd><p>Run the following commands in separate terminals:</p>
-<pre class="literal-block"># Registry (if not already running):
-./SilKit/bin/sil-kit-registry
-
-# Monitor (optional):
-./SilKit/bin/sil-kit-monitor
-
-# Server:
-./SilKit/bin/SilKitDemoRpc ./SilKit-Demos/Rpc/DemoRpc.silkit.yaml Server
-
-# Client:
-./SilKit/bin/SilKitDemoRpc ./SilKit-Demos/Rpc/DemoRpc.silkit.yaml Client
-
-# System Controller:
-./SilKit/bin/sil-kit-system-controller Server Client</pre>
-<p>To run the demo without virtual time synchronization, use the following commands in separate terminals:</p>
-<pre class="literal-block"># Registry (if not already running):
-./SilKit/bin/sil-kit-registry
-
-# Server:
-./SilKit/bin/SilKitDemoRpc ./SilKit-Demos/Rpc/DemoRpc.silkit.yaml Server --async
-
-# Client:
-./SilKit/bin/SilKitDemoRpc ./SilKit-Demos/Rpc/DemoRpc.silkit.yaml Client --async</pre>
+<dt><a class="reference internal" href="api.html#sec-sim-step-async-demo"><span class="std std-ref">Asynchronous simulation step handler</span></a></dt><dd><p>Minimal example of a participant with time synchronization and an asynchronous simulation step handler.</p>
 </dd>
-<dt>Notes</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Client</span></code> participant has two RPC clients which call the <code class="docutils literal notranslate"><span class="pre">Add100</span></code> and <code class="docutils literal notranslate"><span class="pre">Sort</span></code> functions on the <code class="docutils literal notranslate"><span class="pre">Server</span></code> participant’s two RPC servers.</p></li>
-</ul>
+<dt><a class="reference internal" href="api.html#sec-netsim-demo"><span class="std std-ref">Network Simulator API</span></a></dt><dd><p>Demonstrates the usage of the experimental SIL Kit NetworkSimulator API.
+A custom network simulation for Can is set up, the network simulator application can be used together with the Can demo.</p>
 </dd>
 </dl>
-</section>
-<section id="benchmark-demo">
-<span id="sec-benchmark-demo"></span><h2>Benchmark Demo<a class="headerlink" href="#benchmark-demo" title="Permalink to this heading"></a></h2>
-<dl>
-<dt>Abstract</dt><dd><p>This demo sets up a simulation with various command line arguments for benchmarking purposes.
+<p class="rubric">3. Tools</p>
+<p>Tools for performance analysis:</p>
+<dl class="simple">
+<dt><a class="reference internal" href="tool.html#sec-benchmark-demo"><span class="std std-ref">Benchmark Demo</span></a></dt><dd><p>This demo sets up a simulation with various command line arguments for benchmarking purposes.
 A configurable amount of participants are spawned by a single process on different threads.
 The demo calculates averaged running times, throughput, speed-up and message rates for performance evaluation.</p>
 </dd>
-<dt>Source location</dt><dd><p><code class="docutils literal notranslate"><span class="pre">./SilKit-Demos/Benchmark</span></code></p>
-</dd>
-<dt>Requirements</dt><dd><p>None (The demo starts its own instance of the registry and system controller).</p>
-</dd>
-<dt>Positional Parameters</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">[numberOfSimulationRuns]</span></code>
-Sets the number of simulation runs to perform.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[simulationDuration]</span></code>
-Sets the virtual simulation duration &lt;S&gt;.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[numberOfParticipants]</span></code>
-Sets the number of simulation participants &lt;N&gt;.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[messageCount]</span></code>
-Sets the number of messages &lt;M&gt; to be send in each simulation step.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[messageSizeInBytes]</span></code>
-Sets the message size &lt;B&gt;.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[registryURi]</span></code>
-The URI of the registry to start.</p></li>
-</ul>
-</dd>
-<dt>Optional Parameters</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">--help</span></code>
-Show the help message.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--registry-uri</span></code>
-The URI of the registry to start. Default: silkit://localhost:8500</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--message-size</span></code>
-Sets the message size &lt;B&gt; in bytes. Default: 1000</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--message-count</span></code>
-Sets the number of messages &lt;M&gt; to be send in each simulation step. Default: 50</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--number-participants</span></code>
-Sets the number of simulation participants &lt;N&gt;. Default: 2</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--number-simulation-runs</span></code>
-Sets the number of simulation runs to perform. Default: 4</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--simulation-duration</span></code>
-Sets the simulation duration &lt;S&gt; (virtual time). Default: 1s</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--configuration</span></code>
-Path and filename of the participant configuration YAML file. Default: empty</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--write-csv</span></code>
-Path and filename of CSV file with benchmark results. Default: empty</p></li>
-</ul>
-</dd>
-<dt>System Examples</dt><dd><ul>
-<li><p>Launch the benchmark demo with default arguments but 3 participants:</p>
-<pre class="literal-block">./SilKit/bin/SilKitDemoBenchmark --number-participants 3</pre>
-</li>
-<li><p>Launch the benchmark demo with positional arguments and a configuration file that enforces TCP communication:</p>
-<pre class="literal-block">./SilKit/bin/SilKitDemoBenchmark 4 1 2 1 10 --configuration ./SilKit-Demos/Benchmark/DemoBenchmarkDomainSocketsOff.silkit.yaml</pre>
-</li>
-</ul>
-</dd>
-<dt>Notes</dt><dd><ul class="simple">
-<li><p>This benchmark demo produces timings of a configurable simulation setup.
-&lt;N&gt; participants exchange &lt;M&gt; messages of &lt;B&gt; bytes per simulation step with a fixed simulation step size of 1ms and run for &lt;S&gt; seconds (virtual time).</p></li>
-<li><p>This simulation run is repeated &lt;K&gt; times and averages over all runs are calculated.
-Results for average runtime, speedup (virtual time/runtime), throughput (data size/runtime), message rate (count/runtime) including the standard deviation are printed.</p></li>
-<li><p>The demo uses publish/subscribe controllers with the same topic for the message exchange, so each participant broadcasts the messages to all other participants.
-The configuration file <code class="docutils literal notranslate"><span class="pre">DemoBenchmarkDomainSocketsOff.silkit.yaml</span></code> can be used to disable domain socket usage for more realistic timings of TCP/IP traffic. With <code class="docutils literal notranslate"><span class="pre">DemoBenchmarkTCPNagleOff.silkit.yaml</span></code>, Nagle’s algorithm and domain sockets are switched off.</p></li>
-<li><p>The demo can be wrapped in helper scripts to run parameter scans, e.g., for performance analysis regarding different message sizes.
-See <code class="docutils literal notranslate"><span class="pre">.\SilKit-Demos\Benchmark\msg-size-scaling\Readme.md</span></code> and <code class="docutils literal notranslate"><span class="pre">.\SilKit-Demos\Benchmark\performance-diff\Readme.md</span></code> for further information.</p></li>
-</ul>
-</dd>
-</dl>
-</section>
-<section id="latency-demo">
-<span id="sec-latency-demo"></span><h2>Latency Demo<a class="headerlink" href="#latency-demo" title="Permalink to this heading"></a></h2>
-<dl>
-<dt>Abstract</dt><dd><p>A sender and a receiver application use the Publish/Subscribe services and measure the round trip time of the communication.
+<dt><a class="reference internal" href="tool.html#sec-latency-demo"><span class="std std-ref">Latency Demo</span></a></dt><dd><p>A sender and a receiver application use the Publish/Subscribe services and measure the round trip time of the communication.
 This setup is useful to evaluate the performance of a SIL Kit setup running on different platforms.
 E.g., between a local host, a virtual machine, a remote network, etc.</p>
 </dd>
-<dt>Source location</dt><dd><p><code class="docutils literal notranslate"><span class="pre">./SilKit-Demos/Benchmark</span></code></p>
-</dd>
-<dt>Requirements</dt><dd><ul class="simple">
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
-</ul>
-</dd>
-<dt>Positional Parameters</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">[messageCount]</span></code>
-Sets the number of messages to be send in each simulation step.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[messageSizeInBytes]</span></code>
-Sets the message size.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[registryURi]</span></code>
-The URI of the registry to start.</p></li>
-</ul>
-</dd>
-<dt>Optional Parameters</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">--help</span></code>
-Show the help message.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--isReceiver</span></code>
-This process is the receiving counterpart of the latency measurement. Default: false</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--registry-uri</span></code>
-The URI of the registry to start. Default: silkit://localhost:8500</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--message-size</span></code>
-Sets the message size. Default: 1000</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--message-count</span></code>
-Sets the number of messages to be send in each simulation step. Default: 1000</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--configuration</span></code>
-Path and filename of the participant configuration YAML file. Default: empty</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">--write-csv</span></code>
-Path and filename of csv file with benchmark results. Default: empty</p></li>
-</ul>
-</dd>
-<dt>System Examples</dt><dd><ul>
-<li><p>Launch the two LatencyDemo instances with positional arguments in separate terminals:
-.. parsed-literal:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span><span class="n">DemoDir</span><span class="o">|/</span><span class="n">SilKitDemoLatency</span> <span class="mi">100</span> <span class="mi">1000</span>
-<span class="o">|</span><span class="n">DemoDir</span><span class="o">|/</span><span class="n">SilKitDemoLatency</span> <span class="mi">100</span> <span class="mi">1000</span> <span class="o">--</span><span class="n">isReceiver</span>
-</pre></div>
-</div>
-</li>
-<li><p>Launch the LatencyDemo instances with a configuration file that enforces TCP communication:
-.. parsed-literal:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span><span class="n">DemoDir</span><span class="o">|/</span><span class="n">SilKitDemoLatency</span> <span class="mi">100</span> <span class="mi">1000</span> <span class="o">--</span><span class="n">configuration</span> <span class="o">./</span><span class="n">SilKit</span><span class="o">-</span><span class="n">Demos</span><span class="o">/</span><span class="n">Benchmark</span><span class="o">/</span><span class="n">DemoBenchmarkDomainSocketsOff</span><span class="o">.</span><span class="n">silkit</span><span class="o">.</span><span class="n">yaml</span>
-<span class="o">|</span><span class="n">DemoDir</span><span class="o">|/</span><span class="n">SilKitDemoLatency</span> <span class="mi">100</span> <span class="mi">1000</span> <span class="o">--</span><span class="n">isReceiver</span>
-</pre></div>
-</div>
-</li>
-</ul>
-</dd>
-<dt>Notes</dt><dd><ul class="simple">
-<li><p>This latency demo produces timings of a configurable simulation setup.
-Two participants exchange &lt;M&gt; messages of &lt;B&gt; bytes without time synchronization.</p></li>
-<li><p>The demo uses publish/subscribe controllers performing a message round trip (ping-pong) to calculate latency and throughput timings.</p></li>
-<li><p>Note that the two participants must use the same parameters for valid measurement and one participant must use the <code class="docutils literal notranslate"><span class="pre">--isReceiver</span></code> flag.</p></li>
-</ul>
-</dd>
 </dl>
-</section>
-<section id="network-simulator-demo">
-<span id="sec-netsim-demo"></span><h2>Network Simulator Demo<a class="headerlink" href="#network-simulator-demo" title="Permalink to this heading"></a></h2>
-<dl>
-<dt>Abstract</dt><dd><p>Demonstrates the usage of the experimental SIL Kit NetworkSimulator API.
-A custom network simulation for CAN is set up, the network simulator application can be used together with the CAN demo.</p>
-</dd>
-<dt>Source location</dt><dd><p><code class="docutils literal notranslate"><span class="pre">./SilKit-Demos/NetworkSimulator</span></code></p>
-</dd>
-<dt>Requirements</dt><dd><ul class="simple">
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></p></li>
-<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-monitor"><span class="std std-ref">sil-kit-monitor</span></a> (optional)</p></li>
-</ul>
-</dd>
-<dt>Parameters</dt><dd><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantConfiguration.yaml&gt;</span></code>
-File name of the participant configuration to be used;
-use <code class="docutils literal notranslate"><span class="pre">DemoNetSim.silkit.yaml</span></code> for an example configuration.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantName&gt;</span></code>
-The name of the participant within the simulation.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[RegistryUri]</span></code>
-The silkit:// URI of the registry to connect to; defaults to silkit://localhost:8500 (optional).</p></li>
-</ul>
-</dd>
-<dt>Parameter Example</dt><dd><pre class="literal-block"># Start the Network Simulator Demo with the given configuration file and participant name
-./SilKit/bin/SilKitDemoNetSim ./SilKit-Demos/NetworkSimulator/DemoNetSim.silkit.silkit.yaml NetworkSimulator</pre>
-</dd>
-<dt>System Example</dt><dd><p>Interplay with the CAN Demo:</p>
-<pre class="literal-block"># Registry (if not already running):
-./SilKit/bin/sil-kit-registry
-
-# Monitor (optional):
-./SilKit/bin/sil-kit-monitor
-
-# CAN Reader:
-./SilKit/bin/SilKitDemoCan ./SilKit-Demos/Can/DemoCan.silkit.yaml CanReader
-
-# CAN Writer:
-./SilKit/bin/SilKitDemoCan ./SilKit-Demos/Can/DemoCan.silkit.yaml CanWriter
-
-# System Controller:
-./SilKit/bin/sil-kit-system-controller CanReader CanWriter NetworkSimulator
-
-# Network Simulator Demo:
-./SilKit/bin/SilKitDemoNetSim ./SilKit-Demos/NetworkSimulator/DemoNetSim.silkit.silkit.yaml NetworkSimulator</pre>
-</dd>
-<dt>Notes</dt><dd><ul class="simple">
-<li><p>The CAN Reader and Writer configure their controller on the network “CAN1”, which is simulated by the network simulator demo.</p></li>
-<li><p>In the simple bus logic of the network simulation demo (see <code class="docutils literal notranslate"><span class="pre">Demos\NetworkSimulator\src\Can\MySimulatedCanController.cpp</span></code>), the acknowledgment (CanFrameTransmitEvent) is sent directly to the CAN Writer.
-The frame itself (CanFrameEvent) is sent with a delay of 2ms.</p></li>
-</ul>
-</dd>
-</dl>
-</section>
 </section>
 
 
@@ -819,7 +159,7 @@ The frame itself (CanFrameEvent) is sent with a delay of 2ms.</p></li>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../api/capi/capi-systemmonitor.html" class="btn btn-neutral float-left" title="System Monitor C API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../configuration/configuration.html" class="btn btn-neutral float-right" title="Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="build.html" class="btn btn-neutral float-right" title="Building the Demos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

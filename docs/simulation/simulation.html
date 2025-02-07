@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simulation Concepts &mdash; Vector SIL Kit 4.0.54 documentation</title>
+  <title>Simulation Concepts &mdash; Vector SIL Kit 4.0.55 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -33,7 +33,7 @@
             <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.54
+                4.0.55
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -314,7 +314,7 @@ This should typically not occur.</p>
 <section id="time-synchronization-and-lifecycle-operation-modes">
 <h3><a class="toc-backref" href="#id17">Time Synchronization and Lifecycle Operation Modes</a><a class="headerlink" href="#time-synchronization-and-lifecycle-operation-modes" title="Permalink to this heading"></a></h3>
 <p>If a group of participants wants to collectively start a simulation, the <a class="reference internal" href="#subsubsec-sim-lifecycle-lifecycleservice"><span class="std std-ref">Lifecycle Service</span></a> must be created with <a class="reference internal" href="../api/services/lifecycle.html#_CPPv4N6SilKit8Services13Orchestration13OperationMode11CoordinatedE" title="SilKit::Services::Orchestration::OperationMode::Coordinated"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">OperationMode::Coordinated</span></code></a>.
-This implies that the participant must be included in the list of required participant names defined by the <a class="reference internal" href="#subsubsec-sim-lifecycle-systemcontroller"><span class="std std-ref">System Controller</span></a> utility.
+This implies that the participant must be included in the list of required participant names defined by the ./sil-kit-system-controller utility.
 With this setup, the <a class="reference internal" href="#subsubsec-sim-lifecycle-lifecycleservice"><span class="std std-ref">Lifecycle Service</span></a> takes care that the <a class="reference internal" href="../api/system-utilities/systemmonitor.html#_CPPv4N6SilKit8Services13Orchestration16ParticipantState7RunningE" title="SilKit::Services::Orchestration::ParticipantState::Running"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">Running</span></code></a> state and thus the start of the virtual time is only reached when all required participants are available.
 A call to <a class="reference internal" href="../api/services/lifecycle.html#_CPPv4N6SilKit8Services13Orchestration17ILifecycleService4StopENSt6stringE" title="SilKit::Services::Orchestration::ILifecycleService::Stop"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Stop()</span></code></a> on any participant will stop the time synchronization of all coordinated participants.</p>
 <p>The <a class="reference internal" href="#subsubsec-sim-lifecycle-lifecycleservice"><span class="std std-ref">Lifecycle Service</span></a> can also be created with the <a class="reference internal" href="../api/services/lifecycle.html#_CPPv4N6SilKit8Services13Orchestration13OperationMode10AutonomousE" title="SilKit::Services::Orchestration::OperationMode::Autonomous"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">OperationMode::Autonomous</span></code></a>.

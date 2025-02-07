@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building the Demos &mdash; Vector SIL Kit 4.0.55 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sample participant configurations" href="configs.html" />
+    <link rel="prev" title="Demos" href="demos.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.55
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-users/users.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-developers/developers.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">C/C++ API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="demos.html">Demos</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Building the Demos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vs-code">VS Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#visual-studio">Visual Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#from-command-line">From command line</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-cmake-configuration">Advanced CMake configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="configs.html">Sample participant configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication.html">Communication Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool.html">Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="demos.html">Demos</a> &raquo;</li>
+      <li>Building the Demos</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/demos/build.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="building-the-demos">
+<h1>Building the Demos<a class="headerlink" href="#building-the-demos" title="Permalink to this heading"></a></h1>
+<p>The SIL Kit Demos are not available as pre-built binaries and have to be compiled from source first.</p>
+<ul class="simple">
+<li><p>If you plan to use the demos as a starting point for further development, start by cloning the <a class="reference external" href="https://github.com/vectorgrp/sil-kit">SIL Kit git repository</a>.
+Don’t forget to call <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">submodule</span> <span class="pre">update</span> <span class="pre">--init</span> <span class="pre">--recursive</span></code> after cloning the repository for the first time.
+Using the build instructions below will build the complete SIL Kit library including the Demos.</p></li>
+<li><p>If you just want to try out the demos, download a <a class="reference external" href="https://github.com/vectorgrp/sil-kit/releases">SIL Kit release package</a> which also includes all sources.
+Using the build instructions below will only build the SIL Kit Demos and use the precompiled library of the package.</p></li>
+<li><p>Building the Demos from the installation folder of the SIL Kit MSI Installer is strongly discouraged, as all involved tools require administrative privileges if the default installation directory is used.</p></li>
+</ul>
+<p>There are several options to build the demos, all require the installation of a C++ compiler and CMake.</p>
+<div class="admonition-note admonition">
+<p class="admonition-title">Note</p>
+<p>If you don’t have any experience with setting up C++ / CMake projects, we recommend using VS Code and a <a class="reference external" href="https://github.com/vectorgrp/sil-kit/releases">SIL Kit release package</a>.
+VS Code is free to use, and the prerequisites can be quickly set up using the recommended VS Code extensions.</p>
+</div>
+<section id="vs-code">
+<h2>VS Code<a class="headerlink" href="#vs-code" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Install the VS Code extensions <code class="docutils literal notranslate"><span class="pre">C/C++</span></code> and <code class="docutils literal notranslate"><span class="pre">CMake</span></code></p></li>
+<li><p>Open the folder with VS Code</p>
+<ol class="loweralpha simple">
+<li><p>For the git repository: open the root folder of the repository</p></li>
+<li><p>For a SIL Kit package: open the <code class="docutils literal notranslate"><span class="pre">SilKit-Demos</span></code> folder</p></li>
+</ol>
+</li>
+<li><p>Opening the folder automatically starts the CMake configuration step.
+You can also manually call this step in the CMake extension page under <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Status</span> <span class="pre">|</span> <span class="pre">Configure</span></code>.</p></li>
+<li><p>In the CMake extension page, build the project under <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Status</span> <span class="pre">|</span> <span class="pre">Build</span></code></p></li>
+<li><p>Locate the binaries</p>
+<ol class="loweralpha simple">
+<li><p>For the git repository: The binaries reside in <code class="docutils literal notranslate"><span class="pre">_build/&lt;build</span> <span class="pre">config&gt;/&lt;build</span> <span class="pre">type,</span> <span class="pre">e.g.</span> <span class="pre">Debug,</span> <span class="pre">Release&gt;/</span></code></p></li>
+<li><p>For a SIL Kit package: The binaries reside in <code class="docutils literal notranslate"><span class="pre">&lt;package</span> <span class="pre">folder&gt;/SilKit/bin</span></code></p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="visual-studio">
+<h2>Visual Studio<a class="headerlink" href="#visual-studio" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Make sure Visual Studio is set up for C++ and CMake is installed</p></li>
+<li><p>Open the folder with Visual Studio</p>
+<ol class="loweralpha simple">
+<li><p>For the git repository: open the root folder of the repository</p></li>
+<li><p>For a SIL Kit package: open the <code class="docutils literal notranslate"><span class="pre">SilKit-Demos</span></code> folder</p></li>
+</ol>
+</li>
+<li><p>Opening the folder automatically starts the CMake configuration step.
+You can also manually call this step under <code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">|</span> <span class="pre">Configure</span> <span class="pre">Cache</span></code>.</p></li>
+<li><p>Build the project with <code class="docutils literal notranslate"><span class="pre">Build</span> <span class="pre">|</span> <span class="pre">Build</span> <span class="pre">All</span></code></p></li>
+<li><p>Locate the binaries</p>
+<ol class="loweralpha simple">
+<li><p>For the git repository: The binaries reside in <code class="docutils literal notranslate"><span class="pre">_build/&lt;build</span> <span class="pre">config&gt;/&lt;build</span> <span class="pre">type,</span> <span class="pre">e.g.</span> <span class="pre">Debug,</span> <span class="pre">Release&gt;/</span></code></p></li>
+<li><p>For a SIL Kit package: The binaries reside in <code class="docutils literal notranslate"><span class="pre">&lt;package</span> <span class="pre">folder&gt;/SilKit/bin</span></code></p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="from-command-line">
+<h2>From command line<a class="headerlink" href="#from-command-line" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Make sure a C++ compiler and CMake is installed</p></li>
+<li><p>Open a terminal</p>
+<ol class="loweralpha simple">
+<li><p>For the git repository: navigate to the root folder of the repository</p></li>
+<li><p>For a SIL Kit package: navigate to <code class="docutils literal notranslate"><span class="pre">&lt;package</span> <span class="pre">folder&gt;/SilKit-Demos</span></code></p></li>
+</ol>
+</li>
+<li><p>Run the following commands:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">build</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">build</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">..</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span> <span class="pre">.</span></code></p></li>
+</ul>
+</li>
+<li><p>Locate the binaries</p>
+<ol class="loweralpha simple">
+<li><p>For the git repository: The binaries reside in <code class="docutils literal notranslate"><span class="pre">build/&lt;build</span> <span class="pre">config&gt;/&lt;build</span> <span class="pre">type,</span> <span class="pre">e.g.</span> <span class="pre">Debug,</span> <span class="pre">Release&gt;/</span></code></p></li>
+<li><p>For a SIL Kit package: The binaries reside in <code class="docutils literal notranslate"><span class="pre">&lt;package</span> <span class="pre">folder&gt;/SilKit/bin</span></code></p></li>
+</ol>
+</li>
+</ol>
+<p>Due to the large variety of terminals, different operating systems and availability of environment variables, the previous instruction can fail for several reasons.
+Usually, the configuration step performed in  <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">..</span></code> will give useful hints of what went wrong.</p>
+<section id="advanced-cmake-configuration">
+<h3>Advanced CMake configuration<a class="headerlink" href="#advanced-cmake-configuration" title="Permalink to this heading"></a></h3>
+<dl class="simple">
+<dt>Build the Demos from a SIL Kit package against your own target library</dt><dd><p>The distributed Demos, as packaged by CPack, are preconfigured to build against a copy of the SIL Kit binaries in <code class="docutils literal notranslate"><span class="pre">../SilKit/</span></code>.
+This can be overridden by providing your own <code class="docutils literal notranslate"><span class="pre">SilKit</span></code> CMake target library, before the demos are configured by CMake.
+Or by changing the <code class="docutils literal notranslate"><span class="pre">find_package(SilKit</span> <span class="pre">...</span> <span class="pre">PATHS</span> <span class="pre">path/to/SilKit)</span></code> statement directly in the <code class="docutils literal notranslate"><span class="pre">./SilKit-Demos/CMakeLists.txt</span></code> directory.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="demos.html" class="btn btn-neutral float-left" title="Demos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="configs.html" class="btn btn-neutral float-right" title="Sample participant configurations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
