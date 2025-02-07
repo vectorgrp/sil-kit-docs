@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API &mdash; Vector SIL Kit 4.0.55 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tools" href="tool.html" />
+    <link rel="prev" title="Communication Protocols" href="communication.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+          </a>
+              <div class="version">
+                4.0.55
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-users/users.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../for-developers/developers.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/api.html">C/C++ API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="demos.html">Demos</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="build.html">Building the Demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configs.html">Sample participant configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="communication.html">Communication Protocols</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#simple-can">Simple Can</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autonomous-lifecycle">Autonomous lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coordinated-lifecycle">Coordinated lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-step-handler">Simulation step handler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asynchronous-simulation-step-handler">Asynchronous simulation step handler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#network-simulator-api">Network Simulator API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tool.html">Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="demos.html">Demos</a> &raquo;</li>
+      <li>API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/demos/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api">
+<h1>API<a class="headerlink" href="#api" title="Permalink to this heading"></a></h1>
+<p>These demos focus on basic systems or single topics of the SIL Kit API.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#simple-can" id="id1">Simple Can</a></p></li>
+<li><p><a class="reference internal" href="#autonomous-lifecycle" id="id2">Autonomous lifecycle</a></p></li>
+<li><p><a class="reference internal" href="#coordinated-lifecycle" id="id3">Coordinated lifecycle</a></p></li>
+<li><p><a class="reference internal" href="#simulation-step-handler" id="id4">Simulation step handler</a></p></li>
+<li><p><a class="reference internal" href="#asynchronous-simulation-step-handler" id="id5">Asynchronous simulation step handler</a></p></li>
+<li><p><a class="reference internal" href="#network-simulator-api" id="id6">Network Simulator API</a></p></li>
+</ul>
+</div>
+<section id="simple-can">
+<span id="sec-simple-can-demo"></span><h2><a class="toc-backref" href="#id1">Simple Can</a><a class="headerlink" href="#simple-can" title="Permalink to this heading"></a></h2>
+<dl>
+<dt>Abstract</dt><dd><p>Minimalistic demo for a participant with Can communication and virtual time synchronization.</p>
+</dd>
+<dt>Executables</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKitDemoSimpleCan</span></code></p></li>
+</ul>
+</dd>
+<dt>Sources</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/api/SimpleCan/SimpleCan.cpp">SimpleCan.cpp</a></p></li>
+</ul>
+</dd>
+<dt>Requirements</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></p></li>
+</ul>
+</dd>
+<dt>Parameters</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantName&gt;</span></code>
+Name of the SIL Kit participant.</p></li>
+</ul>
+</dd>
+<dt>System Example</dt><dd><p>Run the following commands in separate terminals:</p>
+<pre class="literal-block"># Registry (if not already running):
+./sil-kit-registry
+
+# Participant P1:
+./SilKitDemoSimpleCan P1
+
+# Participant P2:
+./SilKitDemoSimpleCan P2
+
+# System Controller:
+./sil-kit-system-controller P1 P2</pre>
+</dd>
+</dl>
+</section>
+<section id="autonomous-lifecycle">
+<span id="sec-autonomous-lifecycle-demo"></span><h2><a class="toc-backref" href="#id2">Autonomous lifecycle</a><a class="headerlink" href="#autonomous-lifecycle" title="Permalink to this heading"></a></h2>
+<dl>
+<dt>Abstract</dt><dd><p>Minimal example of a participant with an autonomous lifecycle.
+The demo shows that this participant can be started and stopped independently from other participants.</p>
+</dd>
+<dt>Executables</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKitDemoAutonomous</span></code></p></li>
+</ul>
+</dd>
+<dt>Sources</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/api/Orchestration/Autonomous.cpp">Autonomous.cpp</a></p></li>
+</ul>
+</dd>
+<dt>Requirements</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
+</ul>
+</dd>
+<dt>Parameters</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantName&gt;</span></code>
+Name of the SIL Kit participant.</p></li>
+</ul>
+</dd>
+<dt>System Example</dt><dd><p>Run the following commands in separate terminals:</p>
+<pre class="literal-block"># Registry (if not already running):
+./sil-kit-registry
+
+# Participant P1:
+./SilKitDemoAutonomous P1
+
+# Participant P2:
+./SilKitDemoAutonomous P2</pre>
+</dd>
+</dl>
+</section>
+<section id="coordinated-lifecycle">
+<span id="sec-coordinated-lifecycle-demo"></span><h2><a class="toc-backref" href="#id3">Coordinated lifecycle</a><a class="headerlink" href="#coordinated-lifecycle" title="Permalink to this heading"></a></h2>
+<dl>
+<dt>Abstract</dt><dd><p>Minimal example of a participant with a coordinated lifecycle.
+This shows how multiple participants can be started and stopped simultaneously, controlled by the <code class="docutils literal notranslate"><span class="pre">sil-kit-system-controller</span></code>.</p>
+</dd>
+<dt>Executables</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKitDemoCoordinated</span></code></p></li>
+</ul>
+</dd>
+<dt>Sources</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/api/Orchestration/Coordinated.cpp">Coordinated.cpp</a></p></li>
+</ul>
+</dd>
+<dt>Requirements</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></p></li>
+</ul>
+</dd>
+<dt>Parameters</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantName&gt;</span></code>
+Name of the SIL Kit participant.</p></li>
+</ul>
+</dd>
+<dt>System Example</dt><dd><p>Run the following commands in separate terminals:</p>
+<pre class="literal-block"># Registry (if not already running):
+./sil-kit-registry
+
+# Participant P1:
+./SilKitDemoCoordinated P1
+
+# Participant P2:
+./SilKitDemoCoordinated P2
+
+# System Controller:
+./sil-kit-system-controller P1 P2</pre>
+</dd>
+</dl>
+</section>
+<section id="simulation-step-handler">
+<span id="sec-sim-step-demo"></span><h2><a class="toc-backref" href="#id4">Simulation step handler</a><a class="headerlink" href="#simulation-step-handler" title="Permalink to this heading"></a></h2>
+<dl>
+<dt>Abstract</dt><dd><p>Minimal example of a participant with time synchronization and a simulation step handler.</p>
+</dd>
+<dt>Executables</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKitDemoSimStep</span></code></p></li>
+</ul>
+</dd>
+<dt>Sources</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/api/Orchestration/SimStep.cpp">SimStep.cpp</a></p></li>
+</ul>
+</dd>
+<dt>Requirements</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></p></li>
+</ul>
+</dd>
+<dt>Parameters</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantName&gt;</span></code>
+Name of the SIL Kit participant.</p></li>
+</ul>
+</dd>
+<dt>System Example</dt><dd><p>Run the following commands in separate terminals:</p>
+<pre class="literal-block"># Registry (if not already running):
+./sil-kit-registry
+
+# Participant P1:
+./SilKitDemoSimStep P1
+
+# Participant P2:
+./SilKitDemoSimStep P2
+
+# System Controller:
+./sil-kit-system-controller P1 P2</pre>
+</dd>
+</dl>
+</section>
+<section id="asynchronous-simulation-step-handler">
+<span id="sec-sim-step-async-demo"></span><h2><a class="toc-backref" href="#id5">Asynchronous simulation step handler</a><a class="headerlink" href="#asynchronous-simulation-step-handler" title="Permalink to this heading"></a></h2>
+<dl>
+<dt>Abstract</dt><dd><p>Minimal example of a participant with time synchronization and an asynchronous simulation step handler.</p>
+</dd>
+<dt>Executables</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKitDemoSimStepAsync</span></code></p></li>
+</ul>
+</dd>
+<dt>Sources</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/api/Orchestration/SimStepAsync.cpp">SimStepAsync.cpp</a></p></li>
+</ul>
+</dd>
+<dt>Requirements</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></p></li>
+</ul>
+</dd>
+<dt>Parameters</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantName&gt;</span></code>
+Name of the SIL Kit participant.</p></li>
+</ul>
+</dd>
+<dt>System Example</dt><dd><p>Run the following commands in separate terminals:</p>
+<pre class="literal-block"># Registry (if not already running):
+./sil-kit-registry
+
+# Participant P1:
+./SilKitDemoSimStepAsync P1
+
+# Participant P2:
+./SilKitDemoSimStepAsync P2
+
+# System Controller:
+./sil-kit-system-controller P1 P2</pre>
+</dd>
+</dl>
+</section>
+<section id="network-simulator-api">
+<span id="sec-netsim-demo"></span><h2><a class="toc-backref" href="#id6">Network Simulator API</a><a class="headerlink" href="#network-simulator-api" title="Permalink to this heading"></a></h2>
+<dl>
+<dt>Abstract</dt><dd><p>Demonstrates the usage of the experimental SIL Kit NetworkSimulator API.
+A custom network simulation for Can is set up, the network simulator application can be used together with the Can demo.</p>
+</dd>
+<dt>Sources</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/api/NetworkSimulator/NetSimDemo.cpp">NetSimDemo.cpp</a></p></li>
+</ul>
+</dd>
+<dt>Requirements</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a></p></li>
+<li><p><a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a></p></li>
+</ul>
+</dd>
+<dt>Parameters</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantConfiguration.yaml&gt;</span></code>
+File name of the participant configuration to be used;
+use <code class="docutils literal notranslate"><span class="pre">DemoNetSim.silkit.yaml</span></code> for an example configuration.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ParticipantName&gt;</span></code>
+The name of the participant within the simulation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[RegistryUri]</span></code>
+The silkit:// URI of the registry to connect to; defaults to <code class="docutils literal notranslate"><span class="pre">silkit://localhost:8500</span></code> (optional).</p></li>
+</ul>
+</dd>
+<dt>Parameter Example</dt><dd><pre class="literal-block"># Start the Network Simulator Demo with the given configuration file and participant name
+./SilKitDemoNetSim ./SilKit-Demos/NetworkSimulator/DemoNetSim.silkit.silkit.yaml NetworkSimulator</pre>
+</dd>
+<dt>System Example</dt><dd><p>Interplay with the Can Demo:</p>
+<pre class="literal-block"># Registry (if not already running):
+./sil-kit-registry
+
+# Monitor (optional):
+./sil-kit-monitor
+
+# Can Reader:
+./SilKitDemoCanReader
+
+# Can Writer:
+./SilKitDemoCanWriter
+
+# System Controller:
+./sil-kit-system-controller CanReader CanWriter NetworkSimulator
+
+# Network Simulator Demo:
+./SilKitDemoNetSim ./SilKit-Demos/NetworkSimulator/DemoNetSim.silkit.silkit.yaml NetworkSimulator</pre>
+</dd>
+<dt>Notes</dt><dd><ul class="simple">
+<li><p>The Can Reader and Writer configure their controller on the network “CAN1”, which is simulated by the network simulator demo.</p></li>
+<li><p>In the simple bus logic of the network simulation demo (see <code class="docutils literal notranslate"><span class="pre">Demos\NetworkSimulator\src\Can\MySimulatedCanController.cpp</span></code>), the acknowledgment (CanFrameTransmitEvent) is sent directly to the Can Writer.
+The frame itself (CanFrameEvent) is sent with a delay of 2ms.</p></li>
+</ul>
+<pre class="literal-block"># Registry (if not already running):
+./sil-kit-registry
+
+# Can Reader:
+./SilKitDemoSimpleCan CanReader
+
+# Can Writer:
+./SilKitDemoSimpleCan CanWriter
+
+# System Controller:
+./sil-kit-system-controller CanReader CanWriter</pre>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="communication.html" class="btn btn-neutral float-left" title="Communication Protocols" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tool.html" class="btn btn-neutral float-right" title="Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
