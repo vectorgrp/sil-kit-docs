@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAN Service API &mdash; Vector SIL Kit 4.0.55 documentation</title>
+  <title>CAN Service API &mdash; Vector SIL Kit 4.0.56 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="../../contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.55
+                4.0.56
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -78,6 +78,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../utilities/utilities.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../faq/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../licenses/license.html">Licenses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
 </ul>
@@ -212,8 +213,8 @@ a <code class="docutils literal notranslate"><span class="pre">StateChangeHandle
 Then, the controller must be started explicitly by calling <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController5StartEv" title="SilKit::Services::Can::ICanController::Start"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Start()</span></code></a>. Now the controller can be used.
 Additional control commands are <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController4StopEv" title="SilKit::Services::Can::ICanController::Stop"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Stop()</span></code></a> and <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController5ResetEv" title="SilKit::Services::Can::ICanController::Reset"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Reset()</span></code></a>.</p>
 <p>The following example configures a CAN controller with a baud rate of 10’000 baud for regular CAN messages and a baud
-rate of 1’000’000 baud for CAN FD messages. Then, the controller is started:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">canController</span><span class="o">-&gt;</span><span class="n">SetBaudRate</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="mi">1000000</span><span class="p">);</span>
+rate of 1’000’000 baud for CAN FD messages and 1’000’000 baud for CAN XL, respectively. Then, the controller is started:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">canController</span><span class="o">-&gt;</span><span class="n">SetBaudRate</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="mi">1000000</span><span class="p">,</span><span class="w"> </span><span class="mi">1000000</span><span class="p">);</span>
 <span class="n">canController</span><span class="o">-&gt;</span><span class="n">Start</span><span class="p">();</span>
 </pre></div>
 </div>
@@ -295,7 +296,7 @@ NB: The baud rate of a CAN controller must be set before using it.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>rate</strong> – Baud rate for regular (non FD) CAN messages given in bps; valid range: 0 to 2’000’000</p></li>
 <li><p><strong>fdRate</strong> – Baud rate for CAN FD messages given in bps; valid range: 0 to 16’000’000</p></li>
-<li><p><strong>xlRate</strong> – Baud rate for CAN XL messages given in bps; valid range: 0 to 16’000’000</p></li>
+<li><p><strong>xlRate</strong> – Baud rate for CAN XL messages given in bps; valid range: 0 to 20’000’000</p></li>
 </ul>
 </dd>
 </dl>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vector SIL Kit Overview &mdash; Vector SIL Kit 4.0.55 documentation</title>
+  <title>Vector SIL Kit Overview &mdash; Vector SIL Kit 4.0.56 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
             <a href="contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.55
+                4.0.56
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -66,6 +66,7 @@
 <li class="toctree-l1"><a class="reference internal" href="utilities/utilities.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="licenses/license.html">Licenses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CHANGELOG.html">Changelog</a></li>
 </ul>
@@ -110,7 +111,7 @@ It provides:</p>
 <span id="sec-overview-supported-services"></span><h2>Supported Services<a class="headerlink" href="#supported-services" title="Permalink to this heading"></a></h2>
 <p>The SIL Kit supports the following services:</p>
 <ul class="simple">
-<li><p><strong>Vehicle Network Controllers:</strong> <a class="reference internal" href="api/services/can.html#chap-can-service-api"><span class="std std-ref">CAN / CAN FD</span></a>, <a class="reference internal" href="api/services/ethernet.html#chap-ethernet-service-api"><span class="std std-ref">Ethernet</span></a>, <a class="reference internal" href="api/services/flexray.html#chap-flexray-service-api"><span class="std std-ref">FlexRay</span></a>, and <a class="reference internal" href="api/services/lin.html#chap-lin-service-api"><span class="std std-ref">LIN</span></a></p></li>
+<li><p><strong>Vehicle Network Controllers:</strong> <a class="reference internal" href="api/services/can.html#chap-can-service-api"><span class="std std-ref">CAN / CAN FD / CAN XL</span></a>, <a class="reference internal" href="api/services/ethernet.html#chap-ethernet-service-api"><span class="std std-ref">Ethernet</span></a>, <a class="reference internal" href="api/services/flexray.html#chap-flexray-service-api"><span class="std std-ref">FlexRay</span></a>, and <a class="reference internal" href="api/services/lin.html#chap-lin-service-api"><span class="std std-ref">LIN</span></a></p></li>
 <li><p><strong>Data Publish/Subscribe:</strong> topic-based <a class="reference internal" href="api/services/pubsub.html#chap-pubsub-service-api"><span class="std std-ref">publish/subscribe</span></a> mechanism to exchange arbitrary data</p></li>
 <li><p><strong>RPC Servers/Clients:</strong> for dynamic <a class="reference internal" href="api/services/rpc.html#chap-rpc-service-api"><span class="std std-ref">remote procedure execution</span></a></p></li>
 <li><p><strong>Orchestration:</strong> for <a class="reference internal" href="api/services/lifecycle.html#chap-lifecycle-service-api"><span class="std std-ref">lifecycle</span></a> and <a class="reference internal" href="api/services/timesync.html#chap-timesync-service-api"><span class="std std-ref">time synchronization</span></a> control</p></li>
@@ -120,7 +121,7 @@ It provides:</p>
 </section>
 <section id="vehicle-networks">
 <h2>Vehicle Networks<a class="headerlink" href="#vehicle-networks" title="Permalink to this heading"></a></h2>
-<p>The SIL Kit provides means to simulate CAN / CAN FD, Ethernet, FlexRay, and LIN networks.
+<p>The SIL Kit provides means to simulate CAN / CAN FD / CAN XL, Ethernet, FlexRay, and LIN networks.
 All networks except for FlexRay can be simulated with two different levels of detail: a simple, functional simulation or a detailed simulation.
 The simple simulation assumes no delay and unlimited bandwidth.
 The detailed simulation is enabled by using an additional SIL Kit Network Simulator, which considers these aspects as well.
@@ -138,7 +139,7 @@ The <a class="reference internal" href="utilities/utilities.html#sec-util-regist
 The SIL Kit Registry process is required and must be started as a first step.
 It acts as a connection broker between the actual simulation participants.</p>
 <p>One or more <a class="reference internal" href="api/participant.html"><span class="doc">participants</span></a> take care of the actual simulation logic and communicate via built-in <a class="reference internal" href="#sec-overview-supported-services"><span class="std std-ref">services</span></a>.
-SIL Kit supports common vehicle networks (CAN / CAN FD, Ethernet, FlexRay, LIN), data messages for application specific communication in a publish / subscribe pattern, and Remote Procedure Calls (RPC).
+SIL Kit supports common vehicle networks (CAN / CAN FD / CAN XL, Ethernet, FlexRay, LIN), data messages for application specific communication in a publish / subscribe pattern, and Remote Procedure Calls (RPC).
 The participant and its services are created by the client application using the SIL Kit <a class="reference internal" href="api/api.html"><span class="doc">API</span></a>.</p>
 <p>To manage a group of participants in a simulation, SIL Kit participants can coordinate their startup behavior.
 For example, participants may wait before starting until a given set of required participants have joined the simulation.
