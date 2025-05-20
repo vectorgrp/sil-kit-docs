@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sample participant configurations &mdash; Vector SIL Kit 4.0.56 documentation</title>
+  <title>Performance &mdash; Vector SIL Kit 4.0.56 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -20,8 +20,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Communication Protocols" href="communication.html" />
-    <link rel="prev" title="Building the Demos" href="build.html" /> 
+    <link rel="next" title="Frequently Asked Questions" href="../faq/faq.html" />
+    <link rel="prev" title="Connection Guides" href="connection-guides.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,17 +48,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../for-developers/developers.html">Developer Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simulation/simulation.html">Simulation Concepts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/api.html">C/C++ API</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="demos.html">Demos</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="build.html">Building the Demos</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Sample participant configurations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="communication.html">Communication Protocols</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html">API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tool.html">Tools</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/demos.html">Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration/configuration.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utilities/utilities.html">Utilities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="connectivity.html">Connectivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifecycle.html">Lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interoperability.html">Interoperability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connection-guides.html">Connection Guides</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Performance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tcp-socket-configuration">TCP Socket Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#message-aggregation">Message Aggregation</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">Licenses</a></li>
@@ -79,10 +83,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="demos.html">Demos</a> &raquo;</li>
-      <li>Sample participant configurations</li>
+          <li><a href="troubleshooting.html">Troubleshooting</a> &raquo;</li>
+      <li>Performance</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/demos/configs.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/troubleshooting/performance.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -90,28 +94,30 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="sample-participant-configurations">
-<h1>Sample participant configurations<a class="headerlink" href="#sample-participant-configurations" title="Permalink to this heading"></a></h1>
-<p>The following sample participant configurations are available:</p>
-<dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">FileLog_Trace.silkit.yaml</span></code></dt><dd><p>Log to a file with <code class="docutils literal notranslate"><span class="pre">Level:</span> <span class="pre">Trace</span></code>.</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">FileLog_Trace_FromRemotes.silkit.yaml</span></code></dt><dd><p>Log to file with <code class="docutils literal notranslate"><span class="pre">Level:</span> <span class="pre">Trace</span></code> from participants that use a Sink of <code class="docutils literal notranslate"><span class="pre">Type:</span> <span class="pre">Remote</span></code>.</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Stdout_Info.silkit.yaml</span></code></dt><dd><p>Log to Stdout with <code class="docutils literal notranslate"><span class="pre">Level:</span> <span class="pre">Info</span></code>.</p>
-</dd>
-<dt><code class="docutils literal notranslate"><span class="pre">Trace_ToRemote.silkit.yaml</span></code></dt><dd><p>Log to Remote with <code class="docutils literal notranslate"><span class="pre">Level:</span> <span class="pre">Info</span></code>.
-Participants that specify <code class="docutils literal notranslate"><span class="pre">LogFromRemotes:</span> <span class="pre">True</span></code> will receive the log messages.</p>
-</dd>
-</dl>
+  <section id="performance">
+<h1>Performance<a class="headerlink" href="#performance" title="Permalink to this heading"></a></h1>
+<p>The following sections provide support for improving the performance of SIL Kit.</p>
+<section id="tcp-socket-configuration">
+<h2>TCP Socket Configuration<a class="headerlink" href="#tcp-socket-configuration" title="Permalink to this heading"></a></h2>
+<p>The TCP sockets used by SIL Kit can be configured via the participant configuration file, more precisely the <a class="reference internal" href="../configuration/middleware-configuration.html"><span class="doc">middleware</span></a> options.
+This configuration needs to be done carefully. In particular, using Nagle’s algorithm (<code class="docutils literal notranslate"><span class="pre">TcpNoDelay:</span> <span class="pre">false</span></code>) and delayed acknowledgements (<code class="docutils literal notranslate"><span class="pre">TcpQuickAck:</span> <span class="pre">false</span></code>) are known to interact badly.
+Please note that version 4.0.56 and following will use the <code class="docutils literal notranslate"><span class="pre">TCP_NODELAY</span></code> flag (which disables Nagle’s algorithm) by default (<code class="docutils literal notranslate"><span class="pre">TcpNoDelay:</span> <span class="pre">true</span></code>).</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">TcpNoDelay:</span> <span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">TcpQuickAck:</span> <span class="pre">true</span></code> together may cause severe performance losses as well as non-deterministic behaviour, e.g., resulting in 40ms latency peaks on Linux platforms.</p>
+</section>
+<section id="message-aggregation">
+<h2>Message Aggregation<a class="headerlink" href="#message-aggregation" title="Permalink to this heading"></a></h2>
+<p>For the time-synchronized case, SIL Kit offers the possibility of aggregating messages prior to sending.
+This feature can be enabled via the <a class="reference internal" href="../configuration/experimental-configuration.html"><span class="doc">EnableMessageAggregation</span></a> parameter in the participant configuration file.
+We mention that the message aggregation feature has a significant impact on the throughput, in particular if several small messages (&lt;1kB) are sent within one simulation step.</p>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="build.html" class="btn btn-neutral float-left" title="Building the Demos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="communication.html" class="btn btn-neutral float-right" title="Communication Protocols" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="connection-guides.html" class="btn btn-neutral float-left" title="Connection Guides" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../faq/faq.html" class="btn btn-neutral float-right" title="Frequently Asked Questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; Vector SIL Kit 4.0.55 documentation</title>
+  <title>Index &mdash; Vector SIL Kit 4.0.56 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -29,7 +29,7 @@
             <a href="contents.html" class="icon icon-home"> Vector SIL Kit
           </a>
               <div class="version">
-                4.0.55
+                4.0.56
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -50,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="utilities/utilities.html">Utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="licenses/license.html">Licenses</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CHANGELOG.html">Changelog</a></li>
 </ul>
@@ -173,11 +174,19 @@
 </li>
       <li><a href="api/netsim.html#_CPPv4N6SilKit12Experimental17NetworkSimulation20SimulatedNetworkType9UndefinedE">SilKit::Experimental::NetworkSimulation::SimulatedNetworkType::Undefined (C++ enumerator)</a>
 </li>
+      <li><a href="api/services/lin.html#_CPPv4N6SilKit12Experimental8Services3Lin21AddFrameHeaderHandlerEPN6SilKit8Services3Lin14ILinControllerEN6SilKit12Experimental8Services3Lin21LinFrameHeaderHandlerE">SilKit::Experimental::Services::Lin::AddFrameHeaderHandler (C++ function)</a>
+</li>
       <li><a href="api/services/lin.html#_CPPv4N6SilKit12Experimental8Services3Lin31AddLinSlaveConfigurationHandlerEPN6SilKit8Services3Lin14ILinControllerEN6SilKit12Experimental8Services3Lin28LinSlaveConfigurationHandlerE">SilKit::Experimental::Services::Lin::AddLinSlaveConfigurationHandler (C++ function)</a>
 </li>
       <li><a href="api/services/lin.html#_CPPv4N6SilKit12Experimental8Services3Lin21GetSlaveConfigurationEPN6SilKit8Services3Lin14ILinControllerE">SilKit::Experimental::Services::Lin::GetSlaveConfiguration (C++ function)</a>
 </li>
+      <li><a href="api/services/lin.html#_CPPv4N6SilKit12Experimental8Services3Lin11InitDynamicEPN6SilKit8Services3Lin14ILinControllerERKN6SilKit12Experimental8Services3Lin26LinControllerDynamicConfigE">SilKit::Experimental::Services::Lin::InitDynamic (C++ function)</a>
+</li>
+      <li><a href="api/services/lin.html#_CPPv4N6SilKit12Experimental8Services3Lin24RemoveFrameHeaderHandlerEPN6SilKit8Services3Lin14ILinControllerEN6SilKit8Services9HandlerIdE">SilKit::Experimental::Services::Lin::RemoveFrameHeaderHandler (C++ function)</a>
+</li>
       <li><a href="api/services/lin.html#_CPPv4N6SilKit12Experimental8Services3Lin34RemoveLinSlaveConfigurationHandlerEPN6SilKit8Services3Lin14ILinControllerEN6SilKit4Util9HandlerIdE">SilKit::Experimental::Services::Lin::RemoveLinSlaveConfigurationHandler (C++ function)</a>
+</li>
+      <li><a href="api/services/lin.html#_CPPv4N6SilKit12Experimental8Services3Lin19SendDynamicResponseEPN6SilKit8Services3Lin14ILinControllerERKN6SilKit8Services3Lin8LinFrameE">SilKit::Experimental::Services::Lin::SendDynamicResponse (C++ function)</a>
 </li>
       <li><a href="api/system-utilities/systemcontroller.html#_CPPv4N6SilKit12Experimental8Services13Orchestration17ISystemControllerE">SilKit::Experimental::Services::Orchestration::ISystemController (C++ class)</a>
 </li>
@@ -1535,11 +1544,19 @@
 </li>
       <li><a href="api/capi/capi-ethernet.html#_CPPv429SilKit_EthernetTransmitStatus">SilKit_EthernetTransmitStatus (C++ type)</a>
 </li>
+      <li><a href="api/capi/capi-lin.html#_CPPv455SilKit_Experimental_LinController_AddFrameHeaderHandlerP20SilKit_LinControllerPv43SilKit_Experimental_LinFrameHeaderHandler_tP16SilKit_HandlerId">SilKit_Experimental_LinController_AddFrameHeaderHandler (C++ function)</a>
+</li>
       <li><a href="api/capi/capi-lin.html#_CPPv465SilKit_Experimental_LinController_AddLinSlaveConfigurationHandlerP20SilKit_LinControllerPv50SilKit_Experimental_LinSlaveConfigurationHandler_tP16SilKit_HandlerId">SilKit_Experimental_LinController_AddLinSlaveConfigurationHandler (C++ function)</a>
 </li>
       <li><a href="api/capi/capi-lin.html#_CPPv455SilKit_Experimental_LinController_GetSlaveConfigurationP20SilKit_LinControllerP41SilKit_Experimental_LinSlaveConfiguration">SilKit_Experimental_LinController_GetSlaveConfiguration (C++ function)</a>
 </li>
+      <li><a href="api/capi/capi-lin.html#_CPPv445SilKit_Experimental_LinController_InitDynamicP20SilKit_LinControllerPK46SilKit_Experimental_LinControllerDynamicConfig">SilKit_Experimental_LinController_InitDynamic (C++ function)</a>
+</li>
+      <li><a href="api/capi/capi-lin.html#_CPPv458SilKit_Experimental_LinController_RemoveFrameHeaderHandlerP20SilKit_LinController16SilKit_HandlerId">SilKit_Experimental_LinController_RemoveFrameHeaderHandler (C++ function)</a>
+</li>
       <li><a href="api/capi/capi-lin.html#_CPPv468SilKit_Experimental_LinController_RemoveLinSlaveConfigurationHandlerP20SilKit_LinController16SilKit_HandlerId">SilKit_Experimental_LinController_RemoveLinSlaveConfigurationHandler (C++ function)</a>
+</li>
+      <li><a href="api/capi/capi-lin.html#_CPPv453SilKit_Experimental_LinController_SendDynamicResponseP20SilKit_LinControllerPK15SilKit_LinFrame">SilKit_Experimental_LinController_SendDynamicResponse (C++ function)</a>
 </li>
       <li><a href="api/capi/capi-lin.html#_CPPv441SilKit_Experimental_LinSlaveConfiguration">SilKit_Experimental_LinSlaveConfiguration (C++ struct)</a>
 </li>
