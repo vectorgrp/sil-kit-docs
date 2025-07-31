@@ -1,22 +1,22 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LIN Service API &mdash; Vector SIL Kit 4.0.56 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>LIN Service API &mdash; Vector SIL Kit 5.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,14 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../contents.html" class="icon icon-home"> Vector SIL Kit
+
+          
+          
+          <a href="../../contents.html" class="icon icon-home">
+            Vector SIL Kit
           </a>
-              <div class="version">
-                4.0.56
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -80,7 +81,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../faq/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../licenses/license.html">Licenses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/overview.html">Changelog</a></li>
 </ul>
 
         </div>
@@ -96,9 +97,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../contents.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api.html">C/C++ API</a> &raquo;</li>
-      <li>LIN Service API</li>
+      <li><a href="../../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">C/C++ API</a></li>
+      <li class="breadcrumb-item active">LIN Service API</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/api/services/lin.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -110,7 +111,7 @@
              
   <section id="lin-service-api">
 <span id="chap-lin-service-api"></span><h1>LIN Service API<a class="headerlink" href="#lin-service-api" title="Permalink to this heading"></a></h1>
-<div class="contents local topic" id="contents">
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#using-the-lin-controller" id="id1">Using the LIN Controller</a></p>
 <ul>
@@ -148,9 +149,9 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <section id="using-the-lin-controller">
-<h2><a class="toc-backref" href="#id1">Using the LIN Controller</a><a class="headerlink" href="#using-the-lin-controller" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Using the LIN Controller</a><a class="headerlink" href="#using-the-lin-controller" title="Permalink to this heading"></a></h2>
 <p>The LIN Service API provides a LIN bus abstraction through the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinControllerE" title="SilKit::Services::Lin::ILinController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ILinController</span></code></a> interface.
 A LIN controller is created by calling <a class="reference internal" href="../participant.html#_CPPv4N6SilKit12IParticipant19CreateLinControllerERKNSt6stringERKNSt6stringE" title="SilKit::IParticipant::CreateLinController"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateLinController</span></code></a> given a controller and network name:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">linMasterController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateLinController</span><span class="p">(</span><span class="s">&quot;LinMaster&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LIN1&quot;</span><span class="p">);</span>
@@ -158,10 +159,10 @@ A LIN controller is created by calling <a class="reference internal" href="../pa
 </div>
 <p>LIN controllers will only communicate within the same network.</p>
 <section id="initialization">
-<span id="sec-lin-initialization"></span><h3><a class="toc-backref" href="#id2">Initialization</a><a class="headerlink" href="#initialization" title="Permalink to this heading"></a></h3>
+<span id="sec-lin-initialization"></span><h3><a class="toc-backref" href="#id2" role="doc-backlink">Initialization</a><a class="headerlink" href="#initialization" title="Permalink to this heading"></a></h3>
 <p>Before the LIN Controller can be used, it must be initialized. The initialization is performed by setting up a
 <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin19LinControllerConfigE" title="SilKit::Services::Lin::LinControllerConfig"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">LinControllerConfig</span></code></a> and passing it to <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController4InitE19LinControllerConfig" title="SilKit::Services::Lin::ILinController::Init"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Init()</span></code></a> or <a class="reference internal" href="#_CPPv4N6SilKit12Experimental8Services3Lin11InitDynamicEPN6SilKit8Services3Lin14ILinControllerERKN6SilKit12Experimental8Services3Lin26LinControllerDynamicConfigE" title="SilKit::Experimental::Services::Lin::InitDynamic"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">InitDynamic()</span></code></a>. The <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin17LinControllerModeE" title="SilKit::Services::Lin::LinControllerMode"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">LinControllerMode</span></code></a> must be set to either
-<a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin17LinControllerMode6MasterE" title="SilKit::Services::Lin::Master"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinControllerMode::Master</span></code></a> or <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin17LinControllerMode5SlaveE" title="SilKit::Services::Lin::Slave"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinControllerMode::Slave</span></code></a> and the baud rate must be specified. Further, the
+<code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinControllerMode::Master</span></code> or <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinControllerMode::Slave</span></code> and the baud rate must be specified. Further, the
 <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin19LinControllerConfigE" title="SilKit::Services::Lin::LinControllerConfig"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">LinControllerConfig</span></code></a> provides the configuration on which LIN IDs the controller will receive
 (<a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseMode2RxE" title="SilKit::Services::Lin::LinFrameResponseMode::Rx"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseMode::Rx</span></code></a>) or respond to (<a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseMode15TxUnconditionalE" title="SilKit::Services::Lin::LinFrameResponseMode::TxUnconditional"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseMode::TxUnconditional</span></code></a>) frames.</p>
 <p>The following example configures a LIN controller as a LIN slave with a baud rate of 20’000 baud. Furthermore, LIN ID
@@ -187,7 +188,7 @@ configured for reception, but only one node to provide a response. This restrict
 but only during operation.</p>
 </section>
 <section id="extending-the-configuration-during-operation">
-<h3><a class="toc-backref" href="#id3">Extending the configuration during operation</a><a class="headerlink" href="#extending-the-configuration-during-operation" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Extending the configuration during operation</a><a class="headerlink" href="#extending-the-configuration-during-operation" title="Permalink to this heading"></a></h3>
 <p>Initialized LIN nodes can use <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController16SetFrameResponseE16LinFrameResponse" title="SilKit::Services::Lin::ILinController::SetFrameResponse"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetFrameResponse()</span></code></a> to configure a response or reception during operation.
 <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController16SetFrameResponseE16LinFrameResponse" title="SilKit::Services::Lin::ILinController::SetFrameResponse"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetFrameResponse()</span></code></a> is useful for cases where a LIN slave is not aware of its full configuration upon initialization.
 Reconfiguration of already used ID on the particular node are discarded. If used on a slave, the new configuration
@@ -196,11 +197,11 @@ will become active once the master receives the updated configuration.</p>
 defined in <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController4InitE19LinControllerConfig" title="SilKit::Services::Lin::ILinController::Init"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Init()</span></code></a>. If used with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseType14MasterResponseE" title="SilKit::Services::Lin::LinFrameResponseType::MasterResponse"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseType::MasterResponse</span></code></a>, the master will configure
 <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseMode15TxUnconditionalE" title="SilKit::Services::Lin::LinFrameResponseMode::TxUnconditional"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseMode::TxUnconditional</span></code></a>, if used with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseType13SlaveResponseE" title="SilKit::Services::Lin::LinFrameResponseType::SlaveResponse"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseType::SlaveResponse</span></code></a>, the master will configure
 <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseMode2RxE" title="SilKit::Services::Lin::LinFrameResponseMode::Rx"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseMode::Rx</span></code></a> on the given ID. In case of <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseType12SlaveToSlaveE" title="SilKit::Services::Lin::LinFrameResponseType::SlaveToSlave"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseType::SlaveToSlave</span></code></a>, no reconfiguration takes place,
-but the master will receive a call to its <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a> with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14LinFrameStatus9LIN_TX_OKE" title="SilKit::Services::Lin::LIN_TX_OK"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LIN_TX_OK</span></code></a>, confirming the
+but the master will receive a call to its <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a> with <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LIN_TX_OK</span></code>, confirming the
 initiation of the slave-to-slave communication.</p>
 </section>
 <section id="initiating-lin-transmissions">
-<h3><a class="toc-backref" href="#id4">Initiating LIN Transmissions</a><a class="headerlink" href="#initiating-lin-transmissions" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Initiating LIN Transmissions</a><a class="headerlink" href="#initiating-lin-transmissions" title="Permalink to this heading"></a></h3>
 <p>Data is transferred in the form of a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin8LinFrameE" title="SilKit::Services::Lin::LinFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">LinFrame</span></code></a>, reception and acknowledgment is handled in the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a>.
 A LIN master can initiate the transmission of a frame using the AUTOSAR API <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController9SendFrameE8LinFrame20LinFrameResponseType" title="SilKit::Services::Lin::ILinController::SendFrame"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrame()</span></code></a> or the non-AUTOSAR API
 <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController15SendFrameHeaderE5LinId" title="SilKit::Services::Lin::ILinController::SendFrameHeader"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrameHeader()</span></code></a>. If a LIN slave provides the response, <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController9SendFrameE8LinFrame20LinFrameResponseType" title="SilKit::Services::Lin::ILinController::SendFrame"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrame()</span></code></a> requires that a corresponding frame
@@ -213,7 +214,7 @@ itself.</p>
 header and complete the transmission using the payload of its current transmit buffer. The buffer can be updated
 with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController14UpdateTxBufferE8LinFrame" title="SilKit::Services::Lin::ILinController::UpdateTxBuffer"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">UpdateTxBuffer()</span></code></a> on the node that is configured with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseMode15TxUnconditionalE" title="SilKit::Services::Lin::LinFrameResponseMode::TxUnconditional"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseMode::TxUnconditional</span></code></a> for the corresponding ID.</p>
 <section id="sending-data">
-<h4><a class="toc-backref" href="#id5">Sending Data</a><a class="headerlink" href="#sending-data" title="Permalink to this heading"></a></h4>
+<h4><a class="toc-backref" href="#id5" role="doc-backlink">Sending Data</a><a class="headerlink" href="#sending-data" title="Permalink to this heading"></a></h4>
 <p>The transmission of a frame can be initiated using <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController9SendFrameE8LinFrame20LinFrameResponseType" title="SilKit::Services::Lin::ILinController::SendFrame"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrame()</span></code></a> or <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController15SendFrameHeaderE5LinId" title="SilKit::Services::Lin::ILinController::SendFrameHeader"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrameHeader()</span></code></a>:</p>
 <ol class="arabic">
 <li><p>Using <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController9SendFrameE8LinFrame20LinFrameResponseType" title="SilKit::Services::Lin::ILinController::SendFrame"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrame()</span></code></a> with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseType14MasterResponseE" title="SilKit::Services::Lin::LinFrameResponseType::MasterResponse"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseType::MasterResponse</span></code></a>, the frame can be sent in one call
@@ -270,7 +271,7 @@ configured as seen in <a class="reference internal" href="#sec-lin-initializatio
 </ol>
 </section>
 <section id="transmission-acknowledgment">
-<h4><a class="toc-backref" href="#id6">Transmission acknowledgment</a><a class="headerlink" href="#transmission-acknowledgment" title="Permalink to this heading"></a></h4>
+<h4><a class="toc-backref" href="#id6" role="doc-backlink">Transmission acknowledgment</a><a class="headerlink" href="#transmission-acknowledgment" title="Permalink to this heading"></a></h4>
 <p>To be notified for the success or failure of the transmission, a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a> should be registered using
 <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController21AddFrameStatusHandlerE18FrameStatusHandler" title="SilKit::Services::Lin::ILinController::AddFrameStatusHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddFrameStatusHandler()</span></code></a>:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Register FrameStatusHandler to receive data from the LIN slave</span>
@@ -288,10 +289,10 @@ configured as seen in <a class="reference internal" href="#sec-lin-initializatio
 </pre></div>
 </div>
 <p>If multiple controllers have configured <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseMode15TxUnconditionalE" title="SilKit::Services::Lin::LinFrameResponseMode::TxUnconditional"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseMode::TxUnconditional</span></code></a> on the same LIN ID, a collision occurs on the bus,
-which is indicated by <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14LinFrameStatus12LIN_TX_ERRORE" title="SilKit::Services::Lin::LIN_TX_ERROR"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LIN_TX_ERROR</span></code></a>.</p>
+which is indicated by <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LIN_TX_ERROR</span></code>.</p>
 </section>
 <section id="receiving-data-from-a-slave">
-<h4><a class="toc-backref" href="#id7">Receiving data from a slave</a><a class="headerlink" href="#receiving-data-from-a-slave" title="Permalink to this heading"></a></h4>
+<h4><a class="toc-backref" href="#id7" role="doc-backlink">Receiving data from a slave</a><a class="headerlink" href="#receiving-data-from-a-slave" title="Permalink to this heading"></a></h4>
 <p>Beside transmission acknowledgment, the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a> is also used for reception. To receive data, the
 <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a> must be registered using <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController21AddFrameStatusHandlerE18FrameStatusHandler" title="SilKit::Services::Lin::ILinController::AddFrameStatusHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddFrameStatusHandler()</span></code></a>, which is called by the LIN controller when
 a frame is received and the LIN node is configured for reception with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseMode2RxE" title="SilKit::Services::Lin::LinFrameResponseMode::Rx"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameResponseMode::Rx</span></code></a> on that LIN ID:</p>
@@ -301,8 +302,8 @@ a frame is received and the LIN node is configured for reception with <a class="
 <span class="n">master</span><span class="o">-&gt;</span><span class="n">AddFrameStatusHandler</span><span class="p">(</span><span class="n">frameStatusHandler</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>The incoming <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin19LinFrameStatusEventE" title="SilKit::Services::Lin::LinFrameStatusEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">LinFrameStatusEvent</span></code></a> holds a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14LinFrameStatusE" title="SilKit::Services::Lin::LinFrameStatus"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">LinFrameStatus</span></code></a> indicating the success (<a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14LinFrameStatus9LIN_RX_OKE" title="SilKit::Services::Lin::LIN_RX_OK"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LIN_RX_OK</span></code></a>) or
-failure (<a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14LinFrameStatus12LIN_RX_ERRORE" title="SilKit::Services::Lin::LIN_RX_ERROR"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LIN_RX_ERROR</span></code></a>) of the transmission. If a LIN slave has previously setup a matching
+<p>The incoming <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin19LinFrameStatusEventE" title="SilKit::Services::Lin::LinFrameStatusEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">LinFrameStatusEvent</span></code></a> holds a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14LinFrameStatusE" title="SilKit::Services::Lin::LinFrameStatus"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">LinFrameStatus</span></code></a> indicating the success (<code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LIN_RX_OK</span></code>) or
+failure (<code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LIN_RX_ERROR</span></code>) of the transmission. If a LIN slave has previously setup a matching
 <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin16LinFrameResponseE" title="SilKit::Services::Lin::LinFrameResponse"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">LinFrameResponse</span></code></a> for transmission, the registered <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a> will deliver a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin19LinFrameStatusEventE" title="SilKit::Services::Lin::LinFrameStatusEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">LinFrameStatusEvent</span></code></a> as
 follows:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">frameStatusHandler</span><span class="p">(</span><span class="n">master</span><span class="p">,</span><span class="w"> </span><span class="n">frameStatusEvent</span><span class="p">);</span>
@@ -312,21 +313,21 @@ follows:</p>
 <span class="c1">// frameStatusEvent.status: LinFrameStatus::LIN_RX_OK;</span>
 </pre></div>
 </div>
-<p>If more than one slave provided a response, the master will receive a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14LinFrameStatus12LIN_RX_ERRORE" title="SilKit::Services::Lin::LIN_RX_ERROR"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LIN_RX_ERROR</span></code></a>, the slaves will
-see <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14LinFrameStatus12LIN_TX_ERRORE" title="SilKit::Services::Lin::LIN_TX_ERROR"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LIN_TX_ERROR</span></code></a>.</p>
+<p>If more than one slave provided a response, the master will receive a <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LIN_RX_ERROR</span></code>, the slaves will
+see <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LIN_TX_ERROR</span></code>.</p>
 </section>
 </section>
 <section id="data-length-and-checksum-model">
-<h3><a class="toc-backref" href="#id8">Data length and checksum model</a><a class="headerlink" href="#data-length-and-checksum-model" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Data length and checksum model</a><a class="headerlink" href="#data-length-and-checksum-model" title="Permalink to this heading"></a></h3>
 <p>A <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin13LinDataLengthE" title="SilKit::Services::Lin::LinDataLength"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">LinDataLength</span></code></a> and <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin16LinChecksumModelE" title="SilKit::Services::Lin::LinChecksumModel"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">LinFrameStatus::LinChecksumModel</span></code></a> can be provided for a given ID when configuring a reception or initiating a transmission.
-A frame will arrive with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14LinFrameStatus12LIN_RX_ERRORE" title="SilKit::Services::Lin::LIN_RX_ERROR"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LIN_RX_ERROR</span></code></a> if there is a mismatch between configured and received data length or checksum model.
+A frame will arrive with <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LIN_RX_ERROR</span></code> if there is a mismatch between configured and received data length or checksum model.
 However, a LIN node configured for reception might not know beforehand about the data length or checksum model provided in the response.
 In this case, the reception can be configured with the wildcards <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin20LinDataLengthUnknownE" title="SilKit::Services::Lin::LinDataLengthUnknown"><code class="xref cpp cpp-var docutils literal notranslate"><span class="pre">LinDataLengthUnknown</span></code></a> (255) or <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin16LinChecksumModel7UnknownE" title="SilKit::Services::Lin::LinChecksumModel::Unknown"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LinChecksumModel::Unknown</span></code></a> in the respective parameters of the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin8LinFrameE" title="SilKit::Services::Lin::LinFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">LinFrame</span></code></a>.
 If the wildcards are used, the validation of the incoming data length or checksum model are skipped.
 The values provided by the sender are then used in the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a>.</p>
 </section>
 <section id="managing-the-event-handlers">
-<h3><a class="toc-backref" href="#id9">Managing the event handlers</a><a class="headerlink" href="#managing-the-event-handlers" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Managing the event handlers</a><a class="headerlink" href="#managing-the-event-handlers" title="Permalink to this heading"></a></h3>
 <p>Adding a handler will return a <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">HandlerId</span></code> which can be used to remove the handler via:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController24RemoveFrameStatusHandlerE9HandlerId" title="SilKit::Services::Lin::ILinController::RemoveFrameStatusHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">RemoveFrameStatusHandler()</span></code></a></p></li>
@@ -336,9 +337,9 @@ The values provided by the sender are then used in the <a class="reference inter
 </section>
 </section>
 <section id="api-and-data-type-reference">
-<h2><a class="toc-backref" href="#id10">API and Data Type Reference</a><a class="headerlink" href="#api-and-data-type-reference" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">API and Data Type Reference</a><a class="headerlink" href="#api-and-data-type-reference" title="Permalink to this heading"></a></h2>
 <section id="lin-controller-api">
-<h3><a class="toc-backref" href="#id11">LIN Controller API</a><a class="headerlink" href="#lin-controller-api" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">LIN Controller API</a><a class="headerlink" href="#lin-controller-api" title="Permalink to this heading"></a></h3>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Lin14ILinControllerE">
 <span id="_CPPv3N6SilKit8Services3Lin14ILinControllerE"></span><span id="_CPPv2N6SilKit8Services3Lin14ILinControllerE"></span><span id="SilKit::Services::Lin::ILinController"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ILinController</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14ILinControllerE" title="Permalink to this definition"></a><br /></dt>
@@ -357,26 +358,26 @@ The values provided by the sender are then used in the <a class="reference inter
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
 <dl class="cpp type">
-<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Lin14ILinController9CallbackTE">
-<span id="_CPPv3N6SilKit8Services3Lin14ILinController9CallbackTE"></span><span id="_CPPv2N6SilKit8Services3Lin14ILinController9CallbackTE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1af468e0b5b22f65d9c5b966b37d7b8fb8"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CallbackT</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinControllerE" title="SilKit::Services::Lin::ILinController"><span class="n"><span class="pre">ILinController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">controller</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">MsgT</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14ILinController9CallbackTE" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4I0EN6SilKit8Services3Lin14ILinController9CallbackTE">
+<span id="_CPPv3I0EN6SilKit8Services3Lin14ILinController9CallbackTE"></span><span id="_CPPv2I0EN6SilKit8Services3Lin14ILinController9CallbackTE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MsgT</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1af468e0b5b22f65d9c5b966b37d7b8fb8"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CallbackT</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinControllerE" title="SilKit::Services::Lin::ILinController"><span class="n"><span class="pre">ILinController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">controller</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services3Lin14ILinController9CallbackTE" title="SilKit::Services::Lin::ILinController::CallbackT::MsgT"><span class="n"><span class="pre">MsgT</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4I0EN6SilKit8Services3Lin14ILinController9CallbackTE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Generic LIN callback method. </p>
 </dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE">
-<span id="_CPPv3N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE"></span><span id="_CPPv2N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a10f5709d6d519999b7c0e647a2187913"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FrameStatusHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController9CallbackTE" title="SilKit::Services::Lin::ILinController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin19LinFrameStatusEventE" title="SilKit::Services::Lin::LinFrameStatusEvent"><span class="n"><span class="pre">LinFrameStatusEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE"></span><span id="_CPPv2N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a10f5709d6d519999b7c0e647a2187913"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FrameStatusHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services3Lin14ILinController9CallbackTE" title="SilKit::Services::Lin::ILinController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin19LinFrameStatusEventE" title="SilKit::Services::Lin::LinFrameStatusEvent"><span class="n"><span class="pre">LinFrameStatusEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate the end of a LIN <a class="reference internal" href="#struct_sil_kit_1_1_services_1_1_lin_1_1_lin_frame"><span class="std std-ref">LinFrame</span></a> transmission. Cf., <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1ad3d5a2f8ccab1cc0ac1ec08f6a3a03aa"><span class="std std-ref">AddFrameStatusHandler(FrameStatusHandler)</span></a>; </p>
 </dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Lin14ILinController16GoToSleepHandlerE">
-<span id="_CPPv3N6SilKit8Services3Lin14ILinController16GoToSleepHandlerE"></span><span id="_CPPv2N6SilKit8Services3Lin14ILinController16GoToSleepHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a1e8b7900f08534e75453387e27de6a44"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GoToSleepHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController9CallbackTE" title="SilKit::Services::Lin::ILinController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin17LinGoToSleepEventE" title="SilKit::Services::Lin::LinGoToSleepEvent"><span class="n"><span class="pre">LinGoToSleepEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14ILinController16GoToSleepHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services3Lin14ILinController16GoToSleepHandlerE"></span><span id="_CPPv2N6SilKit8Services3Lin14ILinController16GoToSleepHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a1e8b7900f08534e75453387e27de6a44"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GoToSleepHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services3Lin14ILinController9CallbackTE" title="SilKit::Services::Lin::ILinController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin17LinGoToSleepEventE" title="SilKit::Services::Lin::LinGoToSleepEvent"><span class="n"><span class="pre">LinGoToSleepEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14ILinController16GoToSleepHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate that a go-to-sleep frame has been received. Cf., <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a4f1eefada56b9c05ddac65990d9ad17b"><span class="std std-ref">AddGoToSleepHandler(GoToSleepHandler)</span></a>; </p>
 </dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Lin14ILinController13WakeupHandlerE">
-<span id="_CPPv3N6SilKit8Services3Lin14ILinController13WakeupHandlerE"></span><span id="_CPPv2N6SilKit8Services3Lin14ILinController13WakeupHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a986ef222780cb32af18204cf37bd82d1"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WakeupHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController9CallbackTE" title="SilKit::Services::Lin::ILinController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14LinWakeupEventE" title="SilKit::Services::Lin::LinWakeupEvent"><span class="n"><span class="pre">LinWakeupEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14ILinController13WakeupHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services3Lin14ILinController13WakeupHandlerE"></span><span id="_CPPv2N6SilKit8Services3Lin14ILinController13WakeupHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a986ef222780cb32af18204cf37bd82d1"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WakeupHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services3Lin14ILinController9CallbackTE" title="SilKit::Services::Lin::ILinController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14LinWakeupEventE" title="SilKit::Services::Lin::LinWakeupEvent"><span class="n"><span class="pre">LinWakeupEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14ILinController13WakeupHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate that a wakeup pulse has been received. Cf., <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a516c96d379632cccb341c2e9a2d41b39"><span class="std std-ref">AddWakeupHandler(WakeupHandler)</span></a>; </p>
 </dd></dl>
 
@@ -395,7 +396,7 @@ The values provided by the sender are then used in the <a class="reference inter
 <p>All controllers must be initialized exactly once to take part in LIN communication.</p>
 <p><em>AUTOSAR Name:</em> Lin_Init</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>config</strong> – The controller configuration contains:<ul class="simple">
 <li><p>controllerMode, either sets LIN master or LIN slave mode.</p></li>
 <li><p>baudRate, determine transmission speeds (only used for detailed simulation).</p></li>
@@ -403,9 +404,9 @@ The values provided by the sender are then used in the <a class="reference inter
 </ul>
 </p>
 </dd>
-<dt class="field-even">Throws</dt>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">StateError</span></span></span> – if the LIN Controller is configured with <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_lin_1adf4bafb1dcc0c630048f7014c4ca3ba5a3cab03c00dbd11bc3569afa0748013f0"><span class="std std-ref">LinControllerMode::Inactive</span></a> </p></li>
+<li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">StateError</span></span></span> – if the LIN Controller is configured with <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_lin_1adf4bafb1dcc0c630048f7014c4ca3ba5a3cab03c00dbd11bc3569afa0748013f0"><span class="std std-ref">LinControllerMode::Inactive</span></a></p></li>
 <li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">StateError</span></span></span> – if <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1afa08859707a1386f08ca6d5f9d933d02"><span class="std std-ref">Init()</span></a> is called a second time on this LIN Controller. </p></li>
 <li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">StateError</span></span></span> – if <a class="reference internal" href="#namespace_sil_kit_1_1_experimental_1_1_services_1_1_lin_1a6c76e854f83278d4fb74d893fbb141f6"><span class="std std-ref">InitDynamic()</span></a> has already been called on the LIN Controller. </p></li>
 </ul>
@@ -415,7 +416,7 @@ The values provided by the sender are then used in the <a class="reference inter
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK6SilKit8Services3Lin14ILinController6StatusEv">
-<span id="_CPPv3NK6SilKit8Services3Lin14ILinController6StatusEv"></span><span id="_CPPv2NK6SilKit8Services3Lin14ILinController6StatusEv"></span><span id="SilKit::Services::Lin::ILinController::StatusC"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1ae7d9cdad6ad3e4f13b388ed6803e6cb8"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Status</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">noexcept</span></span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin19LinControllerStatusE" title="SilKit::Services::Lin::LinControllerStatus"><span class="n"><span class="pre">LinControllerStatus</span></span></a><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4NK6SilKit8Services3Lin14ILinController6StatusEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK6SilKit8Services3Lin14ILinController6StatusEv"></span><span id="_CPPv2NK6SilKit8Services3Lin14ILinController6StatusEv"></span><span id="SilKit::Services::Lin::ILinController::StatusC"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a0d879066fb818b8dc9c6a1dad59ca1a2"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Status</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin19LinControllerStatusE" title="SilKit::Services::Lin::LinControllerStatus"><span class="n"><span class="pre">LinControllerStatus</span></span></a><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4NK6SilKit8Services3Lin14ILinController6StatusEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Get the current status of the LIN Controller, i.e., Operational or Sleep. </p>
 </dd></dl>
 
@@ -431,13 +432,13 @@ The values provided by the sender are then used in the <a class="reference inter
 </p>
 <p><em>AUTOSAR Name:</em> Lin_SendFrame</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>frame</strong> – Provides the LIN identifier, checksum model, and optional data. </p></li>
 <li><p><strong>responseType</strong> – Determines which LIN Node will provide the frame response.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Throws</dt>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">StateError</span></span></span> – if the LIN Controller is not initialized or not a master node. </p></li>
 <li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">StateError</span></span></span> – if <a class="reference internal" href="#namespace_sil_kit_1_1_experimental_1_1_services_1_1_lin_1a6c76e854f83278d4fb74d893fbb141f6"><span class="std std-ref">InitDynamic()</span></a> has been called on the LIN Controller. </p></li>
@@ -451,10 +452,10 @@ The values provided by the sender are then used in the <a class="reference inter
 <span id="_CPPv3N6SilKit8Services3Lin14ILinController15SendFrameHeaderE5LinId"></span><span id="_CPPv2N6SilKit8Services3Lin14ILinController15SendFrameHeaderE5LinId"></span><span id="SilKit::Services::Lin::ILinController::SendFrameHeader__LinId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a227e7bb4579dbb850b51f2c7d1f4129a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SendFrameHeader</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin5LinIdE" title="SilKit::Services::Lin::LinId"><span class="n"><span class="pre">LinId</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">linId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14ILinController15SendFrameHeaderE5LinId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Initiate a LIN data transfer by sending a LIN header (AUTOSAR LIN master interface) </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>linId</strong> – Provides the LIN header identifier. The node that is configured to respond on this ID will complete the transmission and provide the response data.</p>
 </dd>
-<dt class="field-even">Throws</dt>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
 <dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">StateError</span></span></span> – if the LIN Controller is not initialized or not a master node. </p>
 </dd>
 </dl>
@@ -465,10 +466,10 @@ The values provided by the sender are then used in the <a class="reference inter
 <span id="_CPPv3N6SilKit8Services3Lin14ILinController14UpdateTxBufferE8LinFrame"></span><span id="_CPPv2N6SilKit8Services3Lin14ILinController14UpdateTxBufferE8LinFrame"></span><span id="SilKit::Services::Lin::ILinController::UpdateTxBuffer__LinFrame"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a5f99b7c0089b4701a4e85b41e1b6240e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UpdateTxBuffer</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin8LinFrameE" title="SilKit::Services::Lin::LinFrame"><span class="n"><span class="pre">LinFrame</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">frame</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14ILinController14UpdateTxBufferE8LinFrame" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Update the response data. The LIN controller needs to be configured with TxUnconditional on this ID. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>frame</strong> – Provides the LIN ID and data used for the update.</p>
 </dd>
-<dt class="field-even">Throws</dt>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">StateError</span></span></span> – if the LIN Controller is not initialized. </p></li>
 <li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">ConfigurationError</span></span></span> – if the LIN Controller is not configured with TxUnconditional on this ID. </p></li>
@@ -483,10 +484,10 @@ The values provided by the sender are then used in the <a class="reference inter
 <span id="_CPPv3N6SilKit8Services3Lin14ILinController16SetFrameResponseE16LinFrameResponse"></span><span id="_CPPv2N6SilKit8Services3Lin14ILinController16SetFrameResponseE16LinFrameResponse"></span><span id="SilKit::Services::Lin::ILinController::SetFrameResponse__LinFrameResponse"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a389b447f1e3672a894d01c2dbec72683"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetFrameResponse</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin16LinFrameResponseE" title="SilKit::Services::Lin::LinFrameResponse"><span class="n"><span class="pre">LinFrameResponse</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">response</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14ILinController16SetFrameResponseE16LinFrameResponse" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Set a RX/TX configuration during operation. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>response</strong> – The frame and response mode to be configured.</p>
 </dd>
-<dt class="field-even">Throws</dt>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">StateError</span></span></span> – if the LIN Controller is not initialized. </p></li>
 <li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">StateError</span></span></span> – if <a class="reference internal" href="#namespace_sil_kit_1_1_experimental_1_1_services_1_1_lin_1a6c76e854f83278d4fb74d893fbb141f6"><span class="std std-ref">InitDynamic()</span></a> has been called on the LIN Controller. </p></li>
@@ -498,10 +499,10 @@ The values provided by the sender are then used in the <a class="reference inter
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Lin14ILinController9GoToSleepEv">
 <span id="_CPPv3N6SilKit8Services3Lin14ILinController9GoToSleepEv"></span><span id="_CPPv2N6SilKit8Services3Lin14ILinController9GoToSleepEv"></span><span id="SilKit::Services::Lin::ILinController::GoToSleep"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a04e39bc6c4cb2c502aca29cf883652a1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GoToSleep</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14ILinController9GoToSleepEv" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Transmit a go-to-sleep-command and set <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_lin_1a7cc4c5200ecbf1c1ca1dc0baa8f0e380a243924bfd56a682be235638b53961e09"><span class="std std-ref">ControllerState::Sleep</span></a> and enable wake-up. </p>
+<dd><p>Transmit a go-to-sleep-command and set ControllerState::Sleep and enable wake-up. </p>
 <p><em>AUTOSAR Name:</em> Lin_GoToSleep</p>
 <dl class="field-list simple">
-<dt class="field-odd">Throws</dt>
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">StateError</span></span></span> – if the LIN Controller is not initialized or not a master node. </p>
 </dd>
 </dl>
@@ -510,10 +511,10 @@ The values provided by the sender are then used in the <a class="reference inter
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Lin14ILinController17GoToSleepInternalEv">
 <span id="_CPPv3N6SilKit8Services3Lin14ILinController17GoToSleepInternalEv"></span><span id="_CPPv2N6SilKit8Services3Lin14ILinController17GoToSleepInternalEv"></span><span id="SilKit::Services::Lin::ILinController::GoToSleepInternal"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a0e4b25e848f1b6919939747be64d1924"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GoToSleepInternal</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14ILinController17GoToSleepInternalEv" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Set <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_lin_1a7cc4c5200ecbf1c1ca1dc0baa8f0e380a243924bfd56a682be235638b53961e09"><span class="std std-ref">ControllerState::Sleep</span></a> without sending a go-to-sleep command. </p>
+<dd><p>Set ControllerState::Sleep without sending a go-to-sleep command. </p>
 <p><em>AUTOSAR Name:</em> Lin_GoToSleepInternal</p>
 <dl class="field-list simple">
-<dt class="field-odd">Throws</dt>
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">StateError</span></span></span> – if the LIN Controller is not initialized. </p>
 </dd>
 </dl>
@@ -522,10 +523,10 @@ The values provided by the sender are then used in the <a class="reference inter
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Lin14ILinController6WakeupEv">
 <span id="_CPPv3N6SilKit8Services3Lin14ILinController6WakeupEv"></span><span id="_CPPv2N6SilKit8Services3Lin14ILinController6WakeupEv"></span><span id="SilKit::Services::Lin::ILinController::Wakeup"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a752fb41ccb24d931b8f8dd70fc9e11e3"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Wakeup</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14ILinController6WakeupEv" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Generate a wake up pulse and set <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_lin_1a7cc4c5200ecbf1c1ca1dc0baa8f0e380a431accab7897f05b0424e002ca30391d"><span class="std std-ref">ControllerState::Operational</span></a>. </p>
+<dd><p>Generate a wake up pulse and set ControllerState::Operational. </p>
 <p><em>AUTOSAR Name:</em> Lin_Wakeup</p>
 <dl class="field-list simple">
-<dt class="field-odd">Throws</dt>
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">StateError</span></span></span> – if the LIN Controller is not initialized. </p>
 </dd>
 </dl>
@@ -534,10 +535,10 @@ The values provided by the sender are then used in the <a class="reference inter
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Lin14ILinController14WakeupInternalEv">
 <span id="_CPPv3N6SilKit8Services3Lin14ILinController14WakeupInternalEv"></span><span id="_CPPv2N6SilKit8Services3Lin14ILinController14WakeupInternalEv"></span><span id="SilKit::Services::Lin::ILinController::WakeupInternal"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1aaa456ee4ac5d3bef87476d52fd90012e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WakeupInternal</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14ILinController14WakeupInternalEv" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Set <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_lin_1a7cc4c5200ecbf1c1ca1dc0baa8f0e380a431accab7897f05b0424e002ca30391d"><span class="std std-ref">ControllerState::Operational</span></a> without generating a wake up pulse.</p>
+<dd><p>Set ControllerState::Operational without generating a wake up pulse.</p>
 <p><em>AUTOSAR Name:</em> Lin_WakeupInternal</p>
 <dl class="field-list simple">
-<dt class="field-odd">Throws</dt>
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">StateError</span></span></span> – if the LIN Controller is not initialized. </p>
 </dd>
 </dl>
@@ -549,7 +550,7 @@ The values provided by the sender are then used in the <a class="reference inter
 <dd><p>Reports the <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_lin_1ade49010ad726d37233dfdd2d0f562864"><span class="std std-ref">SilKit::Services::Lin::LinFrameStatus</span></a> of a LIN <a class="reference internal" href="#struct_sil_kit_1_1_services_1_1_lin_1_1_lin_frame"><span class="std std-ref">SilKit::Services::Lin::LinFrame</span></a> transmission and provides the transmitted frame. </p>
 <p>The FrameStatusHandler is used for reception and acknowledgement of LIN frames. The direction (prefixed with LIN_TX_ or LIN_RX_) and error state of the tranmission is encoded in the <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_lin_1ade49010ad726d37233dfdd2d0f562864"><span class="std std-ref">SilKit::Services::Lin::LinFrameStatus</span></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
 </dd>
 </dl>
@@ -560,7 +561,7 @@ The values provided by the sender are then used in the <a class="reference inter
 <span id="_CPPv3N6SilKit8Services3Lin14ILinController24RemoveFrameStatusHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services3Lin14ILinController24RemoveFrameStatusHandlerE9HandlerId"></span><span id="SilKit::Services::Lin::ILinController::RemoveFrameStatusHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a494e4f76fb9e9f5a3c4ccf688408c108"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemoveFrameStatusHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14ILinController24RemoveFrameStatusHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a FrameStatusHandler by SilKit::Util::HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
 </dd>
 </dl>
@@ -573,7 +574,7 @@ The values provided by the sender are then used in the <a class="reference inter
 <p>Note: The LIN controller does not automatically enter sleep mode on reception of a go-to-sleep frame. I.e., <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a0e4b25e848f1b6919939747be64d1924"><span class="std std-ref">GoToSleepInternal()</span></a> must be called manually.</p>
 <p>Note: This handler will always be called, independently of the <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_lin_1a89a2e567ad48c02fa548b6d11841e1ec"><span class="std std-ref">SilKit::Services::Lin::LinFrameResponseMode</span></a> configuration for LIN ID 0x3C. However, regarding the FrameStatusHandler, the go-to-sleep frame is treated like every other frame, i.e. the FrameStatusHandler is only called for LIN ID 0x3C if configured as <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_lin_1a89a2e567ad48c02fa548b6d11841e1ecac8600a0cc45fe853cb446a96bb8eae35"><span class="std std-ref">LinFrameResponseMode::Rx</span></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
 </dd>
 </dl>
@@ -584,7 +585,7 @@ The values provided by the sender are then used in the <a class="reference inter
 <span id="_CPPv3N6SilKit8Services3Lin14ILinController22RemoveGoToSleepHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services3Lin14ILinController22RemoveGoToSleepHandlerE9HandlerId"></span><span id="SilKit::Services::Lin::ILinController::RemoveGoToSleepHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a0d4a60bda74d9d652ac65e3476cc4680"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemoveGoToSleepHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14ILinController22RemoveGoToSleepHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a GoToSleepHandler by SilKit::Util::HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
 </dd>
 </dl>
@@ -596,7 +597,7 @@ The values provided by the sender are then used in the <a class="reference inter
 <dd><p>The WakeupHandler is called whenever a wake up pulse is received. </p>
 <p>Note: The LIN controller does not automatically enter operational mode on wake up pulse detection. I.e., WakeInternal() must be called manually.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
 </dd>
 </dl>
@@ -607,7 +608,7 @@ The values provided by the sender are then used in the <a class="reference inter
 <span id="_CPPv3N6SilKit8Services3Lin14ILinController19RemoveWakeupHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services3Lin14ILinController19RemoveWakeupHandlerE9HandlerId"></span><span id="SilKit::Services::Lin::ILinController::RemoveWakeupHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1aad42010c32359ccd662ab973c5c9cdd0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemoveWakeupHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14ILinController19RemoveWakeupHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a WakeupHandler by SilKit::Util::HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
 </dd>
 </dl>
@@ -618,7 +619,7 @@ The values provided by the sender are then used in the <a class="reference inter
 
 </section>
 <section id="data-structures">
-<h3><a class="toc-backref" href="#id12">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this heading"></a></h3>
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Lin8LinFrameE">
 <span id="_CPPv3N6SilKit8Services3Lin8LinFrameE"></span><span id="_CPPv2N6SilKit8Services3Lin8LinFrameE"></span><span id="SilKit::Services::Lin::LinFrame"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_lin_1_1_lin_frame"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LinFrame</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin8LinFrameE" title="Permalink to this definition"></a><br /></dt>
@@ -767,7 +768,7 @@ The values provided by the sender are then used in the <a class="reference inter
 
 </section>
 <section id="enumerations-and-typedefs">
-<h3><a class="toc-backref" href="#id13">Enumerations and Typedefs</a><a class="headerlink" href="#enumerations-and-typedefs" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Enumerations and Typedefs</a><a class="headerlink" href="#enumerations-and-typedefs" title="Permalink to this heading"></a></h3>
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Lin5LinIdE">
 <span id="_CPPv3N6SilKit8Services3Lin5LinIdE"></span><span id="_CPPv2N6SilKit8Services3Lin5LinIdE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_lin_1a80597d23b9f8db519cc0d9650fb736a7"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">LinId</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../capi/capi-lin.html#_CPPv412SilKit_LinId" title="SilKit_LinId"><span class="n"><span class="pre">SilKit_LinId</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin5LinIdE" title="Permalink to this definition"></a><br /></dt>
@@ -776,9 +777,9 @@ The values provided by the sender are then used in the <a class="reference inter
 <p><em>Range:</em> 0…0x3F </p>
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Lin16LinChecksumModelE">
-<span id="_CPPv3N6SilKit8Services3Lin16LinChecksumModelE"></span><span id="_CPPv2N6SilKit8Services3Lin16LinChecksumModelE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_lin_1abfb0b45b4e712325afe7712de2d7f751"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">LinChecksumModel</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin16LinChecksumModelE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services3Lin16LinChecksumModelE"></span><span id="_CPPv2N6SilKit8Services3Lin16LinChecksumModelE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_lin_1abfb0b45b4e712325afe7712de2d7f751"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">LinChecksumModel</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../capi/capi-lin.html#_CPPv423SilKit_LinChecksumModel" title="SilKit_LinChecksumModel"><span class="n"><span class="pre">SilKit_LinChecksumModel</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin16LinChecksumModelE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>The checksum model of a LIN <a class="reference internal" href="#struct_sil_kit_1_1_services_1_1_lin_1_1_lin_frame"><span class="std std-ref">SilKit::Services::Lin::LinFrame</span></a>. </p>
 <p>This type is used to specify the Checksum model to be used for the LIN <a class="reference internal" href="#struct_sil_kit_1_1_services_1_1_lin_1_1_lin_frame"><span class="std std-ref">LinFrame</span></a>.</p>
 <p><em>AUTOSAR Name:</em> Lin_FrameCsModelType </p>
@@ -818,10 +819,10 @@ The values provided by the sender are then used in the <a class="reference inter
 <dd><p>If configured for reception with this value, the data length validation of incoming frames is skipped. </p>
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Lin20LinFrameResponseTypeE">
-<span id="_CPPv3N6SilKit8Services3Lin20LinFrameResponseTypeE"></span><span id="_CPPv2N6SilKit8Services3Lin20LinFrameResponseTypeE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_lin_1ade83b9889926f50a734b410308a8ad4a"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">LinFrameResponseType</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseTypeE" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Controls the behavior of <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a22cf269b1445836f3d1dde378e654d0d"><span class="std std-ref">ILinController::SendFrame()</span></a> </p>
+<span id="_CPPv3N6SilKit8Services3Lin20LinFrameResponseTypeE"></span><span id="_CPPv2N6SilKit8Services3Lin20LinFrameResponseTypeE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_lin_1ade83b9889926f50a734b410308a8ad4a"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">LinFrameResponseType</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../capi/capi-lin.html#_CPPv427SilKit_LinFrameResponseType" title="SilKit_LinFrameResponseType"><span class="n"><span class="pre">SilKit_LinFrameResponseType</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseTypeE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Controls the behavior of <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a22cf269b1445836f3d1dde378e654d0d"><span class="std std-ref">ILinController::SendFrame()</span></a></p>
 <p>Determines whether the master also provides a frame response or if the frame response is expected to be provided from a slave.</p>
 <p><em>AUTOSAR Name:</em> Lin_FrameResponseType </p>
 <p><em>Values:</em></p>
@@ -845,9 +846,9 @@ The values provided by the sender are then used in the <a class="reference inter
 
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Lin20LinFrameResponseModeE">
-<span id="_CPPv3N6SilKit8Services3Lin20LinFrameResponseModeE"></span><span id="_CPPv2N6SilKit8Services3Lin20LinFrameResponseModeE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_lin_1a89a2e567ad48c02fa548b6d11841e1ec"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">LinFrameResponseMode</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseModeE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services3Lin20LinFrameResponseModeE"></span><span id="_CPPv2N6SilKit8Services3Lin20LinFrameResponseModeE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_lin_1a89a2e567ad48c02fa548b6d11841e1ec"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">LinFrameResponseMode</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../capi/capi-lin.html#_CPPv427SilKit_LinFrameResponseMode" title="SilKit_LinFrameResponseMode"><span class="n"><span class="pre">SilKit_LinFrameResponseMode</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin20LinFrameResponseModeE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Controls the behavior of a LIN Slave task for a particular LIN ID. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
@@ -870,9 +871,9 @@ The values provided by the sender are then used in the <a class="reference inter
 
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Lin14LinFrameStatusE">
-<span id="_CPPv3N6SilKit8Services3Lin14LinFrameStatusE"></span><span id="_CPPv2N6SilKit8Services3Lin14LinFrameStatusE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_lin_1ade49010ad726d37233dfdd2d0f562864"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">LinFrameStatus</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14LinFrameStatusE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services3Lin14LinFrameStatusE"></span><span id="_CPPv2N6SilKit8Services3Lin14LinFrameStatusE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_lin_1ade49010ad726d37233dfdd2d0f562864"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">LinFrameStatus</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../capi/capi-lin.html#_CPPv421SilKit_LinFrameStatus" title="SilKit_LinFrameStatus"><span class="n"><span class="pre">SilKit_LinFrameStatus</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin14LinFrameStatusE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>The state of a LIN transmission. </p>
 <p>Used to indicate the success or failure of a LIN transmission to a registered <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1a10f5709d6d519999b7c0e647a2187913"><span class="std std-ref">ILinController::FrameStatusHandler</span></a>.</p>
 <p><em>Note:</em> the enumeration values directly correspond to the AUTOSAR type Lin_StatusType. Not all values are used in the SIL Kit.</p>
@@ -944,11 +945,11 @@ The values provided by the sender are then used in the <a class="reference inter
 
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Lin17LinControllerModeE">
-<span id="_CPPv3N6SilKit8Services3Lin17LinControllerModeE"></span><span id="_CPPv2N6SilKit8Services3Lin17LinControllerModeE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_lin_1adf4bafb1dcc0c630048f7014c4ca3ba5"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">LinControllerMode</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin17LinControllerModeE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services3Lin17LinControllerModeE"></span><span id="_CPPv2N6SilKit8Services3Lin17LinControllerModeE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_lin_1adf4bafb1dcc0c630048f7014c4ca3ba5"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">LinControllerMode</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../capi/capi-lin.html#_CPPv424SilKit_LinControllerMode" title="SilKit_LinControllerMode"><span class="n"><span class="pre">SilKit_LinControllerMode</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin17LinControllerModeE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Used to configure a LIN controller as a master or slave.</p>
-<p>Cf. <a class="reference internal" href="#struct_sil_kit_1_1_services_1_1_lin_1_1_lin_controller_config"><span class="std std-ref">LinControllerConfig</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1afa08859707a1386f08ca6d5f9d933d02"><span class="std std-ref">ILinController::Init()</span></a> </p>
+<p>Cf. <a class="reference internal" href="#struct_sil_kit_1_1_services_1_1_lin_1_1_lin_controller_config"><span class="std std-ref">LinControllerConfig</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_lin_1_1_i_lin_controller_1afa08859707a1386f08ca6d5f9d933d02"><span class="std std-ref">ILinController::Init()</span></a></p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Lin17LinControllerMode8InactiveE">
@@ -977,9 +978,9 @@ The values provided by the sender are then used in the <a class="reference inter
 <p><em>Range:</em> 200…20’000 Bd </p>
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Lin19LinControllerStatusE">
-<span id="_CPPv3N6SilKit8Services3Lin19LinControllerStatusE"></span><span id="_CPPv2N6SilKit8Services3Lin19LinControllerStatusE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_lin_1a7cc4c5200ecbf1c1ca1dc0baa8f0e380"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">LinControllerStatus</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin19LinControllerStatusE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services3Lin19LinControllerStatusE"></span><span id="_CPPv2N6SilKit8Services3Lin19LinControllerStatusE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_lin_1a7cc4c5200ecbf1c1ca1dc0baa8f0e380"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">LinControllerStatus</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../capi/capi-lin.html#_CPPv426SilKit_LinControllerStatus" title="SilKit_LinControllerStatus"><span class="n"><span class="pre">SilKit_LinControllerStatus</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit8Services3Lin19LinControllerStatusE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>The operational state of the controller, i.e., operational or sleeping. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
@@ -1011,7 +1012,7 @@ The values provided by the sender are then used in the <a class="reference inter
 </section>
 </section>
 <section id="usage-examples">
-<h2><a class="toc-backref" href="#id14">Usage Examples</a><a class="headerlink" href="#usage-examples" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Usage Examples</a><a class="headerlink" href="#usage-examples" title="Permalink to this heading"></a></h2>
 <p>This section contains more complex examples that show the interaction of two or more LIN controllers. Although the LIN
 controllers would typically belong to different participants and reside in different processes, their interaction is
 shown here sequentially to demonstrate cause and effect.</p>
@@ -1024,7 +1025,7 @@ shown here sequentially to demonstrate cause and effect.</p>
 It will most likely not be used in practice, and only serves to show the various uses of the API.</p></li>
 </ul>
 <section id="successful-transmission-from-master-to-slave">
-<h3><a class="toc-backref" href="#id15">Successful Transmission from Master to slave</a><a class="headerlink" href="#successful-transmission-from-master-to-slave" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Successful Transmission from Master to slave</a><a class="headerlink" href="#successful-transmission-from-master-to-slave" title="Permalink to this heading"></a></h3>
 <p>This example shows a successful data transfer from a LIN master to a LIN slave. The transmission must be initiated by
 the master.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Copyright (c) 2022 Vector Informatik GmbH</span>
@@ -1121,7 +1122,7 @@ the master.</p>
 </div>
 </section>
 <section id="successful-transmission-from-slave-to-master">
-<h3><a class="toc-backref" href="#id16">Successful Transmission from slave to Master</a><a class="headerlink" href="#successful-transmission-from-slave-to-master" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Successful Transmission from slave to Master</a><a class="headerlink" href="#successful-transmission-from-slave-to-master" title="Permalink to this heading"></a></h3>
 <p>This example shows a successful data transfer from a LIN slave to a LIN master. The transmission must be initiated by
 the master.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Copyright (c) 2022 Vector Informatik GmbH</span>
@@ -1217,7 +1218,7 @@ the master.</p>
 </div>
 </section>
 <section id="successful-transmission-from-slave-to-slave">
-<h3><a class="toc-backref" href="#id17">Successful Transmission from slave to slave</a><a class="headerlink" href="#successful-transmission-from-slave-to-slave" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Successful Transmission from slave to slave</a><a class="headerlink" href="#successful-transmission-from-slave-to-slave" title="Permalink to this heading"></a></h3>
 <p>This example shows how data is transferred from one LIN slave to another one. The data transfer must be initiated by a
 LIN master.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Copyright (c) 2022 Vector Informatik GmbH</span>
@@ -1320,7 +1321,7 @@ LIN master.</p>
 </div>
 </section>
 <section id="erroneous-transmission-from-master-to-slave-multiple-responses">
-<h3><a class="toc-backref" href="#id18">Erroneous Transmission from Master to Slave - Multiple Responses</a><a class="headerlink" href="#erroneous-transmission-from-master-to-slave-multiple-responses" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Erroneous Transmission from Master to Slave - Multiple Responses</a><a class="headerlink" href="#erroneous-transmission-from-master-to-slave-multiple-responses" title="Permalink to this heading"></a></h3>
 <p>This example shows what happens when a master attempts to send a Frame while there is slave that has configured a TX
 response for the same LIN ID.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Copyright (c) 2022 Vector Informatik GmbH</span>
@@ -1416,7 +1417,7 @@ response for the same LIN ID.</p>
 </div>
 </section>
 <section id="erroneous-transmission-from-slave-to-master-no-response">
-<h3><a class="toc-backref" href="#id19">Erroneous Transmission from Slave to Master - No Response</a><a class="headerlink" href="#erroneous-transmission-from-slave-to-master-no-response" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Erroneous Transmission from Slave to Master - No Response</a><a class="headerlink" href="#erroneous-transmission-from-slave-to-master-no-response" title="Permalink to this heading"></a></h3>
 <p>This example shows what happens when a master initiates a transmission and no slave has configured a TX response for
 this LIN ID.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Copyright (c) 2022 Vector Informatik GmbH</span>
@@ -1495,7 +1496,7 @@ this LIN ID.</p>
 </div>
 </section>
 <section id="erroneous-transmission-from-slave-to-master-multiple-responses">
-<h3><a class="toc-backref" href="#id20">Erroneous Transmission from Slave to Master - Multiple Responses</a><a class="headerlink" href="#erroneous-transmission-from-slave-to-master-multiple-responses" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Erroneous Transmission from Slave to Master - Multiple Responses</a><a class="headerlink" href="#erroneous-transmission-from-slave-to-master-multiple-responses" title="Permalink to this heading"></a></h3>
 <p>This example shows what happens when a master initiates a transmission where multiple slaves have configured TX
 responses for the same LIN ID.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Copyright (c) 2022 Vector Informatik GmbH</span>
@@ -1605,7 +1606,7 @@ responses for the same LIN ID.</p>
 </div>
 </section>
 <section id="go-to-sleep">
-<h3><a class="toc-backref" href="#id21">Go To Sleep</a><a class="headerlink" href="#go-to-sleep" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Go To Sleep</a><a class="headerlink" href="#go-to-sleep" title="Permalink to this heading"></a></h3>
 <p>This example shows how to use <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController9GoToSleepEv" title="SilKit::Services::Lin::ILinController::GoToSleep"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">GoToSleep()</span></code></a> and when the controller will switch from operational to sleep mode.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Copyright (c) 2022 Vector Informatik GmbH</span>
 
@@ -1678,11 +1679,11 @@ responses for the same LIN ID.</p>
 <p class="admonition-title">Note</p>
 <p>The <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController16GoToSleepHandlerE" title="SilKit::Services::Lin::ILinController::GoToSleepHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">GoToSleepHandler</span></code></a> is triggered even without configuring ID <code class="docutils literal notranslate"><span class="pre">0x3C</span></code> for reception. However, the
 <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a> for slaves is only called if ID <code class="docutils literal notranslate"><span class="pre">0x3C</span></code> is configured for reception. The master initiated
-the sleep mode, it’s <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a> is called with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14LinFrameStatus9LIN_TX_OKE" title="SilKit::Services::Lin::LIN_TX_OK"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LIN_TX_OK</span></code></a>.</p>
+the sleep mode, it’s <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController18FrameStatusHandlerE" title="SilKit::Services::Lin::ILinController::FrameStatusHandler"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">FrameStatusHandler</span></code></a> is called with <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">LinFrameStatus::LIN_TX_OK</span></code>.</p>
 </div>
 </section>
 <section id="wake-up">
-<h3><a class="toc-backref" href="#id22">Wake Up</a><a class="headerlink" href="#wake-up" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Wake Up</a><a class="headerlink" href="#wake-up" title="Permalink to this heading"></a></h3>
 <p>This example shows how to <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController6WakeupEv" title="SilKit::Services::Lin::ILinController::Wakeup"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Wakeup()</span></code></a> a LIN bus. The example assumes that both master and slave are currently in sleep mode.
 I.e., the situation corresponds to the end of the previous example.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Copyright (c) 2022 Vector Informatik GmbH</span>
@@ -1730,7 +1731,7 @@ I.e., the situation corresponds to the end of the previous example.</p>
 </div>
 </section>
 <section id="aggregated-view-of-responding-lin-slaves-experimental">
-<h3><a class="toc-backref" href="#id23">Aggregated view of responding LIN slaves (experimental)</a><a class="headerlink" href="#aggregated-view-of-responding-lin-slaves-experimental" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Aggregated view of responding LIN slaves (experimental)</a><a class="headerlink" href="#aggregated-view-of-responding-lin-slaves-experimental" title="Permalink to this heading"></a></h3>
 <p>This example shows how the <code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">LinSlaveConfigurationHandler</span></code> provides direct access to the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin16LinFrameResponseE" title="SilKit::Services::Lin::LinFrameResponse"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">LinFrameResponse</span></code></a> configuration of
 all slaves. This can be used by a LIN master to predict if a slave response will be provided prior to the use of <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController9SendFrameE8LinFrame20LinFrameResponseType" title="SilKit::Services::Lin::ILinController::SendFrame"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrame()</span></code></a>
 or <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController15SendFrameHeaderE5LinId" title="SilKit::Services::Lin::ILinController::SendFrameHeader"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrameHeader()</span></code></a>. It is primarily intended for diagnostic purposes and not required for regular operation of a LIN
@@ -1804,7 +1805,7 @@ reside in the <cite>SilKit::Experimental::Services::Lin</cite> namespace and mig
 <dd><p>Initialize the LIN controller with the given LinControllerDynamicConfig. </p>
 <p>All controllers must be initialized exactly once to take part in LIN communication.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>linController</strong> – The controller to act upon </p></li>
 <li><p><strong>dynamicConfig</strong> – The controller configuration contains:<ul>
@@ -1815,7 +1816,7 @@ reside in the <cite>SilKit::Experimental::Services::Lin</cite> namespace and mig
 </p></li>
 </ul>
 </dd>
-<dt class="field-even">Throws</dt>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">StateError</span></span></span> – if the LIN Controller is configured with LinControllerMode::Inactive </p></li>
 <li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">StateError</span></span></span> – if Init() is called a second time on this LIN Controller. </p></li>
@@ -1831,13 +1832,13 @@ reside in the <cite>SilKit::Experimental::Services::Lin</cite> namespace and mig
 <p>This callback is mainly for diagnostic purposes and is NOT needed for regular LIN controller operation. It can be used to call <a class="reference internal" href="#namespace_sil_kit_1_1_experimental_1_1_services_1_1_lin_1a0bd7bfb472393ba06073d09f8977dcdd"><span class="std std-ref">GetSlaveConfiguration</span></a> to keep track of LIN Ids, where a response of a LIN Slave is to be expected.</p>
 <p>Requires <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_lin_1adf4bafb1dcc0c630048f7014c4ca3ba5af03bde11d261f185cbacfa32c1c6538c"><span class="std std-ref">Services::Lin::LinControllerMode::Master</span></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>linController</strong> – The LIN controller to add the handler. </p></li>
 <li><p><strong>handler</strong> – The callback that is triggered upon a configuration update.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
 </dd>
 </dl>
@@ -1849,7 +1850,7 @@ reside in the <cite>SilKit::Experimental::Services::Lin</cite> namespace and mig
 <dd><p>Remove a LinSlaveConfigurationHandler by HandlerId on a given controller. </p>
 <p>Requires <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_lin_1adf4bafb1dcc0c630048f7014c4ca3ba5af03bde11d261f185cbacfa32c1c6538c"><span class="std std-ref">Services::Lin::LinControllerMode::Master</span></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>linController</strong> – The LIN controller to remove the handler. </p></li>
 <li><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p></li>
@@ -1864,10 +1865,10 @@ reside in the <cite>SilKit::Experimental::Services::Lin</cite> namespace and mig
 <dd><p>Get the aggregated response configuration of all LIN slaves in the network. </p>
 <p>Requires <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_lin_1adf4bafb1dcc0c630048f7014c4ca3ba5af03bde11d261f185cbacfa32c1c6538c"><span class="std std-ref">Services::Lin::LinControllerMode::Master</span></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>linController</strong> – The LIN controller (master) to providing the view.</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>A struct containing all LinIds on which LIN Slaves have configured <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_lin_1a89a2e567ad48c02fa548b6d11841e1eca27aa3ae03156b0781515a5dde6c77a05"><span class="std std-ref">Services::Lin::LinFrameResponseMode::TxUnconditional</span></a>. </p>
 </dd>
 </dl>
@@ -1878,7 +1879,7 @@ reside in the <cite>SilKit::Experimental::Services::Lin</cite> namespace and mig
 <span id="_CPPv3N6SilKit12Experimental8Services3Lin21AddFrameHeaderHandlerEPN6SilKit8Services3Lin14ILinControllerEN6SilKit12Experimental8Services3Lin21LinFrameHeaderHandlerE"></span><span id="_CPPv2N6SilKit12Experimental8Services3Lin21AddFrameHeaderHandlerEPN6SilKit8Services3Lin14ILinControllerEN6SilKit12Experimental8Services3Lin21LinFrameHeaderHandlerE"></span><span id="SilKit::Experimental::Services::Lin::AddFrameHeaderHandler__SilKit::Services::Lin::ILinControllerP.SilKit::Experimental::Services::Lin::LinFrameHeaderHandler"></span><span class="target" id="namespace_sil_kit_1_1_experimental_1_1_services_1_1_lin_1ac7458388faae2444554fe7b51c405cb0"></span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Experimental</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">AddFrameHeaderHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinControllerE" title="SilKit::Services::Lin::ILinController"><span class="n"><span class="pre">ILinController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">linController</span></span>, <span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Experimental</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">LinFrameHeaderHandler</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">HandlerId</span></span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental8Services3Lin21AddFrameHeaderHandlerEPN6SilKit8Services3Lin14ILinControllerEN6SilKit12Experimental8Services3Lin21LinFrameHeaderHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>The FrameHeaderHandler is called whenever a LIN frame header is received. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
 </dd>
 </dl>
@@ -1889,7 +1890,7 @@ reside in the <cite>SilKit::Experimental::Services::Lin</cite> namespace and mig
 <span id="_CPPv3N6SilKit12Experimental8Services3Lin24RemoveFrameHeaderHandlerEPN6SilKit8Services3Lin14ILinControllerEN6SilKit8Services9HandlerIdE"></span><span id="_CPPv2N6SilKit12Experimental8Services3Lin24RemoveFrameHeaderHandlerEPN6SilKit8Services3Lin14ILinControllerEN6SilKit8Services9HandlerIdE"></span><span id="SilKit::Experimental::Services::Lin::RemoveFrameHeaderHandler__SilKit::Services::Lin::ILinControllerP.SilKit::Services::HandlerId"></span><span class="target" id="namespace_sil_kit_1_1_experimental_1_1_services_1_1_lin_1a3f39b3f368dfd675c1e5b08fd4397408"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Experimental</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">RemoveFrameHeaderHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinControllerE" title="SilKit::Services::Lin::ILinController"><span class="n"><span class="pre">ILinController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">linController</span></span>, <span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental8Services3Lin24RemoveFrameHeaderHandlerEPN6SilKit8Services3Lin14ILinControllerEN6SilKit8Services9HandlerIdE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a FrameHeaderHandler by SilKit::Util::HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>linController</strong> – The controller to act upon </p></li>
 <li><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p></li>
@@ -1903,7 +1904,7 @@ reside in the <cite>SilKit::Experimental::Services::Lin</cite> namespace and mig
 <span id="_CPPv3N6SilKit12Experimental8Services3Lin19SendDynamicResponseEPN6SilKit8Services3Lin14ILinControllerERKN6SilKit8Services3Lin8LinFrameE"></span><span id="_CPPv2N6SilKit12Experimental8Services3Lin19SendDynamicResponseEPN6SilKit8Services3Lin14ILinControllerERKN6SilKit8Services3Lin8LinFrameE"></span><span id="SilKit::Experimental::Services::Lin::SendDynamicResponse__SilKit::Services::Lin::ILinControllerP.SilKit::Services::Lin::LinFrameCR"></span><span class="target" id="namespace_sil_kit_1_1_experimental_1_1_services_1_1_lin_1a56f62510d3ec7f58f016c11dbecd6070"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Experimental</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">SendDynamicResponse</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinControllerE" title="SilKit::Services::Lin::ILinController"><span class="n"><span class="pre">ILinController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">linController</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Lin</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin8LinFrameE" title="SilKit::Services::Lin::LinFrame"><span class="n"><span class="pre">LinFrame</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">linFrame</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6SilKit12Experimental8Services3Lin19SendDynamicResponseEPN6SilKit8Services3Lin14ILinControllerERKN6SilKit8Services3Lin8LinFrameE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Send a response for the previously received LIN header, but only when the controller was initialized using <a class="reference internal" href="#namespace_sil_kit_1_1_experimental_1_1_services_1_1_lin_1a6c76e854f83278d4fb74d893fbb141f6"><span class="std std-ref">InitDynamic</span></a>. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Throws</dt>
+<dt class="field-odd">Throws<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">StateError</span></span></span> – if the LIN Controller is not initialized. </p></li>
 <li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">StateError</span></span></span> – if the LIN controller was not initialized using <a class="reference internal" href="#namespace_sil_kit_1_1_experimental_1_1_services_1_1_lin_1a6c76e854f83278d4fb74d893fbb141f6"><span class="std std-ref">InitDynamic</span></a>. </p></li>

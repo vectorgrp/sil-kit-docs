@@ -1,22 +1,22 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Communication Protocols &mdash; Vector SIL Kit 4.0.56 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>Communication Protocols &mdash; Vector SIL Kit 5.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -29,14 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+
+          
+          
+          <a href="../contents.html" class="icon icon-home">
+            Vector SIL Kit
           </a>
-              <div class="version">
-                4.0.56
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -72,7 +73,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">Licenses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/overview.html">Changelog</a></li>
 </ul>
 
         </div>
@@ -88,9 +89,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="demos.html">Demos</a> &raquo;</li>
-      <li>Communication Protocols</li>
+      <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="demos.html">Demos</a></li>
+      <li class="breadcrumb-item active">Communication Protocols</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/demos/communication.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -104,7 +105,7 @@
 <h1>Communication Protocols<a class="headerlink" href="#communication-protocols" title="Permalink to this heading"></a></h1>
 <p>The demos shown here are build on top of a base implementation that provides general SIL Kit features.
 This allows to separate the demo specific use case (e.g. how to use Ethernet with the SIL Kit) from general features (e.g. setup the SIL Kit lifecycle).</p>
-<div class="contents local topic" id="contents">
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#command-line-arguments" id="id1">Command line arguments</a></p></li>
 <li><p><a class="reference internal" href="#can" id="id2">Can</a></p></li>
@@ -115,9 +116,9 @@ This allows to separate the demo specific use case (e.g. how to use Ethernet wit
 <li><p><a class="reference internal" href="#rpc" id="id7">Rpc</a></p></li>
 <li><p><a class="reference internal" href="#implementation-details" id="id8">Implementation details</a></p></li>
 </ul>
-</div>
+</nav>
 <section id="command-line-arguments">
-<h2><a class="toc-backref" href="#id1">Command line arguments</a><a class="headerlink" href="#command-line-arguments" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Command line arguments</a><a class="headerlink" href="#command-line-arguments" title="Permalink to this heading"></a></h2>
 <p>The following arguments are available for all demos described in this chapter:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">-h, --help                   | Get this help.</span>
 <span class="go">-n, --name &lt;name&gt;            | The participant name used to take part in the simulation.</span>
@@ -182,7 +183,7 @@ E.g., instead of <code class="docutils literal notranslate"><span class="pre">./
 </div>
 </section>
 <section id="can">
-<span id="sec-can-demo"></span><h2><a class="toc-backref" href="#id2">Can</a><a class="headerlink" href="#can" title="Permalink to this heading"></a></h2>
+<span id="sec-can-demo"></span><h2><a class="toc-backref" href="#id2" role="doc-backlink">Can</a><a class="headerlink" href="#can" title="Permalink to this heading"></a></h2>
 <dl>
 <dt>Abstract</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">CanWriter</span></code> participant sends Can frames to the <code class="docutils literal notranslate"><span class="pre">CanReader</span></code> participant including frame acknowledgment handling.</p>
 </dd>
@@ -240,7 +241,7 @@ Otherwise, the payloads are interpreted as strings.</p></li>
 </dl>
 </section>
 <section id="ethernet">
-<span id="sec-eth-demo"></span><h2><a class="toc-backref" href="#id3">Ethernet</a><a class="headerlink" href="#ethernet" title="Permalink to this heading"></a></h2>
+<span id="sec-eth-demo"></span><h2><a class="toc-backref" href="#id3" role="doc-backlink">Ethernet</a><a class="headerlink" href="#ethernet" title="Permalink to this heading"></a></h2>
 <dl>
 <dt>Abstract</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">EthernetWriter</span></code> participant sends Ethernet frames to the <code class="docutils literal notranslate"><span class="pre">EthernetReader</span></code> participant including frame acknowledgment handling.</p>
 </dd>
@@ -295,7 +296,7 @@ Otherwise, the payloads are interpreted as strings.</p></li>
 </dl>
 </section>
 <section id="lin">
-<span id="sec-lin-demo"></span><h2><a class="toc-backref" href="#id4">Lin</a><a class="headerlink" href="#lin" title="Permalink to this heading"></a></h2>
+<span id="sec-lin-demo"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink">Lin</a><a class="headerlink" href="#lin" title="Permalink to this heading"></a></h2>
 <dl>
 <dt>Abstract</dt><dd><p>A two-node Lin Setup with a <code class="docutils literal notranslate"><span class="pre">LinMaster</span></code> and a <code class="docutils literal notranslate"><span class="pre">LinSlave</span></code>.
 Includes a simple scheduling mechanism and demonstrates controller sleep / wakeup handling.</p>
@@ -351,7 +352,7 @@ Defaults to ‘LIN1’.</p></li>
 </dl>
 </section>
 <section id="flexray">
-<span id="sec-flexray-demo"></span><h2><a class="toc-backref" href="#id5">FlexRay</a><a class="headerlink" href="#flexray" title="Permalink to this heading"></a></h2>
+<span id="sec-flexray-demo"></span><h2><a class="toc-backref" href="#id5" role="doc-backlink">FlexRay</a><a class="headerlink" href="#flexray" title="Permalink to this heading"></a></h2>
 <dl>
 <dt>Abstract</dt><dd><p>A two-node FlexRay Setup with a full cluster and node parametrization. Includes POC Status handling, buffer updates and reconfiguration.
 This Demo requires a separate <code class="docutils literal notranslate"><span class="pre">Network</span> <span class="pre">Simulator</span></code> application to simulate the details of the FlexRay cluster, which is not included in the SIL Kit.</p>
@@ -406,7 +407,7 @@ sil-kit-network-simulator ./SilKit-Demos/FlexRay/NetworkSimulatorConfig.yaml
 </dl>
 </section>
 <section id="publish-subscribe">
-<span id="sec-pubsub-demo"></span><h2><a class="toc-backref" href="#id6">Publish/Subscribe</a><a class="headerlink" href="#publish-subscribe" title="Permalink to this heading"></a></h2>
+<span id="sec-pubsub-demo"></span><h2><a class="toc-backref" href="#id6" role="doc-backlink">Publish/Subscribe</a><a class="headerlink" href="#publish-subscribe" title="Permalink to this heading"></a></h2>
 <dl>
 <dt>Abstract</dt><dd><p>One participant publishes GPS and temperature data, another participant subscribes to these topics.
 Including (de-)serialization of the C++ structures into a transmittable format.</p>
@@ -459,7 +460,7 @@ Including (de-)serialization of the C++ structures into a transmittable format.<
 </dl>
 </section>
 <section id="rpc">
-<span id="sec-rpc-demo"></span><h2><a class="toc-backref" href="#id7">Rpc</a><a class="headerlink" href="#rpc" title="Permalink to this heading"></a></h2>
+<span id="sec-rpc-demo"></span><h2><a class="toc-backref" href="#id7" role="doc-backlink">Rpc</a><a class="headerlink" href="#rpc" title="Permalink to this heading"></a></h2>
 <dl>
 <dt>Abstract</dt><dd><p>The Rpc server participant provides two simple functions which are called by a Rpc client participant.
 Includes (de-)serialization of the function parameters.</p>
@@ -512,7 +513,7 @@ Includes (de-)serialization of the function parameters.</p>
 </dl>
 </section>
 <section id="implementation-details">
-<h2><a class="toc-backref" href="#id8">Implementation details</a><a class="headerlink" href="#implementation-details" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Implementation details</a><a class="headerlink" href="#implementation-details" title="Permalink to this heading"></a></h2>
 <p>The base implementation of the demos is located in <code class="docutils literal notranslate"><span class="pre">Demos\include\ApplicationBase.hpp</span></code>.</p>
 <p>Further, the participant pairs of the demos share some common behavior like printing frames, status handling or small helper classes.
 This is located in the header <code class="docutils literal notranslate"><span class="pre">&lt;DemoName&gt;Common.hpp</span></code> of the respective demo folders.</p>

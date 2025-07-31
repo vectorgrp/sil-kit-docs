@@ -1,0 +1,1025 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Version 2.xx and older &mdash; Vector SIL Kit 5.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Version 3.xx" href="3.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../contents.html" class="icon icon-home">
+            Vector SIL Kit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Vector SIL Kit Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../for-users/users.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../for-developers/developers.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../simulation/simulation.html">Simulation Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api.html">C/C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demos/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../for-developers/versioning.html">Semantic Versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../licenses/license.html">Licenses</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">Changelog</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="latest.html">[5.0.0] - 2025-07-29</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.html">Version 4.xx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.html">Version 3.xx</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Version 2.xx and older</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#added">Added</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">[2.0.0] - 2019-11-06</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changed">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fixed">Fixed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deprecated">Deprecated</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compatibility-with-1-1-0">Compatibility with 1.1.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">[1.1.0] - 2019-09-16</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Fixed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#removed">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compatibility-with-1-0-0">Compatibility with 1.0.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#qa-2019-09-25">[1.0.0-QA] - 2019-09-25</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Fixed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compatibility-with-sprint-31">Compatibility with Sprint-31</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sprint-31-2019-08-14">[Sprint-31] - 2019-08-14</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Fixed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compatibility-with-sprint-30">Compatibility with Sprint-30</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sprint-30-2019-07-31">[Sprint-30] - 2019-07-31</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Fixed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interface-compatibility-with-sprint-29">Interface compatibility with Sprint-29</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sprint-29-2019-07-17">[Sprint-29] - 2019-07-17</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Fixed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interface-compatibility-with-sprint-28">Interface compatibility with Sprint-28</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sprint-28-2019-07-03">[Sprint-28] - 2019-07-03</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Fixed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interface-compatibility-with-sprint-27">Interface compatibility with Sprint-27:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sprint-27-2019-06-19">[Sprint-27] - 2019-06-19</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">Fixed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interface-compatibility-with-previous-version">Interface compatibility with previous version:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sprint-26-2019-05-29">[Sprint-26] - 2019-05-29</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">Fixed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sprint-25-2019-05-14">[Sprint-25] - 2019-05-14</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id23">Fixed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sprint-24-2019-03-13">[Sprint-24] - 2019-03-13</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">Changed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sprint-23-2019-02-20">[Sprint-23] - 2019-02-20</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sprint-22-2019-02-06">[Sprint-22] - 2019-02-06</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id26">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id27">Fixed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sprint-21-2019-01-23">[Sprint-21] - 2019-01-23</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id29">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id30">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id31">Fixed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sprint-20-2018-12-19">[Sprint-20] - 2018-12-19</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id32">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id33">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id34">Changed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sprint-19-2018-12-05">[Sprint-19] - 2018-12-05</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id35">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id36">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id37">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id38">Fixed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sprint-18-2018-11-21">[Sprint-18] - 2018-11-21</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id39">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id40">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id41">Changed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sprint-17-2018-11-07">[Sprint-17] - 2018-11-07</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id42">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id43">Changed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sprint-15-2018-10-10">[Sprint-15] - 2018-10-10</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id44">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id45">Fixed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sprint-14-2018-09-27">[Sprint-14] - 2018-09-27</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id46">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id47">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id48">Fixed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sprint-13-2018-09-12">[Sprint-13] - 2018-09-12</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id49">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id50">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id51">Changed</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#outdated-references">Outdated References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../overview.html">Changelog</a></li>
+      <li class="breadcrumb-item active">Version 2.xx and older</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/changelog/versions/2-and-older.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="version-2-xx-and-older">
+<h1>Version 2.xx and older<a class="headerlink" href="#version-2-xx-and-older" title="Permalink to this heading"></a></h1>
+<section id="added">
+<h2>Added<a class="headerlink" href="#added" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>The history length of a publisher can now be overridden in the participant configuration.</p></li>
+</ul>
+<section id="id1">
+<h3>[2.0.0] - 2019-11-06<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id2">
+<h2>Added<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p>New watchdog functionality for SimTasks with soft and hard limits. Whenever a
+SimTask runs longer than the soft limit, a warning is logged. If it runs
+longer than the hard limit, the participant switches to the error state.</p></li>
+<li><p>New config section for ParticipantControllers. Here, you can specify the execution time limits for SimTasks and specify the SyncType. E.g.,</p>
+<blockquote>
+<div><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;ParticipantController&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;SyncType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;DiscreteTime&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;ExecTimeLimitSoftMs&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1010</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;ExecTimeLimitHardMs&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1500</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>New ParticipantControllerBuilder. When using the builder pattern to generate
+an Ib Config, the ParticipantController can be configured via
+ParticipantBuilder::AddParticipantController().</p></li>
+<li><p>New Ethernet Trace Logging in the PCAP Format. Trace logs can be written to files
+or named pipes.</p></li>
+<li><p>New config parameters are added for EthernetControllers. Here, you can specify
+the PCAP trace filename or the name of the pipe. For example:</p>
+<blockquote>
+<div><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;EthernetControllers&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">&quot;Name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ETH0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;MacAddr&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;F6:04:68:71:AA:C2&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;PcapFile&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;EthernetReader.pcap&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;PcapPipe&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;EthernetReaderPipe&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Added WithPcapFile and WithPcapPipe methods for ControllerBuilder&lt;EthernetController&gt;.
+When using the builder pattern to generate an Ib Config, PCAP tracing can be configured
+with the new methods.</p></li>
+</ul>
+</section>
+<section id="changed">
+<h2>Changed<a class="headerlink" href="#changed" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Transitions from the shutdown state to the error state are no longer allowed.
+With the recently added connection loss detection, participants could also
+enter the error state after a normal shutdown, which is now prevented.</p></li>
+<li><p>Implemented new versioning schema. As of now, the following semantic
+versioning schema is applied:</p>
+<ul>
+<li><p>major number changes indicate breaks on a network layer</p></li>
+<li><p>minor number changes indicate API of config format breaks</p></li>
+<li><p>patch number changes indicate any other non-breaking changes.</p></li>
+</ul>
+</li>
+<li><p>Added a canId field to the CanTransmitAcknowledge data type. This was required
+for a bug fix and is a breaking change on the network layer.</p></li>
+<li><p>Added a sourceMac field to the EthTransmitAcknowledge data type. This was
+required for a bug fix and is breaking change on the network layer.</p></li>
+</ul>
+</section>
+<section id="fixed">
+<h2>Fixed<a class="headerlink" href="#fixed" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>CAN controllers now only call the TransmitStatusHandler if they did send the
+corresponding CAN message. Previously, in a simulation with more than two CAN
+controllers, the callback could be triggered without having sent a message.</p></li>
+<li><p>Ethernet controllers now only call the MessageAckHandler if they did send the
+corresponding ethernet message. Previously, in a simulation with more than two
+ethernet controllers, the callback could be triggered without having sent a
+message.</p></li>
+</ul>
+</section>
+<section id="deprecated">
+<h2>Deprecated<a class="headerlink" href="#deprecated" title="Permalink to this heading"></a></h2>
+<ul>
+<li><p>The Participant config setting SyncType has been deprecated. The SyncType is
+now configured in the ParticipantController section.</p>
+<ul>
+<li><p>old:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;SyncType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;DiscreteTime&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>new:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;ParticipantController&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;SyncType&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;DiscreteTime&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>The SyncType::Unsynchronized is no longer used. Only participants with a
+ParticipantController configuration are synchronized. I.e., you can simple
+remove the “SyncType”: “Unsynchronized” from SystemMonitors.</p></li>
+<li><p>The ParticipantBuilder::WithSyncType() has been deprecated. Use
+ParticipantConfigBuilder::WithSyncType() instead.</p>
+<ul>
+<li><p>old:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">simulationSetup</span><span class="p">.</span><span class="n">AddParticipant</span><span class="p">(</span><span class="s">&quot;P1&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">WithSyncType</span><span class="p">(</span><span class="n">SyncType</span><span class="o">::</span><span class="n">DiscreteTime</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p>new:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">simulationSetup</span><span class="p">.</span><span class="n">AddParticipant</span><span class="p">(</span><span class="s">&quot;P1&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">AddParticipantController</span><span class="p">().</span><span class="n">WithSyncType</span><span class="p">(</span><span class="n">SyncType</span><span class="o">::</span><span class="n">DiscreteTime</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="compatibility-with-1-1-0">
+<h2>Compatibility with 1.1.0<a class="headerlink" href="#compatibility-with-1-1-0" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Application binary interface (ABI): No</p></li>
+<li><p>Application software interface (API): Yes</p></li>
+<li><p>Middleware network protocol (FastRTPS): Partially (Everything except for CAN and Ethernet is compatible)</p></li>
+<li><p>Middleware network protocol (VAsio): Partially (Everything except CAN and Ethernet is compatible)</p></li>
+</ul>
+<section id="id3">
+<h3>[1.1.0] - 2019-09-16<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id4">
+<h2>Added<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Added a connection loss mechanism in FastRTPS and VAsio middleware. Lossing the
+connection of one participant will lead the system to go into Error state.</p></li>
+<li><p>When logging at trace level, a log entry is now written for each incoming and
+outgoing IbMessage.</p></li>
+<li><p>When logging at trace level, the wait times and execution times per tick are
+now logged.</p></li>
+<li><p>The creation of a ComAdapter is now logged. The log entry includes the used
+VIB version.</p></li>
+<li><p>Connection losses during the simulation are now detected. The are reported as
+an updated ParticipantStatus with State Error and a note that the connection
+was lost.</p></li>
+</ul>
+</section>
+<section id="id5">
+<h2>Fixed<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fixed FlexRay parameter validation, which could cause valid parameter sets to
+be rejected. E.g., gdSymbolWindows has a valid range from 0 to 162, but we
+check for 1 to 139.</p></li>
+<li><p>Fixed a racecondition when starting up a VAsio simulation. As VAsio does not
+have a history, it could happen that some participants did not receive all
+ParticipantStatus values.</p></li>
+</ul>
+</section>
+<section id="removed">
+<span id="changelog-1-0-0-removed"></span><h2>Removed<a class="headerlink" href="#removed" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>IComAdapter::RegisterNewPeerCallback() was removed. This method was only
+intended as an IB-internal helper method and never officially announced as
+part of the public API.</p></li>
+</ul>
+</section>
+<section id="compatibility-with-1-0-0">
+<h2>Compatibility with 1.0.0<a class="headerlink" href="#compatibility-with-1-0-0" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Application binary interface (ABI): No</p></li>
+<li><p>Application software interface (API): No (cf. <a class="reference internal" href="#changelog-1-0-0-removed"><span class="std std-ref">Removed</span></a>)</p></li>
+<li><p>Middleware network protocol (FastRTPS): Yes</p></li>
+<li><p>Middleware network protocol (VAsio): Yes</p></li>
+</ul>
+<section id="qa-2019-09-25">
+<h3>[1.0.0-QA] - 2019-09-25<a class="headerlink" href="#qa-2019-09-25" title="Permalink to this heading"></a></h3>
+<p>This is a Quality Assured Release.</p>
+</section>
+</section>
+<section id="id6">
+<h2>Added<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>The logging facilities can now be configured per participant using the IB
+config. E.g., different sinks and log levels can be configured.</p></li>
+</ul>
+</section>
+<section id="id7">
+<h2>Changed<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>The LIN API was redesigned to provide a clearer and simpler interface. To make
+the transition to the new API as simple as possible, we provided extensive
+documentation on the new API itself including usage examples and information
+about what changed in the new API: <a class="reference internal" href="../../api/services/lin.html"><span class="doc">LIN Service API</span></a></p></li>
+<li><p>Removed spdlog from the public IB API. Spdlog is still used internally but it
+has been removed from the public API to avoid conflicts with user specific
+spdlog installations.</p></li>
+<li><p>The CMake build options BUILD_TESTS and BUILD_DOCS were renamed to
+IB_BUILD_TESTS and IB_BUILD_DOCS.</p></li>
+<li><p>The Tools folder has been renamed to Utilities to differentiate it more
+clearly from build tools. For the time being, the IbRegistry is the only
+utility.</p></li>
+</ul>
+</section>
+<section id="id8">
+<h2>Fixed<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fixed a crash in the IbLauncher when the IbConfig did not specify a
+MiddlewareConfig or an ActiveMiddleware.</p></li>
+<li><p>Fixed a crash when creating a ComAdapter with the same participant name as a
+previously destroyed one. The crash originated in spdlog.</p></li>
+<li><p>Fixed a crash in the VAsioConnection destructor due to a wrong member order.</p></li>
+<li><p>Fixed the Fast-RTPS submodule from v1.7.0 to v1.8.1, which got broken during a
+merge.</p></li>
+<li><p>The old, unmaintained CHANGELOG.md is no longer installed. Instead, the
+CHANGELOG.rst is installed in addition to the HTML documentation.</p></li>
+</ul>
+</section>
+<section id="compatibility-with-sprint-31">
+<h2>Compatibility with Sprint-31<a class="headerlink" href="#compatibility-with-sprint-31" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Application binary interface (ABI): No</p></li>
+<li><p>Application software interface (API): No</p></li>
+<li><p>Middleware network protocol (FastRTPS): Partially (Everything except LIN is compatible)</p></li>
+<li><p>Middleware network protocol (VAsio): Partially (Everything except LIN is compatible)</p></li>
+</ul>
+<section id="sprint-31-2019-08-14">
+<h3>[Sprint-31] - 2019-08-14<a class="headerlink" href="#sprint-31-2019-08-14" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id9">
+<h2>Added<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>New VAsio middleware as an alternative to Fast-RTPS, the VAsio middleware was
+specifically developped for the integration bus to provide high performance and
+stability. Cf. <a class="reference internal" href="../../configuration/middleware-configuration.html"><span class="doc">Middleware Configuration</span></a>.</p></li>
+</ul>
+</section>
+<section id="id10">
+<h2>Changed<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Upgrade Fast-RTPS to version v1.8.1. This improves stability on Linux.</p></li>
+</ul>
+</section>
+<section id="id11">
+<h2>Fixed<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fixed a crash in the IbLauncher when the IbConfig did not specify a
+MiddlewareConfig or an ActiveMiddleware.</p></li>
+</ul>
+</section>
+<section id="compatibility-with-sprint-30">
+<h2>Compatibility with Sprint-30<a class="headerlink" href="#compatibility-with-sprint-30" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Application binary interface (ABI): No</p></li>
+<li><p>Application software interface (API): Yes</p></li>
+<li><p>Middleware network protocol (FastRTPS): Yes</p></li>
+<li><p>Middleware network protocol (VAsio): No</p></li>
+</ul>
+<section id="sprint-30-2019-07-31">
+<h3>[Sprint-30] - 2019-07-31<a class="headerlink" href="#sprint-30-2019-07-31" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id12">
+<h2>Fixed<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Attempting to create a ComAdapter with an empty name will now throw
+a misconfiguration exception with a proper error message.</p></li>
+</ul>
+</section>
+<section id="interface-compatibility-with-sprint-29">
+<h2>Interface compatibility with Sprint-29<a class="headerlink" href="#interface-compatibility-with-sprint-29" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Application binary interface (ABI): Yes</p></li>
+<li><p>Application software interface (API): Yes</p></li>
+<li><p>Application middleware interface: Yes</p></li>
+</ul>
+<section id="sprint-29-2019-07-17">
+<h3>[Sprint-29] - 2019-07-17<a class="headerlink" href="#sprint-29-2019-07-17" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id13">
+<h2>Added<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>It is now possible to reconfigure FlexRay TX-Buffers during the simulation, e.g., to change offset
+and repetition. Cf. <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">IFrController::ReconfigureTxBuffer()</span></code></p></li>
+</ul>
+</section>
+<section id="id14">
+<h2>Changed<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>This is the last entry to CHANGELOG.md. From now on, the changelog
+will be maintained in docs/CHANGELOG.rst.</p></li>
+<li><p>The IB API Headers are no longer added to every project. Instead, a dedicated
+header project IbApi has been added.</p></li>
+<li><p>The IbLauncher now prefers Python 3 if available</p></li>
+</ul>
+</section>
+<section id="id15">
+<h2>Fixed<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fix logger nullptr bug in SystemMonitor</p></li>
+<li><p>Fast-RTPS ComAdapter creation is now thread safe</p></li>
+</ul>
+</section>
+<section id="interface-compatibility-with-sprint-28">
+<h2>Interface compatibility with Sprint-28<a class="headerlink" href="#interface-compatibility-with-sprint-28" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Application binary interface (ABI): No</p></li>
+<li><p>Application software interface (API): Yes</p></li>
+<li><p>Application middleware interface: Yes</p></li>
+</ul>
+<section id="sprint-28-2019-07-03">
+<h3>[Sprint-28] - 2019-07-03<a class="headerlink" href="#sprint-28-2019-07-03" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id16">
+<h2>Added<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>New demo that shows how integration tests can be written for the Vector Integration Bus.</p></li>
+</ul>
+</section>
+<section id="id17">
+<h2>Fixed<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>IbLauncher can now be started from every directory location on Linux and Windows. The global
+IntegrationBus-BinPath and IntegrationBus-LibPath are now set to absolute paths inside the
+IbLauncher project. Furthermore, the IbLauncher shell script now sets absolute paths for the bin
+and lib path.</p></li>
+<li><p>FastRTPS socket buffer sizes now use default values when not set in IbConfig. This could lead to
+random socket buffer sizes in release builds.</p></li>
+<li><p>VIB integration tests now can be launched directly from the Visual Studio test runner.</p></li>
+</ul>
+</section>
+<section id="interface-compatibility-with-sprint-27">
+<h2>Interface compatibility with Sprint-27:<a class="headerlink" href="#interface-compatibility-with-sprint-27" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Application binary interface (ABI): Yes</p></li>
+<li><p>Application software interface (API): Yes</p></li>
+<li><p>Application middleware interface: Yes</p></li>
+</ul>
+<section id="sprint-27-2019-06-19">
+<h3>[Sprint-27] - 2019-06-19<a class="headerlink" href="#sprint-27-2019-06-19" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id18">
+<h2>Changed<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>NetworkSimulator VIBE is now only used for configured links. For all other links,
+the trivial simulation is used.</p></li>
+</ul>
+</section>
+<section id="id19">
+<h2>Fixed<a class="headerlink" href="#id19" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>The IB Launcher will now work if installed in a path containing spaces.</p></li>
+<li><p>The FlexRay configuration will now use strings to represent the enumeration values of pChannels,
+pWakeupChannel, and pdMicrotick, as well as channels and transmissionMode for the TxBuffers. The
+new valid values are:</p>
+<ul>
+<li><p>Channels: “A”, B”, or “AB”</p></li>
+<li><p>pdMicrotick: “12.5ns”, “25ns”, or “50ns”</p></li>
+<li><p>transmissionMode: “Continuous” or “SingleShot”</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="interface-compatibility-with-previous-version">
+<h2>Interface compatibility with previous version:<a class="headerlink" href="#interface-compatibility-with-previous-version" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Application binary interface (ABI): No</p></li>
+<li><p>Application software interface (API): Yes</p></li>
+<li><p>Application middleware interface: Yes</p></li>
+</ul>
+<section id="sprint-26-2019-05-29">
+<h3>[Sprint-26] - 2019-05-29<a class="headerlink" href="#sprint-26-2019-05-29" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id20">
+<h2>Added<a class="headerlink" href="#id20" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>New FlexRay controller callback
+<code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">IFrController::CycleStartHandler()</span></code>,
+which is called at the start of each FlexRay cycle. Only available
+VIBE simulation.</p></li>
+<li><p>New config option for FastRTPS middleware to configure SocketBuffer sizes</p></li>
+<li><p>New config options to configure FlexRay TxBuffers</p></li>
+</ul>
+</section>
+<section id="id21">
+<h2>Fixed<a class="headerlink" href="#id21" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fixed broken CMake target for installed IntegrationBus target:
+With the introduction of spdlog, the IntegrationBus cmake target depends on spdlog::spdlog target.
+However, the spdlog::spdlog target was not installed (only header files were copied, but no cmake
+config file was generated). Thus, the installed IntegrationBus target could not be used from cmake.</p></li>
+</ul>
+<section id="sprint-25-2019-05-14">
+<h3>[Sprint-25] - 2019-05-14<a class="headerlink" href="#sprint-25-2019-05-14" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id22">
+<h2>Added<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>The FlexRay cluster and node configuration can now be specified in the IbConfig.json.</p></li>
+<li><p>It is now possible to use
+<code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SetResponse()</span></code>
+and
+<code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">RequestMessage()</span></code>
+on LIN <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">Controllers</span></code> configured as master. This can be used to send a
+LIN message from a master to slaves instead of the
+<code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendMessage()</span></code>.</p></li>
+</ul>
+</section>
+<section id="id23">
+<h2>Fixed<a class="headerlink" href="#id23" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>LIN Controller models are now robust to out-of-order configuration. It is no longer necessary to
+configure the master node before the slaves. And the master can handle an out-of-order
+configuration, e.g., if a response reaches the master before the response configuration.</p></li>
+</ul>
+<section id="sprint-24-2019-03-13">
+<h3>[Sprint-24] - 2019-03-13<a class="headerlink" href="#sprint-24-2019-03-13" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id24">
+<h2>Added<a class="headerlink" href="#id24" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Support to swap out participants between simulation runs. A participant can activate the so called
+coldswap feature by calling
+<code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">IParticipantController::EnableColdswap()</span></code>.
+The coldswap process can be initiated by a system controller once the system is in state stopped.</p></li>
+<li><p>Participants can now signal that they are alive by refreshing the participant status. This can be
+done by calling
+<code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">IParticipantController::RefreshStatus()</span></code> and
+is reflected in the new field ParticipantStatus::refreshTime.</p></li>
+<li><p>Logging is finally here. We’ve integrated spdlog and enabled distributed logging with a new spdlog
+sink. The FastRtpsComAdapter automatically creates an spdlogger with this sink. You can access
+this logger via <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">IComAdapter::GetLogger()</span></code> and add
+any further sinks, e.g., to print logging messages to std out. Examples for this can be found in
+the CAN demo and in the PassiveSystemMonitor.</p></li>
+</ul>
+</section>
+<section id="id25">
+<h2>Changed<a class="headerlink" href="#id25" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>The signature of simulation tasks has changed from void(std::chrono::nanoseconds now) to
+void(std::chrono::nanoseconds now, std::chrono::nanoseconds duration). The guaranteed simulation
+time that can be processed is [now, now+duration). The old signature is still available but is now
+considered deprecated and will be removed in a future sprint.</p></li>
+</ul>
+<section id="sprint-23-2019-02-20">
+<h3>[Sprint-23] - 2019-02-20<a class="headerlink" href="#sprint-23-2019-02-20" title="Permalink to this heading"></a></h3>
+</section>
+<section id="sprint-22-2019-02-06">
+<h3>[Sprint-22] - 2019-02-06<a class="headerlink" href="#sprint-22-2019-02-06" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id26">
+<h2>Added<a class="headerlink" href="#id26" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>The IbConfig is now validated before creating a ComAdapter. NB: ib::CreateFastRtpsComAdapter()
+will now also throw Misconfiguration exceptions!</p></li>
+</ul>
+</section>
+<section id="id27">
+<h2>Fixed<a class="headerlink" href="#id27" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>The IbLauncher now correctly shows both stdout and stderr. Previously, only stdout was shown.</p></li>
+</ul>
+<section id="sprint-21-2019-01-23">
+<h3>[Sprint-21] - 2019-01-23<a class="headerlink" href="#sprint-21-2019-01-23" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id28">
+<h2>Added<a class="headerlink" href="#id28" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Strict sync, i.e., calling wait_for_all_acked() between ticks, is now
+configurable via the IbConfig.json: SimulationSetup/TimeSync/SyncPolicy.</p></li>
+<li><p>If a participant is configured as SyncMaster, the corresponding
+ComAdapter will now automatically create the SyncMaster instance.</p></li>
+</ul>
+</section>
+<section id="id29">
+<h2>Removed<a class="headerlink" href="#id29" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>SimulationSetup/TimeSync/SyncType has been removed
+from the IbConfig.json as the SyncType can now be configured per participant.</p></li>
+<li><p>IParticipantController::EnableStrictSync() has been removed.
+This is now handled automatically according to the configured SyncPolicy.</p></li>
+</ul>
+</section>
+<section id="id30">
+<h2>Changed<a class="headerlink" href="#id30" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>The TimeSyncConfigBuilder is now accessed ib::cfg::SimulationSetupBuilder::ConfigureTimeSync().
+Old: ib::cfg::SimulationSetupBuilder::SetSyncType(SyncType).</p></li>
+<li><p>ComAdapter is now configured automatically according to SyncPolicy. Only in
+strict mode, wait_for_all_acked() is used and a short heartbeat period is used.</p></li>
+<li><p>IComAdapter::CreateSyncMaster() was renamed to IComAdapter::GetSyncMaster() since the
+SyncMaster is automatically instantiated by the FastRtpsComAdapter if configured.</p></li>
+</ul>
+</section>
+<section id="id31">
+<h2>Fixed<a class="headerlink" href="#id31" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>SystemMonitor was made more robust to race conditions that could lead to a IB
+Startup Failure (SystemState stuck in SystemState::Invalid)</p></li>
+</ul>
+<section id="sprint-20-2018-12-19">
+<h3>[Sprint-20] - 2018-12-19<a class="headerlink" href="#sprint-20-2018-12-19" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id32">
+<h2>Added<a class="headerlink" href="#id32" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>LIN: new method ILinController::SetResponseWithChecksum() to override the
+configured checksum model. This can be used to facilitate fault injection and
+simulation.</p></li>
+<li><p>LIN: support for LIN network management (sleep / wakeup). See new methods
+ILinController methods: SetSleepMode(), SetOperationalMode(), SendGoToSleep(),
+SendWakeupRequest() and related callbacks.</p></li>
+</ul>
+</section>
+<section id="id33">
+<h2>Removed<a class="headerlink" href="#id33" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Demo projects ExecutionController and ExecutionControllerProxy were based on
+the deprecated synchronization API and were Removed</p></li>
+</ul>
+</section>
+<section id="id34">
+<h2>Changed<a class="headerlink" href="#id34" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>LIN: IMPORTANT you must now specify a LIN ID for each lin::SlaveResponseConfig.
+lin::SlaveConfig now longer identifies the lin::SlaveResponses by positions.</p></li>
+<li><p>All demo projects Can, Lin, Ethernet, FlexRay, GenericMessage and Io now use
+the new synchronization API.</p></li>
+<li><p>Revised public API:</p>
+<ul>
+<li><p>Renamed files: IoDataTypes.hpp -&gt; IoDatatypes.hpp</p></li>
+<li><p>Fixed inconsistent naming:</p>
+<ul>
+<li><p>IComAdapter.hpp: RegisterCanBusSimulator -&gt; IComAdapter::RegisterCanSimulator</p></li>
+<li><p>CanDatatypes.hpp: Removed ‘e’ prefix from enum classes CanControllerState, CanErrorState, CanTransmitStatus</p></li>
+<li><p>EthDatatypes.hpp: Removed ‘e’ prefix from enum classes EthTransmitStatus, EthState, EthMode</p></li>
+<li><p>IEthController.hpp: Renamed ‘acticate()’, ‘deacticate()’ -&gt; ‘Acticate()’, ‘Deacticate()’</p></li>
+<li><p>ISyncAdapterTtd.hpp: Renamed SetOnTickCallback -&gt; SetTickHandler</p></li>
+<li><p>IGenericSubscriber.hpp: Renamed RegisterCallback -&gt; SetReceiveMessageHandler</p></li>
+<li><p>ISyncMasterDt.hpp: Renamed RegisterShutdownHandler -&gt; SetShutdownHandler</p></li>
+</ul>
+</li>
+<li><p>Moved generic messages into subnamespace: ib::sim -&gt; ib::sim::generic</p></li>
+<li><p>Made include namespaces reflect folder names:
+ib::Simulation::Can|Ethernet|Flexray|Generic|Io|Lin|Kernels -&gt; ib::sim::can|eth|fr|generic|io|lin|kernels</p></li>
+</ul>
+</li>
+</ul>
+<section id="sprint-19-2018-12-05">
+<h3>[Sprint-19] - 2018-12-05<a class="headerlink" href="#sprint-19-2018-12-05" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id35">
+<h2>Added<a class="headerlink" href="#id35" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>New unified SyncMaster that replaces the SyncMasterDt and
+SyncMasterTtd. Requires new state handling with ParticipantController</p></li>
+<li><p>The participant discovery mechanism can now be configured in the
+IbConfig.json, section “MiddlewareConfig/FastRTPS/DiscoveryType”. The default
+is Local, which limits communication to the localhost.</p></li>
+<li><p>The build number of the master branches CD build is now available as
+ib::version::BuildNumber()</p></li>
+<li><p>On windows, version information is now available as metadata of the
+IntegrationBus.dll</p></li>
+</ul>
+</section>
+<section id="id36">
+<h2>Removed<a class="headerlink" href="#id36" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>“MiddlewareConfig/FastRTPS/CommunicationMaster” has been removed
+and replaced with the new DiscoveryType options.</p></li>
+</ul>
+</section>
+<section id="id37">
+<h2>Changed<a class="headerlink" href="#id37" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>SyncMasterDt and SyncMasterTtd are now considered deprecated.</p></li>
+</ul>
+</section>
+<section id="id38">
+<h2>Fixed<a class="headerlink" href="#id38" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Unicast discovery is now working with DiscoveryType Unicast and a list of the
+participants’ IP-Addresses.</p></li>
+</ul>
+<section id="sprint-18-2018-11-21">
+<h3>[Sprint-18] - 2018-11-21<a class="headerlink" href="#sprint-18-2018-11-21" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id39">
+<h2>Added<a class="headerlink" href="#id39" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>New IbLauncher to startup a whole IB System. See /Launcher/README.md for infos
+on how to use (AFTMAGT-120)</p></li>
+<li><p>Version information is now available in the IB library via the following API
+calls: ib::version::Major(), ib::version::Minor(), ib::version::Patch(),
+ib::version::String(), ib::version::SprintNumber(), ib::version::SprintName(),
+ib::version::GitHash() (AFTMAGT-154)</p></li>
+</ul>
+</section>
+<section id="id40">
+<h2>Removed<a class="headerlink" href="#id40" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>LinkId has been removed from CAN, LIN, FlexRay and Ethernet data types, as
+they are no longer needed (see below).</p></li>
+</ul>
+</section>
+<section id="id41">
+<h2>Changed<a class="headerlink" href="#id41" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>LIN masters now directly store slave responses to answer any request without
+delay. Instead of emulating LIN communication over the IB, LIN slaves now send
+newly configured response data to masters. (AFTMAGT-155) NB: calling
+ILinController::RequestMessage() will now trigger a callback to the registered
+MessageHandler before RequestMessage() returns!</p></li>
+<li><p>There is now one FastRTPS topic per link. I.e., if there are two CAN busses
+CAN1 and CAN2 in your configuration, they will now use separate
+topics. Previously, traffic of different links (busses) was separated by a
+linkid field in the message data types and controllers had to filter out
+messages accordingly. This is no longer necessary. (AFTMAGT-140)</p></li>
+</ul>
+<section id="sprint-17-2018-11-07">
+<h3>[Sprint-17] - 2018-11-07<a class="headerlink" href="#sprint-17-2018-11-07" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id42">
+<h2>Added<a class="headerlink" href="#id42" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>New state handling, which is provided by the following classes:</p></li>
+</ul>
+<dl class="simple">
+<dt>– sync::IParticipantController (cf. IComAdapter::GetParticipantController())</dt><dd><p>allows registering callbacks for the different phases of a participant’s life
+time (e.g., Initialization, Running, Stop, Shutdown) and replaces the old
+sync::ISyncAdapterTtd and sync::ISyncAdapterDt.</p>
+</dd>
+<dt>– sync::ISystemMonitor (cf. IComAdapter::GetSystemMonitor()) is a passive</dt><dd><p>component, which never sends data, it allows registering callbacks to observe
+the states of the other participants as well as the global system state.</p>
+</dd>
+<dt>– sync::ISystemController (cf. IComAdapter::GetSystemController()) is the</dt><dd><p>counterpart to the system monitor and allows manipulating the system state,
+e.g., by initializing individual participants.</p>
+</dd>
+<dt>– sync::ISyncMaster (cf. IComAdapter::CreateSyncMaster()) a unified synchronization master</dt><dd><p>(currently only supports simple Tick/TickDone synchronization).</p>
+</dd>
+</dl>
+<p>– Participants can now inidividually specify one of the following synchronization mechanisms:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>DiscreteEvent (not implemented yet)</p></li>
+<li><p>TimeQuantum (Quantum Request and Grant with variable quantum lengths)</p></li>
+<li><p>DiscreteTime (Fixed interval synchronization with participant acknowledgement (Tick/TickDone))</p></li>
+<li><p>DiscreteTimePassive (the participant receives Ticks but does not generate
+TickDone messages and thus does not actively participate in the system
+synchronization), Unsychronized (for participants that are only intended to
+monitor or control the simulation but not participante as an active client)</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>GenericMessage configuration is now available at both IGenericPublisher and
+IGenericSubscriber (AFTMAGT-137)</p></li>
+</ul>
+</section>
+<section id="id43">
+<h2>Changed<a class="headerlink" href="#id43" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>The old state handling including the old SyncAdapters is now considered deprecated!
+This affects the following classes: sync::ISyncAdapterDt, sync::ISyncAdapterTtd,
+sync::ISyncMasterTtd, sync::ISyncMasterDt, sync::IExecutionControllerProxy.
+And the matching factory methods: IComAdapter::CreateSyncAdapterDt(),
+IComAdapter::CreateSyncAdapterTtd(), IComAdapter::CreateSyncMasterTtd(),
+IComAdapter::CreateSyncMasterDt(), IComAdapter::CreateExecutionControllerProxy().</p></li>
+<li><p>The SyncType can now be configured per participant (Currently only DiscreteTime supported)</p></li>
+</ul>
+<section id="sprint-15-2018-10-10">
+<h3>[Sprint-15] - 2018-10-10<a class="headerlink" href="#sprint-15-2018-10-10" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id44">
+<h2>Added<a class="headerlink" href="#id44" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Documentation for throwing behavior at API level (AFTMAGT-50)</p></li>
+<li><p>Doxygen documentation for vehicle network controller APIs (AFTMAGT-126)</p></li>
+<li><p>Automated CI build system for Jenkins CI, cf. folder /IntegrationBus/ci/ (AFTMAGT-55)</p></li>
+<li><p>Support for custom FastRTPS XML configurations; the file name can be
+specified in the ib config (Config.middlewareConfig.fastRtps) (AFTMAGT-138)</p></li>
+</ul>
+</section>
+<section id="id45">
+<h2>Fixed<a class="headerlink" href="#id45" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fixed a bug that caused the FastRTPS communication to sporadically hang (AFTMAGT-126)</p></li>
+<li><p>The number of links for IO ports is no longer limited (AFTMAGT-134)</p></li>
+</ul>
+<section id="sprint-14-2018-09-27">
+<h3>[Sprint-14] - 2018-09-27<a class="headerlink" href="#sprint-14-2018-09-27" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id46">
+<h2>Added<a class="headerlink" href="#id46" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>GenericPublisher::Config() and GenericSubscriber::Config() accessors for corresponding config items. This allows retrieving the name of a Publisher or Subscriber (AFTMAGT-125)</p></li>
+<li><p>ib::cfg::Config::ToJsonString() converts an integration bus config to a parsable json string.</p></li>
+<li><p>CMake install target for the IntegrationBus</p></li>
+<li><p>The generic message demo now uses time synchronization, i.e., an ExecutionController is required to run the demo</p></li>
+</ul>
+</section>
+<section id="id47">
+<h2>Changed<a class="headerlink" href="#id47" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>ExecutionController demo now terminates automatically unless started with –waitForKeyPress</p></li>
+</ul>
+</section>
+<section id="id48">
+<h2>Fixed<a class="headerlink" href="#id48" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>The byte order of mac addresses in ethernet frames was fixed</p></li>
+</ul>
+<section id="sprint-13-2018-09-12">
+<h3>[Sprint-13] - 2018-09-12<a class="headerlink" href="#sprint-13-2018-09-12" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id49">
+<h2>Added<a class="headerlink" href="#id49" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Changelog :)</p></li>
+<li><p>ib::cfg::ConfigBuilder to create IbConfigs programatically, cf. example in Demo/ConfigBuilder/ConfigBuilderDemo.cpp.</p></li>
+<li><p>Support for Continous Integration (CI) with Jenkins, cf. /ci/</p></li>
+<li><p>IO ports can now be specified and initialized via the IntegrationBus config.</p></li>
+<li><p>Support for multiple GenericMessage instances (specified via IbConfig.json)</p></li>
+<li><p>Added new top-level section ‘MiddlewareConfig’ to JSON file for settings FastRTPS/CommunicationMaster and FastRTPS/ConfigFileName; moved existing configuration tree into top-level section ‘SimulationSetup’.</p></li>
+<li><p>FastRTPS version bump from v1.5.0 to v1.6.0. FastRTPS is now included as a sub module</p></li>
+</ul>
+</section>
+<section id="id50">
+<h2>Removed<a class="headerlink" href="#id50" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>ib::sim::IGenericMessageController()</p></li>
+<li><p>ib::mw::IComAdapter::CreateGenericMessageController()</p></li>
+</ul>
+</section>
+<section id="id51">
+<h2>Changed<a class="headerlink" href="#id51" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Moved config headers to /include/ib/cfg to match namespace, i.e.,
+/include/ib/Config.hpp moved to /include/ib/cfg/Config.hpp.</p></li>
+<li><p>IoPorts are now type specific with direction. IComAdapter::CreateIoPort() has been replaced with: IComAdapter::CreateAnalog{In,Out}(), IComAdapter::CreateDigital{In,Out}(), IComAdapter::CreatePattern{In,Out}(), IComAdapter::CreatePwm{In,Out}()</p></li>
+<li><p>IComAdapter::CreateGenericMessageController() has been replaced by IComAdapter::CreateGenericPublisher() and IComAdapter::CreateGenericSubscriber(), cf. updated demo Demo/GenericMessage/</p></li>
+</ul>
+<section id="outdated-references">
+<span id="changelog-outdated-reference"></span><h3>Outdated References<a class="headerlink" href="#outdated-references" title="Permalink to this heading"></a></h3>
+<p>Some references in the changelog may have been outdated by changes made to
+the documentation due to the development process.</p>
+<p>These references were replaced with a link to this notice.</p>
+<p>Please take a look at the documentation of the version of SilKit /
+IntegrationBus to which the changelog entry belongs.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3.html" class="btn btn-neutral float-left" title="Version 3.xx" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

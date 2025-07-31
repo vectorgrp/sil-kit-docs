@@ -1,22 +1,22 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Developer Guide &mdash; Vector SIL Kit 4.0.56 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>Developer Guide &mdash; Vector SIL Kit 5.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -29,14 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+
+          
+          
+          <a href="../contents.html" class="icon icon-home">
+            Vector SIL Kit
           </a>
-              <div class="version">
-                4.0.56
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -72,7 +73,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">Licenses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/overview.html">Changelog</a></li>
 </ul>
 
         </div>
@@ -88,8 +89,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Developer Guide</li>
+      <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Developer Guide</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/for-developers/developers.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -102,7 +103,7 @@
   <section id="developer-guide">
 <h1>Developer Guide<a class="headerlink" href="#developer-guide" title="Permalink to this heading"></a></h1>
 <p>The following sections explain, how to consume the Vector SIL Kit library in your own application and how to use the SIL Kit API to communicate with other participants of a simulation.</p>
-<div class="contents local topic" id="contents">
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#getting-the-productname" id="id5">Getting the SIL Kit</a></p></li>
 <li><p><a class="reference internal" href="#architecture" id="id6">Architecture</a></p></li>
@@ -122,14 +123,14 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <section id="getting-the-productname">
-<h2><a class="toc-backref" href="#id5">Getting the SIL Kit</a><a class="headerlink" href="#getting-the-productname" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Getting the SIL Kit</a><a class="headerlink" href="#getting-the-productname" title="Permalink to this heading"></a></h2>
 <p>Precompiled SIL Kit packages are regularly released on GitHub (<a class="reference external" href="https://github.com/vectorgrp/sil-kit/releases">https://github.com/vectorgrp/sil-kit/releases</a>).
 If you need to build the library yourself, take a look at the readme file of the repository’s root folder.</p>
 </section>
 <section id="architecture">
-<h2><a class="toc-backref" href="#id6">Architecture</a><a class="headerlink" href="#architecture" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Architecture</a><a class="headerlink" href="#architecture" title="Permalink to this heading"></a></h2>
 <p>The SIL Kit implements a layered architecture:</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../_images/SilKitArchitecture.svg"><img alt="../_images/SilKitArchitecture.svg" src="../_images/SilKitArchitecture.svg" width="800" /></a>
@@ -139,7 +140,7 @@ If you need to build the library yourself, take a look at the readme file of the
 </div>
 </section>
 <section id="prerequisites-for-compilation">
-<h2><a class="toc-backref" href="#id7">Prerequisites for Compilation</a><a class="headerlink" href="#prerequisites-for-compilation" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Prerequisites for Compilation</a><a class="headerlink" href="#prerequisites-for-compilation" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>For Windows:</dt><dd><ul>
@@ -159,10 +160,10 @@ If you need to build the library yourself, take a look at the readme file of the
 </ul>
 </section>
 <section id="writing-your-first-productname-application">
-<h2><a class="toc-backref" href="#id8">Writing your first SIL Kit application</a><a class="headerlink" href="#writing-your-first-productname-application" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Writing your first SIL Kit application</a><a class="headerlink" href="#writing-your-first-productname-application" title="Permalink to this heading"></a></h2>
 <p>This tutorial assumes that you are familiar with <a class="reference external" href="https://cmake.org">CMake (https://cmake.org)</a> and C++.</p>
 <section id="using-the-productname-package">
-<h3><a class="toc-backref" href="#id9">Using the SIL Kit package</a><a class="headerlink" href="#using-the-productname-package" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Using the SIL Kit package</a><a class="headerlink" href="#using-the-productname-package" title="Permalink to this heading"></a></h3>
 <p>The SIL Kit distribution contains a self-contained and deployable installation in the <em>SilKit</em> directory.
 The CMake build configuration required is exported to <code class="docutils literal notranslate"><span class="pre">SilKit/lib/cmake/SilKit</span></code> and defines the <code class="docutils literal notranslate"><span class="pre">SilKit::SilKit</span></code> target.</p>
 <p>From CMake this can be consumed via the <code class="docutils literal notranslate"><span class="pre">find_package(SilKit</span> <span class="pre">CONFIG)</span></code> mechanism.
@@ -183,7 +184,7 @@ For example, the following CMakeLists.txt imports the SIL Kit library based on i
 If you use another method to build your software you can directly use the <code class="docutils literal notranslate"><span class="pre">SilKit/include</span></code> and <code class="docutils literal notranslate"><span class="pre">SilKit/lib</span></code> directories for C++ headers and libraries.</p>
 </section>
 <section id="a-simple-publish-subscribe-application">
-<span id="sec-developer-simple"></span><h3><a class="toc-backref" href="#id10">A simple Publish / Subscribe application</a><a class="headerlink" href="#a-simple-publish-subscribe-application" title="Permalink to this heading"></a></h3>
+<span id="sec-developer-simple"></span><h3><a class="toc-backref" href="#id10" role="doc-backlink">A simple Publish / Subscribe application</a><a class="headerlink" href="#a-simple-publish-subscribe-application" title="Permalink to this heading"></a></h3>
 <p>We’ll create a simple, self-contained SIL Kit application that uses <a class="reference internal" href="../api/services/pubsub.html"><span class="doc">Publish/Subscribe</span></a> to exchange user-defined data between two participants.
 In our C++ file <code class="docutils literal notranslate"><span class="pre">simple.cpp</span></code>, we include the headers and define namespaces and constants:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
@@ -341,7 +342,7 @@ A more convenient way is to open the folder in an IDE with CMake support.
 To run this sample, copy the shared library files (e.g., on Windows the <code class="docutils literal notranslate"><span class="pre">SilKit.dll</span></code>, <code class="docutils literal notranslate"><span class="pre">SilKitd.dll</span></code> from <code class="docutils literal notranslate"><span class="pre">SilKit/bin</span></code>) and the <code class="docutils literal notranslate"><span class="pre">simple.yaml</span></code> next to the compiled executable.</p>
 </section>
 <section id="running-the-simulation">
-<h3><a class="toc-backref" href="#id11">Running the simulation</a><a class="headerlink" href="#running-the-simulation" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Running the simulation</a><a class="headerlink" href="#running-the-simulation" title="Permalink to this heading"></a></h3>
 <p>Our sample needs the utility processes <a class="reference internal" href="../utilities/utilities.html#sec-util-registry"><span class="std std-ref">sil-kit-registry</span></a> and <a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> to run.
 The registry is required for participant discovery.
 The <a class="reference internal" href="../utilities/utilities.html#sec-util-system-controller"><span class="std std-ref">sil-kit-system-controller</span></a> takes the participant names as command line arguments, initializes the connected participants and starts the simulation until the return key is pressed.
@@ -363,13 +364,13 @@ For convenience and to reduce code duplication, these utility programs are imple
 </section>
 </section>
 <section id="platform-support">
-<h2><a class="toc-backref" href="#id12">Platform support</a><a class="headerlink" href="#platform-support" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Platform support</a><a class="headerlink" href="#platform-support" title="Permalink to this heading"></a></h2>
 <p>SIL Kit provides three tiers of platform support</p>
-<table class="colwidths-given docutils align-default" id="id1">
+<table class="docutils align-default" id="id1">
 <caption><span class="caption-number">Table 1 </span><span class="caption-text">Support Tiers</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
 <colgroup>
-<col style="width: 15%" />
-<col style="width: 85%" />
+<col style="width: 15.0%" />
+<col style="width: 85.0%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Tier 1</p></td>
@@ -398,15 +399,10 @@ please report them using GitHub Issues. Thanks!</p>
 <cite>Tier 1</cite> once we have continuous testing for it in place and we have binary
 packages available for it.</p>
 <section id="tier-1-official-packages">
-<h3><a class="toc-backref" href="#id13">Tier 1: Official Packages</a><a class="headerlink" href="#tier-1-official-packages" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Tier 1: Official Packages</a><a class="headerlink" href="#tier-1-official-packages" title="Permalink to this heading"></a></h3>
 <p>Essential targets. Automatically tested and provided as official binary packages.</p>
 <table class="docutils align-default" id="id2">
 <caption><span class="caption-number">Table 2 </span><span class="caption-text">Platform Support</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>OS</p></th>
 <th class="head"><p>Architecture</p></th>
@@ -422,9 +418,9 @@ packages available for it.</p>
 <td><p>32bit (x86)</p></td>
 <td><p>MSVC 19 with Toolset 14.1</p></td>
 </tr>
-<tr class="row-even"><td><p>Ubuntu 18.04</p></td>
+<tr class="row-even"><td><p>Ubuntu 24.04</p></td>
 <td><p>amd64</p></td>
-<td><p>GCC 8</p></td>
+<td><p>GCC 13</p></td>
 </tr>
 <tr class="row-odd"><td><p>Ubuntu 20.04</p></td>
 <td><p>amd64</p></td>
@@ -434,15 +430,10 @@ packages available for it.</p>
 </table>
 </section>
 <section id="tier-2-ci-support">
-<h3><a class="toc-backref" href="#id14">Tier 2: CI Support</a><a class="headerlink" href="#tier-2-ci-support" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Tier 2: CI Support</a><a class="headerlink" href="#tier-2-ci-support" title="Permalink to this heading"></a></h3>
 <p>Officially supported and automatically tested. NO binary packages provided</p>
 <table class="docutils align-default" id="id3">
 <caption><span class="caption-number">Table 3 </span><span class="caption-text">Platform Support</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Platform</p></th>
 <th class="head"><p>Architecture</p></th>
@@ -468,24 +459,23 @@ packages available for it.</p>
 <td><p>ARM64</p></td>
 <td><p>Clang 18</p></td>
 </tr>
-<tr class="row-odd"><td><p>MAC OS</p></td>
-<td><p>ARM64/M1</p></td>
+<tr class="row-odd"><td><p>Ubuntu 20.04</p></td>
+<td><p>amd64</p></td>
+<td><p>GCC 9</p></td>
+</tr>
+<tr class="row-even"><td><p>macOS</p></td>
+<td><p>ARM64</p></td>
 <td><p>AppleClang 15</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="tier-3-known-to-build">
-<h3><a class="toc-backref" href="#id15">Tier 3: Known to build</a><a class="headerlink" href="#tier-3-known-to-build" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Tier 3: Known to build</a><a class="headerlink" href="#tier-3-known-to-build" title="Permalink to this heading"></a></h3>
 <p>Build and tested by individual contributors or users.
 Since these are not part of the CI pipeline, compatibility with these platforms can be broken at any time!</p>
 <table class="docutils align-default" id="id4">
 <caption><span class="caption-number">Table 4 </span><span class="caption-text">Platform Support</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Platform</p></th>
 <th class="head"><p>Architecture</p></th>
@@ -493,25 +483,21 @@ Since these are not part of the CI pipeline, compatibility with these platforms 
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Ubuntu 24.04</p></td>
-<td><p>amd64</p></td>
-<td><div class="line-block">
-<div class="line">GCC 13</div>
-<div class="line">Clang 18</div>
-</div>
-</td>
-</tr>
-<tr class="row-odd"><td><p>QNX 7.1 RTOS</p></td>
+<tr class="row-even"><td><p>QNX 7.1 RTOS</p></td>
 <td><p>X86 64bit</p></td>
 <td><p>QNX GCC 8</p></td>
 </tr>
-<tr class="row-even"><td><p>FreeBSD 14</p></td>
+<tr class="row-odd"><td><p>FreeBSD 14</p></td>
 <td><p>X86 64bit</p></td>
 <td><p>FreeBSD Clang 18</p></td>
 </tr>
-<tr class="row-odd"><td><p>Android</p></td>
+<tr class="row-even"><td><p>Android</p></td>
 <td><p>ARM64</p></td>
 <td><p>NDK builds with default compiler, libc++_shared</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ubuntu 18.04</p></td>
+<td><p>amd64</p></td>
+<td></td>
 </tr>
 </tbody>
 </table>

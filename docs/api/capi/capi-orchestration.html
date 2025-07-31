@@ -1,22 +1,22 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Orchestration C API &mdash; Vector SIL Kit 4.0.56 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>Orchestration C API &mdash; Vector SIL Kit 5.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,14 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../contents.html" class="icon icon-home"> Vector SIL Kit
+
+          
+          
+          <a href="../../contents.html" class="icon icon-home">
+            Vector SIL Kit
           </a>
-              <div class="version">
-                4.0.56
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -74,7 +75,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../faq/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../licenses/license.html">Licenses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/overview.html">Changelog</a></li>
 </ul>
 
         </div>
@@ -90,9 +91,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../contents.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api.html">C/C++ API</a> &raquo;</li>
-      <li>Orchestration C API</li>
+      <li><a href="../../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">C/C++ API</a></li>
+      <li class="breadcrumb-item active">Orchestration C API</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/api/capi/capi-orchestration.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -111,7 +112,7 @@
 <p>
 The object returned must not be deallocated using free()! </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>outLifecycleService</strong> – Pointer that refers to the resulting lifecycle service (out parameter). </p></li>
 <li><p><strong>participant</strong> – The simulation participant at which the lifecycle service should be created. </p></li>
@@ -127,7 +128,7 @@ The object returned must not be deallocated using free()! </p>
 <dd><p>Register a callback that is executed once communication with controllers is possible. </p>
 <p>The handler is called after SilKit_ParticipantState_CommunicationInitialized is reached. This handler is invoked on the SilKit I/O worker thread, and receiving messages during the handler invocation is not possible. For an asynchronous invocation, see SilKit_LifecycleService_SetCommunicationReadyHandlerAsync and SilKit_LifecycleService_CompleteCommunicationReadyHandlerAsync. After the handler has been processed, the participant switches to the SilKit_ParticipantState_ReadyToRun state.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>lifecycleService</strong> – The lifecycle service that switched to the CommunicationInitialized participant state. </p></li>
 <li><p><strong>context</strong> – A user provided context accessible in the handler </p></li>
@@ -143,7 +144,7 @@ The object returned must not be deallocated using free()! </p>
 <dd><p>(Asynchronous participants only) Register a callback that is executed once directly before the participant enters SilKit_ParticipantState_Running. </p>
 <p>This handler is triggered just before the participant changes to <a class="reference internal" href="../system-utilities/systemmonitor.html#namespace_sil_kit_1_1_services_1_1_orchestration_1a65bc5be11c4f390b95f6305916e780f7a5bda814c4aedb126839228f1a3d92f09"><span class="std std-ref">SilKit::Services::Orchestration::ParticipantState::Running</span></a>. It is only triggered if the participant does NOT use virtual time synchronization. It does not block other participants from changing to ParticipantState::Running and should only be used for lightweight operations such as starting timers. It is executed in the context of an internal thread that received the command. After the handler has been processed, the participant switches to the SilKit_ParticipantState_Running state.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>lifecycleService</strong> – The lifecycle service that triggers the StartingHandler. </p></li>
 <li><p><strong>context</strong> – A user provided context accessible in the handler. </p></li>
@@ -160,7 +161,7 @@ The object returned must not be deallocated using free()! </p>
 <p>The handler is called when the participant has entered the SilKit_ParticipantState_Stopping state. It is executed in the context of an internal thread that received the command. After the handler has been processed, the participant switches to the SilKit_ParticipantState_Stopped state.</p>
 <p>Throwing an error inside the handler will cause a call to ReportError().</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>lifecycleService</strong> – The lifecycle service receiving the stop command </p></li>
 <li><p><strong>context</strong> – A user provided context accessible in the handler </p></li>
@@ -176,7 +177,7 @@ The object returned must not be deallocated using free()! </p>
 <dd><p>Register a callback that is executed on simulation shutdown. </p>
 <p>The handler is called when the participant is entering the SilKit_ParticipantState_ShuttingDown state. It is executed in the context of the middleware thread that received the command. After the handler has been processed, the participant switches to the SilKit_ParticipantState_Shutdown state and is allowed to terminate.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>lifecycleService</strong> – The lifecycle service receiving the shutdown command </p></li>
 <li><p><strong>context</strong> – A user provided context accessible in the handler </p></li>
@@ -191,7 +192,7 @@ The object returned must not be deallocated using free()! </p>
 <span id="_CPPv338SilKit_LifecycleService_StartLifecycleP23SilKit_LifecycleService"></span><span id="_CPPv238SilKit_LifecycleService_StartLifecycleP23SilKit_LifecycleService"></span><span id="SilKit_LifecycleService_StartLifecycle__SilKit_LifecycleServiceP"></span><span class="target" id="_orchestration_8h_1a7e176ee866b50cc71aafa6c86daca4f9"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_LifecycleService_StartLifecycle</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_LifecycleService</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">lifecycleService</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv438SilKit_LifecycleService_StartLifecycleP23SilKit_LifecycleService" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Start the lifecycle. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>lifecycleService</strong> – The instance of the lifecycleService. </p>
 </dd>
 </dl>
@@ -203,7 +204,7 @@ The object returned must not be deallocated using free()! </p>
 <dd><p>Wait for to asynchronous run operation to complete and return the final participant state. </p>
 <p>Blocks until the simulation is shutdown. Prior to this method, <a class="reference internal" href="#_orchestration_8h_1a7e176ee866b50cc71aafa6c86daca4f9"><span class="std std-ref">SilKit_LifecycleService_StartLifecycle</span></a> has to be called.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>lifecycleService</strong> – The lifecycle service to wait for completing the asynchronous run operation. </p></li>
 <li><p><strong>outParticipantState</strong> – Pointer for storing the final participant state (out parameter). </p></li>
@@ -220,7 +221,7 @@ The object returned must not be deallocated using free()! </p>
 <p>When a client is in state SilKit_ParticipantState_Paused, it must not be considered as unresponsive even if a health monitoring related timeout occurs.</p>
 <p>Precondition: State() == SilKit_ParticipantState_Running</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>lifecycleService</strong> – The lifecycle service of the simulation. </p></li>
 <li><p><strong>reason</strong> – A string describing the reason why the simulation was paused (UTF-8). </p></li>
@@ -233,7 +234,7 @@ The object returned must not be deallocated using free()! </p>
 <dt class="sig sig-object cpp" id="_CPPv432SilKit_LifecycleService_ContinueP23SilKit_LifecycleService">
 <span id="_CPPv332SilKit_LifecycleService_ContinueP23SilKit_LifecycleService"></span><span id="_CPPv232SilKit_LifecycleService_ContinueP23SilKit_LifecycleService"></span><span id="SilKit_LifecycleService_Continue__SilKit_LifecycleServiceP"></span><span class="target" id="_orchestration_8h_1a34049ccfbe3ce993af8403fb701c6cc7"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_LifecycleService_Continue</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_LifecycleService</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">lifecycleService</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv432SilKit_LifecycleService_ContinueP23SilKit_LifecycleService" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Switch back to SilKit_ParticipantState_Running after having paused. </p>
-<p>Precondition: State() == SilKit_ParticipantState_Paused </p>
+<p>Precondition: State() == SilKit_ParticipantState_Paused</p>
 </dd></dl>
 
 <dl class="cpp function">
@@ -243,7 +244,7 @@ The object returned must not be deallocated using free()! </p>
 <p>
 The object returned must not be deallocated using free()! </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>outTimeSyncService</strong> – Pointer that refers to the resulting time sync service (out parameter). </p></li>
 <li><p><strong>lifecycleService</strong> – The lifecyle service at which the time sync service should be created.</p></li>
@@ -258,7 +259,7 @@ The object returned must not be deallocated using free()! </p>
 <dd><p>Set the task to be executed with each grant / tick. </p>
 <p>Can be changed at runtime. Execution context depends on the run type.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>timeSyncService</strong> – The time-sync service obtained via <a class="reference internal" href="#_orchestration_8h_1ad62446856e9397c968fdf2fe2d873c6d"><span class="std std-ref">SilKit_TimeSyncService_Create</span></a>. </p></li>
 <li><p><strong>context</strong> – A user provided context accessible in the handler </p></li>
@@ -276,7 +277,7 @@ The object returned must not be deallocated using free()! </p>
 <p>Can be changed at runtime. Execution context depends on the run type.</p>
 <p>The difference to SetSimulationStepHandler is, that after execution of the simulation task the advance in simulation time will NOT be signaled to other participants. Progress in simulation time (including all other participants) will cease. Instead, SilKit_TimeSyncService_CompleteSimulationStep must be called FROM ANY OTHER THREAD to ‘unlock’ the thread executing the simulation task, and let it execute again. Thus, a fine grained control over the whole simulation time progress can be achieved by calling CompleteSimulationStep from an application thread. Participants using ‘regular’ simulation tasks and non-blocking simulation tasks may be freely mixed.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>timeSyncService</strong> – The time-sync service obtained via <a class="reference internal" href="#_orchestration_8h_1ad62446856e9397c968fdf2fe2d873c6d"><span class="std std-ref">SilKit_TimeSyncService_Create</span></a>. </p></li>
 <li><p><strong>context</strong> – A user provided context accessible in the handler </p></li>
@@ -292,7 +293,7 @@ The object returned must not be deallocated using free()! </p>
 <span id="_CPPv345SilKit_TimeSyncService_CompleteSimulationStepP22SilKit_TimeSyncService"></span><span id="_CPPv245SilKit_TimeSyncService_CompleteSimulationStepP22SilKit_TimeSyncService"></span><span id="SilKit_TimeSyncService_CompleteSimulationStep__SilKit_TimeSyncServiceP"></span><span class="target" id="_orchestration_8h_1a4f5806df0c31c0536e52a8e14948b2b4"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_TimeSyncService_CompleteSimulationStep</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_TimeSyncService</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">timeSyncService</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv445SilKit_TimeSyncService_CompleteSimulationStepP22SilKit_TimeSyncService" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Complete the current step of a non-blocking simulation task. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>timeSyncService</strong> – The time sync service </p>
 </dd>
 </dl>

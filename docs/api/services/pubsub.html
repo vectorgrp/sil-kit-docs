@@ -1,22 +1,22 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Publish/Subscribe API &mdash; Vector SIL Kit 4.0.56 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>Data Publish/Subscribe API &mdash; Vector SIL Kit 5.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,14 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../contents.html" class="icon icon-home"> Vector SIL Kit
+
+          
+          
+          <a href="../../contents.html" class="icon icon-home">
+            Vector SIL Kit
           </a>
-              <div class="version">
-                4.0.56
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -79,7 +80,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../faq/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../licenses/license.html">Licenses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/overview.html">Changelog</a></li>
 </ul>
 
         </div>
@@ -95,9 +96,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../contents.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api.html">C/C++ API</a> &raquo;</li>
-      <li>Data Publish/Subscribe API</li>
+      <li><a href="../../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">C/C++ API</a></li>
+      <li class="breadcrumb-item active">Data Publish/Subscribe API</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/api/services/pubsub.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -109,7 +110,7 @@
              
   <section id="data-publish-subscribe-api">
 <span id="chap-pubsub-service-api"></span><h1>Data Publish/Subscribe API<a class="headerlink" href="#data-publish-subscribe-api" title="Permalink to this heading"></a></h1>
-<div class="contents local topic" id="contents">
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#using-the-data-publish-subscribe-api" id="id2">Using the Data Publish/Subscribe API</a></p>
 <ul>
@@ -151,12 +152,12 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <section id="using-the-data-publish-subscribe-api">
-<h2><a class="toc-backref" href="#id2">Using the Data Publish/Subscribe API</a><a class="headerlink" href="#using-the-data-publish-subscribe-api" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Using the Data Publish/Subscribe API</a><a class="headerlink" href="#using-the-data-publish-subscribe-api" title="Permalink to this heading"></a></h2>
 <p>The Data Publish/Subscribe API provides a topic-based publish/subscribe mechanism to exchange serialized application data.</p>
 <section id="publishing-data-on-a-publisher">
-<h3><a class="toc-backref" href="#id3">Publishing Data on a Publisher</a><a class="headerlink" href="#publishing-data-on-a-publisher" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Publishing Data on a Publisher</a><a class="headerlink" href="#publishing-data-on-a-publisher" title="Permalink to this heading"></a></h3>
 <p>The <a class="reference internal" href="#_CPPv4N6SilKit8Services6PubSub14IDataPublisherE" title="SilKit::Services::PubSub::IDataPublisher"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IDataPublisher</span></code></a> is instantiated from an <a class="reference internal" href="../participant.html#_CPPv4N6SilKit12IParticipantE" title="SilKit::IParticipant"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IParticipant</span></code></a> instance by calling the <a class="reference internal" href="../participant.html#_CPPv4N6SilKit12IParticipant19CreateDataPublisherERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecE6size_t" title="SilKit::IParticipant::CreateDataPublisher"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateDataPublisher()</span></code></a> method.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">PubSub</span><span class="o">::</span><span class="n">PubSubSpec</span><span class="w"> </span><span class="n">pubSpec</span><span class="p">{</span><span class="s">&quot;OilTemperature&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">SerDes</span><span class="o">::</span><span class="n">MediaTypeData</span><span class="p">()};</span>
 <span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">publisher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateDataPublisher</span><span class="p">(</span><span class="s">&quot;PubOilTemperature&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pubSpec</span><span class="p">);</span>
@@ -172,7 +173,7 @@ Published messages are transmitted immediately to all matching subscribers, that
 </div>
 </section>
 <section id="receiving-data-on-a-subscriber">
-<h3><a class="toc-backref" href="#id4">Receiving Data on a Subscriber</a><a class="headerlink" href="#receiving-data-on-a-subscriber" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Receiving Data on a Subscriber</a><a class="headerlink" href="#receiving-data-on-a-subscriber" title="Permalink to this heading"></a></h3>
 <p>The <a class="reference internal" href="#_CPPv4N6SilKit8Services6PubSub15IDataSubscriberE" title="SilKit::Services::PubSub::IDataSubscriber"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IDataSubscriber</span></code></a> is instantiated from an <a class="reference internal" href="../participant.html#_CPPv4N6SilKit12IParticipantE" title="SilKit::IParticipant"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IParticipant</span></code></a> instance by calling the <a class="reference internal" href="../participant.html#_CPPv4N6SilKit12IParticipant20CreateDataSubscriberERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecEN8Services6PubSub18DataMessageHandlerE" title="SilKit::IParticipant::CreateDataSubscriber"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateDataSubscriber()</span></code></a> method.
 Upon incoming data from a publisher, the handler provided to the <a class="reference internal" href="../participant.html#_CPPv4N6SilKit12IParticipant20CreateDataSubscriberERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecEN8Services6PubSub18DataMessageHandlerE" title="SilKit::IParticipant::CreateDataSubscriber"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateDataSubscriber()</span></code></a> method is called.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">subscriberDataHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="n">IDataSubscriber</span><span class="o">*</span><span class="w"> </span><span class="n">subscriber</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">DataMessageEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dataMessageEvent</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -189,9 +190,9 @@ Nonetheless, it is highly recommended to use SIL Kit’s <a class="reference int
 </section>
 </section>
 <section id="api-and-data-type-reference">
-<h2><a class="toc-backref" href="#id5">API and Data Type Reference</a><a class="headerlink" href="#api-and-data-type-reference" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">API and Data Type Reference</a><a class="headerlink" href="#api-and-data-type-reference" title="Permalink to this heading"></a></h2>
 <section id="data-publisher-api">
-<h3><a class="toc-backref" href="#id6">Data Publisher API</a><a class="headerlink" href="#data-publisher-api" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Data Publisher API</a><a class="headerlink" href="#data-publisher-api" title="Permalink to this heading"></a></h3>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services6PubSub14IDataPublisherE">
 <span id="_CPPv3N6SilKit8Services6PubSub14IDataPublisherE"></span><span id="_CPPv2N6SilKit8Services6PubSub14IDataPublisherE"></span><span id="SilKit::Services::PubSub::IDataPublisher"></span><span class="target" id="class_sil_kit_1_1_services_1_1_pub_sub_1_1_i_data_publisher"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IDataPublisher</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services6PubSub14IDataPublisherE" title="Permalink to this definition"></a><br /></dt>
@@ -208,7 +209,7 @@ Nonetheless, it is highly recommended to use SIL Kit’s <a class="reference int
 <dd><p>Publish a new value. </p>
 <p>Convenience method to publish data. Creates a new std::vector with content copied from <code class="docutils literal notranslate"><span class="pre">data</span></code>. For highest efficiency, use <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_pub_sub_1_1_i_data_publisher_1afe274d05378f406f7fc97acd4171cd5f"><span class="std std-ref">Publish(Util::Span&lt;const uint8_t&gt;)</span></a> in combination with std::move.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>data</strong> – A non-owning reference to an opaque block of raw data </p>
 </dd>
 </dl>
@@ -219,7 +220,7 @@ Nonetheless, it is highly recommended to use SIL Kit’s <a class="reference int
 
 </section>
 <section id="data-subscriber-api">
-<h3><a class="toc-backref" href="#id7">Data Subscriber API</a><a class="headerlink" href="#data-subscriber-api" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Data Subscriber API</a><a class="headerlink" href="#data-subscriber-api" title="Permalink to this heading"></a></h3>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services6PubSub15IDataSubscriberE">
 <span id="_CPPv3N6SilKit8Services6PubSub15IDataSubscriberE"></span><span id="_CPPv2N6SilKit8Services6PubSub15IDataSubscriberE"></span><span id="SilKit::Services::PubSub::IDataSubscriber"></span><span class="target" id="class_sil_kit_1_1_services_1_1_pub_sub_1_1_i_data_subscriber"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IDataSubscriber</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services6PubSub15IDataSubscriberE" title="Permalink to this definition"></a><br /></dt>
@@ -242,7 +243,7 @@ Nonetheless, it is highly recommended to use SIL Kit’s <a class="reference int
 
 </section>
 <section id="data-structures">
-<h3><a class="toc-backref" href="#id8">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this heading"></a></h3>
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services6PubSub16DataMessageEventE">
 <span id="_CPPv3N6SilKit8Services6PubSub16DataMessageEventE"></span><span id="_CPPv2N6SilKit8Services6PubSub16DataMessageEventE"></span><span id="SilKit::Services::PubSub::DataMessageEvent"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_pub_sub_1_1_data_message_event"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DataMessageEvent</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services6PubSub16DataMessageEventE" title="Permalink to this definition"></a><br /></dt>
@@ -317,11 +318,11 @@ Nonetheless, it is highly recommended to use SIL Kit’s <a class="reference int
 </section>
 </section>
 <section id="usage-examples">
-<h2><a class="toc-backref" href="#id9">Usage Examples</a><a class="headerlink" href="#usage-examples" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Usage Examples</a><a class="headerlink" href="#usage-examples" title="Permalink to this heading"></a></h2>
 <section id="example-oil-temperature">
-<h3><a class="toc-backref" href="#id10">Example: Oil Temperature</a><a class="headerlink" href="#example-oil-temperature" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Example: Oil Temperature</a><a class="headerlink" href="#example-oil-temperature" title="Permalink to this heading"></a></h3>
 <section id="publisher-oil-temperature-sensor">
-<h4><a class="toc-backref" href="#id11">Publisher - Oil Temperature Sensor</a><a class="headerlink" href="#publisher-oil-temperature-sensor" title="Permalink to this heading"></a></h4>
+<h4><a class="toc-backref" href="#id11" role="doc-backlink">Publisher - Oil Temperature Sensor</a><a class="headerlink" href="#publisher-oil-temperature-sensor" title="Permalink to this heading"></a></h4>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// creation of the data publisher</span>
 
 <span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">PubSub</span><span class="o">::</span><span class="n">PubSubSpec</span><span class="w"> </span><span class="n">pubSpec</span><span class="p">{</span><span class="s">&quot;OilTemperature&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">SerDes</span><span class="o">::</span><span class="n">MediaTypeData</span><span class="p">()};</span>
@@ -340,7 +341,7 @@ Nonetheless, it is highly recommended to use SIL Kit’s <a class="reference int
 </div>
 </section>
 <section id="subscriber-engine-dashboard">
-<h4><a class="toc-backref" href="#id12">Subscriber - Engine Dashboard</a><a class="headerlink" href="#subscriber-engine-dashboard" title="Permalink to this heading"></a></h4>
+<h4><a class="toc-backref" href="#id12" role="doc-backlink">Subscriber - Engine Dashboard</a><a class="headerlink" href="#subscriber-engine-dashboard" title="Permalink to this heading"></a></h4>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// creation of the data subscriber</span>
 
 <span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">PubSub</span><span class="o">::</span><span class="n">PubSubSpec</span><span class="w"> </span><span class="n">subSpec</span><span class="p">{</span><span class="s">&quot;OilTemperature&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">SerDes</span><span class="o">::</span><span class="n">MediaTypeData</span><span class="p">()};</span>
@@ -361,9 +362,9 @@ Nonetheless, it is highly recommended to use SIL Kit’s <a class="reference int
 </section>
 </section>
 <section id="example-wheel-and-control-with-structure-de-serialization">
-<h3><a class="toc-backref" href="#id13">Example: Wheel and Control with Structure (De-)Serialization</a><a class="headerlink" href="#example-wheel-and-control-with-structure-de-serialization" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Example: Wheel and Control with Structure (De-)Serialization</a><a class="headerlink" href="#example-wheel-and-control-with-structure-de-serialization" title="Permalink to this heading"></a></h3>
 <section id="common">
-<h4><a class="toc-backref" href="#id14">Common</a><a class="headerlink" href="#common" title="Permalink to this heading"></a></h4>
+<h4><a class="toc-backref" href="#id14" role="doc-backlink">Common</a><a class="headerlink" href="#common" title="Permalink to this heading"></a></h4>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">WheelData</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">rpm</span><span class="p">;</span>
@@ -373,7 +374,7 @@ Nonetheless, it is highly recommended to use SIL Kit’s <a class="reference int
 </div>
 </section>
 <section id="publisher-wheel">
-<h4><a class="toc-backref" href="#id15">Publisher - Wheel</a><a class="headerlink" href="#publisher-wheel" title="Permalink to this heading"></a></h4>
+<h4><a class="toc-backref" href="#id15" role="doc-backlink">Publisher - Wheel</a><a class="headerlink" href="#publisher-wheel" title="Permalink to this heading"></a></h4>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// creation of the data publisher</span>
 
 <span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">PubSub</span><span class="o">::</span><span class="n">PubSubSpec</span><span class="w"> </span><span class="n">pubSpec</span><span class="p">{</span><span class="s">&quot;Wheel&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">SerDes</span><span class="o">::</span><span class="n">MediaTypeData</span><span class="p">()};</span>
@@ -396,7 +397,7 @@ Nonetheless, it is highly recommended to use SIL Kit’s <a class="reference int
 </div>
 </section>
 <section id="subscriber-wheel-monitor">
-<h4><a class="toc-backref" href="#id16">Subscriber - Wheel Monitor</a><a class="headerlink" href="#subscriber-wheel-monitor" title="Permalink to this heading"></a></h4>
+<h4><a class="toc-backref" href="#id16" role="doc-backlink">Subscriber - Wheel Monitor</a><a class="headerlink" href="#subscriber-wheel-monitor" title="Permalink to this heading"></a></h4>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// creation of the data subscriber</span>
 
 <span class="n">SilKit</span><span class="o">::</span><span class="n">Services</span><span class="o">::</span><span class="n">PubSub</span><span class="o">::</span><span class="n">PubSubSpec</span><span class="w"> </span><span class="n">subSpec</span><span class="p">{</span><span class="s">&quot;Wheel&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Util</span><span class="o">::</span><span class="n">SerDes</span><span class="o">::</span><span class="n">MediaTypeData</span><span class="p">()};</span>
@@ -424,14 +425,14 @@ Nonetheless, it is highly recommended to use SIL Kit’s <a class="reference int
 </section>
 </section>
 <section id="advanced-usage-and-configuration">
-<h2><a class="toc-backref" href="#id17">Advanced Usage and Configuration</a><a class="headerlink" href="#advanced-usage-and-configuration" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Advanced Usage and Configuration</a><a class="headerlink" href="#advanced-usage-and-configuration" title="Permalink to this heading"></a></h2>
 <section id="topics">
-<h3><a class="toc-backref" href="#id18">Topics</a><a class="headerlink" href="#topics" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Topics</a><a class="headerlink" href="#topics" title="Permalink to this heading"></a></h3>
 <p>Data publishers and data subscribers provide a topic name which is part of their <a class="reference internal" href="#_CPPv4N6SilKit8Services6PubSub10PubSubSpecE" title="SilKit::Services::PubSub::PubSubSpec"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">PubSubSpec</span></code></a>.
 Communications only takes place among controllers with the same topic. The topic has no wildcard functionality.</p>
 </section>
 <section id="media-type">
-<h3><a class="toc-backref" href="#id19">Media Type</a><a class="headerlink" href="#media-type" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Media Type</a><a class="headerlink" href="#media-type" title="Permalink to this heading"></a></h3>
 <p>Both data publishers and data subscribers define a media type as part of their <a class="reference internal" href="#_CPPv4N6SilKit8Services6PubSub10PubSubSpecE" title="SilKit::Services::PubSub::PubSubSpec"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">PubSubSpec</span></code></a>.
 It is a meta description of the transmitted data in accordance to <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc2046">RFC2046</a> and should be used to provide information about the de-/serialization of the underlying user data.
 Just like the topic, the media type has to match between data publishers/subscribers for communication to take place.
@@ -440,7 +441,7 @@ Data publishers should provide information about the data they are going to publ
 <p>When data is serialized using SIL Kit’s <a class="reference internal" href="../serdes.html"><span class="doc">Data Serialization/Deserialization API</span></a>, the media type constant <code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">MediaTypeData()</span></code> must be used.</p>
 </section>
 <section id="labels">
-<h3><a class="toc-backref" href="#id20">Labels</a><a class="headerlink" href="#labels" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Labels</a><a class="headerlink" href="#labels" title="Permalink to this heading"></a></h3>
 <p>Both data publishers and data subscribers can be annotated with string-based key-value pairs (labels) which can be either mandatory or optional.
 In addition to the matching requirements given by topic and media type, data publishers and Data subscribers will only communicate if their labels match.</p>
 <p>The labels are stored in the <a class="reference internal" href="#_CPPv4N6SilKit8Services6PubSub10PubSubSpecE" title="SilKit::Services::PubSub::PubSubSpec"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">PubSubSpec</span></code></a>. A <a class="reference internal" href="../common-data-types.html#_CPPv4N6SilKit8Services13MatchingLabelE" title="SilKit::Services::MatchingLabel"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">MatchingLabel</span></code></a> can be added via <a class="reference internal" href="#_CPPv4N6SilKit8Services6PubSub10PubSubSpec8AddLabelERKN6SilKit8Services13MatchingLabelE" title="SilKit::Services::PubSub::PubSubSpec::AddLabel"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddLabel()</span></code></a>, see the following code snippet:</p>
@@ -458,11 +459,6 @@ In addition to the matching requirements given by topic and media type, data pub
 Note that the label matching is symmetric, so publishers and subscribers are interchangeable here.</p>
 <table class="docutils align-default" id="id1">
 <caption><span class="caption-number">Table 6 </span><span class="caption-text">Label combinations</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"></th>
 <th class="head"><p>Subscriber {“Instance”, “FrontLeft”, Optional}</p></th>
@@ -494,13 +490,13 @@ Note that the label matching is symmetric, so publishers and subscribers are int
 </table>
 </section>
 <section id="history">
-<h3><a class="toc-backref" href="#id21">History</a><a class="headerlink" href="#history" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">History</a><a class="headerlink" href="#history" title="Permalink to this heading"></a></h3>
 <p>Data publishers additionally specify a history length N (restricted to 0 or 1).
 Data subscribers that are created after a publication will still receive the N historic data messages from a data publisher with history &gt; 0.
 Note that the participant that created the data publisher still has to be connected to the distributed simulation for the historic messages to be delivered.</p>
 </section>
 <section id="configuration">
-<h3><a class="toc-backref" href="#id22">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h3>
 <p>The controller name passed in <a class="reference internal" href="../participant.html#_CPPv4N6SilKit12IParticipant19CreateDataPublisherERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecE6size_t" title="SilKit::IParticipant::CreateDataPublisher"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateDataPublisher()</span></code></a> and <a class="reference internal" href="../participant.html#_CPPv4N6SilKit12IParticipant20CreateDataSubscriberERKNSt6stringERKN6SilKit8Services6PubSub10PubSubSpecEN8Services6PubSub18DataMessageHandlerE" title="SilKit::IParticipant::CreateDataSubscriber"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateDataSubscriber()</span></code></a> is used to identify the controller in a YAML configuration.
 Currently, only the topic can be configured.
 If a topic is set in the configuration, it will be preferred over a programmatically set topic.</p>

@@ -1,22 +1,22 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Configuration &mdash; Vector SIL Kit 4.0.56 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>Configuration &mdash; Vector SIL Kit 5.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -29,14 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+
+          
+          
+          <a href="../contents.html" class="icon icon-home">
+            Vector SIL Kit
           </a>
-              <div class="version">
-                4.0.56
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -81,7 +82,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">Licenses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/overview.html">Changelog</a></li>
 </ul>
 
         </div>
@@ -97,8 +98,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Configuration</li>
+      <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Configuration</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/configuration/configuration.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -114,14 +115,14 @@
 This allows users to modify behavior without recompiling source code.
 Further, it allows configuration of services which are inactive by default, such as tracing and logging.
 Different configuration options are available for SIL Kit participants and the SIL Kit Registry.</p>
-<div class="contents local topic" id="contents">
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#the-participant-configuration-file" id="id3">The Participant Configuration File</a></p></li>
 <li><p><a class="reference internal" href="#the-registry-configuration-file" id="id4">The Registry Configuration File</a></p></li>
 </ul>
-</div>
+</nav>
 <section id="the-participant-configuration-file">
-<span id="sec-participant-config"></span><h2><a class="toc-backref" href="#id3">The Participant Configuration File</a><a class="headerlink" href="#the-participant-configuration-file" title="Permalink to this heading"></a></h2>
+<span id="sec-participant-config"></span><h2><a class="toc-backref" href="#id3" role="doc-backlink">The Participant Configuration File</a><a class="headerlink" href="#the-participant-configuration-file" title="Permalink to this heading"></a></h2>
 <p>Participants are primarily configured by developers in source code using the SIL Kit API.
 However, the following scenarios are conceivable in which some flexibility is useful even after compile-time:</p>
 <ul class="simple">
@@ -206,10 +207,10 @@ The outline of a participant configuration file is as follows:</p>
 </div>
 <section id="overview">
 <span id="subsec-participant-config-overview"></span><h3>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h3>
-<table class="colwidths-given docutils align-default">
+<table class="docutils align-default">
 <colgroup>
-<col style="width: 15%" />
-<col style="width: 85%" />
+<col style="width: 15.0%" />
+<col style="width: 85.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting Name</p></th>
@@ -297,7 +298,7 @@ If this section is omitted, defaults will be used.</p></td>
 </section>
 </section>
 <section id="the-registry-configuration-file">
-<span id="sec-registry-config"></span><h2><a class="toc-backref" href="#id4">The Registry Configuration File</a><a class="headerlink" href="#the-registry-configuration-file" title="Permalink to this heading"></a></h2>
+<span id="sec-registry-config"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink">The Registry Configuration File</a><a class="headerlink" href="#the-registry-configuration-file" title="Permalink to this heading"></a></h2>
 <p>An instance of the SIL Kit Registry (<code class="docutils literal notranslate"><span class="pre">sil-kit-registry(.exe)</span></code>) can be configured via a YAML file.
 The configuration file is optional and overrides the settings specified on the command line.
 It also allows extended configuration, beyond what the command line allows, particularly for logging.</p>
@@ -320,10 +321,10 @@ It also allows extended configuration, beyond what the command line allows, part
 </div>
 <section id="subsec-registry-config-overview">
 <span id="id1"></span><h3>Overview<a class="headerlink" href="#subsec-registry-config-overview" title="Permalink to this heading"></a></h3>
-<table class="colwidths-given docutils align-default">
+<table class="docutils align-default">
 <colgroup>
-<col style="width: 15%" />
-<col style="width: 85%" />
+<col style="width: 15.0%" />
+<col style="width: 85.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Setting Name</p></th>
@@ -383,13 +384,13 @@ parameters.</p>
 <dd><p>Parse configuration from a YAML or JSON file. </p>
 <p>Create a configuration data object from settings described by a YAML or JSON file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>filename</strong> – Path to the YAML or JSON file (UTF-8). </p>
 </dd>
-<dt class="field-even">Throws</dt>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
 <dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">ConfigurationError</span></span></span> – The file could not be read, or the input string violates the YAML/JSON format, schema or an integrity rule. </p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The configuration data</p>
 </dd>
 </dl>
@@ -401,13 +402,13 @@ parameters.</p>
 <dd><p>Parse configuration from a YAML or JSON string. </p>
 <p>Create a configuration data object from settings described by a YAML or JSON formatted string.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>text</strong> – A string that adheres to our JSON schema (UTF-8). </p>
 </dd>
-<dt class="field-even">Throws</dt>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
 <dd class="field-even"><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">ConfigurationError</span></span></span> – The input string violates the JSON format, schema or an integrity rule. </p>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The configuration data</p>
 </dd>
 </dl>

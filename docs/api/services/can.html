@@ -1,22 +1,22 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAN Service API &mdash; Vector SIL Kit 4.0.56 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>CAN Service API &mdash; Vector SIL Kit 5.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,14 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../contents.html" class="icon icon-home"> Vector SIL Kit
+
+          
+          
+          <a href="../../contents.html" class="icon icon-home">
+            Vector SIL Kit
           </a>
-              <div class="version">
-                4.0.56
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -80,7 +81,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../faq/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../licenses/license.html">Licenses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/overview.html">Changelog</a></li>
 </ul>
 
         </div>
@@ -96,9 +97,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../contents.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api.html">C/C++ API</a> &raquo;</li>
-      <li>CAN Service API</li>
+      <li><a href="../../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">C/C++ API</a></li>
+      <li class="breadcrumb-item active">CAN Service API</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/api/services/can.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -110,7 +111,7 @@
              
   <section id="can-service-api">
 <span id="chap-can-service-api"></span><h1>CAN Service API<a class="headerlink" href="#can-service-api" title="Permalink to this heading"></a></h1>
-<div class="contents local topic" id="contents">
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#using-the-can-controller" id="id1">Using the CAN Controller</a></p>
 <ul>
@@ -135,9 +136,9 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <section id="using-the-can-controller">
-<h2><a class="toc-backref" href="#id1">Using the CAN Controller</a><a class="headerlink" href="#using-the-can-controller" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Using the CAN Controller</a><a class="headerlink" href="#using-the-can-controller" title="Permalink to this heading"></a></h2>
 <p>The CAN Service API provides a CAN bus abstraction through the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanControllerE" title="SilKit::Services::Can::ICanController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ICanController</span></code></a> interface.
 A CAN controller is created by calling <a class="reference internal" href="../participant.html#_CPPv4N6SilKit12IParticipant19CreateCanControllerERKNSt6stringERKNSt6stringE" title="SilKit::IParticipant::CreateCanController"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateCanController</span></code></a> given a controller name and network
 name:</p>
@@ -146,7 +147,7 @@ name:</p>
 </div>
 <p>CAN controllers will only communicate within the same network.</p>
 <section id="sending-can-frames">
-<h3><a class="toc-backref" href="#id2">Sending CAN Frames</a><a class="headerlink" href="#sending-can-frames" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Sending CAN Frames</a><a class="headerlink" href="#sending-can-frames" title="Permalink to this heading"></a></h3>
 <p>Data is transferred in the form of a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can8CanFrameE" title="SilKit::Services::Can::CanFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrame</span></code></a> and received as a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can13CanFrameEventE" title="SilKit::Services::Can::CanFrameEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrameEvent</span></code></a>. To send a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can8CanFrameE" title="SilKit::Services::Can::CanFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrame</span></code></a>, it must be setup
 with a CAN ID and the data to be transmitted. Furthermore, valid <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrame::CanFrameFlag</span></code> have to be set:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Prepare a CAN message with id 0x17</span>
@@ -161,7 +162,7 @@ with a CAN ID and the data to be transmitted. Furthermore, valid <code class="xr
 </div>
 </section>
 <section id="transmission-acknowledgement">
-<h3><a class="toc-backref" href="#id3">Transmission Acknowledgement</a><a class="headerlink" href="#transmission-acknowledgement" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Transmission Acknowledgement</a><a class="headerlink" href="#transmission-acknowledgement" title="Permalink to this heading"></a></h3>
 <p>To be notified of the success or failure of the transmission, a <code class="docutils literal notranslate"><span class="pre">FrameTransmitHandler</span></code> can be registered using
 <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController23AddFrameTransmitHandlerE20FrameTransmitHandler21CanTransmitStatusMask" title="SilKit::Services::Can::ICanController::AddFrameTransmitHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddFrameTransmitHandler()</span></code></a>:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">frameTransmitHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="n">ICanController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">CanFrameTransmitEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameTransmitEvent</span><span class="p">)</span>
@@ -171,17 +172,17 @@ with a CAN ID and the data to be transmitted. Furthermore, valid <code class="xr
 <span class="n">canController</span><span class="o">-&gt;</span><span class="n">AddFrameTransmitHandler</span><span class="p">(</span><span class="n">frameTransmitHandler</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>An optional second parameter of <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController23AddFrameTransmitHandlerE20FrameTransmitHandler21CanTransmitStatusMask" title="SilKit::Services::Can::ICanController::AddFrameTransmitHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddFrameTransmitHandler()</span></code></a> allows to specify the status (<a class="reference internal" href="#_CPPv4N6SilKit8Services3Can17CanTransmitStatus11TransmittedE" title="SilKit::Services::Can::Transmitted"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">CanTransmitStatus::Transmitted</span></code></a>, …) of the
+<p>An optional second parameter of <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController23AddFrameTransmitHandlerE20FrameTransmitHandler21CanTransmitStatusMask" title="SilKit::Services::Can::ICanController::AddFrameTransmitHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddFrameTransmitHandler()</span></code></a> allows to specify the status (<code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">CanTransmitStatus::Transmitted</span></code>, …) of the
 <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can21CanFrameTransmitEventE" title="SilKit::Services::Can::CanFrameTransmitEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrameTransmitEvent</span></code></a> to be received. By default, each status is enabled.</p>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note</p>
 <p>In a simple simulation without the network simulator, the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can17CanTransmitStatusE" title="SilKit::Services::Can::CanTransmitStatus"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">CanTransmitStatus</span></code></a> of the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can21CanFrameTransmitEventE" title="SilKit::Services::Can::CanFrameTransmitEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrameTransmitEvent</span></code></a> will
-always be <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can17CanTransmitStatus11TransmittedE" title="SilKit::Services::Can::Transmitted"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">CanTransmitStatus::Transmitted</span></code></a>. If a detailed simulation is used, it is possible that the transmit queue overflows
-causing the handler to be called with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can17CanTransmitStatus17TransmitQueueFullE" title="SilKit::Services::Can::TransmitQueueFull"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">CanTransmitStatus::TransmitQueueFull</span></code></a> signaling a transmission failure.</p>
+always be <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">CanTransmitStatus::Transmitted</span></code>. If a detailed simulation is used, it is possible that the transmit queue overflows
+causing the handler to be called with <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">CanTransmitStatus::TransmitQueueFull</span></code> signaling a transmission failure.</p>
 </div>
 </section>
 <section id="receiving-can-frame-events">
-<h3><a class="toc-backref" href="#id4">Receiving CAN Frame Events</a><a class="headerlink" href="#receiving-can-frame-events" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Receiving CAN Frame Events</a><a class="headerlink" href="#receiving-can-frame-events" title="Permalink to this heading"></a></h3>
 <p>A <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can8CanFrameE" title="SilKit::Services::Can::CanFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrame</span></code></a> is received as a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can13CanFrameEventE" title="SilKit::Services::Can::CanFrameEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrameEvent</span></code></a> consisting of a <code class="docutils literal notranslate"><span class="pre">transmitId</span></code> used to identify the acknowledgment of the
 frame, a timestamp and the actual <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can8CanFrameE" title="SilKit::Services::Can::CanFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrame</span></code></a>. The handler is called whenever a <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can8CanFrameE" title="SilKit::Services::Can::CanFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">CanFrame</span></code></a> is received:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">frameHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="n">ICanController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">CanFrameEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameEvent</span><span class="p">)</span>
@@ -195,7 +196,7 @@ frame, a timestamp and the actual <a class="reference internal" href="#_CPPv4N6S
 received. By default, only frames of RX direction are handled.</p>
 </section>
 <section id="receiving-state-change-events">
-<h3><a class="toc-backref" href="#id5">Receiving State Change Events</a><a class="headerlink" href="#receiving-state-change-events" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Receiving State Change Events</a><a class="headerlink" href="#receiving-state-change-events" title="Permalink to this heading"></a></h3>
 <p>To receive changes of the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can18CanControllerStateE" title="SilKit::Services::Can::CanControllerState"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">CanControllerState</span></code></a>,
 a <code class="docutils literal notranslate"><span class="pre">StateChangeHandler</span></code> must be registered using <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController21AddStateChangeHandlerE18StateChangeHandler" title="SilKit::Services::Can::ICanController::AddStateChangeHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddStateChangeHandler()</span></code></a>:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">stateChangedHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="n">ICanController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">CanStateChangeEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">stateChangeEvent</span><span class="p">)</span>
@@ -208,7 +209,7 @@ a <code class="docutils literal notranslate"><span class="pre">StateChangeHandle
 <p>Similarly, changes in the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can13CanErrorStateE" title="SilKit::Services::Can::CanErrorState"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">CanErrorState</span></code></a> can be tracked with <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController26AddErrorStateChangeHandlerE23ErrorStateChangeHandler" title="SilKit::Services::Can::ICanController::AddErrorStateChangeHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddErrorStateChangeHandler()</span></code></a>.</p>
 </section>
 <section id="initialization">
-<h3><a class="toc-backref" href="#id6">Initialization</a><a class="headerlink" href="#initialization" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Initialization</a><a class="headerlink" href="#initialization" title="Permalink to this heading"></a></h3>
 <p>A CAN controller’s baud rate must first be configured by passing a value to <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController11SetBaudRateE8uint32_t8uint32_t8uint32_t" title="SilKit::Services::Can::ICanController::SetBaudRate"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">ICanController::SetBaudRate()</span></code></a>.
 Then, the controller must be started explicitly by calling <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController5StartEv" title="SilKit::Services::Can::ICanController::Start"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Start()</span></code></a>. Now the controller can be used.
 Additional control commands are <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController4StopEv" title="SilKit::Services::Can::ICanController::Stop"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Stop()</span></code></a> and <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController5ResetEv" title="SilKit::Services::Can::ICanController::Reset"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Reset()</span></code></a>.</p>
@@ -226,7 +227,7 @@ that all participants are already connected, which can cause the call to have no
 </div>
 </section>
 <section id="managing-the-event-handlers">
-<h3><a class="toc-backref" href="#id7">Managing the Event Handlers</a><a class="headerlink" href="#managing-the-event-handlers" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Managing the Event Handlers</a><a class="headerlink" href="#managing-the-event-handlers" title="Permalink to this heading"></a></h3>
 <p>Adding a handler will return a <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">HandlerId</span></code>. This ID can be used to remove the handler via:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController26RemoveFrameTransmitHandlerE9HandlerId" title="SilKit::Services::Can::ICanController::RemoveFrameTransmitHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">RemoveFrameTransmitHandler()</span></code></a></p></li>
@@ -237,9 +238,9 @@ that all participants are already connected, which can cause the call to have no
 </section>
 </section>
 <section id="api-and-data-type-reference">
-<h2><a class="toc-backref" href="#id8">API and Data Type Reference</a><a class="headerlink" href="#api-and-data-type-reference" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">API and Data Type Reference</a><a class="headerlink" href="#api-and-data-type-reference" title="Permalink to this heading"></a></h2>
 <section id="can-controller-api">
-<h3><a class="toc-backref" href="#id9">CAN Controller API</a><a class="headerlink" href="#can-controller-api" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">CAN Controller API</a><a class="headerlink" href="#can-controller-api" title="Permalink to this heading"></a></h3>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Can14ICanControllerE">
 <span id="_CPPv3N6SilKit8Services3Can14ICanControllerE"></span><span id="_CPPv2N6SilKit8Services3Can14ICanControllerE"></span><span id="SilKit::Services::Can::ICanController"></span><span class="target" id="class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ICanController</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can14ICanControllerE" title="Permalink to this definition"></a><br /></dt>
@@ -247,32 +248,32 @@ that all participants are already connected, which can cause the call to have no
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
 <dl class="cpp type">
-<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Can14ICanController9CallbackTE">
-<span id="_CPPv3N6SilKit8Services3Can14ICanController9CallbackTE"></span><span id="_CPPv2N6SilKit8Services3Can14ICanController9CallbackTE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a3bc3bfabeb2dbdac684e6b5fb21a9825"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CallbackT</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanControllerE" title="SilKit::Services::Can::ICanController"><span class="n"><span class="pre">ICanController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">controller</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">MsgT</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can14ICanController9CallbackTE" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4I0EN6SilKit8Services3Can14ICanController9CallbackTE">
+<span id="_CPPv3I0EN6SilKit8Services3Can14ICanController9CallbackTE"></span><span id="_CPPv2I0EN6SilKit8Services3Can14ICanController9CallbackTE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MsgT</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a3bc3bfabeb2dbdac684e6b5fb21a9825"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CallbackT</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanControllerE" title="SilKit::Services::Can::ICanController"><span class="n"><span class="pre">ICanController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">controller</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services3Can14ICanController9CallbackTE" title="SilKit::Services::Can::ICanController::CallbackT::MsgT"><span class="n"><span class="pre">MsgT</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4I0EN6SilKit8Services3Can14ICanController9CallbackTE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Generic CAN callback method. </p>
 </dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Can14ICanController12FrameHandlerE">
-<span id="_CPPv3N6SilKit8Services3Can14ICanController12FrameHandlerE"></span><span id="_CPPv2N6SilKit8Services3Can14ICanController12FrameHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a7c588e84753fd51eb8b1914418b8ec36"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FrameHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController9CallbackTE" title="SilKit::Services::Can::ICanController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Can13CanFrameEventE" title="SilKit::Services::Can::CanFrameEvent"><span class="n"><span class="pre">CanFrameEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can14ICanController12FrameHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services3Can14ICanController12FrameHandlerE"></span><span id="_CPPv2N6SilKit8Services3Can14ICanController12FrameHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a7c588e84753fd51eb8b1914418b8ec36"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FrameHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services3Can14ICanController9CallbackTE" title="SilKit::Services::Can::ICanController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Can13CanFrameEventE" title="SilKit::Services::Can::CanFrameEvent"><span class="n"><span class="pre">CanFrameEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can14ICanController12FrameHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate that a <a class="reference internal" href="#struct_sil_kit_1_1_services_1_1_can_1_1_can_frame_event"><span class="std std-ref">CanFrameEvent</span></a> has been received. Cf., <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1acced771a5299df15efb88837086c78de"><span class="std std-ref">ICanController::AddFrameHandler(FrameHandler,DirectionMask)</span></a>; </p>
 </dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Can14ICanController18StateChangeHandlerE">
-<span id="_CPPv3N6SilKit8Services3Can14ICanController18StateChangeHandlerE"></span><span id="_CPPv2N6SilKit8Services3Can14ICanController18StateChangeHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a38f85c68c3c5b7ac3d3c6013db827572"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">StateChangeHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController9CallbackTE" title="SilKit::Services::Can::ICanController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Can19CanStateChangeEventE" title="SilKit::Services::Can::CanStateChangeEvent"><span class="n"><span class="pre">CanStateChangeEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can14ICanController18StateChangeHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services3Can14ICanController18StateChangeHandlerE"></span><span id="_CPPv2N6SilKit8Services3Can14ICanController18StateChangeHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a38f85c68c3c5b7ac3d3c6013db827572"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">StateChangeHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services3Can14ICanController9CallbackTE" title="SilKit::Services::Can::ICanController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Can19CanStateChangeEventE" title="SilKit::Services::Can::CanStateChangeEvent"><span class="n"><span class="pre">CanStateChangeEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can14ICanController18StateChangeHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate that the <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_can_1a21e629b81cad63b6c793ee9819bd73d7"><span class="std std-ref">CanControllerState</span></a> has changed. Cf., <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a640016bde4d2d97efd4d12a682edb137"><span class="std std-ref">ICanController::AddStateChangeHandler(StateChangeHandler)</span></a>; </p>
 </dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Can14ICanController23ErrorStateChangeHandlerE">
-<span id="_CPPv3N6SilKit8Services3Can14ICanController23ErrorStateChangeHandlerE"></span><span id="_CPPv2N6SilKit8Services3Can14ICanController23ErrorStateChangeHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a899a114d90ee3691d7defbd1d63330f3"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ErrorStateChangeHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController9CallbackTE" title="SilKit::Services::Can::ICanController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Can24CanErrorStateChangeEventE" title="SilKit::Services::Can::CanErrorStateChangeEvent"><span class="n"><span class="pre">CanErrorStateChangeEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can14ICanController23ErrorStateChangeHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services3Can14ICanController23ErrorStateChangeHandlerE"></span><span id="_CPPv2N6SilKit8Services3Can14ICanController23ErrorStateChangeHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a899a114d90ee3691d7defbd1d63330f3"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ErrorStateChangeHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services3Can14ICanController9CallbackTE" title="SilKit::Services::Can::ICanController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Can24CanErrorStateChangeEventE" title="SilKit::Services::Can::CanErrorStateChangeEvent"><span class="n"><span class="pre">CanErrorStateChangeEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can14ICanController23ErrorStateChangeHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate that the controller <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_can_1ad9d1311bcfce1b8adb40c0393fa170b9"><span class="std std-ref">CanErrorState</span></a> has changed. Cf., <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a02af759304027a071b2b6a40bf8b13ce"><span class="std std-ref">ICanController::AddErrorStateChangeHandler(ErrorStateChangeHandler)</span></a>; </p>
 </dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Can14ICanController20FrameTransmitHandlerE">
-<span id="_CPPv3N6SilKit8Services3Can14ICanController20FrameTransmitHandlerE"></span><span id="_CPPv2N6SilKit8Services3Can14ICanController20FrameTransmitHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a8217fe2fc9e8f870c08fb83ca67e6bc0"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FrameTransmitHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanController9CallbackTE" title="SilKit::Services::Can::ICanController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Can21CanFrameTransmitEventE" title="SilKit::Services::Can::CanFrameTransmitEvent"><span class="n"><span class="pre">CanFrameTransmitEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can14ICanController20FrameTransmitHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services3Can14ICanController20FrameTransmitHandlerE"></span><span id="_CPPv2N6SilKit8Services3Can14ICanController20FrameTransmitHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a8217fe2fc9e8f870c08fb83ca67e6bc0"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FrameTransmitHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services3Can14ICanController9CallbackTE" title="SilKit::Services::Can::ICanController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services3Can21CanFrameTransmitEventE" title="SilKit::Services::Can::CanFrameTransmitEvent"><span class="n"><span class="pre">CanFrameTransmitEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can14ICanController20FrameTransmitHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate that a <a class="reference internal" href="#struct_sil_kit_1_1_services_1_1_can_1_1_can_frame_transmit_event"><span class="std std-ref">CanFrameTransmitEvent</span></a> has been received. Cf., <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1af0450cdb1778556d40b6b83c72f439ee"><span class="std std-ref">ICanController::AddFrameTransmitHandler(FrameTransmitHandler,CanTransmitStatusMask)</span></a>; </p>
 </dd></dl>
 
@@ -292,7 +293,7 @@ that all participants are already connected, which can cause the call to have no
 NB: The baud rate of a CAN controller must be set before using it.</p>
 <p>NB: In a detailed simulation, the baud rate is used to calculate transmission delays of CAN messages and to determine proper configuration and interoperation of the connected controllers. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>rate</strong> – Baud rate for regular (non FD) CAN messages given in bps; valid range: 0 to 2’000’000</p></li>
 <li><p><strong>fdRate</strong> – Baud rate for CAN FD messages given in bps; valid range: 0 to 16’000’000</p></li>
@@ -307,28 +308,28 @@ NB: The baud rate of a CAN controller must be set before using it.</p>
 <span id="_CPPv3N6SilKit8Services3Can14ICanController5ResetEv"></span><span id="_CPPv2N6SilKit8Services3Can14ICanController5ResetEv"></span><span id="SilKit::Services::Can::ICanController::Reset"></span><span class="target" id="class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a0d22a13b0b166d9048701c341ed6dfad"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Reset</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can14ICanController5ResetEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Reset the CAN controller. </p>
 <p>Resets the controller’s Transmit Error Count (TEC) and the Receive Error Count (REC). Furthermore, sets the CAN controller state to <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_can_1a21e629b81cad63b6c793ee9819bd73d7aa9176fac65b988c524c84dee7aa2935a"><span class="std std-ref">CanControllerState::Uninit</span></a> and the controller’s error state to <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_can_1ad9d1311bcfce1b8adb40c0393fa170b9a534ceac854da4ba59c4dc41b7ab732dc"><span class="std std-ref">CanErrorState::NotAvailable</span></a>.</p>
-<p><a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a54f6d6d50b0865a11240cc7497c60e6b"><span class="std std-ref">Start()</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1adebcfa618d7d7dee9b3be0934dde46a8"><span class="std std-ref">Stop()</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a70038185075a4074dbcdafc3e6cbd2b0"><span class="std std-ref">Sleep()</span></a> </p>
+<p><a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a54f6d6d50b0865a11240cc7497c60e6b"><span class="std std-ref">Start()</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1adebcfa618d7d7dee9b3be0934dde46a8"><span class="std std-ref">Stop()</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a70038185075a4074dbcdafc3e6cbd2b0"><span class="std std-ref">Sleep()</span></a></p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Can14ICanController5StartEv">
 <span id="_CPPv3N6SilKit8Services3Can14ICanController5StartEv"></span><span id="_CPPv2N6SilKit8Services3Can14ICanController5StartEv"></span><span id="SilKit::Services::Can::ICanController::Start"></span><span class="target" id="class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a54f6d6d50b0865a11240cc7497c60e6b"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Start</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can14ICanController5StartEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Start the CAN controller. </p>
-<p><a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a0d22a13b0b166d9048701c341ed6dfad"><span class="std std-ref">Reset()</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1adebcfa618d7d7dee9b3be0934dde46a8"><span class="std std-ref">Stop()</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a70038185075a4074dbcdafc3e6cbd2b0"><span class="std std-ref">Sleep()</span></a> </p>
+<p><a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a0d22a13b0b166d9048701c341ed6dfad"><span class="std std-ref">Reset()</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1adebcfa618d7d7dee9b3be0934dde46a8"><span class="std std-ref">Stop()</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a70038185075a4074dbcdafc3e6cbd2b0"><span class="std std-ref">Sleep()</span></a></p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Can14ICanController4StopEv">
 <span id="_CPPv3N6SilKit8Services3Can14ICanController4StopEv"></span><span id="_CPPv2N6SilKit8Services3Can14ICanController4StopEv"></span><span id="SilKit::Services::Can::ICanController::Stop"></span><span class="target" id="class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1adebcfa618d7d7dee9b3be0934dde46a8"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Stop</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can14ICanController4StopEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Stop the CAN controller. </p>
-<p><a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a0d22a13b0b166d9048701c341ed6dfad"><span class="std std-ref">Reset()</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a54f6d6d50b0865a11240cc7497c60e6b"><span class="std std-ref">Start()</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a70038185075a4074dbcdafc3e6cbd2b0"><span class="std std-ref">Sleep()</span></a> </p>
+<p><a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a0d22a13b0b166d9048701c341ed6dfad"><span class="std std-ref">Reset()</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a54f6d6d50b0865a11240cc7497c60e6b"><span class="std std-ref">Start()</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a70038185075a4074dbcdafc3e6cbd2b0"><span class="std std-ref">Sleep()</span></a></p>
 </dd></dl>
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Can14ICanController5SleepEv">
 <span id="_CPPv3N6SilKit8Services3Can14ICanController5SleepEv"></span><span id="_CPPv2N6SilKit8Services3Can14ICanController5SleepEv"></span><span id="SilKit::Services::Can::ICanController::Sleep"></span><span class="target" id="class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a70038185075a4074dbcdafc3e6cbd2b0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Sleep</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can14ICanController5SleepEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Put the CAN controller in sleep mode. </p>
-<p><a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a0d22a13b0b166d9048701c341ed6dfad"><span class="std std-ref">Reset()</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a54f6d6d50b0865a11240cc7497c60e6b"><span class="std std-ref">Start()</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1adebcfa618d7d7dee9b3be0934dde46a8"><span class="std std-ref">Stop()</span></a> </p>
+<p><a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a0d22a13b0b166d9048701c341ed6dfad"><span class="std std-ref">Reset()</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a54f6d6d50b0865a11240cc7497c60e6b"><span class="std std-ref">Start()</span></a>, <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1adebcfa618d7d7dee9b3be0934dde46a8"><span class="std std-ref">Stop()</span></a></p>
 </dd></dl>
 
 <dl class="cpp function">
@@ -337,7 +338,7 @@ NB: The baud rate of a CAN controller must be set before using it.</p>
 <dd><p>Request the transmission of a <a class="reference internal" href="#struct_sil_kit_1_1_services_1_1_can_1_1_can_frame"><span class="std std-ref">CanFrame</span></a>. </p>
 <p>NB: The <a class="reference internal" href="#struct_sil_kit_1_1_services_1_1_can_1_1_can_frame"><span class="std std-ref">CanFrame</span></a> must provide a valid CAN ID and valid flags. The controller must be in the Started state to transmit and receive messages.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>msg</strong> – The frame to transmit. </p></li>
 <li><p><strong>userContext</strong> – An optional user provided pointer that is reobtained in the <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a8217fe2fc9e8f870c08fb83ca67e6bc0"><span class="std std-ref">FrameTransmitHandler</span></a>. </p></li>
@@ -352,7 +353,7 @@ NB: The baud rate of a CAN controller must be set before using it.</p>
 <dd><p>Register a callback for CAN message reception. </p>
 <p>The registered handler is called when the controller receives a new <a class="reference internal" href="#struct_sil_kit_1_1_services_1_1_can_1_1_can_frame"><span class="std std-ref">CanFrame</span></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
 </dd>
 </dl>
@@ -363,7 +364,7 @@ NB: The baud rate of a CAN controller must be set before using it.</p>
 <span id="_CPPv3N6SilKit8Services3Can14ICanController18RemoveFrameHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services3Can14ICanController18RemoveFrameHandlerE9HandlerId"></span><span id="SilKit::Services::Can::ICanController::RemoveFrameHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1ac87bd9c9a3a2d0edb2a49bcd3c28889e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemoveFrameHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can14ICanController18RemoveFrameHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a FrameHandler by SilKit::Util::HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
 </dd>
 </dl>
@@ -375,7 +376,7 @@ NB: The baud rate of a CAN controller must be set before using it.</p>
 <dd><p>Register a callback for controller state changes. </p>
 <p>The registered handler is called when the <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_can_1a21e629b81cad63b6c793ee9819bd73d7"><span class="std std-ref">SilKit::Services::Can::CanControllerState</span></a> of the controller changes. E.g., after starting the controller, the state changes from <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_can_1a21e629b81cad63b6c793ee9819bd73d7aa9176fac65b988c524c84dee7aa2935a"><span class="std std-ref">SilKit::Services::Can::CanControllerState::Uninit</span></a> to <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_can_1a21e629b81cad63b6c793ee9819bd73d7a8428552d86c0d262a542a528af490afa"><span class="std std-ref">SilKit::Services::Can::CanControllerState::Started</span></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
 </dd>
 </dl>
@@ -386,7 +387,7 @@ NB: The baud rate of a CAN controller must be set before using it.</p>
 <span id="_CPPv3N6SilKit8Services3Can14ICanController24RemoveStateChangeHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services3Can14ICanController24RemoveStateChangeHandlerE9HandlerId"></span><span id="SilKit::Services::Can::ICanController::RemoveStateChangeHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1aa62449608065cfaa05f75b4dec29211a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemoveStateChangeHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can14ICanController24RemoveStateChangeHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a StateChangeHandler by SilKit::Util::HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
 </dd>
 </dl>
@@ -399,7 +400,7 @@ NB: The baud rate of a CAN controller must be set before using it.</p>
 <p>The registered handler is called when the <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_can_1ad9d1311bcfce1b8adb40c0393fa170b9"><span class="std std-ref">SilKit::Services::Can::CanErrorState</span></a> of the controller changes. During normal operation, the controller should be in state <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_can_1ad9d1311bcfce1b8adb40c0393fa170b9a5e9d039add1e7f63119eb7f36b83fb1f"><span class="std std-ref">SilKit::Services::Can::CanErrorState::ErrorActive</span></a>. The states correspond to the error state handling protocol of the CAN specification.</p>
 <p>NB: Only supported in a detailed simulation. In simple simulation, the handler is never called.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
 </dd>
 </dl>
@@ -410,7 +411,7 @@ NB: The baud rate of a CAN controller must be set before using it.</p>
 <span id="_CPPv3N6SilKit8Services3Can14ICanController29RemoveErrorStateChangeHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services3Can14ICanController29RemoveErrorStateChangeHandlerE9HandlerId"></span><span id="SilKit::Services::Can::ICanController::RemoveErrorStateChangeHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1a108adacfb7f61e2b10ec6853dba8eef5"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemoveErrorStateChangeHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can14ICanController29RemoveErrorStateChangeHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove an ErrorStateChangeHandler by SilKit::Util::HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
 </dd>
 </dl>
@@ -429,7 +430,7 @@ NB: The baud rate of a CAN controller must be set before using it.</p>
 <span id="_CPPv3N6SilKit8Services3Can14ICanController26RemoveFrameTransmitHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services3Can14ICanController26RemoveFrameTransmitHandlerE9HandlerId"></span><span id="SilKit::Services::Can::ICanController::RemoveFrameTransmitHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_can_1_1_i_can_controller_1aae1c39a6e1c37ac8c68dfea465b7edae"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemoveFrameTransmitHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can14ICanController26RemoveFrameTransmitHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a FrameTransmitHandler by SilKit::Util::HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
 </dd>
 </dl>
@@ -440,7 +441,7 @@ NB: The baud rate of a CAN controller must be set before using it.</p>
 
 </section>
 <section id="data-structures">
-<h3><a class="toc-backref" href="#id10">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this heading"></a></h3>
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Can8CanFrameE">
 <span id="_CPPv3N6SilKit8Services3Can8CanFrameE"></span><span id="_CPPv2N6SilKit8Services3Can8CanFrameE"></span><span id="SilKit::Services::Can::CanFrame"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_can_1_1_can_frame"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CanFrame</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can8CanFrameE" title="Permalink to this definition"></a><br /></dt>
@@ -602,10 +603,10 @@ NB: The baud rate of a CAN controller must be set before using it.</p>
 
 </section>
 <section id="enumerations-and-typedefs">
-<h3><a class="toc-backref" href="#id11">Enumerations and Typedefs</a><a class="headerlink" href="#enumerations-and-typedefs" title="Permalink to this heading"></a></h3>
-<dl class="cpp enum">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Enumerations and Typedefs</a><a class="headerlink" href="#enumerations-and-typedefs" title="Permalink to this heading"></a></h3>
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Can18CanControllerStateE">
-<span id="_CPPv3N6SilKit8Services3Can18CanControllerStateE"></span><span id="_CPPv2N6SilKit8Services3Can18CanControllerStateE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_can_1a21e629b81cad63b6c793ee9819bd73d7"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Can</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">CanControllerState</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can18CanControllerStateE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services3Can18CanControllerStateE"></span><span id="_CPPv2N6SilKit8Services3Can18CanControllerStateE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_can_1a21e629b81cad63b6c793ee9819bd73d7"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Can</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">CanControllerState</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit_CanControllerState</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can18CanControllerStateE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>CAN Controller state according to AUTOSAR specification AUTOSAR_SWS_CANDriver 4.3.1. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
@@ -634,9 +635,9 @@ NB: The baud rate of a CAN controller must be set before using it.</p>
 
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Can13CanErrorStateE">
-<span id="_CPPv3N6SilKit8Services3Can13CanErrorStateE"></span><span id="_CPPv2N6SilKit8Services3Can13CanErrorStateE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_can_1ad9d1311bcfce1b8adb40c0393fa170b9"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Can</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">CanErrorState</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can13CanErrorStateE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services3Can13CanErrorStateE"></span><span id="_CPPv2N6SilKit8Services3Can13CanErrorStateE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_can_1ad9d1311bcfce1b8adb40c0393fa170b9"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Can</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">CanErrorState</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SilKit_CanErrorState</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can13CanErrorStateE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Error state of a CAN node according to CAN specification. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
@@ -667,9 +668,9 @@ NB: The baud rate of a CAN controller must be set before using it.</p>
 
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Can12CanFrameFlagE">
-<span id="_CPPv3N6SilKit8Services3Can12CanFrameFlagE"></span><span id="_CPPv2N6SilKit8Services3Can12CanFrameFlagE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_can_1ad171974695333e4327afb48e26f7f356"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Can</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">CanFrameFlag</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can12CanFrameFlagE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services3Can12CanFrameFlagE"></span><span id="_CPPv2N6SilKit8Services3Can12CanFrameFlagE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_can_1ad171974695333e4327afb48e26f7f356"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Can</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">CanFrameFlag</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CanFrameFlagMask</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can12CanFrameFlagE" title="Permalink to this definition"></a><br /></dt>
 <dd><p><em>Values:</em></p>
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Can12CanFrameFlag3IdeE">
@@ -715,9 +716,9 @@ NB: The baud rate of a CAN controller must be set before using it.</p>
 
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services3Can17CanTransmitStatusE">
-<span id="_CPPv3N6SilKit8Services3Can17CanTransmitStatusE"></span><span id="_CPPv2N6SilKit8Services3Can17CanTransmitStatusE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_can_1a10d52346781096c205cdde8c8bab65f0"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Can</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">CanTransmitStatus</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can17CanTransmitStatusE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services3Can17CanTransmitStatusE"></span><span id="_CPPv2N6SilKit8Services3Can17CanTransmitStatusE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_can_1a10d52346781096c205cdde8c8bab65f0"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Can</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">CanTransmitStatus</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CanTransmitStatusMask</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services3Can17CanTransmitStatusE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Transfer status of a CAN node according to CAN specification. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
@@ -743,7 +744,7 @@ NB: The baud rate of a CAN controller must be set before using it.</p>
 </section>
 </section>
 <section id="usage-examples">
-<h2><a class="toc-backref" href="#id12">Usage Examples</a><a class="headerlink" href="#usage-examples" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Usage Examples</a><a class="headerlink" href="#usage-examples" title="Permalink to this heading"></a></h2>
 <p>This section contains complete examples that show the usage of the CAN controller and the interaction of two or more
 controllers. Although the CAN controllers would typically belong to different participants and reside in different
 processes, their interaction is shown sequentially to demonstrate cause and effect.</p>
@@ -753,7 +754,7 @@ processes, their interaction is shown sequentially to demonstrate cause and effe
 <li><p>All CAN controllers use the same CAN network.</p></li>
 </ul>
 <section id="simple-can-sender-receiver-example">
-<h3><a class="toc-backref" href="#id13">Simple CAN Sender / Receiver Example</a><a class="headerlink" href="#simple-can-sender-receiver-example" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Simple CAN Sender / Receiver Example</a><a class="headerlink" href="#simple-can-sender-receiver-example" title="Permalink to this heading"></a></h3>
 <p>This example shows a successful data transfer from one CAN controller to another CAN controller connected on the same
 CAN network.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Copyright (c) 2022 Vector Informatik GmbH</span>

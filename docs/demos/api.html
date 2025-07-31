@@ -1,22 +1,22 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>API &mdash; Vector SIL Kit 4.0.56 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>API &mdash; Vector SIL Kit 5.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -29,14 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+
+          
+          
+          <a href="../contents.html" class="icon icon-home">
+            Vector SIL Kit
           </a>
-              <div class="version">
-                4.0.56
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -70,7 +71,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">Licenses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/overview.html">Changelog</a></li>
 </ul>
 
         </div>
@@ -86,9 +87,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="demos.html">Demos</a> &raquo;</li>
-      <li>API</li>
+      <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="demos.html">Demos</a></li>
+      <li class="breadcrumb-item active">API</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/demos/api.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -101,7 +102,7 @@
   <section id="api">
 <h1>API<a class="headerlink" href="#api" title="Permalink to this heading"></a></h1>
 <p>These demos focus on basic systems or single topics of the SIL Kit API.</p>
-<div class="contents local topic" id="contents">
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#simple-can" id="id1">Simple Can</a></p></li>
 <li><p><a class="reference internal" href="#autonomous-lifecycle" id="id2">Autonomous lifecycle</a></p></li>
@@ -110,9 +111,9 @@
 <li><p><a class="reference internal" href="#asynchronous-simulation-step-handler" id="id5">Asynchronous simulation step handler</a></p></li>
 <li><p><a class="reference internal" href="#network-simulator-api" id="id6">Network Simulator API</a></p></li>
 </ul>
-</div>
+</nav>
 <section id="simple-can">
-<span id="sec-simple-can-demo"></span><h2><a class="toc-backref" href="#id1">Simple Can</a><a class="headerlink" href="#simple-can" title="Permalink to this heading"></a></h2>
+<span id="sec-simple-can-demo"></span><h2><a class="toc-backref" href="#id1" role="doc-backlink">Simple Can</a><a class="headerlink" href="#simple-can" title="Permalink to this heading"></a></h2>
 <dl>
 <dt>Abstract</dt><dd><p>Minimalistic demo for a participant with Can communication and virtual time synchronization.</p>
 </dd>
@@ -150,7 +151,7 @@ Name of the SIL Kit participant.</p></li>
 </dl>
 </section>
 <section id="autonomous-lifecycle">
-<span id="sec-autonomous-lifecycle-demo"></span><h2><a class="toc-backref" href="#id2">Autonomous lifecycle</a><a class="headerlink" href="#autonomous-lifecycle" title="Permalink to this heading"></a></h2>
+<span id="sec-autonomous-lifecycle-demo"></span><h2><a class="toc-backref" href="#id2" role="doc-backlink">Autonomous lifecycle</a><a class="headerlink" href="#autonomous-lifecycle" title="Permalink to this heading"></a></h2>
 <dl>
 <dt>Abstract</dt><dd><p>Minimal example of a participant with an autonomous lifecycle.
 The demo shows that this participant can be started and stopped independently from other participants.</p>
@@ -185,7 +186,7 @@ Name of the SIL Kit participant.</p></li>
 </dl>
 </section>
 <section id="coordinated-lifecycle">
-<span id="sec-coordinated-lifecycle-demo"></span><h2><a class="toc-backref" href="#id3">Coordinated lifecycle</a><a class="headerlink" href="#coordinated-lifecycle" title="Permalink to this heading"></a></h2>
+<span id="sec-coordinated-lifecycle-demo"></span><h2><a class="toc-backref" href="#id3" role="doc-backlink">Coordinated lifecycle</a><a class="headerlink" href="#coordinated-lifecycle" title="Permalink to this heading"></a></h2>
 <dl>
 <dt>Abstract</dt><dd><p>Minimal example of a participant with a coordinated lifecycle.
 This shows how multiple participants can be started and stopped simultaneously, controlled by the <code class="docutils literal notranslate"><span class="pre">sil-kit-system-controller</span></code>.</p>
@@ -224,7 +225,7 @@ Name of the SIL Kit participant.</p></li>
 </dl>
 </section>
 <section id="simulation-step-handler">
-<span id="sec-sim-step-demo"></span><h2><a class="toc-backref" href="#id4">Simulation step handler</a><a class="headerlink" href="#simulation-step-handler" title="Permalink to this heading"></a></h2>
+<span id="sec-sim-step-demo"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink">Simulation step handler</a><a class="headerlink" href="#simulation-step-handler" title="Permalink to this heading"></a></h2>
 <dl>
 <dt>Abstract</dt><dd><p>Minimal example of a participant with time synchronization and a simulation step handler.</p>
 </dd>
@@ -262,7 +263,7 @@ Name of the SIL Kit participant.</p></li>
 </dl>
 </section>
 <section id="asynchronous-simulation-step-handler">
-<span id="sec-sim-step-async-demo"></span><h2><a class="toc-backref" href="#id5">Asynchronous simulation step handler</a><a class="headerlink" href="#asynchronous-simulation-step-handler" title="Permalink to this heading"></a></h2>
+<span id="sec-sim-step-async-demo"></span><h2><a class="toc-backref" href="#id5" role="doc-backlink">Asynchronous simulation step handler</a><a class="headerlink" href="#asynchronous-simulation-step-handler" title="Permalink to this heading"></a></h2>
 <dl>
 <dt>Abstract</dt><dd><p>Minimal example of a participant with time synchronization and an asynchronous simulation step handler.</p>
 </dd>
@@ -300,7 +301,7 @@ Name of the SIL Kit participant.</p></li>
 </dl>
 </section>
 <section id="network-simulator-api">
-<span id="sec-netsim-demo"></span><h2><a class="toc-backref" href="#id6">Network Simulator API</a><a class="headerlink" href="#network-simulator-api" title="Permalink to this heading"></a></h2>
+<span id="sec-netsim-demo"></span><h2><a class="toc-backref" href="#id6" role="doc-backlink">Network Simulator API</a><a class="headerlink" href="#network-simulator-api" title="Permalink to this heading"></a></h2>
 <dl>
 <dt>Abstract</dt><dd><p>Demonstrates the usage of the experimental SIL Kit NetworkSimulator API.
 A custom network simulation for Can is set up, the network simulator application can be used together with the Can demo.</p>
