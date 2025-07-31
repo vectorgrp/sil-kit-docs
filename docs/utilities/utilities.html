@@ -1,22 +1,22 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Utilities &mdash; Vector SIL Kit 4.0.56 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>Utilities &mdash; Vector SIL Kit 5.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -29,14 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+
+          
+          
+          <a href="../contents.html" class="icon icon-home">
+            Vector SIL Kit
           </a>
-              <div class="version">
-                4.0.56
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -60,7 +61,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">Licenses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/overview.html">Changelog</a></li>
 </ul>
 
         </div>
@@ -76,8 +77,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Utilities</li>
+      <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Utilities</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/utilities/utilities.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,13 +90,13 @@
              
   <section id="utilities">
 <h1>Utilities<a class="headerlink" href="#utilities" title="Permalink to this heading"></a></h1>
-<div class="contents local topic" id="contents">
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#sil-kit-registry" id="id1">sil-kit-registry</a></p></li>
 <li><p><a class="reference internal" href="#sil-kit-system-controller" id="id2">sil-kit-system-controller</a></p></li>
 <li><p><a class="reference internal" href="#sil-kit-monitor" id="id3">sil-kit-monitor</a></p></li>
 </ul>
-</div>
+</nav>
 <p>Running a Vector SIL Kit system is supported by several utilities.
 The <strong>Registry</strong> is a mandatory part of the SIL Kit integrated middleware.
 It is needed to establish the connections between simulation participants at the start of a simulation.
@@ -106,7 +107,7 @@ It implements a simulation-wide state tracking and prints this information to th
 The System Controller and the Monitor serve as reference implementations for their respective usage scenarios.
 Users are free to implement their own versions of these utilities.</p>
 <section id="sil-kit-registry">
-<span id="sec-util-registry"></span><h2><a class="toc-backref" href="#id1">sil-kit-registry</a><a class="headerlink" href="#sil-kit-registry" title="Permalink to this heading"></a></h2>
+<span id="sec-util-registry"></span><h2><a class="toc-backref" href="#id1" role="doc-backlink">sil-kit-registry</a><a class="headerlink" href="#sil-kit-registry" title="Permalink to this heading"></a></h2>
 <dl>
 <dt>Abstract</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">sil-kit-registry</span></code> enables discovery between SIL Kit participants.
 It is needed for Vector SIL Kit simulations.</p>
@@ -156,7 +157,7 @@ It will exit with an error if neither is available.</p></li>
 </dl>
 </section>
 <section id="sil-kit-system-controller">
-<span id="sec-util-system-controller"></span><h2><a class="toc-backref" href="#id2">sil-kit-system-controller</a><a class="headerlink" href="#sil-kit-system-controller" title="Permalink to this heading"></a></h2>
+<span id="sec-util-system-controller"></span><h2><a class="toc-backref" href="#id2" role="doc-backlink">sil-kit-system-controller</a><a class="headerlink" href="#sil-kit-system-controller" title="Permalink to this heading"></a></h2>
 <dl>
 <dt>Abstract</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">sil-kit-system-controller</span></code> defines which participants are required for a simulation.
 Coordinated participants will wait until all required participants joined a simulation before they progress their state.
@@ -202,7 +203,7 @@ Names of participants to wait for before starting the simulation.</p></li>
 </dl>
 </section>
 <section id="sil-kit-monitor">
-<span id="sec-util-monitor"></span><h2><a class="toc-backref" href="#id3">sil-kit-monitor</a><a class="headerlink" href="#sil-kit-monitor" title="Permalink to this heading"></a></h2>
+<span id="sec-util-monitor"></span><h2><a class="toc-backref" href="#id3" role="doc-backlink">sil-kit-monitor</a><a class="headerlink" href="#sil-kit-monitor" title="Permalink to this heading"></a></h2>
 <dl>
 <dt>Abstract</dt><dd><p>The <code class="docutils literal notranslate"><span class="pre">sil-kit-monitor</span></code> visualizes the states of the participants of a SIL Kit simulation.</p>
 </dd>

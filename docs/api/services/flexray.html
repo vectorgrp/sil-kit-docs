@@ -1,22 +1,22 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FlexRay Service API &mdash; Vector SIL Kit 4.0.56 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>FlexRay Service API &mdash; Vector SIL Kit 5.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,14 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../contents.html" class="icon icon-home"> Vector SIL Kit
+
+          
+          
+          <a href="../../contents.html" class="icon icon-home">
+            Vector SIL Kit
           </a>
-              <div class="version">
-                4.0.56
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -80,7 +81,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../faq/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../licenses/license.html">Licenses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/overview.html">Changelog</a></li>
 </ul>
 
         </div>
@@ -96,9 +97,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../contents.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api.html">C/C++ API</a> &raquo;</li>
-      <li>FlexRay Service API</li>
+      <li><a href="../../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">C/C++ API</a></li>
+      <li class="breadcrumb-item active">FlexRay Service API</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/api/services/flexray.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -110,7 +111,7 @@
              
   <section id="flexray-service-api">
 <span id="chap-flexray-service-api"></span><h1>FlexRay Service API<a class="headerlink" href="#flexray-service-api" title="Permalink to this heading"></a></h1>
-<div class="contents local topic" id="contents">
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#using-the-flexray-controller" id="id1">Using the FlexRay Controller</a></p>
 <ul>
@@ -134,9 +135,9 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <section id="using-the-flexray-controller">
-<h2><a class="toc-backref" href="#id1">Using the FlexRay Controller</a><a class="headerlink" href="#using-the-flexray-controller" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Using the FlexRay Controller</a><a class="headerlink" href="#using-the-flexray-controller" title="Permalink to this heading"></a></h2>
 <p>The FlexRay Service API provides an FlexRay bus abstraction through the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayControllerE" title="SilKit::Services::Flexray::IFlexrayController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IFlexrayController</span></code></a> interface.
 A FlexRay controller is created by calling <a class="reference internal" href="../participant.html#_CPPv4N6SilKit12IParticipant23CreateFlexrayControllerERKNSt6stringERKNSt6stringE" title="SilKit::IParticipant::CreateFlexrayController"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateFlexrayController</span></code></a> given a controller name and network
 name:</p>
@@ -150,11 +151,11 @@ name:</p>
 Because of the intrinsic complexity within FlexRay, no trivial simulation exists.</p>
 </div>
 <section id="initialization">
-<h3><a class="toc-backref" href="#id2">Initialization</a><a class="headerlink" href="#initialization" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Initialization</a><a class="headerlink" href="#initialization" title="Permalink to this heading"></a></h3>
 <p>Before the FlexRay controller can be used and participate in FlexRay communication cycles,
 it must be configured, and a startup phase must take place at the beginning of the simulation.</p>
 <section id="configuration">
-<h4><a class="toc-backref" href="#id3">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h4>
+<h4><a class="toc-backref" href="#id3" role="doc-backlink">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h4>
 <p>The configuration is performed by setting up a <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray23FlexrayControllerConfigE" title="SilKit::Services::Flexray::FlexrayControllerConfig"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayControllerConfig</span></code></a> and passing it to <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController9ConfigureERK23FlexrayControllerConfig" title="SilKit::Services::Flexray::IFlexrayController::Configure"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Configure()</span></code></a>.
 Furthermore, <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController9ConfigureERK23FlexrayControllerConfig" title="SilKit::Services::Flexray::IFlexrayController::Configure"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Configure()</span></code></a> switches the controller to <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray15FlexrayPocState5ReadyE" title="SilKit::Services::Flexray::FlexrayPocState::Ready"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">FlexrayPocState::Ready</span></code></a> signaling that it is ready for startup.</p>
 <p>The <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray23FlexrayControllerConfigE" title="SilKit::Services::Flexray::FlexrayControllerConfig"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayControllerConfig</span></code></a> consists of global <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray24FlexrayClusterParametersE" title="SilKit::Services::Flexray::FlexrayClusterParameters"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayClusterParameters</span></code></a> and node-specific <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray21FlexrayNodeParametersE" title="SilKit::Services::Flexray::FlexrayNodeParameters"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayNodeParameters</span></code></a>,
@@ -191,7 +192,7 @@ manually at runtime. Tx buffers are used to initiate a transmission from one Fle
 <p>Note that <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController9ConfigureERK23FlexrayControllerConfig" title="SilKit::Services::Flexray::IFlexrayController::Configure"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Configure()</span></code></a> should be called in the <code class="docutils literal notranslate"><span class="pre">CommunicationReadyHandler</span></code> of the <code class="docutils literal notranslate"><span class="pre">LifecycleService</span></code>.</p>
 </section>
 <section id="startup">
-<h4><a class="toc-backref" href="#id4">Startup</a><a class="headerlink" href="#startup" title="Permalink to this heading"></a></h4>
+<h4><a class="toc-backref" href="#id4" role="doc-backlink">Startup</a><a class="headerlink" href="#startup" title="Permalink to this heading"></a></h4>
 <p>At least two FlexRay controllers are always required for a successful startup in a FlexRay cluster.
 The two participants responsible for startup are also called cold start nodes. The “leading” cold start node
 (normally the first node that is in <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray15FlexrayPocState5ReadyE" title="SilKit::Services::Flexray::FlexrayPocState::Ready"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">FlexrayPocState::Ready</span></code></a>) has to send the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController6WakeupEv" title="SilKit::Services::Flexray::IFlexrayController::Wakeup"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Wakeup()</span></code></a> command to the other
@@ -225,7 +226,7 @@ directly in a handler like the <code class="docutils literal notranslate"><span 
 </section>
 </section>
 <section id="tx-buffer-update-sending-flexray-messages">
-<h3><a class="toc-backref" href="#id5">Tx Buffer Update (Sending FlexRay Messages)</a><a class="headerlink" href="#tx-buffer-update-sending-flexray-messages" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Tx Buffer Update (Sending FlexRay Messages)</a><a class="headerlink" href="#tx-buffer-update-sending-flexray-messages" title="Permalink to this heading"></a></h3>
 <p>In each FlexRay cycle, data can be sent by using the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController14UpdateTxBufferERK21FlexrayTxBufferUpdate" title="SilKit::Services::Flexray::IFlexrayController::UpdateTxBuffer"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">UpdateTxBuffer()</span></code></a>. For this, an existing <code class="docutils literal notranslate"><span class="pre">txBufferIndex</span></code>,
 a <code class="docutils literal notranslate"><span class="pre">payload</span></code> and the <code class="docutils literal notranslate"><span class="pre">payloadDataValid</span></code> flag must be provided:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">payloadString</span><span class="p">{</span><span class="s">&quot;FlexRay message&quot;</span><span class="p">};</span>
@@ -250,7 +251,7 @@ be added:</p>
 </div>
 </section>
 <section id="receiving-flexray-messages">
-<h3><a class="toc-backref" href="#id6">Receiving FlexRay Messages</a><a class="headerlink" href="#receiving-flexray-messages" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Receiving FlexRay Messages</a><a class="headerlink" href="#receiving-flexray-messages" title="Permalink to this heading"></a></h3>
 <p>To receive data from other FlexRay controller, a <code class="docutils literal notranslate"><span class="pre">FrameHandler</span></code> must be added via <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController15AddFrameHandlerE12FrameHandler" title="SilKit::Services::Flexray::IFlexrayController::AddFrameHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddFrameHandler()</span></code></a>, which is called
 by the FlexRay controller whenever a <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray17FlexrayFrameEventE" title="SilKit::Services::Flexray::FlexrayFrameEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayFrameEvent</span></code></a> is received:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Add FrameHandler to receive FlexRay messages from other FlexRay controller.</span>
@@ -266,7 +267,7 @@ and the <code class="docutils literal notranslate"><span class="pre">SymbolTrans
 </div>
 </section>
 <section id="receiving-poc-status-changes">
-<span id="sec-poc-status-changes"></span><h3><a class="toc-backref" href="#id7">Receiving POC Status Changes</a><a class="headerlink" href="#receiving-poc-status-changes" title="Permalink to this heading"></a></h3>
+<span id="sec-poc-status-changes"></span><h3><a class="toc-backref" href="#id7" role="doc-backlink">Receiving POC Status Changes</a><a class="headerlink" href="#receiving-poc-status-changes" title="Permalink to this heading"></a></h3>
 <p>The protocol operation control (POC) status is a structure consisting of status variables, sub-states and flags. It is
 modelled by the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray21FlexrayPocStatusEventE" title="SilKit::Services::Flexray::FlexrayPocStatusEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">FlexrayPocStatusEvent</span></code></a> structure. Updates to the controller’s POC status can be monitored using
 handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController19AddPocStatusHandlerE16PocStatusHandler" title="SilKit::Services::Flexray::IFlexrayController::AddPocStatusHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddPocStatusHandler()</span></code></a>:</p>
@@ -308,7 +309,7 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 <p>The handler will be invoked whenever the controller’s POC status is updated.</p>
 </section>
 <section id="managing-the-event-handlers">
-<h3><a class="toc-backref" href="#id8">Managing the Event Handlers</a><a class="headerlink" href="#managing-the-event-handlers" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Managing the Event Handlers</a><a class="headerlink" href="#managing-the-event-handlers" title="Permalink to this heading"></a></h3>
 <p>Adding a handler will return a <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">HandlerId</span></code> which can be used to remove the handler via:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController18RemoveFrameHandlerE9HandlerId" title="SilKit::Services::Flexray::IFlexrayController::RemoveFrameHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">RemoveFrameHandler()</span></code></a></p></li>
@@ -322,9 +323,9 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 </section>
 </section>
 <section id="api-and-data-type-reference">
-<h2><a class="toc-backref" href="#id9">API and Data Type Reference</a><a class="headerlink" href="#api-and-data-type-reference" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">API and Data Type Reference</a><a class="headerlink" href="#api-and-data-type-reference" title="Permalink to this heading"></a></h2>
 <section id="flexray-controller-api">
-<h3><a class="toc-backref" href="#id10">FlexRay Controller API</a><a class="headerlink" href="#flexray-controller-api" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">FlexRay Controller API</a><a class="headerlink" href="#flexray-controller-api" title="Permalink to this heading"></a></h3>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray18IFlexrayControllerE">
 <span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayControllerE"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayControllerE"></span><span id="SilKit::Services::Flexray::IFlexrayController"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IFlexrayController</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayControllerE" title="Permalink to this definition"></a><br /></dt>
@@ -332,50 +333,50 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
 <dl class="cpp type">
-<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray18IFlexrayController9CallbackTE">
-<span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController9CallbackTE"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController9CallbackTE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a031911e78010a8c7567807acb3db2637"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CallbackT</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayControllerE" title="SilKit::Services::Flexray::IFlexrayController"><span class="n"><span class="pre">IFlexrayController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">controller</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">MsgT</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController9CallbackTE" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4I0EN6SilKit8Services7Flexray18IFlexrayController9CallbackTE">
+<span id="_CPPv3I0EN6SilKit8Services7Flexray18IFlexrayController9CallbackTE"></span><span id="_CPPv2I0EN6SilKit8Services7Flexray18IFlexrayController9CallbackTE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MsgT</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a031911e78010a8c7567807acb3db2637"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CallbackT</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayControllerE" title="SilKit::Services::Flexray::IFlexrayController"><span class="n"><span class="pre">IFlexrayController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">controller</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services7Flexray18IFlexrayController9CallbackTE" title="SilKit::Services::Flexray::IFlexrayController::CallbackT::MsgT"><span class="n"><span class="pre">MsgT</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4I0EN6SilKit8Services7Flexray18IFlexrayController9CallbackTE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Generic FleyRay callback method. </p>
 </dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray18IFlexrayController12FrameHandlerE">
-<span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController12FrameHandlerE"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController12FrameHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a0c7136d464ae1181fc837261f49154be"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FrameHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController9CallbackTE" title="SilKit::Services::Flexray::IFlexrayController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray17FlexrayFrameEventE" title="SilKit::Services::Flexray::FlexrayFrameEvent"><span class="n"><span class="pre">FlexrayFrameEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController12FrameHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController12FrameHandlerE"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController12FrameHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a0c7136d464ae1181fc837261f49154be"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FrameHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services7Flexray18IFlexrayController9CallbackTE" title="SilKit::Services::Flexray::IFlexrayController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray17FlexrayFrameEventE" title="SilKit::Services::Flexray::FlexrayFrameEvent"><span class="n"><span class="pre">FlexrayFrameEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController12FrameHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate that a FlexRay message has been received. Cf. <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a21ef2ed2c3e8410da4c36fc57ff9a610"><span class="std std-ref">AddFrameHandler()</span></a>; </p>
 </dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray18IFlexrayController20FrameTransmitHandlerE">
-<span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController20FrameTransmitHandlerE"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController20FrameTransmitHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a8b28b12fc8aac63ac292034e0a273a8d"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FrameTransmitHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController9CallbackTE" title="SilKit::Services::Flexray::IFlexrayController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray25FlexrayFrameTransmitEventE" title="SilKit::Services::Flexray::FlexrayFrameTransmitEvent"><span class="n"><span class="pre">FlexrayFrameTransmitEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController20FrameTransmitHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController20FrameTransmitHandlerE"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController20FrameTransmitHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a8b28b12fc8aac63ac292034e0a273a8d"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FrameTransmitHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services7Flexray18IFlexrayController9CallbackTE" title="SilKit::Services::Flexray::IFlexrayController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray25FlexrayFrameTransmitEventE" title="SilKit::Services::Flexray::FlexrayFrameTransmitEvent"><span class="n"><span class="pre">FlexrayFrameTransmitEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController20FrameTransmitHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate that a <a class="reference internal" href="#struct_sil_kit_1_1_services_1_1_flexray_1_1_flexray_frame_transmit_event"><span class="std std-ref">FlexrayFrameTransmitEvent</span></a> has been received. Cf. <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1afa7e40f7b3768ecf9ceb6b2aea0f005a"><span class="std std-ref">AddFrameTransmitHandler()</span></a>; </p>
 </dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray18IFlexrayController13WakeupHandlerE">
-<span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController13WakeupHandlerE"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController13WakeupHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a4545e63e674cb8ba1bc1f725138d9b4b"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WakeupHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController9CallbackTE" title="SilKit::Services::Flexray::IFlexrayController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18FlexrayWakeupEventE" title="SilKit::Services::Flexray::FlexrayWakeupEvent"><span class="n"><span class="pre">FlexrayWakeupEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController13WakeupHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController13WakeupHandlerE"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController13WakeupHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a4545e63e674cb8ba1bc1f725138d9b4b"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WakeupHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services7Flexray18IFlexrayController9CallbackTE" title="SilKit::Services::Flexray::IFlexrayController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18FlexrayWakeupEventE" title="SilKit::Services::Flexray::FlexrayWakeupEvent"><span class="n"><span class="pre">FlexrayWakeupEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController13WakeupHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate that a wakeup has been received. Should be answered by a call to <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a1311d9bfd4d1262a325ed4f8a6179dab"><span class="std std-ref">Run()</span></a>. Cf. <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a70fa9a204d330619a35f751df4e849d3"><span class="std std-ref">AddWakeupHandler()</span></a>; </p>
 </dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray18IFlexrayController16PocStatusHandlerE">
-<span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController16PocStatusHandlerE"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController16PocStatusHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1adb574753ac8ac8c16b5309850aa356fc"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PocStatusHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController9CallbackTE" title="SilKit::Services::Flexray::IFlexrayController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray21FlexrayPocStatusEventE" title="SilKit::Services::Flexray::FlexrayPocStatusEvent"><span class="n"><span class="pre">FlexrayPocStatusEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController16PocStatusHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController16PocStatusHandlerE"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController16PocStatusHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1adb574753ac8ac8c16b5309850aa356fc"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PocStatusHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services7Flexray18IFlexrayController9CallbackTE" title="SilKit::Services::Flexray::IFlexrayController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray21FlexrayPocStatusEventE" title="SilKit::Services::Flexray::FlexrayPocStatusEvent"><span class="n"><span class="pre">FlexrayPocStatusEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController16PocStatusHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate that the POC status (including state variables, modes and error codes) has changed. </p>
 </dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray18IFlexrayController13SymbolHandlerE">
-<span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController13SymbolHandlerE"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController13SymbolHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a76f14b6af889aabfb31b404dc2a2fce0"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SymbolHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController9CallbackTE" title="SilKit::Services::Flexray::IFlexrayController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18FlexraySymbolEventE" title="SilKit::Services::Flexray::FlexraySymbolEvent"><span class="n"><span class="pre">FlexraySymbolEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController13SymbolHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController13SymbolHandlerE"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController13SymbolHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a76f14b6af889aabfb31b404dc2a2fce0"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SymbolHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services7Flexray18IFlexrayController9CallbackTE" title="SilKit::Services::Flexray::IFlexrayController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18FlexraySymbolEventE" title="SilKit::Services::Flexray::FlexraySymbolEvent"><span class="n"><span class="pre">FlexraySymbolEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController13SymbolHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate that the controller has received a symbol. Cf. <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1ac769ffd46cc5b9bc60d1963977980da1"><span class="std std-ref">AddSymbolHandler()</span></a>; </p>
 </dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray18IFlexrayController21SymbolTransmitHandlerE">
-<span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController21SymbolTransmitHandlerE"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController21SymbolTransmitHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a81b0ec44c049d1dd98bda7dd9d09dd8f"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SymbolTransmitHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController9CallbackTE" title="SilKit::Services::Flexray::IFlexrayController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray26FlexraySymbolTransmitEventE" title="SilKit::Services::Flexray::FlexraySymbolTransmitEvent"><span class="n"><span class="pre">FlexraySymbolTransmitEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController21SymbolTransmitHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController21SymbolTransmitHandlerE"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController21SymbolTransmitHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a81b0ec44c049d1dd98bda7dd9d09dd8f"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SymbolTransmitHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services7Flexray18IFlexrayController9CallbackTE" title="SilKit::Services::Flexray::IFlexrayController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray26FlexraySymbolTransmitEventE" title="SilKit::Services::Flexray::FlexraySymbolTransmitEvent"><span class="n"><span class="pre">FlexraySymbolTransmitEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController21SymbolTransmitHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate that the controller has sent a symbol. Cf. <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1abc2e58093e740b3b0cf15acd98801869"><span class="std std-ref">AddSymbolTransmitHandler()</span></a>; </p>
 </dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray18IFlexrayController17CycleStartHandlerE">
-<span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController17CycleStartHandlerE"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController17CycleStartHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1aa0827defec4f4fbb3889957b6af52fa3"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CycleStartHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController9CallbackTE" title="SilKit::Services::Flexray::IFlexrayController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray22FlexrayCycleStartEventE" title="SilKit::Services::Flexray::FlexrayCycleStartEvent"><span class="n"><span class="pre">FlexrayCycleStartEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController17CycleStartHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController17CycleStartHandlerE"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController17CycleStartHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1aa0827defec4f4fbb3889957b6af52fa3"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CycleStartHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services7Flexray18IFlexrayController9CallbackTE" title="SilKit::Services::Flexray::IFlexrayController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray22FlexrayCycleStartEventE" title="SilKit::Services::Flexray::FlexrayCycleStartEvent"><span class="n"><span class="pre">FlexrayCycleStartEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController17CycleStartHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate that a new FlexRay cycle did start. Cf. <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1afca2083c211bcd45167dec1ac25f56be"><span class="std std-ref">AddCycleStartHandler()</span></a>; </p>
 </dd></dl>
 
@@ -396,7 +397,7 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray18IFlexrayController19ReconfigureTxBufferE8uint16_tRK21FlexrayTxBufferConfig">
 <span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController19ReconfigureTxBufferE8uint16_tRK21FlexrayTxBufferConfig"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController19ReconfigureTxBufferE8uint16_tRK21FlexrayTxBufferConfig"></span><span id="SilKit::Services::Flexray::IFlexrayController::ReconfigureTxBuffer__uint16_t.FlexrayTxBufferConfigCR"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1ad7270a559de94a5e8c86ed6275b0f590"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ReconfigureTxBuffer</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">txBufferIdx</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray21FlexrayTxBufferConfigE" title="SilKit::Services::Flexray::FlexrayTxBufferConfig"><span class="n"><span class="pre">FlexrayTxBufferConfig</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">config</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController19ReconfigureTxBufferE8uint16_tRK21FlexrayTxBufferConfig" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Reconfigure a TX Buffer that was previously setup with <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a92ec50f1c0e17f92f469c54d497f255d"><span class="std std-ref">IFlexrayController::Configure(const FlexrayControllerConfig&amp;)</span></a> </p>
+<dd><p>Reconfigure a TX Buffer that was previously setup with <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a92ec50f1c0e17f92f469c54d497f255d"><span class="std std-ref">IFlexrayController::Configure(const FlexrayControllerConfig&amp;)</span></a></p>
 </dd></dl>
 
 <dl class="cpp function">
@@ -406,7 +407,7 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 <p>A FlexRay message will be sent at the time matching to the configured Slot ID. If the buffer was configured with <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_flexray_1aec9ccca44578af9b0290b7b4d9f1ef67ac65ff9bc152122c76b6f5fbb742ed27e"><span class="std std-ref">FlexrayTransmissionMode::SingleShot</span></a>, the content is sent exactly once. If it is configured as <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_flexray_1aec9ccca44578af9b0290b7b4d9f1ef67a535863a82f163709557e59e2eb8139a7"><span class="std std-ref">FlexrayTransmissionMode::Continuous</span></a>, the content is sent repeatedly according to the offset and repetition configuration.</p>
 <p><div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a92ec50f1c0e17f92f469c54d497f255d"><span class="std std-ref">IFlexrayController::Configure(const FlexrayControllerConfig&amp;)</span></a> </p>
+<p><a class="reference internal" href="#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a92ec50f1c0e17f92f469c54d497f255d"><span class="std std-ref">IFlexrayController::Configure(const FlexrayControllerConfig&amp;)</span></a></p>
 </div>
 </p>
 </dd></dl>
@@ -452,7 +453,7 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 <span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController15AddFrameHandlerE12FrameHandler"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController15AddFrameHandlerE12FrameHandler"></span><span id="SilKit::Services::Flexray::IFlexrayController::AddFrameHandler__FrameHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a21ef2ed2c3e8410da4c36fc57ff9a610"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddFrameHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController12FrameHandlerE" title="SilKit::Services::Flexray::IFlexrayController::FrameHandler"><span class="n"><span class="pre">FrameHandler</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController15AddFrameHandlerE12FrameHandler" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Receive a FlexRay message from a different controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
 </dd>
 </dl>
@@ -463,7 +464,7 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 <span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController18RemoveFrameHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController18RemoveFrameHandlerE9HandlerId"></span><span id="SilKit::Services::Flexray::IFlexrayController::RemoveFrameHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a74832b8ae7196e76060390b78de6481f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemoveFrameHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController18RemoveFrameHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a FrameHandler by SilKit::Util::HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
 </dd>
 </dl>
@@ -474,7 +475,7 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 <span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController23AddFrameTransmitHandlerE20FrameTransmitHandler"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController23AddFrameTransmitHandlerE20FrameTransmitHandler"></span><span id="SilKit::Services::Flexray::IFlexrayController::AddFrameTransmitHandler__FrameTransmitHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1afa7e40f7b3768ecf9ceb6b2aea0f005a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddFrameTransmitHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController20FrameTransmitHandlerE" title="SilKit::Services::Flexray::IFlexrayController::FrameTransmitHandler"><span class="n"><span class="pre">FrameTransmitHandler</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController23AddFrameTransmitHandlerE20FrameTransmitHandler" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Notification that a FlexRay message has been successfully sent. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
 </dd>
 </dl>
@@ -485,7 +486,7 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 <span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController26RemoveFrameTransmitHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController26RemoveFrameTransmitHandlerE9HandlerId"></span><span id="SilKit::Services::Flexray::IFlexrayController::RemoveFrameTransmitHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1ab5dc3409f6c2f73fddf8e7cae59d4d13"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemoveFrameTransmitHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController26RemoveFrameTransmitHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a FrameTransmitHandler by SilKit::Util::HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
 </dd>
 </dl>
@@ -496,7 +497,7 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 <span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController16AddWakeupHandlerE13WakeupHandler"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController16AddWakeupHandlerE13WakeupHandler"></span><span id="SilKit::Services::Flexray::IFlexrayController::AddWakeupHandler__WakeupHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a70fa9a204d330619a35f751df4e849d3"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddWakeupHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController13WakeupHandlerE" title="SilKit::Services::Flexray::IFlexrayController::WakeupHandler"><span class="n"><span class="pre">WakeupHandler</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController16AddWakeupHandlerE13WakeupHandler" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Notification that a wakeup has been received. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
 </dd>
 </dl>
@@ -507,7 +508,7 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 <span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController19RemoveWakeupHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController19RemoveWakeupHandlerE9HandlerId"></span><span id="SilKit::Services::Flexray::IFlexrayController::RemoveWakeupHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1ae91c973cffd48dc17d49d1671d0758d5"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemoveWakeupHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController19RemoveWakeupHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a WakeupHandler by SilKit::Util::HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
 </dd>
 </dl>
@@ -518,7 +519,7 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 <span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController19AddPocStatusHandlerE16PocStatusHandler"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController19AddPocStatusHandlerE16PocStatusHandler"></span><span id="SilKit::Services::Flexray::IFlexrayController::AddPocStatusHandler__PocStatusHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1af2e6e889787bc800a91f10a074256fd9"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddPocStatusHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController16PocStatusHandlerE" title="SilKit::Services::Flexray::IFlexrayController::PocStatusHandler"><span class="n"><span class="pre">PocStatusHandler</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController19AddPocStatusHandlerE16PocStatusHandler" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Notification that the POC status has changed. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
 </dd>
 </dl>
@@ -529,7 +530,7 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 <span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController22RemovePocStatusHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController22RemovePocStatusHandlerE9HandlerId"></span><span id="SilKit::Services::Flexray::IFlexrayController::RemovePocStatusHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a3382592436f68749ae1315371a30322a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemovePocStatusHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController22RemovePocStatusHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a PocStatusHandler by SilKit::Util::HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
 </dd>
 </dl>
@@ -541,7 +542,7 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 <dd><p>Notification that the controller has received a symbol. </p>
 <p>This callback is primarily intended for tracing. There is no need to react on it. The symbols relevant for interaction trigger also an additional callback, e.g., <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a4545e63e674cb8ba1bc1f725138d9b4b"><span class="std std-ref">WakeupHandler</span></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
 </dd>
 </dl>
@@ -552,7 +553,7 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 <span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController19RemoveSymbolHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController19RemoveSymbolHandlerE9HandlerId"></span><span id="SilKit::Services::Flexray::IFlexrayController::RemoveSymbolHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a4c76071e2de092bc04feaad50c11d2fd"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemoveSymbolHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController19RemoveSymbolHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a SymbolHandler by SilKit::Util::HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
 </dd>
 </dl>
@@ -568,7 +569,7 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 </ul>
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
 </dd>
 </dl>
@@ -579,7 +580,7 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 <span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController27RemoveSymbolTransmitHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController27RemoveSymbolTransmitHandlerE9HandlerId"></span><span id="SilKit::Services::Flexray::IFlexrayController::RemoveSymbolTransmitHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1a851f7703ce58a4eb1c0003f695dc78da"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemoveSymbolTransmitHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController27RemoveSymbolTransmitHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a SymbolTransmitHandler by SilKit::Util::HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
 </dd>
 </dl>
@@ -590,7 +591,7 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 <span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController20AddCycleStartHandlerE17CycleStartHandler"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController20AddCycleStartHandlerE17CycleStartHandler"></span><span id="SilKit::Services::Flexray::IFlexrayController::AddCycleStartHandler__CycleStartHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1afca2083c211bcd45167dec1ac25f56be"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddCycleStartHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController17CycleStartHandlerE" title="SilKit::Services::Flexray::IFlexrayController::CycleStartHandler"><span class="n"><span class="pre">CycleStartHandler</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController20AddCycleStartHandlerE17CycleStartHandler" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Notification that a new FlexRay cycle did start. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
 </dd>
 </dl>
@@ -601,7 +602,7 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 <span id="_CPPv3N6SilKit8Services7Flexray18IFlexrayController23RemoveCycleStartHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services7Flexray18IFlexrayController23RemoveCycleStartHandlerE9HandlerId"></span><span id="SilKit::Services::Flexray::IFlexrayController::RemoveCycleStartHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_flexray_1_1_i_flexray_controller_1af30373588313a7eede5e722723e81a88"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemoveCycleStartHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController23RemoveCycleStartHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a CycleStartHandler by SilKit::Util::HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
 </dd>
 </dl>
@@ -612,7 +613,7 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 
 </section>
 <section id="data-structures">
-<h3><a class="toc-backref" href="#id11">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this heading"></a></h3>
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray12FlexrayFrameE">
 <span id="_CPPv3N6SilKit8Services7Flexray12FlexrayFrameE"></span><span id="_CPPv2N6SilKit8Services7Flexray12FlexrayFrameE"></span><span id="SilKit::Services::Flexray::FlexrayFrame"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_flexray_1_1_flexray_frame"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FlexrayFrame</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray12FlexrayFrameE" title="Permalink to this definition"></a><br /></dt>
@@ -638,9 +639,9 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 <span id="_CPPv3N6SilKit8Services7Flexray13FlexrayHeaderE"></span><span id="_CPPv2N6SilKit8Services7Flexray13FlexrayHeaderE"></span><span id="SilKit::Services::Flexray::FlexrayHeader"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_flexray_1_1_flexray_header"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FlexrayHeader</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray13FlexrayHeaderE" title="Permalink to this definition"></a><br /></dt>
 <dd><div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray13FlexrayHeader4FlagE">
-<span id="_CPPv3N6SilKit8Services7Flexray13FlexrayHeader4FlagE"></span><span id="_CPPv2N6SilKit8Services7Flexray13FlexrayHeader4FlagE"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_flexray_1_1_flexray_header_1a48381542711a41debd83beac0133d683"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Flag</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray13FlexrayHeader4FlagE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services7Flexray13FlexrayHeader4FlagE"></span><span id="_CPPv2N6SilKit8Services7Flexray13FlexrayHeader4FlagE"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_flexray_1_1_flexray_header_1a48381542711a41debd83beac0133d683"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Flag</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray13FlexrayHeader8FlagMaskE" title="SilKit::Services::Flexray::FlexrayHeader::FlagMask"><span class="n"><span class="pre">FlagMask</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray13FlexrayHeader4FlagE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Flag BitMask definition for helper methods. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
@@ -1304,16 +1305,16 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 
 </section>
 <section id="enumerations-and-typedefs">
-<h3><a class="toc-backref" href="#id12">Enumerations and Typedefs</a><a class="headerlink" href="#enumerations-and-typedefs" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Enumerations and Typedefs</a><a class="headerlink" href="#enumerations-and-typedefs" title="Permalink to this heading"></a></h3>
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray16FlexrayMicroTickE">
 <span id="_CPPv3N6SilKit8Services7Flexray16FlexrayMicroTickE"></span><span id="_CPPv2N6SilKit8Services7Flexray16FlexrayMicroTickE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_flexray_1ae3ec65955d5118feb01710993b8bd0b4"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlexrayMicroTick</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../capi/capi-flexray.html#_CPPv423SilKit_FlexrayMicroTick" title="SilKit_FlexrayMicroTick"><span class="n"><span class="pre">SilKit_FlexrayMicroTick</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray16FlexrayMicroTickE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>FlexRay micro tick. </p>
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray18FlexrayClockPeriodE">
-<span id="_CPPv3N6SilKit8Services7Flexray18FlexrayClockPeriodE"></span><span id="_CPPv2N6SilKit8Services7Flexray18FlexrayClockPeriodE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_flexray_1ad5775fcd0e1962216e248ed5ec488fb3"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlexrayClockPeriod</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18FlexrayClockPeriodE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services7Flexray18FlexrayClockPeriodE"></span><span id="_CPPv2N6SilKit8Services7Flexray18FlexrayClockPeriodE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_flexray_1ad5775fcd0e1962216e248ed5ec488fb3"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlexrayClockPeriod</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../capi/capi-flexray.html#_CPPv425SilKit_FlexrayClockPeriod" title="SilKit_FlexrayClockPeriod"><span class="n"><span class="pre">SilKit_FlexrayClockPeriod</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray18FlexrayClockPeriodE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Period of the clock (used for micro tick period and sample clock period). </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
@@ -1336,9 +1337,9 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray14FlexrayChannelE">
-<span id="_CPPv3N6SilKit8Services7Flexray14FlexrayChannelE"></span><span id="_CPPv2N6SilKit8Services7Flexray14FlexrayChannelE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_flexray_1a084b0a4ebb46865320b7d20af801a13c"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlexrayChannel</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray14FlexrayChannelE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services7Flexray14FlexrayChannelE"></span><span id="_CPPv2N6SilKit8Services7Flexray14FlexrayChannelE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_flexray_1a084b0a4ebb46865320b7d20af801a13c"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlexrayChannel</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../capi/capi-flexray.html#_CPPv421SilKit_FlexrayChannel" title="SilKit_FlexrayChannel"><span class="n"><span class="pre">SilKit_FlexrayChannel</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray14FlexrayChannelE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Type and constants for the FlexRay channel parameter A, B, or AB. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
@@ -1367,9 +1368,9 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray20FlexraySymbolPatternE">
-<span id="_CPPv3N6SilKit8Services7Flexray20FlexraySymbolPatternE"></span><span id="_CPPv2N6SilKit8Services7Flexray20FlexraySymbolPatternE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_flexray_1a0adde59b7a2e64533d4332980494e1af"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlexraySymbolPattern</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray20FlexraySymbolPatternE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services7Flexray20FlexraySymbolPatternE"></span><span id="_CPPv2N6SilKit8Services7Flexray20FlexraySymbolPatternE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_flexray_1a0adde59b7a2e64533d4332980494e1af"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlexraySymbolPattern</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../capi/capi-flexray.html#_CPPv427SilKit_FlexraySymbolPattern" title="SilKit_FlexraySymbolPattern"><span class="n"><span class="pre">SilKit_FlexraySymbolPattern</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray20FlexraySymbolPatternE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>FlexRay symbols patterns. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
@@ -1392,9 +1393,9 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray23FlexrayTransmissionModeE">
-<span id="_CPPv3N6SilKit8Services7Flexray23FlexrayTransmissionModeE"></span><span id="_CPPv2N6SilKit8Services7Flexray23FlexrayTransmissionModeE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_flexray_1aec9ccca44578af9b0290b7b4d9f1ef67"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlexrayTransmissionMode</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray23FlexrayTransmissionModeE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services7Flexray23FlexrayTransmissionModeE"></span><span id="_CPPv2N6SilKit8Services7Flexray23FlexrayTransmissionModeE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_flexray_1aec9ccca44578af9b0290b7b4d9f1ef67"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlexrayTransmissionMode</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../capi/capi-flexray.html#_CPPv430SilKit_FlexrayTransmissionMode" title="SilKit_FlexrayTransmissionMode"><span class="n"><span class="pre">SilKit_FlexrayTransmissionMode</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray23FlexrayTransmissionModeE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Transmission mode for FlexRay Tx-Buffer. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
@@ -1411,9 +1412,9 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray15FlexrayPocStateE">
-<span id="_CPPv3N6SilKit8Services7Flexray15FlexrayPocStateE"></span><span id="_CPPv2N6SilKit8Services7Flexray15FlexrayPocStateE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_flexray_1abd6966ebd54ac7a849ef1a561a97b4e0"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlexrayPocState</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray15FlexrayPocStateE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services7Flexray15FlexrayPocStateE"></span><span id="_CPPv2N6SilKit8Services7Flexray15FlexrayPocStateE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_flexray_1abd6966ebd54ac7a849ef1a561a97b4e0"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlexrayPocState</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../capi/capi-flexray.html#_CPPv422SilKit_FlexrayPocState" title="SilKit_FlexrayPocState"><span class="n"><span class="pre">SilKit_FlexrayPocState</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray15FlexrayPocStateE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Protocol Operation Control (POC) state of the FlexRay communication controller <em>AUTOSAR Name:</em> Fr_POCStateType. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
@@ -1466,9 +1467,9 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray19FlexraySlotModeTypeE">
-<span id="_CPPv3N6SilKit8Services7Flexray19FlexraySlotModeTypeE"></span><span id="_CPPv2N6SilKit8Services7Flexray19FlexraySlotModeTypeE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_flexray_1adf7c613d338dd8fac8f5e8bab15fe4b1"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlexraySlotModeType</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray19FlexraySlotModeTypeE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services7Flexray19FlexraySlotModeTypeE"></span><span id="_CPPv2N6SilKit8Services7Flexray19FlexraySlotModeTypeE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_flexray_1adf7c613d338dd8fac8f5e8bab15fe4b1"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlexraySlotModeType</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../capi/capi-flexray.html#_CPPv426SilKit_FlexraySlotModeType" title="SilKit_FlexraySlotModeType"><span class="n"><span class="pre">SilKit_FlexraySlotModeType</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray19FlexraySlotModeTypeE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Indicates what slot mode the POC is in. <em>AUTOSAR Name:</em> Fr_SlotModeType. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
@@ -1488,9 +1489,9 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray20FlexrayErrorModeTypeE">
-<span id="_CPPv3N6SilKit8Services7Flexray20FlexrayErrorModeTypeE"></span><span id="_CPPv2N6SilKit8Services7Flexray20FlexrayErrorModeTypeE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_flexray_1a4002591e02c65546bae34d8073ee44a8"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlexrayErrorModeType</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray20FlexrayErrorModeTypeE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services7Flexray20FlexrayErrorModeTypeE"></span><span id="_CPPv2N6SilKit8Services7Flexray20FlexrayErrorModeTypeE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_flexray_1a4002591e02c65546bae34d8073ee44a8"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlexrayErrorModeType</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../capi/capi-flexray.html#_CPPv427SilKit_FlexrayErrorModeType" title="SilKit_FlexrayErrorModeType"><span class="n"><span class="pre">SilKit_FlexrayErrorModeType</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray20FlexrayErrorModeTypeE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Indicates what error mode the POC is in. <em>AUTOSAR Name:</em> Fr_ErrorModeType. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
@@ -1510,9 +1511,9 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray23FlexrayStartupStateTypeE">
-<span id="_CPPv3N6SilKit8Services7Flexray23FlexrayStartupStateTypeE"></span><span id="_CPPv2N6SilKit8Services7Flexray23FlexrayStartupStateTypeE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_flexray_1ae104dbd9a36cba45431b07ac2c212e08"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlexrayStartupStateType</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray23FlexrayStartupStateTypeE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services7Flexray23FlexrayStartupStateTypeE"></span><span id="_CPPv2N6SilKit8Services7Flexray23FlexrayStartupStateTypeE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_flexray_1ae104dbd9a36cba45431b07ac2c212e08"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlexrayStartupStateType</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../capi/capi-flexray.html#_CPPv430SilKit_FlexrayStartupStateType" title="SilKit_FlexrayStartupStateType"><span class="n"><span class="pre">SilKit_FlexrayStartupStateType</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray23FlexrayStartupStateTypeE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Indicates the current substate in the startup procedure. <em>AUTOSAR Name:</em> Fr_StartupStateType. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
@@ -1572,9 +1573,9 @@ handlers added with a call to <a class="reference internal" href="#_CPPv4N6SilKi
 
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services7Flexray23FlexrayWakeupStatusTypeE">
-<span id="_CPPv3N6SilKit8Services7Flexray23FlexrayWakeupStatusTypeE"></span><span id="_CPPv2N6SilKit8Services7Flexray23FlexrayWakeupStatusTypeE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_flexray_1a0c4249a5d93006ba8b6e21a83def1564"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlexrayWakeupStatusType</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray23FlexrayWakeupStatusTypeE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services7Flexray23FlexrayWakeupStatusTypeE"></span><span id="_CPPv2N6SilKit8Services7Flexray23FlexrayWakeupStatusTypeE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_flexray_1a0c4249a5d93006ba8b6e21a83def1564"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Flexray</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FlexrayWakeupStatusType</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../capi/capi-flexray.html#_CPPv430SilKit_FlexrayWakeupStatusType" title="SilKit_FlexrayWakeupStatusType"><span class="n"><span class="pre">SilKit_FlexrayWakeupStatusType</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit8Services7Flexray23FlexrayWakeupStatusTypeE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Indicates the outcome of the wake-up mechanism. <em>AUTOSAR Name:</em> Fr_WakeupStateType. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">

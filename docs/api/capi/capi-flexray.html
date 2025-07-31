@@ -1,22 +1,22 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FlexRay C API &mdash; Vector SIL Kit 4.0.56 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>FlexRay C API &mdash; Vector SIL Kit 5.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,14 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../contents.html" class="icon icon-home"> Vector SIL Kit
+
+          
+          
+          <a href="../../contents.html" class="icon icon-home">
+            Vector SIL Kit
           </a>
-              <div class="version">
-                4.0.56
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -76,7 +77,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../faq/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../licenses/license.html">Licenses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/overview.html">Changelog</a></li>
 </ul>
 
         </div>
@@ -92,9 +93,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../contents.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api.html">C/C++ API</a> &raquo;</li>
-      <li>FlexRay C API</li>
+      <li><a href="../../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">C/C++ API</a></li>
+      <li class="breadcrumb-item active">FlexRay C API</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/api/capi/capi-flexray.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -106,13 +107,13 @@
              
   <section id="flexray-c-api">
 <h1>FlexRay C API<a class="headerlink" href="#flexray-c-api" title="Permalink to this heading"></a></h1>
-<div class="contents local topic" id="contents">
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#flexray-controller" id="id1">FlexRay Controller</a></p></li>
 <li><p><a class="reference internal" href="#data-structures" id="id2">Data Structures</a></p></li>
 <li><p><a class="reference internal" href="#enumerations-and-typedefs" id="id3">Enumerations and Typedefs</a></p></li>
 </ul>
-</div>
+</nav>
 <p>The FlexRay API consists of the following parts:</p>
 <ul class="simple">
 <li><p>The FlexRay controller</p></li>
@@ -121,7 +122,7 @@
 <code class="docutils literal notranslate"><span class="pre">Message</span></code>, <code class="docutils literal notranslate"><span class="pre">MessageAck</span></code>, <code class="docutils literal notranslate"><span class="pre">Wakeup</span></code>, <code class="docutils literal notranslate"><span class="pre">ControllerStatus</span></code>, <code class="docutils literal notranslate"><span class="pre">PocStatus</span></code>, <code class="docutils literal notranslate"><span class="pre">Symbol</span></code>, <code class="docutils literal notranslate"><span class="pre">SymbolAck</span></code>, <code class="docutils literal notranslate"><span class="pre">CycleStart</span></code></p></li>
 </ul>
 <section id="flexray-controller">
-<h2><a class="toc-backref" href="#id1">FlexRay Controller</a><a class="headerlink" href="#flexray-controller" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">FlexRay Controller</a><a class="headerlink" href="#flexray-controller" title="Permalink to this heading"></a></h2>
 <p>A FlexRay controller interacts with the configured FlexRay bus and sends FlexRay frames and other events on its own behalf.
 Note that it is not possible to explicitly send frames or other events, nor exist any API functions to construct these events.
 This is because the FlexRay bus works completely time triggered, sending preconfigured frames.
@@ -141,7 +142,7 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv444SilKit_FlexrayController_ReconfigureTxBufferP24SilKit_FlexrayController8uint16_tPK28SilKit_FlexrayTxBufferConfig">
 <span id="_CPPv344SilKit_FlexrayController_ReconfigureTxBufferP24SilKit_FlexrayController8uint16_tPK28SilKit_FlexrayTxBufferConfig"></span><span id="_CPPv244SilKit_FlexrayController_ReconfigureTxBufferP24SilKit_FlexrayController8uint16_tPK28SilKit_FlexrayTxBufferConfig"></span><span id="SilKit_FlexrayController_ReconfigureTxBuffer__SilKit_FlexrayControllerP.uint16_t.SilKit_FlexrayTxBufferConfigCP"></span><span class="target" id="_flexray_8h_1ac1d05e319366a0e902ffb76436b42b25"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_FlexrayController_ReconfigureTxBuffer</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_FlexrayController</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="n"><span class="pre">uint16_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">txBufferIdx</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv428SilKit_FlexrayTxBufferConfig" title="SilKit_FlexrayTxBufferConfig"><span class="n"><span class="pre">SilKit_FlexrayTxBufferConfig</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">config</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv444SilKit_FlexrayController_ReconfigureTxBufferP24SilKit_FlexrayController8uint16_tPK28SilKit_FlexrayTxBufferConfig" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Reconfigure a TX Buffer that was previously setup with <a class="reference internal" href="#_flexray_8h_1aad6d1355018790cdc12251534c8f184b"><span class="std std-ref">SilKit_FlexrayController_Configure()</span></a> </p>
+<dd><p>Reconfigure a TX Buffer that was previously setup with <a class="reference internal" href="#_flexray_8h_1aad6d1355018790cdc12251534c8f184b"><span class="std std-ref">SilKit_FlexrayController_Configure()</span></a></p>
 </dd></dl>
 
 <dl class="cpp function">
@@ -169,7 +170,7 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 <span id="_CPPv340SilKit_FlexrayController_AddFrameHandlerP24SilKit_FlexrayControllerPv28SilKit_FlexrayFrameHandler_tP16SilKit_HandlerId"></span><span id="_CPPv240SilKit_FlexrayController_AddFrameHandlerP24SilKit_FlexrayControllerPv28SilKit_FlexrayFrameHandler_tP16SilKit_HandlerId"></span><span id="SilKit_FlexrayController_AddFrameHandler__SilKit_FlexrayControllerP.voidP.SilKit_FlexrayFrameHandler_t.SilKit_HandlerIdP"></span><span class="target" id="_flexray_8h_1a39e9a52ba8569a5be78c3098e0f590ce"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_FlexrayController_AddFrameHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_FlexrayController</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">context</span></span>, <span class="n"><span class="pre">SilKit_FlexrayFrameHandler_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outHandlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv440SilKit_FlexrayController_AddFrameHandlerP24SilKit_FlexrayControllerPv28SilKit_FlexrayFrameHandler_tP16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Receive a FlexRay message from the given controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>controller</strong> – The FlexRay controller for which the callback should be registered. </p></li>
 <li><p><strong>context</strong> – The user provided context pointer, that is reobtained in the callback. </p></li>
@@ -185,7 +186,7 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 <span id="_CPPv348SilKit_FlexrayController_AddFrameTransmitHandlerP24SilKit_FlexrayControllerPv36SilKit_FlexrayFrameTransmitHandler_tP16SilKit_HandlerId"></span><span id="_CPPv248SilKit_FlexrayController_AddFrameTransmitHandlerP24SilKit_FlexrayControllerPv36SilKit_FlexrayFrameTransmitHandler_tP16SilKit_HandlerId"></span><span id="SilKit_FlexrayController_AddFrameTransmitHandler__SilKit_FlexrayControllerP.voidP.SilKit_FlexrayFrameTransmitHandler_t.SilKit_HandlerIdP"></span><span class="target" id="_flexray_8h_1a684b5f161a423d6c296e7efa68b52739"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_FlexrayController_AddFrameTransmitHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_FlexrayController</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">context</span></span>, <span class="n"><span class="pre">SilKit_FlexrayFrameTransmitHandler_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outHandlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv448SilKit_FlexrayController_AddFrameTransmitHandlerP24SilKit_FlexrayControllerPv36SilKit_FlexrayFrameTransmitHandler_tP16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Notification that a FlexRay message has been successfully sent. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>controller</strong> – The FlexRay controller for which the callback should be registered. </p></li>
 <li><p><strong>context</strong> – The user provided context pointer, that is reobtained in the callback. </p></li>
@@ -201,7 +202,7 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 <span id="_CPPv341SilKit_FlexrayController_AddWakeupHandlerP24SilKit_FlexrayControllerPv29SilKit_FlexrayWakeupHandler_tP16SilKit_HandlerId"></span><span id="_CPPv241SilKit_FlexrayController_AddWakeupHandlerP24SilKit_FlexrayControllerPv29SilKit_FlexrayWakeupHandler_tP16SilKit_HandlerId"></span><span id="SilKit_FlexrayController_AddWakeupHandler__SilKit_FlexrayControllerP.voidP.SilKit_FlexrayWakeupHandler_t.SilKit_HandlerIdP"></span><span class="target" id="_flexray_8h_1aac57918f29e98dccc3be2dacd9404a1a"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_FlexrayController_AddWakeupHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_FlexrayController</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">context</span></span>, <span class="n"><span class="pre">SilKit_FlexrayWakeupHandler_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outHandlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv441SilKit_FlexrayController_AddWakeupHandlerP24SilKit_FlexrayControllerPv29SilKit_FlexrayWakeupHandler_tP16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Notification that a wakeup has been received. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>controller</strong> – The FlexRay controller for which the callback should be registered. </p></li>
 <li><p><strong>context</strong> – The user provided context pointer, that is reobtained in the callback. </p></li>
@@ -217,7 +218,7 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 <span id="_CPPv344SilKit_FlexrayController_AddPocStatusHandlerP24SilKit_FlexrayControllerPv32SilKit_FlexrayPocStatusHandler_tP16SilKit_HandlerId"></span><span id="_CPPv244SilKit_FlexrayController_AddPocStatusHandlerP24SilKit_FlexrayControllerPv32SilKit_FlexrayPocStatusHandler_tP16SilKit_HandlerId"></span><span id="SilKit_FlexrayController_AddPocStatusHandler__SilKit_FlexrayControllerP.voidP.SilKit_FlexrayPocStatusHandler_t.SilKit_HandlerIdP"></span><span class="target" id="_flexray_8h_1a8fde9117d34500d35cc341aca91a27f8"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_FlexrayController_AddPocStatusHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_FlexrayController</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">context</span></span>, <span class="n"><span class="pre">SilKit_FlexrayPocStatusHandler_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outHandlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv444SilKit_FlexrayController_AddPocStatusHandlerP24SilKit_FlexrayControllerPv32SilKit_FlexrayPocStatusHandler_tP16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Notification that the POC status has changed. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>controller</strong> – The FlexRay controller for which the callback should be registered. </p></li>
 <li><p><strong>context</strong> – The user provided context pointer, that is reobtained in the callback. </p></li>
@@ -234,7 +235,7 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 <dd><p>Notification that the controller has received a symbol. </p>
 <p>The symbols relevant for interaction trigger also an additional callback, e.g., SilKit_FlexrayWakeupHandler_t.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>controller</strong> – The FlexRay controller for which the callback should be registered. </p></li>
 <li><p><strong>context</strong> – The user provided context pointer, that is reobtained in the callback. </p></li>
@@ -255,7 +256,7 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 </ul>
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>controller</strong> – The FlexRay controller for which the callback should be registered. </p></li>
 <li><p><strong>context</strong> – The user provided context pointer, that is reobtained in the callback. </p></li>
@@ -271,7 +272,7 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 <span id="_CPPv345SilKit_FlexrayController_AddCycleStartHandlerP24SilKit_FlexrayControllerPv33SilKit_FlexrayCycleStartHandler_tP16SilKit_HandlerId"></span><span id="_CPPv245SilKit_FlexrayController_AddCycleStartHandlerP24SilKit_FlexrayControllerPv33SilKit_FlexrayCycleStartHandler_tP16SilKit_HandlerId"></span><span id="SilKit_FlexrayController_AddCycleStartHandler__SilKit_FlexrayControllerP.voidP.SilKit_FlexrayCycleStartHandler_t.SilKit_HandlerIdP"></span><span class="target" id="_flexray_8h_1a66c2459e67315a0b8d36fdd9ab9cf030"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_FlexrayController_AddCycleStartHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_FlexrayController</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">context</span></span>, <span class="n"><span class="pre">SilKit_FlexrayCycleStartHandler_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">outHandlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv445SilKit_FlexrayController_AddCycleStartHandlerP24SilKit_FlexrayControllerPv33SilKit_FlexrayCycleStartHandler_tP16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Notification that a new FlexRay cycle did start. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>controller</strong> – The FlexRay controller for which the callback should be registered. </p></li>
 <li><p><strong>context</strong> – The user provided context pointer, that is reobtained in the callback. </p></li>
@@ -287,7 +288,7 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 <span id="_CPPv343SilKit_FlexrayController_RemoveFrameHandlerP24SilKit_FlexrayController16SilKit_HandlerId"></span><span id="_CPPv243SilKit_FlexrayController_RemoveFrameHandlerP24SilKit_FlexrayController16SilKit_HandlerId"></span><span id="SilKit_FlexrayController_RemoveFrameHandler__SilKit_FlexrayControllerP.SilKit_HandlerId"></span><span class="target" id="_flexray_8h_1a66275e4992a481d50ca7e01481263905"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_FlexrayController_RemoveFrameHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_FlexrayController</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv443SilKit_FlexrayController_RemoveFrameHandlerP24SilKit_FlexrayController16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a SilKit_FlexrayFrameHandler_t by SilKit_HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>controller</strong> – The FlexRay controller for which the callback should be removed. </p></li>
 <li><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p></li>
@@ -301,7 +302,7 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 <span id="_CPPv351SilKit_FlexrayController_RemoveFrameTransmitHandlerP24SilKit_FlexrayController16SilKit_HandlerId"></span><span id="_CPPv251SilKit_FlexrayController_RemoveFrameTransmitHandlerP24SilKit_FlexrayController16SilKit_HandlerId"></span><span id="SilKit_FlexrayController_RemoveFrameTransmitHandler__SilKit_FlexrayControllerP.SilKit_HandlerId"></span><span class="target" id="_flexray_8h_1a190518e974da3b3f6974b5a81b61b3c3"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_FlexrayController_RemoveFrameTransmitHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_FlexrayController</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv451SilKit_FlexrayController_RemoveFrameTransmitHandlerP24SilKit_FlexrayController16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a SilKit_FlexrayFrameTransmitHandler_t by SilKit_HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>controller</strong> – The FlexRay controller for which the callback should be removed. </p></li>
 <li><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p></li>
@@ -315,7 +316,7 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 <span id="_CPPv344SilKit_FlexrayController_RemoveWakeupHandlerP24SilKit_FlexrayController16SilKit_HandlerId"></span><span id="_CPPv244SilKit_FlexrayController_RemoveWakeupHandlerP24SilKit_FlexrayController16SilKit_HandlerId"></span><span id="SilKit_FlexrayController_RemoveWakeupHandler__SilKit_FlexrayControllerP.SilKit_HandlerId"></span><span class="target" id="_flexray_8h_1aceea43c31e61fbfa475310f7d2a49498"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_FlexrayController_RemoveWakeupHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_FlexrayController</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv444SilKit_FlexrayController_RemoveWakeupHandlerP24SilKit_FlexrayController16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a SilKit_FlexrayWakeupHandler_t by SilKit_HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>controller</strong> – The FlexRay controller for which the callback should be removed. </p></li>
 <li><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p></li>
@@ -329,7 +330,7 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 <span id="_CPPv347SilKit_FlexrayController_RemovePocStatusHandlerP24SilKit_FlexrayController16SilKit_HandlerId"></span><span id="_CPPv247SilKit_FlexrayController_RemovePocStatusHandlerP24SilKit_FlexrayController16SilKit_HandlerId"></span><span id="SilKit_FlexrayController_RemovePocStatusHandler__SilKit_FlexrayControllerP.SilKit_HandlerId"></span><span class="target" id="_flexray_8h_1a20262656de2deaf99b08ed711cc10817"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_FlexrayController_RemovePocStatusHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_FlexrayController</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv447SilKit_FlexrayController_RemovePocStatusHandlerP24SilKit_FlexrayController16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a SilKit_FlexrayPocStatusHandler_t by SilKit_HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>controller</strong> – The FlexRay controller for which the callback should be removed. </p></li>
 <li><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p></li>
@@ -343,7 +344,7 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 <span id="_CPPv344SilKit_FlexrayController_RemoveSymbolHandlerP24SilKit_FlexrayController16SilKit_HandlerId"></span><span id="_CPPv244SilKit_FlexrayController_RemoveSymbolHandlerP24SilKit_FlexrayController16SilKit_HandlerId"></span><span id="SilKit_FlexrayController_RemoveSymbolHandler__SilKit_FlexrayControllerP.SilKit_HandlerId"></span><span class="target" id="_flexray_8h_1a83822ceb92b25203ba93d2f0c1131689"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_FlexrayController_RemoveSymbolHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_FlexrayController</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv444SilKit_FlexrayController_RemoveSymbolHandlerP24SilKit_FlexrayController16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a SilKit_FlexraySymbolHandler_t by SilKit_HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>controller</strong> – The FlexRay controller for which the callback should be removed. </p></li>
 <li><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p></li>
@@ -357,7 +358,7 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 <span id="_CPPv352SilKit_FlexrayController_RemoveSymbolTransmitHandlerP24SilKit_FlexrayController16SilKit_HandlerId"></span><span id="_CPPv252SilKit_FlexrayController_RemoveSymbolTransmitHandlerP24SilKit_FlexrayController16SilKit_HandlerId"></span><span id="SilKit_FlexrayController_RemoveSymbolTransmitHandler__SilKit_FlexrayControllerP.SilKit_HandlerId"></span><span class="target" id="_flexray_8h_1acdcd871ec2b119ff8be4d9bb836004c8"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_FlexrayController_RemoveSymbolTransmitHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_FlexrayController</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv452SilKit_FlexrayController_RemoveSymbolTransmitHandlerP24SilKit_FlexrayController16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a SilKit_FlexraySymbolTransmitHandler_t by SilKit_HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>controller</strong> – The FlexRay controller for which the callback should be removed. </p></li>
 <li><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p></li>
@@ -371,7 +372,7 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 <span id="_CPPv348SilKit_FlexrayController_RemoveCycleStartHandlerP24SilKit_FlexrayController16SilKit_HandlerId"></span><span id="_CPPv248SilKit_FlexrayController_RemoveCycleStartHandlerP24SilKit_FlexrayController16SilKit_HandlerId"></span><span id="SilKit_FlexrayController_RemoveCycleStartHandler__SilKit_FlexrayControllerP.SilKit_HandlerId"></span><span class="target" id="_flexray_8h_1a572ce944121129628d24300a81269a6f"></span><span class="n"><span class="pre">SilKit_ReturnCode</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_FlexrayController_RemoveCycleStartHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">SilKit_FlexrayController</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">controller</span></span>, <span class="n"><span class="pre">SilKit_HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv448SilKit_FlexrayController_RemoveCycleStartHandlerP24SilKit_FlexrayController16SilKit_HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a SilKit_FlexrayCycleStartHandler_t by SilKit_HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>controller</strong> – The FlexRay controller for which the callback should be removed. </p></li>
 <li><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p></li>
@@ -382,7 +383,7 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 
 </section>
 <section id="data-structures">
-<h2><a class="toc-backref" href="#id2">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this heading"></a></h2>
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv431SilKit_FlexrayClusterParameters">
 <span id="_CPPv331SilKit_FlexrayClusterParameters"></span><span id="_CPPv231SilKit_FlexrayClusterParameters"></span><span id="SilKit_FlexrayClusterParameters"></span><span class="target" id="struct_sil_kit___flexray_cluster_parameters"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_FlexrayClusterParameters</span></span></span><a class="headerlink" href="#_CPPv431SilKit_FlexrayClusterParameters" title="Permalink to this definition"></a><br /></dt>
@@ -1083,7 +1084,7 @@ To configure these frames, the API provides functions to manipulate Tx buffers.<
 
 </section>
 <section id="enumerations-and-typedefs">
-<h2><a class="toc-backref" href="#id3">Enumerations and Typedefs</a><a class="headerlink" href="#enumerations-and-typedefs" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Enumerations and Typedefs</a><a class="headerlink" href="#enumerations-and-typedefs" title="Permalink to this heading"></a></h2>
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv423SilKit_FlexrayMacroTick">
 <span id="_CPPv323SilKit_FlexrayMacroTick"></span><span id="_CPPv223SilKit_FlexrayMacroTick"></span><span id="SilKit_FlexrayMacroTick"></span><span class="target" id="_flexray_8h_1aa57139970fae812879b83c845f928dfb"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">int32_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SilKit_FlexrayMacroTick</span></span></span><a class="headerlink" href="#_CPPv423SilKit_FlexrayMacroTick" title="Permalink to this definition"></a><br /></dt>

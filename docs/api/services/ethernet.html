@@ -1,22 +1,22 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ethernet Service API &mdash; Vector SIL Kit 4.0.56 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>Ethernet Service API &mdash; Vector SIL Kit 5.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -29,14 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../contents.html" class="icon icon-home"> Vector SIL Kit
+
+          
+          
+          <a href="../../contents.html" class="icon icon-home">
+            Vector SIL Kit
           </a>
-              <div class="version">
-                4.0.56
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -80,7 +81,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../faq/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../licenses/license.html">Licenses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/overview.html">Changelog</a></li>
 </ul>
 
         </div>
@@ -96,9 +97,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../contents.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api.html">C/C++ API</a> &raquo;</li>
-      <li>Ethernet Service API</li>
+      <li><a href="../../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">C/C++ API</a></li>
+      <li class="breadcrumb-item active">Ethernet Service API</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/api/services/ethernet.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -110,7 +111,7 @@
              
   <section id="ethernet-service-api">
 <span id="chap-ethernet-service-api"></span><h1>Ethernet Service API<a class="headerlink" href="#ethernet-service-api" title="Permalink to this heading"></a></h1>
-<div class="contents local topic" id="contents">
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#using-the-ethernet-controller" id="id1">Using the Ethernet Controller</a></p>
 <ul>
@@ -142,9 +143,9 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <section id="using-the-ethernet-controller">
-<h2><a class="toc-backref" href="#id1">Using the Ethernet Controller</a><a class="headerlink" href="#using-the-ethernet-controller" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Using the Ethernet Controller</a><a class="headerlink" href="#using-the-ethernet-controller" title="Permalink to this heading"></a></h2>
 <p>The Ethernet Service API provides an Ethernet bus abstraction through the <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetControllerE" title="SilKit::Services::Ethernet::IEthernetController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IEthernetController</span></code></a> interface.
 An Ethernet controller is created by calling <a class="reference internal" href="../participant.html#_CPPv4N6SilKit12IParticipant24CreateEthernetControllerERKNSt6stringERKNSt6stringE" title="SilKit::IParticipant::CreateEthernetController"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateEthernetController</span></code></a> given a controller name and network
 name:</p>
@@ -153,12 +154,12 @@ name:</p>
 </div>
 <p>Ethernet controllers will only communicate within the same network.</p>
 <section id="initialization">
-<h3><a class="toc-backref" href="#id2">Initialization</a><a class="headerlink" href="#initialization" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Initialization</a><a class="headerlink" href="#initialization" title="Permalink to this heading"></a></h3>
 <p>The Ethernet controller first has to call <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController8ActivateEv" title="SilKit::Services::Ethernet::IEthernetController::Activate"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Activate()</span></code></a> before being able to
 send frames. Note that <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController8ActivateEv" title="SilKit::Services::Ethernet::IEthernetController::Activate"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Activate()</span></code></a> can be called in the <code class="docutils literal notranslate"><span class="pre">CommunicationReadyHandler</span></code> of a <code class="docutils literal notranslate"><span class="pre">LifecycleService</span></code>.</p>
 </section>
 <section id="sending-ethernet-frames">
-<h3><a class="toc-backref" href="#id3">Sending Ethernet Frames</a><a class="headerlink" href="#sending-ethernet-frames" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Sending Ethernet Frames</a><a class="headerlink" href="#sending-ethernet-frames" title="Permalink to this heading"></a></h3>
 <p>An <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet13EthernetFrameE" title="SilKit::Services::Ethernet::EthernetFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">EthernetFrame</span></code></a> is sent with <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController9SendFrameE13EthernetFramePv" title="SilKit::Services::Ethernet::IEthernetController::SendFrame"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrame()</span></code></a> and received as an <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet18EthernetFrameEventE" title="SilKit::Services::Ethernet::EthernetFrameEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">EthernetFrameEvent</span></code></a>. The <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet13EthernetFrameE" title="SilKit::Services::Ethernet::EthernetFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">EthernetFrame</span></code></a> must be setup
 according to layer 2 of IEEE 802.3, with</p>
 <ul class="simple">
@@ -198,7 +199,7 @@ according to layer 2 of IEEE 802.3, with</p>
 </div>
 </section>
 <section id="transmission-acknowledgement">
-<h3><a class="toc-backref" href="#id4">Transmission Acknowledgement</a><a class="headerlink" href="#transmission-acknowledgement" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Transmission Acknowledgement</a><a class="headerlink" href="#transmission-acknowledgement" title="Permalink to this heading"></a></h3>
 <p>To be notified of the success or failure of the transmission, a <code class="docutils literal notranslate"><span class="pre">FrameTransmitHandler</span></code> can be registered using
 <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController23AddFrameTransmitHandlerE20FrameTransmitHandler26EthernetTransmitStatusMask" title="SilKit::Services::Ethernet::IEthernetController::AddFrameTransmitHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddFrameTransmitHandler()</span></code></a>:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">frameTransmitHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="n">IEthernetController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">EthernetFrameTransmitEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">frameTransmitEvent</span><span class="p">)</span>
@@ -208,16 +209,16 @@ according to layer 2 of IEEE 802.3, with</p>
 <span class="n">ethernetController</span><span class="o">-&gt;</span><span class="n">AddFrameTransmitHandler</span><span class="p">(</span><span class="n">frameTransmitHandler</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>An optional second parameter of <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController23AddFrameTransmitHandlerE20FrameTransmitHandler26EthernetTransmitStatusMask" title="SilKit::Services::Ethernet::IEthernetController::AddFrameTransmitHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddFrameTransmitHandler()</span></code></a> allows to specify the status (<a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet22EthernetTransmitStatus11TransmittedE" title="SilKit::Services::Ethernet::Transmitted"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">EthernetTransmitStatus::Transmitted</span></code></a>, …) of the
+<p>An optional second parameter of <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController23AddFrameTransmitHandlerE20FrameTransmitHandler26EthernetTransmitStatusMask" title="SilKit::Services::Ethernet::IEthernetController::AddFrameTransmitHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddFrameTransmitHandler()</span></code></a> allows to specify the status (<code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">EthernetTransmitStatus::Transmitted</span></code>, …) of the
 <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet26EthernetFrameTransmitEventE" title="SilKit::Services::Ethernet::EthernetFrameTransmitEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">EthernetFrameTransmitEvent</span></code></a> to be received. By default, each status is enabled.</p>
 <div class="admonition-note admonition">
 <p class="admonition-title">Note</p>
 <p>In a simple simulation, the <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet22EthernetTransmitStatusE" title="SilKit::Services::Ethernet::EthernetTransmitStatus"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">EthernetTransmitStatus</span></code></a> of the
-<a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet26EthernetFrameTransmitEventE" title="SilKit::Services::Ethernet::EthernetFrameTransmitEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">EthernetFrameTransmitEvent</span></code></a> will always be <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet22EthernetTransmitStatus11TransmittedE" title="SilKit::Services::Ethernet::Transmitted"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">EthernetTransmitStatus::Transmitted</span></code></a>.</p>
+<a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet26EthernetFrameTransmitEventE" title="SilKit::Services::Ethernet::EthernetFrameTransmitEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">EthernetFrameTransmitEvent</span></code></a> will always be <code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">EthernetTransmitStatus::Transmitted</span></code>.</p>
 </div>
 </section>
 <section id="receiving-ethernet-frame-events">
-<h3><a class="toc-backref" href="#id5">Receiving Ethernet Frame Events</a><a class="headerlink" href="#receiving-ethernet-frame-events" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Receiving Ethernet Frame Events</a><a class="headerlink" href="#receiving-ethernet-frame-events" title="Permalink to this heading"></a></h3>
 <p>An <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet13EthernetFrameE" title="SilKit::Services::Ethernet::EthernetFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">EthernetFrame</span></code></a> is received as an <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet18EthernetFrameEventE" title="SilKit::Services::Ethernet::EthernetFrameEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">EthernetFrameEvent</span></code></a> consisting of a <code class="docutils literal notranslate"><span class="pre">transmitId</span></code> used to identify
 the acknowledgment of the frame, a timestamp and the actual <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet13EthernetFrameE" title="SilKit::Services::Ethernet::EthernetFrame"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">EthernetFrame</span></code></a>.</p>
 <p>To receive Ethernet frames, a frame handler must be registered using <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController15AddFrameHandlerE12FrameHandler13DirectionMask" title="SilKit::Services::Ethernet::IEthernetController::AddFrameHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddFrameHandler()</span></code></a>. The handler is called whenever
@@ -233,7 +234,7 @@ an Ethernet frame is received:</p>
 received. By default, only frames of Rx direction are handled.</p>
 </section>
 <section id="managing-the-event-handlers">
-<h3><a class="toc-backref" href="#id6">Managing the Event Handlers</a><a class="headerlink" href="#managing-the-event-handlers" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Managing the Event Handlers</a><a class="headerlink" href="#managing-the-event-handlers" title="Permalink to this heading"></a></h3>
 <p>Adding a handler will return a <code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">HandlerId</span></code> which can be used to remove the handler via:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController18RemoveFrameHandlerE9HandlerId" title="SilKit::Services::Ethernet::IEthernetController::RemoveFrameHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">RemoveFrameHandler()</span></code></a></p></li>
@@ -241,13 +242,13 @@ received. By default, only frames of Rx direction are handled.</p>
 <li><p><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController24RemoveStateChangeHandlerE9HandlerId" title="SilKit::Services::Ethernet::IEthernetController::RemoveStateChangeHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">RemoveStateChangeHandler()</span></code></a></p></li>
 </ul>
 <section id="switches">
-<h4><a class="toc-backref" href="#id7">Switches</a><a class="headerlink" href="#switches" title="Permalink to this heading"></a></h4>
+<h4><a class="toc-backref" href="#id7" role="doc-backlink">Switches</a><a class="headerlink" href="#switches" title="Permalink to this heading"></a></h4>
 <p>Switches can be used in a detailed simulation.
 Refer to the documentation of the network simulator for further information.</p>
 </section>
 </section>
 <section id="receiving-state-change-events">
-<h3><a class="toc-backref" href="#id8">Receiving State Change Events</a><a class="headerlink" href="#receiving-state-change-events" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Receiving State Change Events</a><a class="headerlink" href="#receiving-state-change-events" title="Permalink to this heading"></a></h3>
 <p>To receive state changes of an Ethernet
 controller, a <code class="docutils literal notranslate"><span class="pre">StateChangeHandler</span></code> must be registered using <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController21AddStateChangeHandlerE18StateChangeHandler" title="SilKit::Services::Ethernet::IEthernetController::AddStateChangeHandler"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">AddStateChangeHandler()</span></code></a>:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">stateChangedHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[](</span><span class="n">IEthernetController</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">EthernetStateChangeEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">stateChangeEvent</span><span class="p">)</span>
@@ -259,22 +260,22 @@ controller, a <code class="docutils literal notranslate"><span class="pre">State
 </div>
 </section>
 <section id="acknowledgements">
-<h3><a class="toc-backref" href="#id9">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Acknowledgements</a><a class="headerlink" href="#acknowledgements" title="Permalink to this heading"></a></h3>
 <p>When sending frames, the <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet22EthernetTransmitStatusE" title="SilKit::Services::Ethernet::EthernetTransmitStatus"><code class="xref cpp cpp-enum docutils literal notranslate"><span class="pre">EthernetTransmitStatus</span></code></a> of the <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet26EthernetFrameTransmitEventE" title="SilKit::Services::Ethernet::EthernetFrameTransmitEvent"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">EthernetFrameTransmitEvent</span></code></a> received in the
 <code class="docutils literal notranslate"><span class="pre">FrameTransmitHandler</span></code> will be one of the following values:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet22EthernetTransmitStatus11TransmittedE" title="SilKit::Services::Ethernet::Transmitted"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">EthernetTransmitStatus::Transmitted</span></code></a>: Transmission was successful.</p></li>
-<li><p><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet22EthernetTransmitStatus18ControllerInactiveE" title="SilKit::Services::Ethernet::ControllerInactive"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">EthernetTransmitStatus::ControllerInactive</span></code></a>: The sending Ethernet controller tried to send a frame before <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController8ActivateEv" title="SilKit::Services::Ethernet::IEthernetController::Activate"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Activate()</span></code></a> was called.</p></li>
-<li><p><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet22EthernetTransmitStatus8LinkDownE" title="SilKit::Services::Ethernet::LinkDown"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">EthernetTransmitStatus::LinkDown</span></code></a>: <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController8ActivateEv" title="SilKit::Services::Ethernet::IEthernetController::Activate"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Activate()</span></code></a> has been called but the link to another Ethernet Controller has not yet been established.</p></li>
-<li><p><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet22EthernetTransmitStatus7DroppedE" title="SilKit::Services::Ethernet::Dropped"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">EthernetTransmitStatus::Dropped</span></code></a>: Indicates a transmit queue overflow.</p></li>
-<li><p><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet22EthernetTransmitStatus18InvalidFrameFormatE" title="SilKit::Services::Ethernet::InvalidFrameFormat"><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">EthernetTransmitStatus::InvalidFrameFormat</span></code></a>: The Ethernet frame is invalid, e.g., too small or too large.</p></li>
+<li><p><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">EthernetTransmitStatus::Transmitted</span></code>: Transmission was successful.</p></li>
+<li><p><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">EthernetTransmitStatus::ControllerInactive</span></code>: The sending Ethernet controller tried to send a frame before <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController8ActivateEv" title="SilKit::Services::Ethernet::IEthernetController::Activate"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Activate()</span></code></a> was called.</p></li>
+<li><p><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">EthernetTransmitStatus::LinkDown</span></code>: <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController8ActivateEv" title="SilKit::Services::Ethernet::IEthernetController::Activate"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">Activate()</span></code></a> has been called but the link to another Ethernet Controller has not yet been established.</p></li>
+<li><p><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">EthernetTransmitStatus::Dropped</span></code>: Indicates a transmit queue overflow.</p></li>
+<li><p><code class="xref cpp cpp-enumerator docutils literal notranslate"><span class="pre">EthernetTransmitStatus::InvalidFrameFormat</span></code>: The Ethernet frame is invalid, e.g., too small or too large.</p></li>
 </ul>
 </section>
 </section>
 <section id="api-and-data-type-reference">
-<h2><a class="toc-backref" href="#id10">API and Data Type Reference</a><a class="headerlink" href="#api-and-data-type-reference" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">API and Data Type Reference</a><a class="headerlink" href="#api-and-data-type-reference" title="Permalink to this heading"></a></h2>
 <section id="ethernet-controller-api">
-<h3><a class="toc-backref" href="#id11">Ethernet Controller API</a><a class="headerlink" href="#ethernet-controller-api" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Ethernet Controller API</a><a class="headerlink" href="#ethernet-controller-api" title="Permalink to this heading"></a></h3>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services8Ethernet19IEthernetControllerE">
 <span id="_CPPv3N6SilKit8Services8Ethernet19IEthernetControllerE"></span><span id="_CPPv2N6SilKit8Services8Ethernet19IEthernetControllerE"></span><span id="SilKit::Services::Ethernet::IEthernetController"></span><span class="target" id="class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IEthernetController</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetControllerE" title="Permalink to this definition"></a><br /></dt>
@@ -282,32 +283,32 @@ controller, a <code class="docutils literal notranslate"><span class="pre">State
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
 <dl class="cpp type">
-<dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services8Ethernet19IEthernetController9CallbackTE">
-<span id="_CPPv3N6SilKit8Services8Ethernet19IEthernetController9CallbackTE"></span><span id="_CPPv2N6SilKit8Services8Ethernet19IEthernetController9CallbackTE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1a27b294021ec58cec6f4f335987bd71fa"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CallbackT</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetControllerE" title="SilKit::Services::Ethernet::IEthernetController"><span class="n"><span class="pre">IEthernetController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">controller</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">MsgT</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController9CallbackTE" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4I0EN6SilKit8Services8Ethernet19IEthernetController9CallbackTE">
+<span id="_CPPv3I0EN6SilKit8Services8Ethernet19IEthernetController9CallbackTE"></span><span id="_CPPv2I0EN6SilKit8Services8Ethernet19IEthernetController9CallbackTE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MsgT</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1a27b294021ec58cec6f4f335987bd71fa"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CallbackT</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetControllerE" title="SilKit::Services::Ethernet::IEthernetController"><span class="n"><span class="pre">IEthernetController</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">controller</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services8Ethernet19IEthernetController9CallbackTE" title="SilKit::Services::Ethernet::IEthernetController::CallbackT::MsgT"><span class="n"><span class="pre">MsgT</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4I0EN6SilKit8Services8Ethernet19IEthernetController9CallbackTE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Generic Ethernet callback method. </p>
 </dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services8Ethernet19IEthernetController12FrameHandlerE">
-<span id="_CPPv3N6SilKit8Services8Ethernet19IEthernetController12FrameHandlerE"></span><span id="_CPPv2N6SilKit8Services8Ethernet19IEthernetController12FrameHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1abdad4115ec106fbd08bc2d5628473481"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FrameHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController9CallbackTE" title="SilKit::Services::Ethernet::IEthernetController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet18EthernetFrameEventE" title="SilKit::Services::Ethernet::EthernetFrameEvent"><span class="n"><span class="pre">EthernetFrameEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController12FrameHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services8Ethernet19IEthernetController12FrameHandlerE"></span><span id="_CPPv2N6SilKit8Services8Ethernet19IEthernetController12FrameHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1abdad4115ec106fbd08bc2d5628473481"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FrameHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services8Ethernet19IEthernetController9CallbackTE" title="SilKit::Services::Ethernet::IEthernetController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet18EthernetFrameEventE" title="SilKit::Services::Ethernet::EthernetFrameEvent"><span class="n"><span class="pre">EthernetFrameEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController12FrameHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate that an <a class="reference internal" href="#struct_sil_kit_1_1_services_1_1_ethernet_1_1_ethernet_frame_event"><span class="std std-ref">EthernetFrameEvent</span></a> has been received. Cf. <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1a5d72118b010673d8eb1cf546058c4809"><span class="std std-ref">AddFrameHandler(FrameHandler,DirectionMask)</span></a>; </p>
 </dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services8Ethernet19IEthernetController20FrameTransmitHandlerE">
-<span id="_CPPv3N6SilKit8Services8Ethernet19IEthernetController20FrameTransmitHandlerE"></span><span id="_CPPv2N6SilKit8Services8Ethernet19IEthernetController20FrameTransmitHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1a2eef79ab2d3168a773ffc10b6ebf251b"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FrameTransmitHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController9CallbackTE" title="SilKit::Services::Ethernet::IEthernetController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet26EthernetFrameTransmitEventE" title="SilKit::Services::Ethernet::EthernetFrameTransmitEvent"><span class="n"><span class="pre">EthernetFrameTransmitEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController20FrameTransmitHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services8Ethernet19IEthernetController20FrameTransmitHandlerE"></span><span id="_CPPv2N6SilKit8Services8Ethernet19IEthernetController20FrameTransmitHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1a2eef79ab2d3168a773ffc10b6ebf251b"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FrameTransmitHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services8Ethernet19IEthernetController9CallbackTE" title="SilKit::Services::Ethernet::IEthernetController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet26EthernetFrameTransmitEventE" title="SilKit::Services::Ethernet::EthernetFrameTransmitEvent"><span class="n"><span class="pre">EthernetFrameTransmitEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController20FrameTransmitHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate that an <a class="reference internal" href="#struct_sil_kit_1_1_services_1_1_ethernet_1_1_ethernet_frame_transmit_event"><span class="std std-ref">EthernetFrameTransmitEvent</span></a> has been received. Cf. <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1aceffd587552fa9cebaa3270ba0ca949e"><span class="std std-ref">AddFrameTransmitHandler(FrameTransmitHandler,EthernetTransmitStatusMask)</span></a>; </p>
 </dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services8Ethernet19IEthernetController18StateChangeHandlerE">
-<span id="_CPPv3N6SilKit8Services8Ethernet19IEthernetController18StateChangeHandlerE"></span><span id="_CPPv2N6SilKit8Services8Ethernet19IEthernetController18StateChangeHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1a87a5498a99795aba8280c2ca9544de86"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">StateChangeHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController9CallbackTE" title="SilKit::Services::Ethernet::IEthernetController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet24EthernetStateChangeEventE" title="SilKit::Services::Ethernet::EthernetStateChangeEvent"><span class="n"><span class="pre">EthernetStateChangeEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController18StateChangeHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services8Ethernet19IEthernetController18StateChangeHandlerE"></span><span id="_CPPv2N6SilKit8Services8Ethernet19IEthernetController18StateChangeHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1a87a5498a99795aba8280c2ca9544de86"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">StateChangeHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services8Ethernet19IEthernetController9CallbackTE" title="SilKit::Services::Ethernet::IEthernetController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet24EthernetStateChangeEventE" title="SilKit::Services::Ethernet::EthernetStateChangeEvent"><span class="n"><span class="pre">EthernetStateChangeEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController18StateChangeHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate that the <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_ethernet_1a10a56ade778c751ce52749d8bcecb147"><span class="std std-ref">EthernetState</span></a> has changed. Cf. <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1ac32eeffe3cc7805af10a40ab255aeb62"><span class="std std-ref">AddStateChangeHandler(StateChangeHandler)</span></a>; </p>
 </dd></dl>
 
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services8Ethernet19IEthernetController20BitrateChangeHandlerE">
-<span id="_CPPv3N6SilKit8Services8Ethernet19IEthernetController20BitrateChangeHandlerE"></span><span id="_CPPv2N6SilKit8Services8Ethernet19IEthernetController20BitrateChangeHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1ae7737603862a26e072b3f1c083d14733"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">BitrateChangeHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController9CallbackTE" title="SilKit::Services::Ethernet::IEthernetController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet26EthernetBitrateChangeEventE" title="SilKit::Services::Ethernet::EthernetBitrateChangeEvent"><span class="n"><span class="pre">EthernetBitrateChangeEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController20BitrateChangeHandlerE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services8Ethernet19IEthernetController20BitrateChangeHandlerE"></span><span id="_CPPv2N6SilKit8Services8Ethernet19IEthernetController20BitrateChangeHandlerE"></span><span class="target" id="class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1ae7737603862a26e072b3f1c083d14733"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">BitrateChangeHandler</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN6SilKit8Services8Ethernet19IEthernetController9CallbackTE" title="SilKit::Services::Ethernet::IEthernetController::CallbackT"><span class="n"><span class="pre">CallbackT</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet26EthernetBitrateChangeEventE" title="SilKit::Services::Ethernet::EthernetBitrateChangeEvent"><span class="n"><span class="pre">EthernetBitrateChangeEvent</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController20BitrateChangeHandlerE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Callback type to indicate that the link bit rate has changed. Cf. <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1aba6fabf286f52bd2ba5d79ccb120b353"><span class="std std-ref">AddBitrateChangeHandler(BitrateChangeHandler)</span></a>; </p>
 </dd></dl>
 
@@ -339,7 +340,7 @@ controller, a <code class="docutils literal notranslate"><span class="pre">State
 <dd><p>Register a callback for Ethernet message reception. </p>
 <p>The handler is called when the controller receives a new Ethernet message.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
 </dd>
 </dl>
@@ -350,7 +351,7 @@ controller, a <code class="docutils literal notranslate"><span class="pre">State
 <span id="_CPPv3N6SilKit8Services8Ethernet19IEthernetController18RemoveFrameHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services8Ethernet19IEthernetController18RemoveFrameHandlerE9HandlerId"></span><span id="SilKit::Services::Ethernet::IEthernetController::RemoveFrameHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1aeca25f16da4c224e6f19e32dd0f88232"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemoveFrameHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController18RemoveFrameHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a FrameHandler by SilKit::Util::HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
 </dd>
 </dl>
@@ -363,7 +364,7 @@ controller, a <code class="docutils literal notranslate"><span class="pre">State
 <p>The handler is called when a previously sent message was successfully transmitted or when the transmission has failed. The original message is identified by the transmitId.</p>
 <p>NB: Full support in a detailed simulation. In a simple simulation, all messages are immediately positively acknowledged.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
 </dd>
 </dl>
@@ -374,7 +375,7 @@ controller, a <code class="docutils literal notranslate"><span class="pre">State
 <span id="_CPPv3N6SilKit8Services8Ethernet19IEthernetController26RemoveFrameTransmitHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services8Ethernet19IEthernetController26RemoveFrameTransmitHandlerE9HandlerId"></span><span id="SilKit::Services::Ethernet::IEthernetController::RemoveFrameTransmitHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1a25ead92bff4b167598bf14a56890db03"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemoveFrameTransmitHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController26RemoveFrameTransmitHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a FrameTransmitHandler by SilKit::Util::HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
 </dd>
 </dl>
@@ -384,9 +385,9 @@ controller, a <code class="docutils literal notranslate"><span class="pre">State
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services8Ethernet19IEthernetController21AddStateChangeHandlerE18StateChangeHandler">
 <span id="_CPPv3N6SilKit8Services8Ethernet19IEthernetController21AddStateChangeHandlerE18StateChangeHandler"></span><span id="_CPPv2N6SilKit8Services8Ethernet19IEthernetController21AddStateChangeHandlerE18StateChangeHandler"></span><span id="SilKit::Services::Ethernet::IEthernetController::AddStateChangeHandler__StateChangeHandler"></span><span class="target" id="class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1ac32eeffe3cc7805af10a40ab255aeb62"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddStateChangeHandler</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController18StateChangeHandlerE" title="SilKit::Services::Ethernet::IEthernetController::StateChangeHandler"><span class="n"><span class="pre">StateChangeHandler</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">handler</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="o"><span class="pre">-&gt;</span></span><span class="w"> </span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController21AddStateChangeHandlerE18StateChangeHandler" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Register a callback for changes of the controller state. </p>
-<p>The handler is called when the state of the controller changes. E.g., a call to <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1aa42c293611f6d790fe9bedf0e749ada9"><span class="std std-ref">Activate()</span></a> causes the controller to change from state <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_ethernet_1a10a56ade778c751ce52749d8bcecb147a3cab03c00dbd11bc3569afa0748013f0"><span class="std std-ref">SilKit::Services::Ethernet::EthernetState::Inactive</span></a> to <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_ethernet_1abc4119554b7926d385cfe9443c1c6124aed24adca6bafecf505ccfec607baae60"><span class="std std-ref">SilKit::Services::Ethernet::EthernetState::LinkDown</span></a>. Later, when the link has been established, the state changes again from <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_ethernet_1abc4119554b7926d385cfe9443c1c6124aed24adca6bafecf505ccfec607baae60"><span class="std std-ref">SilKit::Services::Ethernet::EthernetState::LinkDown</span></a> to <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_ethernet_1a10a56ade778c751ce52749d8bcecb147a8d95de9e9f0ffbdc9901ee31aa38b3a4"><span class="std std-ref">SilKit::Services::Ethernet::EthernetState::LinkUp</span></a>. Similarly, the status changes back to <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_ethernet_1a10a56ade778c751ce52749d8bcecb147a3cab03c00dbd11bc3569afa0748013f0"><span class="std std-ref">SilKit::Services::Ethernet::EthernetState::Inactive</span></a> upon a call to <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1a93f7edc2bb3c7320e2641b9250862548"><span class="std std-ref">Deactivate()</span></a>.</p>
+<p>The handler is called when the state of the controller changes. E.g., a call to <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1aa42c293611f6d790fe9bedf0e749ada9"><span class="std std-ref">Activate()</span></a> causes the controller to change from state <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_ethernet_1a10a56ade778c751ce52749d8bcecb147a3cab03c00dbd11bc3569afa0748013f0"><span class="std std-ref">SilKit::Services::Ethernet::EthernetState::Inactive</span></a> to <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_ethernet_1a10a56ade778c751ce52749d8bcecb147aed24adca6bafecf505ccfec607baae60"><span class="std std-ref">SilKit::Services::Ethernet::EthernetState::LinkDown</span></a>. Later, when the link has been established, the state changes again from <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_ethernet_1a10a56ade778c751ce52749d8bcecb147aed24adca6bafecf505ccfec607baae60"><span class="std std-ref">SilKit::Services::Ethernet::EthernetState::LinkDown</span></a> to <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_ethernet_1a10a56ade778c751ce52749d8bcecb147a8d95de9e9f0ffbdc9901ee31aa38b3a4"><span class="std std-ref">SilKit::Services::Ethernet::EthernetState::LinkUp</span></a>. Similarly, the status changes back to <a class="reference internal" href="#namespace_sil_kit_1_1_services_1_1_ethernet_1a10a56ade778c751ce52749d8bcecb147a3cab03c00dbd11bc3569afa0748013f0"><span class="std std-ref">SilKit::Services::Ethernet::EthernetState::Inactive</span></a> upon a call to <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1a93f7edc2bb3c7320e2641b9250862548"><span class="std std-ref">Deactivate()</span></a>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
 </dd>
 </dl>
@@ -397,7 +398,7 @@ controller, a <code class="docutils literal notranslate"><span class="pre">State
 <span id="_CPPv3N6SilKit8Services8Ethernet19IEthernetController24RemoveStateChangeHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services8Ethernet19IEthernetController24RemoveStateChangeHandlerE9HandlerId"></span><span id="SilKit::Services::Ethernet::IEthernetController::RemoveStateChangeHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1ab7e692eafc6c683c0b8dbe96d083b9c3"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemoveStateChangeHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController24RemoveStateChangeHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a StateChangeHandler by SilKit::Util::HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
 </dd>
 </dl>
@@ -409,7 +410,7 @@ controller, a <code class="docutils literal notranslate"><span class="pre">State
 <dd><p>Register a callback for changes of the link bit rate. </p>
 <p>The handler is called when the bit rate of the connected link changes. This is typically the case when a link was successfully established, or the controller was deactivated.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns a SilKit::Util::HandlerId that can be used to remove the callback. </p>
 </dd>
 </dl>
@@ -420,7 +421,7 @@ controller, a <code class="docutils literal notranslate"><span class="pre">State
 <span id="_CPPv3N6SilKit8Services8Ethernet19IEthernetController26RemoveBitrateChangeHandlerE9HandlerId"></span><span id="_CPPv2N6SilKit8Services8Ethernet19IEthernetController26RemoveBitrateChangeHandlerE9HandlerId"></span><span id="SilKit::Services::Ethernet::IEthernetController::RemoveBitrateChangeHandler__HandlerId"></span><span class="target" id="class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1a581c77372432f6445273249b5b6f4180"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemoveBitrateChangeHandler</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">HandlerId</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">handlerId</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetController26RemoveBitrateChangeHandlerE9HandlerId" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove a BitrateChangeHandler by SilKit::Util::HandlerId on this controller. </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>handlerId</strong> – Identifier of the callback to be removed. Obtained upon adding to respective handler. </p>
 </dd>
 </dl>
@@ -433,7 +434,7 @@ controller, a <code class="docutils literal notranslate"><span class="pre">State
 <p>If the size of the Ethernet frame is smaller than the minimum size of 60 bytes (excludes the Frame Check Sequence), it will be padded with zeros.</p>
 <p>NB: precise timestamps are always generated by the NetworkSimulator.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>msg</strong> – The Ethernet frame to send. </p></li>
 <li><p><strong>userContext</strong> – Optional user provided pointer that is reobtained in the <a class="reference internal" href="#class_sil_kit_1_1_services_1_1_ethernet_1_1_i_ethernet_controller_1a2eef79ab2d3168a773ffc10b6ebf251b"><span class="std std-ref">FrameTransmitHandler</span></a>. </p></li>
@@ -447,7 +448,7 @@ controller, a <code class="docutils literal notranslate"><span class="pre">State
 
 </section>
 <section id="data-structures">
-<h3><a class="toc-backref" href="#id12">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Data Structures</a><a class="headerlink" href="#data-structures" title="Permalink to this heading"></a></h3>
 <dl class="cpp struct">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services8Ethernet13EthernetFrameE">
 <span id="_CPPv3N6SilKit8Services8Ethernet13EthernetFrameE"></span><span id="_CPPv2N6SilKit8Services8Ethernet13EthernetFrameE"></span><span id="SilKit::Services::Ethernet::EthernetFrame"></span><span class="target" id="struct_sil_kit_1_1_services_1_1_ethernet_1_1_ethernet_frame"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">EthernetFrame</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet13EthernetFrameE" title="Permalink to this definition"></a><br /></dt>
@@ -567,16 +568,16 @@ controller, a <code class="docutils literal notranslate"><span class="pre">State
 
 </section>
 <section id="enumerations-and-typedefs">
-<h3><a class="toc-backref" href="#id13">Enumerations and Typedefs</a><a class="headerlink" href="#enumerations-and-typedefs" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Enumerations and Typedefs</a><a class="headerlink" href="#enumerations-and-typedefs" title="Permalink to this heading"></a></h3>
 <dl class="cpp type">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services8Ethernet15EthernetBitrateE">
 <span id="_CPPv3N6SilKit8Services8Ethernet15EthernetBitrateE"></span><span id="_CPPv2N6SilKit8Services8Ethernet15EthernetBitrateE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_ethernet_1a6f058f0bc3d58fb927569b568ff3178d"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Ethernet</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">EthernetBitrate</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">uint32_t</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet15EthernetBitrateE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Bitrate in kBit/sec. </p>
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services8Ethernet22EthernetTransmitStatusE">
-<span id="_CPPv3N6SilKit8Services8Ethernet22EthernetTransmitStatusE"></span><span id="_CPPv2N6SilKit8Services8Ethernet22EthernetTransmitStatusE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_ethernet_1abc4119554b7926d385cfe9443c1c6124"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Ethernet</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">EthernetTransmitStatus</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet22EthernetTransmitStatusE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services8Ethernet22EthernetTransmitStatusE"></span><span id="_CPPv2N6SilKit8Services8Ethernet22EthernetTransmitStatusE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_ethernet_1abc4119554b7926d385cfe9443c1c6124"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Ethernet</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">EthernetTransmitStatus</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">EthernetTransmitStatusMask</span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet22EthernetTransmitStatusE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Acknowledgment status for an EthernetTransmitRequest. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
@@ -611,9 +612,9 @@ controller, a <code class="docutils literal notranslate"><span class="pre">State
 
 </dd></dl>
 
-<dl class="cpp enum">
+<dl class="cpp enum-class">
 <dt class="sig sig-object cpp" id="_CPPv4N6SilKit8Services8Ethernet13EthernetStateE">
-<span id="_CPPv3N6SilKit8Services8Ethernet13EthernetStateE"></span><span id="_CPPv2N6SilKit8Services8Ethernet13EthernetStateE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_ethernet_1a10a56ade778c751ce52749d8bcecb147"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Ethernet</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">EthernetState</span></span></span><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet13EthernetStateE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N6SilKit8Services8Ethernet13EthernetStateE"></span><span id="_CPPv2N6SilKit8Services8Ethernet13EthernetStateE"></span><span class="target" id="namespace_sil_kit_1_1_services_1_1_ethernet_1a10a56ade778c751ce52749d8bcecb147"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><span class="n"><span class="pre">SilKit</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Services</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Ethernet</span></span><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">EthernetState</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../capi/capi-ethernet.html#_CPPv420SilKit_EthernetState" title="SilKit_EthernetState"><span class="n"><span class="pre">SilKit_EthernetState</span></span></a><a class="headerlink" href="#_CPPv4N6SilKit8Services8Ethernet13EthernetStateE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>State of the Ethernet controller. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
@@ -639,7 +640,7 @@ controller, a <code class="docutils literal notranslate"><span class="pre">State
 </section>
 </section>
 <section id="usage-examples">
-<h2><a class="toc-backref" href="#id14">Usage Examples</a><a class="headerlink" href="#usage-examples" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Usage Examples</a><a class="headerlink" href="#usage-examples" title="Permalink to this heading"></a></h2>
 <p>This section contains complete examples that show the usage and the interaction of two Ethernet controllers. Although
 the Ethernet controllers would typically belong to different participants and reside in different processes, their
 interaction is shown sequentially to demonstrate cause and effect.</p>
@@ -649,7 +650,7 @@ interaction is shown sequentially to demonstrate cause and effect.</p>
 <li><p>All Ethernet controllers are connected to the same switch.</p></li>
 </ul>
 <section id="simple-ethernet-sender-receiver-example">
-<h3><a class="toc-backref" href="#id15">Simple Ethernet Sender / Receiver Example</a><a class="headerlink" href="#simple-ethernet-sender-receiver-example" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Simple Ethernet Sender / Receiver Example</a><a class="headerlink" href="#simple-ethernet-sender-receiver-example" title="Permalink to this heading"></a></h3>
 <p>This example shows a successful data transfer from one Ethernet controller to another.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Copyright (c) 2022 Vector Informatik GmbH</span>
 
@@ -735,7 +736,7 @@ interaction is shown sequentially to demonstrate cause and effect.</p>
 </div>
 </section>
 <section id="state-transition-example">
-<h3><a class="toc-backref" href="#id16">State Transition Example</a><a class="headerlink" href="#state-transition-example" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">State Transition Example</a><a class="headerlink" href="#state-transition-example" title="Permalink to this heading"></a></h3>
 <p>This example shows the possible state transitions for an Ethernet controller.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Copyright (c) 2022 Vector Informatik GmbH</span>
 
@@ -791,7 +792,7 @@ interaction is shown sequentially to demonstrate cause and effect.</p>
 </div>
 </section>
 <section id="erroneous-transmissions-detailed-simulation-only">
-<h3><a class="toc-backref" href="#id17">Erroneous Transmissions (Detailed Simulation only)</a><a class="headerlink" href="#erroneous-transmissions-detailed-simulation-only" title="Permalink to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Erroneous Transmissions (Detailed Simulation only)</a><a class="headerlink" href="#erroneous-transmissions-detailed-simulation-only" title="Permalink to this heading"></a></h3>
 <p>This example shows different possible erroneous Ethernet transmissions.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Copyright (c) 2022 Vector Informatik GmbH</span>
 

@@ -1,0 +1,1774 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Version 4.xx &mdash; Vector SIL Kit 5.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Version 3.xx" href="3.html" />
+    <link rel="prev" title="[5.0.0] - 2025-07-29" href="latest.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../contents.html" class="icon icon-home">
+            Vector SIL Kit
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Vector SIL Kit Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../for-users/users.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../for-developers/developers.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../simulation/simulation.html">Simulation Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/api.html">C/C++ API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demos/demos.html">Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities/utilities.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq/faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../for-developers/versioning.html">Semantic Versioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../licenses/license.html">Licenses</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">Changelog</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="latest.html">[5.0.0] - 2025-07-29</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Version 4.xx</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">[4.0.56] - 2025-05-19</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fixed">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#changed">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#added">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">[4.0.55] - 2025-01-31</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">[4.0.54] - 2024-11-11</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">[4.0.53] - 2024-10-11</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">[4.0.52] - 2024-09-02</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id14">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">[4.0.51] - 2024-07-18</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id17">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">[4.0.50] - 2024-05-15</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id19">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">[4.0.49] - 2024-05-08</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id21">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id22">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id23">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">[4.0.48] - 2024-04-15</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id25">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id26">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id27">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">[4.0.47] - 2024-03-01</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id29">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id30">[4.0.46] - 2024-02-27</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id31">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id32">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id33">[4.0.45] - 2024-02-06</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id34">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id35">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id36">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id37">[4.0.44] - 2024-01-22</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id38">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id39">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id40">[4.0.43] - 2023-12-12</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id41">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id42">[4.0.42] - 2023-11-29</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id43">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id44">[4.0.41] - 2023-11-28</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id45">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id46">[4.0.40] - 2023-11-27</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id47">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id48">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id49">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id50">[4.0.39] - 2023-11-14</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id51">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id52">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id53">[4.0.38] - 2023-11-02</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id54">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id55">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id56">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id57">[4.0.37] - 2023-10-17</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id58">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id59">[4.0.36] - 2023-09-19</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id60">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id61">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id62">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id63">[4.0.35] - 2023-09-04</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id64">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id65">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id66">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id67">[4.0.34] - 2023-08-21</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id68">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id69">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id70">[4.0.33] - 2023-08-07</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id71">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id72">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id73">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id74">[4.0.32] - 2023-07-19</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id75">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id76">[4.0.31] - 2023-07-10</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id77">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id78">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id79">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id80">[4.0.30] - 2023-06-26</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id81">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id82">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id83">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id84">[4.0.29] - 2023-06-14</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id85">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id86">[4.0.28] - 2023-06-02</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id87">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id88">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id89">[4.0.27] - 2023-05-30</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id90">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id91">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id92">[4.0.26] - 2023-05-22</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id93">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id94">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id95">[4.0.25] - 2023-05-17</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id96">[4.0.24] - 2023-05-04</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id97">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id98">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id99">[4.0.23] - 2023-04-17</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id100">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id101">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#removed">Removed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id102">[4.0.22] - 2023-04-05</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id103">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id104">[4.0.21] - 2023-04-03</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id105">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id106">[4.0.20] - 2023-03-20</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id107">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id108">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id109">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id110">[4.0.19] - 2023-03-02</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id111">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id112">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id113">[4.0.18] - 2023-02-21</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id114">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id115">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id116">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id117">[4.0.17] - 2023-02-09</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id118">Fixed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id119">Removed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id120">[4.0.16] - 2023-02-03</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id121">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id122">[4.0.15] - 2023-01-23</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id123">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id124">[4.0.14] - 2023-01-10</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id125">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id126">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id127">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id128">[4.0.13] - 2022-12-14</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id129">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id130">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id131">[4.0.12] - 2022-11-24</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id132">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id133">[4.0.11] - 2022-11-18</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id134">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id135">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id136">[4.0.10] - 2022-11-07</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id137">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id138">[4.0.9] - 2022-10-19</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id139">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id140">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id141">[4.0.8] - 2022-10-07</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id142">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id143">[4.0.7] - 2022-09-20</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id144">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id145">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id146">[4.0.6] - 2022-09-06</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id147">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id148">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#initial-public-release-quality-assured-release">[4.0.5] - 2022-08-25 Initial public release (quality assured release)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id149">[4.0.4] - 2022-08-22</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility-with-4-0-3">Compatibility with 4.0.3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id150">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id151">[4.0.3] - 2022-08-22</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility-with-4-0-2">Compatibility with 4.0.2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id152">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id153">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id154">Removed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id155">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id156">[4.0.2] - 2022-08-15</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility-with-4-0-1">Compatibility with 4.0.1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id157">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id158">[4.0.1] - 2022-08-15</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility-with-4-0-0">Compatibility with 4.0.0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id159">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id160">Removed</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id161">[4.0.0] - 2022-08-11</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility-with-3-99-30">Compatibility with 3.99.30</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id162">Added</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id163">Changed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id164">Removed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id165">Fixed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3.html">Version 3.xx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2-and-older.html">Version 2.xx and older</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../contents.html">Vector SIL Kit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../overview.html">Changelog</a></li>
+      <li class="breadcrumb-item active">Version 4.xx</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/changelog/versions/4.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="version-4-xx">
+<h1>Version 4.xx<a class="headerlink" href="#version-4-xx" title="Permalink to this heading"></a></h1>
+<section id="id1">
+<h2>[4.0.56] - 2025-05-19<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<p>This is a Quality Assured Release.</p>
+<div class="admonition-note-the-ubuntu-18-04-binary-distribution-package-is-deprecated admonition">
+<p class="admonition-title">Note: the Ubuntu 18.04 binary distribution package is deprecated</p>
+<p>We are sunsetting the distribution of Ubuntu 18.04 packages with this release.
+With the next release, we will provide Ubuntu 24.04 binary distribution packages instead.</p>
+</div>
+<div class="admonition-note-we-will-change-our-versioning-scheme-to-semantic-versioning admonition">
+<p class="admonition-title">Note: we will change our versioning scheme to semantic versioning</p>
+<p>Please read the full notice in the <code class="docutils literal notranslate"><span class="pre">Semantic</span> <span class="pre">Versioning</span></code> page in the documentation.</p>
+</div>
+<section id="fixed">
+<h3>Fixed<a class="headerlink" href="#fixed" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Three static methods which are part of the C++ (Hourglass) API implementation and passed as
+callbacks to the C-API, did not use the correct calling convention if the default calling
+convention wasn’t <code class="docutils literal notranslate"><span class="pre">__cdecl</span></code> on Windows. This has been remedied.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKitDemoSimStepAsync</span></code> did not work as intended, due to the predicate lambda capturing
+by-value instead of by-reference.</p></li>
+<li><p>During hop-on of another participant, participants will send the current simulation step
+instead of the next simulation step, if they are inside of their simulation step.</p></li>
+</ul>
+</section>
+<section id="changed">
+<h3>Changed<a class="headerlink" href="#changed" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>The participant configuration <code class="docutils literal notranslate"><span class="pre">TcpNoDelay</span></code> now defaults to true. Please note, that this has performance implications.
+On Linux platforms this improves throughput, and latency in particular when used in combination with <code class="docutils literal notranslate"><span class="pre">TcpQuickAck:</span> <span class="pre">true</span></code>.</p></li>
+<li><p>Updated third party libraries
+- <code class="docutils literal notranslate"><span class="pre">asio</span></code> to <code class="docutils literal notranslate"><span class="pre">1.30.2</span></code>
+- <code class="docutils literal notranslate"><span class="pre">fmt</span></code> to <code class="docutils literal notranslate"><span class="pre">11.1.4</span></code>
+- <code class="docutils literal notranslate"><span class="pre">spdlog</span></code> to <code class="docutils literal notranslate"><span class="pre">1.15.2</span></code></p></li>
+<li><p>Add the <code class="docutils literal notranslate"><span class="pre">myst_parser</span></code> extension to documentation build, which allows using Markdown
+for documentation pages</p></li>
+<li><p>Automatically ‘upgrade’ the <code class="docutils literal notranslate"><span class="pre">Doxyfile</span></code> using <code class="docutils literal notranslate"><span class="pre">doxygen</span> <span class="pre">-u</span></code>, which avoids warnings
+when with different <code class="docutils literal notranslate"><span class="pre">doxygen</span></code> versions across distibutions</p></li>
+<li><p>CAN XL: Update documentation, tests, and the demo to (better) reflect that we support it</p></li>
+</ul>
+</section>
+<section id="added">
+<h3>Added<a class="headerlink" href="#added" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>The documentation now contains a page that explains the upcoming new versioning scheme.</p></li>
+<li><p>Experimental ‘other-simulation-steps-completed’ API</p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2>[4.0.55] - 2025-01-31<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<p>This is a Quality Assured Release.</p>
+<section id="id3">
+<h3>Changed<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p><strong>Important</strong> <code class="docutils literal notranslate"><span class="pre">SilKit_LinDataLengthUnknown</span></code> in the C header <code class="docutils literal notranslate"><span class="pre">Lin.h</span></code> used to be a <code class="docutils literal notranslate"><span class="pre">const</span></code> global, which could cause
+linker issues if the header file is used in multiple translation units in the same binary.</p>
+<p>It has been turned into a <code class="docutils literal notranslate"><span class="pre">#define</span></code>, like all the other constants in the C header files.</p>
+<p>The symbol was not present in the dynamic symbol table of the <code class="docutils literal notranslate"><span class="pre">SilKit.dll</span></code> / <code class="docutils literal notranslate"><span class="pre">.so</span></code>, so this change
+does not break the ABI of the shared libraries.</p>
+</li>
+<li><p>Aligned C API error return codes <code class="docutils literal notranslate"><span class="pre">SilKit_ReturnCode_&lt;ERRORTYPE&gt;</span></code> and SIL Kit specific exceptions.
+All exceptions are now forwarded through the hourglass and thrown in the C++ API.
+For users of the C API, a more detailed error handling is possible with the extended error return codes.</p>
+<p>Before, all execptions ended up as <code class="docutils literal notranslate"><span class="pre">SilKitError</span></code> on the user side.</p>
+</li>
+<li><p>Overhaul of SIL Kit demos</p>
+<ul class="simple">
+<li><p>Restructured into categories communication, api and tools</p></li>
+<li><p>Communication demos: Can, Ethernet, Lin, Flexray, PubSub and Rpc demos</p>
+<ul>
+<li><p>These demos are split into one participant per executable</p></li>
+<li><p>Basic SIL Kit features are implemented in a base class used by the demos</p></li>
+<li><p>No command line arguments needed for basic execution (with time synchronization and coordinated start)</p></li>
+<li><p>Useful command line arguments are provided for all demos (e.g. rename the participant or network, logging, execution modes)</p></li>
+<li><p>The old <code class="docutils literal notranslate"><span class="pre">--async</span></code> mode of the demos now is accessible by <code class="docutils literal notranslate"><span class="pre">--async</span> <span class="pre">--autonomous</span></code> (or short form <code class="docutils literal notranslate"><span class="pre">-aA</span></code>)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id4">
+<h3>Added<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>New demos for basic API usage</p>
+<ul>
+<li><p>SimpleCan</p></li>
+<li><p>Orchestration demos</p></li>
+</ul>
+</li>
+<li><p>Demos: Sample participant configurations</p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>Fixed<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Registry: Block all attempts to connect with an already present participant name, not just the first.</p></li>
+<li><p>CMake: When demos are installed into the <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory under the installation prefix, their RPATH will be set such that they are able to find the <code class="docutils literal notranslate"><span class="pre">libSilKit[d].so</span></code>. This is the same RPATH value as the utility executables.</p></li>
+<li><p>System Monitor: Show all participants, not just the ones that joined during the monitors execution.</p></li>
+</ul>
+</section>
+</section>
+<section id="id6">
+<h2>[4.0.54] - 2024-11-11<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
+<section id="id7">
+<h3>Added<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Override the labels of <code class="docutils literal notranslate"><span class="pre">DataPublisher</span></code>, <code class="docutils literal notranslate"><span class="pre">DataSubscriber</span></code>, <code class="docutils literal notranslate"><span class="pre">RpcClient</span></code>, and <code class="docutils literal notranslate"><span class="pre">RpcServer</span></code> instances through the participant configuration, extending the already possible override of the topic / function name.</p></li>
+</ul>
+</section>
+<section id="id8">
+<h3>Changed<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Changed log messages for controller and participant creation, message tracing, system state tracker and time sync service</p></li>
+<li><p>Revised the documentation (demos, troubleshooting, doxygen output, file structure)</p></li>
+<li><p>Improved platform/compiler/architecture detection</p></li>
+</ul>
+</section>
+<section id="id9">
+<h3>Fixed<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Failure to configure and package cross-builds to QNX on Windows</p></li>
+</ul>
+</section>
+</section>
+<section id="id10">
+<h2>[4.0.53] - 2024-10-11<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h2>
+<section id="id11">
+<h3>Changed<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>Harmonized user interface of commandline utilities Registry, Monitor, and SystemController.</p>
+<p>All utilities listen to OS signals to detect termination request.</p>
+<ul class="simple">
+<li><p>Old: Monitor and Registry wait for the user to press <code class="docutils literal notranslate"><span class="pre">[Enter]</span></code> to shutdown.</p></li>
+<li><p>New: Monitor and Registry can be requested to shutdown via <code class="docutils literal notranslate"><span class="pre">[Ctrl]-[C]</span></code>. Registry option <code class="docutils literal notranslate"><span class="pre">-s,</span> <span class="pre">--use-signal-handler</span></code> is deprecated.</p></li>
+</ul>
+<p>All utilities no longer require user interaction.</p>
+<ul class="simple">
+<li><p>Old: Registry, Monitor and System Controller prompt the user by default to press <code class="docutils literal notranslate"><span class="pre">[Enter]</span></code> to end process after shutdown.</p></li>
+<li><p>New: All utilities terminate without prompting for user input. SystemController option <code class="docutils literal notranslate"><span class="pre">-ni,</span> <span class="pre">--non-interactive</span></code> is deprecated.</p></li>
+</ul>
+</li>
+<li><p>The Logger now adds the participant’s name (as a normalized string) to the user-defined <code class="docutils literal notranslate"><span class="pre">LogName</span></code> for file sinks.</p></li>
+<li><p>Implemented the union (de-)serialization stubs in the <code class="docutils literal notranslate"><span class="pre">silkit/util/serdes</span></code> headers.</p></li>
+</ul>
+</section>
+<section id="id12">
+<h3>Fixed<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>If using the <code class="docutils literal notranslate"><span class="pre">SimStepHandlerAsync</span></code>, the log message that reports the end of the simulation step is now printed after the call to <code class="docutils literal notranslate"><span class="pre">CompleteSimulationStep</span></code>.</p></li>
+<li><p>Fixed an issue with the NetSim API that caused an exception when used with log level <code class="docutils literal notranslate"><span class="pre">trace</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="id13">
+<h2>[4.0.52] - 2024-09-02<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h2>
+<section id="id14">
+<h3>Fixed<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed crash in <code class="docutils literal notranslate"><span class="pre">sil-kit-registry</span></code> utility that happened when the dashboard is enabled, but not actually available.</p></li>
+</ul>
+</section>
+<section id="id15">
+<h3>Added<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Message aggregation for simulations with time synchronization.
+Accessible via the experimental section in the Participant Configuration (Experimental | TimeSynchronization | EnableMessageAggregation).</p></li>
+</ul>
+</section>
+</section>
+<section id="id16">
+<h2>[4.0.51] - 2024-07-18<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h2>
+<section id="id17">
+<h3>Added<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Couple the virtual time to the wall clock.
+An animation factor can be configured that describes how fast the simulation is allowed to run relative to the local wall clock.
+Accessible via a new experimental section in the Participant Configuration (Experimental | TimeSynchronization | AnimationFactor).</p></li>
+<li><p>Event flow documentation for the Network Simulation API.</p></li>
+<li><p>Registry (Dashboard): Automatically use bulk-endpoint if it is available</p></li>
+<li><p>Configuration option for structured logging in JSON format</p></li>
+</ul>
+</section>
+</section>
+<section id="id18">
+<h2>[4.0.50] - 2024-05-15<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h2>
+<p>This is a Quality Assured Release.</p>
+<section id="id19">
+<h3>Fixed<a class="headerlink" href="#id19" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed crash in <code class="docutils literal notranslate"><span class="pre">sil-kit-system-controller</span></code> utility.</p></li>
+<li><p>Fixed source directory contents in <code class="docutils literal notranslate"><span class="pre">.zip</span></code> release archives.</p></li>
+</ul>
+</section>
+</section>
+<section id="id20">
+<h2>[4.0.49] - 2024-05-08<a class="headerlink" href="#id20" title="Permalink to this heading"></a></h2>
+<section id="id21">
+<h3>Changed<a class="headerlink" href="#id21" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>SystemController utility:
+Listens for OS signals to end simulation: Press <code class="docutils literal notranslate"><span class="pre">[Ctrl]-[C]</span></code> (SigInt) instead of <code class="docutils literal notranslate"><span class="pre">[Enter]</span></code> to end simulation.
+Better reports about the current system state in case of Error.</p></li>
+</ul>
+</section>
+<section id="id22">
+<h3>Fixed<a class="headerlink" href="#id22" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Valid state transition from <code class="docutils literal notranslate"><span class="pre">Aborting</span></code> to <code class="docutils literal notranslate"><span class="pre">Shutdown</span></code> no longer emits a warning message.</p></li>
+</ul>
+</section>
+<section id="id23">
+<h3>Added<a class="headerlink" href="#id23" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Participant Configuration: Support include semantics in participant configuration files/strings.</p></li>
+<li><p>Network Simulation: Experimental API for custom simulation of CAN, LIN, Ethernet and FlexRay networks.</p></li>
+</ul>
+</section>
+</section>
+<section id="id24">
+<h2>[4.0.48] - 2024-04-15<a class="headerlink" href="#id24" title="Permalink to this heading"></a></h2>
+<section id="id25">
+<h3>Changed<a class="headerlink" href="#id25" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>We now use a linker script to limit the exported symbol visibility to the public C API and some legacy C++ symbols.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">--enable-dashboard</span></code> CLI parameter for the registry is now a no-op. It is now activated when using <code class="docutils literal notranslate"><span class="pre">--dashboard-uri</span></code> or via the registry configuration.</p></li>
+</ul>
+</section>
+<section id="id26">
+<h3>Fixed<a class="headerlink" href="#id26" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fix MinGW build.</p></li>
+<li><p>Various fixes for dashboard integration.</p></li>
+</ul>
+</section>
+<section id="id27">
+<h3>Added<a class="headerlink" href="#id27" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Man pages for linux.</p></li>
+<li><p>All public struct members are now included by default in the documentation.</p></li>
+</ul>
+</section>
+</section>
+<section id="id28">
+<h2>[4.0.47] - 2024-03-01<a class="headerlink" href="#id28" title="Permalink to this heading"></a></h2>
+<section id="id29">
+<h3>Fixed<a class="headerlink" href="#id29" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed building from the packaged sources (<code class="docutils literal notranslate"><span class="pre">SilKit-Source</span></code>).</p></li>
+<li><p>LIN Demo: Removed duplicate call to StartLifecyle when run as the LIN slave</p></li>
+</ul>
+</section>
+</section>
+<section id="id30">
+<h2>[4.0.46] - 2024-02-27<a class="headerlink" href="#id30" title="Permalink to this heading"></a></h2>
+<section id="id31">
+<h3>Fixed<a class="headerlink" href="#id31" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">*.manifest</span></code> files to the source distribution. Building from the <code class="docutils literal notranslate"><span class="pre">SilKit-Source</span></code>
+directory in the distributed <code class="docutils literal notranslate"><span class="pre">.zip</span></code> files was broken.</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">yaml-cpp</span></code> to version 0.8.0 to fix linker errors caused by a missing symbol.</p></li>
+<li><p>The system controller utility now logs parts of the command line output using the logger object
+of the participant.</p></li>
+</ul>
+</section>
+<section id="id32">
+<h3>Added<a class="headerlink" href="#id32" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added a <code class="docutils literal notranslate"><span class="pre">--log</span></code> option to the system controller utility which cannot be used together with the
+<code class="docutils literal notranslate"><span class="pre">--configuration</span></code> option. It provides a shortcut to set the log level of the utility.</p></li>
+<li><p>Utilities: prepare the registry for handling multiple simulations</p></li>
+<li><p>Added a licensecheck to prevent source files without a license header</p></li>
+</ul>
+</section>
+</section>
+<section id="id33">
+<h2>[4.0.45] - 2024-02-06<a class="headerlink" href="#id33" title="Permalink to this heading"></a></h2>
+<section id="id34">
+<h3>Fixed<a class="headerlink" href="#id34" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Registry failed to start correctly, if the dashboard is enabled, but the registry is letting the
+system determine the listening port, e.g., when using a URI like <code class="docutils literal notranslate"><span class="pre">silkit://localhost:0</span></code>.</p></li>
+</ul>
+</section>
+<section id="id35">
+<h3>Changed<a class="headerlink" href="#id35" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Add links to API sections in the documentation overview</p></li>
+</ul>
+</section>
+<section id="id36">
+<h3>Added<a class="headerlink" href="#id36" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>RPC usage example with lifecycle</p></li>
+<li><p>Windows: Utilities and demos are now compiled with a manifest that sets the active codepage to UTF-8.
+The required commands to change the output codepage of the Windows console in <code class="docutils literal notranslate"><span class="pre">cmd</span></code> or PowerShell
+are documented in a new FAQ entry.</p></li>
+</ul>
+</section>
+</section>
+<section id="id37">
+<h2>[4.0.44] - 2024-01-22<a class="headerlink" href="#id37" title="Permalink to this heading"></a></h2>
+<section id="id38">
+<h3>Fixed<a class="headerlink" href="#id38" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Changing the TCP send and receive buffer size failed on Windows</p></li>
+</ul>
+</section>
+<section id="id39">
+<h3>Added<a class="headerlink" href="#id39" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Links to related SIL Kit projects in documentation and github Readme</p></li>
+</ul>
+</section>
+</section>
+<section id="id40">
+<h2>[4.0.43] - 2023-12-12<a class="headerlink" href="#id40" title="Permalink to this heading"></a></h2>
+<section id="id41">
+<h3>Fixed<a class="headerlink" href="#id41" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Dashboard can be enabled using CLI arguments</p></li>
+<li><p>Demos did not terminate when simulation is aborted (AbortSimulation)</p></li>
+<li><p>Fix order of debug log message parameters</p></li>
+</ul>
+</section>
+</section>
+<section id="id42">
+<h2>[4.0.42] - 2023-11-29<a class="headerlink" href="#id42" title="Permalink to this heading"></a></h2>
+<section id="id43">
+<h3>Changed<a class="headerlink" href="#id43" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>LIN Demo: Adapted the schedule of the LIN Master and disallowed sending while in wrong controller state.</p></li>
+</ul>
+</section>
+</section>
+<section id="id44">
+<h2>[4.0.41] - 2023-11-28<a class="headerlink" href="#id44" title="Permalink to this heading"></a></h2>
+<section id="id45">
+<h3>Fixed<a class="headerlink" href="#id45" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Potential deadlock when switching to virtual time-synchronization while replay is in use</p></li>
+</ul>
+</section>
+</section>
+<section id="id46">
+<h2>[4.0.40] - 2023-11-27<a class="headerlink" href="#id46" title="Permalink to this heading"></a></h2>
+<section id="id47">
+<h3>Added<a class="headerlink" href="#id47" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Allow configuration of the connection timeout (<code class="docutils literal notranslate"><span class="pre">Middleware/ConnectTimeoutSeconds</span></code>)</p></li>
+</ul>
+</section>
+<section id="id48">
+<h3>Changed<a class="headerlink" href="#id48" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Improved the documentation of Data Pub/Sub controllers</p></li>
+<li><p>Improved the documentation of RPC controllers</p></li>
+</ul>
+</section>
+<section id="id49">
+<h3>Fixed<a class="headerlink" href="#id49" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>The LIN demo does not skip the first entry (sending frame 16) on all but the first iteration through the schedule anymore.</p></li>
+<li><p>The name of the domain-socket used by the registry will use the hostname passed in the listen URI, not the resolved IP address (if any), for generating the name of the domain-socket.</p></li>
+<li><p>When mixing autonomous participants without time-synchronization, and participants with time-synchronization,
+the timestamps for messages received before the virtual time is started, is now the ‘invalid’ timestamp value,
+normally used by participants without time-synchronization.</p></li>
+<li><p>Reworked the pause/continue logic such that it pauses the virtual time synchronization without blocking the I/O thread.</p></li>
+</ul>
+</section>
+</section>
+<section id="id50">
+<h2>[4.0.39] - 2023-11-14<a class="headerlink" href="#id50" title="Permalink to this heading"></a></h2>
+<section id="id51">
+<h3>Fixed<a class="headerlink" href="#id51" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Replaced remaining mentions of integrators with users.</p></li>
+</ul>
+</section>
+<section id="id52">
+<h3>Added<a class="headerlink" href="#id52" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Usage examples for tracing and replay.</p></li>
+<li><p>Timeouts per connection attempt.</p></li>
+<li><p>Two-sided connection establishment: Allow direct connections, even if connections are only possible in one direction.</p></li>
+</ul>
+</section>
+</section>
+<section id="id53">
+<h2>[4.0.38] - 2023-11-02<a class="headerlink" href="#id53" title="Permalink to this heading"></a></h2>
+<section id="id54">
+<h3>Fixed<a class="headerlink" href="#id54" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>The dashboard now handles AbortSimulation.</p></li>
+<li><p>The dashboard resolves the registry IP address if needed.</p></li>
+</ul>
+</section>
+<section id="id55">
+<h3>Added<a class="headerlink" href="#id55" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Reintroduced build requirements to documentation</p></li>
+</ul>
+</section>
+<section id="id56">
+<h3>Changed<a class="headerlink" href="#id56" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Consolidate SIL Kit tests into four executables</p></li>
+</ul>
+</section>
+</section>
+<section id="id57">
+<h2>[4.0.37] - 2023-10-17<a class="headerlink" href="#id57" title="Permalink to this heading"></a></h2>
+<section id="id58">
+<h3>Changed<a class="headerlink" href="#id58" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Reworked the documentation on Virtual Time Synchronization</p></li>
+<li><p>The documentation of the demo section now refers to the pre built Vector SIL Kit packages and not to a source build.</p></li>
+</ul>
+</section>
+</section>
+<section id="id59">
+<h2>[4.0.36] - 2023-09-19<a class="headerlink" href="#id59" title="Permalink to this heading"></a></h2>
+<section id="id60">
+<h3>Added<a class="headerlink" href="#id60" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Documentation on <code class="docutils literal notranslate"><span class="pre">DashboardUri</span></code></p></li>
+</ul>
+</section>
+<section id="id61">
+<h3>Fixed<a class="headerlink" href="#id61" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed misbehavior of the sil-kit-system-controller in interactive mode on user input:</p>
+<ul>
+<li><p>The sil-kit-system-controller now triggers a Stop() in SystemState::Running or SystemState::Paused.</p></li>
+<li><p>The sil-kit-system-controller only triggers AbortSimulation when not SystemState::Running, SystemState::Paused, SystemState::Shutdown or SystemState::Aborting.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id62">
+<h3>Changed<a class="headerlink" href="#id62" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Performance improvement of the internal serialization</p></li>
+<li><p>The final state handling of the sil-kit-system-controller in interactive mode on user input has changed:</p>
+<ul>
+<li><p>Old: The sil-kit-system-controller triggered AbortSimulation if the finalState was not received after 5s.</p></li>
+<li><p>New: The sil-kit-system-controller retries receiving the finalState 3x5s. If this fails, the sil-kit-system-controller triggers AbortSimulation (if not already happened) and tries receiving the finalState 3x5s again. If this fails, the sil-kit-system-controller just terminates.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="id63">
+<h2>[4.0.35] - 2023-09-04<a class="headerlink" href="#id63" title="Permalink to this heading"></a></h2>
+<section id="id64">
+<h3>Added<a class="headerlink" href="#id64" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Memory management documentation introduced.</p></li>
+<li><p>Integration tests for communication in the stop/shutdown/abort handlers.</p></li>
+</ul>
+</section>
+<section id="id65">
+<h3>Changed<a class="headerlink" href="#id65" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>When building the SIL Kit documentation, the sphinx build command is no longer called in a pipenv.</p></li>
+</ul>
+</section>
+<section id="id66">
+<h3>Fixed<a class="headerlink" href="#id66" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Ensured that calling <code class="docutils literal notranslate"><span class="pre">ISystemController::AbortSimulation()</span></code> does not lead to the system controller terminating
+prior to other participants receiving its abort message.</p></li>
+<li><p>Ensure that userContext field for external CanFrameTransmitEvents is always null.</p></li>
+<li><p>Fixed warning in VS2017 (x86) build</p></li>
+</ul>
+</section>
+</section>
+<section id="id67">
+<h2>[4.0.34] - 2023-08-21<a class="headerlink" href="#id67" title="Permalink to this heading"></a></h2>
+<section id="id68">
+<h3>Changed<a class="headerlink" href="#id68" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Behavior change of <code class="docutils literal notranslate"><span class="pre">ParticipantState::Error</span></code></p>
+<ul>
+<li><p>Old: Several situations could lead to an <code class="docutils literal notranslate"><span class="pre">ParticipantState::Error</span></code> before the user called <code class="docutils literal notranslate"><span class="pre">StartLifecycle()</span></code></p>
+<ul>
+<li><p>Reception of an invalid <code class="docutils literal notranslate"><span class="pre">WorkflowConfiguration</span></code></p></li>
+<li><p>Remote participant disconnected</p></li>
+<li><p>Reception of <code class="docutils literal notranslate"><span class="pre">AbortSimulation</span></code></p></li>
+</ul>
+</li>
+<li><p>New: <code class="docutils literal notranslate"><span class="pre">ParticipantState::Error</span></code> should only be reached after <code class="docutils literal notranslate"><span class="pre">StartLifecycle()</span></code> was called</p>
+<ul>
+<li><p>Reception of a WorkflowConfiguration is not validated before <code class="docutils literal notranslate"><span class="pre">StartLifecycle()</span></code></p></li>
+<li><p>A disconnected remote participant is only transitioned to <code class="docutils literal notranslate"><span class="pre">ParticipantState::Error</span></code> if he had a started Lifecycle</p></li>
+<li><p>Reaction on <code class="docutils literal notranslate"><span class="pre">SystemCommang::AbortSimulation</span></code> is deferred before <code class="docutils literal notranslate"><span class="pre">StartLifecycle()</span></code> (see below)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Behavior change of <code class="docutils literal notranslate"><span class="pre">SystemCommand::AbortSimulation</span></code></p>
+<ul>
+<li><p>Old: Reception of <code class="docutils literal notranslate"><span class="pre">AbortSimulation</span></code> before <code class="docutils literal notranslate"><span class="pre">StartLifecycle()</span></code> led to <code class="docutils literal notranslate"><span class="pre">ParticipantState::Error</span></code></p></li>
+<li><p>New: Reception of <code class="docutils literal notranslate"><span class="pre">AbortSimulation</span></code> before <code class="docutils literal notranslate"><span class="pre">StartLifecycle()</span></code> is firstly ignored. A later call to <code class="docutils literal notranslate"><span class="pre">StartLifecycle()</span></code> then directly leads to an abort (transition to <code class="docutils literal notranslate"><span class="pre">ParticipantState::Aborting</span></code>, calling the <code class="docutils literal notranslate"><span class="pre">AbortHandler</span></code>)</p></li>
+</ul>
+</li>
+<li><p>clang presets in <code class="docutils literal notranslate"><span class="pre">CMakePresets.json</span></code> now have the clang version in their names</p></li>
+<li><p>Added an internal barrier between <code class="docutils literal notranslate"><span class="pre">ParticipantState::Shutdown</span></code> and setting the final state promise. This ensures that the participant state updates are all transmitted while shutting down.</p></li>
+<li><p>Revised log messages when shutting down / disconnecting participants</p>
+<ul>
+<li><p>Graceful, participant has lifecycle: “Participant &lt;participantName&gt; has disconnected after gracefully shutting down”,</p></li>
+<li><p>Not graceful, participant has lifecycle: “Participant &lt;participantName&gt; has disconnected without gracefully shutting down.”</p></li>
+<li><p>Registry shutdown: “Connection to SIL Kit Registry was lost - no new participant connections can be established.”</p></li>
+<li><p>Participant without lifecycle: “Participant &lt;participantName&gt; has disconnected.”</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id69">
+<h3>Fixed<a class="headerlink" href="#id69" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Made simulation time stop for all coordinated participants when one coordinated participant disconnects ungracefully</p></li>
+</ul>
+</section>
+</section>
+<section id="id70">
+<h2>[4.0.33] - 2023-08-07<a class="headerlink" href="#id70" title="Permalink to this heading"></a></h2>
+<section id="id71">
+<h3>Added<a class="headerlink" href="#id71" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>New experimental extension of the LIN API that allows a user to send frame headers and respond to them
+without setting up a static configuration beforehand.</p></li>
+<li><p>Added link to FMU importer in Readme.md</p></li>
+</ul>
+</section>
+<section id="id72">
+<h3>Changed<a class="headerlink" href="#id72" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Restructured the documentation to have separate sections for overview.
+It is now divided into an overall introduction, a developer guide, and a user guide.</p></li>
+<li><p>Removed internal use of exceptions for failing connections to the registry if another connection mechanism succeeded.</p></li>
+</ul>
+</section>
+<section id="id73">
+<h3>Fixed<a class="headerlink" href="#id73" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed missing entry of RegistryAsFallbackProxy in YAML schema.</p></li>
+</ul>
+</section>
+</section>
+<section id="id74">
+<h2>[4.0.32] - 2023-07-19<a class="headerlink" href="#id74" title="Permalink to this heading"></a></h2>
+<p>This is a Quality Assured Release.</p>
+<section id="id75">
+<h3>Fixed<a class="headerlink" href="#id75" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Ensure that the registry rejects a connecting participant if a participant with the same name
+is already connected.</p></li>
+</ul>
+</section>
+</section>
+<section id="id76">
+<h2>[4.0.31] - 2023-07-10<a class="headerlink" href="#id76" title="Permalink to this heading"></a></h2>
+<section id="id77">
+<h3>Added<a class="headerlink" href="#id77" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Improved Lifecycle and TimeSyncService features:</p>
+<ul>
+<li><p>Full support for Operation Mode Autonomous with TimeSyncService including hopping onto / leaving a running simulation</p></li>
+<li><p>Abort simulation in case Coordinated participants want to join a running simulation</p></li>
+<li><p>Abort simulation in case an Autonomous with TimeSyncService sees an incompatible participant</p></li>
+<li><p>Extended integration tests for communication ready guarantees</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id78">
+<h3>Fixed<a class="headerlink" href="#id78" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed a bug in internal barriers where in-between connecting participants could break the communicaiton guarantees</p></li>
+<li><p>Fixed transition when aborting from ErrorState, now the state changes to Shutdown like all aborting paths (formery the transition was to ShuttingDown)</p></li>
+<li><p>Internal fixes for thread-safety</p></li>
+<li><p>Fixed that the SimTask cannot be triggered again after calling <code class="docutils literal notranslate"><span class="pre">ILifecycleService::Stop()</span></code> in the SimTask</p></li>
+</ul>
+</section>
+<section id="id79">
+<h3>Changed<a class="headerlink" href="#id79" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>CreateLifecycleService with OperationMode::Invalid now throws a ConfigurationError</p></li>
+<li><p>Improved documentation on how to run demos in asynchronous mode</p></li>
+</ul>
+</section>
+</section>
+<section id="id80">
+<h2>[4.0.30] - 2023-06-26<a class="headerlink" href="#id80" title="Permalink to this heading"></a></h2>
+<section id="id81">
+<h3>Added<a class="headerlink" href="#id81" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added optional timeout mechanism to RPC service.</p></li>
+</ul>
+</section>
+<section id="id82">
+<h3>Fixed<a class="headerlink" href="#id82" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fix builds with CMake versions before <code class="docutils literal notranslate"><span class="pre">3.19</span></code></p></li>
+<li><p>Fixed crash in SilKitRpcDemo when run with <code class="docutils literal notranslate"><span class="pre">&lt;config&gt;</span> <span class="pre">Client</span> <span class="pre">--async</span></code> without a server.</p></li>
+</ul>
+</section>
+<section id="id83">
+<h3>Changed<a class="headerlink" href="#id83" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>SIL Kit Demos (Can, Ethernet, Rpc, Lin, and PubSub) with <code class="docutils literal notranslate"><span class="pre">--async</span></code> now use an autonomous lifecycle.</p></li>
+<li><p>Refactored documentation for participant configurations: The intent was made clearer, noting that it is an optional feature.</p></li>
+</ul>
+</section>
+</section>
+<section id="id84">
+<h2>[4.0.29] - 2023-06-14<a class="headerlink" href="#id84" title="Permalink to this heading"></a></h2>
+<section id="id85">
+<h3>Fixed<a class="headerlink" href="#id85" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Registry: Set windows service state to <code class="docutils literal notranslate"><span class="pre">stopped</span></code> on error</p></li>
+</ul>
+</section>
+</section>
+<section id="id86">
+<h2>[4.0.28] - 2023-06-02<a class="headerlink" href="#id86" title="Permalink to this heading"></a></h2>
+<section id="id87">
+<h3>Added<a class="headerlink" href="#id87" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added documentation for Data Serialization/Deserialization (SerDes) API</p></li>
+</ul>
+</section>
+<section id="id88">
+<h3>Fixed<a class="headerlink" href="#id88" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed inconsistencies in API documentation</p></li>
+<li><p>Fixed starting the registry without the <code class="docutils literal notranslate"><span class="pre">--registry-configuration</span></code> parameter</p></li>
+</ul>
+</section>
+</section>
+<section id="id89">
+<h2>[4.0.27] - 2023-05-30<a class="headerlink" href="#id89" title="Permalink to this heading"></a></h2>
+<section id="id90">
+<h3>Changed<a class="headerlink" href="#id90" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added detection of simulation start and end for the dashboard.</p>
+<ul>
+<li><p>The simulation id initialization is deferred until the first dashboard relevant event happens.</p></li>
+<li><p>A simulation is considered as ended, when the last participant disconnects.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id91">
+<h3>Added<a class="headerlink" href="#id91" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>SIL Kit Registry (<code class="docutils literal notranslate"><span class="pre">sil-kit-registry(.exe)</span></code>)</p>
+<ul>
+<li><p>Support for overriding command line settings via a YAML configuration file</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="id92">
+<h2>[4.0.26] - 2023-05-22<a class="headerlink" href="#id92" title="Permalink to this heading"></a></h2>
+<section id="id93">
+<h3>Added<a class="headerlink" href="#id93" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Introducing an internal communication barrier between participant states. This happens in the transition from the states ServicesCreated to CommunicationInitializing and from Stopped to ShuttingDown. It leads to extended communication guarantees in the CommunicationReadyHandler, primarily for participants that use the autonomous lifecycle (see the documentation for details).</p></li>
+</ul>
+</section>
+<section id="id94">
+<h3>Fixed<a class="headerlink" href="#id94" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Corrected spelling mistakes in the documentation</p></li>
+<li><p>The dashboard is disabled for cross-builds to QNX, to avoid build errors</p></li>
+</ul>
+</section>
+</section>
+<section id="id95">
+<h2>[4.0.25] - 2023-05-17<a class="headerlink" href="#id95" title="Permalink to this heading"></a></h2>
+<p>This version was skipped due to compatibility issues with dependent projects.</p>
+</section>
+<section id="id96">
+<h2>[4.0.24] - 2023-05-04<a class="headerlink" href="#id96" title="Permalink to this heading"></a></h2>
+<p>Known issue: A LIN transmission by a LIN Slave may have a timestamp that is smaller than the LinSendFrameHeaderRequest of the LIN Master that triggered the Slave response.</p>
+<section id="id97">
+<h3>Added<a class="headerlink" href="#id97" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Header-only C++ API implementation following the hourglass-pattern</p>
+<ul>
+<li><p>The C++ symbols are still provided by the shared library, but are not used by default anymore</p></li>
+</ul>
+</li>
+<li><p>If a participant cannot establish a direct connection to another participant,
+it will fall back to using the registry as a proxy for communications with
+this particular participant</p>
+<ul>
+<li><p>Support can be disabled on a particular participant using the new
+“Middleware/RegistryAsFallbackProxy” field in the participant configuration</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id98">
+<h3>Fixed<a class="headerlink" href="#id98" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Messages are sent in the same order as the SIL Kit API calls that triggered
+them, regardless of the thread or handler the API calls were executed from.
+There are no ordering guarantees for API calls that are executed in parallel
+from different threads.</p></li>
+</ul>
+</section>
+</section>
+<section id="id99">
+<h2>[4.0.23] - 2023-04-17<a class="headerlink" href="#id99" title="Permalink to this heading"></a></h2>
+<section id="id100">
+<h3>Changed<a class="headerlink" href="#id100" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added network simulator information to the dashboard REST API</p></li>
+</ul>
+</section>
+<section id="id101">
+<h3>Fixed<a class="headerlink" href="#id101" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fixed data type of simulation id returned by the dashboard REST API</p></li>
+<li><p>Ethernet and CAN (Trivial Sim.): The self-delivery with <code class="docutils literal notranslate"><span class="pre">TransmitDirection::TX</span></code> is now triggered only after
+the frame has been sent with <code class="docutils literal notranslate"><span class="pre">TransmitDirection::RX</span></code>.</p></li>
+</ul>
+</section>
+<section id="removed">
+<h3>Removed<a class="headerlink" href="#removed" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Visual Studio 2015 is no longer maintained and therefore not officially supported anymore.</p></li>
+</ul>
+</section>
+</section>
+<section id="id102">
+<h2>[4.0.22] - 2023-04-05<a class="headerlink" href="#id102" title="Permalink to this heading"></a></h2>
+<section id="id103">
+<h3>Fixed<a class="headerlink" href="#id103" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Resolved issue that lead to wrong label matching behavior under certain circumstances.</p></li>
+</ul>
+</section>
+</section>
+<section id="id104">
+<h2>[4.0.21] - 2023-04-03<a class="headerlink" href="#id104" title="Permalink to this heading"></a></h2>
+<section id="id105">
+<h3>Changed<a class="headerlink" href="#id105" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Improved FAQ</p></li>
+<li><p>Preparation for upcoming tracing / replay</p></li>
+</ul>
+</section>
+</section>
+<section id="id106">
+<h2>[4.0.20] - 2023-03-20<a class="headerlink" href="#id106" title="Permalink to this heading"></a></h2>
+<section id="id107">
+<h3>Changed<a class="headerlink" href="#id107" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Make additional data and rpc information available to the dashboard.</p></li>
+</ul>
+</section>
+<section id="id108">
+<h3>Added<a class="headerlink" href="#id108" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added frequently asked questions (FAQ) section to documentation.</p></li>
+<li><p>Modification of BenchmarkDemo: Change the communication topology by modifying the PubSub topics.
+A participant should only send to a single other participant.</p></li>
+<li><p>Add LatencyDemo: Measure the average latency between two participants in different processes.</p></li>
+</ul>
+</section>
+<section id="id109">
+<h3>Fixed<a class="headerlink" href="#id109" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>C-API: Fixed a bug where the <code class="docutils literal notranslate"><span class="pre">SilKit_EthernetFrameEvent</span></code> delivered in the Ethernet frame handler had
+the <code class="docutils literal notranslate"><span class="pre">userContext</span></code> field always set to <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>, instead of the value passed in the corresponding <code class="docutils literal notranslate"><span class="pre">SilKit_EthernetController_SendFrame</span></code> call.</p></li>
+<li><p>C++-API: Fixed a bug where the <code class="docutils literal notranslate"><span class="pre">userContext</span></code> was set in the frame handlers registered on other controllers than the one calling <code class="docutils literal notranslate"><span class="pre">SendFrame</span></code>. The <code class="docutils literal notranslate"><span class="pre">userContext</span></code> is only ever set when a frame event with <code class="docutils literal notranslate"><span class="pre">TransmitDirection::TX</span></code> is received, which is only possible on the same controller that sent it.</p></li>
+</ul>
+</section>
+</section>
+<section id="id110">
+<h2>[4.0.19] - 2023-03-02<a class="headerlink" href="#id110" title="Permalink to this heading"></a></h2>
+<section id="id111">
+<h3>Changed<a class="headerlink" href="#id111" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Use function-try-blocks for C-API definitions to reduce indentation and reformat some code
+for better readability.</p></li>
+</ul>
+</section>
+<section id="id112">
+<h3>Fixed<a class="headerlink" href="#id112" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Allow installing and starting the sil-kit-registry.exe as a Windows Service on Windows Containers during <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span></code> steps.
+The layer creation fails if a domain socket is still active during shutdown of the temporary container.
+Disables the local-domain sockets of the <code class="docutils literal notranslate"><span class="pre">sil-kit-registry.exe</span></code> when running as a Windows Service.</p></li>
+<li><p>When a participant is unable to connect to another participant, the correct
+error message is logged, and an error is raised.</p></li>
+</ul>
+</section>
+</section>
+<section id="id113">
+<h2>[4.0.18] - 2023-02-21<a class="headerlink" href="#id113" title="Permalink to this heading"></a></h2>
+<section id="id114">
+<h3>Added<a class="headerlink" href="#id114" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added descriptions to troubleshooting section for common errors.</p></li>
+</ul>
+</section>
+<section id="id115">
+<h3>Changed<a class="headerlink" href="#id115" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Complete the Hourglass implementation of the C++ API used internally for testing.</p></li>
+</ul>
+</section>
+<section id="id116">
+<h3>Fixed<a class="headerlink" href="#id116" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Properly handle IPv6 acceptors in the registry when transmitting to a remote participant</p></li>
+</ul>
+</section>
+</section>
+<section id="id117">
+<h2>[4.0.17] - 2023-02-09<a class="headerlink" href="#id117" title="Permalink to this heading"></a></h2>
+<p>This is a Quality Assured Release.</p>
+<section id="id118">
+<h3>Fixed<a class="headerlink" href="#id118" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fix DNS resolver issues on Ubuntu 18.04 and systemd-resolved. We now properly
+strip square brackets from IPv6 addresses in URIs.</p></li>
+<li><p>Fixed a race-condition in the ITest_SystemMonitor. This caused sporadic failures on CI builds.</p></li>
+</ul>
+</section>
+<section id="id119">
+<h3>Removed<a class="headerlink" href="#id119" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Removed the deprecated CMakeSettings.json file from the source tree.
+If you are a developer, use the CMakePreset.json instead which is more portable and flexible.</p></li>
+<li><p>Removed <cite>usr/share/doc</cite> from the delivery packages. This should only be part of Debian packages.</p></li>
+</ul>
+</section>
+</section>
+<section id="id120">
+<h2>[4.0.16] - 2023-02-03<a class="headerlink" href="#id120" title="Permalink to this heading"></a></h2>
+<section id="id121">
+<h3>Changed<a class="headerlink" href="#id121" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Improved error messages when connections between participants/to the registry have failed.</p></li>
+<li><p>CMake: Reduced weak symbols exported in debug builds.</p></li>
+<li><p>Allow configuration of acceptor URIs in the participant configuration.</p></li>
+<li><p>The third party dependencies were updated.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">fmt</span></code> to version 9.1.0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spdlog</span></code> to version 1.11.0.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="id122">
+<h2>[4.0.15] - 2023-01-23<a class="headerlink" href="#id122" title="Permalink to this heading"></a></h2>
+<section id="id123">
+<h3>Changed<a class="headerlink" href="#id123" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Registry:</p>
+<ul>
+<li><p>Allow running the <code class="docutils literal notranslate"><span class="pre">sil-kit-registry</span></code> as a windows service.
+In this case, the registry grants others the <code class="docutils literal notranslate"><span class="pre">PROCESS_QUERY_LIMITED_INFORMATION</span></code> permission.</p></li>
+<li><p>The registry must be run with the <code class="docutils literal notranslate"><span class="pre">--windows-service</span></code> command line flag.
+This argument is <em>not</em> shown in the command line usage information available via <code class="docutils literal notranslate"><span class="pre">--help</span></code>.
+This command line flag may be removed in the future.</p></li>
+</ul>
+</li>
+<li><p>Docs: Add registry requirement to demos documentation.</p></li>
+<li><p>CMake: The minimum required CMake version has been bumped to 3.10</p></li>
+</ul>
+</section>
+</section>
+<section id="id124">
+<h2>[4.0.14] - 2023-01-10<a class="headerlink" href="#id124" title="Permalink to this heading"></a></h2>
+<section id="id125">
+<h3>Added<a class="headerlink" href="#id125" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>CMake: Prepared cross-compiling for QNX</p></li>
+</ul>
+</section>
+<section id="id126">
+<h3>Changed<a class="headerlink" href="#id126" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Tests: Improved tests regarding configuration parsing</p></li>
+</ul>
+</section>
+<section id="id127">
+<h3>Fixed<a class="headerlink" href="#id127" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Catch and print exceptions when parsing utility CLI arguments</p></li>
+<li><p>Various issues found by the Address Sanitizer and Thread Sanitizer of Clang 14 are now resolved.</p></li>
+</ul>
+</section>
+</section>
+<section id="id128">
+<h2>[4.0.13] - 2022-12-14<a class="headerlink" href="#id128" title="Permalink to this heading"></a></h2>
+<section id="id129">
+<h3>Changed<a class="headerlink" href="#id129" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>PubSub/Rpc: Improved performance in startup-phase when using labels.</p></li>
+<li><p>Documentation: Configuration structure for PCAP tracing and replay</p></li>
+</ul>
+</section>
+<section id="id130">
+<h3>Fixed<a class="headerlink" href="#id130" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>LIN: Previously, only when using the network simulator, the FrameStatusHandler on the LIN Master was not called in
+case of an unconfigured response (RX_NO_RESPONSE). This inconsistency has been fixed.</p></li>
+<li><p>Registry</p>
+<ul>
+<li><p>The acceptor URIs the known participants list sent by the registry are now rewritten correctly.
+Previously, certain startup scenarios only worked when the participants were started in a certain order.</p></li>
+</ul>
+</li>
+<li><p>SerDes: Added missing limit library include.</p></li>
+</ul>
+</section>
+</section>
+<section id="id131">
+<h2>[4.0.12] - 2022-11-24<a class="headerlink" href="#id131" title="Permalink to this heading"></a></h2>
+<section id="id132">
+<h3>Fixed<a class="headerlink" href="#id132" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Integration Tests</p>
+<ul>
+<li><p>Linking executables with both, the dynamic library, and certain internal, static library components leads to ODR violations.
+The ASAN / UBSAN instrumentation from recent Clang versions is able to detect these.</p></li>
+</ul>
+</li>
+<li><p>C-API Tests</p>
+<ul>
+<li><p>Fixed some memory leaks in C-API tests.</p></li>
+</ul>
+</li>
+<li><p>LIN</p>
+<ul>
+<li><p>Fixed faulty behavior of <code class="docutils literal notranslate"><span class="pre">ILinController::SendFrame()</span></code> for <code class="docutils literal notranslate"><span class="pre">LinFrameResponseType::MasterResponse</span></code>. The method now consistently uses the input frame data.</p></li>
+</ul>
+</li>
+<li><p>Lifecycle Service</p>
+<ul>
+<li><p>Alleviate potential loss of the ‘stop’ signal issued from the lifecycle service of a participant.</p></li>
+</ul>
+</li>
+<li><p>Various fixes related to warnings</p>
+<ul>
+<li><p>Remove duplicate variables in PubSub demo.</p></li>
+<li><p>Fix ‘D9025: overriding…’ diagnostics in MSVC.</p></li>
+<li><p>Fix warnings in hourglass code.</p></li>
+<li><p>Fix cmake configuration on macos.</p></li>
+<li><p>Properly initialize variable in unit test.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="id133">
+<h2>[4.0.11] - 2022-11-18<a class="headerlink" href="#id133" title="Permalink to this heading"></a></h2>
+<section id="id134">
+<h3>Changed<a class="headerlink" href="#id134" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Ethernet</p>
+<ul>
+<li><p>The Ethernet controller now quietly pads Ethernet frames with zeros to the
+minimum size of 60 bytes.</p></li>
+<li><p>(Re-)added experimental support for PCAP tracing and replay on ethernet controllers.
+The tracing and replay behavior may change in the future.</p></li>
+</ul>
+</li>
+<li><p>Registry</p>
+<ul>
+<li><p>Only exit if neither TCP, nor domain sockets are available.</p></li>
+</ul>
+</li>
+<li><p>SIL Kit Library</p>
+<ul>
+<li><p>Changed the default symbol visibility to hidden, which is now also enforced for
+Linux builds.</p></li>
+<li><p>Symbols for ASIO are not exported as weak symbols anymore.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id135">
+<h3>Fixed<a class="headerlink" href="#id135" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>C: CAN:</p>
+<ul>
+<li><p>Added missing <code class="docutils literal notranslate"><span class="pre">canId</span></code> field to the <code class="docutils literal notranslate"><span class="pre">SilKit_CanFrameTransmitEvent</span></code> and bumped the structure version.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="id136">
+<h2>[4.0.10] - 2022-11-07<a class="headerlink" href="#id136" title="Permalink to this heading"></a></h2>
+<section id="id137">
+<h3>Changed<a class="headerlink" href="#id137" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>Documentation</p>
+<ul class="simple">
+<li><p>Improved Quickstart Docs and fixed sample code</p></li>
+<li><p>Updated build instructions for documentation</p></li>
+</ul>
+</li>
+<li><p>Logging</p>
+<ul class="simple">
+<li><p>Trace-Log was extended with outputs for controller creation.</p></li>
+<li><p>Default verbosity of lifecycle reduced to debug</p></li>
+</ul>
+</li>
+<li><p>Demos: Replaced JSON configuration files with YAML files. The provided configurations did not change.</p></li>
+<li><p>Extended SilKitDemoBenchmark</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Calculates standard deviation for throughput, message rate, speedup</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">--write-csv</span></code> command line argument to output results to csv file</p></li>
+<li><p>Helper scripts for msg-size-scaling and performance-diff</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Changed the lifecycle service to be less verbose in log level info. See log level debug for more detailed
+information of the lifecycle.</p></li>
+<li><p>Updated participant configuration file schema and added it to the json schema support. Use .silkit.yaml/json suffix
+for automated schema support.</p></li>
+</ul>
+</section>
+</section>
+<section id="id138">
+<h2>[4.0.9] - 2022-10-19<a class="headerlink" href="#id138" title="Permalink to this heading"></a></h2>
+<section id="id139">
+<h3>Added<a class="headerlink" href="#id139" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>The LinDemo, PubSubDemo, and RpcDemo now allow using <code class="docutils literal notranslate"><span class="pre">--async</span></code> cli flag for unsynchronized execution.</p></li>
+</ul>
+</section>
+<section id="id140">
+<h3>Fixed<a class="headerlink" href="#id140" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>C-API:</p>
+<ul>
+<li><p>Data race on static variable</p></li>
+<li><p>Setting the direction field of the <code class="docutils literal notranslate"><span class="pre">CanFrameEvent</span></code></p></li>
+<li><p>Initialize the struct header of the embedded <code class="docutils literal notranslate"><span class="pre">CanFrame</span></code> structure in the <code class="docutils literal notranslate"><span class="pre">CanFrameEvent</span></code></p></li>
+</ul>
+</li>
+<li><p>Immediate shutdown of the asynchronous mode of the LIN demo</p></li>
+</ul>
+</section>
+</section>
+<section id="id141">
+<h2>[4.0.8] - 2022-10-07<a class="headerlink" href="#id141" title="Permalink to this heading"></a></h2>
+<section id="id142">
+<h3>Changed<a class="headerlink" href="#id142" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>The third party dependencies were updated.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">yaml-cpp</span></code> to version 0.7.0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">asio</span></code> to version 1.24.0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fmt</span></code> to version 8.1.1.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spdlog</span></code> to version 1.10.0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">googletest</span></code> to version 1.12.1.</p></li>
+</ul>
+</li>
+<li><p>The FlexRay controller now issues a warning if the static buffer payload is truncated
+or padded with zeros, i.e., if the size is not exactly as specified in the controller
+configuration.</p></li>
+<li><p>The registry now transmits a diagnostic string when a participant announcement cannot
+be processed, e.g., because a participant with the same name already exists.
+The second participant will not time out after a few seconds anymore, but fail much faster.</p></li>
+</ul>
+</section>
+</section>
+<section id="id143">
+<h2>[4.0.7] - 2022-09-20<a class="headerlink" href="#id143" title="Permalink to this heading"></a></h2>
+<section id="id144">
+<h3>Changed<a class="headerlink" href="#id144" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p>The documentation is now packaged separately in a <cite>SilKit-4.0.7-Docs.zip</cite> file.
+This simplifies the CI set up and reproducibility of the generated HTML.
+To build the documentation you should set up the build environment using pip:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>SilKit/ci/docker/docs_requirements.txt
+</pre></div>
+</div>
+</li>
+<li><p>The source tree is now packaged separately in a <cite>SilKit-4.0.7-Source.zip</cite> file.
+The SIL Kit Demos are part of this package.</p></li>
+<li><p>We no longer have a <cite>#if defined(HAVE_FMT)</cite> in the <cite>silkit/services/logging/ILogger.hpp</cite>
+and variadic logging functions.
+This define was disabled by default for users and only used internally.</p></li>
+<li><p>LIN allows sending with an unknown checksum model in master responses, now.</p></li>
+<li><p>The Pub/Sub Demo was updated to use the internal serialization/deserialization routines.</p></li>
+</ul>
+</section>
+<section id="id145">
+<h3>Fixed<a class="headerlink" href="#id145" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Fix building and linking on macOs. This platform is not part of the continuous test suite.</p></li>
+<li><p>Fix to allow setting the hard and soft watchdog timeouts in the HealthCheck separately.</p></li>
+</ul>
+</section>
+</section>
+<section id="id146">
+<h2>[4.0.6] - 2022-09-06<a class="headerlink" href="#id146" title="Permalink to this heading"></a></h2>
+<section id="id147">
+<h3>Changed<a class="headerlink" href="#id147" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Removed an empty directory from the packages</p></li>
+<li><p>Updated the description of SIL Kit in the top-level README.rst</p></li>
+</ul>
+</section>
+<section id="id148">
+<h3>Fixed<a class="headerlink" href="#id148" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Clean up peers after a remote participant disconnects</p></li>
+<li><p>Windows: Fixed the internal name and original filename attributes of the <code class="docutils literal notranslate"><span class="pre">sil-kit-monitor.exe</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="initial-public-release-quality-assured-release">
+<h2>[4.0.5] - 2022-08-25 Initial public release (quality assured release)<a class="headerlink" href="#initial-public-release-quality-assured-release" title="Permalink to this heading"></a></h2>
+<p>This is the first public open source release of the Vector SIL Kit.</p>
+<p>Starting with this version, Vector SIL Kit will provide longterm API, ABI, and network compatibility. Note that prior versions do not provide this compatibility.</p>
+</section>
+<section id="id149">
+<h2>[4.0.4] - 2022-08-22<a class="headerlink" href="#id149" title="Permalink to this heading"></a></h2>
+<section id="compatibility-with-4-0-3">
+<h3>Compatibility with 4.0.3<a class="headerlink" href="#compatibility-with-4-0-3" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Application binary interface (ABI): Yes</p></li>
+<li><p>Application software interface (API): No</p></li>
+<li><p>Middleware network protocol: No</p></li>
+</ul>
+</section>
+<section id="id150">
+<h3>Changed<a class="headerlink" href="#id150" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Utility (SerDes)</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKit/include/silkit/util/serdes/Serialization.hpp</span></code>:</p>
+<ul>
+<li><p>The media type for PubSub was changed from <code class="docutils literal notranslate"><span class="pre">application/vnd.vector.sil.data;</span> <span class="pre">protocolVersion=1</span></code> to <code class="docutils literal notranslate"><span class="pre">application/vnd.vector.silkit.data;</span> <span class="pre">protocolVersion=1</span></code></p></li>
+<li><p>The media type for RPC was changed from <code class="docutils literal notranslate"><span class="pre">application/vnd.vector.sil.rpc;</span> <span class="pre">protocolVersion=1</span></code> to <code class="docutils literal notranslate"><span class="pre">application/vnd.vector.silkit.rpc;</span> <span class="pre">protocolVersion=1</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>LIN</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKit_LinChecksumModel_Undefined</span></code> was renamed to <code class="docutils literal notranslate"><span class="pre">SilKit_LinChecksumModel_Unknown</span></code>.</p></li>
+</ul>
+</li>
+<li><p>C: Orchestration</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKit_LifecycleService_Stop</span></code> was added to the C-API.
+This corresponds to <code class="docutils literal notranslate"><span class="pre">SilKit::Services::Orchestration::ILifecycleService::Stop</span></code>.</p></li>
+</ul>
+</li>
+<li><p>C: Ethernet</p>
+<ul>
+<li><p>Frames delivered in user-provided <code class="docutils literal notranslate"><span class="pre">SilKit_EthernetFrameHandler</span></code> functions had an invalid payload delivered.
+This was fixed, the frame is now correctly delivered.
+The error only occured in the C API, the C++ API correctly delivered the entire frame.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="id151">
+<h2>[4.0.3] - 2022-08-22<a class="headerlink" href="#id151" title="Permalink to this heading"></a></h2>
+<section id="compatibility-with-4-0-2">
+<h3>Compatibility with 4.0.2<a class="headerlink" href="#compatibility-with-4-0-2" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Application binary interface (ABI): No</p></li>
+<li><p>Application software interface (API): No</p></li>
+<li><p>Middleware network protocol: Yes</p></li>
+</ul>
+</section>
+<section id="id152">
+<h3>Added<a class="headerlink" href="#id152" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>LIN</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKit/include/silkit/services/lin/ILinController.hpp</span></code>:</p>
+<ul>
+<li><p>The new method <cite>SetFrameResponse</cite> allows LIN nodes to adjust their LIN response configuration during operation
+(i.e., after Init()). Calls to <cite>SetFrameResponse</cite> trigger the <cite>LinSlaveConfigurationHandler</cite> on the LIN master.</p></li>
+<li><p>The LIN types <cite>LinChecksumModel::Unknown</cite> and / or <cite>LinDataLengthUnknown</cite> now have wildcard functionality for
+nodes  configured with <cite>LinFrameResponseMode::RX</cite> on that id. The first transmission will set the checksum model
+and / or data length.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>CAN</p>
+<ul>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">SilKit_CanTransmitStatus_DefaultMask</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Ethernet</p>
+<ul>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">SilKit_EthernetTransmitStatus_DefaultMask</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id153">
+<h3>Changed<a class="headerlink" href="#id153" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>LIN</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SilKit/include/silkit/services/lin/ILinController.hpp</span></code>:</p>
+<ul>
+<li><p>The methods <cite>AddLinSlaveConfigurationHandler</cite>, <cite>RemoveLinSlaveConfigurationHandler</cite>, <cite>GetSlaveConfiguration</cite> and
+related data structures <cite>LinSlaveConfigurationEvent</cite>, <cite>LinSlaveConfigurationHandler</cite> and <cite>LinSlaveConfiguration</cite>
+have been moved to the experimental namespace and now reside in
+<code class="docutils literal notranslate"><span class="pre">SilKit/include/silkit/experimental/services/lin/LinControllerExtensions.hpp</span></code>.</p></li>
+<li><p><cite>LinChecksumModel::Undefined</cite> is renamed to <cite>LinChecksumModel::Unknown</cite>.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Utility</p>
+<ul>
+<li><p>Moved the headers from <code class="docutils literal notranslate"><span class="pre">silkit/util/serdes/sil/*.hpp</span></code> to <code class="docutils literal notranslate"><span class="pre">silkit/util/serdes/*.hpp</span></code>.</p></li>
+</ul>
+</li>
+<li><p>CAN</p>
+<ul>
+<li><p>Removed unused <code class="docutils literal notranslate"><span class="pre">SilKit_CanTransmitStatus_DuplicatedTransmitId</span></code> and <code class="docutils literal notranslate"><span class="pre">SilKit::Services::Can::CanTransmitStatus::DuplicatedTransmitId</span></code> enumerators.</p></li>
+</ul>
+</li>
+<li><p>Ethernet</p>
+<ul>
+<li><p>Removed unused <code class="docutils literal notranslate"><span class="pre">SilKit_EthernetTransmitStatus_DuplicatedTransmitId</span></code> and <code class="docutils literal notranslate"><span class="pre">SilKit::Services::Ethernet::EthernetTransmitStatus::DuplicatedTransmitId</span></code> enumerators.</p></li>
+</ul>
+</li>
+<li><p>FlexRay</p>
+<ul>
+<li><p>Renamed <code class="docutils literal notranslate"><span class="pre">FlexrayHeader::HeaderFlag</span></code> to <code class="docutils literal notranslate"><span class="pre">FlexrayHeader::Flag</span></code> and introduced <code class="docutils literal notranslate"><span class="pre">FlexrayHeader::FlagMask</span></code>.</p></li>
+</ul>
+</li>
+<li><p>RPC</p>
+<ul>
+<li><p>Renamed <code class="docutils literal notranslate"><span class="pre">RpcSpec::Topic</span></code> to <code class="docutils literal notranslate"><span class="pre">RpcSpec::FunctionName</span></code>.</p></li>
+<li><p>Renamed enumerators <code class="docutils literal notranslate"><span class="pre">SilKit_CallStatus_UPPER_SNAKE_CASE</span></code> to <code class="docutils literal notranslate"><span class="pre">SilKit_RpcCallStatus_PascalCase</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id154">
+<h3>Removed<a class="headerlink" href="#id154" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Orchestration</p>
+<ul>
+<li><p>Removed the deprecated <code class="docutils literal notranslate"><span class="pre">ITimeSyncService::SetSimulationStepHandler</span></code> handler which took a handler function without the <code class="docutils literal notranslate"><span class="pre">duration</span></code> argument.</p></li>
+</ul>
+</li>
+<li><p>FlexRay</p>
+<ul>
+<li><p>Removed the convenience functions <code class="docutils literal notranslate"><span class="pre">FlexrayHeader::IsSet</span></code>, <code class="docutils literal notranslate"><span class="pre">FlexrayHeader::Clear</span></code>, and <code class="docutils literal notranslate"><span class="pre">FlexrayHeader::Set</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id155">
+<h3>Fixed<a class="headerlink" href="#id155" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Coordinated, but non-required participants that received the required participant list before calling
+<cite>ILifecycleService::StartLifecycle()</cite> did not go to the error state.</p></li>
+</ul>
+</section>
+</section>
+<section id="id156">
+<h2>[4.0.2] - 2022-08-15<a class="headerlink" href="#id156" title="Permalink to this heading"></a></h2>
+<section id="compatibility-with-4-0-1">
+<h3>Compatibility with 4.0.1<a class="headerlink" href="#compatibility-with-4-0-1" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Application binary interface (ABI): Yes</p></li>
+<li><p>Application software interface (API): Yes</p></li>
+<li><p>Middleware network protocol: Yes</p></li>
+</ul>
+</section>
+<section id="id157">
+<h3>Changed<a class="headerlink" href="#id157" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>SilKit will now build on NetBSD (currently not tested automatically)</p></li>
+</ul>
+</section>
+</section>
+<section id="id158">
+<h2>[4.0.1] - 2022-08-15<a class="headerlink" href="#id158" title="Permalink to this heading"></a></h2>
+<section id="compatibility-with-4-0-0">
+<h3>Compatibility with 4.0.0<a class="headerlink" href="#compatibility-with-4-0-0" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Application binary interface (ABI): No</p></li>
+<li><p>Application software interface (API): Yes</p></li>
+<li><p>Middleware network protocol: Yes</p></li>
+</ul>
+</section>
+<section id="id159">
+<h3>Changed<a class="headerlink" href="#id159" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>The calling convention used in the C-API was changed to <code class="docutils literal notranslate"><span class="pre">cdecl</span></code> on 32-bit Windows.</p></li>
+</ul>
+</section>
+<section id="id160">
+<h3>Removed<a class="headerlink" href="#id160" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">sil-kit-registry</span></code> command line argument <code class="docutils literal notranslate"><span class="pre">--configuration</span></code> was removed.</p></li>
+</ul>
+</section>
+</section>
+<section id="id161">
+<h2>[4.0.0] - 2022-08-11<a class="headerlink" href="#id161" title="Permalink to this heading"></a></h2>
+<section id="compatibility-with-3-99-30">
+<h3>Compatibility with 3.99.30<a class="headerlink" href="#compatibility-with-3-99-30" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Application binary interface (ABI): No</p></li>
+<li><p>Application software interface (API): No</p></li>
+<li><p>Middleware network protocol: No</p></li>
+</ul>
+</section>
+<section id="id162">
+<h3>Added<a class="headerlink" href="#id162" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">SILKIT_ENABLE_COVERAGE</span></code> CMake option for adding code-coverage compiler flags when building with GCC or Clang.</p></li>
+</ul>
+</section>
+<section id="id163">
+<h3>Changed<a class="headerlink" href="#id163" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Added an CLI argument to sil-kit-system-controller to run it without user interaction (–non-interactive or -ni)</p></li>
+<li><p>Participants to not go to <cite>ParticipantState::Error</cite> anymore when the system state changes to <cite>SystemState::Error</cite></p></li>
+</ul>
+</section>
+<section id="id164">
+<h3>Removed<a class="headerlink" href="#id164" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>Removed various demos (CCan, CEthernet, CFlexray, CLin, Lifecycle, and TimeAnnotation) as they were meant for testing</p></li>
+<li><p>Removed benchmark demo</p></li>
+</ul>
+</section>
+<section id="id165">
+<h3>Fixed<a class="headerlink" href="#id165" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>The sil-kit-system-controller crashed when any button was pressed. This is fixed.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="latest.html" class="btn btn-neutral float-left" title="[5.0.0] - 2025-07-29" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3.html" class="btn btn-neutral float-right" title="Version 3.xx" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022 Vector Informatik GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

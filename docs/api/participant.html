@@ -1,22 +1,22 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Participant &mdash; Vector SIL Kit 4.0.56 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <title>Participant &mdash; Vector SIL Kit 5.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -29,14 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../contents.html" class="icon icon-home"> Vector SIL Kit
+
+          
+          
+          <a href="../contents.html" class="icon icon-home">
+            Vector SIL Kit
           </a>
-              <div class="version">
-                4.0.56
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -73,7 +74,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../faq/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../licenses/license.html">Licenses</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../CHANGELOG.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/overview.html">Changelog</a></li>
 </ul>
 
         </div>
@@ -89,9 +90,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../contents.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="api.html">C/C++ API</a> &raquo;</li>
-      <li>Participant</li>
+      <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="api.html">C/C++ API</a></li>
+      <li class="breadcrumb-item active">Participant</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/participant.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -103,18 +104,18 @@
              
   <section id="participant">
 <h1>Participant<a class="headerlink" href="#participant" title="Permalink to this heading"></a></h1>
-<div class="contents local topic" id="contents">
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#creating-the-participant" id="id1">Creating the Participant</a></p></li>
 <li><p><a class="reference internal" href="#iparticipant-api" id="id2">IParticipant API</a></p></li>
 <li><p><a class="reference internal" href="#sil-kit-version" id="id3">SIL Kit Version</a></p></li>
 </ul>
-</div>
+</nav>
 <p>This document describes the main entry point to the SIL Kit simulation, the participant.
 By creating a participant with a given configuration, a connection
 to a simulation is established, and the configured participant joins the simulation.</p>
 <section id="creating-the-participant">
-<h2><a class="toc-backref" href="#id1">Creating the Participant</a><a class="headerlink" href="#creating-the-participant" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Creating the Participant</a><a class="headerlink" href="#creating-the-participant" title="Permalink to this heading"></a></h2>
 <p>To create an <a class="reference internal" href="#_CPPv4N6SilKit12IParticipantE" title="SilKit::IParticipant"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IParticipant</span></code></a> you have to include the
 <a class="reference internal" href="header.html#sec-header"><span class="std std-ref">silkit/SilKit.hpp</span></a> and call the Participant API
 factory function:</p>
@@ -130,19 +131,19 @@ configuration, a participant name and optionally the URI of the registry:</p>
 <dd><p>Create a participant and join the simulation. </p>
 <p>Become a participant based on the the given configuration options.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>participantConfig</strong> – Configuration of the participant </p></li>
 <li><p><strong>participantName</strong> – Name of the participant (UTF-8) </p></li>
 </ul>
 </dd>
-<dt class="field-even">Throws</dt>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">ConfigurationError</span></span></span> – if the config has errors </p></li>
 <li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">SilKitError</span></span></span> – The participant could not be created. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Instance of the communication adapter</p>
 </dd>
 </dl>
@@ -154,20 +155,20 @@ configuration, a participant name and optionally the URI of the registry:</p>
 <dd><p>Create a participant and join the simulation. </p>
 <p>Become a participant based on the the given configuration options.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>participantConfig</strong> – Configuration of the participant </p></li>
 <li><p><strong>participantName</strong> – Name of the participant (UTF-8) </p></li>
 <li><p><strong>registryUri</strong> – The URI of the registry </p></li>
 </ul>
 </dd>
-<dt class="field-even">Throws</dt>
+<dt class="field-even">Throws<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">ConfigurationError</span></span></span> – if the config has errors </p></li>
 <li><p><span><span class="cpp-expr sig sig-inline cpp"><span class="n">SilKit</span><span class="p">::</span><span class="n">SilKitError</span></span></span> – The participant could not be created. </p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Instance of the communication adapter</p>
 </dd>
 </dl>
@@ -175,7 +176,7 @@ configuration, a participant name and optionally the URI of the registry:</p>
 
 </section>
 <section id="iparticipant-api">
-<span id="sec-iparticipant-api"></span><h2><a class="toc-backref" href="#id2">IParticipant API</a><a class="headerlink" href="#iparticipant-api" title="Permalink to this heading"></a></h2>
+<span id="sec-iparticipant-api"></span><h2><a class="toc-backref" href="#id2" role="doc-backlink">IParticipant API</a><a class="headerlink" href="#iparticipant-api" title="Permalink to this heading"></a></h2>
 <p>The instantiated <a class="reference internal" href="#_CPPv4N6SilKit12IParticipantE" title="SilKit::IParticipant"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IParticipant</span></code></a> can then be used to create and access services of the SIL Kit.
 A controller name (the <code class="docutils literal notranslate"><span class="pre">canonicalName</span></code> given in Create*-Calls) must be unique within a controller type, using the same name twice results in
 a <code class="docutils literal notranslate"><span class="pre">ConfigurationError</span></code>.</p>
@@ -266,7 +267,7 @@ a <code class="docutils literal notranslate"><span class="pre">ConfigurationErro
 
 </section>
 <section id="sil-kit-version">
-<h2><a class="toc-backref" href="#id3">SIL Kit Version</a><a class="headerlink" href="#sil-kit-version" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">SIL Kit Version</a><a class="headerlink" href="#sil-kit-version" title="Permalink to this heading"></a></h2>
 <p>Version information about the currently running SIL Kit instance
 can be queried using the following functions:</p>
 <blockquote>
