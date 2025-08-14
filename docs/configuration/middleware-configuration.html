@@ -1,12 +1,15 @@
 
 
+
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Middleware Configuration &mdash; Vector SIL Kit 5.0.0 documentation</title>
+  <title>Middleware Configuration &mdash; Vector SIL Kit 5.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -29,12 +32,14 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-
-          
-          
-          <a href="../contents.html" class="icon icon-home">
-            Vector SIL Kit
-          </a>
+	<a class="icon icon-home" href="contents.html">
+		Vector SIL Kit
+	</a>
+	<div class="version" style="margin-bottom: 0.5em;">
+		Version: 5.0.1
+	</div>
+	<br/>
+	
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -42,6 +47,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Vector SIL Kit Overview</a></li>
@@ -135,6 +141,10 @@ running on ‘localhost’ listening on port 8500. These values can be changed v
 <span class="w">  </span><span class="nt">TcpReceiveBufferSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1024</span>
 <span class="w">  </span><span class="nt">RegistryAsFallbackProxy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">  </span><span class="nt">ConnectTimeoutSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5.0</span>
+<span class="w">  </span><span class="nt">EnableDomainSockets</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">AcceptorUris</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tcp://0.0.0.0:0</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local:///tmp/my.own.socket</span>
 </pre></div>
 </div>
 <table class="docutils align-default" id="id1">
@@ -172,24 +182,46 @@ acknowledges, at the cost of increased syscall overhead.</p></td>
 <tr class="row-odd"><td><p>TcpReceiveBufferSize</p></td>
 <td><p>Sets the TCP receive buffer size. Be careful when changing the OS defaults!</p></td>
 </tr>
-<tr class="row-even"><td><p>AcceptorUris</p></td>
-<td><p>Overwrite the default acceptor URIs of the participant. The configuration
-field exists to support more complicated network setups, where the
-listening ports of the participant must have a known, fixed port number
-and address.
-It is <em>not</em> required to set this field under normal circumstances.</p></td>
-</tr>
-<tr class="row-odd"><td><p>RegistryAsFallbackProxy</p></td>
+<tr class="row-even"><td><p>RegistryAsFallbackProxy</p></td>
 <td><p>Disable using the registry as a proxy for participant-to-participant
 communication as a fallback, if the direct connection attempts fail.
 The feature is enabled by default and can be disabled explicitly via this
 field.
 It is <em>not</em> required to set this field under normal circumstances.</p></td>
 </tr>
-<tr class="row-even"><td><p>ConnectTimeoutSeconds</p></td>
+<tr class="row-odd"><td><p>ConnectTimeoutSeconds</p></td>
 <td><p>The timeout (in seconds) until a connection attempt is aborted or a handshake is considered failed.
 This timeout applies to each attempt (TCP, Local-Domain) individually.
 It is <em>not</em> required to set this field under normal circumstances.</p></td>
+</tr>
+<tr class="row-even"><td><p>EnableDomainSockets</p></td>
+<td><p>By default, a participant connects to, and listens for connections on a local domain socket (in addition to TCP).
+Setting this flag to <code class="docutils literal notranslate"><span class="pre">false</span></code> disables connection attempts and listening for connections on domain sockets.
+This can be useful for testing and debugging.
+It is <em>not</em> required to set this field under normal circumstances.</p></td>
+</tr>
+<tr class="row-odd"><td><p>AcceptorUris</p></td>
+<td><p>Overwrite the default acceptor URIs of the participant. The configuration
+field exists to support more complicated network setups, where the
+listening ports of the participant must have a known, fixed port number
+and address.
+This field expects a list of strings.</p>
+<p>Each string identifies a socket endpoint used to listen for incoming connections, for TCP or local domain sockets.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp://&lt;ip&gt;:&lt;port&gt;</span></code>, e.g.,</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp://10.123.15.33:36812</span></code> to listen on <code class="docutils literal notranslate"><span class="pre">10.123.15.33</span></code> for incoming TCP connections on port <code class="docutils literal notranslate"><span class="pre">36812</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp://[::]:33445</span></code> to listen for connections on any IPv6 address of the host on port <code class="docutils literal notranslate"><span class="pre">33445</span></code></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local://&lt;path&gt;</span></code>, e.g.,</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">local:///tmp/my.socket</span></code> to listen on a local domain socket identified by the path <code class="docutils literal notranslate"><span class="pre">/tmp/my.socket</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>It is <em>not</em> required to set this field under normal circumstances.</p>
+</td>
 </tr>
 </tbody>
 </table>
