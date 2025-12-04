@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC) &mdash; Vector SIL Kit 5.0.1 documentation</title>
+  <title>Communication Services (CAN, LIN, FlexRay, Ethernet, Data, RPC) &mdash; Vector SIL Kit 5.0.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -36,7 +36,7 @@
 		Vector SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.1
+		Version: 5.0.2
 	</div>
 	<br/>
 	
@@ -275,6 +275,7 @@ and “transmissionMode” (<code class="docutils literal notranslate"><span cla
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">DataPublishers</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DataPublisher1</span>
 <span class="w">  </span><span class="nt">Topic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SomeTopic1</span>
+<span class="w">  </span><span class="nt">History</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="w">  </span><span class="nt">Labels</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SomeKey</span>
 <span class="w">      </span><span class="nt">Value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SomeValue</span>
@@ -302,12 +303,16 @@ and “transmissionMode” (<code class="docutils literal notranslate"><span cla
 <tr class="row-odd"><td><p>Topic</p></td>
 <td><p>The topic on which the data publisher publishes its information. (optional)</p></td>
 </tr>
-<tr class="row-even"><td><p>Labels</p></td>
-<td><dl class="simple">
-<dt>The labels determining matching subscribers with the same topic and media type. (optional)</dt><dd><p>Note that these labels will replace all programmatically provided labels.</p>
-</dd>
-</dl>
-</td>
+<tr class="row-even"><td><p>History</p></td>
+<td><p>The history length determines if the last message published by this data publisher is cached
+and automatically sent to any new subscribers.
+Note that the value will replace the programmatically provided history length.
+The default for the programmatically provided history length is <code class="docutils literal notranslate"><span class="pre">0</span></code>.
+If set, the value must be either <code class="docutils literal notranslate"><span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">1</span></code>. (optional)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Labels</p></td>
+<td><p>The labels determining matching subscribers with the same topic and media type.
+Note that these labels will replace all programmatically provided labels. (optional)</p></td>
 </tr>
 </tbody>
 </table>
