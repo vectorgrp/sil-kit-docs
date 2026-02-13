@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Developer Guide &mdash; Vector SIL Kit 5.0.2 documentation</title>
+  <title>Developer Guide &mdash; Vector SIL Kit 5.0.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -36,7 +36,7 @@
 		Vector SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.2
+		Version: 5.0.3
 	</div>
 	<br/>
 	
@@ -171,7 +171,7 @@ If you need to build the library yourself, take a look at the readme file of the
 <section id="using-the-productname-package">
 <h3><a class="toc-backref" href="#id9" role="doc-backlink">Using the SIL Kit package</a><a class="headerlink" href="#using-the-productname-package" title="Permalink to this heading"></a></h3>
 <p>The SIL Kit distribution contains a self-contained and deployable installation in the <em>SilKit</em> directory.
-The CMake build configuration required is exported to <code class="docutils literal notranslate"><span class="pre">SilKit/lib/cmake/SilKit</span></code> and defines the <code class="docutils literal notranslate"><span class="pre">SilKit::SilKit</span></code> target.</p>
+The CMake build configuration required is exported to <code class="docutils literal notranslate"><span class="pre">SilKit/{lib,lib64}/cmake/SilKit</span></code> and defines the <code class="docutils literal notranslate"><span class="pre">SilKit::SilKit</span></code> target.</p>
 <p>From CMake this can be consumed via the <code class="docutils literal notranslate"><span class="pre">find_package(SilKit</span> <span class="pre">CONFIG)</span></code> mechanism.
 For example, the following CMakeLists.txt imports the SIL Kit library based on its file system path.</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">Project</span><span class="p">(</span><span class="s">SampleSilKit</span><span class="p">)</span>
@@ -187,7 +187,7 @@ For example, the following CMakeLists.txt imports the SIL Kit library based on i
 </pre></div>
 </div>
 <p>Properties, like include directories and compile flags, are automatically handled by the imported target.
-If you use another method to build your software you can directly use the <code class="docutils literal notranslate"><span class="pre">SilKit/include</span></code> and <code class="docutils literal notranslate"><span class="pre">SilKit/lib</span></code> directories for C++ headers and libraries.</p>
+If you use another method to build your software you can directly use the <code class="docutils literal notranslate"><span class="pre">SilKit/include</span></code> and <code class="docutils literal notranslate"><span class="pre">SilKit/{lib,lib64}</span></code> directories for C++ headers and libraries.</p>
 </section>
 <section id="a-simple-publish-subscribe-application">
 <span id="sec-developer-simple"></span><h3><a class="toc-backref" href="#id10" role="doc-backlink">A simple Publish / Subscribe application</a><a class="headerlink" href="#a-simple-publish-subscribe-application" title="Permalink to this heading"></a></h3>
