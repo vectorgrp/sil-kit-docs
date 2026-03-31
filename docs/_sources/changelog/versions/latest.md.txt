@@ -1,23 +1,23 @@
-# [5.0.3] - 2026-02-12
+# [5.0.4] - 2026-03-27
 
-## Fixed
-
-- `sil-kit-registry`: fixed crash whith enabled dashboard
-
-- `sil-kit-registry`: allow configuration of the listen URI, when used as Windows system service
-
-- `cmake`: demo and utility `RPATH`s are now set to match the install hierarchy on all systems
-
-- `cmake`: use `CMAKE_POLICY_VERSION_MINIMUM` since `oatpp` uses an outdated `cmake` version
+This is a Quality Assured Release.
 
 ## Changed
 
-- `sil-kit-registry`: stop force-disabling the dashboard when building Linux packages
+- `docs`: removed 'Vector' prefix where SIL Kit is mentioned in multiple places
 
-## Added
+- `demos`: improved code quality
 
-- `docs`: added description of handling of CAN message sizes
+## Fixed
 
-- `cmake`: added explicit build options to QNX presets
+- `pubsub` / `rpc`: fix some edge cases when matching labels
 
-- `flexray`: add second keyslot parameters to the FlexRay node parameters
+- `lin`: fixed TX/RX behavior when controller is not operational
+
+- `lin`: populate the `timestamp` field in `LinControllerStatusUpdate` message
+
+- `config`: print proper error message for missing keys
+
+- `netsim`: print error when network is not simulated
+
+- `extensions`: load transitive dependencies from the extensions dir
