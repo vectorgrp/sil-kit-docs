@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>[5.0.4] - 2026-03-27 &mdash; SIL Kit 5.0.4 documentation</title>
+  <title>[5.0.5] - 2026-05-21 &mdash; SIL Kit 5.0.5 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -23,7 +23,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="[5.0.3] - 2026-02-12" href="5.0.3.html" />
+    <link rel="next" title="[5.0.4] - 2026-03-27" href="5.0.4.html" />
     <link rel="prev" title="Changelog" href="../overview.html" /> 
 </head>
 
@@ -36,7 +36,7 @@
 		SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.4
+		Version: 5.0.5
 	</div>
 	<br/>
 	
@@ -63,11 +63,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../../for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../licenses/license.html">Licenses</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../overview.html">Changelog</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">[5.0.4] - 2026-03-27</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#changed">Changed</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">[5.0.5] - 2026-05-21</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#fixed">Fixed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changed">Changed</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="5.0.4.html">[5.0.4] - 2026-03-27</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5.0.3.html">[5.0.3] - 2026-02-12</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5.0.2.html">[5.0.2] - 2025-12-04</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5.0.1.html">[5.0.1] - 2025-08-07</a></li>
@@ -94,7 +95,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../contents.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../overview.html">Changelog</a></li>
-      <li class="breadcrumb-item active">[5.0.4] - 2026-03-27</li>
+      <li class="breadcrumb-item active">[5.0.5] - 2026-05-21</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/changelog/versions/latest.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -105,24 +106,30 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>[5.0.4] - 2026-03-27<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
-<p>This is a Quality Assured Release.</p>
-<section id="changed">
-<h2>Changed<a class="headerlink" href="#changed" title="Permalink to this heading"></a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">docs</span></code>: removed ‘Vector’ prefix where SIL Kit is mentioned in multiple places</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">demos</span></code>: improved code quality</p></li>
-</ul>
-</section>
+<h1>[5.0.5] - 2026-05-21<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
 <section id="fixed">
 <h2>Fixed<a class="headerlink" href="#fixed" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">pubsub</span></code> / <code class="docutils literal notranslate"><span class="pre">rpc</span></code>: fix some edge cases when matching labels</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lin</span></code>: fixed TX/RX behavior when controller is not operational</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">lin</span></code>: populate the <code class="docutils literal notranslate"><span class="pre">timestamp</span></code> field in <code class="docutils literal notranslate"><span class="pre">LinControllerStatusUpdate</span></code> message</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">config</span></code>: print proper error message for missing keys</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">netsim</span></code>: print error when network is not simulated</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">extensions</span></code>: load transitive dependencies from the extensions dir</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lin</span></code>: fixed missing reception of the Go-To-Sleep frame by the master after <code class="docutils literal notranslate"><span class="pre">GoToSleep()</span></code> in detailed simulation</p></li>
+</ul>
+</section>
+<section id="changed">
+<h2>Changed<a class="headerlink" href="#changed" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmake</span></code>: merged almost all internal CMake <code class="docutils literal notranslate"><span class="pre">INTERFACE</span></code> libraries into <code class="docutils literal notranslate"><span class="pre">I_SilKit</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">third-party</span></code>: update <code class="docutils literal notranslate"><span class="pre">oatpp</span></code> to version 1.3.1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs</span></code>: update the supported platforms table</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs</span></code>: Extend docs by available metrics</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs</span></code>: Add missing related products</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">quality</span></code>: following small improvements</p>
+<ul>
+<li><p>add missing <code class="docutils literal notranslate"><span class="pre">#pragma</span> <span class="pre">once</span></code></p></li>
+<li><p>add <code class="docutils literal notranslate"><span class="pre">static</span></code> to some TU-local functions</p></li>
+<li><p>add <code class="docutils literal notranslate"><span class="pre">inline</span></code> to some header-defined functions</p></li>
+<li><p>remove an obsolete source file</p></li>
+<li><p>adjust warning flags</p></li>
+</ul>
+</li>
 </ul>
 </section>
 </section>
@@ -132,7 +139,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../overview.html" class="btn btn-neutral float-left" title="Changelog" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="5.0.3.html" class="btn btn-neutral float-right" title="[5.0.3] - 2026-02-12" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="5.0.4.html" class="btn btn-neutral float-right" title="[5.0.4] - 2026-03-27" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
