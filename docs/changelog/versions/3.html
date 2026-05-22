@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Version 3.xx &mdash; SIL Kit 5.0.4 documentation</title>
+  <title>Version 3.xx &mdash; SIL Kit 5.0.5 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -36,7 +36,7 @@
 		SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.4
+		Version: 5.0.5
 	</div>
 	<br/>
 	
@@ -63,7 +63,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../licenses/license.html">Licenses</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../overview.html">Changelog</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="latest.html">[5.0.4] - 2026-03-27</a></li>
+<li class="toctree-l2"><a class="reference internal" href="latest.html">[5.0.5] - 2026-05-21</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.0.4.html">[5.0.4] - 2026-03-27</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5.0.3.html">[5.0.3] - 2026-02-12</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5.0.2.html">[5.0.2] - 2025-12-04</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5.0.1.html">[5.0.1] - 2025-08-07</a></li>
@@ -718,7 +719,7 @@ The flags bitfield was replaced with an unsigned integer field (<code class="doc
 <span class="w">                              </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">mediaType</span><span class="p">,</span>
 <span class="w">                              </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">labels</span><span class="p">,</span>
 <span class="w">                              </span><span class="n">Services</span><span class="o">::</span><span class="n">PubSub</span><span class="o">::</span><span class="n">DataMessageHandlerT</span><span class="w"> </span><span class="n">defaultDataMessageHandler</span><span class="p">,</span>
-<span class="w">                              </span><span class="n">Services</span><span class="o">::</span><span class="n">PubSub</span><span class="o">::</span><span class="n">NewDataPublisherHandlerT</span><span class="w"> </span><span class="n">newDataPublisherHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span>
+<span class="w">                              </span><span class="n">Services</span><span class="o">::</span><span class="n">PubSub</span><span class="o">::</span><span class="n">NewDataPublisherHandlerT</span><span class="w"> </span><span class="n">newDataPublisherHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
@@ -806,7 +807,7 @@ root directory of <code class="docutils literal notranslate"><span class="pre">s
 <li><p>Packages are now named <code class="docutils literal notranslate"><span class="pre">SilKit-X.Y.Z-tool-platform.zip</span></code>.</p></li>
 <li><p>C++ namespaces were renamed:</p>
 <table class="docutils align-default" id="id171">
-<caption><span class="caption-number">Table 28 </span><span class="caption-text">: C++ namespace changes</span><a class="headerlink" href="#id171" title="Permalink to this table"></a></caption>
+<caption><span class="caption-number">Table 30 </span><span class="caption-text">: C++ namespace changes</span><a class="headerlink" href="#id171" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -909,7 +910,7 @@ See  <a class="reference internal" href="../../utilities/utilities.html"><span c
 </li>
 <li><p>The timestamps for received events is now dependent on the synchronization mode of the sender and the receiver</p>
 <table class="docutils align-default" id="id172">
-<caption><span class="caption-number">Table 29 </span><span class="caption-text">: Message timestamp by synchronization mode</span><a class="headerlink" href="#id172" title="Permalink to this table"></a></caption>
+<caption><span class="caption-number">Table 31 </span><span class="caption-text">: Message timestamp by synchronization mode</span><a class="headerlink" href="#id172" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 40.0%" />
@@ -2681,7 +2682,7 @@ the new ´´LinWakeupEvent.direction´´.</p></li>
 <span class="n">ICanController</span><span class="o">::</span><span class="n">RegisterStateChangedHandler</span><span class="p">(</span><span class="n">StateChangedHandler</span><span class="w"> </span><span class="n">handler</span><span class="p">);</span>
 <span class="n">ICanController</span><span class="o">::</span><span class="n">RegisterErrorStateChangedHandler</span><span class="p">(</span><span class="n">ErrorStateChangedHandler</span><span class="w"> </span><span class="n">handler</span><span class="p">);</span>
 <span class="n">ICanController</span><span class="o">::</span><span class="n">RegisterTransmitStatusHandler</span><span class="p">(</span><span class="n">MessageAckHandler</span><span class="w"> </span><span class="n">handler</span><span class="p">);</span>
-<span class="n">ICanController</span><span class="o">::</span><span class="n">SendMessage</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CanMessage</span><span class="o">&amp;</span><span class="w"> </span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">userContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CanTxId</span><span class="p">;</span>
+<span class="n">ICanController</span><span class="o">::</span><span class="n">SendMessage</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CanMessage</span><span class="o">&amp;</span><span class="w"> </span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">userContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CanTxId</span><span class="p">;</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -2696,7 +2697,7 @@ the new ´´LinWakeupEvent.direction´´.</p></li>
 <span class="n">ICanController</span><span class="o">::</span><span class="n">AddStateChangeHandler</span><span class="p">(</span><span class="n">StateChangeHandler</span><span class="w"> </span><span class="n">handler</span><span class="p">);</span>
 <span class="n">ICanController</span><span class="o">::</span><span class="n">AddErrorStateChangeHandler</span><span class="p">(</span><span class="n">ErrorStateChangeHandler</span><span class="w"> </span><span class="n">handler</span><span class="p">);</span>
 <span class="n">ICanController</span><span class="o">::</span><span class="n">AddFrameTransmitHandler</span><span class="p">(</span><span class="n">FrameTransmitHandler</span><span class="w"> </span><span class="n">handler</span><span class="p">);</span>
-<span class="n">ICanController</span><span class="o">::</span><span class="n">SendFrame</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CanFrame</span><span class="o">&amp;</span><span class="w"> </span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">userContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CanTxId</span><span class="p">;</span>
+<span class="n">ICanController</span><span class="o">::</span><span class="n">SendFrame</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CanFrame</span><span class="o">&amp;</span><span class="w"> </span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">userContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CanTxId</span><span class="p">;</span>
 </pre></div>
 </div>
 </li>
@@ -3164,7 +3165,7 @@ Additional data types follow in <em>added</em>.</p>
 <div><ul class="simple">
 <li><p>old:</p></li>
 </ul>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">ICanController</span><span class="o">::</span><span class="n">SendMessage</span><span class="p">(</span><span class="n">CanMessage</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">userContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CanTxId</span><span class="p">;</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">ICanController</span><span class="o">::</span><span class="n">SendMessage</span><span class="p">(</span><span class="n">CanMessage</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">userContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">CanTxId</span><span class="p">;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -3653,13 +3654,13 @@ Further renamed method <code class="docutils literal notranslate"><span class="p
 <span class="o">-</span><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">sim</span><span class="o">::</span><span class="n">data</span><span class="o">::</span><span class="n">DataExchangeFormat</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dataExchangeFormat</span><span class="p">,</span>
 <span class="o">-</span><span class="w">            </span><span class="p">...,</span>
 <span class="o">-</span><span class="w">            </span><span class="n">sim</span><span class="o">::</span><span class="n">data</span><span class="o">::</span><span class="n">DataHandlerT</span><span class="w"> </span><span class="n">defaultDataHandler</span><span class="p">,</span>
-<span class="o">-</span><span class="w">            </span><span class="n">sim</span><span class="o">::</span><span class="n">data</span><span class="o">::</span><span class="n">NewDataSourceHandlerT</span><span class="w"> </span><span class="n">newDataSourceHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">...;</span>
+<span class="o">-</span><span class="w">            </span><span class="n">sim</span><span class="o">::</span><span class="n">data</span><span class="o">::</span><span class="n">NewDataSourceHandlerT</span><span class="w"> </span><span class="n">newDataSourceHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">...;</span>
 <span class="o">+</span><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">CreateDataSubscriber</span><span class="p">(</span>
 <span class="o">+</span><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">canonicalName</span><span class="p">,</span>
 <span class="o">+</span><span class="w">            </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">mediaType</span><span class="p">,</span>
 <span class="o">+</span><span class="w">            </span><span class="p">...,</span>
 <span class="o">+</span><span class="w">            </span><span class="n">sim</span><span class="o">::</span><span class="n">data</span><span class="o">::</span><span class="n">DataMessageHandlerT</span><span class="w"> </span><span class="n">defaultDataMessageHandler</span><span class="p">,</span>
-<span class="o">+</span><span class="w">            </span><span class="n">sim</span><span class="o">::</span><span class="n">data</span><span class="o">::</span><span class="n">NewDataPublisherHandlerT</span><span class="w"> </span><span class="n">newDataPublisherHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">...;</span>
+<span class="o">+</span><span class="w">            </span><span class="n">sim</span><span class="o">::</span><span class="n">data</span><span class="o">::</span><span class="n">NewDataPublisherHandlerT</span><span class="w"> </span><span class="n">newDataPublisherHandler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">...;</span>
 
 <span class="o">-</span><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">CreateRpcClient</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">functionName</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">...;</span>
 <span class="o">+</span><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">CreateRpcClient</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">canonicalName</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">channel</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">...;</span>

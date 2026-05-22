@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Experimental Configuration &mdash; SIL Kit 5.0.4 documentation</title>
+  <title>Experimental Configuration &mdash; SIL Kit 5.0.5 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -36,7 +36,7 @@
 		SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.4
+		Version: 5.0.5
 	</div>
 	<br/>
 	
@@ -133,14 +133,20 @@
 <span id="sec-cfg-participant-experimental"></span><h1>Experimental Configuration<a class="headerlink" href="#experimental-configuration" title="Permalink to this heading"></a></h1>
 <nav class="contents local" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#overview" id="id4">Overview</a></p></li>
-<li><p><a class="reference internal" href="#timesynchronization" id="id5">TimeSynchronization</a></p></li>
-<li><p><a class="reference internal" href="#metrics-for-participants" id="id6">Metrics for participants</a></p></li>
-<li><p><a class="reference internal" href="#metrics-for-the-registry" id="id7">Metrics for the registry</a></p></li>
+<li><p><a class="reference internal" href="#overview" id="id6">Overview</a></p></li>
+<li><p><a class="reference internal" href="#timesynchronization" id="id7">TimeSynchronization</a></p></li>
+<li><p><a class="reference internal" href="#metrics-for-participants" id="id8">Metrics for participants</a></p>
+<ul>
+<li><p><a class="reference internal" href="#available-metrics" id="id9">Available Metrics</a></p></li>
+<li><p><a class="reference internal" href="#metric-value-encoding" id="id10">Metric Value Encoding</a></p></li>
+<li><p><a class="reference internal" href="#example-json-output" id="id11">Example JSON Output</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#metrics-for-the-registry" id="id12">Metrics for the registry</a></p></li>
 </ul>
 </nav>
 <section id="overview">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
 <p>This section includes experimental configuration fields.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -148,7 +154,7 @@
 </div>
 </section>
 <section id="timesynchronization">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">TimeSynchronization</a><a class="headerlink" href="#timesynchronization" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">TimeSynchronization</a><a class="headerlink" href="#timesynchronization" title="Permalink to this heading"></a></h2>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Experimental</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">TimeSynchronization</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">AnimationFactor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span>
@@ -197,7 +203,7 @@ In this case, the time step will not be terminated and the communication will bl
 </table>
 </section>
 <section id="metrics-for-participants">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">Metrics for participants</a><a class="headerlink" href="#metrics-for-participants" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Metrics for participants</a><a class="headerlink" href="#metrics-for-participants" title="Permalink to this heading"></a></h2>
 <p>Each participant supports collecting static attributes of a simulation and
 runtime performance metrics.
 They are collected and distributed to the configured sinks at the given update interval.</p>
@@ -228,9 +234,171 @@ They are collected and distributed to the configured sinks at the given update i
 </tr>
 </tbody>
 </table>
+<section id="available-metrics">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Available Metrics</a><a class="headerlink" href="#available-metrics" title="Permalink to this heading"></a></h3>
+<p>Metric names use <code class="docutils literal notranslate"><span class="pre">/</span></code> as a hierarchy separator.
+Some metrics contain runtime-specific path elements such as the simulation name or the
+name of a connected peer participant.</p>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-number">Table 27 </span><span class="caption-text">Available Participant Metrics</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 15.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric name</p></th>
+<th class="head"><p>Kind</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SilKit/System/OperatingSystem</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ATTRIBUTE</span></code></p></td>
+<td><p>Operating system reported by the participant host.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SilKit/System/Hostname</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ATTRIBUTE</span></code></p></td>
+<td><p>Host name of the participant host.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SilKit/System/PageSize</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ATTRIBUTE</span></code></p></td>
+<td><p>Memory page size reported by the participant host.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SilKit/System/ProcessorCount</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ATTRIBUTE</span></code></p></td>
+<td><p>Number of processors reported by the participant host.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SilKit/System/ProcessorArchitecture</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ATTRIBUTE</span></code></p></td>
+<td><p>Processor architecture reported by the participant host.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SilKit/System/PhysicalMemory</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ATTRIBUTE</span></code></p></td>
+<td><p>Total physical memory of the participant host.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SilKit/Process/Executable</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ATTRIBUTE</span></code></p></td>
+<td><p>Path of the running participant executable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SilKit/Process/Username</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ATTRIBUTE</span></code></p></td>
+<td><p>User name under which the participant process runs.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SilKit/Participant/JsonConfig</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ATTRIBUTE</span></code></p></td>
+<td><p>Participant configuration serialized as JSON.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">TcpAcceptors</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">STRING_LIST</span></code></p></td>
+<td><p>TCP endpoints on which the participant accepts connections.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">LocalAcceptors</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">STRING_LIST</span></code></p></td>
+<td><p>Local domain socket endpoints on which the participant accepts connections.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Peer/&lt;simulationName&gt;/&lt;participantName&gt;/LocalEndpoint</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">STRING_LIST</span></code></p></td>
+<td><p>Local endpoint addresses used for the connection to the peer participant.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Peer/&lt;simulationName&gt;/&lt;participantName&gt;/RemoteEndpoint</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">STRING_LIST</span></code></p></td>
+<td><p>Remote endpoint addresses used for the connection to the peer participant.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Peer/&lt;simulationName&gt;/&lt;remoteParticipant&gt;/tx_bytes/[bytes]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">COUNTER</span></code></p></td>
+<td><p>Total number of transmitted bytes for the peer connection.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Peer/&lt;simulationName&gt;/&lt;remoteParticipant&gt;/tx_packets/[count]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">COUNTER</span></code></p></td>
+<td><p>Total number of transmitted packets for the peer connection.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Peer/&lt;simulationName&gt;/&lt;remoteParticipant&gt;/tx_bandwidth/[Bps]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">STATISTIC</span></code></p></td>
+<td><p>Statistics over transmitted payload sizes, labeled in bytes per second.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Peer/&lt;simulationName&gt;/&lt;remoteParticipant&gt;/rx_bytes/[bytes]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">COUNTER</span></code></p></td>
+<td><p>Total number of received bytes for the peer connection.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Peer/&lt;simulationName&gt;/&lt;remoteParticipant&gt;/rx_packets/[count]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">COUNTER</span></code></p></td>
+<td><p>Total number of received packets for the peer connection.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Peer/&lt;simulationName&gt;/&lt;remoteParticipant&gt;/tx_queue_size/[count]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">STATISTIC</span></code></p></td>
+<td><p>Statistics over the transmit queue size for the peer connection.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Peer/&lt;simulationName&gt;/&lt;remoteParticipant&gt;/rx_bandwidth/[Bps]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">STATISTIC</span></code></p></td>
+<td><p>Statistics over received payload sizes, labeled in bytes per second.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SimStepCount</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">COUNTER</span></code></p></td>
+<td><p>Number of completed simulation steps.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SimStep/execution_duration/[s]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">STATISTIC</span></code></p></td>
+<td><p>Statistics over simulation step handler execution time in seconds.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SimStep/completion_duration/[s]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">STATISTIC</span></code></p></td>
+<td><p>Statistics over asynchronous simulation step completion time in seconds.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SimStep/waiting_duration/[s]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">STATISTIC</span></code></p></td>
+<td><p>Statistics over waiting time between simulation steps in seconds.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="metric-value-encoding">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Metric Value Encoding</a><a class="headerlink" href="#metric-value-encoding" title="Permalink to this heading"></a></h3>
+<p>The metric kind determines the format of the metric value:</p>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-number">Table 28 </span><span class="caption-text">Metric Value Encoding</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 85.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Kind</p></th>
+<th class="head"><p>Value format</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">COUNTER</span></code></p></td>
+<td><p>A single integer value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">STATISTIC</span></code></p></td>
+<td><p>A JSON array <code class="docutils literal notranslate"><span class="pre">[mean,</span> <span class="pre">stddev,</span> <span class="pre">min,</span> <span class="pre">max]</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">STRING_LIST</span></code></p></td>
+<td><p>A JSON array of strings.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ATTRIBUTE</span></code></p></td>
+<td><p>A string value.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="example-json-output">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Example JSON Output</a><a class="headerlink" href="#example-json-output" title="Permalink to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">JsonFile</span></code> sink writes one JSON object per line.
+Each object contains the timestamp in nanoseconds (<code class="docutils literal notranslate"><span class="pre">ts</span></code>), the participant name (<code class="docutils literal notranslate"><span class="pre">pn</span></code>),
+the metric name (<code class="docutils literal notranslate"><span class="pre">mn</span></code>), the metric kind (<code class="docutils literal notranslate"><span class="pre">mk</span></code>), and the metric value (<code class="docutils literal notranslate"><span class="pre">mv</span></code>).</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="mi">1716200000000000000</span><span class="p">,</span><span class="nt">&quot;pn&quot;</span><span class="p">:</span><span class="s2">&quot;Participant1&quot;</span><span class="p">,</span><span class="nt">&quot;mn&quot;</span><span class="p">:</span><span class="s2">&quot;SimStepCount&quot;</span><span class="p">,</span><span class="nt">&quot;mk&quot;</span><span class="p">:</span><span class="s2">&quot;COUNTER&quot;</span><span class="p">,</span><span class="nt">&quot;mv&quot;</span><span class="p">:</span><span class="mi">42</span><span class="p">}</span>
+<span class="p">{</span><span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="mi">1716200000000100000</span><span class="p">,</span><span class="nt">&quot;pn&quot;</span><span class="p">:</span><span class="s2">&quot;Participant1&quot;</span><span class="p">,</span><span class="nt">&quot;mn&quot;</span><span class="p">:</span><span class="s2">&quot;SimStep/execution_duration/[s]&quot;</span><span class="p">,</span><span class="nt">&quot;mk&quot;</span><span class="p">:</span><span class="s2">&quot;STATISTIC&quot;</span><span class="p">,</span><span class="nt">&quot;mv&quot;</span><span class="p">:[</span><span class="mf">0.0017</span><span class="p">,</span><span class="mf">0.0004</span><span class="p">,</span><span class="mf">0.0012</span><span class="p">,</span><span class="mf">0.0025</span><span class="p">]}</span>
+<span class="p">{</span><span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="mi">1716200000000200000</span><span class="p">,</span><span class="nt">&quot;pn&quot;</span><span class="p">:</span><span class="s2">&quot;Participant1&quot;</span><span class="p">,</span><span class="nt">&quot;mn&quot;</span><span class="p">:</span><span class="s2">&quot;Peer/Sim1/Participant2/tx_bytes/[bytes]&quot;</span><span class="p">,</span><span class="nt">&quot;mk&quot;</span><span class="p">:</span><span class="s2">&quot;COUNTER&quot;</span><span class="p">,</span><span class="nt">&quot;mv&quot;</span><span class="p">:</span><span class="mi">32768</span><span class="p">}</span>
+<span class="p">{</span><span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="mi">1716200000000300000</span><span class="p">,</span><span class="nt">&quot;pn&quot;</span><span class="p">:</span><span class="s2">&quot;Participant1&quot;</span><span class="p">,</span><span class="nt">&quot;mn&quot;</span><span class="p">:</span><span class="s2">&quot;Peer/Sim1/Participant2/RemoteEndpoint&quot;</span><span class="p">,</span><span class="nt">&quot;mk&quot;</span><span class="p">:</span><span class="s2">&quot;STRING_LIST&quot;</span><span class="p">,</span><span class="nt">&quot;mv&quot;</span><span class="p">:[</span><span class="s2">&quot;tcp://10.0.0.2:8500&quot;</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>The exact set of emitted metrics depends on which SIL Kit services are used and which peer
+connections are established during the simulation run.</p>
+</section>
 </section>
 <section id="metrics-for-the-registry">
-<span id="sec-cfg-registry-experimental"></span><h2><a class="toc-backref" href="#id7" role="doc-backlink">Metrics for the registry</a><a class="headerlink" href="#metrics-for-the-registry" title="Permalink to this heading"></a></h2>
+<span id="sec-cfg-registry-experimental"></span><h2><a class="toc-backref" href="#id12" role="doc-backlink">Metrics for the registry</a><a class="headerlink" href="#metrics-for-the-registry" title="Permalink to this heading"></a></h2>
 <p>The registry configuration supports collecting metrics from remote participants
 and forwarding the collected data to the SIL Kit Dashboard for further
 analysis and visualization.
@@ -240,8 +408,8 @@ Refer to the documentation of the <a class="reference external" href="https://ve
 <span class="w">      </span><span class="nt">CollectFromRemote</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
-<table class="docutils align-default" id="id3">
-<caption><span class="caption-number">Table 27 </span><span class="caption-text">Registry Metrics Configuration</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-number">Table 29 </span><span class="caption-text">Registry Metrics Configuration</span><a class="headerlink" href="#id5" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 15.0%" />
 <col style="width: 85.0%" />
