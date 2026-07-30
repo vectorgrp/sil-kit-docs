@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Logging Configuration &mdash; SIL Kit 5.0.6 documentation</title>
+  <title>Logging Configuration &mdash; SIL Kit 5.0.7 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -36,7 +36,7 @@
 		SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.6
+		Version: 5.0.7
 	</div>
 	<br/>
 	
@@ -65,6 +65,8 @@
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Logging Configuration</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#log-message-format">Log message format</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#experimental-topic-based-sink-filtering">Experimental: Topic-based sink filtering</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="healthcheck-configuration.html">HealthCheck Configuration</a></li>
@@ -82,6 +84,8 @@
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Logging Configuration</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#log-message-format">Log message format</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#experimental-topic-based-sink-filtering">Experimental: Topic-based sink filtering</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="experimental-configuration.html">Experimental Configuration</a></li>
@@ -131,20 +135,25 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="#overview" id="id3">Overview</a></p></li>
 <li><p><a class="reference internal" href="#configuration" id="id4">Configuration</a></p></li>
+<li><p><a class="reference internal" href="#log-message-format" id="id5">Log message format</a></p></li>
+<li><p><a class="reference internal" href="#experimental-topic-based-sink-filtering" id="id6">Experimental: Topic-based sink filtering</a></p></li>
 </ul>
 </nav>
 <section id="overview">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
-<p>Within the SIL Kit, the Logger provides features for local and distributed logging on different log
-levels.</p>
+<p>Within the SIL Kit, the Logger provides features for local and distributed logging on different log levels.</p>
+<ul class="simple">
+<li><p>Logging output is configured through <strong>sinks</strong>, where each sink defines where messages are written (for example <em>Stdout</em>, <em>File</em>, or <em>Remote</em>) and which minimum log level is emitted.</p></li>
+<li><p>Log messages can be classified by <strong>topics</strong> (for example middleware internals, service controllers, or user-level logging). Topic-based filtering can be configured per sink to include or exclude specific topics.</p></li>
+<li><p>For sinks of type <em>Stdout</em> and <em>File</em>, the output <strong>format</strong> can be selected as <em>Simple</em> (human-readable text) or <em>Json</em> (structured one-object-per-line output).</p></li>
+</ul>
 </section>
 <section id="configuration">
 <h2><a class="toc-backref" href="#id4" role="doc-backlink">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h2>
 <p>The Logging configuration allows to configure the logging behavior of the simulation participant.
 Within the SIL Kit, the Logger uses so-called sinks to store log messages.
-Multiple sinks can be configured at the same time. For example, to send log
-messages with log level <code class="docutils literal notranslate"><span class="pre">Debug</span></code> or higher to a remote logger and write <code class="docutils literal notranslate"><span class="pre">Trace</span></code> level
-logs to a file, the following configuration could be used:</p>
+Multiple sinks can be configured at the same time.
+For example, to send log messages with log level <code class="docutils literal notranslate"><span class="pre">Debug</span></code> or higher to a remote logger and write <code class="docutils literal notranslate"><span class="pre">Trace</span></code> level logs to a file, the following configuration could be used:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Logging</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Sinks</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Stdout</span>
@@ -201,17 +210,135 @@ to. Valid options are <em>Stdout</em>, <em>File</em>, and <em>Remote</em>. Sinks
 this can result in a significant amount of traffic, which can impact the
 simulation performance, in particular when using a low log level.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Level</p></td>
+<tr class="row-odd"><td><p>Format</p></td>
+<td><p>The output format used for log messages written by the sink. Valid
+options are <em>Simple</em> and <em>Json</em> (see
+<a class="reference internal" href="#sec-cfg-participant-logformat"><span class="std std-ref">Log message format</span></a>). Applies to
+sinks of type <em>Stdout</em> and <em>File</em>. If not set, sinks of type <em>File</em>
+default to <em>Json</em>, while all other sinks default to <em>Simple</em>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Level</p></td>
 <td><p>The minimum log level of a message to be logged by the sink. All messages
 with a lower log level are ignored. Valid options are <em>Critical</em>,
 <em>Error</em>, <em>Warn</em>, <em>Info</em>, <em>Debug</em>, <em>Trace</em>, and <em>Off</em>.</p></td>
 </tr>
-<tr class="row-even"><td><p>LogName</p></td>
-<td><p>The filename used by sinks of type <em>File</em>. The
-resulting filename is <code class="docutils literal notranslate"><span class="pre">&lt;LogName&gt;_&lt;Sanitized-Participant-Name&gt;_&lt;ISO-TimeStamp&gt;.txt</span></code>.</p></td>
+<tr class="row-odd"><td><p>LogName</p></td>
+<td><p>The filename used by sinks of type <em>File</em>. The resulting filename is
+<code class="docutils literal notranslate"><span class="pre">&lt;LogName&gt;_&lt;Sanitized-Participant-Name&gt;_&lt;ISO-TimeStamp&gt;.txt</span></code> for the
+<em>Simple</em> format and
+<code class="docutils literal notranslate"><span class="pre">&lt;LogName&gt;_&lt;Sanitized-Participant-Name&gt;_&lt;ISO-TimeStamp&gt;.jsonl</span></code> for the
+<em>Json</em> format.</p></td>
+</tr>
+<tr class="row-even"><td><p>Experimental: EnabledTopics</p></td>
+<td><p>Optional allow-list of logging topics for this sink. If this list is non-empty,
+only messages with topics from this list are written to the sink.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Experimental: DisabledTopics</p></td>
+<td><p>Optional block-list of logging topics for this sink. Disabled topics are always
+filtered out, even if they are also listed in <em>EnabledTopics</em>.</p></td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="log-message-format">
+<span id="sec-cfg-participant-logformat"></span><h2><a class="toc-backref" href="#id5" role="doc-backlink">Log message format</a><a class="headerlink" href="#log-message-format" title="Permalink to this heading"></a></h2>
+<p>The <em>Format</em> property of a sink controls how log messages are rendered.
+It applies to sinks of type <em>Stdout</em> and <em>File</em>.
+Sinks of type <em>Remote</em> always transmit the messages in the <em>Simple</em> format.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the <em>Format</em> property is not set explicitly, sinks of type <em>File</em> default to <em>Json</em>, while sinks of type <em>Stdout</em> default to <em>Simple</em>.</p>
+</div>
+<dl>
+<dt>Simple</dt><dd><p>Human-readable, single-line text output.
+This is the default for <em>Stdout</em> sinks.
+For <em>File</em> sinks, the messages are written to a <code class="docutils literal notranslate"><span class="pre">.txt</span></code> file.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[2026-07-09 11:59:50.287] [CanWriter] [trace] [TimeSync] Finished Simulation Step., ExecutionTime: 0.4058, VirtualTimeNS: 60000000
+</pre></div>
+</div>
+</dd>
+<dt>Json</dt><dd><p>One JSON object per line, which is convenient for automated processing of the log.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{&quot;ts&quot;:&quot;1783591190287458&quot;,&quot;log&quot;:&quot;CanWriter&quot;,&quot;lvl&quot;:&quot;trace&quot;, &quot;topic&quot;: &quot;TimeSync&quot;, &quot;msg&quot;: &quot;Finished Simulation Step.&quot;, &quot;kv&quot;: {&quot;ExecutionTime&quot;:&quot;0.4058&quot;,&quot;VirtualTimeNS&quot;:&quot;60000000&quot;} }
+</pre></div>
+</div>
+<p>Each entry contains the UNIX epoch timestamp in microseconds (<code class="docutils literal notranslate"><span class="pre">ts</span></code>), the participant name (<code class="docutils literal notranslate"><span class="pre">log</span></code>), the log level (<code class="docutils literal notranslate"><span class="pre">lvl</span></code>), and the message (<code class="docutils literal notranslate"><span class="pre">msg</span></code>).
+Depending on the message, the <code class="docutils literal notranslate"><span class="pre">topic</span></code> (see <a class="reference internal" href="#sec-cfg-participant-logtopics"><span class="std std-ref">logging topics</span></a>) and the optional field <code class="docutils literal notranslate"><span class="pre">kv</span></code> (structured key-value data) are added.
+For <em>File</em> sinks, the messages are written to a <code class="docutils literal notranslate"><span class="pre">.jsonl</span></code> file.</p>
+</dd>
+</dl>
+<p>The following example configures a <em>File</em> sink using the <em>Simple</em> format and a <em>Stdout</em> sink using the <em>Json</em> format:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Logging</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">Sinks</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">File</span>
+<span class="w">    </span><span class="nt">Format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Simple</span>
+<span class="w">    </span><span class="nt">Level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trace</span>
+<span class="w">    </span><span class="nt">LogName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ParticipantLog</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Stdout</span>
+<span class="w">    </span><span class="nt">Format</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Json</span>
+<span class="w">    </span><span class="nt">Level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Info</span>
+</pre></div>
+</div>
+</section>
+<section id="experimental-topic-based-sink-filtering">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Experimental: Topic-based sink filtering</a><a class="headerlink" href="#experimental-topic-based-sink-filtering" title="Permalink to this heading"></a></h2>
+<p>A topic classifies the origin of a log message (for example middleware internals, service controllers, or user-level logging).
+Topic filters can be configured per sink by using <em>EnabledTopics</em> and/or <em>DisabledTopics</em>.</p>
+<ul class="simple">
+<li><p>If <em>EnabledTopics</em> is empty or not set, all topics are allowed.</p></li>
+<li><p>If <em>EnabledTopics</em> is set, only listed topics are allowed.</p></li>
+<li><p><em>DisabledTopics</em> always has precedence and filters matching topics out.</p></li>
+<li><p>Topic names are parsed case-insensitively.</p></li>
+<li><p>User-level logging uses the <code class="docutils literal notranslate"><span class="pre">User</span></code> topic.</p></li>
+</ul>
+<p>Example:</p>
+<p>In the following example, only the user-level and <code class="docutils literal notranslate"><span class="pre">Ethernet</span></code> log messages are enabled:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Logging</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">Sinks</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Stdout</span>
+<span class="w">    </span><span class="nt">Level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trace</span>
+<span class="w">    </span><span class="nt">Experimental</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">EnabledTopics</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">User</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ethernet</span>
+</pre></div>
+</div>
+<p>With the next example, topics that produce verbose log messages at startup are disabled:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Logging</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">Sinks</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Stdout</span>
+<span class="w">    </span><span class="nt">Level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trace</span>
+<span class="w">    </span><span class="nt">Experimental</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">DisabledTopics</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Participant</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Asio</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ServiceDiscovery</span>
+</pre></div>
+</div>
+<p id="sec-cfg-participant-logtopics">The following topic names are currently assigned by SIL Kit components:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Asio</span></code>: Logging from middleware communication and connection handling.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Can</span></code>: Logging related to CAN services and controllers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Dashboard</span></code>: Logging from dashboard integration and dashboard clients.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ethernet</span></code>: Logging related to Ethernet services and controllers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Extension</span></code>: Logging from SIL Kit extension components.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Flexray</span></code>: Logging related to FlexRay services and controllers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LifeCycle</span></code>: Logging from lifecycle state transitions and lifecycle management.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Lin</span></code>: Logging related to LIN services and controllers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MessageTracing</span></code>: Logging from message tracing internals.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Metrics</span></code>: Logging from metrics collection and processing.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NetSim</span></code>: Logging from experimental network simulation components.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Participant</span></code>: Logging from participant-level internal functionality.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Pubsub</span></code>: Logging related to publish/subscribe data services.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RequestReply</span></code>: Logging related to internal request/reply coordination.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Rpc</span></code>: Logging related to RPC clients, servers, and discovery.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ServiceDiscovery</span></code>: Logging related to service discovery.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SystemMonitor</span></code>: Logging related to system monitor internals.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SystemState</span></code>: Logging related to system state tracking and monitoring.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TimeConfig</span></code>: Logging related to time synchronization configuration.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TimeSync</span></code>: Logging from runtime time synchronization.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Tracing</span></code>: Logging related to tracing, replay, and trace sinks.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">User</span></code>: Logging emitted by user application code.</p></li>
+</ul>
 </section>
 </section>
 
