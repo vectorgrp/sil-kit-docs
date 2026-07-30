@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Advanced &mdash; SIL Kit 5.0.6 documentation</title>
+  <title>Advanced &mdash; SIL Kit 5.0.7 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -36,7 +36,7 @@
 		SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.6
+		Version: 5.0.7
 	</div>
 	<br/>
 	
@@ -103,7 +103,7 @@
              
   <section id="advanced">
 <h1>Advanced<a class="headerlink" href="#advanced" title="Permalink to this heading"></a></h1>
-<p>This section shows how to use advanced tools like the <a class="reference external" href="https://vector.com/sil-kit-dashboard">SIL Kit Dashboard</a> to visualize simulations, in order to identitfy participant misconfigurations, detect system misbehavior or analyze participant performance.</p>
+<p>This section shows how to use advanced tools like the <a class="reference external" href="https://vector.com/sil-kit-dashboard">SIL Kit Dashboard</a> to visualize simulations, in order to identify participant misconfigurations, detect system misbehavior or analyze participant performance.</p>
 <section id="getting-started-with-the-dashboard">
 <h2>Getting Started with the dashboard<a class="headerlink" href="#getting-started-with-the-dashboard" title="Permalink to this heading"></a></h2>
 <p>The dashboard is a freeware application that collects and visualizes SIL Kit simulation data.
@@ -116,7 +116,7 @@ Please refer to the SIL Kit Dashboard documentation for updated instructions.</p
 The <code class="docutils literal notranslate"><span class="pre">sil-kit-registry</span></code> executable supports the <code class="docutils literal notranslate"><span class="pre">--dashboard-uri</span> <span class="pre">https://1.2.3.4</span></code> command line flag and the registry’s configuration supports the <code class="docutils literal notranslate"><span class="pre">DashboardUri:</span> <span class="pre">https://1.2.3.4</span></code> declaration.
 Ensure that the registry is able to connect to the Dashboard when started, e.g. by verifying the log output.
 The registry’s configuration of <code class="docutils literal notranslate"><span class="pre">CollectFromRemotes:</span> <span class="pre">true</span></code> defaults to true – it can be disabled explicitly.</p></li>
-<li><p>Each participant that should be included in the dashboard visualization, must add a remot metric sink to its conifugration file:</p>
+<li><p>Each participant that should be included in the dashboard visualization, must add a remote metric sink to its configuration file:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">Experimental</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">Metrics</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">Sinks</span><span class="p">:</span>
