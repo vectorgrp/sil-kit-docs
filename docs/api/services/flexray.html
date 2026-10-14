@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FlexRay Service API &mdash; SIL Kit 5.0.7 documentation</title>
+  <title>FlexRay Service API &mdash; SIL Kit 5.0.8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -36,7 +36,7 @@
 		SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.7
+		Version: 5.0.8
 	</div>
 	<br/>
 	
@@ -147,7 +147,7 @@
 <p>The FlexRay Service API provides an FlexRay bus abstraction through the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayControllerE" title="SilKit::Services::Flexray::IFlexrayController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IFlexrayController</span></code></a> interface.
 A FlexRay controller is created by calling <a class="reference internal" href="../participant.html#_CPPv4N6SilKit12IParticipant23CreateFlexrayControllerERKNSt6stringERKNSt6stringE" title="SilKit::IParticipant::CreateFlexrayController"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateFlexrayController</span></code></a> given a controller name and network
 name:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">flexrayController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateFlexrayController</span><span class="p">(</span><span class="s">&quot;FlexRay1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PowerTrain1&quot;</span><span class="p">);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">flexrayController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateFlexrayController</span><span class="p">(</span><span class="s">"FlexRay1"</span><span class="p">,</span><span class="w"> </span><span class="s">"PowerTrain1"</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>FlexRay controllers will only communicate within the same network.</p>
@@ -235,7 +235,7 @@ directly in a handler like the <code class="docutils literal notranslate"><span 
 <h3><a class="toc-backref" href="#id5" role="doc-backlink">Tx Buffer Update (Sending FlexRay Messages)</a><a class="headerlink" href="#tx-buffer-update-sending-flexray-messages" title="Permalink to this heading"></a></h3>
 <p>In each FlexRay cycle, data can be sent by using the <a class="reference internal" href="#_CPPv4N6SilKit8Services7Flexray18IFlexrayController14UpdateTxBufferERK21FlexrayTxBufferUpdate" title="SilKit::Services::Flexray::IFlexrayController::UpdateTxBuffer"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">UpdateTxBuffer()</span></code></a>. For this, an existing <code class="docutils literal notranslate"><span class="pre">txBufferIndex</span></code>,
 a <code class="docutils literal notranslate"><span class="pre">payload</span></code> and the <code class="docutils literal notranslate"><span class="pre">payloadDataValid</span></code> flag must be provided:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">payloadString</span><span class="p">{</span><span class="s">&quot;FlexRay message&quot;</span><span class="p">};</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">payloadString</span><span class="p">{</span><span class="s">"FlexRay message"</span><span class="p">};</span>
 
 <span class="n">FlexrayTxBufferUpdate</span><span class="w"> </span><span class="n">update</span><span class="p">;</span>
 <span class="n">update</span><span class="p">.</span><span class="n">payload</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">payloadString</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>

@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Custom Network Simulator &mdash; SIL Kit 5.0.7 documentation</title>
+  <title>Custom Network Simulator &mdash; SIL Kit 5.0.8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -36,7 +36,7 @@
 		SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.7
+		Version: 5.0.8
 	</div>
 	<br/>
 	
@@ -113,7 +113,7 @@
            <div itemprop="articleBody">
              
   <section id="custom-network-simulator">
-<h1>Custom Network Simulator<a class="headerlink" href="#custom-network-simulator" title="Permalink to this heading"></a></h1>
+<span id="chap-custom-netsim"></span><h1>Custom Network Simulator<a class="headerlink" href="#custom-network-simulator" title="Permalink to this heading"></a></h1>
 <p id="sec-sil-kit-netsim">With the Network Simulator API, a custom network simulation for CAN, LIN, Ethernet or Flexray is made accessible.
 The core concept is that all controller communication is redirected to a network simulator participant who performs the detailed simulation and is responsible for the final message distribution.
 The scope of the Network Simulator API is to manage the message flow for incoming and outgoing messages, not to perform the simulation logic.</p>
@@ -162,8 +162,8 @@ Only one network simulator per participant is allowed:</p>
 </div>
 <p>On the <a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17INetworkSimulatorE" title="SilKit::Experimental::NetworkSimulation::INetworkSimulator"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">INetworkSimulator</span></code></a> instance, simulated networks can be registered.
 This affects controller of the given type in the whole SIL Kit simulation, if their configured network name and type matches.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">mySimulatedCanNetwork</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">MySimulatedCanNetwork</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;CAN1&quot;</span><span class="p">);</span>
-<span class="n">networkSimulator</span><span class="o">-&gt;</span><span class="n">SimulateNetwork</span><span class="p">(</span><span class="s">&quot;CAN1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">SimulatedNetworkType</span><span class="o">::</span><span class="n">CAN</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">mySimulatedCanNetwork</span><span class="p">));</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">mySimulatedCanNetwork</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">MySimulatedCanNetwork</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"CAN1"</span><span class="p">);</span>
+<span class="n">networkSimulator</span><span class="o">-&gt;</span><span class="n">SimulateNetwork</span><span class="p">(</span><span class="s">"CAN1"</span><span class="p">,</span><span class="w"> </span><span class="n">SimulatedNetworkType</span><span class="o">::</span><span class="n">CAN</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">mySimulatedCanNetwork</span><span class="p">));</span>
 </pre></div>
 </div>
 <p>The instance <code class="docutils literal notranslate"><span class="pre">mySimulatedCanNetwork</span></code> passed in <a class="reference internal" href="#_CPPv4N6SilKit12Experimental17NetworkSimulation17INetworkSimulator15SimulateNetworkERKNSt6stringE20SimulatedNetworkTypeNSt10unique_ptrI17ISimulatedNetworkEE" title="SilKit::Experimental::NetworkSimulation::INetworkSimulator::SimulateNetwork"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SimulateNetwork</span></code></a> represents a specific, named simulated network.

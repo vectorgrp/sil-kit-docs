@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Version 3.xx &mdash; SIL Kit 5.0.7 documentation</title>
+  <title>Version 3.xx &mdash; SIL Kit 5.0.8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -36,7 +36,7 @@
 		SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.7
+		Version: 5.0.8
 	</div>
 	<br/>
 	
@@ -63,7 +63,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../licenses/license.html">Licenses</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../overview.html">Changelog</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="latest.html">[5.0.7] - 2026-08-03</a></li>
+<li class="toctree-l2"><a class="reference internal" href="latest.html">[5.0.8] - 2026-10-13</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5.0.7.html">[5.0.7] - 2026-08-03</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5.0.6.html">[5.0.6] - 2026-06-11</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5.0.5.html">[5.0.5] - 2026-05-21</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5.0.4.html">[5.0.4] - 2026-03-27</a></li>
@@ -809,7 +810,7 @@ root directory of <code class="docutils literal notranslate"><span class="pre">s
 <li><p>Packages are now named <code class="docutils literal notranslate"><span class="pre">SilKit-X.Y.Z-tool-platform.zip</span></code>.</p></li>
 <li><p>C++ namespaces were renamed:</p>
 <table class="docutils align-default" id="id171">
-<caption><span class="caption-number">Table 30 </span><span class="caption-text">: C++ namespace changes</span><a class="headerlink" href="#id171" title="Permalink to this table"></a></caption>
+<caption><span class="caption-number">Table 31 </span><span class="caption-text">: C++ namespace changes</span><a class="headerlink" href="#id171" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -912,7 +913,7 @@ See  <a class="reference internal" href="../../utilities/utilities.html"><span c
 </li>
 <li><p>The timestamps for received events is now dependent on the synchronization mode of the sender and the receiver</p>
 <table class="docutils align-default" id="id172">
-<caption><span class="caption-number">Table 31 </span><span class="caption-text">: Message timestamp by synchronization mode</span><a class="headerlink" href="#id172" title="Permalink to this table"></a></caption>
+<caption><span class="caption-number">Table 32 </span><span class="caption-text">: Message timestamp by synchronization mode</span><a class="headerlink" href="#id172" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 20.0%" />
 <col style="width: 40.0%" />
@@ -3512,13 +3513,13 @@ The typedef <code class="docutils literal notranslate"><span class="pre">ib::mw:
 <ul class="simple">
 <li><p>old:</p></li>
 </ul>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;ib/mw/EndpointAddress.hpp&quot;</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">"ib/mw/EndpointAddress.hpp"</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>new:</p></li>
 </ul>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;ib/mw/ParticipantId.hpp&quot;</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">"ib/mw/ParticipantId.hpp"</span>
 </pre></div>
 </div>
 </li>
@@ -4342,13 +4343,13 @@ All participants announce and register their services upon connecting to the reg
 <ul class="simple">
 <li><p>old:</p></li>
 </ul>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">comAdapter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ib</span><span class="o">::</span><span class="n">CreateComAdapter</span><span class="p">(</span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ParticipantName&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">domainId</span><span class="p">);</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">comAdapter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ib</span><span class="o">::</span><span class="n">CreateComAdapter</span><span class="p">(</span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="s">"ParticipantName"</span><span class="p">,</span><span class="w"> </span><span class="n">domainId</span><span class="p">);</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>new:</p></li>
 </ul>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ib</span><span class="o">::</span><span class="n">CreateSimulationParticipant</span><span class="p">(</span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ParticipantName&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">domainId</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ib</span><span class="o">::</span><span class="n">CreateSimulationParticipant</span><span class="p">(</span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="s">"ParticipantName"</span><span class="p">,</span><span class="w"> </span><span class="n">domainId</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
 </pre></div>
 </div>
 <ul>
@@ -4397,49 +4398,49 @@ it contains blocks for <code class="docutils literal notranslate"><span class="p
 <ul>
 <li><p>Sample of the new Network Simulator format:</p>
 <div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;SchemaVersion&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;Description&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Small sample config with Link names from the VIB Demos&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;Switches&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"SchemaVersion"</span><span class="o">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"Description"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Small sample config with Link names from the VIB Demos"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"Switches"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;Name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;FrontSwitch&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;Ports&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">"Name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"FrontSwitch"</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">"Ports"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;Name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Port0&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="s2">&quot;VlanIds&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">],</span>
-<span class="w">                    </span><span class="s2">&quot;Network&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;FS-Port0&quot;</span>
+<span class="w">                    </span><span class="s2">"Name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Port0"</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">"VlanIds"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">],</span>
+<span class="w">                    </span><span class="s2">"Network"</span><span class="o">:</span><span class="w"> </span><span class="s2">"FS-Port0"</span>
 <span class="w">                </span><span class="p">},</span>
 <span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="s2">&quot;Name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Port1&quot;</span><span class="p">,</span>
-<span class="w">                    </span><span class="s2">&quot;VlanIds&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">],</span>
-<span class="w">                    </span><span class="s2">&quot;Network&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;FS-Port1&quot;</span>
+<span class="w">                    </span><span class="s2">"Name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Port1"</span><span class="p">,</span>
+<span class="w">                    </span><span class="s2">"VlanIds"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">],</span>
+<span class="w">                    </span><span class="s2">"Network"</span><span class="o">:</span><span class="w"> </span><span class="s2">"FS-Port1"</span>
 <span class="w">                </span><span class="p">}</span>
 <span class="w">            </span><span class="p">]</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">],</span>
-<span class="w">    </span><span class="s2">&quot;SimulatedNetworks&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"SimulatedNetworks"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;Name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;CAN1&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;CAN&quot;</span>
+<span class="w">            </span><span class="s2">"Name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"CAN1"</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">"Type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"CAN"</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;Name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;LIN1&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;LIN&quot;</span>
+<span class="w">            </span><span class="s2">"Name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"LIN1"</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">"Type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"LIN"</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;Name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;FlexRay1&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;FlexRay&quot;</span>
+<span class="w">            </span><span class="s2">"Name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"FlexRay1"</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">"Type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"FlexRay"</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;Name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ETH1&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Ethernet&quot;</span>
+<span class="w">            </span><span class="s2">"Name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"ETH1"</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">"Type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Ethernet"</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;Name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;FS-Port0&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Ethernet&quot;</span>
+<span class="w">            </span><span class="s2">"Name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"FS-Port0"</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">"Type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Ethernet"</span>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="s2">&quot;Name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;FS-Port1&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="s2">&quot;Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Ethernet&quot;</span>
+<span class="w">            </span><span class="s2">"Name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"FS-Port1"</span><span class="p">,</span>
+<span class="w">            </span><span class="s2">"Type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Ethernet"</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">]</span>
 <span class="p">}</span>
@@ -5447,17 +5448,17 @@ For backward compatibility the old configuration syntax is still supported.
 (AFTMAGT-277).</p>
 <ul>
 <li><p>old:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;SimulationSetup&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;Participants&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">"SimulationSetup"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"Participants"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">         </span><span class="p">{</span>
-<span class="w">             </span><span class="s2">&quot;Name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;NetworkSimulator&quot;</span><span class="p">,</span>
-<span class="w">             </span><span class="s2">&quot;NetworkSimulators&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;NetSim1&quot;</span><span class="w"> </span><span class="p">]</span>
+<span class="w">             </span><span class="s2">"Name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"NetworkSimulator"</span><span class="p">,</span>
+<span class="w">             </span><span class="s2">"NetworkSimulators"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"NetSim1"</span><span class="w"> </span><span class="p">]</span>
 <span class="w">         </span><span class="p">}</span>
 <span class="w">    </span><span class="p">],</span>
-<span class="w">    </span><span class="s2">&quot;NetworkSimulators&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"NetworkSimulators"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">         </span><span class="p">{</span>
-<span class="w">             </span><span class="s2">&quot;Name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;NetSim1&quot;</span><span class="p">,</span>
-<span class="w">             </span><span class="s2">&quot;SimulatedLinks&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[...]</span>
+<span class="w">             </span><span class="s2">"Name"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"NetSim1"</span><span class="p">,</span>
+<span class="w">             </span><span class="s2">"SimulatedLinks"</span><span class="o">:</span><span class="w"> </span><span class="p">[...]</span>
 <span class="w">         </span><span class="p">}</span>
 <span class="w">    </span><span class="p">]</span>
 <span class="w"> </span><span class="p">}</span>
@@ -5465,14 +5466,14 @@ For backward compatibility the old configuration syntax is still supported.
 </div>
 </li>
 <li><p>new:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;SimulationSetup&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="s2">&quot;Participants&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">"SimulationSetup"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"Participants"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">         </span><span class="p">{</span>
-<span class="w">             </span><span class="s2">&quot;Name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;NetworkSimulator&quot;</span><span class="p">,</span>
-<span class="w">             </span><span class="s2">&quot;NetworkSimulators&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">             </span><span class="s2">"Name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"NetworkSimulator"</span><span class="p">,</span>
+<span class="w">             </span><span class="s2">"NetworkSimulators"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">                 </span><span class="p">{</span>
-<span class="w">                     </span><span class="s2">&quot;Name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;NetSim1&quot;</span><span class="p">,</span>
-<span class="w">                     </span><span class="s2">&quot;SimulatedLinks&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[...]</span>
+<span class="w">                     </span><span class="s2">"Name"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"NetSim1"</span><span class="p">,</span>
+<span class="w">                     </span><span class="s2">"SimulatedLinks"</span><span class="o">:</span><span class="w"> </span><span class="p">[...]</span>
 <span class="w">                 </span><span class="p">}</span>
 <span class="w">             </span><span class="p">]</span>
 <span class="w">         </span><span class="p">}</span>
@@ -5609,17 +5610,17 @@ In particular, the JSON type of DigitalIoPort, AnalogIoPort, PwmPort,
 PatternPort, and GenericSubscriber were changed:</p>
 <ul>
 <li><p>old:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Port-Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;PortName&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;OtherPort&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">...]</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">"Port-Type"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"PortName"</span><span class="p">,</span><span class="w"> </span><span class="s2">"OtherPort"</span><span class="p">,</span><span class="w"> </span><span class="p">...]</span>
 </pre></div>
 </div>
 </li>
 <li><p>new:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Port-Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">"Port-Type"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">     </span><span class="p">{</span>
-<span class="w">         </span><span class="s2">&quot;Name&quot;</span><span class="o">:</span><span class="w">  </span><span class="s2">&quot;PortName&quot;</span>
+<span class="w">         </span><span class="s2">"Name"</span><span class="o">:</span><span class="w">  </span><span class="s2">"PortName"</span>
 <span class="w">     </span><span class="p">},</span>
 <span class="w">     </span><span class="p">{</span>
-<span class="w">         </span><span class="s2">&quot;Name&quot;</span><span class="o">:</span><span class="w">  </span><span class="s2">&quot;OtherPort&quot;</span>
+<span class="w">         </span><span class="s2">"Name"</span><span class="o">:</span><span class="w">  </span><span class="s2">"OtherPort"</span>
 <span class="w">     </span><span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
@@ -5647,18 +5648,18 @@ This usage has been superseded by the new configuration mechanism:</p>
 <ul>
 <li><p>old:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">simulationSetup</span>
-<span class="w">    </span><span class="p">.</span><span class="n">AddParticipant</span><span class="p">(</span><span class="s">&quot;P1&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">AddEthernet</span><span class="p">(</span><span class="s">&quot;ETH1&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">WithPcapFile</span><span class="p">(</span><span class="s">&quot;output filename&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">.</span><span class="n">AddParticipant</span><span class="p">(</span><span class="s">"P1"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">AddEthernet</span><span class="p">(</span><span class="s">"ETH1"</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">WithPcapFile</span><span class="p">(</span><span class="s">"output filename"</span><span class="p">);</span>
 </pre></div>
 </div>
 </li>
 <li><p>new:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">simulationSetup</span><span class="p">.</span><span class="n">AddParticipant</span><span class="p">(</span><span class="s">&quot;P1&quot;</span><span class="p">);</span>
-<span class="n">participant</span><span class="o">-&gt;</span><span class="n">AddEthernet</span><span class="p">(</span><span class="s">&quot;ETH1&quot;</span><span class="p">).</span><span class="n">WithTraceSink</span><span class="p">(</span><span class="s">&quot;EthSink&quot;</span><span class="p">);</span>
-<span class="n">participant</span><span class="o">-&gt;</span><span class="n">AddTraceSink</span><span class="p">(</span><span class="s">&quot;EthSink&quot;</span><span class="p">)</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">simulationSetup</span><span class="p">.</span><span class="n">AddParticipant</span><span class="p">(</span><span class="s">"P1"</span><span class="p">);</span>
+<span class="n">participant</span><span class="o">-&gt;</span><span class="n">AddEthernet</span><span class="p">(</span><span class="s">"ETH1"</span><span class="p">).</span><span class="n">WithTraceSink</span><span class="p">(</span><span class="s">"EthSink"</span><span class="p">);</span>
+<span class="n">participant</span><span class="o">-&gt;</span><span class="n">AddTraceSink</span><span class="p">(</span><span class="s">"EthSink"</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="n">WithType</span><span class="p">(</span><span class="n">TraceSink</span><span class="o">::</span><span class="n">Type</span><span class="o">::</span><span class="n">PcapFile</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">WithOutputPath</span><span class="p">(</span><span class="s">&quot;output filename.pcap&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">.</span><span class="n">WithOutputPath</span><span class="p">(</span><span class="s">"output filename.pcap"</span><span class="p">);</span>
 </pre></div>
 </div>
 </li>
@@ -5675,27 +5676,27 @@ fields. These fields will be removed from the JSON format and the Config
 Builder API in the future.</p>
 <ul>
 <li><p>old:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;EthernetControllers&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">"EthernetControllers"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;Name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ETH0&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;PcapFile&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;EthernetReader.pcap&quot;</span><span class="w"> </span><span class="p">]</span>
+<span class="w">        </span><span class="s2">"Name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"ETH0"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"PcapFile"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"EthernetReader.pcap"</span><span class="w"> </span><span class="p">]</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w"> </span><span class="p">]</span>
 </pre></div>
 </div>
 </li>
 <li><p>new:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;EthernetControllers&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="s2">"EthernetControllers"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="s2">&quot;Name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ETH0&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="s2">&quot;UseTraceSinks&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;EthernetSink&quot;</span>
+<span class="w">        </span><span class="s2">"Name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"ETH0"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"UseTraceSinks"</span><span class="o">:</span><span class="w"> </span><span class="s2">"EthernetSink"</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w"> </span><span class="p">]</span>
-<span class="w"> </span><span class="s2">&quot;TraceSinks&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w"> </span><span class="s2">"TraceSinks"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">     </span><span class="p">{</span>
-<span class="w">         </span><span class="s2">&quot;Name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;EthernetSink&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="s2">&quot;OutputPath&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;EthernetReader.pcap&quot;</span><span class="p">,</span>
-<span class="w">         </span><span class="s2">&quot;Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;PcapFile&quot;</span>
+<span class="w">         </span><span class="s2">"Name"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"EthernetSink"</span><span class="p">,</span>
+<span class="w">         </span><span class="s2">"OutputPath"</span><span class="o">:</span><span class="w"> </span><span class="s2">"EthernetReader.pcap"</span><span class="p">,</span>
+<span class="w">         </span><span class="s2">"Type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"PcapFile"</span>
 <span class="w">     </span><span class="p">}</span>
 <span class="w"> </span><span class="p">]</span>
 </pre></div>

@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Configuration &mdash; SIL Kit 5.0.7 documentation</title>
+  <title>Configuration &mdash; SIL Kit 5.0.8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -36,7 +36,7 @@
 		SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.7
+		Version: 5.0.8
 	</div>
 	<br/>
 	
@@ -146,13 +146,13 @@ This is done by creating a participant configuration object from a given file in
 </pre></div>
 </div>
 <p>Alternatively, the configuration object can be created directly from string:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">participantConfigText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">R</span><span class="s">&quot;</span><span class="dl">(</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">participantConfigText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">R</span><span class="s">"</span><span class="dl">(</span>
 <span class="s">Description: My participant configuration</span>
 <span class="s">Logging:</span>
 <span class="s">    Sinks:</span>
 <span class="s">    - Type: Stdout</span>
 <span class="s">      Level: Info</span>
-<span class="dl">)</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="dl">)</span><span class="s">"</span><span class="p">;</span>
 <span class="k">auto</span><span class="w"> </span><span class="n">participantConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">Config</span><span class="o">::</span><span class="n">ParticipantConfigurationFromString</span><span class="p">(</span><span class="n">participantConfigText</span><span class="p">);</span>
 <span class="k">auto</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">participantConfiguration</span><span class="p">,</span><span class="w"> </span><span class="n">participantName</span><span class="p">,</span><span class="w"> </span><span class="n">registryUri</span><span class="p">);</span>
 </pre></div>
@@ -183,7 +183,7 @@ contains multiple <code class="docutils literal notranslate"><span class="pre">-
 This most commonly happens when a stray <code class="docutils literal notranslate"><span class="pre">---</span></code> is placed in the middle of a file.</p>
 </div>
 <p>The outline of a participant configuration file is as follows:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;$schema&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;./ParticipantConfiguration.schema.json&quot;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="s">"$schema"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"./ParticipantConfiguration.schema.json"</span>
 <span class="nt">SchemaVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sample configuration with all root nodes</span>
 <span class="nt">ParticipantName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Participant1</span>

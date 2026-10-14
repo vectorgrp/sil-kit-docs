@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Entry Point and API Organization &mdash; SIL Kit 5.0.7 documentation</title>
+  <title>Entry Point and API Organization &mdash; SIL Kit 5.0.8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -36,7 +36,7 @@
 		SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.7
+		Version: 5.0.8
 	</div>
 	<br/>
 	
@@ -132,9 +132,9 @@
 <p>The main entry point of the C API is the function to obtain a <code class="docutils literal notranslate"><span class="pre">SilKit_Participant</span></code>:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">SilKit_ParticipantConfiguration</span><span class="o">*</span><span class="w"> </span><span class="n">participantConfiguration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 <span class="n">SilKit_Participant</span><span class="o">*</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">configString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;{ ... }&quot;</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">participantName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CanWriter&quot;</span><span class="p">;</span>
-<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">registryUri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;silkit://localhost:8500&quot;</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">configString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"{ ... }"</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">participantName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"CanWriter"</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">registryUri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"silkit://localhost:8500"</span><span class="p">;</span>
 <span class="n">SilKit_ReturnCode</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
 <span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit_ParticipantConfiguration_FromString</span><span class="p">(</span><span class="o">&amp;</span><span class="n">participantConfiguration</span><span class="p">,</span><span class="w"> </span><span class="n">configString</span><span class="p">);</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">SilKit_ReturnCode_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
