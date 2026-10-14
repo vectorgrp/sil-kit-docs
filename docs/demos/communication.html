@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Communication Protocols &mdash; SIL Kit 5.0.7 documentation</title>
+  <title>Communication Protocols &mdash; SIL Kit 5.0.8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -36,7 +36,7 @@
 		SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.7
+		Version: 5.0.8
 	</div>
 	<br/>
 	
@@ -128,31 +128,31 @@ This allows to separate the demo specific use case (e.g. how to use Ethernet wit
 <p>The following arguments are available for all demos described in this chapter:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">-h, --help                   | Get this help.</span>
 <span class="go">-n, --name &lt;name&gt;            | The participant name used to take part in the simulation.</span>
-<span class="go">                               Defaults to &#39;&lt;set by the individual demo&gt;&#39;.</span>
+<span class="go">                               Defaults to '&lt;set by the individual demo&gt;'.</span>
 <span class="go">-u, --registry-uri &lt;uri&gt;     | The registry URI to connect to.</span>
-<span class="go">                               Defaults to &#39;silkit://localhost:8500&#39;.</span>
+<span class="go">                               Defaults to 'silkit://localhost:8500'.</span>
 <span class="go">-l, --log &lt;level&gt;            | Log to stdout with level:</span>
-<span class="go">                               &#39;trace&#39;, &#39;debug&#39;, &#39;warn&#39;, &#39;info&#39;, &#39;error&#39;, &#39;critical&#39; or &#39;off&#39;.</span>
-<span class="go">                               Defaults to &#39;info&#39;.</span>
-<span class="go">                               Cannot be used together with &#39;--config&#39;.</span>
+<span class="go">                               'trace', 'debug', 'warn', 'info', 'error', 'critical' or 'off'.</span>
+<span class="go">                               Defaults to 'info'.</span>
+<span class="go">                               Cannot be used together with '--config'.</span>
 <span class="go">-c, --config &lt;filePath&gt;      | Path to the Participant configuration YAML or JSON file.</span>
-<span class="go">                               Cannot be used together with &#39;--log&#39;.</span>
+<span class="go">                               Cannot be used together with '--log'.</span>
 <span class="go">                               Will always run as fast as possible.</span>
 <span class="go">-a, --async                  | Run without time synchronization mode.</span>
-<span class="go">                               Cannot be used together with &#39;--sim-step-duration&#39;.</span>
+<span class="go">                               Cannot be used together with '--sim-step-duration'.</span>
 <span class="go">-A, --autonomous             | Start the simulation autonomously.</span>
 <span class="go">                               Without this flag, a coordinated start is performed</span>
 <span class="go">                               which requires the SIL Kit System Controller.</span>
 <span class="go">-d, --sim-step-duration &lt;us&gt; | The duration of a simulation step in microseconds.</span>
 <span class="go">                               Defaults to &lt;set by the individual demo&gt;us.</span>
-<span class="go">                               Cannot be used together with &#39;--async&#39;.</span>
+<span class="go">                               Cannot be used together with '--async'.</span>
 <span class="go">-f, --fast                   | Run the simulation as fast as possible.</span>
 <span class="go">                               By default, the execution is slowed down to two work cycles per second.</span>
-<span class="go">                               Cannot be used together with &#39;--config&#39;.</span>
+<span class="go">                               Cannot be used together with '--config'.</span>
 <span class="go">-s, --sleep &lt;ms&gt;             | The sleep duration per work cycle in milliseconds.</span>
 <span class="go">                               Default is no sleeping.</span>
 <span class="go">                               Using this options overrides the default execution slow down.</span>
-<span class="go">                               Cannot be used together with &#39;--fast&#39;.</span>
+<span class="go">                               Cannot be used together with '--fast'.</span>
 </pre></div>
 </div>
 <p>The default behavior of these options is:</p>
@@ -313,8 +313,8 @@ Includes a simple scheduling mechanism and demonstrates controller sleep / wakeu
 </ul>
 </dd>
 <dt>Sources</dt><dd><ul class="simple">
-<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/communication/Ethernet/LinMasterDemo.cpp">LinMasterDemo.cpp</a></p></li>
-<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/communication/Ethernet/LinSlaveDemo.cpp">LinSlaveDemo.cpp</a></p></li>
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/communication/Lin/LinMasterDemo.cpp">LinMasterDemo.cpp</a></p></li>
+<li><p><a class="reference external" href="https://github.com/vectorgrp/sil-kit/tree/main/Demos/communication/Lin/LinSlaveDemo.cpp">LinSlaveDemo.cpp</a></p></li>
 </ul>
 </dd>
 <dt>Requirements</dt><dd><ul class="simple">
@@ -524,7 +524,7 @@ Includes (de-)serialization of the function parameters.</p>
 <p>Further, the participant pairs of the demos share some common behavior like printing frames, status handling or small helper classes.
 This is located in the header <code class="docutils literal notranslate"><span class="pre">&lt;DemoName&gt;Common.hpp</span></code> of the respective demo folders.</p>
 <p>To constructed your own demo, use the following template:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;ApplicationBase.hpp&quot;</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">"ApplicationBase.hpp"</span>
 
 <span class="c1">// Inherit from ApplicationBase that provides common SIL Kit features</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">MyDemoParticipant</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ApplicationBase</span>
@@ -552,19 +552,19 @@ This is located in the header <code class="docutils literal notranslate"><span c
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">AddCommandLineArgs</span><span class="p">()</span><span class="w"> </span><span class="k">override</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="n">GetCommandLineParser</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Add</span><span class="o">&lt;</span><span class="n">CommandlineParser</span><span class="o">::</span><span class="n">Option</span><span class="o">&gt;</span><span class="p">(</span>
-<span class="w">            </span><span class="s">&quot;myOption&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;o&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;DefaultValue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;-o, --myOption &lt;value&gt;&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">{</span><span class="s">&quot;Description Line 1.&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Description Line 2&quot;</span><span class="p">});</span>
+<span class="w">            </span><span class="s">"myOption"</span><span class="p">,</span><span class="w"> </span><span class="s">"o"</span><span class="p">,</span><span class="w"> </span><span class="s">"DefaultValue"</span><span class="p">,</span><span class="w"> </span><span class="s">"-o, --myOption &lt;value&gt;"</span><span class="p">,</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">{</span><span class="s">"Description Line 1."</span><span class="p">,</span><span class="w"> </span><span class="s">"Description Line 2"</span><span class="p">});</span>
 
 <span class="w">        </span><span class="n">GetCommandLineParser</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Add</span><span class="o">&lt;</span><span class="n">CommandlineParser</span><span class="o">::</span><span class="n">Flag</span><span class="o">&gt;</span><span class="p">(</span>
-<span class="w">            </span><span class="s">&quot;myFlag&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;f&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;-f, --myFlag&quot;</span><span class="p">,</span>
-<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">{</span><span class="s">&quot;Description Line 1.&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Description Line 2&quot;</span><span class="p">});</span>
+<span class="w">            </span><span class="s">"myFlag"</span><span class="p">,</span><span class="w"> </span><span class="s">"f"</span><span class="p">,</span><span class="w"> </span><span class="s">"-f, --myFlag"</span><span class="p">,</span>
+<span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">{</span><span class="s">"Description Line 1."</span><span class="p">,</span><span class="w"> </span><span class="s">"Description Line 2"</span><span class="p">});</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="c1">// Evaluate the command line argument list</span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">EvaluateCommandLineArgs</span><span class="p">()</span><span class="w"> </span><span class="k">override</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">_myOption</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetCommandLineParser</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Get</span><span class="o">&lt;</span><span class="n">CommandlineParser</span><span class="o">::</span><span class="n">Option</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;myOption&quot;</span><span class="p">).</span><span class="n">Value</span><span class="p">();</span>
-<span class="w">        </span><span class="n">_myFlag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetCommandLineParser</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Get</span><span class="o">&lt;</span><span class="n">CommandlineParser</span><span class="o">::</span><span class="n">Flag</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;myFlag&quot;</span><span class="p">).</span><span class="n">Value</span><span class="p">();</span>
+<span class="w">        </span><span class="n">_myOption</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetCommandLineParser</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Get</span><span class="o">&lt;</span><span class="n">CommandlineParser</span><span class="o">::</span><span class="n">Option</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"myOption"</span><span class="p">).</span><span class="n">Value</span><span class="p">();</span>
+<span class="w">        </span><span class="n">_myFlag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetCommandLineParser</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Get</span><span class="o">&lt;</span><span class="n">CommandlineParser</span><span class="o">::</span><span class="n">Flag</span><span class="o">&gt;</span><span class="p">(</span><span class="s">"myFlag"</span><span class="p">).</span><span class="n">Value</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="c1">// Create all SIL Kit controllers here</span>
@@ -595,13 +595,13 @@ This is located in the header <code class="docutils literal notranslate"><span c
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">**</span><span class="w"> </span><span class="n">argv</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="n">Arguments</span><span class="w"> </span><span class="n">args</span><span class="p">;</span>
-<span class="w">    </span><span class="n">args</span><span class="p">.</span><span class="n">participantName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;MyDemoParticipant&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Always specify a meaningful default participant name</span>
+<span class="w">    </span><span class="n">args</span><span class="p">.</span><span class="n">participantName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"MyDemoParticipant"</span><span class="p">;</span><span class="w"> </span><span class="c1">// Always specify a meaningful default participant name</span>
 
 <span class="w">    </span><span class="n">MyDemoParticipant</span><span class="w"> </span><span class="n">app</span><span class="p">{</span><span class="n">args</span><span class="p">};</span>
 
 <span class="w">    </span><span class="c1">// This will trigger AddCommandLineArgs() and EvaluateCommandLineArgs()</span>
 <span class="w">    </span><span class="c1">// Optionally, a set of excluded default command line arguments can be specified</span>
-<span class="w">    </span><span class="n">app</span><span class="p">.</span><span class="n">SetupCommandLineArgs</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Description for the command line help&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">app</span><span class="p">.</span><span class="n">SetupCommandLineArgs</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="s">"Description for the command line help"</span><span class="p">);</span>
 
 <span class="w">    </span><span class="c1">// This will trigger CreateControllers(), InitControllers() and then cyclically DoWorkSync() or DoWorkAsync()</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">app</span><span class="p">.</span><span class="n">Run</span><span class="p">();</span>

@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LIN Service API &mdash; SIL Kit 5.0.7 documentation</title>
+  <title>LIN Service API &mdash; SIL Kit 5.0.8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -36,7 +36,7 @@
 		SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.7
+		Version: 5.0.8
 	</div>
 	<br/>
 	
@@ -160,7 +160,7 @@
 <h2><a class="toc-backref" href="#id1" role="doc-backlink">Using the LIN Controller</a><a class="headerlink" href="#using-the-lin-controller" title="Permalink to this heading"></a></h2>
 <p>The LIN Service API provides a LIN bus abstraction through the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinControllerE" title="SilKit::Services::Lin::ILinController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ILinController</span></code></a> interface.
 A LIN controller is created by calling <a class="reference internal" href="../participant.html#_CPPv4N6SilKit12IParticipant19CreateLinControllerERKNSt6stringERKNSt6stringE" title="SilKit::IParticipant::CreateLinController"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateLinController</span></code></a> given a controller and network name:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">linMasterController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateLinController</span><span class="p">(</span><span class="s">&quot;LinMaster&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;LIN1&quot;</span><span class="p">);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">linMasterController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateLinController</span><span class="p">(</span><span class="s">"LinMaster"</span><span class="p">,</span><span class="w"> </span><span class="s">"LIN1"</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>LIN controllers will only communicate within the same network.</p>
@@ -230,7 +230,7 @@ data, data length and the desired checksum model:</p>
 <span class="n">LinFrame</span><span class="w"> </span><span class="n">masterFrame</span><span class="p">;</span>
 <span class="n">masterFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">;</span>
 <span class="n">masterFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
-<span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;T&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;R&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'M'</span><span class="p">,</span><span class="w"> </span><span class="sc">'A'</span><span class="p">,</span><span class="w"> </span><span class="sc">'S'</span><span class="p">,</span><span class="w"> </span><span class="sc">'T'</span><span class="p">,</span><span class="w"> </span><span class="sc">'E'</span><span class="p">,</span><span class="w"> </span><span class="sc">'R'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
 <span class="n">masterFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
 
 <span class="c1">// initiate the frame transmission using the AUTOSAR interface</span>
@@ -264,7 +264,7 @@ configured as seen in <a class="reference internal" href="#sec-lin-initializatio
 <span class="n">LinFrame</span><span class="w"> </span><span class="n">updatedSlaveResponse</span><span class="p">;</span>
 <span class="n">updatedSlaveResponse</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span>
 <span class="n">updatedSlaveResponse</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
-<span class="n">updatedSlaveResponse</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;L&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="n">updatedSlaveResponse</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'S'</span><span class="p">,</span><span class="w"> </span><span class="sc">'L'</span><span class="p">,</span><span class="w"> </span><span class="sc">'A'</span><span class="p">,</span><span class="w"> </span><span class="sc">'V'</span><span class="p">,</span><span class="w"> </span><span class="sc">'E'</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
 <span class="n">updatedSlaveResponse</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
 <span class="n">slave</span><span class="o">-&gt;</span><span class="n">UpdateTxBuffer</span><span class="p">(</span><span class="n">updatedSlaveResponse</span><span class="p">);</span>
 
@@ -1038,7 +1038,7 @@ the master.</p>
 
 <span class="cm">Permission is hereby granted, free of charge, to any person obtaining</span>
 <span class="cm">a copy of this software and associated documentation files (the</span>
-<span class="cm">&quot;Software&quot;), to deal in the Software without restriction, including</span>
+<span class="cm">"Software"), to deal in the Software without restriction, including</span>
 <span class="cm">without limitation the rights to use, copy, modify, merge, publish,</span>
 <span class="cm">distribute, sublicense, and/or sell copies of the Software, and to</span>
 <span class="cm">permit persons to whom the Software is furnished to do so, subject to</span>
@@ -1047,7 +1047,7 @@ the master.</p>
 <span class="cm">The above copyright notice and this permission notice shall be</span>
 <span class="cm">included in all copies or substantial portions of the Software.</span>
 
-<span class="cm">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,</span>
+<span class="cm">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,</span>
 <span class="cm">EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF</span>
 <span class="cm">MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND</span>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
@@ -1065,7 +1065,7 @@ the master.</p>
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">;</span>
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;L&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'S'</span><span class="p">,</span><span class="w"> </span><span class="sc">'L'</span><span class="p">,</span><span class="w"> </span><span class="sc">'A'</span><span class="p">,</span><span class="w"> </span><span class="sc">'V'</span><span class="p">,</span><span class="w"> </span><span class="sc">'E'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
 <span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">Rx</span><span class="p">});</span>
 
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span>
@@ -1088,7 +1088,7 @@ the master.</p>
 <span class="n">LinFrame</span><span class="w"> </span><span class="n">masterFrame</span><span class="p">;</span>
 <span class="n">masterFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span>
 <span class="n">masterFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
-<span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;T&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;R&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'M'</span><span class="p">,</span><span class="w"> </span><span class="sc">'A'</span><span class="p">,</span><span class="w"> </span><span class="sc">'S'</span><span class="p">,</span><span class="w"> </span><span class="sc">'T'</span><span class="p">,</span><span class="w"> </span><span class="sc">'E'</span><span class="p">,</span><span class="w"> </span><span class="sc">'R'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
 <span class="n">masterFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
 <span class="n">masterConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">masterFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span>
 
@@ -1106,7 +1106,7 @@ the master.</p>
 <span class="w">    </span><span class="n">masterFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">;</span>
 <span class="w">    </span><span class="n">masterFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
 <span class="w">    </span><span class="n">masterFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
-<span class="w">    </span><span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;T&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;R&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="w">    </span><span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'M'</span><span class="p">,</span><span class="w"> </span><span class="sc">'A'</span><span class="p">,</span><span class="w"> </span><span class="sc">'S'</span><span class="p">,</span><span class="w"> </span><span class="sc">'T'</span><span class="p">,</span><span class="w"> </span><span class="sc">'E'</span><span class="p">,</span><span class="w"> </span><span class="sc">'R'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
 
 <span class="w">    </span><span class="c1">// AUTOSAR API</span>
 <span class="w">    </span><span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">masterFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseType</span><span class="o">::</span><span class="n">MasterResponse</span><span class="p">);</span>
@@ -1135,7 +1135,7 @@ the master.</p>
 
 <span class="cm">Permission is hereby granted, free of charge, to any person obtaining</span>
 <span class="cm">a copy of this software and associated documentation files (the</span>
-<span class="cm">&quot;Software&quot;), to deal in the Software without restriction, including</span>
+<span class="cm">"Software"), to deal in the Software without restriction, including</span>
 <span class="cm">without limitation the rights to use, copy, modify, merge, publish,</span>
 <span class="cm">distribute, sublicense, and/or sell copies of the Software, and to</span>
 <span class="cm">permit persons to whom the Software is furnished to do so, subject to</span>
@@ -1144,7 +1144,7 @@ the master.</p>
 <span class="cm">The above copyright notice and this permission notice shall be</span>
 <span class="cm">included in all copies or substantial portions of the Software.</span>
 
-<span class="cm">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,</span>
+<span class="cm">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,</span>
 <span class="cm">EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF</span>
 <span class="cm">MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND</span>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
@@ -1162,7 +1162,7 @@ the master.</p>
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">;</span>
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;L&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'S'</span><span class="p">,</span><span class="w"> </span><span class="sc">'L'</span><span class="p">,</span><span class="w"> </span><span class="sc">'A'</span><span class="p">,</span><span class="w"> </span><span class="sc">'V'</span><span class="p">,</span><span class="w"> </span><span class="sc">'E'</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
 <span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span>
 
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span>
@@ -1231,7 +1231,7 @@ LIN master.</p>
 
 <span class="cm">Permission is hereby granted, free of charge, to any person obtaining</span>
 <span class="cm">a copy of this software and associated documentation files (the</span>
-<span class="cm">&quot;Software&quot;), to deal in the Software without restriction, including</span>
+<span class="cm">"Software"), to deal in the Software without restriction, including</span>
 <span class="cm">without limitation the rights to use, copy, modify, merge, publish,</span>
 <span class="cm">distribute, sublicense, and/or sell copies of the Software, and to</span>
 <span class="cm">permit persons to whom the Software is furnished to do so, subject to</span>
@@ -1240,7 +1240,7 @@ LIN master.</p>
 <span class="cm">The above copyright notice and this permission notice shall be</span>
 <span class="cm">included in all copies or substantial portions of the Software.</span>
 
-<span class="cm">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,</span>
+<span class="cm">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,</span>
 <span class="cm">EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF</span>
 <span class="cm">MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND</span>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
@@ -1258,7 +1258,7 @@ LIN master.</p>
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span>
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;L&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'S'</span><span class="p">,</span><span class="w"> </span><span class="sc">'L'</span><span class="p">,</span><span class="w"> </span><span class="sc">'A'</span><span class="p">,</span><span class="w"> </span><span class="sc">'V'</span><span class="p">,</span><span class="w"> </span><span class="sc">'E'</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
 <span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span>
 
 <span class="n">slave1</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span>
@@ -1334,7 +1334,7 @@ response for the same LIN ID.</p>
 
 <span class="cm">Permission is hereby granted, free of charge, to any person obtaining</span>
 <span class="cm">a copy of this software and associated documentation files (the</span>
-<span class="cm">&quot;Software&quot;), to deal in the Software without restriction, including</span>
+<span class="cm">"Software"), to deal in the Software without restriction, including</span>
 <span class="cm">without limitation the rights to use, copy, modify, merge, publish,</span>
 <span class="cm">distribute, sublicense, and/or sell copies of the Software, and to</span>
 <span class="cm">permit persons to whom the Software is furnished to do so, subject to</span>
@@ -1343,7 +1343,7 @@ response for the same LIN ID.</p>
 <span class="cm">The above copyright notice and this permission notice shall be</span>
 <span class="cm">included in all copies or substantial portions of the Software.</span>
 
-<span class="cm">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,</span>
+<span class="cm">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,</span>
 <span class="cm">EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF</span>
 <span class="cm">MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND</span>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
@@ -1362,7 +1362,7 @@ response for the same LIN ID.</p>
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">;</span>
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;L&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'S'</span><span class="p">,</span><span class="w"> </span><span class="sc">'L'</span><span class="p">,</span><span class="w"> </span><span class="sc">'A'</span><span class="p">,</span><span class="w"> </span><span class="sc">'V'</span><span class="p">,</span><span class="w"> </span><span class="sc">'E'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
 <span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span>
 
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span>
@@ -1385,7 +1385,7 @@ response for the same LIN ID.</p>
 <span class="n">LinFrame</span><span class="w"> </span><span class="n">masterFrame</span><span class="p">;</span>
 <span class="n">masterFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span>
 <span class="n">masterFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
-<span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;T&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;R&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'M'</span><span class="p">,</span><span class="w"> </span><span class="sc">'A'</span><span class="p">,</span><span class="w"> </span><span class="sc">'S'</span><span class="p">,</span><span class="w"> </span><span class="sc">'T'</span><span class="p">,</span><span class="w"> </span><span class="sc">'E'</span><span class="p">,</span><span class="w"> </span><span class="sc">'R'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
 <span class="n">masterFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
 <span class="n">masterConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">masterFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span>
 
@@ -1403,7 +1403,7 @@ response for the same LIN ID.</p>
 <span class="w">    </span><span class="n">masterFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">;</span>
 <span class="w">    </span><span class="n">masterFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
 <span class="w">    </span><span class="n">masterFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
-<span class="w">    </span><span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;M&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;T&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;R&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="w">    </span><span class="n">masterFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'M'</span><span class="p">,</span><span class="w"> </span><span class="sc">'A'</span><span class="p">,</span><span class="w"> </span><span class="sc">'S'</span><span class="p">,</span><span class="w"> </span><span class="sc">'T'</span><span class="p">,</span><span class="w"> </span><span class="sc">'E'</span><span class="p">,</span><span class="w"> </span><span class="sc">'R'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
 
 <span class="w">    </span><span class="c1">// AUTOSAR API</span>
 <span class="w">    </span><span class="n">master</span><span class="o">-&gt;</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">masterFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseType</span><span class="o">::</span><span class="n">MasterResponse</span><span class="p">);</span>
@@ -1430,7 +1430,7 @@ this LIN ID.</p>
 
 <span class="cm">Permission is hereby granted, free of charge, to any person obtaining</span>
 <span class="cm">a copy of this software and associated documentation files (the</span>
-<span class="cm">&quot;Software&quot;), to deal in the Software without restriction, including</span>
+<span class="cm">"Software"), to deal in the Software without restriction, including</span>
 <span class="cm">without limitation the rights to use, copy, modify, merge, publish,</span>
 <span class="cm">distribute, sublicense, and/or sell copies of the Software, and to</span>
 <span class="cm">permit persons to whom the Software is furnished to do so, subject to</span>
@@ -1439,7 +1439,7 @@ this LIN ID.</p>
 <span class="cm">The above copyright notice and this permission notice shall be</span>
 <span class="cm">included in all copies or substantial portions of the Software.</span>
 
-<span class="cm">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,</span>
+<span class="cm">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,</span>
 <span class="cm">EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF</span>
 <span class="cm">MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND</span>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
@@ -1509,7 +1509,7 @@ responses for the same LIN ID.</p>
 
 <span class="cm">Permission is hereby granted, free of charge, to any person obtaining</span>
 <span class="cm">a copy of this software and associated documentation files (the</span>
-<span class="cm">&quot;Software&quot;), to deal in the Software without restriction, including</span>
+<span class="cm">"Software"), to deal in the Software without restriction, including</span>
 <span class="cm">without limitation the rights to use, copy, modify, merge, publish,</span>
 <span class="cm">distribute, sublicense, and/or sell copies of the Software, and to</span>
 <span class="cm">permit persons to whom the Software is furnished to do so, subject to</span>
@@ -1518,7 +1518,7 @@ responses for the same LIN ID.</p>
 <span class="cm">The above copyright notice and this permission notice shall be</span>
 <span class="cm">included in all copies or substantial portions of the Software.</span>
 
-<span class="cm">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,</span>
+<span class="cm">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,</span>
 <span class="cm">EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF</span>
 <span class="cm">MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND</span>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
@@ -1537,7 +1537,7 @@ responses for the same LIN ID.</p>
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span>
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;L&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'S'</span><span class="p">,</span><span class="w"> </span><span class="sc">'L'</span><span class="p">,</span><span class="w"> </span><span class="sc">'A'</span><span class="p">,</span><span class="w"> </span><span class="sc">'V'</span><span class="p">,</span><span class="w"> </span><span class="sc">'E'</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
 <span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span>
 
 <span class="n">slave1</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slaveConfig</span><span class="p">);</span>
@@ -1558,7 +1558,7 @@ responses for the same LIN ID.</p>
 <span class="n">slaveFrame2</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span>
 <span class="n">slaveFrame2</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
 <span class="n">slaveFrame2</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
-<span class="n">slaveFrame2</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;L&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="n">slaveFrame2</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'S'</span><span class="p">,</span><span class="w"> </span><span class="sc">'L'</span><span class="p">,</span><span class="w"> </span><span class="sc">'A'</span><span class="p">,</span><span class="w"> </span><span class="sc">'V'</span><span class="p">,</span><span class="w"> </span><span class="sc">'E'</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
 <span class="n">slaveConfig2</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame2</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span>
 
 <span class="n">slave2</span><span class="o">-&gt;</span><span class="n">Init</span><span class="p">(</span><span class="n">slave2Config</span><span class="p">);</span>
@@ -1618,7 +1618,7 @@ responses for the same LIN ID.</p>
 
 <span class="cm">Permission is hereby granted, free of charge, to any person obtaining</span>
 <span class="cm">a copy of this software and associated documentation files (the</span>
-<span class="cm">&quot;Software&quot;), to deal in the Software without restriction, including</span>
+<span class="cm">"Software"), to deal in the Software without restriction, including</span>
 <span class="cm">without limitation the rights to use, copy, modify, merge, publish,</span>
 <span class="cm">distribute, sublicense, and/or sell copies of the Software, and to</span>
 <span class="cm">permit persons to whom the Software is furnished to do so, subject to</span>
@@ -1627,7 +1627,7 @@ responses for the same LIN ID.</p>
 <span class="cm">The above copyright notice and this permission notice shall be</span>
 <span class="cm">included in all copies or substantial portions of the Software.</span>
 
-<span class="cm">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,</span>
+<span class="cm">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,</span>
 <span class="cm">EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF</span>
 <span class="cm">MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND</span>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
@@ -1696,7 +1696,7 @@ I.e., the situation corresponds to the end of the previous example.</p>
 
 <span class="cm">Permission is hereby granted, free of charge, to any person obtaining</span>
 <span class="cm">a copy of this software and associated documentation files (the</span>
-<span class="cm">&quot;Software&quot;), to deal in the Software without restriction, including</span>
+<span class="cm">"Software"), to deal in the Software without restriction, including</span>
 <span class="cm">without limitation the rights to use, copy, modify, merge, publish,</span>
 <span class="cm">distribute, sublicense, and/or sell copies of the Software, and to</span>
 <span class="cm">permit persons to whom the Software is furnished to do so, subject to</span>
@@ -1705,7 +1705,7 @@ I.e., the situation corresponds to the end of the previous example.</p>
 <span class="cm">The above copyright notice and this permission notice shall be</span>
 <span class="cm">included in all copies or substantial portions of the Software.</span>
 
-<span class="cm">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,</span>
+<span class="cm">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,</span>
 <span class="cm">EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF</span>
 <span class="cm">MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND</span>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
@@ -1747,7 +1747,7 @@ reside in the <cite>SilKit::Experimental::Services::Lin</cite> namespace and mig
 
 <span class="cm">Permission is hereby granted, free of charge, to any person obtaining</span>
 <span class="cm">a copy of this software and associated documentation files (the</span>
-<span class="cm">&quot;Software&quot;), to deal in the Software without restriction, including</span>
+<span class="cm">"Software"), to deal in the Software without restriction, including</span>
 <span class="cm">without limitation the rights to use, copy, modify, merge, publish,</span>
 <span class="cm">distribute, sublicense, and/or sell copies of the Software, and to</span>
 <span class="cm">permit persons to whom the Software is furnished to do so, subject to</span>
@@ -1756,7 +1756,7 @@ reside in the <cite>SilKit::Experimental::Services::Lin</cite> namespace and mig
 <span class="cm">The above copyright notice and this permission notice shall be</span>
 <span class="cm">included in all copies or substantial portions of the Software.</span>
 
-<span class="cm">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,</span>
+<span class="cm">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,</span>
 <span class="cm">EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF</span>
 <span class="cm">MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND</span>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
@@ -1796,7 +1796,7 @@ reside in the <cite>SilKit::Experimental::Services::Lin</cite> namespace and mig
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x11</span><span class="p">;</span>
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">checksumModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LinChecksumModel</span><span class="o">::</span><span class="n">Enhanced</span><span class="p">;</span>
 <span class="n">slaveFrame</span><span class="p">.</span><span class="n">dataLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
-<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;S&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;L&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;V&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;E&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
+<span class="n">slaveFrame</span><span class="p">.</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'S'</span><span class="p">,</span><span class="w"> </span><span class="sc">'L'</span><span class="p">,</span><span class="w"> </span><span class="sc">'A'</span><span class="p">,</span><span class="w"> </span><span class="sc">'V'</span><span class="p">,</span><span class="w"> </span><span class="sc">'E'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span>
 
 <span class="n">slaveConfig</span><span class="p">.</span><span class="n">frameResponses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">LinFrameResponse</span><span class="p">{</span><span class="n">slaveFrame</span><span class="p">,</span><span class="w"> </span><span class="n">LinFrameResponseMode</span><span class="o">::</span><span class="n">TxUnconditional</span><span class="p">});</span>
 
@@ -1920,6 +1920,15 @@ reside in the <cite>SilKit::Experimental::Services::Lin</cite> namespace and mig
 </dl>
 </dd></dl>
 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A dynamic response to a LIN header can only be delivered with certain timing restrictions:</p>
+<ul class="simple">
+<li><p>At time <strong>T</strong>, the LIN coordinator initiates a frame transmission by calling <a class="reference internal" href="#_CPPv4N6SilKit8Services3Lin14ILinController15SendFrameHeaderE5LinId" title="SilKit::Services::Lin::ILinController::SendFrameHeader"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendFrameHeader()</span></code></a>.</p></li>
+<li><p>At time <strong>T + dt</strong>, the LIN responder receives the LIN Header and calls <a class="reference internal" href="#_CPPv4N6SilKit12Experimental8Services3Lin19SendDynamicResponseEPN6SilKit8Services3Lin14ILinControllerERKN6SilKit8Services3Lin8LinFrameE" title="SilKit::Experimental::Services::Lin::SendDynamicResponse"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">SendDynamicResponse()</span></code></a>.</p></li>
+<li><p>The LIN coordinator will receive the response at <strong>T + 2dt</strong>, which may exceed the allowed timing window for the LIN frame.</p></li>
+</ul>
+</div>
 </section>
 </section>
 </section>

@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ethernet Service API &mdash; SIL Kit 5.0.7 documentation</title>
+  <title>Ethernet Service API &mdash; SIL Kit 5.0.8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -36,7 +36,7 @@
 		SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.7
+		Version: 5.0.8
 	</div>
 	<br/>
 	
@@ -155,7 +155,7 @@
 <p>The Ethernet Service API provides an Ethernet bus abstraction through the <a class="reference internal" href="#_CPPv4N6SilKit8Services8Ethernet19IEthernetControllerE" title="SilKit::Services::Ethernet::IEthernetController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">IEthernetController</span></code></a> interface.
 An Ethernet controller is created by calling <a class="reference internal" href="../participant.html#_CPPv4N6SilKit12IParticipant24CreateEthernetControllerERKNSt6stringERKNSt6stringE" title="SilKit::IParticipant::CreateEthernetController"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateEthernetController</span></code></a> given a controller name and network
 name:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">ethernetController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateEthernetController</span><span class="p">(</span><span class="s">&quot;Eth1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Eth&quot;</span><span class="p">);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">ethernetController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateEthernetController</span><span class="p">(</span><span class="s">"Eth1"</span><span class="p">,</span><span class="w"> </span><span class="s">"Eth"</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Ethernet controllers will only communicate within the same network.</p>
@@ -188,8 +188,8 @@ according to layer 2 of IEEE 802.3, with</p>
 <span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sourceAddress</span><span class="p">{</span><span class="w"> </span><span class="mh">0xf6</span><span class="p">,</span><span class="w"> </span><span class="mh">0x04</span><span class="p">,</span><span class="w"> </span><span class="mh">0x68</span><span class="p">,</span><span class="w"> </span><span class="mh">0x71</span><span class="p">,</span><span class="w"> </span><span class="mh">0xaa</span><span class="p">,</span><span class="w"> </span><span class="mh">0xc1</span><span class="w"> </span><span class="p">};</span>
 <span class="k">const</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="n">etherType</span><span class="p">{</span><span class="w"> </span><span class="mh">0x0800</span><span class="w"> </span><span class="p">};</span>
 
-<span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">message</span><span class="p">(</span><span class="s">&quot;Ensure that the payload is long enough to constitute&quot;</span>
-<span class="w">                    </span><span class="s">&quot; a valid Ethernet frame ----------------------------&quot;</span><span class="p">);</span>
+<span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">message</span><span class="p">(</span><span class="s">"Ensure that the payload is long enough to constitute"</span>
+<span class="w">                    </span><span class="s">" a valid Ethernet frame ----------------------------"</span><span class="p">);</span>
 <span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">payload</span><span class="p">{</span><span class="w"> </span><span class="n">message</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">message</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="p">};</span>
 
 <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">raw</span><span class="p">;</span>
@@ -666,7 +666,7 @@ interaction is shown sequentially to demonstrate cause and effect.</p>
 
 <span class="cm">Permission is hereby granted, free of charge, to any person obtaining</span>
 <span class="cm">a copy of this software and associated documentation files (the</span>
-<span class="cm">&quot;Software&quot;), to deal in the Software without restriction, including</span>
+<span class="cm">"Software"), to deal in the Software without restriction, including</span>
 <span class="cm">without limitation the rights to use, copy, modify, merge, publish,</span>
 <span class="cm">distribute, sublicense, and/or sell copies of the Software, and to</span>
 <span class="cm">permit persons to whom the Software is furnished to do so, subject to</span>
@@ -675,7 +675,7 @@ interaction is shown sequentially to demonstrate cause and effect.</p>
 <span class="cm">The above copyright notice and this permission notice shall be</span>
 <span class="cm">included in all copies or substantial portions of the Software.</span>
 
-<span class="cm">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,</span>
+<span class="cm">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,</span>
 <span class="cm">EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF</span>
 <span class="cm">MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND</span>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
@@ -710,8 +710,8 @@ interaction is shown sequentially to demonstrate cause and effect.</p>
 <span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;</span><span class="w"> </span><span class="n">etherType</span><span class="p">{</span><span class="mh">0x08</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00</span><span class="p">};</span>
 <span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">&gt;</span><span class="w"> </span><span class="n">frameCheckSequence</span><span class="p">{</span><span class="mh">0x00</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00</span><span class="p">};</span><span class="w">  </span><span class="c1">// optional</span>
 
-<span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">message</span><span class="p">{</span><span class="s">&quot;Ensure that the payload is at least 46 bytes to constitute &quot;</span>
-<span class="w">                    </span><span class="s">&quot;a valid Ethernet frame ------------------------------&quot;</span><span class="p">};</span>
+<span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">message</span><span class="p">{</span><span class="s">"Ensure that the payload is at least 46 bytes to constitute "</span>
+<span class="w">                    </span><span class="s">"a valid Ethernet frame ------------------------------"</span><span class="p">};</span>
 <span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">payload</span><span class="p">{</span><span class="n">message</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">message</span><span class="p">.</span><span class="n">end</span><span class="p">()};</span>
 
 <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">raw</span><span class="p">;</span>
@@ -753,7 +753,7 @@ interaction is shown sequentially to demonstrate cause and effect.</p>
 
 <span class="cm">Permission is hereby granted, free of charge, to any person obtaining</span>
 <span class="cm">a copy of this software and associated documentation files (the</span>
-<span class="cm">&quot;Software&quot;), to deal in the Software without restriction, including</span>
+<span class="cm">"Software"), to deal in the Software without restriction, including</span>
 <span class="cm">without limitation the rights to use, copy, modify, merge, publish,</span>
 <span class="cm">distribute, sublicense, and/or sell copies of the Software, and to</span>
 <span class="cm">permit persons to whom the Software is furnished to do so, subject to</span>
@@ -762,7 +762,7 @@ interaction is shown sequentially to demonstrate cause and effect.</p>
 <span class="cm">The above copyright notice and this permission notice shall be</span>
 <span class="cm">included in all copies or substantial portions of the Software.</span>
 
-<span class="cm">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,</span>
+<span class="cm">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,</span>
 <span class="cm">EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF</span>
 <span class="cm">MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND</span>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
@@ -809,7 +809,7 @@ interaction is shown sequentially to demonstrate cause and effect.</p>
 
 <span class="cm">Permission is hereby granted, free of charge, to any person obtaining</span>
 <span class="cm">a copy of this software and associated documentation files (the</span>
-<span class="cm">&quot;Software&quot;), to deal in the Software without restriction, including</span>
+<span class="cm">"Software"), to deal in the Software without restriction, including</span>
 <span class="cm">without limitation the rights to use, copy, modify, merge, publish,</span>
 <span class="cm">distribute, sublicense, and/or sell copies of the Software, and to</span>
 <span class="cm">permit persons to whom the Software is furnished to do so, subject to</span>
@@ -818,7 +818,7 @@ interaction is shown sequentially to demonstrate cause and effect.</p>
 <span class="cm">The above copyright notice and this permission notice shall be</span>
 <span class="cm">included in all copies or substantial portions of the Software.</span>
 
-<span class="cm">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,</span>
+<span class="cm">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,</span>
 <span class="cm">EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF</span>
 <span class="cm">MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND</span>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
@@ -842,8 +842,8 @@ interaction is shown sequentially to demonstrate cause and effect.</p>
 <span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="o">&gt;</span><span class="w"> </span><span class="n">destinationAddress</span><span class="p">{</span><span class="mh">0xf6</span><span class="p">,</span><span class="w"> </span><span class="mh">0x04</span><span class="p">,</span><span class="w"> </span><span class="mh">0x68</span><span class="p">,</span><span class="w"> </span><span class="mh">0x71</span><span class="p">,</span><span class="w"> </span><span class="mh">0xaa</span><span class="p">,</span><span class="w"> </span><span class="mh">0xc1</span><span class="p">};</span>
 <span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;</span><span class="w"> </span><span class="n">etherType</span><span class="p">{</span><span class="mh">0x08</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00</span><span class="p">};</span>
 
-<span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">message</span><span class="p">{</span><span class="s">&quot;Ensure that the payload is at least 46 bytes to constitute &quot;</span>
-<span class="w">                    </span><span class="s">&quot;a valid Ethernet frame ------------------------------&quot;</span><span class="p">};</span>
+<span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">message</span><span class="p">{</span><span class="s">"Ensure that the payload is at least 46 bytes to constitute "</span>
+<span class="w">                    </span><span class="s">"a valid Ethernet frame ------------------------------"</span><span class="p">};</span>
 <span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">payload</span><span class="p">{</span><span class="w"> </span><span class="n">message</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">message</span><span class="p">.</span><span class="n">end</span><span class="p">()</span><span class="w"> </span><span class="p">};</span>
 
 <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">raw</span><span class="p">;</span>
@@ -889,7 +889,7 @@ interaction is shown sequentially to demonstrate cause and effect.</p>
 
 <span class="c1">// ------------------------------------------------------------</span>
 <span class="c1">// Erroneous Transmission: EthernetTransmitStatus::InvalidFrameFormat</span>
-<span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">longMessage</span><span class="p">(</span><span class="mi">4000</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">);</span><span class="w"> </span><span class="c1">// much longer than the maximum allowed Ethernet frame size of 1534 bytes</span>
+<span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">longMessage</span><span class="p">(</span><span class="mi">4000</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">);</span><span class="w"> </span><span class="c1">// much longer than the maximum allowed Ethernet frame size of 1534 bytes</span>
 <span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">longPayload</span><span class="p">{</span><span class="n">longMessage</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">longMessage</span><span class="p">.</span><span class="n">end</span><span class="p">()};</span>
 
 <span class="n">raw</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>

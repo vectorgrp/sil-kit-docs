@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>!!! Getting Started as a SIL Kit Developer &mdash; SIL Kit 5.0.7 documentation</title>
+  <title>!!! Getting Started as a SIL Kit Developer &mdash; SIL Kit 5.0.8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -34,7 +34,7 @@
 		SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.7
+		Version: 5.0.8
 	</div>
 	<br/>
 	
@@ -88,24 +88,25 @@
            <div itemprop="articleBody">
              
   <section id="getting-started-as-a-sil-kit-developer">
-<h1><a class="toc-backref" href="#id4" role="doc-backlink">!!! Getting Started as a SIL Kit Developer</a><a class="headerlink" href="#getting-started-as-a-sil-kit-developer" title="Permalink to this heading"></a></h1>
+<h1><a class="toc-backref" href="#id5" role="doc-backlink">!!! Getting Started as a SIL Kit Developer</a><a class="headerlink" href="#getting-started-as-a-sil-kit-developer" title="Permalink to this heading"></a></h1>
 <nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#getting-started-as-a-sil-kit-developer" id="id4">!!! Getting Started as a SIL Kit Developer</a></p>
+<li><p><a class="reference internal" href="#getting-started-as-a-sil-kit-developer" id="id5">!!! Getting Started as a SIL Kit Developer</a></p>
 <ul>
-<li><p><a class="reference internal" href="#build-prerequisites" id="id5">!!! Build Prerequisites</a></p></li>
-<li><p><a class="reference internal" href="#build-configuration" id="id6">!!! Build Configuration</a></p></li>
-<li><p><a class="reference internal" href="#building-documentation" id="id7">!!! Building Documentation</a></p></li>
-<li><p><a class="reference internal" href="#packaging" id="id8">!!! Packaging</a></p></li>
-<li><p><a class="reference internal" href="#building-the-demos" id="id9">!!! Building the Demos</a></p></li>
-<li><p><a class="reference internal" href="#architecture" id="id10">!!! Architecture</a></p></li>
+<li><p><a class="reference internal" href="#build-prerequisites" id="id6">!!! Build Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#build-configuration" id="id7">!!! Build Configuration</a></p></li>
+<li><p><a class="reference internal" href="#building-documentation" id="id8">!!! Building Documentation</a></p></li>
+<li><p><a class="reference internal" href="#packaging" id="id9">!!! Packaging</a></p></li>
+<li><p><a class="reference internal" href="#building-the-demos" id="id10">!!! Building the Demos</a></p></li>
+<li><p><a class="reference internal" href="#running-the-tests" id="id11">!!! Running the Tests</a></p></li>
+<li><p><a class="reference internal" href="#architecture" id="id12">!!! Architecture</a></p></li>
 </ul>
 </li>
 </ul>
 </nav>
 <section id="build-prerequisites">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink">!!! Build Prerequisites</a><a class="headerlink" href="#build-prerequisites" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">!!! Build Prerequisites</a><a class="headerlink" href="#build-prerequisites" title="Permalink to this heading"></a></h2>
 <dl class="simple">
 <dt>To get started developing you’ll need the following prerequisites:</dt><dd><ul class="simple">
 <li><p><a class="reference external" href="https://git-scm.org">Git</a></p></li>
@@ -129,7 +130,7 @@
 </dl>
 </section>
 <section id="build-configuration">
-<h2><a class="toc-backref" href="#id6" role="doc-backlink">!!! Build Configuration</a><a class="headerlink" href="#build-configuration" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">!!! Build Configuration</a><a class="headerlink" href="#build-configuration" title="Permalink to this heading"></a></h2>
 <p>The SIL Kit build system is based on CMake and can be customized at configuration time.
 The following options are available:</p>
 <table class="docutils align-default" id="id2">
@@ -150,6 +151,9 @@ The following options are available:</p>
 <tr class="row-odd"><td><p>SILKIT_INSTALL_SOURCE</p></td>
 <td><p>Installs the source-tree (used for packaging releases). Implies SILKIT_BUILD_DOCS.</p></td>
 </tr>
+<tr class="row-even"><td><p>SILKIT_ENABLE_COVERAGE</p></td>
+<td><p>Instrument the build for gcov based code coverage (gcc, clang)</p></td>
+</tr>
 </tbody>
 </table>
 <p>In general, the options can be combined and set using the CMake GUI, your IDE, or command line:</p>
@@ -158,7 +162,7 @@ The following options are available:</p>
 </div>
 </section>
 <section id="building-documentation">
-<h2><a class="toc-backref" href="#id7" role="doc-backlink">!!! Building Documentation</a><a class="headerlink" href="#building-documentation" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">!!! Building Documentation</a><a class="headerlink" href="#building-documentation" title="Permalink to this heading"></a></h2>
 <p>Install the required Python dependencies:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">SilKit</span><span class="o">/</span><span class="n">ci</span><span class="o">/</span><span class="n">docker</span><span class="o">/</span><span class="n">docs_requirements</span><span class="o">.</span><span class="n">txt</span>
 <span class="n">pip3</span> <span class="n">install</span> <span class="n">pipenv</span>
@@ -175,7 +179,7 @@ The following options are available:</p>
 <p>Refer to <a class="reference internal" href="rst-help.html"><span class="doc">!!! How to write reStructuredText?</span></a> for guidelines on formatting the documentation.</p>
 </section>
 <section id="packaging">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink">!!! Packaging</a><a class="headerlink" href="#packaging" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">!!! Packaging</a><a class="headerlink" href="#packaging" title="Permalink to this heading"></a></h2>
 <p>SIL Kit uses CPack to generate the release distributions in ZIP form.
 It can be packaged using the <em>package</em> target:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">--</span><span class="n">build</span> <span class="o">.</span> <span class="o">--</span><span class="n">target</span> <span class="n">package</span>
@@ -222,7 +226,7 @@ Its contents are as follows:</p>
 </table>
 </section>
 <section id="building-the-demos">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">!!! Building the Demos</a><a class="headerlink" href="#building-the-demos" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">!!! Building the Demos</a><a class="headerlink" href="#building-the-demos" title="Permalink to this heading"></a></h2>
 <p>Building the demos from within the source tree is straight forward:
 just build the <code class="docutils literal notranslate"><span class="pre">Demos</span></code> CMake target.
 The individual demos are build as a dependency.</p>
@@ -233,8 +237,48 @@ before the demos are configured by CMake.
 Or by changing the <code class="docutils literal notranslate"><span class="pre">find_package(SilKit</span> <span class="pre">...</span> <span class="pre">PATHS</span> <span class="pre">path/to/SilKit)</span></code> statement directly
 in the <code class="docutils literal notranslate"><span class="pre">SilKit-Demos/CMakeLists.txt</span></code> directory.</p>
 </section>
+<section id="running-the-tests">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">!!! Running the Tests</a><a class="headerlink" href="#running-the-tests" title="Permalink to this heading"></a></h2>
+<p>Every test suite is registered with CTest and labeled by its kind:</p>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">Test Labels</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
+<tbody>
+<tr class="row-odd"><td><p>unit</p></td>
+<td><p>Tests of single components, using mocks where needed</p></td>
+</tr>
+<tr class="row-even"><td><p>integration</p></td>
+<td><p>Tests running a registry and several participants</p></td>
+</tr>
+<tr class="row-odd"><td><p>functional</p></td>
+<td><p>Long-running functional and performance tests, not run in CI</p></td>
+</tr>
+</tbody>
+</table>
+<p>Tests are selected by label:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ctest</span> <span class="o">--</span><span class="n">preset</span> <span class="n">debug</span> <span class="o">-</span><span class="n">L</span> <span class="s1">'unit|integration'</span>
+</pre></div>
+</div>
+<p>The integration tests using only the public API can also be built against a prebuilt SIL Kit package.
+<code class="docutils literal notranslate"><span class="pre">SILKIT_DIR</span></code> points to the directory containing <code class="docutils literal notranslate"><span class="pre">SilKitConfig.cmake</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">-</span><span class="n">S</span> <span class="n">SilKit</span><span class="o">/</span><span class="n">IntegrationTests</span> <span class="o">-</span><span class="n">B</span> <span class="n">_build</span><span class="o">/</span><span class="n">itests</span> <span class="o">-</span><span class="n">D</span> <span class="n">SILKIT_DIR</span><span class="o">=</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">SilKit</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">SilKit</span>
+<span class="n">cmake</span> <span class="o">--</span><span class="n">build</span> <span class="n">_build</span><span class="o">/</span><span class="n">itests</span>
+<span class="n">ctest</span> <span class="o">--</span><span class="n">test</span><span class="o">-</span><span class="nb">dir</span> <span class="n">_build</span><span class="o">/</span><span class="n">itests</span> <span class="o">-</span><span class="n">L</span> <span class="s1">'unit|integration'</span>
+</pre></div>
+</div>
+<p>Code coverage requires gcc and <a class="reference external" href="https://gcovr.com">gcovr</a>.
+The <code class="docutils literal notranslate"><span class="pre">coverage</span></code> preset is a Debug build with <code class="docutils literal notranslate"><span class="pre">SILKIT_ENABLE_COVERAGE</span></code> enabled:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cmake</span> <span class="o">--</span><span class="n">preset</span> <span class="n">coverage</span>
+<span class="n">cmake</span> <span class="o">--</span><span class="n">build</span> <span class="o">--</span><span class="n">preset</span> <span class="n">coverage</span>
+<span class="n">ctest</span> <span class="o">--</span><span class="n">preset</span> <span class="n">coverage</span> <span class="o">-</span><span class="n">L</span> <span class="s1">'unit|integration'</span>
+<span class="n">gcovr</span> <span class="o">--</span><span class="n">root</span> <span class="o">.</span> <span class="o">--</span><span class="nb">filter</span> <span class="n">SilKit</span><span class="o">/</span><span class="n">source</span><span class="o">/</span> <span class="o">--</span><span class="n">html</span><span class="o">-</span><span class="n">nested</span> <span class="n">_build</span><span class="o">/</span><span class="n">coverage</span><span class="o">/</span><span class="n">report</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+<p>The <em>Linux Coverage</em> GitHub workflow (<code class="docutils literal notranslate"><span class="pre">.github/workflows/coverage.yml</span></code>) runs weekly and on demand.
+It reports the line coverage per component for the unit tests alone and together with the integration tests,
+and excludes test sources, mocks and test utilities from the report.</p>
+</section>
 <section id="architecture">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">!!! Architecture</a><a class="headerlink" href="#architecture" title="Permalink to this heading"></a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">!!! Architecture</a><a class="headerlink" href="#architecture" title="Permalink to this heading"></a></h2>
 </section>
 </section>
 

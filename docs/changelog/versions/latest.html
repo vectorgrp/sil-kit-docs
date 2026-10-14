@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>[5.0.7] - 2026-08-03 &mdash; SIL Kit 5.0.7 documentation</title>
+  <title>[5.0.8] - 2026-10-13 &mdash; SIL Kit 5.0.8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -23,7 +23,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="[5.0.6] - 2026-06-11" href="5.0.6.html" />
+    <link rel="next" title="[5.0.7] - 2026-08-03" href="5.0.7.html" />
     <link rel="prev" title="Changelog" href="../overview.html" /> 
 </head>
 
@@ -36,7 +36,7 @@
 		SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.7
+		Version: 5.0.8
 	</div>
 	<br/>
 	
@@ -63,13 +63,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../../for-developers/versioning.html">Semantic Versioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../licenses/license.html">Licenses</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../overview.html">Changelog</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">[5.0.7] - 2026-08-03</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">[5.0.8] - 2026-10-13</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#note-on-the-sil-kit-msi-installer">Note on the SIL Kit MSI installer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-this-means-when-you-upgrade">What this means when you upgrade</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vector-branding-removed">“Vector” branding removed</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#added">Added</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#fixed">Fixed</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#changed">Changed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Fixed</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="5.0.7.html">[5.0.7] - 2026-08-03</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5.0.6.html">[5.0.6] - 2026-06-11</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5.0.5.html">[5.0.5] - 2026-05-21</a></li>
 <li class="toctree-l2"><a class="reference internal" href="5.0.4.html">[5.0.4] - 2026-03-27</a></li>
@@ -99,7 +104,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../contents.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../overview.html">Changelog</a></li>
-      <li class="breadcrumb-item active">[5.0.7] - 2026-08-03</li>
+      <li class="breadcrumb-item active">[5.0.8] - 2026-10-13</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/changelog/versions/latest.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -110,43 +115,137 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>[5.0.7] - 2026-08-03<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<h1>[5.0.8] - 2026-10-13<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<section id="note-on-the-sil-kit-msi-installer">
+<h2>Note on the SIL Kit MSI installer<a class="headerlink" href="#note-on-the-sil-kit-msi-installer" title="Permalink to this heading"></a></h2>
+<p>Up to and including SIL Kit 5.0.7, <code class="docutils literal notranslate"><span class="pre">SilKit-X.Y.Z.msi</span></code> installed <strong>per-user</strong> by default unless <code class="docutils literal notranslate"><span class="pre">ALLUSERS=1</span></code> was set explicitly. That was not intended. Starting with <strong>SIL Kit 5.0.8</strong>, the MSI installs <strong>per-machine</strong>.</p>
+<section id="what-this-means-when-you-upgrade">
+<h3>What this means when you upgrade<a class="headerlink" href="#what-this-means-when-you-upgrade" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>The 5.0.8 (or later) MSI can’t detect or remove an earlier per-user installation, so both will be on the system side by side.</p></li>
+<li><p>Upgrading still works. The new installer:</p>
+<ul>
+<li><p>removes the previous <code class="docutils literal notranslate"><span class="pre">VectorSilKitRegistry</span></code> service and installs the <code class="docutils literal notranslate"><span class="pre">SilKitRegistry</span></code> system service of the new version,</p></li>
+<li><p>sets the <code class="docutils literal notranslate"><span class="pre">SilKit_InstallDir</span></code> environment variable to the new installation, and</p></li>
+<li><p>updates the CMake <code class="docutils literal notranslate"><span class="pre">find_package</span></code> lookup to find the new installation.</p></li>
+</ul>
+</li>
+<li><p>Uninstalling the old version is <strong>optional</strong> and only cleans up. To do it, open <em>Settings &gt; Apps &gt; Installed apps</em> (or <em>Programs and Features</em>) <strong>as the user who originally installed it</strong> and uninstall the old SIL Kit entry.</p></li>
+</ul>
+</section>
+<section id="vector-branding-removed">
+<h3>“Vector” branding removed<a class="headerlink" href="#vector-branding-removed" title="Permalink to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Up to 5.0.7</p></th>
+<th class="head"><p>From 5.0.8</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Installation folder</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;ProgramFiles&gt;\Vector</span> <span class="pre">SIL</span> <span class="pre">Kit</span> <span class="pre">&lt;VERSION&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;ProgramFiles&gt;\SIL</span> <span class="pre">Kit</span> <span class="pre">&lt;VERSION&gt;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Registry system service</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">VectorSilKitRegistry</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SilKitRegistry</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Service config file</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;ProgramData&gt;\Vector</span> <span class="pre">SIL</span> <span class="pre">Kit\silkit-registry.yaml</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;ProgramData&gt;\SIL</span> <span class="pre">Kit\silkit-registry.yaml</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>The old <code class="docutils literal notranslate"><span class="pre">&lt;ProgramData&gt;\Vector</span> <span class="pre">SIL</span> <span class="pre">Kit</span></code> folder is not removed. If you customized <code class="docutils literal notranslate"><span class="pre">silkit-registry.yaml</span></code>, copy it to the new location.</p>
+</section>
+</section>
 <section id="added">
 <h2>Added<a class="headerlink" href="#added" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">config</span></code>: experimental topic based filtering of log messages per logging sink via <code class="docutils literal notranslate"><span class="pre">Experimental/EnabledTopics</span></code> and <code class="docutils literal notranslate"><span class="pre">Experimental/DisabledTopics</span></code>. Log messages are tagged with a topic that classifies their origin (e.g., <code class="docutils literal notranslate"><span class="pre">Asio</span></code>, <code class="docutils literal notranslate"><span class="pre">Ethernet</span></code>, <code class="docutils literal notranslate"><span class="pre">Participant</span></code>, <code class="docutils literal notranslate"><span class="pre">User</span></code>).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">docs</span></code>: added description of the experimental logging topics, including the list of topic names currently assigned by SIL Kit components.</p></li>
+<li><p>Add Integration Test for Timestamp Behavior</p></li>
+<li><p>Add Integration Test for Remote Logging</p></li>
+<li><p>The documentation now explains the delineation between fast (trivial) and accurate (detailed,
+network simulator based) simulation, including notes for LIN.</p></li>
+<li><p>The documentation now lists every third party dependency found in the source tree with its
+version and license on the Licenses page, followed by the full license text of each component
+that ships one.</p></li>
 </ul>
 </section>
 <section id="fixed">
 <h2>Fixed<a class="headerlink" href="#fixed" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">core</span></code>: on peer shutdown, the disconnected peer is removed from the pending subscription acknowledges. Otherwise, participants could wait indefinitely for acknowledges that will never arrive.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">config</span></code>: the participant configuration is now validated against the schema. Previously, only included configuration files were validated, the root configuration was not.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">config</span></code>: added missing entries to the participant configuration JSON schema and the schema validation (e.g., <code class="docutils literal notranslate"><span class="pre">Experimental/Metrics/UpdateInterval</span></code>, <code class="docutils literal notranslate"><span class="pre">RpcClients/RpcChannel</span></code>, <code class="docutils literal notranslate"><span class="pre">RpcServers/RpcChannel</span></code>).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">api</span></code>: the public header <code class="docutils literal notranslate"><span class="pre">silkit/services/logging/string_utils.hpp</span></code> no longer includes internal headers.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">config</span></code>: experimental <code class="docutils literal notranslate"><span class="pre">Experimental.TimeSynchronization.DynamicSimulationStep</span></code> to enable dynamic
-simulation step sizes, aligning each simulation step to the minimal step among all synchronized
-participants. Tri-state: <code class="docutils literal notranslate"><span class="pre">true</span></code> requests it for the whole simulation, <code class="docutils literal notranslate"><span class="pre">false</span></code> opts out, and leaving
-it unset follows the network. Off by default.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">logging</span></code>: Fixes a bug where some log messages (e.g., user-level log messages) were passed to fmt and caused exceptions when placeholder characters were present. These log messages are no longer passed to fmt.</p></li>
+<li><p>The SIL Kit Registry could hang on shutdown when a configured dashboard server accepted the
+connection but never answered. Dashboard requests now have connect, write and read deadlines, and
+an in-flight request is aborted after a grace period so that shutdown is always bounded.</p></li>
+<li><p>A malformed or unexpected response from the dashboard service no longer terminates the registry’s
+dashboard worker thread; unknown fields in the response are now ignored.</p></li>
+<li><p>The SIL Kit Registry could call into a destroyed dashboard instance while still serving traffic,
+because the dashboard was torn down before the registry that holds a pointer to it.</p></li>
+<li><p>If the dashboard service did not support the bulk-update endpoint, the registry’s dashboard worker
+thread stopped while events kept accumulating in an unbounded queue. The capability probe has been
+removed; the worker now keeps draining the queue and reports the failing requests instead. This
+also removes one request during registry startup.</p></li>
+<li><p>Dashboard events accumulated but not yet sent are now flushed when the registry shuts down,
+instead of being discarded.</p></li>
+<li><p>Log messages from the dashboard instance and its worker thread carry the <code class="docutils literal notranslate"><span class="pre">Dashboard</span></code> log topic
+again; they were previously emitted without a topic and so escaped topic filtering.</p></li>
+<li><p>Fix ITest_AsyncSimTask (test failed when run repeatedly)</p></li>
+<li><p>Fix the <code class="docutils literal notranslate"><span class="pre">TimeSyncService</span></code> warning about an exceeded soft time limit, which showed a literal <code class="docutils literal notranslate"><span class="pre">{}</span></code> instead of the
+measured timeout in milliseconds</p></li>
+<li><p>The third party license notices were incomplete. They now also cover components that are vendored
+inside another dependency, such as c4core inside the rapidyaml sources, and the components that
+ship inside the HTML documentation. <code class="docutils literal notranslate"><span class="pre">ThirdParty/LICENSES.rst</span></code> is generated from a software bill of
+materials and is the file the documentation shows, so the two can no longer disagree.</p></li>
+<li><p>The SIL Kit Registry silently listened on local domain sockets only when its listen URI contained
+an invalid or unresolvable host. It now fails to start with a configuration error naming the host.</p></li>
+<li><p>The SIL Kit Registry did not listen over TCP on bracketed IPv6 addresses, e.g., <code class="docutils literal notranslate"><span class="pre">silkit://[::1]:8500</span></code>,
+on platforms whose address parser rejects the brackets.</p></li>
+<li><p>Bracketed IPv6 addresses containing hexadecimal digits, e.g., <code class="docutils literal notranslate"><span class="pre">tcp://[2001:db8::1]:8500</span></code>, were
+passed to the system resolver, which rejects them. A participant configured to accept connections
+on such an address failed to join, and a peer advertising one was not connected to on it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ISilKitRegistry::GetLogger()</span></code> returned <code class="docutils literal notranslate"><span class="pre">nullptr</span></code>, and the C API
+<code class="docutils literal notranslate"><span class="pre">SilKit_Vendor_Vector_SilKitRegistry_GetLogger</span></code> returned a pointer of the wrong internal type.
+Both now return the registry’s logger.</p></li>
+<li><p>A participant in the <code class="docutils literal notranslate"><span class="pre">Running</span></code> or <code class="docutils literal notranslate"><span class="pre">Paused</span></code> state could miss the system-wide stop if its locally
+computed system state went directly to <code class="docutils literal notranslate"><span class="pre">Stopped</span></code> without passing <code class="docutils literal notranslate"><span class="pre">Stopping</span></code>. The participant now
+also stops in that case.</p></li>
+<li><p>The PCAP trace sink did not actually take its lock when tracing Ethernet frames, and opening and
+closing the sink were unsynchronized, allowing a data race.</p></li>
+<li><p>PCAP trace files had wrong packet timestamps. Their header announces nanosecond resolution, but
+the packet timestamps were written in microseconds. Packet timestamps are now written in nanoseconds.</p></li>
 </ul>
 </section>
 <section id="changed">
 <h2>Changed<a class="headerlink" href="#changed" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">config</span></code>: default format of file logging is set to JSON. Set “Format: Simple” in the sink to get previous behaviour.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">docs</span></code>: added description of the logging “Format”.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">docs</span></code>: added deprecation warning for Ubuntu 20.04</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">build</span></code>: the CMake targets only expose the top-level include directory instead of internal include directories.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">third-party</span></code>: the dashboard client no longer depends on <code class="docutils literal notranslate"><span class="pre">oatpp</span></code>, and the <code class="docutils literal notranslate"><span class="pre">ThirdParty/oatpp</span></code>
+submodule has been removed. The dashboard payloads are now built with the already-bundled
+<code class="docutils literal notranslate"><span class="pre">rapidyaml</span></code>, and the REST requests are issued over the already-bundled standalone <code class="docutils literal notranslate"><span class="pre">asio</span></code>.
+The requests the dashboard service receives are unchanged apart from three cosmetic differences in
+the JSON encoding: a space follows each <code class="docutils literal notranslate"><span class="pre">:</span></code> separator, forward slashes are no longer escaped as
+<code class="docutils literal notranslate"><span class="pre">\/</span></code>, and non-ASCII characters are sent as UTF-8 rather than <code class="docutils literal notranslate"><span class="pre">\uXXXX</span></code> escapes. Control characters
+that cannot be escaped are replaced with U+FFFD.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">third-party</span></code>: the SIL Kit build now defines <code class="docutils literal notranslate"><span class="pre">ASIO_NO_DEPRECATED</span></code>, so that using an asio interface
+that upstream has deprecated is a build error rather than something that only surfaces when asio
+removes it. No SIL Kit source used one.</p></li>
+<li><p>Running a build without dashboard support (<code class="docutils literal notranslate"><span class="pre">SILKIT_BUILD_DASHBOARD=OFF</span></code>) and passing
+<code class="docutils literal notranslate"><span class="pre">--dashboard-uri</span></code> now reports plainly that this build has no dashboard support, instead of printing
+an error about a failed dashboard instance creation.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">--dashboard-uri</span></code> whose scheme is not <code class="docutils literal notranslate"><span class="pre">http</span></code> is now rejected when the dashboard instance is
+created. The dashboard client only ever spoke plaintext HTTP, so an <code class="docutils literal notranslate"><span class="pre">https://</span></code> URI was previously
+accepted and silently downgraded.</p></li>
+<li><p>Changes to the SIL KIT MSI installer:</p>
+<ul>
+<li><p>Default installation path changed from <code class="docutils literal notranslate"><span class="pre">&lt;ProgramFilesFolder&gt;\Vector</span> <span class="pre">SIL</span> <span class="pre">Kit</span> <span class="pre">&lt;VERSION&gt;</span></code> to <code class="docutils literal notranslate"><span class="pre">&lt;ProgramFilesFolder&gt;\SIL</span> <span class="pre">Kit</span> <span class="pre">&lt;VERSION&gt;</span></code></p></li>
+<li><p>Windows System Service Name changed from <code class="docutils literal notranslate"><span class="pre">VectorSilKitRegistry</span></code> to <code class="docutils literal notranslate"><span class="pre">SilKitRegistry</span></code></p></li>
+<li><p>SIL Kit Registry System Service config file installation path changed from <code class="docutils literal notranslate"><span class="pre">&lt;ProgramDataFolder&gt;\Vector</span> <span class="pre">SIL</span> <span class="pre">Kit\silkit-registry.yaml</span></code> to <code class="docutils literal notranslate"><span class="pre">&lt;ProgramDataFolder&gt;\SIL</span> <span class="pre">Kit\silkit-registry.yaml</span></code></p></li>
+<li><p>Note that the <code class="docutils literal notranslate"><span class="pre">&lt;ProgramDataFolder&gt;\Vector</span> <span class="pre">SIL</span> <span class="pre">Kit</span></code> is not removed by installing <code class="docutils literal notranslate"><span class="pre">SilKit-5.0.8.msi</span></code>.</p></li>
 </ul>
-</section>
-<section id="id2">
-<h2>Fixed<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">config</span></code>: a mapping that is mistyped as a YAML sequence (e.g. a stray leading <code class="docutils literal notranslate"><span class="pre">-</span> </code> turning <code class="docutils literal notranslate"><span class="pre">HealthCheck</span></code> into a list) is now rejected with a clear error instead of being silently accepted.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">config</span></code>: a configuration containing multiple <code class="docutils literal notranslate"><span class="pre">---</span></code>-separated YAML documents is now rejected with a clear error. A single leading <code class="docutils literal notranslate"><span class="pre">---</span></code> remains valid.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">orchestration</span></code>: setting a simulation step duration of zero now raises a <code class="docutils literal notranslate"><span class="pre">SilKitError</span></code> instead of being silently accepted.</p></li>
+</li>
+<li><p>PCAP replay now also reads PCAP files with microsecond resolution, e.g., as written by tcpdump or
+Wireshark. Previously only nanosecond resolution files were accepted.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TimeSyncService</span></code> now throws <code class="docutils literal notranslate"><span class="pre">LogicError{&quot;TimeSyncPolicy</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">set&quot;}</span></code> if <code class="docutils literal notranslate"><span class="pre">CompleteSimulationStep</span></code> is used before <code class="docutils literal notranslate"><span class="pre">StartLifecyle</span></code>.</p></li>
 </ul>
 </section>
 </section>
@@ -156,7 +255,7 @@ it unset follows the network. Off by default.</p></li>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../overview.html" class="btn btn-neutral float-left" title="Changelog" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="5.0.6.html" class="btn btn-neutral float-right" title="[5.0.6] - 2026-06-11" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="5.0.7.html" class="btn btn-neutral float-right" title="[5.0.7] - 2026-08-03" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

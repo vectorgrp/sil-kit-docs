@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAN Service API &mdash; SIL Kit 5.0.7 documentation</title>
+  <title>CAN Service API &mdash; SIL Kit 5.0.8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -36,7 +36,7 @@
 		SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.7
+		Version: 5.0.8
 	</div>
 	<br/>
 	
@@ -148,7 +148,7 @@
 <p>The CAN Service API provides a CAN bus abstraction through the <a class="reference internal" href="#_CPPv4N6SilKit8Services3Can14ICanControllerE" title="SilKit::Services::Can::ICanController"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">ICanController</span></code></a> interface.
 A CAN controller is created by calling <a class="reference internal" href="../participant.html#_CPPv4N6SilKit12IParticipant19CreateCanControllerERKNSt6stringERKNSt6stringE" title="SilKit::IParticipant::CreateCanController"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">CreateCanController</span></code></a> given a controller name and network
 name:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">canController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateCanController</span><span class="p">(</span><span class="s">&quot;CAN1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CAN&quot;</span><span class="p">);</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">canController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateCanController</span><span class="p">(</span><span class="s">"CAN1"</span><span class="p">,</span><span class="w"> </span><span class="s">"CAN"</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>CAN controllers will only communicate within the same network.</p>
@@ -165,7 +165,7 @@ The following snippet shows how to send a CAN FD frame:</p>
 <span class="n">canFrame</span><span class="p">.</span><span class="n">canId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <span class="n">canFrame</span><span class="p">.</span><span class="n">flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">CanFrameFlagMask</span><span class="o">&gt;</span><span class="p">(</span><span class="n">CanFrameFlag</span><span class="o">::</span><span class="n">Fdf</span><span class="p">)</span><span class="w">  </span><span class="c1">// FD Format Indicator</span>
 <span class="w">               </span><span class="o">|</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">CanFrameFlagMask</span><span class="o">&gt;</span><span class="p">(</span><span class="n">CanFrameFlag</span><span class="o">::</span><span class="n">Brs</span><span class="p">);</span><span class="w"> </span><span class="c1">// Bit Rate Switch (for FD Format only)</span>
-<span class="n">canFrame</span><span class="p">.</span><span class="n">dataField</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;d&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;t&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="n">canFrame</span><span class="p">.</span><span class="n">dataField</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'d'</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="sc">'t'</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
 
 <span class="n">canController</span><span class="p">.</span><span class="n">SendFrame</span><span class="p">(</span><span class="n">canFrame</span><span class="p">);</span>
 </pre></div>
@@ -775,7 +775,7 @@ CAN network.</p>
 
 <span class="cm">Permission is hereby granted, free of charge, to any person obtaining</span>
 <span class="cm">a copy of this software and associated documentation files (the</span>
-<span class="cm">&quot;Software&quot;), to deal in the Software without restriction, including</span>
+<span class="cm">"Software"), to deal in the Software without restriction, including</span>
 <span class="cm">without limitation the rights to use, copy, modify, merge, publish,</span>
 <span class="cm">distribute, sublicense, and/or sell copies of the Software, and to</span>
 <span class="cm">permit persons to whom the Software is furnished to do so, subject to</span>
@@ -784,7 +784,7 @@ CAN network.</p>
 <span class="cm">The above copyright notice and this permission notice shall be</span>
 <span class="cm">included in all copies or substantial portions of the Software.</span>
 
-<span class="cm">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,</span>
+<span class="cm">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,</span>
 <span class="cm">EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF</span>
 <span class="cm">MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND</span>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
@@ -810,8 +810,8 @@ CAN network.</p>
 <span class="n">canSender</span><span class="o">-&gt;</span><span class="n">AddFrameTransmitHandler</span><span class="p">(</span><span class="n">sender_frameTransmitHandler</span><span class="p">);</span>
 
 <span class="c1">// ------------------------------------------------------------</span>
-<span class="c1">// Send message on CAN bus &quot;CAN1&quot;.</span>
-<span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">canFrameData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;d&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;t&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+<span class="c1">// Send message on CAN bus "CAN1".</span>
+<span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">canFrameData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'d'</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="sc">'t'</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
 <span class="n">CanFrame</span><span class="w"> </span><span class="n">canFrame</span><span class="p">{};</span>
 <span class="n">canFrame</span><span class="p">.</span><span class="n">canId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">17</span><span class="p">;</span>
 <span class="n">canFrame</span><span class="p">.</span><span class="n">flags</span><span class="w"> </span><span class="o">=</span>

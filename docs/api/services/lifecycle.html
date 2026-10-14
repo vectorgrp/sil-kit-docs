@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lifecycle Service &mdash; SIL Kit 5.0.7 documentation</title>
+  <title>Lifecycle Service &mdash; SIL Kit 5.0.8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
@@ -36,7 +36,7 @@
 		SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.7
+		Version: 5.0.8
 	</div>
 	<br/>
 	
@@ -187,25 +187,25 @@ This will happen if <a class="reference internal" href="#_CPPv4N6SilKit8Services
 They are always executed in the middleware’s worker thread:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">SetCommunicationReadyHandler</span><span class="p">(</span>
 <span class="w">   </span><span class="p">[]()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Communication ready&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Communication ready"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="w">   </span><span class="p">}</span>
 <span class="p">);</span>
 
 <span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">SetStopHandler</span><span class="p">(</span>
 <span class="w">    </span><span class="p">[]()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Stopping&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Stopping"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">);</span>
 
 <span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">SetShutdownHandler</span><span class="p">(</span>
 <span class="w">    </span><span class="p">[]()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Shutting down&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Shutting down"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">);</span>
 
 <span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">SetAbortHandler</span><span class="p">(</span>
 <span class="w">    </span><span class="p">[](</span><span class="k">auto</span><span class="w"> </span><span class="cm">/*participantState*/</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Simulation is aborting&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Simulation is aborting"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">);</span>
 </pre></div>
@@ -214,7 +214,7 @@ They are always executed in the middleware’s worker thread:</p>
 This can be used to start local timers:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">SetStartingHandler</span><span class="p">(</span>
 <span class="w">    </span><span class="p">[]()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Starting&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Starting"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">);</span>
 </pre></div>
@@ -512,7 +512,7 @@ This is the recommended way to set up controllers before first use.</p>
 
 <span class="cm">Permission is hereby granted, free of charge, to any person obtaining</span>
 <span class="cm">a copy of this software and associated documentation files (the</span>
-<span class="cm">&quot;Software&quot;), to deal in the Software without restriction, including</span>
+<span class="cm">"Software"), to deal in the Software without restriction, including</span>
 <span class="cm">without limitation the rights to use, copy, modify, merge, publish,</span>
 <span class="cm">distribute, sublicense, and/or sell copies of the Software, and to</span>
 <span class="cm">permit persons to whom the Software is furnished to do so, subject to</span>
@@ -521,7 +521,7 @@ This is the recommended way to set up controllers before first use.</p>
 <span class="cm">The above copyright notice and this permission notice shall be</span>
 <span class="cm">included in all copies or substantial portions of the Software.</span>
 
-<span class="cm">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,</span>
+<span class="cm">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,</span>
 <span class="cm">EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF</span>
 <span class="cm">MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND</span>
 <span class="cm">NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE</span>
@@ -531,7 +531,7 @@ This is the recommended way to set up controllers before first use.</p>
 
 <span class="k">auto</span><span class="w"> </span><span class="n">participant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SilKit</span><span class="o">::</span><span class="n">CreateParticipant</span><span class="p">(</span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">participantName</span><span class="p">,</span><span class="w"> </span><span class="n">registryUri</span><span class="p">);</span>
 <span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">lifecycleService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateLifecycleService</span><span class="p">({</span><span class="n">OperationMode</span><span class="o">::</span><span class="n">Autonomous</span><span class="p">});</span>
-<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">canController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateCanController</span><span class="p">(</span><span class="s">&quot;CAN1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CAN1&quot;</span><span class="p">);</span>
+<span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">canController</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">participant</span><span class="o">-&gt;</span><span class="n">CreateCanController</span><span class="p">(</span><span class="s">"CAN1"</span><span class="p">,</span><span class="w"> </span><span class="s">"CAN1"</span><span class="p">);</span>
 
 <span class="n">canController</span><span class="o">-&gt;</span><span class="n">AddFrameTransmitHandler</span><span class="p">(</span>
 <span class="w">	</span><span class="p">[](</span><span class="n">Can</span><span class="o">::</span><span class="n">ICanController</span><span class="o">*</span><span class="w"> </span><span class="cm">/*ctrl*/</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Can</span><span class="o">::</span><span class="n">CanFrameTransmitEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ack</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -545,19 +545,19 @@ This is the recommended way to set up controllers before first use.</p>
 <span class="c1">// Set an Init Handler</span>
 <span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">SetCommunicationReadyHandler</span><span class="p">(</span>
 <span class="w">	</span><span class="p">[</span><span class="n">canController</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">participantName</span><span class="p">]()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Initializing &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">participantName</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">		</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Initializing "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">participantName</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="w">		</span><span class="n">canController</span><span class="o">-&gt;</span><span class="n">SetBaudRate</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="mi">1000000</span><span class="p">);</span>
 <span class="w">		</span><span class="n">canController</span><span class="o">-&gt;</span><span class="n">Start</span><span class="p">();</span>
 <span class="p">});</span>
 
 <span class="c1">// Set a Stop Handler</span>
 <span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">SetStopHandler</span><span class="p">([]()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Stopping...&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Stopping..."</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="p">});</span>
 
 <span class="c1">// Set a Shutdown Handler</span>
 <span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">SetShutdownHandler</span><span class="p">([]()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Shutting down...&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">	</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Shutting down..."</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="p">});</span>
 
 <span class="k">auto</span><span class="w"> </span><span class="n">finalStateFuture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lifecycleService</span><span class="o">-&gt;</span><span class="n">StartLifecycle</span><span class="p">();</span>

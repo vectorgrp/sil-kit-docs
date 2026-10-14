@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interoperability &mdash; SIL Kit 5.0.7 documentation</title>
+  <title>Interoperability &mdash; SIL Kit 5.0.8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
@@ -36,7 +36,7 @@
 		SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.7
+		Version: 5.0.8
 	</div>
 	<br/>
 	
@@ -136,7 +136,7 @@ The participant is not informed and eventually times out.</p>
 <li><p>Second Participant 4.0.8 or higher</p></li>
 </ul>
 <p>The message reported by the second participant has been modified in SIL Kit 4.0.8 (when connecting to a registry of version 4.0.7 or lower):</p>
-<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">Timeout</span> <span class="n">during</span> <span class="n">connection</span> <span class="n">handshake</span> <span class="n">with</span> <span class="n">SIL</span> <span class="n">Kit</span> <span class="n">Registry</span><span class="p">.</span> <span class="n">This</span> <span class="n">might</span> <span class="n">indicate</span> <span class="n">that</span> <span class="n">a</span> <span class="n">participant</span> <span class="n">with</span> <span class="n">the</span> <span class="n">same</span> <span class="n">name</span> <span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">)</span> <span class="n">has</span> <span class="n">already</span> <span class="n">connected</span> <span class="n">to</span> <span class="n">the</span> <span class="n">registry</span><span class="p">.</span>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">Timeout</span> <span class="n">during</span> <span class="n">connection</span> <span class="n">handshake</span> <span class="n">with</span> <span class="n">SIL</span> <span class="n">Kit</span> <span class="n">Registry</span><span class="p">.</span> <span class="n">This</span> <span class="n">might</span> <span class="n">indicate</span> <span class="n">that</span> <span class="n">a</span> <span class="n">participant</span> <span class="n">with</span> <span class="n">the</span> <span class="n">same</span> <span class="n">name</span> <span class="p">(</span><span class="s1">'...'</span><span class="p">)</span> <span class="n">has</span> <span class="n">already</span> <span class="n">connected</span> <span class="n">to</span> <span class="n">the</span> <span class="n">registry</span><span class="p">.</span>
 </pre></div>
 </div>
 </section>
@@ -162,7 +162,7 @@ The participant is not informed and eventually times out.</p>
 </ul>
 <p>The registry transmits an error to the second participant in SIL Kit 4.0.8 via the <code class="docutils literal notranslate"><span class="pre">ParticipantAnnouncementReply</span></code> message with the <code class="docutils literal notranslate"><span class="pre">status</span></code> field set to <code class="docutils literal notranslate"><span class="pre">Failed</span></code>.</p>
 <p>The second participant does not report a timeout anymore, but immediately reports an error message containing the diagnostic message reported by the registry:</p>
-<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">SIL</span> <span class="n">Kit</span> <span class="n">Connection</span> <span class="n">Handshake</span><span class="p">:</span> <span class="n">Received</span> <span class="n">failed</span> <span class="n">ParticipantAnnouncementReply</span> <span class="n">from</span> <span class="s1">&#39;SilKitRegistry&#39;</span> <span class="n">with</span> <span class="n">protocol</span> <span class="n">version</span> <span class="n">3</span><span class="p">.</span><span class="n">1</span> <span class="n">and</span> <span class="n">diagnostic</span> <span class="n">message</span><span class="p">:</span> <span class="n">participant</span> <span class="n">with</span> <span class="n">name</span> <span class="s1">&#39;CanReader&#39;</span> <span class="n">is</span> <span class="n">already</span> <span class="n">connected</span>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">SIL</span> <span class="n">Kit</span> <span class="n">Connection</span> <span class="n">Handshake</span><span class="p">:</span> <span class="n">Received</span> <span class="n">failed</span> <span class="n">ParticipantAnnouncementReply</span> <span class="n">from</span> <span class="s1">'SilKitRegistry'</span> <span class="n">with</span> <span class="n">protocol</span> <span class="n">version</span> <span class="n">3</span><span class="p">.</span><span class="n">1</span> <span class="n">and</span> <span class="n">diagnostic</span> <span class="n">message</span><span class="p">:</span> <span class="n">participant</span> <span class="n">with</span> <span class="n">name</span> <span class="s1">'CanReader'</span> <span class="n">is</span> <span class="n">already</span> <span class="n">connected</span>
 </pre></div>
 </div>
 </section>

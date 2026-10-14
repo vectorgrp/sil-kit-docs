@@ -9,7 +9,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SIL Kit Overview &mdash; SIL Kit 5.0.7 documentation</title>
+  <title>SIL Kit Overview &mdash; SIL Kit 5.0.8 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css" />
@@ -36,7 +36,7 @@
 		SIL Kit
 	</a>
 	<div class="version" style="margin-bottom: 0.5em;">
-		Version: 5.0.7
+		Version: 5.0.8
 	</div>
 	<br/>
 	
@@ -52,7 +52,11 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">SIL Kit Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#supported-services">Supported Services</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#vehicle-networks">Vehicle Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vehicle-networks">Vehicle Networks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fast-vs-accurate-bus-simulation">Fast vs. Accurate Bus Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#choosing-the-right-simulation-mode">Choosing the Right Simulation Mode</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#simulation-basics">Simulation Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-productname-ecosystem">The SIL Kit Ecosystem</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#related-projects">Related Projects</a></li>
@@ -129,18 +133,67 @@ It provides:</p>
 <section id="vehicle-networks">
 <h2>Vehicle Networks<a class="headerlink" href="#vehicle-networks" title="Permalink to this heading"></a></h2>
 <p>The SIL Kit provides means to simulate CAN / CAN FD / CAN XL, Ethernet, FlexRay, and LIN networks.
-All networks except for FlexRay can be simulated with two different levels of detail: a simple, functional simulation or a detailed simulation.
-The simple simulation assumes no delay and unlimited bandwidth.</p>
-<p>The detailed simulation is enabled by using an additional SIL Kit Network Simulator, which considers these aspects as well.
-The Network Simulator is not part of SIL Kit itself.
-Because of its sensitivity regarding time, FlexRay is only supported in a detailed simulation.</p>
-<p>Vehicle networks are accessed through their corresponding services (e.g., a CAN controller).
-The service interfaces are the same for simple and detailed simulation.
-As a result, an application that works in the simple use case also works when switching to a detailed simulation using the Network Simulator.</p>
-<p>In general, SIL Kit deliberately avoids imposing restrictions on bus protocols.
+Vehicle networks are accessed through their corresponding services (for example, a CAN controller).</p>
+<section id="fast-vs-accurate-bus-simulation">
+<h3>Fast vs. Accurate Bus Simulation<a class="headerlink" href="#fast-vs-accurate-bus-simulation" title="Permalink to this heading"></a></h3>
+<p>For all supported bus systems, SIL Kit distinguishes between two simulation modes:</p>
+<ul class="simple">
+<li><p><strong>Fast bus</strong> - Lightweight communication with idealized behavior.
+Communication is functional and timing effects are simplified (e.g., no modeled delay or bandwidth limits).
+This is the default simulation mode.
+Here, SIL Kit deliberately avoids imposing restrictions on bus protocols.
 This enables user applications to freely determine the desired level of detail for vehicle network simulations.
-For example, a test participant can inject faulty frames without being blocked by SIL Kit.</p>
-<p>The section <a class="reference internal" href="api/api.html#sec-api-services"><span class="std std-ref">Services</span></a> describes how to configure and use the vehicle network services in detail.</p>
+For example, SIL Kit will not prevent the injection of faulty frames.</p></li>
+<li><p><strong>Accurate bus</strong> - a more detailed bus behavior. It is modeled by integrating a Network Simulator, which
+can apply realistic timing and protocol effects, e.g., sending delays, bandwidth limits, and frame validation.
+The Network Simulator is not part of SIL Kit itself.
+The <a class="reference internal" href="api/netsim.html#chap-custom-netsim"><span class="std std-ref">Custom Network Simulator</span></a> chapter describes how to implement a custom Network Simulator and integrate it with SIL Kit.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Because of its sensitivity regarding time, <strong>FlexRay</strong> is only available with the <strong>Accurate bus</strong> and thus requires a Network Simulator.</p>
+</div>
+<p>The service interfaces are the same for fast bus and accurate bus simulation.
+As a result, an application that works in the fast bus use case also works when switching to accurate bus simulation.
+The <a class="reference internal" href="api/api.html#sec-api-services"><span class="std std-ref">Services</span></a> section describes how to configure and use the vehicle network services (valid for both modes).</p>
+</section>
+<section id="choosing-the-right-simulation-mode">
+<h3>Choosing the Right Simulation Mode<a class="headerlink" href="#choosing-the-right-simulation-mode" title="Permalink to this heading"></a></h3>
+<p>As a practical default, start with fast bus unless the need for detailed network simulation is clear.
+Switch to accurate bus when timing fidelity or protocol-level effects are required.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Vehicle network overview</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Bus system</p></th>
+<th class="head"><p>Fast bus</p></th>
+<th class="head"><p>Accurate bus</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CAN</p></td>
+<td><p>High execution speed and functional tests.</p></td>
+<td><p>Required for arbitration effects, delay behavior, and payload validation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ethernet</p></td>
+<td><p>Service-oriented and high-throughput functional traffic patterns.</p></td>
+<td><p>Required for switching behavior, buffering effects, and bandwidth contention.</p></td>
+</tr>
+<tr class="row-even"><td><p>FlexRay</p></td>
+<td><p>Not available. FlexRay requires accurate bus simulation.</p></td>
+<td><p>Strict requirement.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LIN</p></td>
+<td><p>Simple and fast functional integration for body/control style scenarios.</p></td>
+<td><p>Required for schedule timing, bus delay modeling, and payload constraints.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 <section id="simulation-basics">
 <h2>Simulation Basics<a class="headerlink" href="#simulation-basics" title="Permalink to this heading"></a></h2>
