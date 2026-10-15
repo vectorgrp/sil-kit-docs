@@ -125,7 +125,7 @@
 <li><p>The 5.0.8 (or later) MSI can’t detect or remove an earlier per-user installation, so both will be on the system side by side.</p></li>
 <li><p>Upgrading still works. The new installer:</p>
 <ul>
-<li><p>removes the previous <code class="docutils literal notranslate"><span class="pre">VectorSilKitRegistry</span></code> service and installs the <code class="docutils literal notranslate"><span class="pre">SilKitRegistry</span></code> system service of the new version,</p></li>
+<li><p>disables <s>removes</s> the previous <code class="docutils literal notranslate"><span class="pre">VectorSilKitRegistry</span></code> service and installs the <code class="docutils literal notranslate"><span class="pre">SilKitRegistry</span></code> system service of the new version,</p></li>
 <li><p>sets the <code class="docutils literal notranslate"><span class="pre">SilKit_InstallDir</span></code> environment variable to the new installation, and</p></li>
 <li><p>updates the CMake <code class="docutils literal notranslate"><span class="pre">find_package</span></code> lookup to find the new installation.</p></li>
 </ul>
